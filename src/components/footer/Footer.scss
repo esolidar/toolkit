@@ -1,0 +1,90 @@
+@import '../../assets/sass/variables';
+
+.landing-footer {
+  position      : absolute;
+  right         : 0;
+  bottom        : 0;
+  left          : 0;
+  margin-top    : 65px;
+  background    : $mainColorDark;
+  padding       : 30px 50px;
+  font-family   : $fontRoman;
+  font-size     : 15px;
+  color         : $mainColor;
+  letter-spacing: 0;
+
+  @media (max-width: 425px) {
+    position  : relative;
+    margin-top: 0;
+  }
+
+  .container {
+    @media (min-width: 1200px) {
+      max-width: 100%;
+    }
+
+    ul {
+      padding-inline-start: 0px;
+
+      li {
+        list-style: none;
+
+        a {
+          font-family   : $fontRoman;
+          font-size     : 15px;
+          color         : $footerLinkColor;
+          letter-spacing: 0;
+          padding       : 0 20px;
+        }
+
+        ul {
+          padding-inline-start: 40px;
+        }
+      }
+    }
+
+    .bottom-footer {
+      padding: 0;
+
+      ul {
+        padding-inline-start: 0px;
+
+        li {
+          list-style: none;
+          display   : inline;
+
+          a {
+            font-family   : $fontRoman;
+            font-size     : 15px;
+            color         : $footerLinkColor;
+            letter-spacing: 0;
+            padding       : 0 20px;
+          }
+        }
+      }
+
+
+      @media (max-width: 425px) {
+        li {
+          padding   : 15px 0;
+          display   : block;
+          text-align: center;
+
+          .dropdown-toggle {
+            padding: 0 20px 30px 0;
+          }
+        }
+      }
+
+      @media (max-width: 425px) {
+        margin: 0;
+      }
+    }
+  }
+
+  .changeCurrency button.btn-footer {
+    border-left: 1px solid;
+    margin-left: 5px;
+    line-height: 15px;
+  }
+}

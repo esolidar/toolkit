@@ -1,0 +1,31 @@
+@import '../../assets/sass/variables';
+
+.changeLanguage {
+    color: #B3EEF7;
+    display: inline-block;
+
+    i {
+        color       : #05c6e5;
+        margin-right: 5px;
+    }
+
+    button {
+        cursor        : pointer;
+        text-transform: uppercase;
+        background    : transparent;
+        border        : none;
+        font-size     : 14px;
+        color         : #B3EEF7;
+
+        @media (max-width: 425px) {
+            margin : 0;
+            padding: 0;
+        }
+
+        &.active,
+        &:hover {
+            color          : #fff;
+            text-decoration: underline;
+        }
+    }
+}
