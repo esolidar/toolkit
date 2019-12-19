@@ -7,16 +7,14 @@ module.exports = {
   },
   module: {
     rules: [
-      // Babel loader will use your project’s babel.config.js
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
-      // Other loaders that are needed for your components
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
@@ -33,18 +31,18 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
-          }
-        ]
-      }
-    ]
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
   performance: {
-    hints: false
-  }
+    hints: false,
+  },
 };

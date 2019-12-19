@@ -1,5 +1,6 @@
 module.exports = {
   title: 'eSolidar Toolkit',
+  assetsDir: './styleguide/',
   sections: [
     {
       name: 'Icons',
@@ -62,4 +63,39 @@ module.exports = {
   require: [
     './src/assets/sass/bootstrap/bootstrap.min.css',
   ],
+  webpackConfig: {
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+        },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+          ],
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  },
 };
