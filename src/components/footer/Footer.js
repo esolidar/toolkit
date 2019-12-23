@@ -10,12 +10,11 @@ import './Footer.scss';
 const Footer = ({
   socialIcons, languages, onChangeLang, currentLang, showCurrency, currentCurrency, currencies, currencyChanged, mainMenuFooter, secondMenuFooter, bottomMenuFooter,
 }) => {
-  const lang = currentLang || localStorage.lang || 'pt';
   const copyright = `©${new Date().getFullYear()} ${
     translateMessage({
       id: 'footer.copyright',
       defaultMessage: 'eSolidar. All rights reserved.',
-      currentLang: lang,
+      currentLang,
     })
   }`;
 
@@ -28,7 +27,7 @@ const Footer = ({
             translateMessage({
               id: item.link.id,
               defaultMessage: item.link.default,
-              currentLang: lang,
+              currentLang,
             })
           }
           target={item.target}
@@ -36,7 +35,7 @@ const Footer = ({
           {translateMessage({
             id: item.link.id,
             defaultMessage: item.link.default,
-            currentLang: lang,
+            currentLang,
           })}
 
         </a>
@@ -53,7 +52,7 @@ const Footer = ({
             translateMessage({
               id: item.link.id,
               defaultMessage: item.link.default,
-              currentLang: lang,
+              currentLang,
             })
           }
           target={item.target}
@@ -61,7 +60,7 @@ const Footer = ({
           {translateMessage({
             id: item.link.id,
             defaultMessage: item.link.default,
-            currentLang: lang,
+            currentLang,
           })}
         </a>
         {item.submenu && (
@@ -99,7 +98,7 @@ const Footer = ({
                   headingText={{
                     idTranslate: 'footer.menu.join.us',
                     default: 'Follow us',
-                    currentLang: lang,
+                    currentLang,
                   }}
                 />
               </Col>
@@ -122,7 +121,7 @@ const Footer = ({
             <ChangeLanguage
               languages={languages}
               onChangeLang={onChangeLang}
-              currentLang={lang}
+              currentLang={currentLang}
             />
             {
               showCurrency && (

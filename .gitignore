@@ -2,6 +2,11 @@
 /node_modules
 /build
 /coverage
-
+/demo/dist
+/es
+/lib
+/umd
+npm-debug.log*
 *.iml
 /.idea
+yarn-error.log

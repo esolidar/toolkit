@@ -50,18 +50,10 @@ module.exports = {
   },
   template: {
     favicon: 'https://www.esolidar.com/images/login-logo-top.png',
-    head: {
-      links: [
-        {
-          rel: 'stylesheet',
-          href:
-            './styleguide/style.css',
-        },
-      ],
-    },
   },
   require: [
     './src/assets/sass/bootstrap/bootstrap.min.css',
+    './styleguide.css',
   ],
   webpackConfig: {
     module: {
