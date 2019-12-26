@@ -22,6 +22,7 @@ Toolkit for building eSolidar Projects.
 -  [Quick start](#quick-start)
 -  [Before installing the package](#before-installing-the-package)
 -  [Install package](#install-package)
+-  [Publish package](#publish-package)
 -  [Using sass](#using-sass)
 -  [Documentation](#documentation)
 -  [Copyright and license](#copyright-and-license)
@@ -32,7 +33,6 @@ Toolkit for building eSolidar Projects.
 Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
-- Get all submodules: `git submodule update --init --recursive`
 
 
 ### Running toolkit locally
@@ -59,22 +59,29 @@ Several quick start options are available:
 4. In the same directory as your package.json file, create or edit an **.npmrc** file to include a line specifying GitHub Package Registry URL and the account esolidar: `@esolidar:registry=https://npm.pkg.github.com`
 5. Run `yarn add @esolidar/toolkit`
 
+
 ## Install Package
 
 If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.1.1`
+`yarn add -D @esolidar/toolkit@1.0.0`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.1"`
+`"@esolidar/toolkit": "1.0.0"`
 
+
+## Publish package
+
+Steps to publish the package:
+ 1. Update package.json and change package version.
+ 2. Update README file in all places where the version is referenced.
+ 3. Run `yarn build`
+ 4. Run `npm publish`
 
 ## Using Sass
-
-  
 
 This library uses sass, so it is mandatory that the React project has sass loaders.
 To override the styles used in the library components, simply override the following sass variables:
