@@ -65,11 +65,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.0.0`
+`yarn add -D @esolidar/toolkit@1.1.1`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.0.0"`
+`"@esolidar/toolkit": "1.1.1"`
 
 
 ## Using Sass
