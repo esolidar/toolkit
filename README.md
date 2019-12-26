@@ -127,7 +127,7 @@ If you want to use our package, just follow these instructions:
 This library uses sass, so it is mandatory that the React project has sass loaders.
 To override the styles used in the library components, simply override the following sass variables:
   
-[_variaveis](This%20library%20uses%20sass,%20so%20it%20is%20mandatory%20that%20the%20React%20project%20has%20its%20loaders.%20To%20override%20the%20styles%20used%20in%20the%20library%20components,%20simply%20override%20the%20following%20sass%20variables:)
+[_variaveis](https://raw.githubusercontent.com/esolidar/toolkit/master/src/assets/sass/variables.scss?token=AN52JDYKC6HNYVO5URG22SS6BYU6A)
 
 ## Documentation
 
