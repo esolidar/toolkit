@@ -66,11 +66,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.0.0`
+`yarn add -D @esolidar/toolkit@1.1.3`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.0.0"`
+`"@esolidar/toolkit": "1.1.3"`
 
 
 ## Publish package
@@ -79,7 +79,8 @@ Steps to publish the package:
  1. Update package.json and change package version.
  2. Update README file in all places where the version is referenced.
  3. Run `yarn build`
- 4. Run `npm publish`
+ 4. Add all changes to git (pull/add/commit/push)
+ 5. Run `npm publish`
 
 ## Using Sass
 
