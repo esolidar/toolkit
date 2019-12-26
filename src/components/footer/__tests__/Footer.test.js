@@ -63,7 +63,6 @@ describe('Footer component', () => {
     expect(component).toHaveLength(1);
   });
 
-  /* propMainMenuFooter */
   it('renders Footer correctly with 3 items in Main Menu', () => {
     const component = shallow(
       <Footer
@@ -77,8 +76,6 @@ describe('Footer component', () => {
     expect(component.find('li')).toHaveLength(3);
   });
 
-
-  /* propSecondMenuFooter */
   it('renders Footer correctly with 4 items in Second Menu', () => {
     const component = shallow(
       <Footer
@@ -93,8 +90,6 @@ describe('Footer component', () => {
     expect(component.find('ul > li > ul > li')).toHaveLength(2);
   });
 
-
-  /* propBottomMenuFooter */
   it('renders Footer correctly with 2 items in Bottom Menu', () => {
     const component = shallow(
       <Footer
@@ -108,7 +103,6 @@ describe('Footer component', () => {
     expect(component.find('.bottom-footer li')).toHaveLength(2);
   });
 
-  /* Icons */
   it('renders Footer correctly with Social Icons', () => {
     const component = shallow(
       <Footer
@@ -124,7 +118,6 @@ describe('Footer component', () => {
     expect(component.find('SocialNetworks').dive().find('.socialNetworks a')).toHaveLength(4);
   });
 
-  /* showCurrency */
   it('renders Footer correctly with showCurrency', () => {
     const component = shallow(
       <Footer
@@ -142,7 +135,6 @@ describe('Footer component', () => {
     expect(component.find('ChangeCurrency').dive().find('DropdownButton')).toHaveLength(1);
   });
 
-  /* propLanguages */
   it('renders Footer correctly with showCurrency', () => {
     const component = shallow(
       <Footer
@@ -155,5 +147,19 @@ describe('Footer component', () => {
     expect(component.find('ChangeLanguage')).toHaveLength(1);
     expect(component.find('ChangeLanguage').dive().find('.changeLanguage')).toHaveLength(1);
     expect(component.find('ChangeLanguage').dive().find('.changeLanguage span')).toHaveLength(3);
+  });
+
+  it('renders Footer correctly with prop styles', () => {
+    const component = shallow(
+      <Footer
+        showCurrency={false}
+        languages={propLanguages}
+        currentLang="pt"
+        onChangeLang={changed}
+        style={{ color: 'red', fontSize: '30px' }}
+      />,
+    );
+    expect(component.props().style).toHaveProperty('color', 'red');
+    expect(component.props().style).toHaveProperty('fontSize', '30px');
   });
 });

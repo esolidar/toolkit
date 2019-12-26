@@ -8,7 +8,7 @@ import ChangeCurrency from '../changeCurrency/ChangeCurrency';
 import './Footer.scss';
 
 const Footer = ({
-  socialIcons, languages, onChangeLang, currentLang, showCurrency, currentCurrency, currencies, currencyChanged, mainMenuFooter, secondMenuFooter, bottomMenuFooter,
+  socialIcons, languages, onChangeLang, currentLang, showCurrency, currentCurrency, currencies, currencyChanged, mainMenuFooter, secondMenuFooter, bottomMenuFooter, style,
 }) => {
   const copyright = `©${new Date().getFullYear()} ${
     translateMessage({
@@ -74,7 +74,7 @@ const Footer = ({
 
 
   return (
-    <footer className="landing-footer">
+    <footer className="landing-footer" style={{ ...style }}>
       <Container>
         <Row>
           <Col sm={2}>
@@ -87,12 +87,12 @@ const Footer = ({
               {secondMenuFooter && menu(secondMenuFooter)}
             </ul>
           </Col>
-          <Col sm={4}>
+          <Col sm={3}>
             NEWSLETTER
           </Col>
           {
             socialIcons && (
-              <Col sm={3}>
+              <Col sm={4}>
                 <SocialNetworks
                   icons={socialIcons}
                   headingText={{
@@ -152,6 +152,7 @@ Footer.propTypes = {
   mainMenuFooter: PropTypes.array,
   secondMenuFooter: PropTypes.array,
   bottomMenuFooter: PropTypes.array,
+  style: PropTypes.object,
 };
 
 

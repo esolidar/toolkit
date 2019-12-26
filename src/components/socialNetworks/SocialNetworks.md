@@ -1,8 +1,11 @@
 #### Import
+
 ``` html
 import SocialNetworks from "@esolidar/toolkit";
 ```
+
 #### Example
+
 ``` jsx
 <SocialNetworks 
     icons={[
@@ -15,5 +18,7 @@ import SocialNetworks from "@esolidar/toolkit";
             idTranslate:"footer.menu.join.us", 
             default:"Follow us",
         }}
+    styles={{ color: 'red' }}
         />
 ```
+

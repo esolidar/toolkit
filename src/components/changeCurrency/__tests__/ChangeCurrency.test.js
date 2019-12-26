@@ -30,7 +30,6 @@ describe('ChangeCurrency component', () => {
     expect(component.find('DropdownButton')).toHaveLength(1);
   });
 
-  // Button click
   it('renders ChangeCurrency and simulates click events', () => {
     const component = shallow(
       <ChangeCurrency

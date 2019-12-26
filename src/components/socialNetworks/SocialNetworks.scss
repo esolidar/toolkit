@@ -1,60 +1,59 @@
 @import '../../assets/sass/functions';
 
 .socialNetworks {
-    text-align   : center;
-    margin-bottom: 50px;
+  text-align   : center;
+  margin-bottom: 50px;
 
-    h5 {
-        font-family   : 'AvenirLTStd-Light';
-        font-size     : 21px;
-        color         : #B3EEF7;
-        letter-spacing: -0.5px;
-        line-height   : 33px;
-        display       : block;
-        margin-bottom : 25px;
-        text-align    : center;
+  h5 {
+    font-family   : 'AvenirLTStd-Light';
+    font-size     : 21px;
+    letter-spacing: -0.5px;
+    line-height   : 33px;
+    display       : block;
+    margin-bottom : 25px;
+    text-align    : center;
+  }
+
+  .border-icon {
+    color          : #B3EEF7;
+    padding        : 15px;
+    width          : 25px;
+    border         : 1px solid #455c75;
+    border-radius  : 50%;
+    text-decoration: none;
+    margin         : 5px 10px;
+    position       : relative;
+
+    i {
+      position: relative;
+      z-index : 2;
     }
 
-    .border-icon {
-        padding        : 15px;
-        width          : 25px;
-        border         : 1px solid #455c75;
-        border-radius  : 50%;
-        text-decoration: none;
-        margin         : 5px 10px;
-        position       : relative;
-
-        i {
-            position: relative;
-            z-index : 2;
-            color   : #B3EEF7;
-        }
-
-        .anime {
-            position        : absolute;
-            z-index         : 1;
-            background-color: #fff;
-            width           : 0%;
-            height          : 0%;
-            border-radius   : 50%;
-            top             : calc(100% - 25px);
-            left            : calc(100% - 25px);
-            @include animate;
-        }
-
-        &:hover {
-            i {
-                color: #163352 !important;
-            }
-
-            .anime {
-                width : 100%;
-                height: 100%;
-                top   : 0;
-                left  : 0;
-            }
-
-        }
+    .anime {
+      position        : absolute;
+      z-index         : 1;
+      background-color: #fff;
+      width           : 0%;
+      height          : 0%;
+      border-radius   : 50%;
+      top             : calc(100% - 25px);
+      left            : calc(100% - 25px);
+      @include animate;
     }
+
+    &:hover {
+      i {
+        color: #163352 !important;
+      }
+
+      .anime {
+        width : 100%;
+        height: 100%;
+        top   : 0;
+        left  : 0;
+      }
+
+    }
+  }
 
 }

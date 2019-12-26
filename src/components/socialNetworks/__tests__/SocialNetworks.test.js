@@ -25,7 +25,6 @@ describe('SocialNetworks component', () => {
     expect(component).toHaveLength(1);
   });
 
-  // Icons
   it('renders SocialNetworks and check if Icon exists', () => {
     const component = shallow(
       <SocialNetworks
@@ -36,7 +35,6 @@ describe('SocialNetworks component', () => {
     expect(component.find('Icon')).toHaveLength(4);
   });
 
-  // Title
   it('renders SocialNetworks and check title', () => {
     const component = shallow(
       <SocialNetworks
@@ -47,9 +45,15 @@ describe('SocialNetworks component', () => {
     expect(component.find('h5')).toHaveLength(1);
   });
 
-  // Title
   it('renders SocialNetworks and check without title', () => {
     const component = shallow(<SocialNetworks icons={propIcons} />);
     expect(component.find('h5')).toHaveLength(0);
+  });
+
+  it('renders SocialNetworks and check styles', () => {
+    const component = shallow(<SocialNetworks icons={propIcons} style={{ color: 'red' }} />);
+    expect(component.props().style).toHaveProperty('color', 'red');
+    expect(component.find('a').first().props().style).toHaveProperty('color', 'red');
+    expect(component.find('Icon').first().props().style).toHaveProperty('color', 'red');
   });
 });

@@ -16,6 +16,11 @@ describe('Loading component', () => {
 
   it('renders Loading with prop message', () => {
     const component = shallow(<Loading message="message" />);
-    expect(component.find('.loading-logo .loading-message').text()).toEqual('message');
+    expect(component.find('.loader-message').text()).toEqual('message');
+  });
+
+  it('renders Loading with prop styles', () => {
+    const component = shallow(<Loading style={{ borderTopColor: 'coral' }} />);
+    expect(component.find('div.loader').props().style).toHaveProperty('borderTopColor', 'coral');
   });
 });

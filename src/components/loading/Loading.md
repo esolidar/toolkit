@@ -5,7 +5,7 @@ import Loading from "@esolidar/toolkit";
 #### Example
 ``` jsx
 <div style={{position:'relative',minHeight: '200px'}}>
-    <Loading loadingClass=""/>
+    <Loading loadingClass="" message="Lorem Ipsum" style={{ borderTopColor: 'coral' }} />
 </div>
 ```
 

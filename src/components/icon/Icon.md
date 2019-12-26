@@ -5,13 +5,12 @@ import Icon from "@esolidar/toolkit";
 
 USE:
 
-<Icon iconClass="icon-camera" />
+<Icon iconClass="icon-camera" styles={{color: 'red', fontSize: '30px'}} />
 ```
 
 #### List of Icons
 
 ``` jsx
-<Icon />
 
 <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
     <div className="clearfix bshadow0 pbs">

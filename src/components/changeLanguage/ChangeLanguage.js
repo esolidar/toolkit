@@ -4,7 +4,7 @@ import Icon from '../icon/Icon';
 import './ChangeLanguage.scss';
 
 const ChangeLanguage = ({
-  currentLang, languages, onChangeLang,
+  currentLang, languages, onChangeLang, style,
 }) => {
   const renderLanguages = languages.map((language) => (
     <span key={language.id}>
@@ -12,6 +12,7 @@ const ChangeLanguage = ({
         type="button"
         onClick={() => onChangeLang(language.name)}
         className={(currentLang === language.name ? 'active' : '')}
+        style={{ ...style }}
       >
         {language.name}
       </button>
@@ -20,7 +21,7 @@ const ChangeLanguage = ({
 
   return (
     <div className="changeLanguage">
-      <Icon iconClass="icon-globe" />
+      <Icon iconClass="icon-globe" style={{ ...style }} />
       {renderLanguages}
     </div>
   );
@@ -32,4 +33,5 @@ ChangeLanguage.propTypes = {
   currentLang: PropTypes.string.isRequired,
   languages: PropTypes.array.isRequired,
   onChangeLang: PropTypes.func.isRequired,
+  style: PropTypes.object,
 };

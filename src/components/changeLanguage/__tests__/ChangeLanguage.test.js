@@ -8,7 +8,7 @@ const propLanguages = [{ id: 0, name: 'pt', translate: 'Português (PT)' }, { id
 const changed = jest.fn();
 
 describe('ChangeLanguage component', () => {
-  it('renders Icon correctly', () => {
+  it('renders ChangeLanguage correctly', () => {
     const component = shallow(
       <ChangeLanguage
         languages={propLanguages}
@@ -19,7 +19,6 @@ describe('ChangeLanguage component', () => {
     expect(component).toHaveLength(1);
   });
 
-  // Icon
   it('renders ChangeLanguage and check if Icon exists and have all props', () => {
     const component = shallow(
       <ChangeLanguage
@@ -31,7 +30,6 @@ describe('ChangeLanguage component', () => {
     expect(component.find('Icon')).toHaveLength(1);
   });
 
-  // Buttons
   it('renders ChangeLanguage and check how many buttons have', () => {
     const component = shallow(
       <ChangeLanguage
@@ -43,7 +41,6 @@ describe('ChangeLanguage component', () => {
     expect(component.find('button')).toHaveLength(2);
   });
 
-  // Button click
   it('renders ChangeLanguage and simulates click events', () => {
     const component = shallow(
       <ChangeLanguage
@@ -54,5 +51,18 @@ describe('ChangeLanguage component', () => {
     );
     component.find('button').first().simulate('click');
     expect(changed.mock.calls.length).toEqual(1);
+  });
+
+  it('renders ChangeLanguage with prop styles', () => {
+    const component = shallow(
+      <ChangeLanguage
+        languages={propLanguages}
+        onChangeLang={changed}
+        currentLang="pt"
+        style={{ color: 'red' }}
+      />,
+    );
+    expect(component.find('button').first().props().style).toHaveProperty('color', 'red');
+    expect(component.find('Icon').first().props().style).toHaveProperty('color', 'red');
   });
 });
