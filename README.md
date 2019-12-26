@@ -32,6 +32,7 @@ Toolkit for building eSolidar Projects.
 Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
+- Get all submodules: `git submodule update --init --recursive`
 
 
 ### Running toolkit locally
