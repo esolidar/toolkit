@@ -9,7 +9,7 @@ import Footer from "@esolidar/toolkit";
 ``` jsx
 <div style={{position:"relative", minHeight: "300px"}}>
     <Footer 
-    styles={{ background: '#163352' }}
+    style={{ background: '#163352' }}
     currentLang="pt"
     onChangeLang={()=>(console.log(''))}
     currencyChanged={()=>(console.log(''))}

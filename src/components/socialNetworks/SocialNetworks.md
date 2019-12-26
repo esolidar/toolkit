@@ -18,7 +18,7 @@ import SocialNetworks from "@esolidar/toolkit";
             idTranslate:"footer.menu.join.us", 
             default:"Follow us",
         }}
-    styles={{ color: 'red' }}
+    style={{ color: 'red' }}
         />
 ```
 
