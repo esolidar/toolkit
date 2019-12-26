@@ -59,7 +59,7 @@ Several quick start options are available:
 If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
-`npm install @esolidar/toolkit@1.0.0`
+`yarn add -D @esolidar/toolkit@1.0.0`
 
 ##### Install via package.json:
 `"@esolidar/toolkit": "1.0.0"`
