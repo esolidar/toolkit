@@ -5,7 +5,7 @@ import Icon from "@esolidar/toolkit";
 
 USE:
 
-<Icon iconClass="icon-camera" style={{color: 'red', fontSize: '30px'}} />
+<Icon iconClass="icon-camera" />
 ```
 
 #### List of Icons

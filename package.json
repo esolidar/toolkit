@@ -14,7 +14,7 @@
     "test": "jest",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build &&  cd ./styleguide && git init && git remote add origin https://github.com/esolidar/toolkit-styleguide.git && git add . && git commit -m \"automated deployment $(date \"+%s\")\" && git push --set-upstream origin master",
+    "styleguide:build": "styleguidist build",
     "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
     "clean": "nwb clean-module && nwb clean-demo",
     "lint": "react-scripts run lint"

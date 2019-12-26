@@ -8,7 +8,7 @@
   margin-top    : 65px;
   background    : $mainColorDark;
   padding       : 30px 50px;
-  font-family   : $fontRoman;
+  font-family   : $fontFamily;
   font-size     : 15px;
   color         : $mainColor;
   letter-spacing: 0;
@@ -30,9 +30,9 @@
         list-style: none;
 
         a {
-          font-family   : $fontRoman;
+          font-family   : $fontFamily;
           font-size     : 15px;
-          color         : $footerLinkColor;
+          color         : $mainColorLight;
           letter-spacing: 0;
           padding       : 0 20px;
         }
@@ -54,9 +54,9 @@
           display   : inline;
 
           a {
-            font-family   : $fontRoman;
+            font-family   : $fontFamily;
             font-size     : 15px;
-            color         : $footerLinkColor;
+            color         : $mainColorLight;
             letter-spacing: 0;
             padding       : 0 20px;
           }

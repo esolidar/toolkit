@@ -13,10 +13,4 @@ describe('Icon component', () => {
     const component = shallow(<Icon iconClass="icon-google" />);
     expect(component.props().className).toEqual('icon-google');
   });
-
-  it('renders Icon with prop styles', () => {
-    const component = shallow(<Icon iconClass="icon-google" style={{ color: 'red', fontSize: '30px' }} />);
-    expect(component.props().style).toHaveProperty('color', 'red');
-    expect(component.props().style).toHaveProperty('fontSize', '30px');
-  });
 });

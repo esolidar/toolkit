@@ -1,9 +1,11 @@
+@import '../../assets/sass/variables';
+
 .changeLanguage {
-  color  : #B3EEF7;
+  color  : $mainColorLight;
   display: inline-block;
 
   i {
-    color       : #05c6e5;
+    color       : $infoColor;
     margin-right: 5px;
   }
 
@@ -13,11 +15,16 @@
     background    : transparent;
     border        : none;
     font-size     : 14px;
-    color         : #B3EEF7;
+    color         : $mainColorLight;
 
     @media (max-width: 425px) {
       margin : 0;
       padding: 0;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
     }
 
     &.active,

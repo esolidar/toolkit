@@ -148,18 +148,4 @@ describe('Footer component', () => {
     expect(component.find('ChangeLanguage').dive().find('.changeLanguage')).toHaveLength(1);
     expect(component.find('ChangeLanguage').dive().find('.changeLanguage span')).toHaveLength(3);
   });
-
-  it('renders Footer correctly with prop styles', () => {
-    const component = shallow(
-      <Footer
-        showCurrency={false}
-        languages={propLanguages}
-        currentLang="pt"
-        onChangeLang={changed}
-        style={{ color: 'red', fontSize: '30px' }}
-      />,
-    );
-    expect(component.props().style).toHaveProperty('color', 'red');
-    expect(component.props().style).toHaveProperty('fontSize', '30px');
-  });
 });

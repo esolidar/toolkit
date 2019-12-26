@@ -1,13 +1,16 @@
+@import '../../assets/sass/variables';
+
 .changeCurrency {
   display: inline-block;
 
   button {
+    color         : $mainColorLight;
     padding-bottom: 0px;
     padding-top   : 0px;
     border-radius : 0px;
 
     &.btn-footer {
-      color           : #B3EEF7;
+      color           : $mainColorLight;
       background-color: transparent;
       border-color    : transparent;
     }
@@ -21,7 +24,7 @@
 
   .dropdown-item.active,
   .dropdown-item:active {
-    background-color: #163352;
+    background-color: $mainColorDark;
   }
 
 }

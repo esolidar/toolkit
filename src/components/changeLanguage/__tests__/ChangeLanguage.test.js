@@ -52,17 +52,4 @@ describe('ChangeLanguage component', () => {
     component.find('button').first().simulate('click');
     expect(changed.mock.calls.length).toEqual(1);
   });
-
-  it('renders ChangeLanguage with prop styles', () => {
-    const component = shallow(
-      <ChangeLanguage
-        languages={propLanguages}
-        onChangeLang={changed}
-        currentLang="pt"
-        style={{ color: 'red' }}
-      />,
-    );
-    expect(component.find('button').first().props().style).toHaveProperty('color', 'red');
-    expect(component.find('Icon').first().props().style).toHaveProperty('color', 'red');
-  });
 });

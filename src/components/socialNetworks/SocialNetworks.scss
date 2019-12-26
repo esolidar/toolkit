@@ -1,3 +1,4 @@
+@import '../../assets/sass/variables';
 @import '../../assets/sass/functions';
 
 .socialNetworks {
@@ -5,7 +6,7 @@
   margin-bottom: 50px;
 
   h5 {
-    font-family   : 'AvenirLTStd-Light';
+    font-family   : $fontFamily;
     font-size     : 21px;
     letter-spacing: -0.5px;
     line-height   : 33px;
@@ -15,10 +16,10 @@
   }
 
   .border-icon {
-    color          : #B3EEF7;
+    color          : $mainColorLight;
     padding        : 15px;
     width          : 25px;
-    border         : 1px solid #455c75;
+    border         : 1px solid $inputLabelColor;
     border-radius  : 50%;
     text-decoration: none;
     margin         : 5px 10px;
@@ -43,7 +44,7 @@
 
     &:hover {
       i {
-        color: #163352 !important;
+        color: $mainColorDark !important;
       }
 
       .anime {

@@ -49,11 +49,4 @@ describe('SocialNetworks component', () => {
     const component = shallow(<SocialNetworks icons={propIcons} />);
     expect(component.find('h5')).toHaveLength(0);
   });
-
-  it('renders SocialNetworks and check styles', () => {
-    const component = shallow(<SocialNetworks icons={propIcons} style={{ color: 'red' }} />);
-    expect(component.props().style).toHaveProperty('color', 'red');
-    expect(component.find('a').first().props().style).toHaveProperty('color', 'red');
-    expect(component.find('Icon').first().props().style).toHaveProperty('color', 'red');
-  });
 });

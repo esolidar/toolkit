@@ -1,59 +1,36 @@
 /*
   Font Face
 */
-$fontLight: 'AvenirLTStd-Light';
-$fontRoman: 'AvenirLT-Roman';
-$fontHeavy: 'AvenirLTStd-Heavy';
+$fontFamily: 'AvenirLT-Roman' !default;
 
-/*
-  Colors
-*/
-$backgroundColor: #f6f9f9;
 
 /* Blue */
-$mainColor: #04C7E5;
-$mainColorLight: #b3EEF7;
-$mainColorDark: #163352;
+$mainColor     : #04C7E5 !default;
+$mainColorLight: #b3EEF7 !default;
+$mainColorDark : #163352 !default;
+
 
 /* Grays */
-$slateGray: #738598;
-$gullGray: #A2ADBA;
-$mischka: #D0D6DD;
-$porcelainDark: #E7EBED;
-$porcelainMedium: #F6F9F9;
-$porcelainLight: #FBFCFC;
+$grayDark       : #738598 !default;
+$graySemiDark   : #A2ADBA !default;
+$grayLight      : #D0D6DD !default;
+$grayExtraLight : #E7EBED !default;
+$grayWhite      : #F6F9F9 !default;
+$grayWhiteLight : #FBFCFC !default;
 
-/* Input Label Color */
-$inputLabelColor: #455C75;
-
-/* Footer */
-$footerLinkColor: #B3EEF7;
-
-$mainTextColor: #455C75;
-$greenColor: #34C77F;
-$facebookColor: #39579B;
-$errorColor: #FF494C;
-$tableHeaderTextColor: #B3EEF7;
-
-$successColor: #34C77F;
-$warningColor: #FFBE00;
-$dangerColor: #ff494c;
-$infoColor: #05c6e5;
+/* Warnings */
+$infoColor   : #05c6e5 !default;
+$successColor: #34C77F !default;
+$warningColor: #FFBE00 !default;
+$dangerColor : #ff494c !default;
 
 /* Status Colors*/
-$statusActiveColor: #34C77F;
-$statusPendingColor: #FFBE00;
-$statusEndedColor: $mainColor;
-$statusRevieredColor: #fd4b51;
-$statusDeletedColor: #fd4b51;
-$statusDeclinedColor: #738598;
+$statusActiveColor  : #34C77F !default;
+$statusPendingColor : #FFBE00 !default;
+$statusEndedColor   : $mainColor !default;
+$statusRevieredColor: #fd4b51 !default;
+$statusDeletedColor : #fd4b51 !default;
+$statusDeclinedColor: #738598 !default;
 
-$endedColor: #ff494c;
-$runningColor: #31BD79;
-$soonColor: #05c6e5;
-$pendingColor: orange;
-
-// Dimensions
-$mobileWidth: 425px;
-
-
+/* Forms */
+$inputLabelColor: #455C75;
