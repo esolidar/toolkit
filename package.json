@@ -14,7 +14,7 @@
     "test": "jest",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
-    "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add .  && git commit -m \"automated deployment $(date \"+%s\")\"  && git push",
+    "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add .  && git commit -m \"automated deployment\"  && git push",
     "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
     "clean": "nwb clean-module && nwb clean-demo",
     "lint": "react-scripts run lint"
