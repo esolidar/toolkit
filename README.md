@@ -13,7 +13,7 @@ Toolkit for building eSolidar Projects.
 <br>
 </p>
 
-  
+ 
 
 ## Table of contents
 
@@ -26,14 +26,18 @@ Toolkit for building eSolidar Projects.
 -  [Copyright and license](#copyright-and-license)
 
 
+
 ## Quick start
 
-Several quick start options are available:
+Steps to set up the project locally:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
 - Update submodule: `git submodule update --init --recursive`
+- Checkout branch on submodule `git checkout master`
 
+ 
 ### Running toolkit locally
+
 
 1. Run `yarn` to install all dependencies.
 2. Run `yarn styleguide` to start the styleguide.
@@ -48,6 +52,7 @@ Several quick start options are available:
 11. Run `yarn clean` to delete the build (lib folder) locally.
 
  
+
 ## Before installing the package
 
 
@@ -71,23 +76,27 @@ If you want to use our package, just follow these instructions:
 `"@esolidar/toolkit": "1.1.5"`
 
 
-
 ## Publish package
 
 Steps to publish the package:
- 1. Update package.json and change package version.
- 2. Update README file in all places where the version is referenced.
- 3. Run `yarn build`
- 4. Add all changes to git (pull/add/commit/push)
- 5. Run `npm publish`
+
+1. Update package.json and change package version.
+2. Update README file in all places where the version is referenced.
+3. Run `yarn styleguide:build` to build and push the new library version to the styleguide.
+4. Run `yarn build`
+5. Add all changes to git (pull/add/commit/push)
+6. Run `npm publish`
+
 
 ## Using Sass
 
-
 This library uses sass, so it is mandatory that the React project has sass loaders.
+
 To include all component styles, you must create a sass file in your project and include the following import:
+ 
 
 `@import '~@esolidar/toolkit/lib/assets/sass/main';`
+
 
 If you only want to include the style for the component you used, just include the scss of the component in question, ex:
 
@@ -105,13 +114,14 @@ $mainColor : red;
 @import '~@esolidar/toolkit/lib/assets/sass/main';
 
 ```
+
 ## Documentation
+
 
 The eSolidar Toolkit documentation, included in this repo in the root directory on styleguide/build, is built with [React Styleguidist](https://react-styleguidist.js.org/) and publicly hosted on GitHub Pages at [Toolkit-Styleguide](https://esolidar.github.io/toolkit-styleguide/). The docs may also be run locally with the command line `yarn styleguide`.
 
 
 ## Copyright and license
 
-  
 ©2019 eSolidar. All rights reversed.
 Code released under the MIT License.
