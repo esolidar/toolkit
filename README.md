@@ -69,7 +69,7 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.1.5`
+`yarn add @esolidar/toolkit@1.1.5`
 
 ##### Install via package.json:
 
@@ -86,6 +86,7 @@ Steps to publish the package:
 4. Run `yarn build`
 5. Add all changes to git (pull/add/commit/push)
 6. Run `npm publish`
+7. Create new release version on github, describe all new components added.
 
 
 ## Using Sass
@@ -102,7 +103,7 @@ If you only want to include the style for the component you used, just include t
 
 ```
 /* Need to import variables as well */
-@import  '~@esolidar/toolkit/lib/assets/sass/variables';
+@import '~@esolidar/toolkit/lib/assets/sass/variables';
 @import '~@esolidar/toolkit/lib/assets/sass/footer';
 ```
 
