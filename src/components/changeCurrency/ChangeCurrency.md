@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import Footer from "@esolidar/toolkit";
+import { ChangeCurrency } from "@esolidar/toolkit";
 ```
 
 #### Example

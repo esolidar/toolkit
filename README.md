@@ -69,11 +69,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add @esolidar/toolkit@1.1.5`
+`yarn add @esolidar/toolkit@1.1.6`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.5"`
+`"@esolidar/toolkit": "1.1.6"`
 
 
 ## Publish package
@@ -102,8 +102,10 @@ To include all component styles, you must create a sass file in your project and
 If you only want to include the style for the component you used, just include the scss of the component in question, ex:
 
 ```
-/* Need to import variables as well */
+/* import variables/functions/fonts as well */
 @import '~@esolidar/toolkit/lib/assets/sass/variables';
+@import '~@esolidar/toolkit/lib/assets/sass/functions';
+@import '~@esolidar/toolkit/lib/assets/sass/fonts';
 @import '~@esolidar/toolkit/lib/assets/sass/footer';
 ```
 

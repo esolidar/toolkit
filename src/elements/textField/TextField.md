@@ -1,6 +1,6 @@
 #### Import
 ``` html
-import TextField from "@esolidar/toolkit";
+import { TextField } from "@esolidar/toolkit";
 ```
 #### Example
 ``` jsx

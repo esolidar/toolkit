@@ -52,7 +52,7 @@ module.exports = {
     favicon: 'https://www.esolidar.com/images/login-logo-top.png',
   },
   require: [
-    './src/assets/sass/main.scss',
+    './src/assets/sass/mainStyleguide.scss',
     './src/assets/sass/bootstrap/bootstrap.min.css',
     './styleguide.css',
   ],

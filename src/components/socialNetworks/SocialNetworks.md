@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import SocialNetworks from "@esolidar/toolkit";
+import { SocialNetworks } from "@esolidar/toolkit";
 ```
 
 #### Example

@@ -1,6 +1,6 @@
 #### Import
 ``` html
-import Loading from "@esolidar/toolkit";
+import { Loading } from "@esolidar/toolkit";
 ```
 #### Example
 ``` jsx

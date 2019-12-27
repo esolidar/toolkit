@@ -1,6 +1,6 @@
 #### Import
 ``` html
-import translateMessage from "@esolidar/toolkit";
+import { translateMessage } from "@esolidar/toolkit";
 ```
 #### Example
 ``` html

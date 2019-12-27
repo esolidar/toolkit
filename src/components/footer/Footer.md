@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import Footer from "@esolidar/toolkit";
+import { Footer } from "@esolidar/toolkit";
 ```
 
 #### Example
