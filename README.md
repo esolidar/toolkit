@@ -100,7 +100,11 @@ To include all component styles, you must create a sass file in your project and
 
 If you only want to include the style for the component you used, just include the scss of the component in question, ex:
 
-`@import '~@esolidar/toolkit/lib/assets/sass/footer';`
+```
+/* Need to import variables as well */
+@import  '~@esolidar/toolkit/lib/assets/sass/variables';
+@import '~@esolidar/toolkit/lib/assets/sass/footer';
+```
 
 To override the styles used in the library components, simply override the following sass variables:
 
