@@ -1,7 +1,6 @@
 import React from 'react';
 import { browserName } from 'react-device-detect';
 import PropTypes from 'prop-types';
-import './Loading.scss';
 
 const Loading = ({ loadingClass, message }) => (
   <div className={loadingClass}>

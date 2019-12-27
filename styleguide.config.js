@@ -52,6 +52,7 @@ module.exports = {
     favicon: 'https://www.esolidar.com/images/login-logo-top.png',
   },
   require: [
+    './src/assets/sass/main.scss',
     './src/assets/sass/bootstrap/bootstrap.min.css',
     './styleguide.css',
   ],
@@ -68,7 +69,7 @@ module.exports = {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.scss$/,
           use: [
             'style-loader',
             'css-loader',

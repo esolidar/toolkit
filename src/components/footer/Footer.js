@@ -5,7 +5,6 @@ import SocialNetworks from '../socialNetworks/SocialNetworks';
 import translateMessage from '../../utils/translateMessage/translateMessage';
 import ChangeLanguage from '../changeLanguage/ChangeLanguage';
 import ChangeCurrency from '../changeCurrency/ChangeCurrency';
-import './Footer.scss';
 
 const Footer = ({
   socialIcons, languages, onChangeLang, currentLang, showCurrency, currentCurrency, currencies, currencyChanged, mainMenuFooter, secondMenuFooter, bottomMenuFooter,

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon/Icon';
-import './ChangeLanguage.scss';
 
 const ChangeLanguage = ({
   currentLang, languages, onChangeLang,

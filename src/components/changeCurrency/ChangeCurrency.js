@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
-import './ChangeCurrency.scss';
 
 const ChangeCurrency = ({ onChange, currentCurrency, currencies }) => {
   const allCurrencies = currencies.map((currency, index) => (

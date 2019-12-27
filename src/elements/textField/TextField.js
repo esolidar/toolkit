@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import translateMessage from '../../utils/translateMessage/translateMessage';
-import './TextField.scss';
 
 const TextField = ({
   field, value, label, type, onChange, error, maxLength, onBlur, onFocus, placeholder, message, disabled, fieldTranslate,

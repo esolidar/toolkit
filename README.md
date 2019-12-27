@@ -15,8 +15,6 @@ Toolkit for building eSolidar Projects.
 
   
 
-  
-
 ## Table of contents
 
 -  [Quick start](#quick-start)
@@ -33,7 +31,7 @@ Toolkit for building eSolidar Projects.
 Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
-
+- Update submodule: `git submodule update --init --recursive`
 
 ### Running toolkit locally
 
@@ -66,11 +64,12 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.1.4`
+`yarn add -D @esolidar/toolkit@1.1.5`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.4"`
+`"@esolidar/toolkit": "1.1.5"`
+
 
 
 ## Publish package
@@ -84,13 +83,28 @@ Steps to publish the package:
 
 ## Using Sass
 
+
 This library uses sass, so it is mandatory that the React project has sass loaders.
+To include all component styles, you must create a sass file in your project and include the following import:
+
+`@import '~@esolidar/toolkit/lib/assets/sass/main';`
+
+If you only want to include the style for the component you used, just include the scss of the component in question, ex:
+
+`@import '~@esolidar/toolkit/lib/assets/sass/footer';`
+
 To override the styles used in the library components, simply override the following sass variables:
 
 [_variaveis](https://raw.githubusercontent.com/esolidar/toolkit/master/src/assets/sass/variables.scss?token=AN52JDYKC6HNYVO5URG22SS6BYU6A)
 
-  
+Then, include your variables before the library includes:
 
+```
+
+$mainColor : red;
+@import '~@esolidar/toolkit/lib/assets/sass/main';
+
+```
 ## Documentation
 
 The eSolidar Toolkit documentation, included in this repo in the root directory on styleguide/build, is built with [React Styleguidist](https://react-styleguidist.js.org/) and publicly hosted on GitHub Pages at [Toolkit-Styleguide](https://htmlpreview.github.io/?https://github.com/esolidar/toolkit-styleguide/blob/master/index.html). The docs may also be run locally with the command line `yarn styleguide`.
