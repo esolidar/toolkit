@@ -28,7 +28,7 @@ const ChangeLanguage = ({
 export default ChangeLanguage;
 
 ChangeLanguage.propTypes = {
-  currentLang: PropTypes.string.isRequired
+  currentLang: PropTypes.string.isRequired,
   languages: PropTypes.array.isRequired,
   onChangeLang: PropTypes.func.isRequired,
 };
