@@ -33,7 +33,7 @@ Steps to set up the project locally:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
 - Update submodule: `git submodule update --init --recursive`
-- Checkout branch on submodule `git checkout master`
+- Checkout branch on submodule: `cd styleguide`  then `git checkout master`
 
  
 ### Running toolkit locally
