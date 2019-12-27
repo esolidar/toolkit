@@ -8,7 +8,7 @@
 <p  align="center">
 Toolkit for building eSolidar Projects.
 <br>
-<a  href="https://htmlpreview.github.io/?https://github.com/esolidar/toolkit-styleguide/blob/master/index.html"><strong>eSolidar Styleguide »</strong></a>
+<a target="_blank" href="https://esolidar.github.io/toolkit-styleguide/"><strong>eSolidar Styleguide »</strong></a>
 <br>
 <br>
 </p>
@@ -107,7 +107,7 @@ $mainColor : red;
 ```
 ## Documentation
 
-The eSolidar Toolkit documentation, included in this repo in the root directory on styleguide/build, is built with [React Styleguidist](https://react-styleguidist.js.org/) and publicly hosted on GitHub Pages at [Toolkit-Styleguide](https://htmlpreview.github.io/?https://github.com/esolidar/toolkit-styleguide/blob/master/index.html). The docs may also be run locally with the command line `yarn styleguide`.
+The eSolidar Toolkit documentation, included in this repo in the root directory on styleguide/build, is built with [React Styleguidist](https://react-styleguidist.js.org/) and publicly hosted on GitHub Pages at [Toolkit-Styleguide](https://esolidar.github.io/toolkit-styleguide/). The docs may also be run locally with the command line `yarn styleguide`.
 
 
 ## Copyright and license
