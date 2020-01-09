@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { SocialNetworks } from "@esolidar/toolkit";
+import { SocialNetworks } from '@esolidar/toolkit';
 ```
 
 #### Example
@@ -14,10 +14,7 @@ import { SocialNetworks } from "@esolidar/toolkit";
             {class:"icon-linkedin21", url: "#"},
             {class:"icon-google-plus1", url: "#"}
         ]} 
-    headingText={{
-            idTranslate:"footer.menu.join.us", 
-            default:"Follow us",
-        }}
+    headingText="All rights reserved."
         />
 ```
 

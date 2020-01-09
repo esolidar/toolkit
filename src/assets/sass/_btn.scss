@@ -1,0 +1,147 @@
+button.btn-esolidar,
+a.btn-esolidar,
+a.btn-esolidar:not([href]):not([tabindex]) {
+  cursor                            : pointer;
+  display                           : inline-block;
+  font-weight                       : 400;
+  padding                           : .375rem .75rem;
+  font-size                         : 1rem;
+  line-height                       : 1.5;
+  border-radius                     : 100px;
+  padding-left                      : 30px;
+  padding-right                     : 30px;
+  font-family                       : 'AvenirLTStd-Light';
+  font-size                         : 17px;
+  -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+  -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -moz-transition                   : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -o-transition                     : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  transition                        : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -moz-transition-timing-function   : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -o-transition-timing-function     : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  transition-timing-function        : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    outline        : none;
+  }
+
+  &.btn-success {
+    border          : 2px solid $btnSuccess;
+    color           : $btnSuccess;
+    background-color: #fff;
+
+    &:hover {
+      background-color: $btnSuccess;
+      border-color    : $btnSuccess;
+      color           : #fff;
+    }
+  }
+
+  &.btn-dark {
+    border          : 2px solid lighten($btnDark, 40%);
+    color           : $btnDark;
+    background-color: #fff;
+
+    &:hover {
+      background-color: $btnDark;
+      border-color    : $btnDark;
+      color           : #fff;
+    }
+  }
+
+  &.btn-info {
+    border          : 2px solid $btnInfo;
+    color           : $btnInfo;
+    background-color: #fff;
+
+    &:hover {
+      background-color: $btnInfo;
+      border-color    : $btnInfo;
+      color           : #fff;
+    }
+  }
+
+  &.btn-warning {
+    border          : 2px solid $btnWarning;
+    color           : $btnWarning;
+    background-color: #fff;
+
+    &:hover {
+      background-color: $btnWarning;
+      border-color    : $btnWarning;
+      color           : #fff;
+    }
+  }
+
+  &.btn-danger {
+    border          : 2px solid $btnDanger;
+    color           : $btnDanger;
+    background-color: #fff;
+
+    &:hover {
+      background-color: $btnDanger;
+      border-color    : $btnDanger;
+      color           : #fff;
+    }
+  }
+
+  &.btn-success-full {
+    border          : 2px solid $btnSuccess;
+    color           : #fff !important;
+    background-color: $btnSuccess;
+
+    &:hover {
+      background-color: darken($btnSuccess, 22%);
+      border-color    : darken($btnSuccess, 22%);
+    }
+  }
+
+  &.btn-dark-full {
+    border          : 2px solid $btnDark;
+    color           : #fff !important;
+    background-color: $btnDark;
+
+    &:hover {
+      background-color: darken($btnDark, 22%);
+      border-color    : darken($btnDark, 22%);
+    }
+  }
+
+  &.btn-info-full {
+    border          : 2px solid $btnInfo;
+    color           : #fff !important;
+    background-color: $btnInfo;
+
+    &:hover {
+      background-color: darken($btnInfo, 22%);
+      border-color    : darken($btnInfo, 22%);
+    }
+  }
+
+  &.btn-warning-full {
+    border          : 2px solid $btnWarning;
+    color           : #fff !important;
+    background-color: $btnWarning;
+
+    &:hover {
+      background-color: darken($btnWarning, 22%);
+      border-color    : darken($btnWarning, 22%);
+    }
+  }
+
+  &.btn-danger-full {
+    border          : 2px solid $btnDanger;
+    color           : #fff !important;
+    background-color: $btnDanger;
+
+    &:hover {
+      background-color: darken($btnDanger, 22%);
+      border-color    : darken($btnDanger, 22%);
+    }
+  }
+}

@@ -1,9 +1,4 @@
 .landing-footer {
-  position      : absolute;
-  right         : 0;
-  bottom        : 0;
-  left          : 0;
-  margin-top    : 65px;
   background    : $mainColorDark;
   padding       : 30px 50px;
   font-family   : $fontFamily;
@@ -11,9 +6,14 @@
   color         : $mainColor;
   letter-spacing: 0;
 
-  @media (max-width: 425px) {
+  @media only screen and (max-width: 768px) {
     position  : relative;
-    margin-top: 0;
+    margin-top: 0px;
+    padding   : 30px 20px;
+
+    .text-right {
+      text-align: center !important;
+    }
   }
 
   .container {
@@ -27,62 +27,112 @@
       li {
         list-style: none;
 
+        &:first-child {
+          @media only screen and (max-width: 768px) {
+            padding-bottom: 0px;
+          }
+        }
+
+        ul {
+          padding-inline-start: 40px;
+        }
+
         a {
           font-family   : $fontFamily;
           font-size     : 15px;
           color         : $mainColorLight;
           letter-spacing: 0;
           padding       : 0 20px;
-        }
 
-        ul {
-          padding-inline-start: 40px;
+          &:hover,
+          &:focus,
+          &:active {
+            color: #fff;
+          }
         }
       }
+    }
+
+    #newsletterID {
+      h5 {
+        font-family   : "AvenirLT-Roman";
+        font-size     : 21px;
+        letter-spacing: -0.5px;
+        line-height   : 33px;
+        display       : block;
+        margin-bottom : 15px;
+        text-align    : center;
+      }
+
+      .pipz-input {
+
+        background-color: transparent;
+        border-color    : $inputLabelColor !important;
+        border-radius   : 2px !important;
+        border-width    : 1px !important;
+      }
+
+      .pipz-input::placeholder {
+        color: $mainColorLight;
+      }
+
+      .pipz-button {
+        width: 65% !important;
+        color: $mainColorDark !important;
+      }
+
+      .pipz-icon {
+        display: none;
+      }
+    }
+
+    h5 {
+      @media (max-width: 990px) {
+        margin-top: 25px;
+      }
+    }
+
+    .socialNetworks {
+      text-align: right;
+      display   : inline-block;
     }
 
     .bottom-footer {
-      padding: 0;
+      padding   : 0;
+      margin-top: 50px;
+
+      @media only screen and (max-width: 768px) {
+        text-align: center;
+        margin-top: 20px;
+      }
 
       ul {
-        padding-inline-start: 0px;
-
         li {
-          list-style: none;
-          display   : inline;
+          display: inline;
 
-          a {
-            font-family   : $fontFamily;
-            font-size     : 15px;
-            color         : $mainColorLight;
-            letter-spacing: 0;
-            padding       : 0 20px;
+          @media only screen and (max-width: 768px) {
+            display: block;
+          }
+
+          @media (max-width: 425px) {
+            padding   : 15px 0;
+            text-align: center;
           }
         }
       }
 
+      .changeCurrency button.btn-footer {
+        border-left: 1px solid;
+        margin-left: 5px;
+        line-height: 15px;
+      }
 
-      @media (max-width: 425px) {
-        li {
-          padding   : 15px 0;
-          display   : block;
-          text-align: center;
-
-          .dropdown-toggle {
-            padding: 0 20px 30px 0;
-          }
+      .order-2 {
+        @media only screen and (max-width: 768px) {
+          margin-top: 25px;
         }
       }
 
-      @media (max-width: 425px) {
-        margin: 0;
-      }
     }
-  }
-
-  .changeCurrency button.btn-footer {
-    border-left: 1px solid;
-    margin-left: 5px;
-    line-height: 15px;
   }
 }

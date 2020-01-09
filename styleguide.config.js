@@ -15,12 +15,6 @@ module.exports = {
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },
     {
-      name: 'Utils',
-      components: 'src/utils/**/*.js',
-      exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
-      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
-    },
-    {
       name: 'Components',
       components: 'src/components/**/*.js',
       ignore: ['src/components/icon/Icon.js'],

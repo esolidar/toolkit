@@ -8,19 +8,49 @@
 }
 
 .loader {
-  border: 6px solid $grayWhite;
-  border-top: 6px solid $mainColor;
-  border-radius: 50%;
-  width        : 60px;
-  height       : 60px;
-  animation    : spin 2s linear infinite;
-  margin       : auto;
-  position     : absolute;
-  top          : 0;
-  bottom       : 0;
-  left         : 0;
-  right        : 0;
+  font-size        : 10px;
+  margin           : 50px auto;
+  text-indent      : -9999em;
+  width            : 6em;
+  height           : 6em;
+  border-radius    : 50%;
+  background       : transparent;
+  position         : relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation        : load3 1s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform    : translateZ(0);
+  transform        : translateZ(0);
+  border-top       : 3px solid $mainColor;
+  border-left      : 3px solid $mainColor;
+  border-bottom    : 3px solid transparent;
+  border-right     : 3px solid transparent;
 }
+
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform        : rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform        : rotate(360deg);
+  }
+}
+
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform        : rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform        : rotate(360deg);
+  }
+}
+
 
 .loader-message {
   position   : absolute;
@@ -32,15 +62,5 @@
   bottom     : 0;
   height     : 100px;
   width      : 300px;
-  padding-top: 100px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  padding-top: 40px;
 }

@@ -9,17 +9,13 @@ const propIcons = [
   { class: 'icon-linkedin21', url: '#' },
   { class: 'icon-google-plus1', url: '#' },
 ];
-const propHeadingText = {
-  idTranslate: 'footer.menu.join.us',
-  default: 'Follow us',
-};
 
 describe('SocialNetworks component', () => {
   it('renders SocialNetworks correctly', () => {
     const component = shallow(
       <SocialNetworks
         icons={propIcons}
-        headingText={propHeadingText}
+        headingText="Follow us"
       />,
     );
     expect(component).toHaveLength(1);
@@ -29,7 +25,7 @@ describe('SocialNetworks component', () => {
     const component = shallow(
       <SocialNetworks
         icons={propIcons}
-        headingText={propHeadingText}
+        headingText="Follow us"
       />,
     );
     expect(component.find('Icon')).toHaveLength(4);
@@ -39,7 +35,7 @@ describe('SocialNetworks component', () => {
     const component = shallow(
       <SocialNetworks
         icons={propIcons}
-        headingText={propHeadingText}
+        headingText="Follow us"
       />,
     );
     expect(component.find('h5')).toHaveLength(1);

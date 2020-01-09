@@ -1,6 +1,6 @@
 #### Import
 ``` html
-import { ChangeLanguage } from "@esolidar/toolkit";
+import { ChangeLanguage } from '@esolidar/toolkit';
 ```
 #### Example
 ``` jsx

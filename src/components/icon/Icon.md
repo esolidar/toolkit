@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { Icon } from "@esolidar/toolkit";
+import { Icon } from '@esolidar/toolkit';
 
 USE:
 
