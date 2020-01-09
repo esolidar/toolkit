@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+// eslint-disable-next-line import/no-unresolved
 import { Link } from 'react-router';
 
 const Button = ({
