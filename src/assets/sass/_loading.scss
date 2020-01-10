@@ -8,14 +8,18 @@
 }
 
 .loader {
+  position         : absolute;
+  left             : 0;
+  right            : 0;
+  top              : 0;
+  bottom           : 0;
   font-size        : 10px;
-  margin           : 50px auto;
+  margin           : auto;
   text-indent      : -9999em;
   width            : 6em;
   height           : 6em;
   border-radius    : 50%;
   background       : transparent;
-  position         : relative;
   -webkit-animation: load3 1.4s infinite linear;
   animation        : load3 1s infinite linear;
   -webkit-transform: translateZ(0);
@@ -53,14 +57,14 @@
 
 
 .loader-message {
-  position   : absolute;
-  text-align : center;
-  margin     : auto;
-  top        : 0;
-  left       : 0;
-  right      : 0;
-  bottom     : 0;
-  height     : 100px;
-  width      : 300px;
-  padding-top: 40px;
+  position  : absolute;
+  text-align: center;
+  margin    : auto;
+  top       : 0;
+  left      : 0;
+  right     : 0;
+  bottom    : 0;
+  height    : 100px;
+  width     : 300px;
+  margin-top: 140px;
 }

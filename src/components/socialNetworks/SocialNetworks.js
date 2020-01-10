@@ -8,11 +8,9 @@ const SocialNetworks = ({
   const listIcons = icons.map((icon, index) => (
     <a
       key={index}
-      className="border-icon"
       href={icon.url}
       target="blank"
     >
-      <span className="anime" />
       <Icon iconClass={icon.class} />
     </a>
   ));
@@ -20,7 +18,9 @@ const SocialNetworks = ({
   return (
     <div className="socialNetworks">
       {headingText ? <h5>{headingText}</h5> : ''}
-      {listIcons}
+      <div className="list-icon">
+        {listIcons}
+      </div>
     </div>
   );
 };

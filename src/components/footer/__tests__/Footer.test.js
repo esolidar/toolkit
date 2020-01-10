@@ -7,10 +7,10 @@ import Footer from '../Footer';
 
 const changed = jest.fn();
 const propIcons = [
-  { class: 'icon-facebook1', url: 'https://www.facebook.com/esolidar' },
-  { class: 'icon-twitter1', url: '#' },
-  { class: 'icon-linkedin21', url: '#' },
-  { class: 'icon-google-plus1', url: '#' },
+  { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },
+  { class: 'icon-twitter', url: '#' },
+  { class: 'icon-linkedin2', url: '#' },
+  { class: 'icon-google-plus', url: '#' },
 ];
 const propLanguages = [
   { id: 0, name: 'pt', translate: 'Português (PT)' },
