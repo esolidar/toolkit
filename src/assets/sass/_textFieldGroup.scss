@@ -1,0 +1,39 @@
+$inputTextColor      : #555 !default;
+$borderColor         : #ccc !default;
+$inputBackgroundColor: #f5f5f5 !default;
+
+.form-control-validation {
+
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label {
+    color: $inputTextColor;
+  }
+
+  .form-control {
+    border-color: $borderColor;
+    @include box-shadow($boxShadow);
+
+    &:focus {
+      border-color: darken($borderColor, 10%);
+      @include box-shadow($boxShadowHover);
+    }
+  }
+
+  .input-group-addon {
+    color           : $inputTextColor;
+    border-color    : $borderColor;
+    background-color: $inputBackgroundColor;
+  }
+
+  .form-control-feedback {
+    color: $inputTextColor;
+  }
+}

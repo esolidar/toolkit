@@ -41,7 +41,7 @@ describe('TextField component', () => {
       <TextField
         field="businessEmail"
         onChange={changed}
-        error={{ error: 'error', code: '404' }}
+        error="error"
       />,
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);

@@ -12,7 +12,14 @@ Toolkit for building eSolidar Projects.
 <br>
 <br>
 </p>
-
+<div align="center">
+<img src="https://img.shields.io/badge/GitHub%20Package-v1.1.7-blue" alt="GitHub Package">
+<img src="https://img.shields.io/badge/node-v12.13.1-blue" alt="node version">
+<img src="https://s3-eu-west-1.amazonaws.com/codefactory-eu-west-1-prod-default-build-badges/passing.svg" alt="AWS CodeBuild">
+<img src="https://img.shields.io/badge/coverage-98.18%25-green" alt="coverage">
+<img src="https://img.shields.io/badge/peer%20dependencies-up%20to%20date-brightgreen" alt="peer dependencies">
+<img src="https://img.shields.io/badge/dev%20dependencies-up%20to%20date-brightgreen" alt="dev dependencies">
+</div>
  
 
 ## Table of contents
@@ -69,11 +76,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add @esolidar/toolkit@1.1.6`
+`yarn add -D @esolidar/toolkit@1.1.7`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.6"`
+`"@esolidar/toolkit": "1.1.7"`
 
 
 ## Publish package
@@ -86,34 +93,32 @@ Steps to publish the package:
 4. Run `yarn build`
 5. Add all changes to git (pull/add/commit/push)
 6. Run `npm publish`
-7. Create new release version on github, describe all new components added.
 
 
 ## Using Sass
 
 This library uses sass, so it is mandatory that the React project has sass loaders.
 
-To include all component styles, you must create a sass file in your project and include the following import:
+Include the following import:
  
 
-`@import '~@esolidar/toolkit/lib/assets/sass/main';`
+`import '~@esolidar/toolkit/lib/assets/sass/main';`
 
 
 If you only want to include the style for the component you used, just include the scss of the component in question, ex:
 
 ```
-/* import variables/functions/fonts as well */
-@import '~@esolidar/toolkit/lib/assets/sass/variables';
-@import '~@esolidar/toolkit/lib/assets/sass/functions';
-@import '~@esolidar/toolkit/lib/assets/sass/fonts';
-@import '~@esolidar/toolkit/lib/assets/sass/footer';
+/* Need to import variables as well */
+import '~@esolidar/toolkit/lib/assets/sass/variables';
+import '~@esolidar/toolkit/lib/assets/sass/footer';
 ```
 
 To override the styles used in the library components, simply override the following sass variables:
 
-[_variaveis](https://raw.githubusercontent.com/esolidar/toolkit/master/src/assets/sass/variables.scss?token=AN52JDYKC6HNYVO5URG22SS6BYU6A)
+[_variaveis](https://github.com/esolidar/toolkit/blob/master/src/assets/sass/_variables.scss)
 
-Then, include your variables before the library includes:
+Then, you must create a sass file in your project and include the following import:
+(variables before the library)
 
 ```
 
@@ -130,5 +135,5 @@ The eSolidar Toolkit documentation, included in this repo in the root directory 
 
 ## Copyright and license
 
-©2019 eSolidar. All rights reversed.
+©2020 eSolidar. All rights reversed.
 Code released under the MIT License.

@@ -33,4 +33,17 @@ $statusDeletedColor : #fd4b51 !default;
 $statusDeclinedColor: #738598 !default;
 
 /* Forms */
-$inputLabelColor: #455C75;
+$inputLabelColor     : #455C75;
+$borderColor         : #D0D6DD;
+$inputTextColor      : #455C75;
+$inputBackgroundColor: #fff;
+$boxShadow           : inset 0 1px 1px rgba(0, 0, 0, .075);
+$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075),
+0 0 6px lighten($borderColor, 20%);
+
+/* Btn Colors */
+$btnDark : #455C75 !default;
+$btnInfo : #05c6e5 !default;
+$btnSuccess: #34C77F !default;
+$btnWarning: #FFBE00 !default;
+$btnDanger : #ff494c !default;

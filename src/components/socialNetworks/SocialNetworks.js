@@ -1,40 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon/Icon';
-import translateMessage from '../../utils/translateMessage/translateMessage';
 
 const SocialNetworks = ({
   icons, headingText,
 }) => {
-  const heading = headingText && (translateMessage({
-    id: headingText.idTranslate,
-    defaultMessage: headingText.default,
-  }));
-
-
   const listIcons = icons.map((icon, index) => (
     <a
       key={index}
-      className="border-icon"
       href={icon.url}
       target="blank"
     >
-      <span className="anime" />
       <Icon iconClass={icon.class} />
     </a>
   ));
 
   return (
     <div className="socialNetworks">
-      {heading ? <h5>{heading}</h5> : ''}
-      {listIcons}
+      {headingText ? <h5>{headingText}</h5> : ''}
+      <div className="list-icon">
+        {listIcons}
+      </div>
     </div>
   );
 };
 
 SocialNetworks.propTypes = {
   icons: PropTypes.array.isRequired,
-  headingText: PropTypes.object,
+  headingText: PropTypes.string,
 };
 
 export default SocialNetworks;

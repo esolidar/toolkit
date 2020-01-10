@@ -7,10 +7,10 @@ import Footer from '../Footer';
 
 const changed = jest.fn();
 const propIcons = [
-  { class: 'icon-facebook1', url: 'https://www.facebook.com/esolidar' },
-  { class: 'icon-twitter1', url: '#' },
-  { class: 'icon-linkedin21', url: '#' },
-  { class: 'icon-google-plus1', url: '#' },
+  { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },
+  { class: 'icon-twitter', url: '#' },
+  { class: 'icon-linkedin2', url: '#' },
+  { class: 'icon-google-plus', url: '#' },
 ];
 const propLanguages = [
   { id: 0, name: 'pt', translate: 'Português (PT)' },
@@ -18,25 +18,25 @@ const propLanguages = [
   { id: 2, name: 'en', translate: 'English' },
 ];
 const propMainMenuFooter = [
-  { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
-  { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
-  { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
+  { text: 'Follow us', url: '#', target: '_self' },
+  { text: 'Follow us', url: '#', target: '_self' },
+  { text: 'Follow us', url: '#', target: '_self' },
 ];
 const propSecondMenuFooter = [
-  { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
+  { text: 'Follow us', url: '#', target: '_self' },
   {
-    link: { id: 'footer.menu.join.us', default: 'Follow us' },
+    text: 'Follow us',
     url: '#',
     target: '_self',
     submenu: [
-      { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
-      { link: { id: 'footer.menu.join.us', default: 'Follow us' }, url: '#', target: '_self' },
+      { text: 'Follow us', url: '#', target: '_self' },
+      { text: 'Follow us', url: '#', target: '_self' },
     ],
   },
 ];
 const propBottomMenuFooter = [
-  { link: { id: 'footer.menu.terms', default: 'Terms and Conditions' }, url: '#', target: '_self' },
-  { link: { id: 'footer.menu.policy', default: 'Privacy Policy' }, url: '#', target: '_self' },
+  { text: 'Terms and Conditions', url: '#', target: '_self' },
+  { text: 'Privacy Policy', url: '#', target: '_self' },
 ];
 const propCurrentCurrency = {
   id: 1, name: 'Euro', small: 'EUR', value: 1.114, symbol: '€', status: 1, lastUpdate: '2019-12-16 12:00:03',
@@ -58,6 +58,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component).toHaveLength(1);
@@ -71,6 +72,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('li')).toHaveLength(3);
@@ -84,6 +86,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('li')).toHaveLength(4);
@@ -98,6 +101,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('.bottom-footer li')).toHaveLength(2);
@@ -111,6 +115,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('SocialNetworks')).toHaveLength(1);
@@ -128,6 +133,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('ChangeCurrency')).toHaveLength(1);
@@ -142,6 +148,7 @@ describe('Footer component', () => {
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
+        copyright="Lorem ipsum"
       />,
     );
     expect(component.find('ChangeLanguage')).toHaveLength(1);

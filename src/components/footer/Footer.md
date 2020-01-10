@@ -1,23 +1,26 @@
 #### Import
 
 ``` html
-import { Footer } from "@esolidar/toolkit";
+import { Footer } from '@esolidar/toolkit';
 ```
 
 #### Example
 
 ``` jsx
 <div style={{position:"relative", minHeight: "300px"}}>
-    <Footer 
+    <Footer
+    newsletterTitle="Lorem Ipsum"
+    socialTitle="Junte-se a nós"
+    socialIcons={[
+                { class: "icon-facebook", url: "https://www.facebook.com/esolidar" },
+                { class: "icon-twitter", url: "#" },
+                { class: "icon-linkedin2", url: "#" },
+                { class: "icon-google-plus", url: "#" }
+                ]}
+    copyright="All rights reserved."
     currentLang="pt"
     onChangeLang={()=>(console.log(''))}
-    currencyChanged={()=>(console.log(''))}
-    socialIcons={[
-                { class: "icon-facebook1", url: "https://www.facebook.com/esolidar" },
-                { class: "icon-twitter1", url: "#" },
-                { class: "icon-linkedin21", url: "#" },
-                { class: "icon-google-plus1", url: "#" }
-                ]} 
+    currencyChanged={()=>(console.log(''))} 
     languages={[
         { id: 0, name: "pt", translate: "Português (PT)" }, 
         { id: 1, name: "br", translate: "Português (BR)" },
@@ -30,21 +33,21 @@ import { Footer } from "@esolidar/toolkit";
         {id:1,name:"U. S. Dollar",small:"USD",value:1.114,symbol:"€",status:1,lastUpdate:"2019-12-16 12:00:03"}
     ]} 
     mainMenuFooter={[
-        { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"}, 
-        { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"}, 
-        { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"}, 
+        { text:"Follow us", url: "#", target: "_self"}, 
+        { text:"Follow us", url: "#", target: "_self"}, 
+        { text:"Follow us", url: "#", target: "_self"}, 
     ]}
     secondMenuFooter={[
-        { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"}, 
-        { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self",
+        { text: "Follow us", url: "#", target: "_self"}, 
+        { text: "Follow us", url: "#", target: "_self",
                 submenu:[
-                    { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"},
-                    { link: {id: "footer.menu.join.us", default: "Follow us"}, url: "#", target: "_self"}
+                    { text: "Follow us", url: "#", target: "_self"},
+                    { text: "Follow us", url: "#", target: "_self"}
                     ]}, 
     ]}
     bottomMenuFooter={[
-        { link: {id: "footer.menu.terms", default: "Terms and Conditions"}, url: "#", target: "_self"},
-        { link: {id: "footer.menu.policy", default: "Privacy Policy"}, url: "#", target: "_self"},
+        { text: "Terms and Conditions", url: "#", target: "_self"},
+        { text: "Privacy Policy", url: "#", target: "_self"},
     ]}
 />
 </div>

@@ -2,41 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import SocialNetworks from '../socialNetworks/SocialNetworks';
-import translateMessage from '../../utils/translateMessage/translateMessage';
 import ChangeLanguage from '../changeLanguage/ChangeLanguage';
 import ChangeCurrency from '../changeCurrency/ChangeCurrency';
 
 const Footer = ({
-  socialIcons, languages, onChangeLang, currentLang, showCurrency, currentCurrency, currencies, currencyChanged, mainMenuFooter, secondMenuFooter, bottomMenuFooter,
+  socialTitle,
+  copyright,
+  socialIcons,
+  languages,
+  onChangeLang,
+  currentLang,
+  showCurrency,
+  currentCurrency,
+  currencies,
+  currencyChanged,
+  mainMenuFooter,
+  secondMenuFooter,
+  bottomMenuFooter,
+  newsletterID,
+  newsletterTitle,
 }) => {
-  const copyright = `©${new Date().getFullYear()} ${
-    translateMessage({
-      id: 'footer.copyright',
-      defaultMessage: 'eSolidar. All rights reserved.',
-      currentLang,
-    })
-  }`;
+  const copyrightText = `©${new Date().getFullYear()} ${copyright}`;
 
   const submenu = (items) => (
     items.map((item, index) => (
       <li key={index}>
         <a
           href={item.url}
-          title={
-            translateMessage({
-              id: item.link.id,
-              defaultMessage: item.link.default,
-              currentLang,
-            })
-          }
+          title={item.text}
           target={item.target}
         >
-          {translateMessage({
-            id: item.link.id,
-            defaultMessage: item.link.default,
-            currentLang,
-          })}
-
+          {item.text}
         </a>
       </li>
     ))
@@ -47,20 +43,10 @@ const Footer = ({
       <li key={index}>
         <a
           href={item.url}
-          title={
-            translateMessage({
-              id: item.link.id,
-              defaultMessage: item.link.default,
-              currentLang,
-            })
-          }
+          title={item.text}
           target={item.target}
         >
-          {translateMessage({
-            id: item.link.id,
-            defaultMessage: item.link.default,
-            currentLang,
-          })}
+          {item.text}
         </a>
         {item.submenu && (
           <ul>
@@ -76,29 +62,28 @@ const Footer = ({
     <footer className="landing-footer">
       <Container>
         <Row>
-          <Col sm={2}>
+          <Col xs={12} sm={6} md={6} lg={2}>
             <ul>
               {mainMenuFooter && menu(mainMenuFooter)}
             </ul>
           </Col>
-          <Col sm={3}>
+          <Col xs={12} sm={6} md={6} lg={3}>
             <ul>
               {secondMenuFooter && menu(secondMenuFooter)}
             </ul>
           </Col>
-          <Col sm={3}>
-            NEWSLETTER
+          <Col xs={12} sm={6} md={6} lg={3}>
+            <div id="newsletterID">
+              <h5>{newsletterTitle}</h5>
+              <div id={newsletterID} />
+            </div>
           </Col>
           {
             socialIcons && (
-              <Col sm={4}>
+              <Col xs={12} sm={6} md={6} lg={4} className="text-right">
                 <SocialNetworks
                   icons={socialIcons}
-                  headingText={{
-                    idTranslate: 'footer.menu.join.us',
-                    default: 'Follow us',
-                    currentLang,
-                  }}
+                  headingText={socialTitle}
                 />
               </Col>
             )
@@ -106,17 +91,17 @@ const Footer = ({
 
         </Row>
         <Row className="bottom-footer">
-          <Col sm={4}>
+          <Col xs={{ span: 12, order: 2 }} sm={{ span: 12, order: 2 }} md={{ span: 4, order: 0 }}>
             <span>
-              {copyright}
+              {copyrightText}
             </span>
           </Col>
-          <Col sm={5}>
+          <Col xs={{ span: 12, order: 0 }} sm={{ span: 6, order: 0 }} md={{ span: 5, order: 1 }}>
             <ul>
               {bottomMenuFooter && menu(bottomMenuFooter)}
             </ul>
           </Col>
-          <Col sm={3} className="text-right">
+          <Col xs={{ span: 12, order: 1 }} sm={{ span: 6, order: 1 }} md={{ span: 3, order: 3 }} className="text-right">
             <ChangeLanguage
               languages={languages}
               onChangeLang={onChangeLang}
@@ -140,6 +125,8 @@ const Footer = ({
 };
 
 Footer.propTypes = {
+  socialTitle: PropTypes.string,
+  copyright: PropTypes.string.isRequired,
   languages: PropTypes.array.isRequired,
   onChangeLang: PropTypes.func.isRequired,
   currentLang: PropTypes.string.isRequired,
@@ -151,6 +138,8 @@ Footer.propTypes = {
   mainMenuFooter: PropTypes.array,
   secondMenuFooter: PropTypes.array,
   bottomMenuFooter: PropTypes.array,
+  newsletterID: PropTypes.string,
+  newsletterTitle: PropTypes.string,
 };
 
 

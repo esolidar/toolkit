@@ -1,13 +1,11 @@
 import React from 'react';
-import { browserName } from 'react-device-detect';
+import { isIE } from 'react-device-detect';
 import PropTypes from 'prop-types';
 
 const Loading = ({ loadingClass, message }) => (
   <div className={loadingClass}>
-    {browserName === 'IE'
-      && <div className="ie-loader" />}
-    {browserName !== 'IE'
-      && (
+    {isIE
+      ? (<div className="ie-loader" />) : (
         <div>
           <div className="loader" />
           <div className="loader-message">{message}</div>

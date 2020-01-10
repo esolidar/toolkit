@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { SocialNetworks } from "@esolidar/toolkit";
+import { SocialNetworks } from '@esolidar/toolkit';
 ```
 
 #### Example
@@ -9,15 +9,12 @@ import { SocialNetworks } from "@esolidar/toolkit";
 ``` jsx
 <SocialNetworks 
     icons={[
-            {class:"icon-facebook1", url:"https://www.facebook.com/esolidar"},
-            {class:"icon-twitter1", url: "#"},
-            {class:"icon-linkedin21", url: "#"},
-            {class:"icon-google-plus1", url: "#"}
+            { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },
+            { class: 'icon-twitter', url: '#' },
+            { class: 'icon-linkedin2', url: '#' },
+            { class: 'icon-google-plus', url: '#' },
         ]} 
-    headingText={{
-            idTranslate:"footer.menu.join.us", 
-            default:"Follow us",
-        }}
+    headingText="All rights reserved."
         />
 ```
 
