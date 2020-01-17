@@ -33,10 +33,6 @@
           }
         }
 
-        ul {
-          padding-inline-start: 40px;
-        }
-
         a {
           font-family   : $fontFamily;
           font-size     : 15px;
@@ -48,6 +44,18 @@
           &:focus,
           &:active {
             color: #fff;
+          }
+        }
+
+        ul {
+          padding-inline-start: 65px;
+
+          li {
+            list-style: circle;
+
+            a {
+              padding: 0;
+            }
           }
         }
       }

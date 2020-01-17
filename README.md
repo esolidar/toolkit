@@ -13,7 +13,7 @@ Toolkit for building eSolidar Projects.
 <br>
 </p>
 <div align="center">
-<img src="https://img.shields.io/badge/GitHub%20Package-v1.1.7-blue" alt="GitHub Package">
+<img src="https://img.shields.io/badge/GitHub%20Package-v.1.1.8-blue" alt="GitHub Package">
 <img src="https://img.shields.io/badge/node-v12.13.1-blue" alt="node version">
 <img src="https://s3-eu-west-1.amazonaws.com/codefactory-eu-west-1-prod-default-build-badges/passing.svg" alt="AWS CodeBuild">
 <img src="https://img.shields.io/badge/coverage-98.18%25-green" alt="coverage">
@@ -76,11 +76,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.1.7`
+`yarn add -D @esolidar/toolkit@1.1.8`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.7"`
+`"@esolidar/toolkit": "1.1.8"`
 
 
 ## Publish package
