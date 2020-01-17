@@ -26,7 +26,13 @@ const ChangeCurrency = ({ onChange, currentCurrency, currencies }) => {
 ChangeCurrency.propTypes = {
   onChange: PropTypes.func.isRequired,
   currentCurrency: PropTypes.object.isRequired,
-  currencies: PropTypes.array.isRequired,
+  currencies: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      small: PropTypes.string,
+      symbol: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 export default ChangeCurrency;

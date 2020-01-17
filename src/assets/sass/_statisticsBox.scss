@@ -1,0 +1,134 @@
+.statisticsBox {
+  .statistics {
+    .box {
+      float           : inherit;
+      padding         : 0;
+      width           : 100%;
+      background-color: #FFFFFF;
+      border          : 1px solid #E7EAED;
+      border-radius   : 4px;
+
+      .stats-bottom {
+        border-top: 2px solid $mainColor;
+        padding   : 20px;
+        background: #FBFCFC;
+
+        .row {
+          padding      : 15px 5px;
+          border-bottom: 1px solid #E7EBED;
+
+          &:last-child {
+            border-bottom : 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+
+      h3 {
+        font-family   : $fontHeavy;
+        font-size     : 15px;
+        color         : $mainColor;
+        letter-spacing: 0;
+        line-height   : 26px;
+        margin        : 0;
+
+        i {
+          margin-right: 8px;
+        }
+
+        @media (max-width: 425px) {
+          text-align: center;
+        }
+      }
+
+      .people-involved {
+        font-family   : $fontHeavy;
+        font-size     : 15px;
+        color         : $mainTextColorDark;
+        letter-spacing: 0;
+        line-height   : 26px;
+      }
+
+      .people-involved-stats {
+        font-family   : $fontFamily;
+        font-size     : 15px;
+        color         : #738598;
+        letter-spacing: 0;
+        line-height   : 30px;
+      }
+
+      .stats-box {
+        margin: 40px 0;
+
+        &.border {
+          border-left: 1px solid #E7EBED;
+        }
+
+        h2 {
+          font-family   : $fontHeavy;
+          font-size     : 15px;
+          color         : $mainColor;
+          letter-spacing: 0;
+          line-height   : 26px;
+          margin-top    : 0;
+          margin-bottom : 25px;
+        }
+
+        h3 {
+          font-family   : $fontFamily;
+          font-size     : 27px;
+          color         : $mainTextColorDark;
+          letter-spacing: 0;
+          line-height   : 39px;
+        }
+
+        p {
+          font-family   : $fontFamily;
+          font-size     : 15px;
+          color         : $mainTextColorLight;
+          letter-spacing: 0;
+          line-height   : 22px;
+          margin        : 0;
+        }
+
+        @media (max-width: 425px) {
+          border: none;
+        }
+      }
+
+      .stats-box.col-sm-4:not(:first-child):not(:last-child) {
+        border-left : 1px solid #E7EBED;
+        border-right: 1px solid #E7EBED;
+
+        @media (max-width: 425px) {
+          border: none;
+        }
+      }
+
+      .stats-box.col-sm-6:nth-child(2) {
+        border-left: 1px solid #E7EBED;
+
+        @media (max-width: 425px) {
+          border: none;
+        }
+      }
+    }
+
+    .boundary {
+      h3 {
+        font-size : 18px !important;
+        text-align: center;
+
+        .icon {
+          width     : 100% !important;
+          display   : block !important;
+          text-align: center !important;
+
+          img {
+            width: 52px;
+          }
+        }
+      }
+    }
+  }
+}

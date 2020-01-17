@@ -29,6 +29,12 @@ export default ChangeLanguage;
 
 ChangeLanguage.propTypes = {
   currentLang: PropTypes.string.isRequired,
-  languages: PropTypes.array.isRequired,
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      translate: PropTypes.string,
+    }),
+  ).isRequired,
   onChangeLang: PropTypes.func.isRequired,
 };

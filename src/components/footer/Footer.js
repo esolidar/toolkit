@@ -72,7 +72,7 @@ const Footer = ({
               {secondMenuFooter && menu(secondMenuFooter)}
             </ul>
           </Col>
-          <Col xs={12} sm={6} md={6} lg={3}>
+          <Col xs={12} sm={12} md={6} lg={3}>
             <div id="newsletterID">
               <h5>{newsletterTitle}</h5>
               <div id={newsletterID} />
@@ -80,7 +80,7 @@ const Footer = ({
           </Col>
           {
             socialIcons && (
-              <Col xs={12} sm={6} md={6} lg={4} className="text-right">
+              <Col xs={12} sm={12} md={6} lg={4} className="text-right">
                 <SocialNetworks
                   icons={socialIcons}
                   headingText={socialTitle}
@@ -127,17 +127,52 @@ const Footer = ({
 Footer.propTypes = {
   socialTitle: PropTypes.string,
   copyright: PropTypes.string.isRequired,
-  languages: PropTypes.array.isRequired,
+  languages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      translate: PropTypes.string,
+    }),
+  ).isRequired,
   onChangeLang: PropTypes.func.isRequired,
   currentLang: PropTypes.string.isRequired,
   showCurrency: PropTypes.bool.isRequired,
-  socialIcons: PropTypes.array,
+  socialIcons: PropTypes.arrayOf(
+    PropTypes.shape({
+      class: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  ),
   currentCurrency: PropTypes.object,
-  currencies: PropTypes.array,
+  currencies: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      small: PropTypes.string,
+      symbol: PropTypes.string,
+    }),
+  ),
   currencyChanged: PropTypes.func,
-  mainMenuFooter: PropTypes.array,
-  secondMenuFooter: PropTypes.array,
-  bottomMenuFooter: PropTypes.array,
+  mainMenuFooter: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
+    }),
+  ),
+  secondMenuFooter: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
+    }),
+  ),
+  bottomMenuFooter: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
+    }),
+  ),
   newsletterID: PropTypes.string,
   newsletterTitle: PropTypes.string,
 };

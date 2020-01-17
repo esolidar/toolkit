@@ -8,6 +8,7 @@ export { default as HeartSeparator } from './components/heartSeparator/HeartSepa
 export { default as Icon } from './components/icon/Icon';
 export { default as Loading } from './components/loading/Loading';
 export { default as SocialNetworks } from './components/socialNetworks/SocialNetworks';
+export { default as StatisticsBox } from './components/statisticsBox/StatisticsBox';
 
 // Elements
 export { default as TextareaField } from './elements/textareaField/TextareaField';

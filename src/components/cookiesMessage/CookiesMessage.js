@@ -6,7 +6,7 @@ import Button from '../button/Button';
 const CookiesMessage = ({
   message, btnText, btnClick,
 }) => (
-  <div className="cookies-message">
+  <div className="cookiesMessage">
     <Container fluid>
       <Row>
         <Col xs={12} sm={12} md={9} lg={9}>
