@@ -8,8 +8,9 @@
 }
 
 .Loading {
-  position: relative;
-  overflow: hidden;
+  position  : relative;
+  overflow  : hidden;
+  min-height: 200px;
 
   .loader {
     position         : absolute;
