@@ -54,13 +54,6 @@ const Footer = ({
             {item.text}
           </span>
         )}
-        <a
-          href={item.url}
-          title={item.text}
-          target={item.target}
-        >
-          {item.text}
-        </a>
         {item.submenu && (
           <ul>
             {submenu(item.submenu)}
