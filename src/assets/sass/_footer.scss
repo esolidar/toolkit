@@ -33,7 +33,8 @@
           }
         }
 
-        a {
+        a,
+        span {
           font-family   : $fontFamily;
           font-size     : 15px;
           color         : $mainColorLight;

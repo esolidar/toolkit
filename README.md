@@ -13,7 +13,7 @@ Toolkit for building eSolidar Projects.
 <br>
 </p>
 <div align="center">
-<img src="https://img.shields.io/badge/GitHub%20Package-v.1.1.8-blue" alt="GitHub Package">
+<img src="https://img.shields.io/badge/GitHub%20Package-v2.2.2-blue" alt="GitHub Package">
 <img src="https://img.shields.io/badge/node-v12.13.1-blue" alt="node version">
 <img src="https://s3-eu-west-1.amazonaws.com/codefactory-eu-west-1-prod-default-build-badges/passing.svg" alt="AWS CodeBuild">
 <img src="https://img.shields.io/badge/coverage-98.18%25-green" alt="coverage">
@@ -56,7 +56,8 @@ Steps to set up the project locally:
 8.  **Builds**
 9. Run `yarn styleguide:build` to create a production build for the styleguide documentation.
 10. Run `yarn build` to create a production build for the package.
-11. Run `yarn clean` to delete the build (lib folder) locally.
+11. Rum `build:publish` to create a production build and publish the new version package.
+12. Run `yarn clean` to delete the build (lib folder) locally.
 
  
 
@@ -76,11 +77,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.1.8`
+`yarn add -D @esolidar/toolkit@1.2.2`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.1.8"`
+`"@esolidar/toolkit": "1.2.2"`
 
 
 ## Publish package
@@ -92,7 +93,7 @@ Steps to publish the package:
 3. Run `yarn styleguide:build` to build and push the new library version to the styleguide.
 4. Run `yarn build`
 5. Add all changes to git (pull/add/commit/push)
-6. Run `npm publish`
+6. Run `yarn build:publish`
 
 
 ## Using Sass

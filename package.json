@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.1.8",
+  "version": "1.2.2",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -16,6 +16,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add .  && git commit -m \"automated deployment\"  && git push",
     "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
+    "build:publish": "npm run build && npm publish",
     "clean": "nwb clean-module && nwb clean-demo",
     "lint": "react-scripts run lint"
   },
