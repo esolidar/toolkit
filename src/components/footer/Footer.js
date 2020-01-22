@@ -41,6 +41,19 @@ const Footer = ({
   const menu = (items) => (
     items.map((item, index) => (
       <li key={index}>
+        {item.url ? (
+          <a
+            href={item.url}
+            title={item.text}
+            target={item.target}
+          >
+            {item.text}
+          </a>
+        ) : (
+          <span title={item.text}>
+            {item.text}
+          </span>
+        )}
         <a
           href={item.url}
           title={item.text}

@@ -6,7 +6,7 @@ const Loading = ({ loadingClass, message }) => (
   <div className={loadingClass}>
     {isIE
       ? (<div className="ie-loader" />) : (
-        <div>
+        <div className="Loading">
           <div className="loader" />
           <div className="loader-message">{message}</div>
         </div>
