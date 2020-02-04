@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const TextFieldGroup = ({
   field,
   value,
+  defaultValue,
   label,
   error,
   type,
@@ -29,6 +30,7 @@ const TextFieldGroup = ({
       <input
         onChange={onChange}
         value={value}
+        defaultValue={defaultValue}
         type={type}
         name={field}
         placeholder={placeholder}
@@ -48,8 +50,12 @@ export default TextFieldGroup;
 
 TextFieldGroup.propTypes = {
   field: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),

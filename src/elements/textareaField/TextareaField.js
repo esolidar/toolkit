@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const TextareaField = ({
   field,
   value,
+  defaultValue,
   label,
   error,
   onChange,
@@ -30,6 +31,7 @@ const TextareaField = ({
       disabled={disabled}
       onChange={onChange}
       value={value}
+      defaultValue={defaultValue}
       name={field}
       maxLength={maxLength || ''}
       placeholder={placeholder}
@@ -42,11 +44,15 @@ const TextareaField = ({
 
 TextareaField.propTypes = {
   field: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   label: PropTypes.string,
   error: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),

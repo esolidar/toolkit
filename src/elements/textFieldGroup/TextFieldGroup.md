@@ -15,7 +15,7 @@ import { TextFieldGroup } from '@esolidar/toolkit';
   placeholder="Placeholder"
   onChange={()=>console.log('test')}
   field="textFieldGroup"
-  value="TextFieldGroup"
+  defaultValue="defaultValue"
   message="Mensagem"
   disabled={true}
 />

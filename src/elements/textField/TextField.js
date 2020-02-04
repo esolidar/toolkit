@@ -5,6 +5,7 @@ import classnames from 'classnames';
 const TextField = ({
   field,
   value,
+  defaultValue,
   label,
   type,
   onChange,
@@ -35,8 +36,10 @@ const TextField = ({
       onFocus={onFocus}
       onBlur={onBlur}
       value={value}
+      defaultValue={defaultValue}
       type={type}
       name={field}
+      id={field}
       placeholder={placeholder}
       maxLength={maxLength}
       disabled={disabled}
@@ -53,9 +56,13 @@ TextField.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   label: PropTypes.string,
   type: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   error: PropTypes.string,
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,

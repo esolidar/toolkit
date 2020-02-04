@@ -17,6 +17,7 @@ export { default as ProjectDetail } from './components/projectDetail/ProjectDeta
 export { default as LightboxGallery } from './components/lightboxGallery/LightboxGallery';
 
 // Elements
+export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';
 export { default as CheckboxField } from './elements/checkboxField/CheckboxField';
