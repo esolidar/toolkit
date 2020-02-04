@@ -11,5 +11,6 @@ export { default as SocialNetworks } from './components/socialNetworks/SocialNet
 export { default as StatisticsBox } from './components/statisticsBox/StatisticsBox';
 
 // Elements
+export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';

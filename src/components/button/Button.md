@@ -10,7 +10,7 @@ import { Button } from '@esolidar/toolkit';
 ``` jsx
 <div>
 <p>
-<Button extraClass="success" target="_blank" href="#" text="success" />
+<Button extraClass="success" target="_blank" type="submit" text="success" />
 <Button extraClass="dark" target="_blank" href="#" text="dark" />
 <Button extraClass="info" target="_blank" href="#" text="info" />
 <Button extraClass="warning" target="_blank" href="#" text="warning" />
