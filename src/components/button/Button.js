@@ -1,25 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to,
+  extraClass, target, href, text, onClick, to, type,
 }) => {
-  let type;
+  let style;
   if (onClick) {
-    type = 'button';
+    style = 'button';
+  } else if (type === 'submit') {
+    style = 'submit';
   } else if (to) {
-    type = 'link';
+    style = 'link';
   }
 
   const renderButton = () => {
-    switch (type) {
+    switch (style) {
       case 'button':
         return (
           <button
             type="button"
             onClick={onClick}
+            className={classnames(`btn-esolidar btn-${extraClass}`)}
+          >
+            {text}
+          </button>
+        );
+
+      case 'submit':
+        return (
+          <button
+            type="submit"
             className={classnames(`btn-esolidar btn-${extraClass}`)}
           >
             {text}
@@ -58,7 +70,12 @@ Button.propTypes = {
   text: PropTypes.string,
   href: PropTypes.string,
   to: PropTypes.string,
+  type: PropTypes.string,
   onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  type: 'button',
 };
 
 export default Button;

@@ -6,12 +6,12 @@ import { TextField } from '@esolidar/toolkit';
 ``` jsx
 <TextField 
 label="Lorem Ipsum " 
+type="text"
 onChange={() => {}}
 error='' 
 placeholder="" 
-value='' 
-field="forCompanies" 
-fieldTranslate=""
+defaultValue='defaultValue' 
+field="forCompanies"
 />
 ```
 

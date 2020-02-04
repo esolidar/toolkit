@@ -5,26 +5,33 @@ import classnames from 'classnames';
 const TextareaField = ({
   field,
   value,
+  defaultValue,
   label,
   error,
   onChange,
-  checkUserExists,
   placeholder,
   message,
   maxLength,
   disabled,
+  help,
+  required,
 }) => (
-  <div className={classnames('form-group', { 'has-error': error || message })}>
+  <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
     {label && (
-    <label htmlFor={field} className="control-label">
-      {label}
-    </label>
+      <label htmlFor={field} className="control-label">
+        {label}
+      </label>
+    )}
+    {help && (
+      <p>
+        {help}
+      </p>
     )}
     <textarea
       disabled={disabled}
       onChange={onChange}
-      onBlur={checkUserExists}
       value={value}
+      defaultValue={defaultValue}
       name={field}
       maxLength={maxLength || ''}
       placeholder={placeholder}
@@ -37,18 +44,23 @@ const TextareaField = ({
 
 TextareaField.propTypes = {
   field: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   label: PropTypes.string,
   error: PropTypes.string,
   placeholder: PropTypes.string,
-  checkUserExists: PropTypes.func,
   value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),
   message: PropTypes.string,
   maxLength: PropTypes.number,
   disabled: PropTypes.bool,
+  help: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default TextareaField;

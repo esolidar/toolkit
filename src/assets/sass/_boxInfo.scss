@@ -1,0 +1,22 @@
+.box {
+  background-color: #FFFFFF;
+  box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border          : 1px solid #E7EAED;
+  border-radius   : 4px;
+  padding         : 40px;
+  margin-bottom   : 15px;
+
+  p {
+    color         : $mainTextColorDark;
+    font-size     : 15px;
+    letter-spacing: 0;
+    line-height   : 26px;
+    padding       : 0;
+    margin        : 0;
+  }
+
+  .btn-esolidar {
+    float      : right;
+    margin-left: 15px;
+  }
+}

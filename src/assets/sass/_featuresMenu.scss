@@ -1,0 +1,162 @@
+  .sidebar-menu {
+    margin : 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      border    : 1px solid transparent;
+
+      .menu-soon {
+        float     : right;
+        margin-top: 5px;
+        opacity   : .5;
+      }
+
+      a {
+        font-family   : $fontFamily;
+        font-size     : 15px;
+        color         : $mainTextColorDark;
+        letter-spacing: 0;
+        line-height   : 18px;
+        padding       : 15px 20px;
+        display       : block;
+        white-space   : nowrap;
+        min-width     : 250px;
+
+        .icon {
+          width            : 21px;
+          height           : 21px;
+          display          : inline-block;
+          margin-right     : 20px;
+          background-image : url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/menu-icons.svg');
+          background-repeat: no-repeat;
+        }
+
+        .feed {
+          background-position: 0 -21px;
+        }
+
+        .auction {
+          background-position: -21px -21px;
+        }
+
+        .employees {
+          background-position: -41px -21px;
+        }
+
+        .giftcards {
+          background-position: -61px -21px;
+        }
+
+        .match {
+          background-position: -81px -21px;
+        }
+
+        .crowdfunding {
+          background-position: -101px -21px;
+        }
+
+        .payments {
+          background-position: -124px -21px;
+        }
+
+        .ic-statistics {
+          background-position: -144px -21px;
+        }
+
+        .volunteering {
+          background-position: -170px -21px;
+        }
+      }
+
+      &.active {
+        background   : #FFFFFF;
+        border       : 1px solid #E7EBED;
+        box-shadow   : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+
+        .menu-soon {
+          opacity: 1;
+        }
+
+        .feed {
+          background-position: 0 0;
+        }
+
+        .auction {
+          background-position: -21px 0;
+        }
+
+        .employees {
+          background-position: -41px 0;
+        }
+
+        .giftcards {
+          background-position: -61px 0;
+        }
+
+        .match {
+          background-position: -81px 0;
+        }
+
+        .crowdfunding {
+          background-position: -101px 0;
+        }
+
+        .payments {
+          background-position: -124px 0;
+        }
+
+        .ic-statistics {
+          background-position: -144px 0;
+        }
+
+        .volunteering {
+          background-position: -170px 0;
+        }
+      }
+
+      &:hover {
+        background   : #FFFFFF;
+        border       : 1px solid #E7EBED;
+        box-shadow   : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+
+        .feed {
+          background-position: 0 0;
+        }
+
+        .auction {
+          background-position: -21px 0;
+        }
+
+        .employees {
+          background-position: -41px 0;
+        }
+
+        .giftcards {
+          background-position: -61px 0;
+        }
+
+        .match {
+          background-position: -81px 0;
+        }
+
+        .crowdfunding {
+          background-position: -101px 0;
+        }
+
+        .payments {
+          background-position: -124px 0;
+        }
+
+        .ic-statistics {
+          background-position: -144px 0;
+        }
+
+        .volunteering {
+          background-position: -170px 0;
+        }
+      }
+    }
+  }
