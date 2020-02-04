@@ -1,33 +1,50 @@
-.form-control {
-  background-color  : #FFFFFF;
-  border            : 2px solid $grayLight;
-  border-radius     : 3px;
-  box-shadow        : none;
-  -webkit-box-shadow: none;
-  -moz-appearance   : none;
-  font-family       : $fontFamily;
-  font-size         : 15px;
-  color             : $inputLabelColor;
-  letter-spacing    : -0.31px;
-  line-height       : 24px;
+.form-group {
+  position: relative;
 
-  &:focus {
-    border    : 2px solid $grayDark;
-    box-shadow: none;
+  .form-control {
+    background-color  : #FFFFFF;
+    border            : 2px solid $grayLight;
+    border-radius     : 3px;
+    box-shadow        : none;
+    -webkit-box-shadow: none;
+    -moz-appearance   : none;
+    font-family       : $fontFamily;
+    font-size         : 15px;
+    color             : $inputLabelColor;
+    letter-spacing    : -0.31px;
+    line-height       : 24px;
+
+    &:focus {
+      border    : 2px solid $grayDark;
+      box-shadow: none;
+    }
   }
-}
 
-.form-control[disabled] {
-  opacity: 0.5;
-}
+  .form-control[disabled] {
+    opacity: 0.5;
+  }
 
-.control-label {
-  font-family   : $fontFamily;
-  font-size     : 12px;
-  font-weight   : 900;
-  line-height   : 19px;
-  color         : $inputLabelColor;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  display       : block;
+  .control-label {
+    font-family   : $fontFamily;
+    font-size     : 12px;
+    font-weight   : 900;
+    line-height   : 19px;
+    color         : $inputLabelColor;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    display       : block;
+  }
+
+  &.required {
+    &:after {
+      content      : '';
+      position     : absolute;
+      top          : 5px;
+      right        : 5px;
+      width        : 5px;
+      height       : 5px;
+      border-radius: 50%;
+      background   : $dangerColor;
+    }
+  }
 }

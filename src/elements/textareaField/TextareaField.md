@@ -12,7 +12,6 @@ import { TextareaField } from '@esolidar/toolkit';
   error="error"
   placeholder="Placeholder"
   onChange={()=>console.log('test')}
-  checkUserExists={()=>console.log('test')}
   field="Textarea_name"
   value="Textarea"
   message="Mensagem"

@@ -17,7 +17,7 @@ module.exports = {
     {
       name: 'Components',
       components: 'src/components/**/*.js',
-      ignore: ['src/components/icon/Icon.js'],
+      ignore: ['src/components/icon/Icon.js', 'src/components/draftEditor/draft/*'],
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },

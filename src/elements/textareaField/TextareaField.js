@@ -8,22 +8,27 @@ const TextareaField = ({
   label,
   error,
   onChange,
-  checkUserExists,
   placeholder,
   message,
   maxLength,
   disabled,
+  help,
+  required,
 }) => (
-  <div className={classnames('form-group', { 'has-error': error || message })}>
+  <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
     {label && (
-    <label htmlFor={field} className="control-label">
-      {label}
-    </label>
+      <label htmlFor={field} className="control-label">
+        {label}
+      </label>
+    )}
+    {help && (
+      <p>
+        {help}
+      </p>
     )}
     <textarea
       disabled={disabled}
       onChange={onChange}
-      onBlur={checkUserExists}
       value={value}
       name={field}
       maxLength={maxLength || ''}
@@ -41,7 +46,6 @@ TextareaField.propTypes = {
   label: PropTypes.string,
   error: PropTypes.string,
   placeholder: PropTypes.string,
-  checkUserExists: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -49,6 +53,8 @@ TextareaField.propTypes = {
   message: PropTypes.string,
   maxLength: PropTypes.number,
   disabled: PropTypes.bool,
+  help: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default TextareaField;

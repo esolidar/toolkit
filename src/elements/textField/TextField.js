@@ -15,12 +15,19 @@ const TextField = ({
   placeholder,
   message,
   disabled,
+  help,
+  required,
 }) => (
-  <div className={classnames('form-group', { 'has-error': error || message })}>
+  <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
     {label && (
-      <label htmlFor={field} className="control-label">
-        {label}
-      </label>
+    <label htmlFor={field} className="control-label">
+      {label}
+    </label>
+    )}
+    {help && (
+    <p>
+      {help}
+    </p>
     )}
     <input
       autoComplete="off"
@@ -56,6 +63,8 @@ TextField.propTypes = {
   placeholder: PropTypes.string,
   message: PropTypes.string,
   disabled: PropTypes.bool,
+  help: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default TextField;

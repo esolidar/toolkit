@@ -39,11 +39,12 @@ import { Footer } from '@esolidar/toolkit';
     ]}
     secondMenuFooter={[
         { text: "Follow us", url: "#", target: "_self"}, 
-        { text: "Follow us", url: "#", target: "_self",
-                submenu:[
-                    { text: "Follow us", url: "#", target: "_self"},
-                    { text: "Follow us", url: "#", target: "_self"}
-                    ]}, 
+        { text: "Follow us",
+            submenu:[
+                { text: "Follow us", url: "#", target: "_self"},
+                { text: "Follow us", url: "#", target: "_self"}
+            ]
+        }, 
     ]}
     bottomMenuFooter={[
         { text: "Terms and Conditions", url: "#", target: "_self"},
