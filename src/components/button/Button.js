@@ -64,7 +64,7 @@ const Button = ({
   return renderButton();
 };
 
-Button.propstyles = {
+Button.propTypes = {
   extraClass: PropTypes.string,
   target: PropTypes.string,
   text: PropTypes.string,
