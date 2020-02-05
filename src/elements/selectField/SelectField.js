@@ -26,7 +26,7 @@ const SelectField = ({
     <div className={classnames('form-group', { 'has-error': error })}>
       {label
         && (
-          <label htmlFor={label} className="control-label">
+          <label htmlFor={field} className="control-label">
             {label}
           </label>
         )}
