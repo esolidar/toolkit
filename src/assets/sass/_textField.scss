@@ -8,7 +8,6 @@
     box-shadow        : none;
     -webkit-box-shadow: none;
     -moz-appearance   : none;
-    font-family       : $fontFamily;
     font-size         : 15px;
     color             : $inputLabelColor;
     letter-spacing    : -0.31px;
@@ -25,7 +24,6 @@
   }
 
   .control-label {
-    font-family   : $fontFamily;
     font-size     : 12px;
     font-weight   : 900;
     line-height   : 19px;

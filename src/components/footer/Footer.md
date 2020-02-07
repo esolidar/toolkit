@@ -50,6 +50,7 @@ import { Footer } from '@esolidar/toolkit';
         { text: "Terms and Conditions", url: "#", target: "_self"},
         { text: "Privacy Policy", url: "#", target: "_self"},
     ]}
+    addressText='Rua das Irmãs Missionárias do Espirito Santo, 33 Braga'
 />
 </div>
 ```

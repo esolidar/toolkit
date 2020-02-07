@@ -95,6 +95,7 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.12.0",
+    "react-dropzone": "^10.2.1",
     "react-images": "^1.1.0-beta.3",
     "react-intl": "^3.10.0",
     "react-redux": "^7.1.3",

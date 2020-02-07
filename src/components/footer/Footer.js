@@ -21,6 +21,7 @@ const Footer = ({
   bottomMenuFooter,
   newsletterID,
   newsletterTitle,
+  addressText,
 }) => {
   const copyrightText = `©${new Date().getFullYear()} ${copyright}`;
 
@@ -101,6 +102,12 @@ const Footer = ({
             <span>
               {copyrightText}
             </span>
+            {addressText && (
+              <span className="address">
+                <br />
+                {addressText}
+              </span>
+            )}
           </Col>
           <Col xs={{ span: 12, order: 0 }} sm={{ span: 6, order: 0 }} md={{ span: 5, order: 1 }}>
             <ul>
@@ -181,6 +188,7 @@ Footer.propTypes = {
   ),
   newsletterID: PropTypes.string,
   newsletterTitle: PropTypes.string,
+  addressText: PropTypes.string,
 };
 
 

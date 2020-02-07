@@ -57,8 +57,8 @@ const props = {
   serverlessResizeImage: 'https://image.testesolidar.com',
 };
 
-describe('BoxInfo component', () => {
-  it('renders BoxInfo correctly', () => {
+describe('ProjectDetail component', () => {
+  it('renders ProjectDetail correctly', () => {
     const component = shallow(<ProjectDetail {...props} />);
     expect(component).toHaveLength(1);
   });
