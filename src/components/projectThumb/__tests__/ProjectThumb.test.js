@@ -22,6 +22,7 @@ const props = {
     form: '{}',
     status: 'IN_REVIEW',
     uuid: '123',
+    images: [],
   },
   serverlessResizeImage: 'https://image.testesolidar.com',
   lang: 'pt',

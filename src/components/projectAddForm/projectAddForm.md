@@ -9,9 +9,21 @@ import { ProjectAddForm } from '@esolidar/toolkit';
 
 ``` jsx
 <ProjectAddForm
-  color='red'
+  color={{
+    primaryColor: 'red'
+  }}
   errors={{}}
   lang= 'pt'
+  categories={[
+    {
+      id: 1,
+      name: 'Categoria 1'
+    },
+    {
+      id: 2,
+      name: 'Categoria 2'
+    },
+  ]}
   ods={[
     {
       id: 1,
@@ -21,6 +33,16 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       updated_at: "2020-02-05 17:26:34",
       created_at: "2020-02-05 17:26:27",
       name: "1-ods-1",
+    },
+    {
+      id: 2,
+      ods_id: 2,
+      tag_name: "ods-2",
+      status: true,
+      updated_at: "2020-02-05 17:26:34",
+      created_at: "2020-02-05 17:26:27",
+      name: "2-ods-2",
+      checked: true,
     }
   ]}
   form={[
@@ -44,7 +66,8 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       name:"Project title",
       type:"input",
       fixed:true,
-      required:true
+      required:true,
+      value: "Title"
    },
    {
       id:"input-2",
@@ -58,16 +81,14 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       name:"Categories",
       type:"dropdown",
       fixed:true,
-      required:true
+      required:true,
+      reply: 2
    },
    {
       id:"input-4",
       name:"ODS",
       type:"ods",
       fixed:true,
-      reply:[
-
-      ],
       required:true
    },
    {
@@ -154,7 +175,7 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       type:"textarea",
       required:true
    }
-]}
+   ]}
 />
 
 ```
