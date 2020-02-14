@@ -15,12 +15,12 @@ $mainColorDark : #163352 !default;
 
 
 /* Grays */
-$grayDark       : #738598 !default;
-$graySemiDark   : #A2ADBA !default;
-$grayLight      : #D0D6DD !default;
-$grayExtraLight : #E7EBED !default;
-$grayWhite      : #F6F9F9 !default;
-$grayWhiteLight : #FBFCFC !default;
+$grayDark         : #738598 !default;
+$graySemiDark     : #A2ADBA !default;
+$grayLight        : #D0D6DD !default;
+$grayExtraLight   : #E7EBED !default;
+$grayWhite        : #F6F9F9 !default;
+$grayWhiteLight   : #FBFCFC !default;
 
 /* Warnings */
 $infoColor   : #05c6e5 !default;
@@ -42,12 +42,11 @@ $borderColor         : #D0D6DD !default;
 $inputTextColor      : #455C75 !default;
 $inputBackgroundColor: #fff !default;
 $boxShadow           : inset 0 1px 1px rgba(0, 0, 0, .075) !default;
-$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075)
-0 0 6px lighten($borderColor, 20%) !default;
+$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075) 0 0 6px lighten($borderColor, 20%) !default;
 
 /* Btn Colors */
-$btnDark : #455C75 !default;
-$btnInfo : #05c6e5 !default;
+$btnDark   : #455C75 !default;
+$btnInfo   : #05c6e5 !default;
 $btnSuccess: #34C77F !default;
 $btnWarning: #FFBE00 !default;
 $btnDanger : #ff494c !default;
