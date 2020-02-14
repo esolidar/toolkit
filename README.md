@@ -13,7 +13,6 @@ Toolkit for building eSolidar Projects.
 <br>
 </p>
 <div align="center">
-<img src="https://img.shields.io/badge/GitHub%20Package-v.1.3.0-blue" alt="GitHub Package">
 <img src="https://img.shields.io/badge/node-v12.13.1-blue" alt="node version">
 <img src="https://s3-eu-west-1.amazonaws.com/codefactory-eu-west-1-prod-default-build-badges/passing.svg" alt="AWS CodeBuild">
 <img src="https://img.shields.io/badge/coverage-98.18%25-green" alt="coverage">
@@ -77,11 +76,11 @@ If you want to use our package, just follow these instructions:
 
 ##### Install from the command line:
 
-`yarn add -D @esolidar/toolkit@1.3.0`
+`yarn add -D @esolidar/toolkit`
 
 ##### Install via package.json:
 
-`"@esolidar/toolkit": "1.3.0"`
+`"@esolidar/toolkit": "LAST_VERSION"`
 
 
 ## Publish package
@@ -116,7 +115,7 @@ import '~@esolidar/toolkit/lib/assets/sass/footer';
 
 To override the styles used in the library components, simply override the following sass variables:
 
-[_variaveis](https://github.com/esolidar/toolkit/blob/master/src/assets/sass/_variables.scss)
+[_variables](https://github.com/esolidar/toolkit/blob/master/src/assets/sass/_variables.scss)
 
 Then, you must create a sass file in your project and include the following import:
 (variables before the library)

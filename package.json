@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -54,6 +54,7 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.12.0",
+    "react-dropzone": "^10.2.1",
     "react-images": "^1.1.0-beta.3",
     "react-infinite-scroller": "^1.2.4",
     "react-intl": "^3.9.1",
@@ -61,7 +62,8 @@
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "slugify": "^1.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

@@ -134,15 +134,7 @@ NotificationsBell.propTypes = {
   markAllAsReadFunc: PropTypes.func.isRequired,
   markAsReadFunc: PropTypes.func.isRequired,
   handleScrollFunc: PropTypes.func.isRequired,
-  notifications: PropTypes.arrayOf({
-    code: PropTypes.number,
-    data: PropTypes.shape({
-      data: PropTypes.array,
-      current_page: PropTypes.number,
-      total: PropTypes.number,
-      last_page: PropTypes.number,
-    }),
-  }),
+  notifications: PropTypes.array,
   loadMoreFunc: PropTypes.func.isRequired,
   hasMoreToLoad: PropTypes.bool,
 };
