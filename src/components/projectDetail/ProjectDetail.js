@@ -5,7 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 
 const ProjectDetail = ({
-  project, returnUrl, returnText, color, status, lang, serverlessResizeImage,
+  project, returnText, color, status, lang, serverlessResizeImage,
 }) => {
   if (isEmpty(project) || !project) return (<div />);
 
@@ -19,29 +19,25 @@ const ProjectDetail = ({
             </h2>
           </Col>
           <Col sm={12}>
-            <a href={returnUrl} className="back">
+            <button type="button" onClick={() => window.history.back()} className="back">
               <img src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-go-back.svg" alt="" />
               {returnText}
-            </a>
+            </button>
           </Col>
           <Col sm={12} className="box">
             <Row>
-              <Col sm={12}>
-                <h3>
-                  Sobre o projeto
-                </h3>
-              </Col>
-              <Col sm={12}>
-                {project.description}
-              </Col>
               {project.form && (
                 <Col sm={12}>
-                  {project.form.map((q) => (
-                    <div key={q.name}>
-                      <h4 style={{ color }}>{q.name}</h4>
-                      <p>{q.answer}</p>
-                    </div>
-                  ))}
+                  {project.form.map((q) => {
+                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.name !== 'Categories') && (q.type !== 'upload-images')) {
+                      return (
+                        <div key={q.name}>
+                          <h4 style={{ color }}>{q.name}</h4>
+                          <p>{q.reply}</p>
+                        </div>
+                      );
+                    }
+                  })}
                 </Col>
               )}
             </Row>
@@ -66,14 +62,14 @@ const ProjectDetail = ({
             <h4 style={{ color }}>
               Category
             </h4>
-            <p className="category-name">{project.category.name}</p>
+            <p className="category-name">{project.project_category.name}</p>
           </div>
           <div className="ods-thumb">
             <h4 style={{ color }}>
               ODS
             </h4>
             {project.ods.map((item) => (
-              <div className="ods" key={item} style={{ backgroundImage: `url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item}.png)` }} />
+              <div className="ods" key={item.id} style={{ backgroundImage: `url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png)` }} />
             ))}
           </div>
           {!project.cover && (
@@ -90,7 +86,6 @@ const ProjectDetail = ({
 
 ProjectDetail.propTypes = {
   project: PropTypes.object.isRequired,
-  returnUrl: PropTypes.string,
   returnText: PropTypes.string,
   color: PropTypes.string,
   status: PropTypes.string,

@@ -23,7 +23,7 @@ const TextareaField = ({
       </label>
     )}
     {help && (
-      <p>
+      <p className="help">
         {help}
       </p>
     )}

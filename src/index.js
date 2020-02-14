@@ -15,9 +15,13 @@ export { default as HtmlEditor } from './components/htmlEditor/HtmlEditor';
 export { default as ProjectThumb } from './components/projectThumb/ProjectThumb';
 export { default as ProjectDetail } from './components/projectDetail/ProjectDetail';
 export { default as LightboxGallery } from './components/lightboxGallery/LightboxGallery';
+export { default as ProjectFilters } from './components/projectFilters/ProjectFilters';
+export { default as ProjectAddForm } from './components/projectAddForm/ProjectAddForm';
+export { default as NotificationsBell } from './components/noticationsBell/NotificationsBell';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';
 export { default as CheckboxField } from './elements/checkboxField/CheckboxField';
+export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage';

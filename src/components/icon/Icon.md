@@ -876,8 +876,17 @@ USE:
   </div>
   <div className="glyph" style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
       <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-file-picture" />
-          <input type="text" readOnly value="icon-file-picture" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
+          <Icon iconClass="icon-image" />
+          <input type="text" readOnly value="icon-image" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
+      </div>
+      <fieldset className="fs0 size1of1 clearfix hidden-false">
+          <input type="text" readOnly value="e95a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
+      </fieldset>
+  </div>
+  <div className="glyph" style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
+      <div className="clearfix bshadow0 pbs">
+          <Icon iconClass="icon-projects" />
+          <input type="text" readOnly value="icon-projects" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
       </div>
       <fieldset className="fs0 size1of1 clearfix hidden-false">
           <input type="text" readOnly value="e959" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />

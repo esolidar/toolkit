@@ -52,8 +52,9 @@
   }
 
   .thumb {
-    height  : 155px;
-    position: relative;
+    height         : 155px;
+    position       : relative;
+    background-size: cover;
 
     &::before {
       content         : '';

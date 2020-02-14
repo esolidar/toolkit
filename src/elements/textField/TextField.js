@@ -26,9 +26,9 @@ const TextField = ({
     </label>
     )}
     {help && (
-    <p>
-      {help}
-    </p>
+      <p className="help">
+        {help}
+      </p>
     )}
     <input
       autoComplete="off"

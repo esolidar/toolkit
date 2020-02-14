@@ -11,6 +11,7 @@ const SelectField = ({
   disabled,
   selectText,
   error,
+  defaultValue,
 }) => {
   const optionsList = (options) => {
     if (options) {
@@ -26,7 +27,7 @@ const SelectField = ({
     <div className={classnames('form-group', { 'has-error': error })}>
       {label
         && (
-          <label htmlFor={label} className="control-label">
+          <label htmlFor={field} className="control-label">
             {label}
           </label>
         )}
@@ -34,6 +35,7 @@ const SelectField = ({
         name={field}
         className="form-control"
         value={value}
+        defaultValue={defaultValue}
         onChange={onChange}
         disabled={disabled}
       >
@@ -52,6 +54,10 @@ export default SelectField;
 SelectField.propTypes = {
   options: PropTypes.array,
   value: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  defaultValue: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),

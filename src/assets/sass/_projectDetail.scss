@@ -8,6 +8,8 @@
     line-height    : 26px;
     padding        : 5px 0;
     margin         : 30px 0;
+    border         : none;
+    background     : transparent;
 
     img {
       margin-right: 15px;
@@ -45,6 +47,7 @@
   .ods-thumb {
     padding: 15px;
     display: inline-block;
+    width  : 100%;
 
     .ods {
       width          : 55px;
