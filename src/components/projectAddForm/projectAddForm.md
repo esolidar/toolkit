@@ -94,7 +94,7 @@ import { ProjectAddForm } from '@esolidar/toolkit';
    {
       id:"input-5",
       name:"Images",
-      type:"upload-imags",
+      type:"upload-images",
       fixed:true,
       required:true
    },
@@ -175,6 +175,7 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       type:"textarea",
       required:true
    }
+   dragAndDropMessage="Arraste e solte alguns ficheiros aqui ou clique para selecionar os ficheiros"
    ]}
 />
 

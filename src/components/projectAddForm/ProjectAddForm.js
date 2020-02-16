@@ -209,7 +209,7 @@ ProjectAddForm.propTypes = {
   hideDropZone: PropTypes.bool,
   categories: PropTypes.array,
   dragAndDropMessage: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 ProjectAddForm.defaultProps = {

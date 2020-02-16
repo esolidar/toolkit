@@ -95,3 +95,48 @@
     line-height   : 22px;
   }
 }
+
+.box-images {
+  background-color: #FFFFFF;
+  border          : 2px solid #D0D6DD;
+  border-radius   : 4px;
+  padding         : 0;
+  margin-bottom   : 15px;
+  background      : #eaeaea;
+
+  p {
+    padding    : 50px;
+    margin     : 0;
+    text-align : center;
+    font-size  : 15px;
+    font-weight: 500;
+  }
+
+  .thumb {
+    position: relative;
+    display : inline-block;
+    height  : 100px;
+    margin  : 10px;
+
+    img {
+      height: 100px;
+      border: 2px solid #888;
+    }
+
+    .Loading {
+      position  : absolute;
+      z-index   : 9;
+      top       : 0;
+      left      : 0;
+      right     : 0;
+      bottom    : 0;
+      min-height: auto;
+    }
+
+    .image-thumb-loading {
+      height : 100px;
+      opacity: 0.5;
+      border : 2px solid #888;
+    }
+  }
+}
