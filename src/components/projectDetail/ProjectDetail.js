@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from 'lodash/isEmpty';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
+import Button from '../button/Button';
 
 const ProjectDetail = ({
-  project, returnText, color, status, lang, serverlessResizeImage,
+  project, returnText, color, status, lang, serverlessResizeImage, admin,
 }) => {
   if (isEmpty(project) || !project) return (<div />);
 
@@ -79,6 +80,22 @@ const ProjectDetail = ({
             </div>
           )}
         </div>
+        {admin && (
+          <Row className="admin-buttons">
+            <Col sm={12} className="text-center">
+              <Button extraClass="warning" onClick={() => admin.changeStatus('IN_REVIEW')} text={admin.inReviewText} disabled={project.status === 'IN_REVIEW'} />
+            </Col>
+            <Col sm={12} className="text-center">
+              <Button extraClass="success" onClick={() => admin.changeStatus('APPROVED')} text={admin.aproveText} disabled={project.status === 'APPROVED'} />
+            </Col>
+            <Col sm={12} className="text-center">
+              <Button extraClass="info" onClick={() => admin.changeStatus('COMPLETED')} text={admin.completeText} disabled={project.status === 'COMPLETED'} />
+            </Col>
+            <Col sm={12} className="text-center">
+              <Button extraClass="danger" onClick={() => admin.changeStatus('REJECTED')} text={admin.rejectText} disabled={project.status === 'REJECTED'} />
+            </Col>
+          </Row>
+        )}
       </Col>
     </Row>
   );
@@ -91,6 +108,13 @@ ProjectDetail.propTypes = {
   status: PropTypes.string,
   lang: PropTypes.string.isRequired,
   serverlessResizeImage: PropTypes.string.isRequired,
+  admin: PropTypes.shape({
+    changeStatus: PropTypes.func,
+    inReviewText: PropTypes.string,
+    aproveText: PropTypes.string,
+    completeText: PropTypes.string,
+    rejectText: PropTypes.string,
+  }),
 };
 
 export default ProjectDetail;

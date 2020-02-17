@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to, type,
+  extraClass, target, href, text, onClick, to, type, disabled,
 }) => {
   let style;
   if (onClick) {
@@ -23,6 +23,7 @@ const Button = ({
             type="button"
             onClick={onClick}
             className={classnames(`btn-esolidar btn-${extraClass}`)}
+            disabled={disabled}
           >
             {text}
           </button>
@@ -33,6 +34,7 @@ const Button = ({
           <button
             type="submit"
             className={classnames(`btn-esolidar btn-${extraClass}`)}
+            disabled={disabled}
           >
             {text}
           </button>
@@ -72,6 +74,7 @@ Button.propTypes = {
   to: PropTypes.string,
   type: PropTypes.string,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
