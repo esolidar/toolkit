@@ -87,7 +87,7 @@ const ProjectAddForm = ({
             return (
               <SelectField
                 key={field.id}
-                options={field.name === 'Categories' ? categories : field.options}
+                options={categories}
                 defaultValue={field.reply}
                 label={field.name}
                 field={field.id}
