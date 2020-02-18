@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from 'lodash/isEmpty';
+import { FormattedMessage } from 'react-intl';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../button/Button';
 
@@ -30,7 +31,7 @@ const ProjectDetail = ({
               {project.form && (
                 <Col sm={12}>
                   {project.form.map((q) => {
-                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.name !== 'Categories') && (q.type !== 'upload-images')) {
+                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.name !== 'Categories') && (q.name !== 'Categorias') && (q.type !== 'upload-images')) {
                       return (
                         <div key={q.name}>
                           <h4 style={{ color }}>{q.name}</h4>
@@ -61,13 +62,19 @@ const ProjectDetail = ({
           </div>
           <div className="ods-thumb">
             <h4 style={{ color }}>
-              Category
+              <FormattedMessage
+                id="category"
+                defaultMessage="Category"
+              />
             </h4>
             <p className="category-name">{project.project_category.name}</p>
           </div>
           <div className="ods-thumb">
             <h4 style={{ color }}>
-              ODS
+              <FormattedMessage
+                id="ods"
+                defaultMessage="ODS"
+              />
             </h4>
             {project.ods.map((item) => (
               <div className="ods" key={item.id} style={{ backgroundImage: `url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png)` }} />
