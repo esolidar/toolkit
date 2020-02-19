@@ -35,7 +35,7 @@ import { ProjectDetail } from '@esolidar/toolkit';
           type: 'title', name: 'asdasd',
         },
         {
-          name: 'Qual o modelo de governança da sua Iniciativa?', type: 'textarea', fixed: true, required: true, reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor. Vestibulum pulvinar, nunc in maximus tempus, diam tortor ultrices leo, sed tempor nulla elit eget nunc. Nullam lacinia sem ipsum, at fermentum est elementum at. Curabitur ultrices mi tincidunt, feugiat quam vel, fermentum erat. Phasellus eget metus et ante euismod eleifend. Donec in egestas velit. Duis facilisis luctus rutrum.',
+          name: 'Qual o modelo de governança da sua Iniciativa?', type: 'textarea', fixed: true, required: false, reply: '',
         },
         {
           name: 'Entidade Associada', help: '', type: 'input', required: true, reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor. Vestibulum pulvinar, nunc in maximus tempus, diam tortor ultrices leo, sed tempor nulla elit eget nunc. Nullam lacinia sem ipsum, at fermentum est elementum at. Curabitur ultrices mi tincidunt, feugiat quam vel, fermentum erat. Phasellus eget metus et ante euismod eleifend. Donec in egestas velit. Duis facilisis luctus rutrum.',
