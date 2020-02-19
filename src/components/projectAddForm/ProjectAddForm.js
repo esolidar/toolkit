@@ -80,6 +80,7 @@ const ProjectAddForm = ({
                 field={field.id}
                 defaultValue={field.reply}
                 help={field.help}
+                resize={true}
               />
             );
 
