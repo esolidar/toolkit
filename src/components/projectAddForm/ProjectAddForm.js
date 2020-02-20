@@ -10,7 +10,7 @@ import CheckboxImage from '../../elements/checkboxImage/CheckboxImage';
 import Loading from '../loading/Loading';
 
 const ProjectAddForm = ({
-  color, form, errors, ods, newImages, onSelectOds, lang, uploadImagesLabel, onDrop, deleteImageGallery, hideDropZone, categories, dragAndDropMessage, onChange,
+  color, form, errors, ods, newImages, onSelectOds, lang, uploadImagesLabel, onDrop, deleteImageGallery, deleteErrorImageGallery, hideDropZone, categories, dragAndDropMessage, onChange,
 }) => {
   const renderFiles = () => (
     newImages.map((image, i) => (
@@ -19,11 +19,17 @@ const ProjectAddForm = ({
           <Loading />
         )}
         {image.error && (
-          <img
-            className="image-error"
-            src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
-            alt="Error"
-          />
+          <button
+            type="button"
+            className="btn-delete-error-image"
+            onClick={(e) => deleteErrorImageGallery(e, image)}
+          >
+            <img
+              className="image-error"
+              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
+              alt="Error"
+            />
+          </button>
         )}
         <img src={image.thumbs.thumb} alt="Thumb" className={(image.loading || image.error) ? 'image-thumb-loading' : 'image-thumb'} />
         {(!image.loading && !image.error) && (
@@ -80,6 +86,7 @@ const ProjectAddForm = ({
                 field={field.id}
                 defaultValue={field.reply}
                 help={field.help}
+                resize={true}
               />
             );
 
@@ -210,6 +217,7 @@ ProjectAddForm.propTypes = {
   categories: PropTypes.array,
   dragAndDropMessage: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  deleteErrorImageGallery: PropTypes.func,
 };
 
 ProjectAddForm.defaultProps = {

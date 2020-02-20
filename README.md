@@ -55,7 +55,7 @@ Steps to set up the project locally:
 8.  **Builds**
 9. Run `yarn styleguide:build` to create a production build for the styleguide documentation.
 10. Run `yarn build` to create a production build for the package.
-11. Rum `build:publish` to create a production build and publish the new version package.
+11. Rum `yarn build:publish` to create a production build and publish the new version package.
 12. Run `yarn clean` to delete the build (lib folder) locally.
 
  

@@ -32,7 +32,8 @@
 
     h4 {
       margin        : 25px 0 10px 0;
-      font-size     : 16px;
+      font-size     : 18px;
+      font-weight   : bold;
       letter-spacing: 0;
     }
 
@@ -73,7 +74,8 @@
 
     h4 {
       margin        : 0 5px 10px 5px;
-      font-size     : 16px;
+      font-size     : 18px;
+      font-weight   : bold;
       letter-spacing: 0;
     }
   }
@@ -94,7 +96,7 @@
 
 .admin-buttons {
   button {
-    width: 80%;
+    width        : 80%;
     margin-bottom: 15px;
   }
 }

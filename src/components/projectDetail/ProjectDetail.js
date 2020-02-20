@@ -31,7 +31,7 @@ const ProjectDetail = ({
               {project.form && (
                 <Col sm={12}>
                   {project.form.map((q) => {
-                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.name !== 'Categories') && (q.name !== 'Categorias') && (q.type !== 'upload-images')) {
+                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.type !== 'dropdown') && (q.type !== 'upload-images') && (q.reply)) {
                       return (
                         <div key={q.name}>
                           <h4 style={{ color }}>{q.name}</h4>

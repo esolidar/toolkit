@@ -13,9 +13,10 @@ import { TextareaField } from '@esolidar/toolkit';
   placeholder="Placeholder"
   onChange={()=>console.log('test')}
   field="Textarea_name"
-  value="Textarea"
+  defaultValue="Textarea"
   message="Mensagem"
   maxLength={100}
+  required={true}
+  xxx={true}
 />
 ```
-

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import autosize from 'autosize';
 
 const TextareaField = ({
   field,
@@ -15,32 +16,39 @@ const TextareaField = ({
   disabled,
   help,
   required,
-}) => (
-  <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
-    {label && (
-      <label htmlFor={field} className="control-label">
-        {label}
-      </label>
-    )}
-    {help && (
-      <p className="help">
-        {help}
-      </p>
-    )}
-    <textarea
-      disabled={disabled}
-      onChange={onChange}
-      value={value}
-      defaultValue={defaultValue}
-      name={field}
-      maxLength={maxLength || ''}
-      placeholder={placeholder}
-      className="form-control"
-    />
-    {error && <span className="help-block">{error}</span>}
-    {message && <span className="help-block">{message}</span>}
-  </div>
-);
+  resize,
+}) => {
+  if (resize) {
+    autosize(document.getElementsByTagName('textarea'));
+  }
+
+  return (
+    <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
+      {label && (
+        <label htmlFor={field} className="control-label">
+          {label}
+        </label>
+      )}
+      {help && (
+        <p className="help">
+          {help}
+        </p>
+      )}
+      <textarea
+        disabled={disabled}
+        onChange={onChange}
+        value={value}
+        defaultValue={defaultValue}
+        name={field}
+        maxLength={maxLength || ''}
+        placeholder={placeholder}
+        className="form-control"
+      />
+      {error && <span className="help-block">{error}</span>}
+      {message && <span className="help-block">{message}</span>}
+    </div>
+  );
+};
 
 TextareaField.propTypes = {
   field: PropTypes.string.isRequired,
@@ -61,6 +69,6 @@ TextareaField.propTypes = {
   disabled: PropTypes.bool,
   help: PropTypes.string,
   required: PropTypes.bool,
+  resize: PropTypes.bool,
 };
-
 export default TextareaField;
