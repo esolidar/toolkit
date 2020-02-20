@@ -87,7 +87,7 @@ const Footer = ({
           </Col>
           {
             socialIcons && (
-              <Col xs={12} sm={12} md={6} lg={4} className="text-right">
+              <Col xs={12} sm={12} md={6} lg={4} className="text-right no-padding-mobile">
                 <SocialNetworks
                   icons={socialIcons}
                   headingText={socialTitle}
