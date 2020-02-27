@@ -30,9 +30,10 @@
 
     @media(max-width: 425px) {
       position: absolute;
-      top     : 0;
-      right   : 0;
+      top     : 25px;
+      left    : 0;
       margin  : -14px 0 0 0;
+      z-index : 99999;
     }
   }
 
@@ -44,22 +45,45 @@
   }
 
   .dropdown-menu {
-    margin-top: 13px;
-    padding   : 0;
-
-    &:after {
-      left: 91%;
-    }
+    top  : 110%;
+    right: -134%;
+    left : auto;
 
     &:before {
-      left: 91%;
+      bottom             : 100%;
+      left               : 65%;
+      border             : solid transparent;
+      content            : " ";
+      height             : 0;
+      width              : 0;
+      position           : absolute;
+      pointer-events     : none;
+      border-color       : rgba(199, 199, 199, 0);
+      border-bottom-color: #c7c7c7;
+      border-width       : 11px;
+      margin-left        : -11px;
+    }
+
+    &:after {
+      bottom             : 100%;
+      left               : 65%;
+      border             : solid transparent;
+      content            : " ";
+      height             : 0;
+      width              : 0;
+      position           : absolute;
+      pointer-events     : none;
+      border-color       : rgba(255, 255, 255, 0);
+      border-bottom-color: #fff;
+      border-width       : 10px;
+      margin-left        : -10px;
     }
 
     @media(max-width: 425px) {
       position: absolute;
-      top     : 28px;
-      right   : -58px;
-      left    : inherit;
+      top     : 53px;
+      right   : 0;
+      left    : 0;
     }
   }
 
@@ -158,6 +182,10 @@
 
     .notification-thumb {
       float: left;
+    }
+
+    @media (max-width: 425px) {
+      max-height: 225px;
     }
   }
 
