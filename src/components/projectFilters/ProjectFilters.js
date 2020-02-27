@@ -74,7 +74,7 @@ const ProjectFilters = ({
             {ods.map((o) => (
               <Col sm={6} key={o.ods_id}>
                 <CheckboxField
-                  label={`${o.ods_id} - ${o.name}`}
+                  label={o.name}
                   error=""
                   onChange={(x) => onSelectOds(x)}
                   name={o.tag_name}

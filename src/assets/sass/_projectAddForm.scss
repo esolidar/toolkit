@@ -140,3 +140,17 @@
     }
   }
 }
+
+.btn-delete-error-image {
+  position  : absolute;
+  width     : 100%;
+  padding   : 0;
+  margin    : 0;
+  border    : none;
+  background: transparent;
+  z-index   : 9;
+
+  .image-error {
+    margin-left: calc(50% - 65px) !important;
+  }
+}

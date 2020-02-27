@@ -175,8 +175,8 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       type:"textarea",
       required:true
    }
-   dragAndDropMessage="Arraste e solte alguns ficheiros aqui ou clique para selecionar os ficheiros"
    ]}
+   dragAndDropMessage="Arraste e solte alguns ficheiros aqui ou clique para selecionar os ficheiros"
 />
 
 ```
