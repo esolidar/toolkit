@@ -102,7 +102,7 @@ const NotificationsBell = ({
               loadMore={loadMoreFunc}
               hasMore={hasMoreToLoad}
               loader={(
-                <div className="text-center">
+                <div key={0} className="text-center">
                   <img
                     alt="Loading"
                     src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/loader.svg"
