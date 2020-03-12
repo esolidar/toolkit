@@ -18,6 +18,7 @@ export { default as LightboxGallery } from './components/lightboxGallery/Lightbo
 export { default as ProjectFilters } from './components/projectFilters/ProjectFilters';
 export { default as ProjectAddForm } from './components/projectAddForm/ProjectAddForm';
 export { default as NotificationsBell } from './components/noticationsBell/NotificationsBell';
+export { default as InviteLink } from './components/inviteLink/InviteLink';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
