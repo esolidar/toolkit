@@ -108,12 +108,12 @@ const FeaturesMenu = (props) => {
           }
           break;
 
-        case 'manage-employees':
+        case ('manage-employees' || 'manage-members'):
           switch (project) {
             case 'business-frontend':
               items.push({
                 position: 3,
-                pageRoute: '/employees',
+                pageRoute: '/community',
                 showItem: true,
                 iconItem: 'icon employees',
                 itemText: translations.manageEmployees,
