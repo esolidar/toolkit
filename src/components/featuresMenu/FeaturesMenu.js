@@ -407,7 +407,7 @@ const FeaturesMenu = (props) => {
               items.push({
                 position: 9,
                 pageRoute: '/user/crowdfunding-public',
-                showItem: true,
+                showItem: false,
                 iconItem: 'icon crowdfunding',
                 itemText: translations.crowdfundingPublic,
                 hide: feature.pivot.hide,

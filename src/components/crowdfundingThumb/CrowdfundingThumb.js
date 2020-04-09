@@ -33,8 +33,8 @@ class CrowdfundingThumb extends Component {
       });
 
       // Check if campaign is soon, running, ended
-      const inputStartDate = new Date(thumb.start_date);
-      const inputEndDate = new Date(thumb.end_date);
+      const inputStartDate = new Date(thumb.start_date.replace(/-/g, '/'));
+      const inputEndDate = new Date(thumb.end_date.replace(/-/g, '/'));
       const { translations } = this.props;
 
       // call setHours to take the time out of the comparison
