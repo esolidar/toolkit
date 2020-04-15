@@ -45,6 +45,7 @@
   "peerDependencies": {
     "classnames": "^2.2.6",
     "draft-js": "^0.11.4",
+    "draft-js-color-picker": "^1.0.2",
     "draft-js-export-html": "^1.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -80,6 +81,7 @@
     "classnames": "^2.2.6",
     "css-loader": "^3.4.0",
     "draft-js": "^0.11.4",
+    "draft-js-color-picker": "^1.0.2",
     "draft-js-export-html": "^1.4.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -125,5 +127,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@esolidar"
-  }
+  },
+  "dependencies": {}
 }
