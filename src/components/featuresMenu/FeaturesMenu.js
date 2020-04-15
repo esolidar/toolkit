@@ -390,11 +390,58 @@ const FeaturesMenu = (props) => {
           }
           break;
 
-        case 'payments':
+        case 'crowdfunding-public':
           switch (project) {
             case 'business-frontend':
               items.push({
                 position: 9,
+                pageRoute: '/crowdfunding-public',
+                showItem: true,
+                iconItem: 'icon crowdfunding',
+                itemText: translations.crowdfundingPublic,
+                hide: 0,
+              });
+              break;
+
+            case 'esolidar':
+              items.push({
+                position: 9,
+                pageRoute: '/user/crowdfunding-public',
+                showItem: false,
+                iconItem: 'icon crowdfunding',
+                itemText: translations.crowdfundingPublic,
+                hide: feature.pivot.hide,
+              });
+              break;
+
+            case 'whitelabel':
+              items.push({
+                position: 9,
+                pageRoute: '/crowdfunding-public',
+                showItem: true,
+                iconItem: 'icon crowdfunding',
+                itemText: translations.crowdfundingPublic,
+                hide: feature.pivot.hide,
+              });
+              break;
+
+            default:
+              items.push({
+                position: 9,
+                pageRoute: '/crowdfunding-companies',
+                showItem: false,
+                iconItem: 'icon crowdfunding',
+                itemText: translations.crowdfundingPublic,
+                hide: 0,
+              });
+          }
+          break;
+
+        case 'payments':
+          switch (project) {
+            case 'business-frontend':
+              items.push({
+                position: 10,
                 pageRoute: '/payments',
                 showItem: true,
                 iconItem: 'icon payments',
@@ -405,7 +452,7 @@ const FeaturesMenu = (props) => {
 
             case 'esolidar':
               items.push({
-                position: 9,
+                position: 10,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon payments',
@@ -416,7 +463,7 @@ const FeaturesMenu = (props) => {
 
             case 'whitelabel':
               items.push({
-                position: 9,
+                position: 10,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon payments',
@@ -427,7 +474,7 @@ const FeaturesMenu = (props) => {
 
             default:
               items.push({
-                position: 9,
+                position: 10,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon payments',
@@ -441,7 +488,7 @@ const FeaturesMenu = (props) => {
           switch (project) {
             case 'business-frontend':
               items.push({
-                position: 10,
+                position: 11,
                 pageRoute: '/impact-analytics',
                 showItem: true,
                 iconItem: 'icon ic-statistics',
@@ -452,7 +499,7 @@ const FeaturesMenu = (props) => {
 
             case 'esolidar':
               items.push({
-                position: 10,
+                position: 11,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon ic-statistics',
@@ -463,7 +510,7 @@ const FeaturesMenu = (props) => {
 
             case 'whitelabel':
               items.push({
-                position: 10,
+                position: 11,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon ic-statistics',
@@ -474,7 +521,7 @@ const FeaturesMenu = (props) => {
 
             default:
               items.push({
-                position: 10,
+                position: 11,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon ic-statistics',
@@ -488,7 +535,7 @@ const FeaturesMenu = (props) => {
           switch (project) {
             case 'business-frontend':
               items.push({
-                position: 12,
+                position: 13,
                 pageRoute: '/',
                 showItem: false,
                 iconItem: 'icon documents',
@@ -499,7 +546,7 @@ const FeaturesMenu = (props) => {
 
             case 'esolidar':
               items.push({
-                position: 12,
+                position: 13,
                 pageRoute: '/user/documents',
                 showItem: true,
                 iconItem: 'icon documents',
@@ -510,7 +557,7 @@ const FeaturesMenu = (props) => {
 
             case 'whitelabel':
               items.push({
-                position: 12,
+                position: 13,
                 pageRoute: '/user/documents',
                 showItem: true,
                 iconItem: 'icon documents',
@@ -521,7 +568,7 @@ const FeaturesMenu = (props) => {
 
             default:
               items.push({
-                position: 12,
+                position: 13,
                 pageRoute: '/user/documents',
                 showItem: true,
                 iconItem: 'icon documents',
@@ -536,7 +583,7 @@ const FeaturesMenu = (props) => {
             case 'business-frontend':
               if (_.find(items, (o) => o.pageRoute === '/impact-analytics')) {
                 items.push({
-                  position: 11,
+                  position: 12,
                   pageRoute: '/impact-analytics',
                   showItem: false,
                   iconItem: 'icon survey-icon',
@@ -545,7 +592,7 @@ const FeaturesMenu = (props) => {
                 });
               } else {
                 items.push({
-                  position: 10,
+                  position: 11,
                   pageRoute: '/impact-analytics',
                   showItem: true,
                   iconItem: 'icon ic-statistics',
@@ -557,7 +604,7 @@ const FeaturesMenu = (props) => {
 
             case 'esolidar':
               items.push({
-                position: 11,
+                position: 12,
                 pageRoute: '/user/survey',
                 showItem: true,
                 iconItem: 'icon survey-icon',
@@ -568,7 +615,7 @@ const FeaturesMenu = (props) => {
 
             case 'whitelabel':
               items.push({
-                position: 11,
+                position: 12,
                 pageRoute: '/user/survey',
                 showItem: true,
                 iconItem: 'icon survey-icon',
@@ -579,7 +626,7 @@ const FeaturesMenu = (props) => {
 
             default:
               items.push({
-                position: 11,
+                position: 12,
                 pageRoute: '/user/survey',
                 showItem: true,
                 iconItem: 'icon survey-icon',
