@@ -11,6 +11,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
 <ProjectThumb
   project={
     {
+      id: 1,
       whitelabel_id: 1,
       category_id: 1,
       user_id: 1,
@@ -47,6 +48,9 @@ import { ProjectThumb } from '@esolidar/toolkit';
   showStatus={true}
   status='Em revisão'
   myProject={true}
+  select={true}
+  selectText="Select"
+  selectedIds={[1,2,3]}
 />
 
 ```

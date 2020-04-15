@@ -1,0 +1,79 @@
+.institutions-list {
+  .npo-pin-thumb {
+    width              : 40px;
+    height             : 40px;
+    border-radius      : 50%;
+    float              : left;
+    background-size    : cover;
+    background-position: 50% 50%;
+    border             : 1px solid #f5f5f5;
+  }
+
+  .name {
+    font-family   : $fontFamily;
+    font-size     : 15px;
+    color         : $inputLabelColor;
+    letter-spacing: 0;
+    float         : left;
+    margin-top    : 10px;
+    margin-left   : 10px;
+    white-space   : nowrap;
+    overflow      : hidden;
+    text-overflow : ellipsis;
+    max-width     : 300px;
+  }
+
+  .npo-thumb {
+    position      : relative;
+    margin-top    : 15px;
+    padding-bottom: 5px;
+    border-bottom : 1px solid #D0D6DD;
+  }
+
+  label {
+    width: 100%;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label input[type="radio"]~span {
+    position: relative;
+    display : inline-block;
+    padding : 3px 0 3px 25px;
+  }
+
+  .npo-thumb input[type="radio"]:checked~.name {
+    color: $mainColor;
+  }
+
+  .btn-select {
+    border       : 2px solid #738598;
+    color        : #A2ADBA;
+    background   : #fff;
+    float        : right;
+    margin-top   : 3px;
+    border-radius: 20px;
+    padding      : 5px 25px;
+    font-family  : $fontFamily;
+    font-size    : 17px;
+  }
+
+  .npo-thumb input[type="radio"]:checked~.btn-select {
+    border       : 2px solid $mainColor;
+    color        : $mainColor !important;
+  }
+
+  .search-institutions {
+    margin-bottom: 25px;
+    background   : #ffffff url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/icon-search.svg) no-repeat 10px 50%;
+    padding-left : 40px;
+  }
+
+  .no-results {
+    padding-top: 70px;
+    color      : $mainColor;
+    font-size  : 16px;
+  }
+}
