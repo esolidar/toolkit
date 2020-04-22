@@ -13,8 +13,8 @@ const InstitutionListSelect = ({
   onSearch,
   categories,
   search,
+  placeholderSearch,
   handlePageChange,
-  npoId,
   institutionSelected,
   onChange,
   selectText,
@@ -25,12 +25,6 @@ const InstitutionListSelect = ({
     if (institutions) {
       if (institutions.length > 0) {
         return institutions.map((charity) => {
-          let userId;
-          if (npoId) {
-            userId = charity.id;
-          } else {
-            userId = charity.user_id;
-          }
           const divStyle = {
             backgroundImage: `url(${charity.image})`,
           };
@@ -38,26 +32,25 @@ const InstitutionListSelect = ({
           return (
             <div key={charity.id}>
               <div className="npo-thumb" title={charity.name}>
-                <label htmlFor="user_id">
-                  {institutionSelected
-                    && (
-                      <input
-                        onChange={onChange}
-                        type="radio"
-                        name="user_id"
-                        checked={institutionSelected === charity.id}
-                        value={userId}
-                      />
-                    )}
-                  {!institutionSelected
-                    && (
-                      <input
-                        onChange={onChange}
-                        type="radio"
-                        name="user_id"
-                        value={userId}
-                      />
-                    )}
+                <label htmlFor={`input_${charity.id}`}>
+                  {institutionSelected ? (
+                    <input
+                      onChange={onChange}
+                      type="radio"
+                      name={`input_${charity.id}`}
+                      id={`input_${charity.id}`}
+                      checked={+institutionSelected === +charity.id}
+                      value={charity.id}
+                    />
+                  ) : (
+                    <input
+                      onChange={onChange}
+                      type="radio"
+                      name={`input_${charity.id}`}
+                      id={`input_${charity.id}`}
+                      value={charity.id}
+                    />
+                  )}
                   <div className="npo-pin-thumb" style={divStyle} />
                   <div className="name">{charity.name}</div>
                   <div className="btn btn-select">
@@ -96,6 +89,7 @@ const InstitutionListSelect = ({
           className="form-control search-institutions"
           onChange={onSearch}
           value={search}
+          placeholder={placeholderSearch}
           name="search"
         />
       </Col>
@@ -131,7 +125,7 @@ InstitutionListSelect.propTypes = {
   selectCategoryText: PropTypes.string.isRequired,
   error: PropTypes.string,
   search: PropTypes.string,
-  npoId: PropTypes.number,
+  placeholderSearch: PropTypes.string,
   institutionSelected: PropTypes.number,
   pagination: PropTypes.shape({
     activePage: PropTypes.number.isRequired,

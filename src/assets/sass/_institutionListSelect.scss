@@ -28,6 +28,11 @@
     margin-top    : 15px;
     padding-bottom: 5px;
     border-bottom : 1px solid #D0D6DD;
+
+    a {
+      display: inline-block;
+      width  : 100%;
+    }
   }
 
   label {
@@ -48,21 +53,35 @@
     color: $mainColor;
   }
 
+  .npo-thumb label.active .name {
+    color: $mainColor;
+  }
+
   .btn-select {
-    border       : 2px solid #738598;
-    color        : #A2ADBA;
+    border       : 2px solid #a2adba;
+    color        : #738598;
     background   : #fff;
     float        : right;
     margin-top   : 3px;
     border-radius: 20px;
     padding      : 5px 25px;
     font-family  : $fontFamily;
-    font-size    : 17px;
+    font-size    : 12px;
+
+    &:hover {
+      background  : #e6e6e6;
+      border-color: #e6e6e6;
+    }
   }
 
   .npo-thumb input[type="radio"]:checked~.btn-select {
-    border       : 2px solid $mainColor;
-    color        : $mainColor !important;
+    border: 2px solid $mainColor;
+    color : $mainColor !important;
+  }
+
+  .npo-thumb label.active .btn-select {
+    border: 2px solid $mainColor;
+    color : $mainColor !important;
   }
 
   .search-institutions {
