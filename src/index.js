@@ -21,6 +21,8 @@ export { default as NotificationsBell } from './components/noticationsBell/Notif
 export { default as InviteLink } from './components/inviteLink/InviteLink';
 export { default as InstitutionListSelect } from './components/institutionListSelect/InstitutionListSelect';
 export { default as CrowdfundingThumb } from './components/crowdfundingThumb/CrowdfundingThumb';
+export { default as GiftCardThumb } from './components/giftCardThumb/GiftCardThumb';
+export { default as Giftcards } from './components/giftcards/Giftcards';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';

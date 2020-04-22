@@ -46,6 +46,14 @@ import { InstitutionListSelect } from '@esolidar/toolkit';
   categories={
     []
   }
+  onChangeInstitutionCategory={()=>{}}
+  handlePageChange={()=>{}}
+  onSearch={()=>{}}
+  NoResultsText="No result text"
+  selectCategoryText="Select Category"
+  error="error"
+  search="search"
+  npoId={30}
   pagination={
     {
       activePage: 1,
