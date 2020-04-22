@@ -13,5 +13,7 @@ import { HtmlEditor } from '@esolidar/toolkit';
   submitTextHtml={() => {}}
   cancelTextHtml={() => {}}
   changeColumns={() => {}}
+  fileUpload={() => {}}
+  imageUrl=""
 />
 ```
