@@ -1,0 +1,68 @@
+.pagination>li>a,
+.pagination>li>span {
+  position        : relative;
+  float           : left;
+  padding         : 6px 12px;
+  line-height     : 1.42857143;
+  text-decoration : none;
+  color           : #455C75 !important;
+  background-color: transparent !important;
+  border          : none !important;
+  margin-left     : -1px;
+  font-family     : $fontFamily;
+
+  &:hover {
+    color: #05C6E5 !important;
+  }
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+  z-index         : 3;
+  color           : #fff;
+  background-color: transparent !important;
+  border-color    : transparent !important;
+  font-size       : 15px !important;
+  color           : #05C6E5 !important;
+  border-bottom   : 2px solid #05C6E5 !important;
+  cursor          : default;
+  font-family     : $fontFamily;
+}
+
+.go-first {
+  &:hover {
+    #pag-left-arrow {
+      stroke: #05c6e5;
+    }
+  }
+}
+
+.pagination li:first-child,
+.pagination li:last-child {
+  display: none;
+}
+
+.pagination li:first-child,
+.pagination li:last-child {
+  display: none;
+}
+
+.pagination>li>a .next-page,
+.pagination>li>a .prev-page {
+  width : 20px;
+  height: 20px;
+}
+
+.pagination>li>a .next-page,
+.pagination>li>span .next-page {
+  background: url(https://static.esolidar.com/frontend/icons/icon-next-page.svg) 50% 50% no-repeat;
+}
+
+.pagination>li>a .prev-page,
+.pagination>li>span .prev-page {
+  background: url(https://static.esolidar.com/frontend/icons/icon-prev-page.svg) 50% 50% no-repeat;
+}

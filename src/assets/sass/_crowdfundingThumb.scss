@@ -1,0 +1,139 @@
+.crowdfunding-thumb {
+  background   : #FFFFFF;
+  border       : 1px solid #E7EBED;
+  border-radius: 3px;
+  height       : 400px;
+  margin-bottom: 30px;
+
+
+
+  .bg-image {
+    height             : 200px;
+    background-size    : cover;
+    background-position: 50% 50%;
+
+    .date {
+      padding-top : 15px;
+      padding-left: 15px;
+
+      ._date {
+        border-radius: 3px;
+        display      : inline-block;
+        padding      : 7px 10px 2px 10px;
+
+        .label-text {
+          font-size     : 10px;
+          color         : #fff;
+          letter-spacing: 0;
+        }
+
+        .date-text {
+          font-size     : 15px;
+          color         : #FFFFFF;
+          letter-spacing: 0;
+          line-height   : 26px;
+        }
+      }
+
+      .soon {
+        background-color: $soonColor;
+      }
+
+      .running {
+        background-color: $runningColor;
+      }
+
+      .ended {
+        background-color: $endedColor;
+      }
+    }
+  }
+
+  .title {
+
+    font-size         : 15px;
+    color             : $mainTextColorDark;
+    letter-spacing    : -0.3px;
+    line-height       : 22px;
+    height            : 85px;
+    padding-top       : 20px;
+    display           : block;
+    display           : -webkit-box;
+    max-width         : 400px;
+    margin-bottom     : 20px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow          : hidden;
+    text-overflow     : ellipsis;
+
+    img {
+      float        : right;
+      width        : 40px;
+      height       : 40px;
+      border-radius: 50%;
+      margin-left  : 15px;
+      margin-top   : 5px;
+    }
+  }
+
+  .raised-percent {
+    padding: 15px;
+
+    .raised-goal {
+      background   : #F6F9F9;
+      height       : 10px;
+      border-radius: 5px;
+      overflow     : hidden;
+    }
+
+    .percent-text {
+      font-size     : 12px;
+      color         : #738598;
+      letter-spacing: 0;
+      line-height   : 12px;
+      padding-left  : 0;
+      text-align    : right;
+    }
+
+    .percent {
+      background   : $statusActiveColor;
+      border-radius: 5px;
+      height       : 10px;
+    }
+  }
+
+  .raised {
+    border-top: 1px solid #E7EBED;
+    padding   : 0 15px;
+
+    .raised-label {
+      font-size     : 12px;
+      color         : #A2ADBA;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      padding-top   : 17px;
+      display       : inline;
+
+      @media (max-width: 425px) {
+        width      : 50%;
+        display    : inline-block;
+        top        : -6px;
+      }
+    }
+
+    .raised-value {
+      font-size     : 21px;
+      color         : $mainColor;
+      letter-spacing: -0.5px;
+      line-height   : 33px;
+      padding-top   : 9px;
+
+      @media (max-width: 425px) {
+        width      : 50%;
+        display    : inline-block;
+        top        : -2px;
+      }
+      white-space   : nowrap;
+    }
+  }
+}
