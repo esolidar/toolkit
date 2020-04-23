@@ -25,4 +25,9 @@
     background-color: $mainColorDark;
   }
 
+  .dropdown-menu.show {
+    max-height: 300px;
+    overflow-x: auto;
+  }
+
 }
