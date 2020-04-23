@@ -271,7 +271,7 @@ class HtmlEditor extends Component {
             />
           </Col>
         </Row>
-        <Modal show={showModal} onHide={this.toggleModal}>
+        <Modal show={showModal} onHide={this.toggleModal} className="upload_file">
           <Modal.Body>
             <form>
               <input type="file" onChange={this.onChangeInput} />
