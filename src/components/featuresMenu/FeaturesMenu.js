@@ -229,8 +229,8 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 5,
-                pageRoute: '/',
-                showItem: false,
+                pageRoute: '/projects/list',
+                showItem: true,
                 iconItem: 'icon volunteering',
                 itemText: translations.projects,
                 hide: feature.pivot.hide,
@@ -276,8 +276,8 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 6,
-                pageRoute: '/',
-                showItem: false,
+                pageRoute: '/giftcards/list',
+                showItem: true,
                 iconItem: 'icon giftcards',
                 itemText: translations.giftCards,
                 hide: feature.pivot.hide,
@@ -370,8 +370,8 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 8,
-                pageRoute: '/',
-                showItem: false,
+                pageRoute: '/crowdfunding/list',
+                showItem: true,
                 iconItem: 'icon crowdfunding',
                 itemText: translations.crowdfunding,
                 hide: feature.pivot.hide,
