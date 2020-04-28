@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { Giftcards } from '@esolidar/giftcards';
+import { Giftcards } from '@esolidar/toolkit';
 ```
 
 #### Example

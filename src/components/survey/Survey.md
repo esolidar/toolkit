@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { Survey } from '@esolidar/survey';
+import { Survey } from '@esolidar/toolkit';
 
 ```
 

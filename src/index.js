@@ -23,6 +23,9 @@ export { default as InstitutionListSelect } from './components/institutionListSe
 export { default as CrowdfundingThumb } from './components/crowdfundingThumb/CrowdfundingThumb';
 export { default as GiftCardThumb } from './components/giftCardThumb/GiftCardThumb';
 export { default as Giftcards } from './components/giftcards/Giftcards';
+export { default as Survey } from './components/survey/Survey';
+export { default as Documents } from './components/documents/Documents';
+
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
