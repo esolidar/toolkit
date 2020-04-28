@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { FormQuestionsGenerator } from '@esolidar/formQuestionsGenerator';
+import { FormQuestionsGenerator } from '@esolidar/toolkit';
 ```
 
 #### Example

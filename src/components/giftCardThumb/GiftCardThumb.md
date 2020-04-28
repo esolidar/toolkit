@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { GiftCardThumb } from '@esolidar/giftCardThumb';
+import { GiftCardThumb } from '@esolidar/toolkit';
 ```
 
 #### Example

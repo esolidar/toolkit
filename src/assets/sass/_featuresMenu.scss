@@ -28,8 +28,10 @@
           height           : 21px;
           display          : inline-block;
           margin-right     : 20px;
-          background-image : url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/menu-icons.svg');
+          margin-top       : 5px;
+          background-image : url('https://static.esolidar.com/frontend/icons/menu-icons-esolidar-new.svg');
           background-repeat: no-repeat;
+          background-size  : 229px;
         }
 
         .feed {
@@ -66,6 +68,14 @@
 
         .volunteering {
           background-position: -170px -21px;
+        }
+
+        .survey-icon {
+          background-position: -190px -21px;
+        }
+
+        .documents {
+          background-position: -207px -21px;
         }
       }
 
@@ -114,6 +124,14 @@
         .volunteering {
           background-position: -170px 0;
         }
+
+        .survey-icon {
+          background-position: -190px 0;
+        }
+
+        .documents {
+          background-position: -207px 0;
+        }
       }
 
       &:hover {
@@ -156,6 +174,14 @@
 
         .volunteering {
           background-position: -170px 0;
+        }
+
+        .survey-icon {
+          background-position: -190px 0;
+        }
+
+        .documents {
+          background-position: -207px 0;
         }
       }
     }

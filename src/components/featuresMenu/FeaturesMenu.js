@@ -10,8 +10,12 @@ const FeaturesMenu = (props) => {
     project,
   } = props;
 
+  const user = localStorage.user ? JSON.parse(localStorage.user) : '';
+  const userWorkEmail = user.work_email ? user.work_email.length : 0;
+
   const menuItem = () => {
     const items = [];
+
     features.map((feature) => {
       switch (feature.name) {
         case 'feed':
@@ -280,7 +284,7 @@ const FeaturesMenu = (props) => {
                 showItem: true,
                 iconItem: 'icon giftcards',
                 itemText: translations.giftCards,
-                hide: feature.pivot.hide,
+                hide: userWorkEmail > 0 ? 0 : 1,
               });
               break;
 
@@ -370,11 +374,11 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 8,
-                pageRoute: '/crowdfunding/list',
+                pageRoute: '/crowdfunding',
                 showItem: true,
                 iconItem: 'icon crowdfunding',
                 itemText: translations.crowdfunding,
-                hide: feature.pivot.hide,
+                hide: 1,
               });
               break;
 
@@ -417,7 +421,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 9,
-                pageRoute: '/crowdfunding-public',
+                pageRoute: '/crowdfunding/list',
                 showItem: true,
                 iconItem: 'icon crowdfunding',
                 itemText: translations.crowdfundingPublic,
@@ -562,7 +566,7 @@ const FeaturesMenu = (props) => {
                 showItem: true,
                 iconItem: 'icon documents',
                 itemText: translations.documents,
-                hide: feature.pivot.hide,
+                hide: userWorkEmail > 0 ? 0 : 1,
               });
               break;
 
@@ -620,7 +624,7 @@ const FeaturesMenu = (props) => {
                 showItem: true,
                 iconItem: 'icon survey-icon',
                 itemText: translations.survey,
-                hide: feature.pivot.hide,
+                hide: userWorkEmail > 0 ? 0 : 1,
               });
               break;
 
