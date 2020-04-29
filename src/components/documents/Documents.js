@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pagination from 'react-js-pagination';
+import { Row, Col } from 'react-bootstrap';
 import Loading from '../loading/Loading';
 import Icon from '../icon/Icon';
 import TextField from '../../elements/textField/TextField';
@@ -80,7 +81,7 @@ const Documents = ({
   };
 
   return (
-    <div className="documents col-md-9">
+    <Col sm={9} className="documents">
       <div className="box">
         <h3>
           {headerTitleText}
@@ -99,10 +100,9 @@ const Documents = ({
         field="search"
       />
       {renderDocuments()}
-      <div className="row">
-        <div className="col-sm-12">
-          <div className="col-sm-3" />
-          <div className="col-sm-6">
+      <Row>
+        <Col sm={12}>
+          <Col sm={{ span: 6, offset: 3 }}>
             <div className="text-center">
               <Pagination
                 prevPageText={<div className="prev-page" />}
@@ -114,10 +114,10 @@ const Documents = ({
                 onChange={handlePageChange}
               />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </Col>
+        </Col>
+      </Row>
+    </Col>
   );
 };
 

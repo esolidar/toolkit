@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Col } from 'react-bootstrap';
 import FormQuestionsGenerator from '../formQuestionsGenerator/FormQuestionsGenerator';
 
 const Survey = ({
@@ -19,10 +20,10 @@ const Survey = ({
   isLoading,
   disabledText,
 }) => (
-  <div className="survey col-md-9">
+  <Col sm={9} className="survey">
     {status === 'A'
         && (
-          <div className="col-sm-12">
+          <Col sm={12}>
             <div className="box survey-form-title">
               <h3>
                 {formTitleText}
@@ -53,19 +54,19 @@ const Survey = ({
                 </div>
               </form>
             </div>
-          </div>
+          </Col>
         )}
     {status === 'D'
         && (
-          <div className="col-sm-12 survey-disabled">
+          <Col sm={12} className="survey-disabled">
             <div className="box">
               <h3 className="text-center">
                 {disabledText}
               </h3>
             </div>
-          </div>
+          </Col>
         )}
-  </div>
+  </Col>
 );
 
 Survey.propTypes = {

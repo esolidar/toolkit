@@ -45,7 +45,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 1,
-                pageRoute: '/feed',
+                pageRoute: '/',
                 showItem: true,
                 iconItem: 'icon feed',
                 itemText: translations.feed,
