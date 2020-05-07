@@ -9,7 +9,7 @@ const BoxInfo = ({ text, button }) => (
       <Col sm={12}>
         {button && (
           <Button
-            extraClass={button.style ? button.style : 'success'}
+            extraClass={`${button.style ? button.style : 'success'} btn-box-info `}
             onClick={button.onClick}
             href={button.href}
             text={button.text}

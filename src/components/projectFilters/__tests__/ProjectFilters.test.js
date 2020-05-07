@@ -43,8 +43,8 @@ const props = {
   onSelectStatus: () => {},
 };
 
-describe('BoxInfo component', () => {
-  it('renders BoxInfo correctly', () => {
+describe('ProjectFilters component', () => {
+  it('renders ProjectFilters correctly', () => {
     const component = shallow(<ProjectFilters {...props} />);
     expect(component).toHaveLength(1);
   });
