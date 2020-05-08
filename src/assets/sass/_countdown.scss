@@ -4,6 +4,10 @@
   overflow     : hidden;
   width        : 450px;
 
+  @media(max-width: 425px) {
+    width: 100%;
+  }
+
   .soon {
     background: #05c6e5;
     color     : #fff;
