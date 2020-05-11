@@ -11,7 +11,11 @@ const FeaturesMenu = (props) => {
   } = props;
 
   const user = localStorage.user ? JSON.parse(localStorage.user) : '';
-  const userWorkEmail = user.work_email ? user.work_email.length : 0;
+  const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
+  let userWorkEmail = 0;
+  if (companyId) {
+    userWorkEmail = _.find(user.work_email, ['company_id', companyId]) ? 1 : 0;
+  }
 
   const menuItem = () => {
     const items = [];
@@ -45,7 +49,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 1,
-                pageRoute: '/',
+                pageRoute: '/feed',
                 showItem: true,
                 iconItem: 'icon feed',
                 itemText: translations.feed,
