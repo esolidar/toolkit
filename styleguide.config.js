@@ -21,6 +21,12 @@ module.exports = {
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },
+    {
+      name: 'Feed',
+      components: 'src/feed/**/*.js',
+      exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
+      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+    },
   ],
   theme: {
     color: {
