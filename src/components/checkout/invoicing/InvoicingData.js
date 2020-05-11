@@ -37,24 +37,22 @@ const InvoicingData = (props) => {
       </Col>
       <Col sm={12}>
         <TextField
-          label="Tax payer identification number"
+          label={props.translateMessage({ id: 'user.nif', defaultMessage: 'Invoicing address' })}
           onChange={props.onChange}
           error={errors.nif}
           value={nif}
           field="nif"
           disabled={receipt !== 1}
-          fieldTranslate="user.nif"
         />
       </Col>
       <Col sm={12}>
         <TextareaField
-          label="Invoicing address"
+          label={props.translateMessage({ id: 'checkout.invoice_address', defaultMessage: 'Invoicing address' })}
           onChange={props.onChange}
           error={errors.invoice_address}
           value={invoice_address}
           field="invoice_address"
           disabled={receipt !== 1}
-          fieldTranslate="checkout.invoice_address"
         />
       </Col>
       <Col sm={12}>
@@ -99,6 +97,7 @@ InvoicingData.propTypes = {
   onChange: PropTypes.func,
   onChangCheckBoxInvoicing: PropTypes.func,
   state: PropTypes.object,
+  translateMessage: PropTypes.func.isRequired,
 };
 
 export default InvoicingData;

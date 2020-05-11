@@ -23,10 +23,11 @@ const Step2 = (props) => (
           onChangCheckBox={props.onChangCheckBox}
           onChange={props.onChange}
           state={props.state}
+          translateMessage={props.translateMessage}
         />
       </Row>
       <Row className="box box-mobile-padding">
-        <Col xs={6}>
+        <Col sm={6}>
           <Button
             extraClass="dark btn-prev-step"
             onClick={() => props.nextStep(0)}
@@ -36,7 +37,7 @@ const Step2 = (props) => (
             })}
           />
         </Col>
-        <Col xs={6} className="text-right">
+        <Col sm={6} className="text-right">
           <Button
             extraClass="success-full btn-next-step"
             onClick={() => props.nextStep(2)}
