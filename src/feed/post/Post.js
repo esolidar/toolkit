@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
 import Comment from '../comment/Comment';
 import CommentMobile from '../commentMobile/CommentMobile';
-import CommentPost from '../commentPost/CommentPost';
+// import CommentPost from '../commentPost/CommentPost';
 import PostOptions from '../postOptions/PostOptions';
 
 const Post = ({
@@ -208,7 +208,11 @@ const Post = ({
       </div>
       {loadMoreComments()}
       {commentsList()}
-      <CommentPost postId={post.id} companyId={post.company ? post.company.id : null} />
+      Aqui leva CommentPost
+      {/*
+        <CommentPost postId={post.id} companyId={post.company ? post.company.id : null} />
+      */}
+
 
       <Modal show={showMobileComments} onHide={closeModal} className="md-mobile-comments">
         <Modal.Header closeButton>

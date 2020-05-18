@@ -39,6 +39,7 @@ export { default as Comment } from './feed/comment/Comment';
 export { default as CommentMobile } from './feed/commentMobile/CommentMobile';
 export { default as CommentOptions } from './feed/commentOptions/CommentOptions';
 export { default as CommentPost } from './feed/commentPost/CommentPost';
+export { default as CreatePost } from './feed/createPost/CreatePost';
 export { default as Gallery } from './feed/gallery/Gallery';
 export { default as GalleryBox } from './feed/galleryBox/GalleryBox';
 export { default as Post } from './feed/post/Post';

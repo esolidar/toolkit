@@ -40,6 +40,7 @@ const CreatePost = ({
   publicPost,
   onChangCheckBox,
   isLoading,
+  publicPostHide,
 }) => {
   const dropzoneRef = createRef();
 
@@ -130,7 +131,7 @@ const CreatePost = ({
                             </div>
                           </div>
                         )}
-                      {role !== 'null'
+                      {(role !== 'null' && type !== 'ticket')
                         && (
                           <Dropdown
                             id="create-post-as-company"
@@ -165,8 +166,28 @@ const CreatePost = ({
                             </Dropdown.Menu>
                           </Dropdown>
                         )}
+                      {(role === 'admin' && type === 'ticket')
+                        && (
+                          <div
+                            className="create-post-as-company dropdown btn-group btn-group-post-options-dropdown"
+                          >
+                            <div
+                              className="create-post-as-company-dropdown btn btn-default"
+                            >
+                              <img
+                                alt="Thumb"
+                                src={user ? user.thumbs.thumb : 'https://static.esolidar.com/frontend/assets/no-image.png'}
+                              />
+                            </div>
+                          </div>
+
+                        )}
                       <div className="company-name">
-                        {companyName}
+                        {(role === 'admin' && type === 'ticket') ? (
+                          getEmployeeName(companyId, user)
+                        ) : (
+                          companyName
+                        )}
                       </div>
                     </Col>
                     <Col sm={12} className="new-post-textarea">
@@ -240,7 +261,7 @@ const CreatePost = ({
                     </Col>
                     <Col xs={4} className="text-right">
                       <div className="checkbox-inline">
-                        {role !== 'null'
+                        {(role !== 'null' && !publicPostHide)
                           && (
                             <div className="form-group">
                               <label className="public-post">
@@ -323,6 +344,7 @@ CreatePost.propTypes = {
   publicPost: PropTypes.string,
   onChangCheckBox: PropTypes.func.isRequired,
   isLoading: PropTypes.bool,
+  publicPostHide: PropTypes.bool,
 };
 
 export default CreatePost;
