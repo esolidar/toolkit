@@ -28,6 +28,7 @@ export { default as Documents } from './components/documents/Documents';
 export { default as Countdown } from './components/countdown/Countdown';
 export { default as Step1 } from './components/checkout/Step1';
 export { default as Step2 } from './components/checkout/Step2';
+export { default as ReadMoreText } from './components/readMoreText/ReadMoreText';
 
 
 // Elements
