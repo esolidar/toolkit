@@ -284,7 +284,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 6,
-                pageRoute: '/giftcards/list',
+                pageRoute: '/user/giftcards',
                 showItem: true,
                 iconItem: 'icon giftcards',
                 itemText: translations.giftCards,
@@ -652,7 +652,7 @@ const FeaturesMenu = (props) => {
       if (item.showItem) {
         if (item.hide !== 1) {
           return (
-            <li key={item.position} className={location === item.pageRoute ? 'active' : ''}>
+            <li key={item.position} className={(location === item.pageRoute || (location !== '/' && location.includes(item.pageRoute))) ? 'active' : ''}>
               <a
                 href={`${item.pageRoute}`}
               >
