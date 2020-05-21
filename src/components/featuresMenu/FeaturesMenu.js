@@ -652,7 +652,7 @@ const FeaturesMenu = (props) => {
       if (item.showItem) {
         if (item.hide !== 1) {
           return (
-            <li key={item.position} className={(location === item.pageRoute || (location !== '/' && location.includes(item.pageRoute))) ? 'active' : ''}>
+            <li key={item.position} className={(location === item.pageRoute || (item.pageRoute !== '/' && location.includes(item.pageRoute))) ? 'active' : ''}>
               <a
                 href={`${item.pageRoute}`}
               >
