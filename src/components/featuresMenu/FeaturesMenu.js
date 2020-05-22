@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import _ from 'lodash';
 
 const FeaturesMenu = (props) => {
@@ -656,7 +657,21 @@ const FeaturesMenu = (props) => {
               <a
                 href={`${item.pageRoute}`}
               >
-                <i className={item.iconItem} />
+                {localStorage.fixedBar ? (
+                  <OverlayTrigger
+                    key={item.position}
+                    placement="right"
+                    overlay={(
+                      <Tooltip id={item.position}>
+                        {item.itemText}
+                      </Tooltip>
+                    )}
+                  >
+                    <i className={item.iconItem} />
+                  </OverlayTrigger>
+                ) : (
+                  <i className={item.iconItem} />
+                )}
                 {item.itemText}
               </a>
             </li>
