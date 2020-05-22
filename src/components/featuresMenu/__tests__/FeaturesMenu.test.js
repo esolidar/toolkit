@@ -61,6 +61,6 @@ describe('FeaturesMenu page', () => {
 
   it('expect 4 items', () => {
     const component = shallow(<FeaturesMenu project={project} location={location} translations={translations} features={features} />);
-    expect(component.find('li').length).toBe(2);
+    expect(component.find('li').length).toBe(4);
   });
 });
