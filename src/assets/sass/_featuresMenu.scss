@@ -1,8 +1,39 @@
-  .sidebar-menu {
-    margin : 0;
-    padding: 0;
+  .sidebar {
+    .sidebar-menu {
+      margin : 0;
+      padding: 0;
 
-    li {
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .mobileFeaturesMenu {
+      display: none;
+
+      a.w-80 {
+        width       : 80%;
+        font-size   : 14px;
+        padding-left: 15px;
+      }
+
+      button.icon-menu-mobile.esolidar {
+        background-color: transparent;
+        border          : 0px;
+        color           : $mainColor;
+      }
+
+      @media only screen and (max-width: 768px) {
+        display: block;
+      }
+
+      ul.mr-auto.navbar-nav {
+        padding-top: 15px;
+      }
+    }
+
+    li,
+    .navbar-collapse>ul.mr-auto.navbar-nav li {
       list-style: none;
       border    : 1px solid transparent;
 
@@ -23,6 +54,10 @@
         white-space   : nowrap;
         min-width     : 250px;
 
+        @media only screen and (max-width: 768px) {
+          min-width: 100%;
+        }
+
         .icon {
           width            : 21px;
           height           : 21px;
@@ -31,7 +66,7 @@
           margin-top       : 5px;
           background-image : url('https://static.esolidar.com/frontend/icons/menu-icons-esolidar-new.svg');
           background-repeat: no-repeat;
-          background-size  : auto;
+          background-size  : 230px;
         }
 
         .feed {
