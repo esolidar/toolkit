@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 
 const FeaturesMenu = (props) => {
@@ -673,20 +671,6 @@ const FeaturesMenu = (props) => {
       <ul className="sidebar-menu">
         {menuItem()}
       </ul>
-      <Navbar bg="light" expand="lg" className="mobileFeaturesMenu">
-        <Navbar.Brand href="/feed" className="w-80">
-          <FormattedMessage
-            id="header.myCommunity"
-            defaultMessage="My community"
-          />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" bsPrefix="esolidar" className="icon-menu-mobile" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <ul className="mr-auto navbar-nav">
-            {menuItem()}
-          </ul>
-        </Navbar.Collapse>
-      </Navbar>
     </section>
   );
 };
