@@ -2,34 +2,6 @@
     .sidebar-menu {
       margin : 0;
       padding: 0;
-
-      @media only screen and (max-width: 768px) {
-        display: none;
-      }
-    }
-
-    .mobileFeaturesMenu {
-      display: none;
-
-      a.w-80 {
-        width       : 80%;
-        font-size   : 14px;
-        padding-left: 15px;
-      }
-
-      button.icon-menu-mobile.esolidar {
-        background-color: transparent;
-        border          : 0px;
-        color           : $mainColor;
-      }
-
-      @media only screen and (max-width: 768px) {
-        display: block;
-      }
-
-      ul.mr-auto.navbar-nav {
-        padding-top: 15px;
-      }
     }
 
     li,
@@ -48,7 +20,7 @@
         font-size     : 15px;
         color         : $mainTextColorDark;
         letter-spacing: 0;
-        line-height   : 18px;
+        line-height   : 21px;
         padding       : 15px 20px;
         display       : block;
         white-space   : nowrap;
@@ -62,8 +34,8 @@
           width            : 21px;
           height           : 21px;
           display          : inline-block;
+          margin-top       : 0px;
           margin-right     : 20px;
-          margin-top       : 5px;
           background-image : url('https://static.esolidar.com/frontend/icons/menu-icons-esolidar-new.svg');
           background-repeat: no-repeat;
           background-size  : 230px;
