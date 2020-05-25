@@ -37,7 +37,7 @@ const InvoicingData = (props) => {
       </Col>
       <Col sm={12}>
         <TextField
-          label={props.translateMessage({ id: 'user.nif', defaultMessage: 'Invoicing address' })}
+          label={props.translateMessage({ id: 'user.nif', defaultMessage: 'VAT' })}
           onChange={props.onChange}
           error={errors.nif}
           value={nif}
