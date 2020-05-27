@@ -341,8 +341,8 @@ class Post extends Component {
 export default Post;
 
 Post.propTypes = {
-  post: PropTypes.array,
-  user: PropTypes.array,
+  post: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   editComment: PropTypes.func,
   deleteComment: PropTypes.func,
   onSubmitReply: PropTypes.func,

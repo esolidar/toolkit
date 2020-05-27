@@ -48,6 +48,7 @@ import { Post } from '@esolidar/toolkit';
       },
     ]
   }}
+  commentUpdated={{}}
   editComment={()=>{}}
   deleteComment={()=>{}}
   onSubmitReply={()=>{}}
@@ -56,7 +57,6 @@ import { Post } from '@esolidar/toolkit';
   commentHereText="Comment here ..."
   textareaOnChange={()=>{}}
   errorsReply={[]}
-  newComment={{}}
   deletedComment={{}}
 />
 ```
