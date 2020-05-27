@@ -1,0 +1,127 @@
+.reviews {
+  .no-viviews {
+    padding       : 25px 15px;
+    font-size     : 15px;
+    color         : $mainTextColorDark;
+    letter-spacing: 0;
+    text-align    : center;
+  }
+
+  h3 {
+    font-size: 20px;
+    color    : $mainTextColorDark;
+    padding  : 15px 0;
+  }
+
+  h4 {
+    font-size : 16px;
+    color     : $mainTextColorDark;
+    padding   : 15px 0;
+    margin-top: 20px;
+  }
+
+  p {
+    font-size     : 15px;
+    color         : $mainTextColorDark;
+    letter-spacing: 0;
+    line-height   : 19px;
+  }
+
+  .edit-review {
+    background     : transparent;
+    border         : none;
+    padding        : 0;
+    margin         : 0;
+    margin-left    : 10px;
+    color          : $mainColor;
+    text-decoration: underline;
+    font-size      : 13px;
+  }
+
+  .accordion {
+    .card {
+      background-color: transparent;
+      border          : none;
+      border-top      : 1px solid $grayExtraLight;
+      border-bottom   : 1px solid $grayExtraLight;
+      border-radius   : 0;
+
+      .card-header {
+        background-color: transparent;
+        border-bottom   : none;
+        border-radius   : 0;
+        font-size       : 15px;
+        color           : $mainTextColorDark;
+        letter-spacing  : 0;
+        cursor          : pointer;
+
+        img {
+          width        : 40px;
+          border-radius: 50%;
+          margin-right : 15px;
+        }
+
+        .rating {
+          float       : right;
+          margin-right: 12px;
+          margin-top  : 8px;
+
+          img {
+            width       : 16px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .card-body {
+        padding-left  : 72px;
+        padding-top   : 0;
+        font-size     : 13px;
+        color         : $mainTextColorDark;
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  .box {
+    padding: 0;
+  }
+
+  .form-control {
+    border       : none;
+    border-radius: 0;
+    height       : 160px;
+    padding-left : 70px;
+    padding-top  : 20px;
+    resize       : none;
+
+    &:focus {
+      border       : none;
+      border-radius: 0;
+    }
+  }
+
+  .my-user-thumb {
+    width        : 40px;
+    border-radius: 50%;
+    margin       : 15px;
+    position     : absolute;
+    z-index      : 99;
+  }
+
+  .rate {
+    background    : $grayWhite;
+    width         : 100%;
+    padding       : 10px;
+    font-size     : 12px;
+    color         : $mainTextColorDark;
+    letter-spacing: 0;
+    line-height   : 19px;
+    margin        : 0;
+    display       : inline-block;
+
+    .rating {
+      float: right;
+    }
+  }
+}
