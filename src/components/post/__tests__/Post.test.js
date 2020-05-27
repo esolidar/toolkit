@@ -39,6 +39,7 @@ const props = {
   textareaOnChange: () => {},
   errorsReply: [],
   deletedComment: {},
+  onKeyDown: () => {},
 };
 
 describe('Post component', () => {

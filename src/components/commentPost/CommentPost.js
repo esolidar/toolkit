@@ -6,6 +6,7 @@ import { Col } from 'react-bootstrap';
 const CommentPost = ({
   postId,
   onSubmit,
+  onKeyDown,
   textareaValue,
   commentHereText,
   textareaOnChange,
@@ -24,6 +25,7 @@ const CommentPost = ({
               className="new-post background-post-comment w-100"
               placeholder={commentHereText}
               onChange={(e) => textareaOnChange(e)}
+              onKeyDown={(e) => onKeyDown(e, postId)}
             />
             <button type="submit" className="btn-comment-post-comment" />
             {errors.text
@@ -38,6 +40,7 @@ const CommentPost = ({
 CommentPost.propTypes = {
   postId: PropTypes.number,
   onSubmit: PropTypes.func,
+  onKeyDown: PropTypes.func,
   textareaValue: PropTypes.string,
   commentHereText: PropTypes.string,
   textareaOnChange: PropTypes.func,

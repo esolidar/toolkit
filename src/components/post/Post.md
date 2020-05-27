@@ -58,5 +58,6 @@ import { Post } from '@esolidar/toolkit';
   textareaOnChange={()=>{}}
   errorsReply={[]}
   deletedComment={{}}
+  onKeyDown={()=>{}}
 />
 ```

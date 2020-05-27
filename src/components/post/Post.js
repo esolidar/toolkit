@@ -178,6 +178,7 @@ class Post extends Component {
       commentHereText,
       textareaOnChange,
       errorsReply,
+      onKeyDown,
     } = this.props;
 
     const {
@@ -262,6 +263,7 @@ class Post extends Component {
             commentHereText={commentHereText}
             textareaOnChange={textareaOnChange}
             errors={errorsReply}
+            onKeyDown={onKeyDown}
           />
         </div>
         <Modal show={showEditModal} onHide={() => this.toggleModalEdit('', '')} className="md-delete">
@@ -351,4 +353,5 @@ Post.propTypes = {
   textareaOnChange: PropTypes.func,
   errorsReply: PropTypes.array,
   commentUpdated: PropTypes.object,
+  onKeyDown: PropTypes.func,
 };
