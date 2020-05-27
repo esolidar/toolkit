@@ -83,4 +83,12 @@
   @media (max-width: 425px) {
     margin-top: 15px;
   }
+
+  .deleteButton {
+    background-color: transparent;
+    border          : 0px;
+    color           : $dangerColor;
+    margin-left     : 10px;
+    font-size       : 13px;
+  }
 }

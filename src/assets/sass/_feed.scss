@@ -476,6 +476,10 @@ h2 {
       box-shadow      : none !important;
       background-color: transparent !important;
       border          : none;
+
+      &::after {
+        color: #455c75;
+      }
     }
 
     .dropdown-menu {
@@ -687,118 +691,6 @@ h2 {
     padding-top: 8px;
   }
 
-  .comment-post-write {
-    padding-top: 17px;
-
-    .thumb {
-      width        : 40px;
-      border-radius: 50%;
-      float        : left;
-      margin-right : 15px;
-    }
-
-    .company-name {
-      font-family: $fontFamily;
-      font-size  : 16px;
-      font-weight: 300;
-      line-height: 40px;
-      color      : $mainColor;
-      display    : inline-block;
-    }
-
-    .new-post {
-      height       : 40px;
-      border       : none;
-      resize       : none !important;
-      width        : 80%;
-      padding-right: 55px;
-      padding-top  : 5px;
-
-      &:focus {
-        border    : none;
-        box-shadow: none;
-        outline   : none;
-      }
-    }
-
-    .checkbox-inline {
-      padding: 5px 0 0 0;
-
-      .form-group {
-        margin: 0;
-      }
-
-      .as-company {
-        margin-right: 15px
-      }
-    }
-
-    textarea {
-      background-position: 100% 28%;
-      background-repeat  : no-repeat;
-
-      @media (max-width: 425px) {
-        background-image: none !important;
-      }
-    }
-
-    .reply-as-company {
-      float      : left;
-      margin-left: 15px;
-
-      .reply-as-company-dropdown {
-        border      : none;
-        background  : transparent;
-        box-shadow  : none !important;
-        padding     : 0;
-        margin-right: 10px;
-
-        img {
-          width        : 30px;
-          height       : 30px;
-          border-radius: 50%;
-          margin-right : 10px;
-        }
-
-        &:hover {
-          background: transparent;
-        }
-
-        &:active {
-          box-shadow: none !important;
-        }
-      }
-
-      .dropdown-menu {
-        min-width: 70px;
-        padding  : 10px;
-        top      : 45px;
-
-        .dropdown-item {
-          padding: 5px 0;
-        }
-
-        button {
-          border    : none;
-          background: transparent;
-          color     : $mainTextColorDark;
-          font-size : 14px;
-
-          img {
-            width        : 25px;
-            height       : 25px;
-            border-radius: 50%;
-            margin-right : 10px;
-          }
-
-          &:hover {
-            color: $mainColor;
-          }
-        }
-      }
-    }
-  }
-
   .dropdown-menu {
     right: initial !important;
     left : -10px;
@@ -809,6 +701,161 @@ h2 {
 
     &:before {
       left: 55px;
+    }
+  }
+}
+
+.comment-post-write {
+  padding-top: 17px;
+
+  .thumb {
+    width        : 40px;
+    border-radius: 50%;
+    float        : left;
+    margin-right : 15px;
+  }
+
+  .company-name {
+    font-family: $fontFamily;
+    font-size  : 16px;
+    font-weight: 300;
+    line-height: 40px;
+    color      : $mainColor;
+    display    : inline-block;
+  }
+
+  .new-post {
+    min-height       : 40px;
+    border       : none;
+    resize       : none !important;
+    width        : 80%;
+    padding-right: 110px;
+    padding-top  : 5px;
+
+    &.b {
+      border: 1px solid #ccc;
+    }
+
+    &:focus {
+      border    : none;
+      box-shadow: none;
+      outline   : none;
+    }
+  }
+
+  .btn-comment-post-comment {
+    cursor             : pointer;
+    border             : none;
+    background         : #fff;
+    position           : absolute;
+    bottom             : 8px;
+    right              : 20px;
+    height             : 35px;
+    color              : #455C75;
+    padding            : 0 15px;
+    background-image   : url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/send-comment.png");
+    background-repeat  : no-repeat;
+    background-position: center center;
+    min-width          : 100px;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .btn-comment-edit-close {
+    cursor       : pointer;
+    border       : none;
+    background   : #fff;
+    position     : absolute;
+    top          : -10px;
+    right        : 10px;
+    width        : 20px;
+    height       : 20px;
+    border-radius: 50%;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+
+  .checkbox-inline {
+    padding: 5px 0 0 0;
+
+    .form-group {
+      margin: 0;
+    }
+
+    .as-company {
+      margin-right: 15px
+    }
+  }
+
+  textarea {
+    background-position: 100% 28%;
+    background-repeat  : no-repeat;
+
+    @media (max-width: 425px) {
+      background-image: none !important;
+    }
+  }
+
+  .reply-as-company {
+    float      : left;
+    margin-left: 15px;
+
+    .reply-as-company-dropdown {
+      border      : none;
+      background  : transparent;
+      box-shadow  : none !important;
+      padding     : 0;
+      margin-right: 10px;
+
+      img {
+        width        : 30px;
+        height       : 30px;
+        border-radius: 50%;
+        margin-right : 10px;
+      }
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        box-shadow: none !important;
+      }
+    }
+
+    .dropdown-menu {
+      min-width: 70px;
+      padding  : 10px;
+      top      : 45px;
+
+      .dropdown-item {
+        padding: 5px 0;
+      }
+
+      button {
+        border    : none;
+        background: transparent;
+        color     : $mainTextColorDark;
+        font-size : 14px;
+
+        img {
+          width        : 25px;
+          height       : 25px;
+          border-radius: 50%;
+          margin-right : 10px;
+        }
+
+        &:hover {
+          color: $mainColor;
+        }
+      }
     }
   }
 }
@@ -1281,6 +1328,10 @@ h2 {
   }
 }
 
+.w-100 {
+  width: 100% !important;
+}
+
 @media(max-width) {
   .btn-add-feed-image {
     margin: 0 20px;
@@ -1289,4 +1340,15 @@ h2 {
 
 #reply-as-company .dropdown-toggle::after {
   color: $mainTextColorDark;
+}
+
+.md-delete {
+  .modal-content {
+    max-width: 600px;
+
+    .h4 {
+      color    : $mainColor;
+      font-size: 20px;
+    }
+  }
 }

@@ -25,6 +25,9 @@ export { default as GiftCardThumb } from './components/giftCardThumb/GiftCardThu
 export { default as Giftcards } from './components/giftcards/Giftcards';
 export { default as Survey } from './components/survey/Survey';
 export { default as Documents } from './components/documents/Documents';
+export { default as CommentPost } from './components/commentPost/CommentPost';
+export { default as CreatePost } from './components/createPost/CreatePost';
+export { default as Post } from './components/post/Post';
 
 
 // Elements
@@ -33,18 +36,3 @@ export { default as TextareaField } from './elements/textareaField/TextareaField
 export { default as TextField } from './elements/textField/TextField';
 export { default as CheckboxField } from './elements/checkboxField/CheckboxField';
 export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage';
-
-// Feed
-export { default as Comment } from './feed/comment/Comment';
-export { default as CommentMobile } from './feed/commentMobile/CommentMobile';
-export { default as CommentOptions } from './feed/commentOptions/CommentOptions';
-export { default as CommentPost } from './feed/commentPost/CommentPost';
-export { default as CreatePost } from './feed/createPost/CreatePost';
-export { default as Gallery } from './feed/gallery/Gallery';
-export { default as GalleryBox } from './feed/galleryBox/GalleryBox';
-export { default as Post } from './feed/post/Post';
-export { default as PostOptions } from './feed/postOptions/PostOptions';
-export { default as ReplyComment } from './feed/replyComment/ReplyComment';
-export { default as ReplyOptions } from './feed/replyOptions/ReplyOptions';
-export { default as ReplyReply } from './feed/replyReply/ReplyReply';
-export { default as Response } from './feed/response/Response';

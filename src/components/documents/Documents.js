@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pagination from 'react-js-pagination';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Modal } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import Loading from '../loading/Loading';
 import Icon from '../icon/Icon';
 import TextField from '../../elements/textField/TextField';
@@ -22,6 +23,11 @@ const Documents = ({
   errors,
   searchPlaceholder,
   searchValue,
+  deleteDocument,
+  openModalDelete,
+  showDeleteModal,
+  closeModal,
+  colSm,
 }) => {
   const formatBytes = (bytes) => {
     const kb = 1024;
@@ -40,6 +46,8 @@ const Documents = ({
 
     if (documents.length > 0) {
       return documents.map((document) => {
+        const fileUserOwner = document.user_id ? document.user_id : 0;
+        const userId = localStorage.user ? JSON.parse(localStorage.user).id : '';
         let icon;
         switch (document.file_type) {
           case 'application/pdf':
@@ -60,8 +68,14 @@ const Documents = ({
 
         return (
           <div className="document-row" key={document.id}>
-            <h3>{document.title}</h3>
-            <p>{document.summary}</p>
+            {document.title ? (
+              <h3>{document.title}</h3>
+            ) : (
+              <h3>{document.name}</h3>
+            )}
+            {document.summary && (
+              <p>{document.summary}</p>
+            )}
             <Icon iconClass={icon} />
             &nbsp;
             <a href={document.file} className="download-file" rel="noopener noreferrer" target="_blank" title={document.title}>
@@ -69,6 +83,15 @@ const Documents = ({
               &nbsp;
               {formatBytes(document.file_size)}
             </a>
+            {(openModalDelete && (fileUserOwner === userId)) && (
+              <button
+                type="button"
+                className="deleteButton"
+                onClick={() => openModalDelete(document.id)}
+              >
+                <Icon iconClass="icon-icon-delete" />
+              </button>
+            )}
           </div>
         );
       });
@@ -81,15 +104,17 @@ const Documents = ({
   };
 
   return (
-    <Col sm={9} className="documents">
-      <div className="box">
-        <h3>
-          {headerTitleText}
-        </h3>
-        <p>
-          {headerSubtitleText}
-        </p>
-      </div>
+    <Col sm={colSm || 9} className="documents">
+      {headerTitleText && (
+        <div className="box">
+          <h3>
+            {headerTitleText}
+          </h3>
+          <p>
+            {headerSubtitleText}
+          </p>
+        </div>
+      )}
       <TextField
         label=""
         type="text"
@@ -117,6 +142,46 @@ const Documents = ({
           </Col>
         </Col>
       </Row>
+      {openModalDelete && (
+        <Modal show={showDeleteModal} onHide={closeModal} className="md-delete-employee">
+          <Modal.Header closeButton>
+            <div className="row">
+              <div className="col-xs-12">
+                <Modal.Title>
+                  <FormattedMessage
+                    id="documents.list.delete.modal.title"
+                    defaultMessage="Delete document"
+                  />
+                </Modal.Title>
+              </div>
+            </div>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="row">
+              <div className="col-sm-12">
+                <p>
+                  <FormattedMessage
+                    id="documents.department.delete.text"
+                    defaultMessage="Are you sure do you want to delete this document?"
+                  />
+                </p>
+              </div>
+              <div className="col-sm-12 text-right">
+                <button
+                  className="btn btn-submit"
+                  type="button"
+                  onClick={deleteDocument}
+                >
+                  <FormattedMessage
+                    id="company.department.yes"
+                    defaultMessage="Yes"
+                  />
+                </button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
+      )}
     </Col>
   );
 };
@@ -136,6 +201,11 @@ Documents.propTypes = {
   activePage: PropTypes.number,
   per_page: PropTypes.number,
   total: PropTypes.number,
+  deleteDocument: PropTypes.func,
+  openModalDelete: PropTypes.func,
+  showDeleteModal: PropTypes.bool,
+  closeModal: PropTypes.func,
+  colSm: PropTypes.number,
 };
 
 export default Documents;
