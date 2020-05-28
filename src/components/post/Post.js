@@ -22,6 +22,7 @@ class Post extends Component {
       showEditModal: false,
       commentEditId: '',
       commentEditText: '',
+      currentUser: localStorage.user ? JSON.parse(localStorage.user) : [],
     };
 
     this.updateState = this.updateState.bind(this);
@@ -85,20 +86,17 @@ class Post extends Component {
 
 
   renderReplies(comments) {
-    const {
-      user,
-    } = this.props;
-    const { readMoreComment } = this.state;
+    const { readMoreComment, currentUser } = this.state;
     if (comments.length > 0) {
       return comments.map((comment) => (
         <Col sm={12} className="no-padding" key={comment.id}>
           <div className="comment d-block" id={`comment-${comment.id}`}>
             <Col sm={12} className="header pt-3">
-              <img alt="thumb" className="thumb" src={user.thumbs.thumb} />
+              <img alt="thumb" className="thumb" src={comment.user.thumbs.thumb} />
               <div className="user-post">{getEmployeeName(comment.company_id, comment.user)}</div>
               <div className="status">
                 <Moment utc fromNow ago>{comment.created_at}</Moment>
-                {(comment.user_id === user.id)
+                {(comment.user_id === currentUser.id)
                   && (
                     <div className="post-options-div">
                       <Dropdown id="post-options" className="post-options post-options-dropdown">
@@ -181,7 +179,7 @@ class Post extends Component {
     } = this.props;
 
     const {
-      showDeleteModal, deleteCommenId, showEditModal, commentEditId, commentEditText,
+      currentUser, showDeleteModal, deleteCommenId, showEditModal, commentEditId, commentEditText,
     } = this.state;
 
     return (
@@ -192,7 +190,7 @@ class Post extends Component {
             <div className="user-post">{getEmployeeName(post.company_id, post.user)}</div>
             <div className="status">
               <Moment utc fromNow ago>{post.created_at}</Moment>
-              {(post.user_id === user.id)
+              {(post.user_id === currentUser.id)
                 && (
                   <div className="post-options-div">
                     <Dropdown id="post-options" className="post-options post-options-dropdown">
