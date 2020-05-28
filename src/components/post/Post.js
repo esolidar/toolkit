@@ -9,6 +9,7 @@ import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
 import { findIndex } from 'lodash';
 import CommentPost from '../commentPost/CommentPost';
+import getEmployeeName from '../../utils/getEmployeeName';
 
 class Post extends Component {
   constructor(props) {
@@ -94,7 +95,7 @@ class Post extends Component {
           <div className="comment d-block" id={`comment-${comment.id}`}>
             <Col sm={12} className="header pt-3">
               <img alt="thumb" className="thumb" src={user.thumbs.thumb} />
-              <div className="user-post">{user.name}</div>
+              <div className="user-post">{getEmployeeName(comment.company_id, comment.user)}</div>
               <div className="status">
                 <Moment utc fromNow ago>{comment.created_at}</Moment>
                 {(comment.user_id === user.id)
@@ -188,7 +189,7 @@ class Post extends Component {
         <div className="post">
           <div className="col-sm-12 header">
             <img alt="Thumb" className="thumb" src={user.thumbs.thumb} />
-            <div className="user-post">{user.name}</div>
+            <div className="user-post">{getEmployeeName(post.company_id, post.user)}</div>
             <div className="status">
               <Moment utc fromNow ago>{post.created_at}</Moment>
               {(post.user_id === user.id)
