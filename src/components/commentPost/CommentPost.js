@@ -13,8 +13,8 @@ const CommentPost = ({
   errors,
 }) => {
   const lang = window.localStorage.lang ? window.localStorage.lang : 'pt';
-  const enviarCommentImage = 'url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/enviar-comment.png)';
-  const sendCommentImage = 'url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/send-comment.png)';
+  const enviarCommentImage = 'url(https://static.esolidar.com/frontend/assets/enviar-comment.png)';
+  const sendCommentImage = 'url(https://static.esolidar.com/frontend/assets/send-comment.png)';
   const changeBgImage = lang !== 'en' ? enviarCommentImage : sendCommentImage;
 
   return (
