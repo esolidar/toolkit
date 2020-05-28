@@ -195,7 +195,7 @@ class Post extends Component {
                 && (
                   <div className="post-options-div">
                     <Dropdown id="post-options" className="post-options post-options-dropdown">
-                      <DropdownButton alignRight className="post-options-dropdown" id="btn-toggle-edit-post" title="btn-toggle-edit-post">
+                      <DropdownButton alignRight className="post-options-dropdown" id="btn-toggle-edit-post" title="">
 
                         <Dropdown.Header>
                           <button
