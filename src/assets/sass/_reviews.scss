@@ -45,6 +45,7 @@
       border-top      : 1px solid $grayExtraLight;
       border-bottom   : 1px solid $grayExtraLight;
       border-radius   : 0;
+      margin-top      : -1px;
 
       .card-header {
         background-color: transparent;
@@ -54,6 +55,8 @@
         color           : $mainTextColorDark;
         letter-spacing  : 0;
         cursor          : pointer;
+        height          : 60px;
+        padding         : 10px;
 
         img {
           width        : 40px;

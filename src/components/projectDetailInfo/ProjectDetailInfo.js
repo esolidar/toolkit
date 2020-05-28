@@ -9,26 +9,24 @@ const ProjectDetailInfo = ({
   if (isEmpty(project) || !project) return (<div />);
 
   return (
-    <Row>
-      <Col sm={12} className="box">
-        <Row>
-          {project.form && (
-            <Col sm={12}>
-              {project.form.map((q) => {
-                if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.type !== 'dropdown') && (q.type !== 'upload-images') && (q.reply)) {
-                  return (
-                    <div key={q.name}>
-                      <h4 style={{ color }}>{q.name}</h4>
-                      <p>{q.reply}</p>
-                    </div>
-                  );
-                }
-              })}
-            </Col>
-          )}
-        </Row>
-      </Col>
-    </Row>
+    <div className="box">
+      <Row>
+        {project.form && (
+          <Col sm={12}>
+            {project.form.map((q) => {
+              if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.type !== 'dropdown') && (q.type !== 'upload-images') && (q.reply)) {
+                return (
+                  <div key={q.name}>
+                    <h4 style={{ color }}>{q.name}</h4>
+                    <p>{q.reply}</p>
+                  </div>
+                );
+              }
+            })}
+          </Col>
+        )}
+      </Row>
+    </div>
   );
 };
 

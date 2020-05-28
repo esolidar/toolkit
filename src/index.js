@@ -15,6 +15,7 @@ export { default as HtmlEditor } from './components/htmlEditor/HtmlEditor';
 export { default as ProjectThumb } from './components/projectThumb/ProjectThumb';
 export { default as ProjectDetail } from './components/projectDetail/ProjectDetail';
 export { default as ProjectDetailInfo } from './components/projectDetailInfo/ProjectDetailInfo';
+export { default as ProjectDetailThumb } from './components/projectDetailThumb/ProjectDetailThumb';
 export { default as LightboxGallery } from './components/lightboxGallery/LightboxGallery';
 export { default as ProjectFilters } from './components/projectFilters/ProjectFilters';
 export { default as ProjectAddForm } from './components/projectAddForm/ProjectAddForm';

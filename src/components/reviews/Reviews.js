@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
@@ -10,9 +10,13 @@ import getEmployeeName from '../../utils/getEmployeeName';
 
 const Reviews = (props) => {
   const {
-    reviews, companyId, serverlessResizeImage, noReviewsText, texts, myUser, onChange, submitReview,
+    reviews, companyId, serverlessResizeImage, noReviewsText, texts, myUser, onChange, submitReview, myRate, myReview, savedReview,
   } = props;
   const [showMyReview, setShowMyReview] = useState(filter(reviews, ['user_id', myUser.id]).length);
+
+  useEffect(() => {
+    setShowMyReview(1);
+  }, [savedReview]);
 
   return (
     <div className="reviews">
@@ -72,7 +76,7 @@ const Reviews = (props) => {
           ))}
         </Accordion>
       )}
-      {(showMyReview === 0) && (
+      {(showMyReview === 0 || reviews.length === 0) && (
         <div className="add-review">
           <h4>
             {`${texts.myReviewTitle} ${getEmployeeName(companyId, myUser)}`}
@@ -81,8 +85,9 @@ const Reviews = (props) => {
             <img className="my-user-thumb" src={myUser.s3_key ? `${serverlessResizeImage}/${myUser.s3_key}?width=40` : 'https://static.esolidar.com/frontend/assets/no-image.png'} alt={getEmployeeName(companyId, myUser)} />
             <TextareaField
               className="input"
+              field="review"
               onChange={onChange}
-              defaultValue={filter(reviews, ['user_id', myUser.id]).length === 1 ? filter(reviews, ['user_id', myUser.id])[0].review : ''}
+              defaultValue={myReview}
               minRows={5}
               placeholder={texts.writeReview}
             />
@@ -107,7 +112,7 @@ const Reviews = (props) => {
                     className="icon"
                   />
                 )}
-                initialRating={filter(reviews, ['user_id', myUser.id]).length === 1 ? filter(reviews, ['user_id', myUser.id])[0].rate : 0}
+                initialRating={myRate}
                 onChange={(rate) => props.onChangeRate(rate)}
               />
             </div>
@@ -131,6 +136,9 @@ Reviews.propTypes = {
   onChangeRate: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   submitReview: PropTypes.func.isRequired,
+  myRate: PropTypes.number,
+  myReview: PropTypes.string,
+  savedReview: PropTypes.bool,
 };
 
 Reviews.defaultProps = {
