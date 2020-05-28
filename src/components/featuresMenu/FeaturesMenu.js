@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import _ from 'lodash';
 
 const FeaturesMenu = (props) => {
@@ -658,7 +657,21 @@ const FeaturesMenu = (props) => {
               <a
                 href={`${item.pageRoute}`}
               >
-                <i className={item.iconItem} />
+                {localStorage.fixedBar ? (
+                  <OverlayTrigger
+                    key={item.position}
+                    placement="right"
+                    overlay={(
+                      <Tooltip id={item.position}>
+                        {item.itemText}
+                      </Tooltip>
+                    )}
+                  >
+                    <i className={item.iconItem} />
+                  </OverlayTrigger>
+                ) : (
+                  <i className={item.iconItem} />
+                )}
                 {item.itemText}
               </a>
             </li>
@@ -673,20 +686,6 @@ const FeaturesMenu = (props) => {
       <ul className="sidebar-menu">
         {menuItem()}
       </ul>
-      <Navbar bg="light" expand="lg" className="mobileFeaturesMenu">
-        <Navbar.Brand href="/feed" className="w-80">
-          <FormattedMessage
-            id="header.myCommunity"
-            defaultMessage="My community"
-          />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" bsPrefix="esolidar" className="icon-menu-mobile" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <ul className="mr-auto navbar-nav">
-            {menuItem()}
-          </ul>
-        </Navbar.Collapse>
-      </Navbar>
     </section>
   );
 };
