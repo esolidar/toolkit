@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import { FormattedMessage } from 'react-intl';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../button/Button';
+import ProjectDetailInfo from '../projectDetailInfo/ProjectDetailInfo';
 
 const ProjectDetail = ({
   project, returnText, color, status, lang, serverlessResizeImage, admin,
@@ -27,22 +28,7 @@ const ProjectDetail = ({
             </button>
           </Col>
           <Col sm={12} className="box">
-            <Row>
-              {project.form && (
-                <Col sm={12}>
-                  {project.form.map((q) => {
-                    if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.type !== 'dropdown') && (q.type !== 'upload-images') && (q.reply)) {
-                      return (
-                        <div key={q.name}>
-                          <h4 style={{ color }}>{q.name}</h4>
-                          <p>{q.reply}</p>
-                        </div>
-                      );
-                    }
-                  })}
-                </Col>
-              )}
-            </Row>
+            <ProjectDetailInfo project={project} color={color} />
           </Col>
         </Row>
       </Col>

@@ -14,6 +14,7 @@ export { default as BoxInfo } from './components/boxInfo/BoxInfo';
 export { default as HtmlEditor } from './components/htmlEditor/HtmlEditor';
 export { default as ProjectThumb } from './components/projectThumb/ProjectThumb';
 export { default as ProjectDetail } from './components/projectDetail/ProjectDetail';
+export { default as ProjectDetailInfo } from './components/projectDetailInfo/ProjectDetailInfo';
 export { default as LightboxGallery } from './components/lightboxGallery/LightboxGallery';
 export { default as ProjectFilters } from './components/projectFilters/ProjectFilters';
 export { default as ProjectAddForm } from './components/projectAddForm/ProjectAddForm';
@@ -30,7 +31,6 @@ export { default as Step1 } from './components/checkout/Step1';
 export { default as Step2 } from './components/checkout/Step2';
 export { default as ReadMoreText } from './components/readMoreText/ReadMoreText';
 export { default as Reviews } from './components/reviews/Reviews';
-
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';

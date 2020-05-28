@@ -1,7 +1,7 @@
 #### Import
 
 ``` html
-import { ReadMoreText } from '@esolidar/toolkit';
+import { Reviews } from '@esolidar/toolkit';
 ```
 
 #### Example
