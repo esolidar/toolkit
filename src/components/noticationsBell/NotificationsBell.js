@@ -21,7 +21,7 @@ const NotificationsBell = ({
   const notificationsList = notifications;
   if (notificationsList.length > 0) {
     notificationsList.map((notification, i) => {
-      if (notification) {
+      if (notification.id) {
         items.push(
           <li key={i} className="notification-row">
             <a
