@@ -11,31 +11,38 @@ const CommentPost = ({
   commentHereText,
   textareaOnChange,
   errors,
-}) => (
-  <Col id={`post-${postId}`} sm={12} className="no-padding">
-    <div className="comment-post d-block">
-      <div className="comment-post-write">
-        <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
-          <Col sm={12}>
-            <textarea
-              type="text"
-              id={`text-${postId}`}
-              name="text"
-              value={textareaValue}
-              className="new-post background-post-comment w-100"
-              placeholder={commentHereText}
-              onChange={(e) => textareaOnChange(e)}
-              onKeyDown={(e) => onKeyDown(e, postId)}
-            />
-            <button type="submit" className="btn-comment-post-comment" />
-            {errors.text
+}) => {
+  const lang = window.localStorage.lang ? window.localStorage.lang : 'pt';
+  const enviarCommentImage = 'url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/enviar-comment.png)';
+  const sendCommentImage = 'url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/send-comment.png)';
+  const changeBgImage = lang !== 'en' ? enviarCommentImage : sendCommentImage;
+
+  return (
+    <Col id={`post-${postId}`} sm={12} className="no-padding">
+      <div className="comment-post d-block">
+        <div className="comment-post-write">
+          <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
+            <Col sm={12}>
+              <textarea
+                type="text"
+                id={`text-${postId}`}
+                name="text"
+                value={textareaValue}
+                className="new-post background-post-comment w-100"
+                placeholder={commentHereText}
+                onChange={(e) => textareaOnChange(e)}
+                onKeyDown={(e) => onKeyDown(e, postId)}
+              />
+              <button type="submit" className="btn-comment-post-comment" style={{ backgroundImage: changeBgImage }} />
+              {errors.text
                 && <span className="error">{errors.text}</span>}
-          </Col>
-        </form>
+            </Col>
+          </form>
+        </div>
       </div>
-    </div>
-  </Col>
-);
+    </Col>
+  );
+};
 
 CommentPost.propTypes = {
   postId: PropTypes.number,

@@ -97,7 +97,7 @@ const Documents = ({
       });
     }
     return (
-      <div>
+      <div className="noResult-div">
         {noResultsText}
       </div>
     );
@@ -145,16 +145,12 @@ const Documents = ({
       {openModalDelete && (
         <Modal show={showDeleteModal} onHide={closeModal} className="md-delete-employee">
           <Modal.Header closeButton>
-            <div className="row">
-              <div className="col-xs-12">
-                <Modal.Title>
-                  <FormattedMessage
-                    id="documents.list.delete.modal.title"
-                    defaultMessage="Delete document"
-                  />
-                </Modal.Title>
-              </div>
-            </div>
+            <Modal.Title>
+              <FormattedMessage
+                id="documents.list.delete.modal.title"
+                defaultMessage="Delete document"
+              />
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="row">
@@ -191,8 +187,8 @@ Documents.propTypes = {
   documents: PropTypes.array.isRequired,
   downloadText: PropTypes.string.isRequired,
   noResultsText: PropTypes.string.isRequired,
-  headerTitleText: PropTypes.string.isRequired,
-  headerSubtitleText: PropTypes.string.isRequired,
+  headerTitleText: PropTypes.string,
+  headerSubtitleText: PropTypes.string,
   handlePageChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   errors: PropTypes.object,
