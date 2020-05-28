@@ -31,8 +31,8 @@ const props = {
   status: 'Em revisão',
 };
 
-describe('BoxInfo component', () => {
-  it('renders BoxInfo correctly', () => {
+describe('ProjectThumb component', () => {
+  it('renders ProjectThumb correctly', () => {
     const component = shallow(<ProjectThumb {...props} />);
     expect(component).toHaveLength(1);
   });

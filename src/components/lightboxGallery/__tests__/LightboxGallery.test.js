@@ -31,18 +31,18 @@ const noImageProps = {
   serverlessResizeImage: 'https://image.testesolidar.com',
 };
 
-describe('BoxInfo component', () => {
-  it('renders BoxInfo correctly', () => {
+describe('LightboxGallery component', () => {
+  it('renders LightboxGallery correctly', () => {
     const component = shallow(<LightboxGallery {...props} />);
     expect(component).toHaveLength(1);
   });
 
-  it('renders BoxInfo with no images', () => {
+  it('renders LightboxGallery with no images', () => {
     const component = shallow(<LightboxGallery {...noImageProps} />);
     expect(component.find('.no-image').length).toBe(1);
   });
 
-  it('renders BoxInfo with no images', () => {
+  it('renders LightboxGallery with no images', () => {
     const wrapper = shallow(<LightboxGallery {...props} />);
     const inst = wrapper.instance();
     expect(inst.toggleModal());

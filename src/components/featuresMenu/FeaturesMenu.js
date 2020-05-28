@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Navbar } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import _ from 'lodash';
 
 const FeaturesMenu = (props) => {
@@ -11,7 +13,11 @@ const FeaturesMenu = (props) => {
   } = props;
 
   const user = localStorage.user ? JSON.parse(localStorage.user) : '';
-  const userWorkEmail = user.work_email ? user.work_email.length : 0;
+  const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
+  let userWorkEmail = 0;
+  if (companyId) {
+    userWorkEmail = _.find(user.work_email, ['company_id', companyId]) ? 1 : 0;
+  }
 
   const menuItem = () => {
     const items = [];
@@ -45,7 +51,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 1,
-                pageRoute: '/',
+                pageRoute: '/feed',
                 showItem: true,
                 iconItem: 'icon feed',
                 itemText: translations.feed,
@@ -280,11 +286,11 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 6,
-                pageRoute: '/giftcards/list',
+                pageRoute: '/user/giftcards',
                 showItem: true,
                 iconItem: 'icon giftcards',
                 itemText: translations.giftCards,
-                hide: userWorkEmail > 0 ? 0 : 1,
+                hide: 0,
               });
               break;
 
@@ -648,7 +654,7 @@ const FeaturesMenu = (props) => {
       if (item.showItem) {
         if (item.hide !== 1) {
           return (
-            <li key={item.position} className={location === item.pageRoute ? 'active' : ''}>
+            <li key={item.position} className={(location === item.pageRoute || (item.pageRoute !== '/' && location.includes(item.pageRoute))) ? 'active' : ''}>
               <a
                 href={`${item.pageRoute}`}
               >
@@ -667,6 +673,20 @@ const FeaturesMenu = (props) => {
       <ul className="sidebar-menu">
         {menuItem()}
       </ul>
+      <Navbar bg="light" expand="lg" className="mobileFeaturesMenu">
+        <Navbar.Brand href="/feed" className="w-80">
+          <FormattedMessage
+            id="header.myCommunity"
+            defaultMessage="My community"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" bsPrefix="esolidar" className="icon-menu-mobile" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <ul className="mr-auto navbar-nav">
+            {menuItem()}
+          </ul>
+        </Navbar.Collapse>
+      </Navbar>
     </section>
   );
 };
