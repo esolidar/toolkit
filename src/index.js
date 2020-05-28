@@ -27,6 +27,9 @@ export { default as GiftCardThumb } from './components/giftCardThumb/GiftCardThu
 export { default as Giftcards } from './components/giftcards/Giftcards';
 export { default as Survey } from './components/survey/Survey';
 export { default as Documents } from './components/documents/Documents';
+export { default as CommentPost } from './components/commentPost/CommentPost';
+export { default as CreatePost } from './components/createPost/CreatePost';
+export { default as Post } from './components/post/Post';
 export { default as Countdown } from './components/countdown/Countdown';
 export { default as Step1 } from './components/checkout/Step1';
 export { default as Step2 } from './components/checkout/Step2';

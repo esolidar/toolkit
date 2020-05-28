@@ -6,7 +6,7 @@ import ProjectDetailInfo from '../projectDetailInfo/ProjectDetailInfo';
 import ProjectDetailThumb from '../projectDetailThumb/ProjectDetailThumb';
 
 const ProjectDetail = ({
-  project, returnText, color, status, lang, serverlessResizeImage, admin,
+  project, color, status, lang, serverlessResizeImage, admin,
 }) => {
   if (isEmpty(project) || !project) return (<div />);
 
@@ -14,17 +14,6 @@ const ProjectDetail = ({
     <Row className="project-detail">
       <Col sm={9}>
         <Row>
-          <Col sm={12} style={{ color }}>
-            <h2>
-              {project.title}
-            </h2>
-          </Col>
-          <Col sm={12}>
-            <button type="button" onClick={() => window.history.back()} className="back">
-              <img src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-go-back.svg" alt="" />
-              {returnText}
-            </button>
-          </Col>
           <Col sm={12} className="box">
             <ProjectDetailInfo project={project} color={color} />
           </Col>
@@ -45,7 +34,6 @@ const ProjectDetail = ({
 
 ProjectDetail.propTypes = {
   project: PropTypes.object.isRequired,
-  returnText: PropTypes.string,
   color: PropTypes.string,
   status: PropTypes.string,
   lang: PropTypes.string.isRequired,
