@@ -6,6 +6,7 @@ import Post from '../Post';
 
 const props = {
   post: {
+    text: 'Lorem ipsum lorem ipsum lorem ipsum',
     user: {
       id: 1,
       firstName: 'Maria',
