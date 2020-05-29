@@ -152,7 +152,12 @@ class Post extends Component {
                         </span>
                       )}
                     >
-                      <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+                      {comment.text.split('\n').map((item, index) => (
+                        <span key={index}>
+                          {item}
+                          <br />
+                        </span>
+                      ))}
                     </Truncate>
                   </div>
                 </div>
@@ -230,7 +235,12 @@ class Post extends Component {
           </div>
           <div className="post-item">
             <div className={`before-update before-update-${post.id}`}>
-              <div dangerouslySetInnerHTML={{ __html: post.text }} />
+              {post.text.split('\n').map((item, index) => (
+                <span key={index}>
+                  {item}
+                  <br />
+                </span>
+              ))}
             </div>
           </div>
           <div className="loves-comments">
@@ -285,6 +295,7 @@ class Post extends Component {
                       rows="4"
                       defaultValue={commentEditText}
                       onChange={(e) => textareaOnChange(e)}
+                      maxLength={255}
                     />
                     <button type="submit" className="btn-esolidar btn-info-full float-right">
                       <FormattedMessage
