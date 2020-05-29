@@ -9,6 +9,7 @@ import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
 import { findIndex } from 'lodash';
 import CommentPost from '../commentPost/CommentPost';
+import getEmployeeName from '../../utils/getEmployeeName';
 
 class Post extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Post extends Component {
       showEditModal: false,
       commentEditId: '',
       commentEditText: '',
+      currentUser: localStorage.user ? JSON.parse(localStorage.user) : [],
     };
 
     this.updateState = this.updateState.bind(this);
@@ -84,20 +86,17 @@ class Post extends Component {
 
 
   renderReplies(comments) {
-    const {
-      user,
-    } = this.props;
-    const { readMoreComment } = this.state;
+    const { readMoreComment, currentUser } = this.state;
     if (comments.length > 0) {
       return comments.map((comment) => (
         <Col sm={12} className="no-padding" key={comment.id}>
           <div className="comment d-block" id={`comment-${comment.id}`}>
             <Col sm={12} className="header pt-3">
-              <img alt="thumb" className="thumb" src={user.thumbs.thumb} />
-              <div className="user-post">{user.name}</div>
+              <img alt="thumb" className="thumb" src={comment.user.thumbs.thumb} />
+              <div className="user-post">{getEmployeeName(comment.company_id, comment.user)}</div>
               <div className="status">
                 <Moment utc fromNow ago>{comment.created_at}</Moment>
-                {(comment.user_id === user.id)
+                {(comment.user_id === currentUser.id)
                   && (
                     <div className="post-options-div">
                       <Dropdown id="post-options" className="post-options post-options-dropdown">
@@ -153,7 +152,12 @@ class Post extends Component {
                         </span>
                       )}
                     >
-                      <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+                      {comment.text.split('\n').map((item, index) => (
+                        <span key={index}>
+                          {item}
+                          <br />
+                        </span>
+                      ))}
                     </Truncate>
                   </div>
                 </div>
@@ -180,7 +184,7 @@ class Post extends Component {
     } = this.props;
 
     const {
-      showDeleteModal, deleteCommenId, showEditModal, commentEditId, commentEditText,
+      currentUser, showDeleteModal, deleteCommenId, showEditModal, commentEditId, commentEditText,
     } = this.state;
 
     return (
@@ -188,10 +192,10 @@ class Post extends Component {
         <div className="post">
           <div className="col-sm-12 header">
             <img alt="Thumb" className="thumb" src={user.thumbs.thumb} />
-            <div className="user-post">{user.name}</div>
+            <div className="user-post">{getEmployeeName(post.company_id, post.user)}</div>
             <div className="status">
               <Moment utc fromNow ago>{post.created_at}</Moment>
-              {(post.user_id === user.id)
+              {(post.user_id === currentUser.id)
                 && (
                   <div className="post-options-div">
                     <Dropdown id="post-options" className="post-options post-options-dropdown">
@@ -231,7 +235,12 @@ class Post extends Component {
           </div>
           <div className="post-item">
             <div className={`before-update before-update-${post.id}`}>
-              <div dangerouslySetInnerHTML={{ __html: post.text }} />
+              {post.text.split('\n').map((item, index) => (
+                <span key={index}>
+                  {item}
+                  <br />
+                </span>
+              ))}
             </div>
           </div>
           <div className="loves-comments">
@@ -286,6 +295,7 @@ class Post extends Component {
                       rows="4"
                       defaultValue={commentEditText}
                       onChange={(e) => textareaOnChange(e)}
+                      maxLength={255}
                     />
                     <button type="submit" className="btn-esolidar btn-info-full float-right">
                       <FormattedMessage

@@ -32,6 +32,7 @@ const CommentPost = ({
                 placeholder={commentHereText}
                 onChange={(e) => textareaOnChange(e)}
                 onKeyDown={(e) => onKeyDown(e, postId)}
+                maxLength={255}
               />
               <button type="submit" className="btn-comment-post-comment" style={{ backgroundImage: changeBgImage }} />
               {errors.text

@@ -71,7 +71,7 @@ const Documents = ({
             {document.title ? (
               <h3>{document.title}</h3>
             ) : (
-              <h3>{document.name}</h3>
+              <h3>{decodeURI(document.name)}</h3>
             )}
             {document.summary && (
               <p>{document.summary}</p>
