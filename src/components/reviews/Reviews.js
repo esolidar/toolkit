@@ -15,7 +15,9 @@ const Reviews = (props) => {
   const [showMyReview, setShowMyReview] = useState(filter(reviews, ['user_id', myUser.id]).length);
 
   useEffect(() => {
-    setShowMyReview(1);
+    if (savedReview) {
+      setShowMyReview(1);
+    }
   }, [savedReview]);
 
   return (
