@@ -25,7 +25,7 @@ const CommentPost = ({
             <Col sm={12}>
               <textarea
                 type="text"
-                id={`text-${postId}`}
+                id="text-comment"
                 name="text"
                 value={textareaValue}
                 className="new-post background-post-comment w-100"
