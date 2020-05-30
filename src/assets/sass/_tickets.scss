@@ -1,0 +1,78 @@
+.ticketCard {
+  background-color: #fff;
+  border          : 1px solid #E7EBED !important;
+
+  .card-title {
+    padding      : 0px 15px 15px 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E7EBED;
+  }
+
+  .header {
+    .thumb {
+      width        : 40px;
+      border-radius: 50%;
+      float        : left;
+      margin-right : 15px;
+    }
+
+    .user-post {
+      font-family: 'AvenirLT-Roman';
+      font-size  : 20px;
+      font-weight: 300;
+      line-height: 40px;
+      color      : $mainColor;
+      display    : inline-block;
+    }
+  }
+
+  h6 {
+    color: #6c757d;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.tickets-page {
+  table tbody tr {
+    cursor: pointer;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.border-top {
+  border-top: 1px solid #ccc;
+  text-align: right;
+  padding: 20px 0 20px 0;
+}
+
+.files-list {
+  background: #F6F9F9;
+  padding   : 15px 40px;
+  max-height: 320px;
+  overflow  : auto;
+  margin-top: 15px;
+  width     : 100%;
+
+  .file-list-imported {
+    border-bottom: 1px solid #D0D6DD;
+    padding      : 15px 0;
+
+    .checkbox-label {
+      width      : 100%;
+      font-weight: normal;
+    }
+
+    .name {
+      font-family   : 'AvenirLTStd-Heavy';
+      font-size     : 15px;
+      color         : #455C75;
+      letter-spacing: 0;
+    }
+  }
+}
