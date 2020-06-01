@@ -10,9 +10,9 @@ import SelectField from '../../elements/selectField/SelectField';
 import Button from '../button/Button';
 
 const TicketsForm = ({
+  errors,
   onSubmit,
   onChange,
-  errors,
   statusDefault,
   status,
   priorityDefault,
