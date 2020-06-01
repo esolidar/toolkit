@@ -78,16 +78,100 @@
 }
 
 .editSelectField {
-  .form-group .control-label {
-    color         : #6c757d;
-    text-transform: capitalize;
-    font-size     : 1rem;
-    font-weight   : 500;
+  .form-group {
+    float: left;
+
+    .control-label {
+      color         : #6c757d;
+      text-transform: capitalize;
+      font-size     : 1rem;
+      font-weight   : 500;
+    }
+
+    .form-control {
+      border      : 0px;
+      width       : auto;
+      padding-left: 0px;
+
+      option:empty {
+        display: none;
+      }
+    }
   }
 
-  .form-group .form-control {
-    border      : 0px;
-    width       : auto;
-    padding-left: 0px;
+  i {
+    float       : left;
+    position    : relative;
+    top         : 15px;
+    margin-right: 5px;
+    font-weight : bold;
+    font-size   : 13px;
+  }
+
+  .states {
+    font-size     : 15px;
+    color         : #455C75;
+    letter-spacing: -0.31px;
+    line-height   : 24px;
+    border-radius : 3px;
+    padding       : 10px;
+    min-height    : 40px;
+    float         : left;
+  }
+
+  .red {
+    color: red;
+  }
+
+  .danger {
+    color: $btnDanger;
+  }
+
+  .orange {
+    color: $pendingColor;
+  }
+
+  .green {
+    color: #6c757d;
+  }
+
+  .greenLight {
+    color: $btnSuccess;
+  }
+
+  .gray {
+    color: $grayDark;
+  }
+
+  .yellow {
+    color: $btnWarning;
+  }
+
+  .border-red {
+    border: 2px solid red !important;
+  }
+
+  .border-danger {
+    border: 2px solid $btnDanger !important;
+  }
+
+  .border-orange {
+    border: 2px solid $pendingColor !important;
+  }
+
+  .border-green {
+    border: 2px solid $green !important;
+  }
+
+  .border-greenLight {
+    border: 2px solid $btnSuccess !important;
+  }
+
+  .border-gray {
+    border: 2px solid $grayDark !important;
+  }
+
+  .border-yellow {
+    border: 2px solid $btnWarning !important;
   }
 }
