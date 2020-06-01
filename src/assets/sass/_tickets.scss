@@ -48,7 +48,7 @@
 .border-top {
   border-top: 1px solid #ccc;
   text-align: right;
-  padding: 20px 0 20px 0;
+  padding   : 20px 0 20px 0;
 }
 
 .files-list {
@@ -74,5 +74,20 @@
       color         : #455C75;
       letter-spacing: 0;
     }
+  }
+}
+
+.editSelectField {
+  .form-group .control-label {
+    color         : #6c757d;
+    text-transform: capitalize;
+    font-size     : 1rem;
+    font-weight   : 500;
+  }
+
+  .form-group .form-control {
+    border      : 0px;
+    width       : auto;
+    padding-left: 0px;
   }
 }

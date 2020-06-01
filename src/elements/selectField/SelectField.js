@@ -12,6 +12,7 @@ const SelectField = ({
   selectText,
   error,
   defaultValue,
+  className,
 }) => {
   const optionsList = (options) => {
     if (options) {
@@ -33,7 +34,7 @@ const SelectField = ({
         )}
       <select
         name={field}
-        className="form-control"
+        className={`form-control ${className}`}
         value={value}
         defaultValue={defaultValue}
         onChange={onChange}
@@ -67,4 +68,5 @@ SelectField.propTypes = {
   field: PropTypes.string,
   disabled: PropTypes.bool,
   selectText: PropTypes.string,
+  className: PropTypes.string,
 };
