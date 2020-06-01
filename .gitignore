@@ -10,3 +10,4 @@ npm-debug.log*
 *.iml
 /.idea
 yarn-error.log
+.babelrc
