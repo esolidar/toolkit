@@ -31,7 +31,7 @@ const TicketsComments = ({
             <div className="user-post">{ticketComment.project_comment.user ? ticketComment.project_comment.user.name : '--'}</div>
           </Col>
           <Col sm={9} className="border-left">
-            <p className="text-right mb-0"><Moment utc fromNow ago>{ticketComment.project_comment.created_at}</Moment></p>
+            <p className="text-right mb-0 comment-date"><Moment utc fromNow ago>{ticketComment.project_comment.created_at}</Moment></p>
             <p>{ticketComment.project_comment.text}</p>
             {ticketComment.project_comment.attachment_files.length > 0 && (
               <div className="text-right w-100 mt-3">

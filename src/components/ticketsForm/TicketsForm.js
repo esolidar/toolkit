@@ -78,7 +78,6 @@ const TicketsForm = ({
                             field="text"
                             defaultValue={editTicket.text}
                             message=""
-                            maxLength={100}
                             required={true}
                           />
                         </div>
@@ -147,7 +146,6 @@ const TicketsForm = ({
                     onChange={onChangeComment}
                     field="text"
                     message=""
-                    maxLength={100}
                     required={true}
                   />
                 </Col>
