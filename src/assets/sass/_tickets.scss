@@ -8,6 +8,14 @@
     border-bottom: 1px solid #E7EBED;
   }
 
+  .comment-date {
+    display    : inline-block;
+    line-height: 40px;
+    font-family: 'AvenirLTStd-Heavy';
+    font-size  : 12px;
+    color      : #455C75;
+  }
+
   .header {
     .thumb {
       width        : 40px;
@@ -77,7 +85,8 @@
   }
 }
 
-.editSelectField {
+.editSelectField,
+.react-bs-table-container {
   .form-group {
     float: left;
 
