@@ -1,11 +1,13 @@
 .ticketCard {
   background-color: #fff;
   border          : 1px solid #E7EBED !important;
+
   .card-title {
     padding      : 0px 15px 15px 15px;
     margin-bottom: 20px;
     border-bottom: 1px solid #E7EBED;
   }
+
   .comment-date {
     display    : block;
     line-height: 40px;
@@ -13,6 +15,7 @@
     font-size  : 12px;
     color      : #455C75;
   }
+
   .header {
     .thumb {
       width        : 40px;
@@ -20,6 +23,7 @@
       float        : left;
       margin-right : 15px;
     }
+
     .user-post {
       font-family: 'AvenirLT-Roman';
       font-size  : 20px;
@@ -29,40 +33,49 @@
       display    : inline-block;
     }
   }
+
   h6 {
     color: #6C757D;
   }
+
   p {
     margin-bottom: 20px;
   }
 }
+
 .tickets-page {
   table tbody tr {
     cursor: pointer;
   }
 }
+
 .w-100 {
   width: 100%;
 }
+
 .border-top {
   border-top: 1px solid #ccc;
   text-align: right;
   padding   : 20px 0 20px 0;
 }
+
 .files-list {
   background: #F6F9F9;
-  padding   : 15px 40px;
-  max-height: 320px;
+  padding   : 15px !important;
+  max-height: 230px;
   overflow  : auto;
   margin-top: 15px;
   width     : 100%;
+
   .file-list-imported {
     border-bottom: 1px solid #D0D6DD;
     padding      : 15px 0;
+
     .checkbox-label {
       width      : 100%;
       font-weight: normal;
     }
+
     .name {
       font-family   : 'AvenirLTStd-Heavy';
       font-size     : 15px;
@@ -71,25 +84,30 @@
     }
   }
 }
+
 .editSelectField,
 .react-bs-table-container {
   .form-group {
     float: left;
+
     .control-label {
       color         : #6C757D;
       text-transform: capitalize;
       font-size     : 1rem;
       font-weight   : 500;
     }
+
     .form-control {
       border      : 0px;
       width       : auto;
       padding-left: 0px;
+
       option:empty {
         display: none;
       }
     }
   }
+
   i {
     float       : left;
     position    : relative;
@@ -98,6 +116,7 @@
     font-weight : bold;
     font-size   : 13px;
   }
+
   .states {
     font-size     : 15px;
     color         : #455C75;
@@ -108,92 +127,115 @@
     min-height    : 40px;
     float         : left;
   }
+
   span.orange {
     color           : $pendingColor;
     background-color: rgba(255, 165, 0, 0.3);
   }
+
   span.green {
     color           : $green;
     background-color: rgba(0, 100, 0, 0.3);
   }
+
   span.greenLight {
     color           : $btnSuccess;
     background-color: rgba(52, 199, 127, 0.3);
   }
+
   span.gray {
     color           : $grayDark;
     background-color: rgba(115, 133, 152, 0.3);
   }
+
   span.yellow {
     color      : $btnWarning;
     font-weight: bold;
   }
+
   span.blue {
     color           : $infoColor;
     background-color: rgba(5, 198, 229, 0.3);
   }
+
   .red {
     color: red;
   }
+
   .danger {
     color: $btnDanger;
   }
+
   .orange {
     color: $pendingColor;
   }
+
   .green {
     color: #6C757D;
   }
+
   .greenLight {
     color: $btnSuccess;
   }
+
   .gray {
     color: $grayDark;
   }
+
   .yellow {
     color: $btnWarning;
   }
+
   .blue {
     color: $infoColor;
   }
+
   .border-blue {
     border: 2px solid $infoColor !important;
   }
+
   .border-red {
     border: 2px solid red !important;
   }
+
   .border-danger {
     border: 2px solid $btnDanger !important;
   }
+
   .border-orange {
     border: 2px solid $pendingColor !important;
   }
+
   .border-green {
     border: 2px solid $green !important;
   }
+
   .border-greenLight {
     border: 2px solid $btnSuccess !important;
   }
+
   .border-gray {
     border: 2px solid $grayDark !important;
   }
+
   .border-yellow {
     border: 2px solid $btnWarning !important;
   }
 }
+
 .react-bs-table-container {
   span.states {
     padding   : 3px 10px 3px;
     min-height: auto;
   }
+
   i {
     top: 10px;
   }
 }
 
 .header-import {
-  padding: 25px;
-  padding-bottom: 0;
+  padding: 0 25px;
 
   .upload-file {
     border       : 1px solid $mainTextColorLight;
@@ -310,9 +352,38 @@
 }
 
 .import-files {
+  .modal-content {
+    width         : 600px;
+    max-width     : 600px;
+    padding-bottom: 0 !important;
+
+    .h4 {
+      font-size     : 20px;
+      letter-spacing: 0;
+      line-height   : 31px;
+    }
+  }
+
   .modal-dialog {
     .modal-body {
       padding: 0;
     }
   }
+}
+
+.document-row {
+  a {
+    font-size: 13px;
+  }
+}
+
+.ticket-date {
+  font-size   : 12px;
+  color       : $mainTextColorDark;
+  padding-left: 55px;
+}
+
+.files-box {
+  border-top : 1px solid #dee2e6;
+  padding-top: 5px;
 }

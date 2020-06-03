@@ -55,7 +55,7 @@ import { TicketsComments } from '@esolidar/toolkit';
     created_at: "2020-05-29 22:24:50",
     id: 11,
     project_id: 13,
-    text: "Esta é uma descrição de teste",
+    text: "Esta é uma descrição de teste \n https://github.com/esolidar/whitelabel/pull/178",
     updated_at: "2020-05-29 22:24:50",
     user_id: 51859,
     project_comment_id: 11,
