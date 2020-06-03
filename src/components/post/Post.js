@@ -297,10 +297,10 @@ class Post extends Component {
                       onChange={(e) => textareaOnChange(e)}
                       maxLength={255}
                     />
-                    <span>
+                    <span className="small-text">
                       <FormattedMessage
-                        id="projects.comment.save"
-                        defaultMessage="Save"
+                        id="projects.comments.maxlength"
+                        defaultMessage="Maximum 255 characters"
                       />
                     </span>
                     <button type="submit" className="btn-esolidar btn-info-full float-right">
