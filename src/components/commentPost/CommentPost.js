@@ -2,57 +2,61 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 const CommentPost = ({
   postId,
   onSubmit,
-  onKeyDown,
   textareaValue,
   commentHereText,
   textareaOnChange,
   errors,
-}) => {
-  const lang = window.localStorage.lang ? window.localStorage.lang : 'pt';
-  const enviarCommentImage = 'url(https://static.esolidar.com/frontend/assets/enviar-comment.png)';
-  const sendCommentImage = 'url(https://static.esolidar.com/frontend/assets/send-comment.png)';
-  const changeBgImage = lang !== 'en' ? enviarCommentImage : sendCommentImage;
-
-  return (
-    <Col id={`post-${postId}`} sm={12} className="no-padding">
-      <div className="comment-post d-block">
-        <div className="comment-post-write">
-          <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
-            <Col sm={12}>
-              <textarea
-                type="text"
-                id="text-comment"
-                name="text"
-                value={textareaValue}
-                className="new-post background-post-comment w-100"
-                placeholder={commentHereText}
-                onChange={(e) => textareaOnChange(e)}
-                onKeyDown={(e) => onKeyDown(e, postId)}
-                maxLength={255}
+  disabled,
+}) => (
+  <Col id={`post-${postId}`} sm={12} className="no-padding">
+    <div className="comment-post-no-border d-block">
+      <div className="comment-post-projects">
+        <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
+          <Col sm={12}>
+            <textarea
+              type="text"
+              id={`text-comment-${postId}`}
+              name="text"
+              value={textareaValue}
+              className="new-post background-post-comment w-100"
+              placeholder={commentHereText}
+              onChange={(e) => textareaOnChange(e)}
+              maxLength={255}
+            />
+            <span className="small-text">
+              <FormattedMessage
+                id="projects.comments.maxlength"
+                defaultMessage="Maximum 255 characters"
               />
-              <button type="submit" className="btn-comment-post-comment" style={{ backgroundImage: changeBgImage }} />
-              {errors.text
+            </span>
+            <button type="submit" className="btn-esolidar btn-success-full float-right" disabled={disabled}>
+              <FormattedMessage
+                id="projects.comments.send"
+                defaultMessage="Send"
+              />
+            </button>
+            {errors.text
                 && <span className="error">{errors.text}</span>}
-            </Col>
-          </form>
-        </div>
+          </Col>
+        </form>
       </div>
-    </Col>
-  );
-};
+    </div>
+  </Col>
+);
 
 CommentPost.propTypes = {
   postId: PropTypes.number,
   onSubmit: PropTypes.func,
-  onKeyDown: PropTypes.func,
   textareaValue: PropTypes.string,
   commentHereText: PropTypes.string,
   textareaOnChange: PropTypes.func,
   errors: PropTypes.array,
+  disabled: PropTypes.bool,
 };
 
 export default CommentPost;
