@@ -180,7 +180,7 @@ class Post extends Component {
       commentHereText,
       textareaOnChange,
       errorsReply,
-      onKeyDown,
+      disabled,
     } = this.props;
 
     const {
@@ -270,7 +270,7 @@ class Post extends Component {
             commentHereText={commentHereText}
             textareaOnChange={textareaOnChange}
             errors={errorsReply}
-            onKeyDown={onKeyDown}
+            disabled={disabled}
           />
         </div>
         <Modal show={showEditModal} onHide={() => this.toggleModalEdit('', '')} className="md-delete">
@@ -297,6 +297,12 @@ class Post extends Component {
                       onChange={(e) => textareaOnChange(e)}
                       maxLength={255}
                     />
+                    <span className="small-text">
+                      <FormattedMessage
+                        id="projects.comments.maxlength"
+                        defaultMessage="Maximum 255 characters"
+                      />
+                    </span>
                     <button type="submit" className="btn-esolidar btn-info-full float-right">
                       <FormattedMessage
                         id="projects.comment.save"
@@ -361,5 +367,5 @@ Post.propTypes = {
   textareaOnChange: PropTypes.func,
   errorsReply: PropTypes.array,
   commentUpdated: PropTypes.object,
-  onKeyDown: PropTypes.func,
+  disabled: PropTypes.bool,
 };

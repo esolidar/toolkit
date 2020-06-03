@@ -667,6 +667,62 @@ h2 {
   }
 }
 
+.comment-post-no-border {
+  margin-left     : 55px;
+  background-color: #FFFFFF;
+  border-radius   : 4px;
+  margin-bottom   : 20px;
+  margin-top      : 15px;
+
+  .comment-post-projects {
+
+    textarea {
+      border    : 1px solid #E7EAED;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+
+      &:active,
+      &:hover,
+      &:focus {
+        border : 1px solid #E7EAED;
+        outline: none;
+      }
+    }
+  }
+
+  span.small-text {
+    color    : #738598;
+    font-size: 10px;
+  }
+
+  .thumb {
+    width        : 40px;
+    border-radius: 50%;
+    float        : left;
+    margin-right : 15px;
+  }
+
+  .comment-here {
+    font-family: $fontFamily;
+    font-size  : 15px;
+    line-height: 26px;
+    color      : $inputLabelColor;
+    padding-top: 8px;
+  }
+
+  .dropdown-menu {
+    right: initial !important;
+    left : -10px;
+
+    &:after {
+      left: 55px;
+    }
+
+    &:before {
+      left: 55px;
+    }
+  }
+}
+
 .comment-post {
   margin-left     : 55px;
   background-color: #FFFFFF;
@@ -675,6 +731,8 @@ h2 {
   border-radius   : 4px;
   margin-bottom   : 20px;
   margin-top      : 15px;
+
+
 
   .thumb {
     width        : 40px;
@@ -725,7 +783,7 @@ h2 {
   }
 
   .new-post {
-    min-height       : 40px;
+    min-height   : 40px;
     border       : none;
     resize       : none !important;
     width        : 80%;
