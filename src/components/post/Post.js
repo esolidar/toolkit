@@ -207,8 +207,8 @@ class Post extends Component {
                             onClick={() => this.toggleModalEdit(post.id, post.text)}
                           >
                             <FormattedMessage
-                              id="feed.edit.post.title"
-                              defaultMessage="Edit Post"
+                              id="projects.comments.edit"
+                              defaultMessage="Edit Comment"
                             />
                           </button>
                         </Dropdown.Header>
