@@ -46,7 +46,6 @@ const TicketsComments = ({
             {ticketComment.project_comment.text.split('\n').map((item, index) => (
               <span key={index}>
                 <p dangerouslySetInnerHTML={createHtmlMarkup(item.replace(urlRegex, (url) => `<a href="${url}" target="_blank">${url}</a>`))} />
-                <br />
               </span>
             ))}
             {ticketComment.project_comment.attachment_files.length > 0 && (
