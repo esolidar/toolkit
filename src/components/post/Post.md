@@ -77,5 +77,6 @@ import { Post } from '@esolidar/toolkit';
   errorsReply={[]}
   deletedComment={{}}
   onKeyDown={()=>{}}
+  disabled={false}
 />
 ```

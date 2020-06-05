@@ -21,6 +21,7 @@ import { CommentPost } from '@esolidar/toolkit';
   commentHereText="string"
   textareaOnChange={()=>{}}
   errors={[]}
+  disabled={false}
   user={{
     id: 153074,
     thumbs: {

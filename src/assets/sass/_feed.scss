@@ -677,8 +677,11 @@ h2 {
   .comment-post-projects {
 
     textarea {
-      border    : 1px solid #E7EAED;
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+      font-family: $fontFamily;
+      border     : 1px solid #E7EAED;
+      box-shadow : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+      color      : $mainTextColorLight;
+      font-size  : 14px;
 
       &:active,
       &:hover,

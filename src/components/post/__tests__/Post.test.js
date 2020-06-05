@@ -38,7 +38,7 @@ const props = {
   replyValue: '',
   commentHereText: 'Comment here ...',
   textareaOnChange: () => {},
-  errorsReply: [],
+  errors: [],
   deletedComment: {},
   onKeyDown: () => {},
 };

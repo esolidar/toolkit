@@ -17,7 +17,7 @@ import { TicketsForm } from '@esolidar/toolkit';
   priorityDefault=""
   priority={[]}
   openModalFiles={()=>{}}
-  isLoading={false}
+  disabled={false}
   hideText={false}
   editTicket={{}}
   intl={{}}

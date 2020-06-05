@@ -10,6 +10,7 @@ import Truncate from 'react-truncate';
 import { findIndex } from 'lodash';
 import CommentPost from '../commentPost/CommentPost';
 import getEmployeeName from '../../utils/getEmployeeName';
+import TextareaField from '../../elements/textareaField/TextareaField';
 
 class Post extends Component {
   constructor(props) {
@@ -87,6 +88,7 @@ class Post extends Component {
 
   renderReplies(comments) {
     const { readMoreComment, currentUser } = this.state;
+    const { disabled } = this.props;
     if (comments.length > 0) {
       return comments.map((comment) => (
         <Col sm={12} className="no-padding" key={comment.id}>
@@ -105,6 +107,7 @@ class Post extends Component {
                             <button
                               type="button"
                               onClick={() => this.toggleModalEdit(comment.id, comment.text)}
+                              disabled={disabled}
                             >
                               <FormattedMessage
                                 id="feed.options.edit-comment"
@@ -179,8 +182,8 @@ class Post extends Component {
       replyValue,
       commentHereText,
       textareaOnChange,
-      errorsReply,
       disabled,
+      errors,
     } = this.props;
 
     const {
@@ -269,7 +272,7 @@ class Post extends Component {
             textareaValue={replyValue}
             commentHereText={commentHereText}
             textareaOnChange={textareaOnChange}
-            errors={errorsReply}
+            errors={errors}
             disabled={disabled}
           />
         </div>
@@ -277,7 +280,7 @@ class Post extends Component {
           <Modal.Header closeButton>
             <Modal.Title>
               <FormattedMessage
-                id="projects.comment.edit"
+                id="projects.comments.edit"
                 defaultMessage="Edit Comment"
               />
             </Modal.Title>
@@ -287,25 +290,18 @@ class Post extends Component {
               <div className="col-sm-12">
                 <form onSubmit={(e) => { e.preventDefault(); this.toggleModalEdit('', ''); editComment(commentEditId); }} method="post">
                   <Col sm={12}>
-                    <textarea
-                      type="text"
+                    <TextareaField
                       id={`text-${commentEditId}`}
-                      name="text"
-                      className="new-post background-post-comment w-100 b"
-                      rows="4"
+                      field="post"
                       defaultValue={commentEditText}
-                      onChange={(e) => textareaOnChange(e)}
-                      maxLength={255}
+                      className="new-post background-post-comment w-100 b"
+                      onChange={textareaOnChange}
+                      error={errors.post}
+                      required={true}
                     />
-                    <span className="small-text">
+                    <button type="submit" className="btn-esolidar btn-success-full float-right">
                       <FormattedMessage
-                        id="projects.comments.maxlength"
-                        defaultMessage="Maximum 255 characters"
-                      />
-                    </span>
-                    <button type="submit" className="btn-esolidar btn-info-full float-right">
-                      <FormattedMessage
-                        id="projects.comment.save"
+                        id="projects.comments.save"
                         defaultMessage="Save"
                       />
                     </button>
@@ -365,7 +361,7 @@ Post.propTypes = {
   replyValue: PropTypes.string,
   commentHereText: PropTypes.string,
   textareaOnChange: PropTypes.func,
-  errorsReply: PropTypes.array,
   commentUpdated: PropTypes.object,
   disabled: PropTypes.bool,
+  errors: PropTypes.array,
 };

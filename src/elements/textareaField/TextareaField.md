@@ -7,7 +7,8 @@ import { TextareaField } from '@esolidar/toolkit';
 #### Example
 
 ``` jsx
-<TextareaField 
+<TextareaField
+  id="textareaField-id"
   label="Lorem Ipsum" 
   error="error"
   placeholder="Placeholder"
