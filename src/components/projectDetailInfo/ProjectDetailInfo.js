@@ -18,7 +18,6 @@ const ProjectDetailInfo = ({
                 return (
                   <div key={q.name}>
                     <h4 style={{ color }}>{q.name}</h4>
-                    <p>{q.reply}</p>
                     {q.reply.split('\n').map((item, index) => (
                       <p key={index}>
                         {item}
