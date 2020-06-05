@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import TextareaField from '../../elements/textareaField/TextareaField';
 
 const CommentPost = ({
   postId,
@@ -17,23 +18,17 @@ const CommentPost = ({
     <div className="comment-post-no-border d-block">
       <div className="comment-post-projects">
         <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
-          <Col sm={12}>
-            <textarea
-              type="text"
-              id={`text-comment-${postId}`}
-              name="text"
-              value={textareaValue}
+          <Col sm={12} className="pt-3">
+            <TextareaField
+              id={`text-reply-${postId}`}
+              field={`reply-${postId}`}
+              defaultValue={textareaValue}
               className="new-post background-post-comment w-100"
               placeholder={commentHereText}
-              onChange={(e) => textareaOnChange(e)}
-              maxLength={255}
+              onChange={textareaOnChange}
+              error={errors[`reply-${postId}`]}
+              required={true}
             />
-            <span className="small-text">
-              <FormattedMessage
-                id="projects.comments.maxlength"
-                defaultMessage="Maximum 255 characters"
-              />
-            </span>
             <button type="submit" className="btn-esolidar btn-success-full float-right" disabled={disabled}>
               <FormattedMessage
                 id="projects.comments.send"

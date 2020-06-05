@@ -5,6 +5,7 @@ import autosize from 'autosize';
 
 const TextareaField = ({
   field,
+  id,
   value,
   defaultValue,
   label,
@@ -35,6 +36,7 @@ const TextareaField = ({
         </p>
       )}
       <textarea
+        id={id}
         disabled={disabled}
         onChange={onChange}
         value={value}
@@ -52,6 +54,7 @@ const TextareaField = ({
 
 TextareaField.propTypes = {
   field: PropTypes.string.isRequired,
+  id: PropTypes.string,
   onChange: PropTypes.func,
   label: PropTypes.string,
   error: PropTypes.string,

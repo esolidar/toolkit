@@ -23,7 +23,7 @@ const TicketsForm = ({
   status,
   priorityDefault,
   priority,
-  isLoading,
+  disabled,
   hideText,
   editTicket,
   openModalFiles,
@@ -173,7 +173,7 @@ const TicketsForm = ({
                           <Button
                             extraClass="success-full"
                             onClick={onSubmit}
-                            disabled={isLoading}
+                            disabled={disabled}
                             text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
                           />
                         </Col>
@@ -225,13 +225,12 @@ const TicketsForm = ({
                         extraClass="dark-full mr-3"
                         onClick={addComment}
                         text={intl.formatMessage({ id: 'Company.department.cancel', defaultMessage: 'Cancel' })}
-                        disabled={isLoading}
                       />
                       <Button
                         extraClass="success-full"
                         onClick={onSubmitComment}
                         text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
-                        disabled={isLoading}
+                        disabled={disabled}
                       />
                     </Col>
                   </Row>
@@ -316,7 +315,7 @@ TicketsForm.propTypes = {
   priorityDefault: PropTypes.string,
   priority: PropTypes.array,
   openModalFiles: PropTypes.func,
-  isLoading: PropTypes.bool,
+  disabled: PropTypes.bool,
   hideText: PropTypes.bool,
   editTicket: PropTypes.oneOfType([
     PropTypes.object,
