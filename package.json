@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.10.7",
+  "version": "1.11.0",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -128,6 +128,7 @@
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "react-share": "^4.1.0",
+    "react-slick": "^0.26.1",
     "react-stripe-elements": "^6.1.2",
     "react-styleguidist": "^10.3.2",
     "react-switch": "^5.0.1",
