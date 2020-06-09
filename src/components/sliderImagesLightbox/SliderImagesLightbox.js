@@ -44,18 +44,18 @@ class SliderImagesLightbox extends Component {
   }
 
   componentDidMount() {
-    const { images, video } = this.props;
+    const { images, video, env } = this.props;
     let imagesData = [];
     if (video) {
       const video = [{
         id: 0,
-        image: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/video.png',
+        image: `${env.cdn_static_url}/frontend/assets/video.png`,
         video: this.props.video,
         thumbs: {
-          standard: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/video.png',
-          detail: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/video.png',
-          pin: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/video.png',
-          thumb: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/video.png',
+          standard: `${env.cdn_static_url}/frontend/assets/video.png`,
+          detail: `${env.cdn_static_url}/frontend/assets/video.png`,
+          pin: `${env.cdn_static_url}/frontend/assets/video.png`,
+          thumb: `${env.cdn_static_url}/frontend/assets/video.png`,
         },
       }];
       imagesData = video.concat(images);
