@@ -5,6 +5,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import Pagination from 'react-js-pagination';
 import { FormattedMessage } from 'react-intl';
 import Moment from 'react-moment';
+import Loading from '../loading/Loading';
 
 const Giftcards = ({
   giftCardsList,
@@ -28,17 +29,20 @@ const Giftcards = ({
   itemsPerPage,
   totalUsed,
   handlePageChangeUsed,
+  loading,
 }) => {
   const renderDate = (cell, row) => {
     if (row.giftcard_institution.length > 0) {
       return (
-        <Moment utc tz={row.timezone} format="YYYY-MM-DD HH:mm:ss">
-          {row.giftcard_institution[0].created_at}
-        </Moment>
+        <div style={{ whiteSpace: 'initial', textAlign: 'center', fontSize: '13px' }}>
+          <Moment utc tz={row.timezone} format="YYYY-MM-DD HH:mm:ss">
+            {row.giftcard_institution[0].created_at}
+          </Moment>
+        </div>
       );
     }
     return (
-      <div className="error">
+      <div className="error" style={{ textAlign: 'center' }}>
         <FormattedMessage
           id="giftcard.expired"
           defaultMessage="Expired"
@@ -80,6 +84,11 @@ const Giftcards = ({
         />
       </Col>
       <Col sm={12} className="giftcards-used-table mobile-nopadding">
+        {loading && (
+          <div className="loading-list">
+            <Loading />
+          </div>
+        )}
         <BootstrapTable
           tableHeaderClass="table-header"
           trClassName="tableRow"
@@ -163,4 +172,5 @@ Giftcards.propTypes = {
   causeText: PropTypes.string,
   amountText: PropTypes.string,
   dateText: PropTypes.string,
+  loading: PropTypes.bool,
 };
