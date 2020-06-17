@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import Pagination from 'react-js-pagination';
+import { FormattedMessage } from 'react-intl';
+import Moment from 'react-moment';
 
 const Giftcards = ({
   giftCardsList,
@@ -18,7 +20,6 @@ const Giftcards = ({
   options,
   renderCause,
   rendeAmount,
-  renderDate,
   giftCardsListActivePage,
   giftCardsListPerPage,
   giftCardsListTotal,
@@ -27,9 +28,28 @@ const Giftcards = ({
   itemsPerPage,
   totalUsed,
   handlePageChangeUsed,
-}) => (
-  <Row>
-    {giftCardsList.length > 0
+}) => {
+  const renderDate = (cell, row) => {
+    if (row.giftcard_institution.length > 0) {
+      return (
+        <Moment utc tz={row.timezone} format="YYYY-MM-DD HH:mm:ss">
+          {row.giftcard_institution[0].created_at}
+        </Moment>
+      );
+    }
+    return (
+      <div className="error">
+        <FormattedMessage
+          id="giftcard.expired"
+          defaultMessage="Expired"
+        />
+      </div>
+    );
+  };
+
+  return (
+    <Row>
+      {giftCardsList.length > 0
         && (
           <Col sm={12} className="text-center mobile-nopadding">
             <Pagination
@@ -44,79 +64,80 @@ const Giftcards = ({
           </Col>
         )}
 
-    <Col sm={12} className="mobile-nopadding">
-      <h3>
-        {usedExpiredText}
-      </h3>
-      <p>
-        {usedTitleText}
-      </p>
-    </Col>
-    <Col sm={12} className="giftcards-used-table padding-bottom30 mobile-nopadding">
-      <input
-        onChange={onSearchTable}
-        className="form-control"
-        placeholder={InputPlaceholderText}
-      />
-    </Col>
-    <Col sm={12} className="giftcards-used-table mobile-nopadding">
-      <BootstrapTable
-        tableHeaderClass="table-header"
-        trClassName="tableRow"
-        tableBodyClass="table-body"
-        options={options}
-        data={giftCardsListUsed}
-        remote={true}
-      >
-        <TableHeaderColumn
-          dataField="id"
-          isKey={true}
-          hidden
+      <Col sm={12} className="mobile-nopadding">
+        <h3>
+          {usedExpiredText}
+        </h3>
+        <p>
+          {usedTitleText}
+        </p>
+      </Col>
+      <Col sm={12} className="giftcards-used-table padding-bottom30 mobile-nopadding">
+        <input
+          onChange={onSearchTable}
+          className="form-control"
+          placeholder={InputPlaceholderText}
         />
-        <TableHeaderColumn
-          dataSort
-          dataField="name"
+      </Col>
+      <Col sm={12} className="giftcards-used-table mobile-nopadding">
+        <BootstrapTable
+          tableHeaderClass="table-header"
+          trClassName="tableRow"
+          tableBodyClass="table-body"
+          options={options}
+          data={giftCardsListUsed}
+          remote={true}
         >
-          {giftcardTableTitleText}
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataSort
-          dataField="institution_name"
-          dataFormat={renderCause}
-        >
-          {causeText}
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="amount"
-          dataSort
-          dataFormat={rendeAmount}
-          width="130"
-        >
-          {amountText}
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="date"
-          dataFormat={renderDate}
-          dataSort
-          width="130"
-        >
-          {dateText}
-        </TableHeaderColumn>
-      </BootstrapTable>
-    </Col>
-    <Col sm={12} className="text-center">
-      <Pagination
-        prevPageText={<div className="prev-page" />}
-        nextPageText={<div className="next-page" />}
-        activePage={activePageUsed}
-        itemsCountPerPage={Number(itemsPerPage)}
-        totalItemsCount={totalUsed}
-        pageRangeDisplayed={5}
-        onChange={handlePageChangeUsed}
-      />
-    </Col>
-  </Row>
-);
+          <TableHeaderColumn
+            dataField="id"
+            isKey={true}
+            hidden
+          />
+          <TableHeaderColumn
+            dataSort
+            dataField="name"
+          >
+            {giftcardTableTitleText}
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataSort
+            dataField="institution_name"
+            dataFormat={renderCause}
+          >
+            {causeText}
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="amount"
+            dataSort
+            dataFormat={rendeAmount}
+            width="130"
+          >
+            {amountText}
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="date"
+            dataFormat={renderDate}
+            dataSort
+            width="130"
+          >
+            {dateText}
+          </TableHeaderColumn>
+        </BootstrapTable>
+      </Col>
+      <Col sm={12} className="text-center">
+        <Pagination
+          prevPageText={<div className="prev-page" />}
+          nextPageText={<div className="next-page" />}
+          activePage={activePageUsed}
+          itemsCountPerPage={Number(itemsPerPage)}
+          totalItemsCount={totalUsed}
+          pageRangeDisplayed={5}
+          onChange={handlePageChangeUsed}
+        />
+      </Col>
+    </Row>
+  );
+};
 
 export default Giftcards;
 
@@ -127,7 +148,6 @@ Giftcards.propTypes = {
   options: PropTypes.object.isRequired,
   renderCause: PropTypes.func.isRequired,
   rendeAmount: PropTypes.func.isRequired,
-  renderDate: PropTypes.func.isRequired,
   giftCardsListActivePage: PropTypes.number.isRequired,
   giftCardsListPerPage: PropTypes.number.isRequired,
   giftCardsListTotal: PropTypes.number.isRequired,
