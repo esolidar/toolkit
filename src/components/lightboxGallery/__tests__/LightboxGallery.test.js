@@ -42,7 +42,7 @@ describe('LightboxGallery component', () => {
     expect(component.find('.no-image').length).toBe(1);
   });
 
-  it('renders LightboxGallery with no images', () => {
+  it('renders LightboxGallery images', () => {
     const wrapper = shallow(<LightboxGallery {...props} />);
     const inst = wrapper.instance();
     expect(inst.toggleModal());

@@ -14,14 +14,6 @@
   }
 }
 
-h2 {
-  font-family: $fontFamily;
-  font-size  : 27px;
-  font-weight: 300;
-  line-height: 39px;
-  color      : $inputLabelColor;
-}
-
 .box {
   margin-bottom: 30px;
   display      : inline-block;
@@ -1218,7 +1210,7 @@ h2 {
   left      : 0;
   right     : 0;
   text-align: center;
-  z-index   : 99;
+  z-index   : 98;
 
   button {
     padding: 5px 25px;

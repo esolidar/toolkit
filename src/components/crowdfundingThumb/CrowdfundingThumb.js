@@ -156,5 +156,8 @@ CrowdfundingThumb.propTypes = {
   thumb: PropTypes.object,
   env: PropTypes.object,
   translations: PropTypes.object,
-  convertedValue: PropTypes.string.isRequired,
+  convertedValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
 };

@@ -83,7 +83,6 @@ import { Giftcards } from '@esolidar/toolkit';
   options={{}}
   renderCause={()=>{}}
   rendeAmount={()=>{}}
-  renderDate={()=>{}}
   giftCardsListActivePage={1}
   giftCardsListPerPage={10}
   giftCardsListTotal={20}
