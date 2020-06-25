@@ -1,26 +1,26 @@
 .request-comment {
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left  : 30px;
 
   .header {
     display: inline-block;
-    width: 100%;
+    width  : 100%;
 
     img {
-      width: 40px;
-      height: 40px;
+      width        : 40px;
+      height       : 40px;
       border-radius: 50%;
-      float: left;
-      margin-right: 15px;
+      float        : left;
+      margin-right : 15px;
     }
 
     .company-name {
-      font-family: $fontHeavy;
-      font-size: 15px;
-      color: $mainTextColorDark;
+      font-family   : $fontHeavy;
+      font-size     : 15px;
+      color         : $mainTextColorDark;
       letter-spacing: 0;
-      line-height: 38px;
-      float: left;
+      line-height   : 38px;
+      float         : left;
 
       span {
         font-size: 12px;
@@ -28,33 +28,33 @@
     }
 
     .date {
-      float: right;
-      font-size: 12px;
-      color: #455c75;
+      float         : right;
+      font-size     : 12px;
+      color         : #455c75;
       letter-spacing: 0;
-      line-height: 36px;
+      line-height   : 36px;
     }
 
     .options-reply {
       float: right;
 
       .options-dropdown {
-        border: none;
-        float: right;
-        margin-left: 10px;
-        padding: 10px;
+        border            : none;
+        float             : right;
+        margin-left       : 10px;
+        padding           : 10px;
         -webkit-box-shadow: none;
-        box-shadow: none;
+        box-shadow        : none;
 
         .caret {
           display: none;
         }
 
         img {
-          width: 10px;
-          height: 8px;
+          width        : 10px;
+          height       : 8px;
           border-radius: 0;
-          margin: 0;
+          margin       : 0;
         }
 
         &:hover {
@@ -70,48 +70,53 @@
         }
       }
 
+
+      .options-dropdown.btn-primary {
+        background-color: transparent;
+      }
+
       .dropdown-menu {
         button {
           background: transparent;
-          border: none;
-          cursor: pointer;
+          border    : none;
+          cursor    : pointer;
         }
       }
 
       .dropdown-menu {
         &.show {
-          left: auto !important;
+          left : auto !important;
           right: -4px;
-          top: 1px !important;
+          top  : 1px !important;
         }
       }
     }
   }
 
   .content {
-    margin-left: 20px;
-    padding-left: 35px;
-    border-left: 1px solid $grayLight;
-    font-size: 15px;
-    color: $mainTextColorDark;
+    margin-left   : 20px;
+    padding-left  : 35px;
+    border-left   : 1px solid $grayLight;
+    font-size     : 15px;
+    color         : $mainTextColorDark;
     letter-spacing: 0;
-    line-height: 22px;
+    line-height   : 22px;
   }
 
   .content-reply {
-    margin-left: 20px;
+    margin-left : 20px;
     padding-left: 35px;
-    border-left: 1px solid $grayLight;
+    border-left : 1px solid $grayLight;
 
     .btn-add-comment-reply {
-      padding: 0;
-      margin-top: 5px;
-      background: transparent;
-      border: none;
-      font-size: 15px;
-      color: $mainColor;
-      letter-spacing: 0;
-      line-height: 22px;
+      padding        : 0;
+      margin-top     : 5px;
+      background     : transparent;
+      border         : none;
+      font-size      : 15px;
+      color          : $mainColor;
+      letter-spacing : 0;
+      line-height    : 22px;
       text-decoration: underline;
 
       img {
@@ -121,20 +126,22 @@
 
     .add-reply {
       img {
-        width: 40px;
-        height: 40px;
+        width        : 40px;
+        height       : 40px;
         border-radius: 50%;
-        float: left;
-        margin-top: 25px;
-        margin-right: 10px;
+        float        : left;
+        margin-top   : 25px;
+        margin-right : 10px;
       }
+
       .input {
-        height: 50px;
-        background-repeat: no-repeat;
+        height             : 50px;
+        background-repeat  : no-repeat;
         background-position: 97% 50%;
       }
+
       .reply-as-company {
-        float: left;
+        float     : left;
         margin-top: 25px;
 
         button {
@@ -149,16 +156,16 @@
           }
 
           img {
-            width: 25px;
-            height: 25px;
+            width        : 25px;
+            height       : 25px;
             border-radius: 50%;
           }
         }
 
         .dropdown-toggle {
           -webkit-box-shadow: none;
-          box-shadow: none;
-          background: transparent;
+          box-shadow        : none;
+          background        : transparent;
 
           .caret {
             margin-left: 3px;
@@ -167,7 +174,7 @@
 
         .dropdown-menu {
           left: 0;
-          top: 45px;
+          top : 45px;
 
           .dropdown-header {
             button {
@@ -191,19 +198,19 @@
 
       .input {
         background-color: #ffffff;
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-        border: 1px solid $grayExtraLight;
-        border-radius: 4px;
-        width: 100%;
-        margin-top: 20px;
-        font-size: 15px;
-        color: $mainTextColorDark;
-        letter-spacing: 0;
-        line-height: 26px;
-        padding: 10px 15px;
-        outline: none;
-        outline-offset: -2px;
-        margin-left: 7px;
+        box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+        border          : 1px solid $grayExtraLight;
+        border-radius   : 4px;
+        width           : 100%;
+        margin-top      : 20px;
+        font-size       : 15px;
+        color           : $mainTextColorDark;
+        letter-spacing  : 0;
+        line-height     : 26px;
+        padding         : 10px 15px;
+        outline         : none;
+        outline-offset  : -2px;
+        margin-left     : 7px;
       }
 
       textarea {
@@ -213,26 +220,26 @@
 
     .comment-replies {
       .request-comment {
-        border-top: 1px solid $grayExtraLight;
-        margin: 15px 0;
+        border-top : 1px solid $grayExtraLight;
+        margin     : 15px 0;
         padding-top: 20px;
 
         .content {
           padding-left: 35px;
-          border-left: none;
+          border-left : none;
         }
 
         .btn-add-comment-reply {
-          padding: 0;
-          margin-top: 5px;
-          background: transparent;
-          border: none;
-          font-size: 15px;
-          color: $mainTextColorDark;
-          letter-spacing: 0;
-          line-height: 22px;
+          padding        : 0;
+          margin-top     : 5px;
+          background     : transparent;
+          border         : none;
+          font-size      : 15px;
+          color          : $mainTextColorDark;
+          letter-spacing : 0;
+          line-height    : 22px;
           text-decoration: underline;
-          margin-left: 55px;
+          margin-left    : 55px;
 
           img {
             margin-right: 10px;
@@ -245,11 +252,20 @@
       }
 
       .readmore-box {
-        margin: 15px 0;
-        background: $grayWhite;
-        padding: 15px 0;
+        margin     : 15px 0;
+        background : $grayWhite;
+        padding    : 15px 0;
         margin-left: -35px;
       }
     }
+  }
+}
+
+.create-comment {
+  .input {
+    height             : 50px;
+    background-repeat  : no-repeat;
+    background-position: 97% 50%;
+    resize             : none;
   }
 }

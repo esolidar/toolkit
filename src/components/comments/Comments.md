@@ -10,9 +10,7 @@ import { Comments } from '@esolidar/toolkit';
 ``` jsx
 <Comments
   getEmployeeName={() => "Joel Calheiros"}
-  env={{
-    img_cdn: "https://static.testesolidar.com",
-  }}
+  env="https://static.testesolidar.com"
   user={{
     id: 9,
   }}
@@ -36,6 +34,26 @@ import { Comments } from '@esolidar/toolkit';
           thumb: "https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg",
         },
       },
+      replies: [
+        {
+          comment: "boa tarde",
+          comment_id: 68,
+          company_id: null,
+          created_at: "2020-06-23 10:16:54",
+          crowdfunding_id: 46,
+          id: 73,
+          updated_at: "2020-06-23 10:16:54",
+          user: {
+            name: "Joel Calheiros",
+            thumbs: {
+              original: "https://cdn.testesolidar.com/users/9/1591351190.jpg",
+              standard: "https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg",
+              thumb: "https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg",
+            },
+          },
+          user_id: 9,
+        }
+      ]
     },
     {
       as_company: 1,

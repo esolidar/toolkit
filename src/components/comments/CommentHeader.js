@@ -5,11 +5,12 @@ import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
 
 const CommentHeader = ({
-  comment, deleteComment, newThumb, newName,
+  comment, deleteComment, newThumb, newName, user,
 }) => (
   <div className="header">
     <img alt="Thumb" src={newThumb} />
     <div className="company-name">{newName}</div>
+    {user.id === comment.user.id && (
     <Dropdown
       id="options-reply"
       className="options-reply options-dropdown"
@@ -31,6 +32,7 @@ const CommentHeader = ({
         </Dropdown.Header>
       </Dropdown.Menu>
     </Dropdown>
+    )}
     <div className="date">
       <Moment utc toNow ago>{comment.created_at}</Moment>
     </div>
@@ -42,6 +44,7 @@ CommentHeader.propTypes = {
   deleteComment: PropTypes.func.isRequired,
   newThumb: PropTypes.string,
   newName: PropTypes.string,
+  user: PropTypes.object,
 };
 
 export default CommentHeader;
