@@ -27,25 +27,29 @@ const Step2 = (props) => (
         />
       </Row>
       <Row className="box box-mobile-padding">
-        <Col sm={6}>
-          <Button
-            extraClass="dark btn-prev-step"
-            onClick={() => props.nextStep(0)}
-            text={props.translateMessage({
-              id: 'crowdfunding.donation.checkout.prev',
-              defaultMessage: 'Prev',
-            })}
-          />
-        </Col>
-        <Col sm={6} className="text-right">
-          <Button
-            extraClass="success-full btn-next-step"
-            onClick={() => props.nextStep(2)}
-            text={props.translateMessage({
-              id: 'crowdfunding.donation.checkout.next',
-              defaultMessage: 'Next',
-            })}
-          />
+        <Col sm={12}>
+          <Row>
+            <Col sm={6}>
+              <Button
+                extraClass="dark btn-prev-step"
+                onClick={() => props.nextStep(0)}
+                text={props.translateMessage({
+                  id: 'crowdfunding.donation.checkout.prev',
+                  defaultMessage: 'Prev',
+                })}
+              />
+            </Col>
+            <Col sm={6} className="text-right">
+              <Button
+                extraClass="success-full btn-next-step"
+                onClick={() => props.nextStep(2)}
+                text={props.translateMessage({
+                  id: 'crowdfunding.donation.checkout.next',
+                  defaultMessage: 'Next',
+                })}
+              />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Col>
