@@ -96,7 +96,7 @@ class CrowdfundingThumb extends Component {
           className="bg-image"
           style={{
             // eslint-disable-next-line max-len
-            backgroundImage: thumb.images.length > 0 ? `url(${env.serverlessResizeImage}/${thumb.images[0].image}?width=${boxSize.width}&height=${boxSize.height})` : 'url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/no-image.jpg")',
+            backgroundImage: thumb.images.length > 0 ? `url('${env.serverlessResizeImage}/${thumb.images[0].image}?width=${boxSize.width}&height=${boxSize.height}')` : 'url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/no-image.jpg")',
           }}
           ref={this.thumbBox}
         >
