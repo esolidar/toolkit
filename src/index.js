@@ -39,6 +39,7 @@ export { default as TicketsComments } from './components/ticketsComments/Tickets
 export { default as SliderImagesLightbox } from './components/sliderImagesLightbox/SliderImagesLightbox';
 export { default as Comments } from './components/comments/Comments';
 export { default as CreateComment } from './components/comments/CreateComment';
+export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
