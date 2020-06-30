@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 const CreateComment = (props) => {
   const {
-    comment, env, translateMessage, onSubmitComment, loadingNewComment, onChange,
+    comment, env, translateMessage, onSubmitComment, loadingNewComment, onChange, thumb,
   } = props;
-  const userType = localStorage.user ? JSON.parse(localStorage.user).type : 'guest';
+
   const addMessage = (e) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
       onSubmitComment(e);
@@ -24,12 +24,7 @@ const CreateComment = (props) => {
         </div>
         <div className="textarea">
           <div className="thumb">
-            {userType === 'guest'
-              && <img src={`${env}/frontend/assets/no-image.png`} alt="guest" />}
-            {userType === 'npo'
-              && <img src={JSON.parse(localStorage.user).institution.thumbs.thumb} alt={JSON.parse(localStorage.user).institution.name} />}
-            {userType === 'user'
-              && <img src={JSON.parse(localStorage.user).thumbs.thumb} alt={JSON.parse(localStorage.user).name} />}
+            <img src={thumb} alt="user-thumb" />
           </div>
           <textarea
             className="input"
@@ -64,4 +59,5 @@ CreateComment.propTypes = {
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loadingNewComment: PropTypes.bool.isRequired,
+  thumb: PropTypes.string.isRequired,
 };

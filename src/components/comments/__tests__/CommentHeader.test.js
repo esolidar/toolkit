@@ -4,9 +4,7 @@ import { shallow } from 'enzyme';
 import CommentHeader from '../CommentHeader';
 
 const comment = {
-  user: {
-    id: 1,
-  },
+  user_id: 1,
 };
 
 const user = {

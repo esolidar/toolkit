@@ -7,7 +7,7 @@ import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
 
 const Comments = ({
-  comments, deleteComment, getEmployeeName, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments,
+  comments, deleteComment, getEmployeeName, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
 
@@ -35,7 +35,7 @@ const Comments = ({
       return replies.map((reply) => {
         let newThumb;
         let newName;
-        if (reply.as_company === 1) {
+        if (reply.company_id) {
           if (reply.company) {
             newThumb = reply.company.thumbs.thumb;
             newName = reply.company.name;
@@ -63,7 +63,7 @@ const Comments = ({
       return comments.map((comment) => {
         let newThumb;
         let newName;
-        if (comment.as_company === 1) {
+        if (comment.company_id) {
           if (comment.company) {
             newThumb = comment.company.thumbs.thumb;
             newName = comment.company.name;
@@ -96,7 +96,7 @@ const Comments = ({
                   <form onSubmit={onSubmitResponse} method="post">
                     <div className="add-reply">
                       <img
-                        src={user.thumbs.thumb}
+                        src={thumb}
                         alt="thumb"
                       />
                       <textarea
@@ -201,6 +201,7 @@ Comments.propTypes = {
   totalComments: PropTypes.number,
   loadingMoreComments: PropTypes.bool,
   loadMoreComments: PropTypes.func.isRequired,
+  thumb: PropTypes.string.isRequired,
 };
 
 export default Comments;

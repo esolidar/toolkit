@@ -10,7 +10,7 @@ const CommentHeader = ({
   <div className="header">
     <img alt="Thumb" src={newThumb} />
     <div className="company-name">{newName}</div>
-    {user.id === comment.user.id && (
+    {user && (user.id === comment.user_id) && (
     <Dropdown
       id="options-reply"
       className="options-reply options-dropdown"

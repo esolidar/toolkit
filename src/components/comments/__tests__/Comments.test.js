@@ -9,7 +9,6 @@ const props = {
     as_company: 0,
     comment: 'Muito boa mesmo',
     comment_id: null,
-    company: {},
     company_id: 1,
     created_at: '2020-06-12 16:50:47',
     crowdfunding_id: 88,
@@ -18,6 +17,22 @@ const props = {
     user_id: 9,
     user: {
       name: 'Joel Calheiros',
+      thumbs: {
+        original: 'https://cdn.testesolidar.com/users/9/1591351190.jpg',
+        standard: 'https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg',
+        thumb: 'https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg',
+      },
+    },
+    company: {
+      name: 'Company name',
+      thumbs: {
+        original: 'https://cdn.testesolidar.com/users/9/1591351190.jpg',
+        standard: 'https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg',
+        thumb: 'https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg',
+      },
+    },
+    as_company_response: {
+      name: 'Company name',
       thumbs: {
         original: 'https://cdn.testesolidar.com/users/9/1591351190.jpg',
         standard: 'https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg',
@@ -59,6 +74,7 @@ const props = {
   totalComments: 3,
   loadingMoreComments: false,
   loadMoreComments: () => { },
+  thumb: 'image.png',
 };
 
 describe('Comments component', () => {
