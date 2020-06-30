@@ -62,10 +62,12 @@ const ProjectThumb = ({
               </div>
             </div>
             <div className="description">{project.description}</div>
-            <div className="owner">
-              <img src={project.user.thumbs.thumb} alt={project.user.name} />
-              {project.user.name}
-            </div>
+            {project.user && (
+              <div className="owner">
+                <img src={project.user.thumbs.thumb} alt={project.user.name} />
+                {project.user.name}
+              </div>
+            )}
             {followers && (
               <div />
             )}
