@@ -34,6 +34,22 @@ import { Comments } from '@esolidar/toolkit';
           thumb: "https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg",
         },
       },
+      company: {
+        name: 'Company name',
+        thumbs: {
+          original: 'https://cdn.testesolidar.com/users/9/1591351190.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg',
+        },
+      },
+      as_company_response: {
+        name: 'Company name',
+        thumbs: {
+          original: 'https://cdn.testesolidar.com/users/9/1591351190.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/1591351190-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/1591351190-THUMB.jpg',
+        },
+      },
       replies: [
         {
           comment: "boa tarde",
