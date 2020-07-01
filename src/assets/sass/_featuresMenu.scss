@@ -33,12 +33,12 @@
         .icon {
           width            : 21px;
           height           : 21px;
-          display          : inline-block;
-          margin-top       : 0px;
+          margin-top       : 2px;
           margin-right     : 20px;
           background-image : url('https://static.esolidar.com/frontend/icons/menu-icons-esolidar-new.svg');
           background-repeat: no-repeat;
-          background-size  : 230px;
+          background-size  : 270px;
+          float            : left;
         }
 
         .feed {
@@ -62,7 +62,11 @@
         }
 
         .crowdfunding {
-          background-position: -101px -21px;
+          background-position: -228px -21px;
+        }
+
+        .crowdfunding-public {
+          background-position: -102px -21px;
         }
 
         .payments {
@@ -78,11 +82,15 @@
         }
 
         .survey-icon {
-          background-position: -190px -21px;
+          background-position: -188px -21px;
         }
 
         .documents {
           background-position: -207px -21px;
+        }
+
+        .projects {
+          background-position: -250px -21px;
         }
       }
 
@@ -117,7 +125,11 @@
         }
 
         .crowdfunding {
-          background-position: -101px 0;
+          background-position: -228px 0;
+        }
+
+        .crowdfunding-public {
+          background-position: -102px 0;
         }
 
         .payments {
@@ -133,11 +145,15 @@
         }
 
         .survey-icon {
-          background-position: -190px 0;
+          background-position: -188px 0;
         }
 
         .documents {
           background-position: -207px 0;
+        }
+
+        .projects {
+          background-position: -250px 0;
         }
       }
 
@@ -168,7 +184,11 @@
         }
 
         .crowdfunding {
-          background-position: -101px 0;
+          background-position: -228px 0;
+        }
+
+        .crowdfunding-public {
+          background-position: -102px 0;
         }
 
         .payments {
@@ -184,11 +204,15 @@
         }
 
         .survey-icon {
-          background-position: -190px 0;
+          background-position: -188px 0;
         }
 
         .documents {
           background-position: -207px 0;
+        }
+
+        .projects {
+          background-position: -250px 0;
         }
       }
     }
