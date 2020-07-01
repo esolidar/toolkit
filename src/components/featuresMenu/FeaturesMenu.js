@@ -218,7 +218,7 @@ const FeaturesMenu = (props) => {
                 position: 5,
                 pageRoute: '/projects',
                 showItem: true,
-                iconItem: 'icon volunteering',
+                iconItem: 'icon projects',
                 itemText: translations.projects,
                 hide: 0,
               });
@@ -240,7 +240,7 @@ const FeaturesMenu = (props) => {
                 position: 5,
                 pageRoute: '/projects/list',
                 showItem: true,
-                iconItem: 'icon volunteering',
+                iconItem: 'icon projects',
                 itemText: translations.projects,
                 hide: feature.pivot.hide,
               });
@@ -251,7 +251,7 @@ const FeaturesMenu = (props) => {
                 position: 5,
                 pageRoute: '/',
                 showItem: false,
-                iconItem: 'icon volunteering',
+                iconItem: 'icon projects',
                 itemText: translations.charityneeds,
                 hide: 0,
               });
@@ -406,7 +406,7 @@ const FeaturesMenu = (props) => {
                 position: 9,
                 pageRoute: '/crowdfunding-public',
                 showItem: true,
-                iconItem: 'icon crowdfunding',
+                iconItem: 'icon crowdfunding-public',
                 itemText: translations.crowdfundingPublic,
                 hide: 0,
               });
@@ -428,7 +428,7 @@ const FeaturesMenu = (props) => {
                 position: 9,
                 pageRoute: '/crowdfunding/list',
                 showItem: true,
-                iconItem: 'icon crowdfunding',
+                iconItem: 'icon crowdfunding-public',
                 itemText: translations.crowdfundingPublic,
                 hide: feature.pivot.hide,
               });
@@ -439,7 +439,7 @@ const FeaturesMenu = (props) => {
                 position: 9,
                 pageRoute: '/crowdfunding-companies',
                 showItem: false,
-                iconItem: 'icon crowdfunding',
+                iconItem: 'icon crowdfunding-public',
                 itemText: translations.crowdfundingPublic,
                 hide: 0,
               });
