@@ -40,6 +40,7 @@ export { default as SliderImagesLightbox } from './components/sliderImagesLightb
 export { default as Comments } from './components/comments/Comments';
 export { default as CreateComment } from './components/comments/CreateComment';
 export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
+export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
