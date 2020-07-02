@@ -39,7 +39,7 @@ const ProjectThumb = ({
             )}
             <div
               className="thumb"
-              style={{ backgroundImage: `url(${serverlessResizeImage}/${thumbImage})` }}
+              style={{ backgroundImage: `url('${serverlessResizeImage}/${thumbImage}')` }}
             >
               <div className="content">
                 <div className="title">
@@ -50,7 +50,7 @@ const ProjectThumb = ({
                 {project.ods.map((item, indx) => {
                   if (indx < 4) {
                     return (
-                      <div className="ods" key={item.id} style={{ backgroundImage: `url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png)` }} />
+                      <div className="ods" key={item.id} style={{ backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png')` }} />
                     );
                   }
                   if (indx === 5) {
@@ -62,10 +62,12 @@ const ProjectThumb = ({
               </div>
             </div>
             <div className="description">{project.description}</div>
-            <div className="owner">
-              <img src={project.user.thumbs.thumb} alt={project.user.name} />
-              {project.user.name}
-            </div>
+            {project.user && (
+              <div className="owner">
+                <img src={project.user.thumbs.thumb} alt={project.user.name} />
+                {project.user.name}
+              </div>
+            )}
             {followers && (
               <div />
             )}

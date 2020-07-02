@@ -29,6 +29,51 @@ import { FeaturesMenu } from '@esolidar/toolkit';
         },
       },
       {
+        id: 2,
+        name: 'crowdfunding-public',
+        name_en: null,
+        description: null,
+        status: true,
+        description_en: null,
+        updated_at: '2019-10-29 18:14:07',
+        created_at: '2019-10-29 18:14:07',
+        pivot: {
+          subscription_id: 8,
+          feature_id: 1,
+          hide: 0 
+        },
+      },
+      {
+        id: 3,
+        name: 'crowdfunding',
+        name_en: null,
+        description: null,
+        status: true,
+        description_en: null,
+        updated_at: '2019-10-29 18:14:07',
+        created_at: '2019-10-29 18:14:07',
+        pivot: {
+          subscription_id: 8,
+          feature_id: 1,
+          hide: 0 
+        },
+      },
+      {
+        id: 4,
+        name: 'projects',
+        name_en: null,
+        description: null,
+        status: true,
+        description_en: null,
+        updated_at: '2019-10-29 18:14:07',
+        created_at: '2019-10-29 18:14:07',
+        pivot: {
+          subscription_id: 8,
+          feature_id: 1,
+          hide: 0 
+        },
+      },
+      {
         id: 7, name: 'whitelabel', name_en: null, description: null, status: true, description_en: null, updated_at: '2019-10-29 18:14:35', created_at: '2019-10-29 18:14:35', pivot: { subscription_id: 8, feature_id: 7, hide: 0 },
       },
       {
@@ -45,6 +90,8 @@ import { FeaturesMenu } from '@esolidar/toolkit';
       giftCards: 'Gift Cards',
       matchDonations: 'Match Donations',
       crowdfunding: 'Crowdfunding',
+      projects: 'Manage Projects',
+      crowdfundingPublic: 'Crowdfunding public',
       payments: 'Payments',
       impactAnalytics: 'Statistics',
       survey: 'Employee satisfaction',

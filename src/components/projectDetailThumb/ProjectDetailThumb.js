@@ -41,7 +41,7 @@ const ProjectDetailThumb = (props) => {
             />
           </h4>
           {project.ods.map((item) => (
-            <div className="ods" key={item.id} style={{ backgroundImage: `url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png)` }} />
+            <div className="ods" key={item.id} style={{ backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png')` }} />
           ))}
         </div>
         {!project.cover && (

@@ -1,9 +1,11 @@
 .project-thumb {
   border-radius: 3px;
   padding      : 0 !important;
-  margin       : 0 !important;;
-  margin-bottom: 40px !important;;
-  border       : 1px solid $grayExtraLight;
+  margin       : 0 !important;
+  ;
+  margin-bottom: 40px !important;
+  ;
+  border: 1px solid $grayExtraLight;
 
   .status {
     padding    : 5px 0;
@@ -150,6 +152,7 @@
   text-align: left;
   padding   : 0;
   margin    : 0;
+  width     : 100%;
 
   &:focus {
     outline: none;

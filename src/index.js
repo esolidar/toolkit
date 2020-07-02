@@ -37,7 +37,10 @@ export { default as Reviews } from './components/reviews/Reviews';
 export { default as TicketsForm } from './components/ticketsForm/TicketsForm';
 export { default as TicketsComments } from './components/ticketsComments/TicketsComments';
 export { default as SliderImagesLightbox } from './components/sliderImagesLightbox/SliderImagesLightbox';
-
+export { default as Comments } from './components/comments/Comments';
+export { default as CreateComment } from './components/comments/CreateComment';
+export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
+export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
