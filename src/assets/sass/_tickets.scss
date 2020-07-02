@@ -86,7 +86,8 @@
 }
 
 .editSelectField,
-.react-bs-table-container {
+.react-bs-table-container,
+th[class^="MuiTableCell-root-"] {
   .form-group {
     float: left;
 
@@ -223,7 +224,8 @@
   }
 }
 
-.react-bs-table-container {
+.react-bs-table-container,
+th[class^="MuiTableCell-root-"] {
   span.states {
     padding   : 3px 10px 3px;
     min-height: auto;

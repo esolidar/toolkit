@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import { injectIntl } from 'react-intl';
+import AsyncPaginate from 'react-select-async-paginate';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
@@ -44,6 +45,15 @@ const TicketsForm = ({
   isLoadingUplod,
   onDrop,
   removeFile,
+  showFeaturesOptions,
+  featureDefault,
+  features,
+  loadOptionsCrowdfunding,
+  updateValueCrowdfunding,
+  typeDefault,
+  types,
+  loadOptionsUsers,
+  updateValueUsers,
 }) => {
   const renderUploadedFiles = (files) => {
     if (files.length > 0) {
@@ -87,6 +97,10 @@ const TicketsForm = ({
     }
   };
 
+  const defaultAdditional = {
+    page: 1,
+  };
+
   return (
     <Row>
       <Col sm={12}>
@@ -122,6 +136,58 @@ const TicketsForm = ({
                             required={true}
                           />
                         </div>
+                      </Col>
+                    )}
+                    {showFeaturesOptions && (
+                      <Col sm={12} className="noPadding">
+                        <Col sm={6}>
+                          <SelectField
+                            defaultValue={typeDefault}
+                            onChange={onChange}
+                            field="type"
+                            label={intl.formatMessage({ id: 'tickets.type', defaultMessage: 'Type' })}
+                            options={types}
+                            error={errors.type}
+                            required={true}
+                          />
+                        </Col>
+                        <Col sm={6}>
+                          <div className="form-group">
+                            <label className="control-label">
+                              {intl.formatMessage({ id: 'tickets.assigned', defaultMessage: 'Assigned to' })}
+                            </label>
+                            <AsyncPaginate
+                              cacheOptions
+                              placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                              additional={defaultAdditional}
+                              loadOptions={loadOptionsUsers}
+                              onChange={updateValueUsers}
+                            />
+                          </div>
+                        </Col>
+                        <Col sm={6}>
+                          <SelectField
+                            defaultValue={featureDefault}
+                            onChange={onChange}
+                            field="feature_id"
+                            label={intl.formatMessage({ id: 'tickets.feature', defaultMessage: 'Feature' })}
+                            options={features}
+                            error={errors.feature_id}
+                            required={true}
+                          />
+                        </Col>
+                        <Col sm={6}>
+                          <div className="form-group">
+                            <label className="control-label">Crowdfunding</label>
+                            <AsyncPaginate
+                              cacheOptions
+                              placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                              additional={defaultAdditional}
+                              loadOptions={loadOptionsCrowdfunding}
+                              onChange={updateValueCrowdfunding}
+                            />
+                          </div>
+                        </Col>
                       </Col>
                     )}
                     <Col sm={6}>
@@ -200,16 +266,16 @@ const TicketsForm = ({
                   />
                 </Col>
                 {(uploadedFiles.length > 0) && (
-                  <Col sm={12}>
-                    <div className="form-group">
-                      <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
-                      </span>
-                      <div className="attachments-box">
-                        {renderUploadedFiles(uploadedFiles)}
-                      </div>
+                <Col sm={12}>
+                  <div className="form-group">
+                    <span htmlFor="status" className="control-label">
+                      {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
+                    </span>
+                    <div className="attachments-box">
+                      {renderUploadedFiles(uploadedFiles)}
                     </div>
-                  </Col>
+                  </div>
+                </Col>
                 )}
                 <Col sm={12} className="mt-3 text-left">
                   <Button
@@ -338,6 +404,20 @@ TicketsForm.propTypes = {
   isLoadingUplod: PropTypes.bool,
   onDrop: PropTypes.func,
   removeFile: PropTypes.func,
+  showFeaturesOptions: PropTypes.bool,
+  featureDefault: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  features: PropTypes.array,
+  auctionsList: PropTypes.array,
+  auctionsSearchList: PropTypes.func,
+  loadOptionsCrowdfunding: PropTypes.func,
+  updateValueCrowdfunding: PropTypes.func,
+  typeDefault: PropTypes.string,
+  types: PropTypes.array,
+  loadOptionsUsers: PropTypes.func,
+  updateValueUsers: PropTypes.func,
 };
 
 export default injectIntl(TicketsForm);
