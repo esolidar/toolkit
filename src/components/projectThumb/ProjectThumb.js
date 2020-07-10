@@ -27,7 +27,7 @@ const ProjectThumb = ({
   const isSelected = filter(selectedIds, (o) => o === project.id).length;
 
   return (
-    <Col sm={cols}>
+    <Col xs={12} sm={6} md={6} lg={cols}>
       <div className="project-thumb">
         <button type="button" className="project-button" onClick={clickThumb}>
           <div>

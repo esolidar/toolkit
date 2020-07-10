@@ -8,6 +8,10 @@
     border-bottom: 1px solid #E7EBED;
   }
 
+  .card-body {
+    padding: 2.25rem;
+  }
+
   .comment-date {
     display    : block;
     line-height: 40px;
@@ -388,4 +392,20 @@ th[class^="MuiTableCell-root-"] {
 .files-box {
   border-top : 1px solid #dee2e6;
   padding-top: 5px;
+}
+
+.ticket-attachment {
+  .upload-file {
+    border    : 1px solid #738598;
+    padding   : 0;
+    text-align: center;
+
+    p {
+      font-size     : 15px;
+      color         : #455C75;
+      letter-spacing: 0;
+      line-height   : 22px;
+      padding       : 50px 25px;
+    }
+  }
 }
