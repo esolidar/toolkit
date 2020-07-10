@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import { injectIntl } from 'react-intl';
+import AsyncPaginate from 'react-select-async-paginate';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
@@ -26,7 +27,6 @@ const TicketsForm = ({
   disabled,
   hideText,
   editTicket,
-  openModalFiles,
   intl,
   showAddFilesButtton,
   showModalFiles,
@@ -44,14 +44,38 @@ const TicketsForm = ({
   isLoadingUplod,
   onDrop,
   removeFile,
+  showFeaturesOptions,
+  featureDefault,
+  features,
+  auctionDefault,
+  loadOptionsAuctions,
+  updateValueAuctions,
+  typeDefault,
+  types,
+  loadOptionsUsers,
+  updateValueUsers,
+  showModalSimpleFiles,
+  toggleModalSimpleFiles,
+  onDropSimpleFiles,
+  assignedDefault,
+  disabledAssignedSelect,
+  disabledFeatureSelect,
+  disabledTypeSelect,
+  disabledStatusSelect,
 }) => {
   const renderUploadedFiles = (files) => {
     if (files.length > 0) {
       return files.map((file, index) => (
         <div key={index} className="attachments-row">
-          <a href={file.file} className="download-file" rel="noopener noreferrer" target="_blank" title={decodeURI(file.name)}>
-            {decodeURI(file.name)}
-          </a>
+          {file.name ? (
+            <a href={file.file} className="download-file" rel="noopener noreferrer" target="_blank" title={decodeURI(file.name)}>
+              {decodeURI(file.name)}
+            </a>
+          ) : (
+            <a className="download-file" rel="noopener noreferrer" target="_blank" title={decodeURI(file.file.name)}>
+              {decodeURI(file.file.name)}
+            </a>
+          )}
           <button type="button" className="remove-file" onClick={(e) => removeFile(e, file)}>x</button>
         </div>
       ));
@@ -87,6 +111,10 @@ const TicketsForm = ({
     }
   };
 
+  const defaultAdditional = {
+    page: 1,
+  };
+
   return (
     <Row>
       <Col sm={12}>
@@ -96,6 +124,87 @@ const TicketsForm = ({
               <Row className="p-3">
                 <Col md={12} className="company-box">
                   <Row>
+                    {showFeaturesOptions && (
+                      <Col sm={12} className="noPadding">
+                        <Col sm={12}>
+                          <SelectField
+                            value={featureDefault}
+                            onChange={onChange}
+                            field="feature_id"
+                            label={intl.formatMessage({ id: 'tickets.feature', defaultMessage: 'Feature' })}
+                            options={features}
+                            error={errors.feature_id}
+                            required={true}
+                            disabled={disabledFeatureSelect}
+                          />
+                        </Col>
+                        {featureDefault && (
+                          <Col sm={12}>
+                            <SelectField
+                              defaultValue={typeDefault}
+                              onChange={onChange}
+                              field="type"
+                              label={intl.formatMessage({ id: 'tickets.type', defaultMessage: 'Type' })}
+                              options={types}
+                              error={errors.type}
+                              required={true}
+                              disabled={disabledTypeSelect}
+                            />
+                          </Col>
+                        )}
+                        {featureDefault && (
+                          <Col sm={12}>
+                            <div className="form-group">
+                              <label className="control-label">Auctions</label>
+                              <AsyncPaginate
+                                isClearable
+                                defaultValue={auctionDefault}
+                                cacheOptions
+                                placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                                additional={defaultAdditional}
+                                loadOptions={loadOptionsAuctions}
+                                onChange={updateValueAuctions}
+                              />
+                              {errors.related_feature_id
+                                && (
+                                  <div className="has-error">
+                                    <span className="help-block">
+                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                    </span>
+                                  </div>
+                                )}
+                            </div>
+                          </Col>
+                        )}
+                        {assignedDefault && (
+                          <Col sm={12}>
+                            <div className="form-group">
+                              <label className="control-label">
+                                {intl.formatMessage({ id: 'tickets.assigned', defaultMessage: 'Assigned to' })}
+                              </label>
+                              <AsyncPaginate
+                                isClearable={!disabledAssignedSelect}
+                                defaultValue={assignedDefault}
+                                cacheOptions
+                                placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                                additional={defaultAdditional}
+                                loadOptions={loadOptionsUsers}
+                                onChange={updateValueUsers}
+                                isOptionDisabled={disabledAssignedSelect}
+                              />
+                              {errors.assignee_id
+                                && (
+                                  <div className="has-error">
+                                    <span className="help-block">
+                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                    </span>
+                                  </div>
+                                )}
+                            </div>
+                          </Col>
+                        )}
+                      </Col>
+                    )}
                     <Col sm={12}>
                       <TextField
                         label={intl.formatMessage({ id: 'project.tickets.title', defaultMessage: 'Title' })}
@@ -133,6 +242,7 @@ const TicketsForm = ({
                         options={status}
                         error={errors.status}
                         required={true}
+                        disabled={disabledStatusSelect}
                       />
                     </Col>
                     <Col sm={6}>
@@ -162,7 +272,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <Button
                           extraClass="dark-full float-left"
-                          onClick={openModalFiles}
+                          onClick={toggleModalFiles}
                           text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
                         />
                       </Col>
@@ -200,16 +310,16 @@ const TicketsForm = ({
                   />
                 </Col>
                 {(uploadedFiles.length > 0) && (
-                  <Col sm={12}>
-                    <div className="form-group">
-                      <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
-                      </span>
-                      <div className="attachments-box">
-                        {renderUploadedFiles(uploadedFiles)}
-                      </div>
+                <Col sm={12}>
+                  <div className="form-group">
+                    <span htmlFor="status" className="control-label">
+                      {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
+                    </span>
+                    <div className="attachments-box">
+                      {renderUploadedFiles(uploadedFiles)}
                     </div>
-                  </Col>
+                  </div>
+                </Col>
                 )}
                 <Col sm={12} className="mt-3 text-left">
                   <Button
@@ -301,6 +411,60 @@ const TicketsForm = ({
           </Row>
         </Modal.Body>
       </Modal>
+      <Modal show={showModalSimpleFiles} className="md-modal-medium" onHide={toggleModalSimpleFiles}>
+        <Modal.Header closeButton>
+          <Row>
+            <Col xs={12}>
+              <Modal.Title>
+                {intl.formatMessage({
+                  id: 'tickets.modal.simpleFiles.title',
+                  defaultMessage: 'Add Attachment',
+                })}
+              </Modal.Title>
+            </Col>
+          </Row>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col md={12} className="ticket-attachment">
+              <Row>
+                <Col sm={12}>
+                  <div className="form-group">
+                    <div className="upload-file">
+                      <Dropzone
+                        ref={dropzoneRef}
+                        onDrop={onDropSimpleFiles}
+                        accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
+                      >
+                        {({ getRootProps, getInputProps }) => (
+                          <div {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            {isLoadingUplod && (
+                              <Loading />
+                            )}
+                            {!isLoadingUplod && (
+                              <p>
+                                {intl.formatMessage({
+                                  id: 'tickets.modal.simpleFiles.drop',
+                                  defaultMessage: 'Drag and drop some files here, or click to select files',
+                                })}
+                                <br />
+                                {errors.file && (
+                                  <span className="error">{errors.file}</span>
+                                )}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </Dropzone>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
     </Row>
   );
 };
@@ -314,7 +478,6 @@ TicketsForm.propTypes = {
   status: PropTypes.array,
   priorityDefault: PropTypes.string,
   priority: PropTypes.array,
-  openModalFiles: PropTypes.func,
   disabled: PropTypes.bool,
   hideText: PropTypes.bool,
   editTicket: PropTypes.oneOfType([
@@ -338,6 +501,29 @@ TicketsForm.propTypes = {
   isLoadingUplod: PropTypes.bool,
   onDrop: PropTypes.func,
   removeFile: PropTypes.func,
+  showFeaturesOptions: PropTypes.bool,
+  featureDefault: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  features: PropTypes.array,
+  assignedDefault: PropTypes.object,
+  auctionDefault: PropTypes.object,
+  auctionsList: PropTypes.array,
+  auctionsSearchList: PropTypes.func,
+  loadOptionsAuctions: PropTypes.func,
+  updateValueAuctions: PropTypes.func,
+  typeDefault: PropTypes.string,
+  types: PropTypes.array,
+  loadOptionsUsers: PropTypes.func,
+  updateValueUsers: PropTypes.func,
+  showModalSimpleFiles: PropTypes.bool,
+  toggleModalSimpleFiles: PropTypes.func,
+  onDropSimpleFiles: PropTypes.func,
+  disabledAssignedSelect: PropTypes.func,
+  disabledFeatureSelect: PropTypes.bool,
+  disabledTypeSelect: PropTypes.bool,
+  disabledStatusSelect: PropTypes.bool,
 };
 
 export default injectIntl(TicketsForm);
