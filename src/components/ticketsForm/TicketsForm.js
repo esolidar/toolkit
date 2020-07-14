@@ -155,12 +155,12 @@ const TicketsForm = ({
                         {featureDefault && (
                           <Col sm={12}>
                             <div className="form-group">
-                              <label className="control-label">Auctions</label>
+                              <label className="control-label">{intl.formatMessage({ id: 'tickets.auctions', defaultMessage: 'Auctions' })}</label>
                               <AsyncPaginate
                                 isClearable
                                 defaultValue={auctionDefault}
                                 cacheOptions
-                                placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                                placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
                                 additional={defaultAdditional}
                                 loadOptions={loadOptionsAuctions}
                                 onChange={updateValueAuctions}
