@@ -62,6 +62,9 @@ const TicketsForm = ({
   disabledFeatureSelect,
   disabledTypeSelect,
   disabledStatusSelect,
+  crowdfundingDefault,
+  loadOptionsCrowdfunding,
+  updateValueCrowdfunding,
 }) => {
   const renderUploadedFiles = (files) => {
     if (files.length > 0) {
@@ -152,7 +155,7 @@ const TicketsForm = ({
                             />
                           </Col>
                         )}
-                        {featureDefault && (
+                        {(featureDefault && featureDefault === '2') && (
                           <Col sm={12}>
                             <div className="form-group">
                               <label className="control-label">{intl.formatMessage({ id: 'tickets.auctions', defaultMessage: 'Auctions' })}</label>
@@ -164,6 +167,30 @@ const TicketsForm = ({
                                 additional={defaultAdditional}
                                 loadOptions={loadOptionsAuctions}
                                 onChange={updateValueAuctions}
+                              />
+                              {errors.related_feature_id
+                                && (
+                                  <div className="has-error">
+                                    <span className="help-block">
+                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                    </span>
+                                  </div>
+                                )}
+                            </div>
+                          </Col>
+                        )}
+                        {(featureDefault && featureDefault === '4') && (
+                          <Col sm={12}>
+                            <div className="form-group">
+                              <label className="control-label">{intl.formatMessage({ id: 'tickets.crowdfunding', defaultMessage: 'Crowdfunding' })}</label>
+                              <AsyncPaginate
+                                isClearable
+                                defaultValue={crowdfundingDefault}
+                                cacheOptions
+                                placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
+                                additional={defaultAdditional}
+                                loadOptions={loadOptionsCrowdfunding}
+                                onChange={updateValueCrowdfunding}
                               />
                               {errors.related_feature_id
                                 && (
@@ -524,6 +551,9 @@ TicketsForm.propTypes = {
   disabledFeatureSelect: PropTypes.bool,
   disabledTypeSelect: PropTypes.bool,
   disabledStatusSelect: PropTypes.bool,
+  crowdfundingDefault: PropTypes.object,
+  loadOptionsCrowdfunding: PropTypes.func,
+  updateValueCrowdfunding: PropTypes.func,
 };
 
 export default injectIntl(TicketsForm);
