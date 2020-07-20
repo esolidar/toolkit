@@ -184,6 +184,8 @@ class Post extends Component {
       textareaOnChange,
       disabled,
       errors,
+      renderMoreReplies,
+      renderMoreRepliesLoading,
     } = this.props;
 
     const {
@@ -255,7 +257,7 @@ class Post extends Component {
               <div className="text">
                 {post.replies && (
                   <span>
-                    {post.replies.length}
+                    {post.total}
                     <FormattedMessage
                       id="feed.post.commentPlural"
                       defaultMessage=" Comments"
@@ -265,7 +267,36 @@ class Post extends Component {
               </div>
             </div>
           </div>
-          {post.replies && (this.renderReplies(post.replies))}
+          {post.replies.length > 0 && (
+            <div>
+              {(post.current_page !== post.last_page) && (
+                <div>
+                  {!renderMoreRepliesLoading ? (
+                    <button
+                      type="button"
+                      onClick={() => renderMoreReplies(post)}
+                      className="renderMoreBtn"
+                    >
+                      <FormattedMessage
+                        id="projects.comments.renderMore"
+                        defaultMessage="Load more comments"
+                      />
+                    </button>
+                  ) : (
+                    <div className="loadingReplies">
+                      <div className="lds-ellipsis">
+                        <div />
+                        <div />
+                        <div />
+                        <div />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+              {this.renderReplies(post.replies)}
+            </div>
+          )}
           <CommentPost
             postId={post.id}
             onSubmit={onSubmitReply}
@@ -364,4 +395,6 @@ Post.propTypes = {
   commentUpdated: PropTypes.object,
   disabled: PropTypes.bool,
   errors: PropTypes.array,
+  renderMoreReplies: PropTypes.func,
+  renderMoreRepliesLoading: PropTypes.bool,
 };
