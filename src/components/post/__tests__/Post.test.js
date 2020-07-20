@@ -18,6 +18,7 @@ const props = {
         thumb: 'https://static.esolidar.com/frontend/logo/esolidar/logo.png',
       },
     },
+    replies: [],
   },
   user: {
     id: 1,
