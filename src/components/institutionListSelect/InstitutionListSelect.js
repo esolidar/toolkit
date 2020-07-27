@@ -1,9 +1,11 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import classnames from 'classnames';
 import SelectField from '../../elements/selectField/SelectField';
+import Loading from '../loading/Loading';
 
 const InstitutionListSelect = ({
   institutions,
@@ -20,6 +22,8 @@ const InstitutionListSelect = ({
   selectText,
   NoResultsText,
   pagination,
+  isLoading,
+  user_id,
 }) => {
   const renderCharities = () => {
     if (institutions) {
@@ -46,9 +50,10 @@ const InstitutionListSelect = ({
                     <input
                       onChange={onChange}
                       type="radio"
-                      name={`input_${charity.id}`}
+                      name="user_id"
                       id={`input_${charity.id}`}
-                      value={charity.id}
+                      checked={+user_id === +charity.user_id}
+                      value={charity.user_id}
                     />
                   )}
                   <div className="npo-pin-thumb" style={divStyle} />
@@ -93,22 +98,29 @@ const InstitutionListSelect = ({
           name="search"
         />
       </Col>
-      <div className={classnames('col-sm-12', { 'has-error': error })}>
-        {renderCharities()}
-        {error && <span className="help-block">{error}</span>}
-        <Row>
-          <Col sm={12} className="text-center">
-            <Pagination
-              innerClass="pagination justify-content-center"
-              activePage={pagination.activePage}
-              itemsCountPerPage={pagination.itemsCountPerPage}
-              totalItemsCount={pagination.totalItemsCount}
-              pageRangeDisplayed={5}
-              onChange={handlePageChange}
-            />
-          </Col>
-        </Row>
-      </div>
+      {isLoading && (
+        <Col md={12}>
+          <Loading />
+        </Col>
+      )}
+      {!isLoading && (
+        <div className={classnames('col-sm-12', { 'has-error': error })}>
+          {renderCharities()}
+          {error && <span className="help-block">{error}</span>}
+          <Row>
+            <Col sm={12} className="text-center">
+              <Pagination
+                innerClass="pagination justify-content-center"
+                activePage={pagination.activePage}
+                itemsCountPerPage={pagination.itemsCountPerPage}
+                totalItemsCount={pagination.totalItemsCount}
+                pageRangeDisplayed={5}
+                onChange={handlePageChange}
+              />
+            </Col>
+          </Row>
+        </div>
+      )}
     </Row>
   );
 };
@@ -132,6 +144,8 @@ InstitutionListSelect.propTypes = {
     itemsCountPerPage: PropTypes.number.isRequired,
     totalItemsCount: PropTypes.number.isRequired,
   }),
+  isLoading: PropTypes.bool,
+  user_id: PropTypes.number,
 };
 
 export default InstitutionListSelect;
