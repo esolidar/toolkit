@@ -11,6 +11,8 @@ import { InstitutionListSelect } from '@esolidar/toolkit';
 <InstitutionListSelect
   selectText="Selecionar"
   institutionSelected={30}
+  user_id={null}
+  isLoading={false}
   institutions={
     [
       {
