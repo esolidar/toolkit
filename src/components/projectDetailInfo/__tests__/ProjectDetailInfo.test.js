@@ -128,6 +128,6 @@ describe('ProjectDetailInfo component', () => {
       ],
     };
     const component = shallow(<ProjectDetailInfo project={project} />);
-    expect(component.find('h4').length).toBe(2);
+    expect(component.find('h4').length).toBe(3);
   });
 });

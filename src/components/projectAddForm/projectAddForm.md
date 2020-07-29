@@ -9,6 +9,7 @@ import { ProjectAddForm } from '@esolidar/toolkit';
 
 ``` jsx
 <ProjectAddForm
+  hideDropZone={false}
   color={{
     primaryColor: 'red'
   }}
@@ -44,6 +45,32 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       name: "2-ods-2",
       checked: true,
     }
+  ]}
+  images={[
+     {
+         created_at: "2020-07-29 11:41:36",
+         default: 1,
+         id: 152,
+         image: "whitelabel/5/projects/93f4af44-4755-4993-be56-2fbf283ccb27.jpg",
+         image_size: 33970,
+         image_type: "jpg",
+         position: 1,
+         project_id: 54,
+         streamImage: "amazons3",
+         updated_at: "2020-07-29 11:42:59",
+     },
+     {
+         created_at: "2020-07-29 11:41:39",
+         default: 0,
+         id: 153,
+         image: "whitelabel/5/projects/255ff6ea-adc1-4773-b115-8b67bc62cfe0.jpg",
+         image_size: 316018,
+         image_type: "jpg",
+         position: 3,
+         project_id: 54,
+         streamImage: "amazons3",
+         updated_at: "2020-07-29 11:42:59",
+     }
   ]}
   form={[
    {
@@ -82,7 +109,7 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       type:"dropdown",
       fixed:true,
       required:true,
-      reply: 2
+      reply: '2'
    },
    {
       id:"input-4",

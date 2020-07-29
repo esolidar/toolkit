@@ -35,6 +35,20 @@ import { ProjectDetailInfo } from '@esolidar/toolkit';
           type: 'title', name: 'asdasd',
         },
         {
+          id: "input-10",
+          isPrivate: true,
+          name: "Texto privado.",
+          position: 2,
+          type: "paragraph",
+        },
+        {
+          id: "input-19",
+          isPrivate: true,
+          name: "Texto privado.",
+          position: 1,
+          type: "title",
+        },
+        {
           name: 'Qual o modelo de governança da sua Iniciativa?', type: 'textarea', fixed: true, required: false, reply: '',
         },
         {

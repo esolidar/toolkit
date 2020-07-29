@@ -16,30 +16,30 @@ const ProjectAddForm = ({
     newImages.map((image, i) => (
       <div key={i} className="thumb">
         {image.loading && (
-          <Loading />
+        <Loading />
         )}
         {image.error && (
-          <button
-            type="button"
-            className="btn-delete-error-image"
-            onClick={(e) => deleteErrorImageGallery(e, image)}
-          >
-            <img
-              className="image-error"
-              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
-              alt="Error"
-            />
-          </button>
+        <button
+          type="button"
+          className="btn-delete-error-image"
+          onClick={(e) => deleteErrorImageGallery(e, image)}
+        >
+          <img
+            className="image-error"
+            src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
+            alt="Error"
+          />
+        </button>
         )}
         <img src={image.thumbs.thumb} alt="Thumb" className={(image.loading || image.error) ? 'image-thumb-loading' : 'image-thumb'} />
         {(!image.loading && !image.error) && (
-          <button
-            type="button"
-            className="btn-delete-image"
-            onClick={(e) => deleteImageGallery(e, image)}
-          >
-            x
-          </button>
+        <button
+          type="button"
+          className="btn-delete-image"
+          onClick={(e) => deleteImageGallery(e, image)}
+        >
+              x
+        </button>
         )}
       </div>
     ))
@@ -95,7 +95,7 @@ const ProjectAddForm = ({
               <SelectField
                 key={field.id}
                 options={categories}
-                defaultValue={field.reply}
+                defaultValue={+field.reply}
                 label={field.name}
                 field={field.id}
                 onChange={onChange}
