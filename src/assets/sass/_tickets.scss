@@ -35,6 +35,15 @@
       line-height: 40px;
       color      : $mainColor;
       display    : inline-block;
+
+      .support {
+        display      : block;
+        font-size    : 12px;
+        width        : 100%;
+        text-align   : center;
+        line-height  : 12px;
+        margin-bottom: 10px;
+      }
     }
   }
 
