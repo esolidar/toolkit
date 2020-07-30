@@ -15,6 +15,7 @@ const TicketsComments = ({
   total,
   handlePageChange,
   intl,
+  supportTag,
 }) => {
   const renderFiles = (files) => files.map((document, index) => (
     <div className="document-row" key={index}>
@@ -31,13 +32,31 @@ const TicketsComments = ({
   const renderComments = () => ticketComments.map((ticketComment, index) => {
     const comment = ticketComment.project_comment ? ticketComment.project_comment : ticketComment;
     const user = ticketComment.project_comment ? ticketComment.project_comment.user : ticketComment.user;
+    let thumb = '';
+    if (user) {
+      thumb = user.institution ? user.institution.thumbs.thumb : user.thumbs.thumb;
+    }
+
     return (
       <Card className="ticketCard mb-2" key={index}>
         <Card.Body>
           <Row>
             <Col sm={3} className="header">
-              <img alt="Thumb" className="thumb" src={user ? user.thumbs.thumb : 'https://static.testesolidar.com/frontend/assets/no-image.png'} />
-              <div className="user-post">{user ? user.name : '--'}</div>
+              <img alt="Thumb" className="thumb" src={thumb || 'https://static.testesolidar.com/frontend/assets/no-image.png'} />
+              <div className="user-post">
+                {user ? (
+                  <span>
+                    {user.institution ? user.institution.name : user.name}
+                    {(supportTag && !user.institution) && (
+                      <span className="support">
+                        {intl.formatMessage({ id: 'tickets.supportTag', defaultMessage: 'Support eSolidar' })}
+                      </span>
+                    )}
+                  </span>
+                ) : (
+                  <span>--</span>
+                )}
+              </div>
               <div className="ticket-date">
                 <Moment utc tz={moment.tz.guess()} format="YYYY-MM-DD HH:mm:ss">
                   {comment.created_at}
@@ -68,9 +87,9 @@ const TicketsComments = ({
       {renderComments()}
       <Col sm={{ span: 6, offset: 3 }}>
         {(ticketComments.length < total) && (
-        <div className="text-center">
-          <Button extraClass="dark" onClick={() => handlePageChange(activePage)} text={intl.formatMessage({ id: 'readmore', defaultMessage: 'Read more' })} />
-        </div>
+          <div className="text-center">
+            <Button extraClass="dark" onClick={() => handlePageChange(activePage)} text={intl.formatMessage({ id: 'readmore', defaultMessage: 'Read more' })} />
+          </div>
         )}
       </Col>
     </Col>
@@ -83,6 +102,7 @@ TicketsComments.propTypes = {
   total: PropTypes.number,
   handlePageChange: PropTypes.func.isRequired,
   intl: PropTypes.object,
+  supportTag: PropTypes.bool,
 };
 
 export default injectIntl(TicketsComments);
