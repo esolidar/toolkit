@@ -176,7 +176,7 @@ class SliderImagesLightbox extends Component {
 
     for (let i = 0; i < len; i += 1) {
       arrayImages.push({
-        src: `${env.serverlessResizeImage}/${imagesOnly[i].image}`,
+        src: imagesOnly[i].thumbs ? imagesOnly[i].thumbs.standard : `${env.serverlessResizeImage}/${imagesOnly[i].image}`,
       });
     }
 
