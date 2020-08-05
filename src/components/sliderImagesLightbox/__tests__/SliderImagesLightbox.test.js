@@ -30,13 +30,13 @@ describe('SliderImagesLightbox page', () => {
 
   it('renders SliderImagesLightbox with no video and one image', () => {
     const component = shallow(<SliderImagesLightbox images={images} video={null} env={{ serverlessResizeImage: 'https://image.testesolidar.com' }} />);
-    expect(component.find('.slider-image').length).toBe(1);
+    expect(component.find('img').length).toBe(1);
     expect(component.find('iframe').length).toBe(0);
   });
 
   it('renders SliderImagesLightbox with one image', () => {
     const component = shallow(<SliderImagesLightbox images={images} video={video} env={{ serverlessResizeImage: 'https://image.testesolidar.com' }} />);
-    expect(component.find('.slider-image').length).toBe(1);
+    expect(component.find('img').length).toBe(1);
   });
 
   it('renders SliderImagesLightbox with no images and no video', () => {

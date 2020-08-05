@@ -144,10 +144,7 @@ class SliderImagesLightbox extends Component {
           key={image.id}
           className="open-lightbox"
         >
-          <div
-            className="slider-image"
-            style={{ backgroundImage: `url('${image.thumbs ? image.thumbs.detail : `${env.serverlessResizeImage}/${image.image}?width=550&height=470`}')` }}
-          />
+          <img src={`${image.thumbs ? image.thumbs.detail : `${env.serverlessResizeImage}/${image.image}?width=550&height=470`}`} style={{ width: '100%' }} alt={image.image} />
         </button>
       );
     });
