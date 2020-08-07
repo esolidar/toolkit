@@ -43,6 +43,9 @@ const Comments = ({
             newThumb = reply.as_company_response.thumbs.thumb;
             newName = reply.as_company_response.name;
           }
+        } else if (reply.user.institution) {
+          newThumb = reply.user.institution.thumbs.thumb;
+          newName = reply.user.institution.sigla;
         } else {
           newThumb = reply.user.thumbs.thumb;
           newName = reply.company ? getEmployeeName(reply.company.id, reply.user) : reply.user.name;
@@ -71,6 +74,9 @@ const Comments = ({
             newThumb = comment.as_company_response.thumbs.thumb;
             newName = comment.as_company_response.name;
           }
+        } else if (comment.user.institution) {
+          newThumb = comment.user.institution.thumbs.thumb;
+          newName = comment.user.institution.sigla;
         } else {
           newThumb = comment.user.thumbs.thumb;
           newName = comment.company ? getEmployeeName(comment.company.id, comment.user) : comment.user.name;

@@ -16,6 +16,30 @@ import { Comments } from '@esolidar/toolkit';
   }}
   comments={[
     {
+      comment: "teste 2",
+      comment_id: null,
+      company_id: null,
+      created_at: "2020-08-07 13:07:29",
+      crowdfunding_id: 45,
+      id: 382,
+      updated_at: "2020-08-07 13:07:29",
+      user: {
+        institution: {
+          id: 106,
+          image: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg",
+          name: "Associação Um Milhão Contra a Pobreza e Exclusão Social em Portugal",
+          s3_cover_key: null,
+          s3_image_key: "institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg",
+          sigla: "CD",
+          thumbs: {
+            detail: "https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-DETAIL.jpeg",
+            thumb: "https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-THUMB.jpeg",
+          }
+        }
+      },
+      user_id: 1275
+    },
+    {
       as_company: 0,
       comment: "Muito boa mesmo",
       comment_id: null,
