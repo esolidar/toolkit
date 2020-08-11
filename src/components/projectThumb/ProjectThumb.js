@@ -50,10 +50,10 @@ const ProjectThumb = ({
                 {project.ods.map((item, indx) => {
                   if (indx < 4) {
                     return (
-                      <div className="ods" key={item.id} style={{ backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png')` }} />
+                      <img src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png`} key={item.id} className="ods" alt={`ods-${item.id}`} />
                     );
                   }
-                  if (indx === 5) {
+                  if (indx === 4) {
                     return (
                       <div className="more-ods" key={item.id}>+</div>
                     );

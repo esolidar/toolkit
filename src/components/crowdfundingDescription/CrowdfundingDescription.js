@@ -65,17 +65,18 @@ class CrowdfundingDescription extends Component {
               </div>
               <div>
                 {campaign.projects[0].ods.map((item) => (
-                  <div
-                    className="ods"
+                  <img
                     key={item.id}
+                    src={`${env.cdn_static_url}/frontend/assets/ods/${lang}/ods-${item.id}.png`}
                     style={{
-                      backgroundImage: `url(${env.cdn_static_url}/frontend/assets/ods/${lang}/ods-${item.id}.png)`,
                       width: '70px',
                       height: '70px',
                       backgroundSize: 'cover',
                       float: 'left',
                       marginRight: '15px',
+                      objectFit: 'cover',
                     }}
+                    alt={`ods-${item.id}`}
                   />
                 ))}
               </div>

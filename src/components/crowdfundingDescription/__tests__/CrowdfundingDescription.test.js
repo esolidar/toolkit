@@ -66,7 +66,7 @@ describe('CrowdfundingDescription component', () => {
 
   it('renders ods', () => {
     const component = shallow(<CrowdfundingDescription {...props} />);
-    expect(component.find('.ods').length).toBe(2);
+    expect(component.find('img').length).toBe(2);
   });
 
   it('renders headers', () => {
@@ -77,6 +77,6 @@ describe('CrowdfundingDescription component', () => {
   it('renders with no ods', () => {
     const component = shallow(<CrowdfundingDescription {...propsNoOds} />);
     expect(component.find('.description-header').length).toBe(2);
-    expect(component.find('.ods').length).toBe(0);
+    expect(component.find('img').length).toBe(0);
   });
 });

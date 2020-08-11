@@ -32,6 +32,18 @@ import { ProjectThumb } from '@esolidar/toolkit';
         },
         {
           id: 2
+        },
+        {
+          id: 3
+        },
+        {
+          id: 4
+        },
+        {
+          id: 5
+        },
+        {
+          id: 6
         }
       ],
       cover: null,
@@ -50,6 +62,8 @@ import { ProjectThumb } from '@esolidar/toolkit';
   myProject={true}
   select={true}
   selectText="Select"
+  selectedText="Selected"
+  isSelected={true}
   selectedIds={[1,2,3]}
 />
 

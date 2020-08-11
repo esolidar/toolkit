@@ -10,7 +10,7 @@ const ProjectDetailThumb = (props) => {
     project, status, lang, serverlessResizeImage, color, admin,
   } = props;
   return (
-    <div>
+    <div className="project-detail">
       <div className="project-thumb">
         <Row className={`status ${project.status}`}>
           <Col xs={6} />
@@ -41,7 +41,12 @@ const ProjectDetailThumb = (props) => {
             />
           </h4>
           {project.ods.map((item) => (
-            <div className="ods" key={item.id} style={{ backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png')` }} />
+            <img
+              key={item.id}
+              className="ods"
+              src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png`}
+              alt={item.tag_name}
+            />
           ))}
         </div>
         {!project.cover && (
