@@ -62,6 +62,8 @@ import { ProjectThumb } from '@esolidar/toolkit';
   myProject={true}
   select={true}
   selectText="Select"
+  selectedText="Selected"
+  isSelected={true}
   selectedIds={[1,2,3]}
 />
 
