@@ -20,6 +20,7 @@ export { default as LightboxGallery } from './components/lightboxGallery/Lightbo
 export { default as ProjectFilters } from './components/projectFilters/ProjectFilters';
 export { default as ProjectAddForm } from './components/projectAddForm/ProjectAddForm';
 export { default as NotificationsBell } from './components/noticationsBell/NotificationsBell';
+export { default as NotificationsMobile } from './components/noticationsPage/NotificationsMobile';
 export { default as InviteLink } from './components/inviteLink/InviteLink';
 export { default as InstitutionListSelect } from './components/institutionListSelect/InstitutionListSelect';
 export { default as CrowdfundingThumb } from './components/crowdfundingThumb/CrowdfundingThumb';
