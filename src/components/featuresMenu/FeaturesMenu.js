@@ -289,7 +289,7 @@ const FeaturesMenu = (props) => {
                 showItem: true,
                 iconItem: 'icon giftcards',
                 itemText: translations.giftCards,
-                hide: 0,
+                hide: userWorkEmail > 0 ? 0 : 1,
               });
               break;
 
