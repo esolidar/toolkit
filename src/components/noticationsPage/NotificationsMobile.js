@@ -32,7 +32,7 @@ const NotificationsMobile = ({
                 className={(notification.read_at === null) ? 'notification-row-box unread' : 'notification-row-box'}
               >
                 <div className="notification-thumb">
-                  <img alt="Thumb" src={notification.photo.thumb ? notification.photo.thumb : 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png'} />
+                  <img alt="Thumb" src={notification.photo.thumb ? notification.photo.thumb : 'https://static.esolidar.com/frontend/assets/no-image.png'} />
                 </div>
                 <div>
                   <span className="notification-row-text">
