@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 const TextField = ({
   field,
+  id,
   value,
   defaultValue,
   label,
@@ -21,7 +22,7 @@ const TextField = ({
 }) => (
   <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
     {label && (
-    <label htmlFor={field} className="control-label">
+    <label htmlFor={id || field} className="control-label">
       {label}
     </label>
     )}
@@ -39,7 +40,7 @@ const TextField = ({
       defaultValue={defaultValue}
       type={type}
       name={field}
-      id={field}
+      id={id || field}
       placeholder={placeholder}
       maxLength={maxLength}
       disabled={disabled}
@@ -52,6 +53,7 @@ const TextField = ({
 
 TextField.propTypes = {
   field: PropTypes.string.isRequired,
+  id: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
