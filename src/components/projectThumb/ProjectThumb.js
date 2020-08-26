@@ -6,7 +6,7 @@ import filter from 'lodash/filter';
 import Button from '../button/Button';
 
 const ProjectThumb = ({
-  project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText,
+  project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl,
 }) => {
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
@@ -19,6 +19,8 @@ const ProjectThumb = ({
   const clickThumb = () => {
     if (select) {
       selectProject(project.id);
+    } else if (whitelabelUrl) {
+      window.open(`https://${whitelabelUrl}${link}`);
     } else {
       window.location.href = link;
     }
@@ -106,6 +108,7 @@ ProjectThumb.propTypes = {
   selectedText: PropTypes.string,
   selectedIds: PropTypes.array,
   selectProject: PropTypes.func,
+  whitelabelUrl: PropTypes.string,
 };
 
 ProjectThumb.defaultProps = {
