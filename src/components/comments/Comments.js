@@ -7,7 +7,7 @@ import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
 
 const Comments = ({
-  comments, deleteComment, getEmployeeName, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
+  comments, deleteComment, deleteReply, getEmployeeName, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
 
@@ -35,7 +35,7 @@ const Comments = ({
       return replies.map((reply) => {
         let newThumb;
         let newName;
-        if (reply.company_id) {
+        if (reply.company && !reply.user) {
           if (reply.company) {
             newThumb = reply.company.thumbs.thumb;
             newName = reply.company.name;
@@ -53,7 +53,7 @@ const Comments = ({
 
         return (
           <div key={reply.id} className="request-comment">
-            <CommentHeader comment={reply} user={user} deleteComment={() => deleteComment(reply.id)} newThumb={newThumb} newName={newName} />
+            <CommentHeader comment={reply} user={user} deleteComment={() => (deleteReply ? deleteReply(reply.id, reply.comment_id) : deleteComment(reply.id))} newThumb={newThumb} newName={newName} />
             <CommentContent comment={reply} />
           </div>
         );
@@ -66,7 +66,7 @@ const Comments = ({
       return comments.map((comment) => {
         let newThumb;
         let newName;
-        if (comment.company_id) {
+        if (comment.company && !comment.user) {
           if (comment.company) {
             newThumb = comment.company.thumbs.thumb;
             newName = comment.company.name;
@@ -172,17 +172,17 @@ const Comments = ({
           >
             {loadingMoreComments
               && (
-              <FormattedMessage
-                id="charityneeds.request.comments.loading"
-                defaultMessage="Loading ..."
-              />
+                <FormattedMessage
+                  id="charityneeds.request.comments.loading"
+                  defaultMessage="Loading ..."
+                />
               )}
             {!loadingMoreComments
               && (
-              <FormattedMessage
-                id="charityneeds.request.comments.readmore"
-                defaultMessage="Read more"
-              />
+                <FormattedMessage
+                  id="charityneeds.request.comments.readmore"
+                  defaultMessage="Read more"
+                />
               )}
           </button>
         </div>
@@ -196,6 +196,7 @@ Comments.propTypes = {
   env: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired,
   deleteComment: PropTypes.func.isRequired,
+  deleteReply: PropTypes.func,
   getEmployeeName: PropTypes.func.isRequired,
   reply: PropTypes.string.isRequired,
   requireLogin: PropTypes.func.isRequired,

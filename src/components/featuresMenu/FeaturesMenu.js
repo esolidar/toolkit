@@ -379,11 +379,11 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 8,
-                pageRoute: '/crowdfunding',
+                pageRoute: '/crowdfunding/private/list',
                 showItem: true,
                 iconItem: 'icon crowdfunding',
                 itemText: translations.crowdfunding,
-                hide: 1,
+                hide: feature.pivot.hide,
               });
               break;
 
