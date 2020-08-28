@@ -37,7 +37,7 @@ class CrowdfundingDescription extends Component {
       showmoreDesc, showmoreReward, showMoreDescButton, showMoreRewardButton,
     } = this.state;
     const {
-      campaign, env, lang,
+      campaign, env, lang, color,
     } = this.props;
 
     const campaignDescription = () => {
@@ -54,38 +54,40 @@ class CrowdfundingDescription extends Component {
 
     return (
       <div>
-        {(campaign.projects.length > 0) && (
+        {campaign.projects && (
           <Row>
-            <Col md={12}>
-              <div className="description-header">
-                <FormattedMessage
-                  id="crowdfunding.description.ods"
-                  defaultMessage="Sustainable Development Goals"
-                />
-              </div>
-              <div>
-                {campaign.projects[0].ods.map((item) => (
-                  <img
-                    key={item.id}
-                    src={`${env.cdn_static_url}/frontend/assets/ods/${lang}/ods-${item.id}.png`}
-                    style={{
-                      width: '70px',
-                      height: '70px',
-                      backgroundSize: 'cover',
-                      float: 'left',
-                      marginRight: '15px',
-                      objectFit: 'cover',
-                    }}
-                    alt={`ods-${item.id}`}
+            {campaign.projects.length > 0 && (
+              <Col md={12}>
+                <div className="description-header">
+                  <FormattedMessage
+                    id="crowdfunding.description.ods"
+                    defaultMessage="Sustainable Development Goals"
                   />
-                ))}
-              </div>
-            </Col>
+                </div>
+                <div>
+                  {campaign.projects[0].ods.map((item) => (
+                    <img
+                      key={item.id}
+                      src={`${env.cdn_static_url}/frontend/assets/ods/${lang}/ods-${item.id}.png`}
+                      style={{
+                        width: '70px',
+                        height: '70px',
+                        backgroundSize: 'cover',
+                        float: 'left',
+                        marginRight: '15px',
+                        objectFit: 'cover',
+                      }}
+                      alt={`ods-${item.id}`}
+                    />
+                  ))}
+                </div>
+              </Col>
+            )}
           </Row>
         )}
         <Row>
           <Col md={12}>
-            <div className="description-header">
+            <div className="description-header" style={{ color, borderColor: color }}>
               <FormattedMessage
                 id="crowdfunding.description"
                 defaultMessage="Description"
@@ -115,7 +117,7 @@ class CrowdfundingDescription extends Component {
           <Col md={12}>
             {campaign.reward === 1 && (
               <div>
-                <div className="description-header">
+                <div className="description-header" style={{ color, borderColor: color }}>
                   <FormattedMessage
                     id="crowdfunding.reward.text"
                     defaultMessage="Reward"
@@ -154,4 +156,5 @@ CrowdfundingDescription.propTypes = {
   campaign: PropTypes.object.isRequired,
   env: PropTypes.object.isRequired,
   lang: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };

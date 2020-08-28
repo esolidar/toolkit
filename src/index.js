@@ -24,6 +24,7 @@ export { default as NotificationsMobile } from './components/noticationsPage/Not
 export { default as InviteLink } from './components/inviteLink/InviteLink';
 export { default as InstitutionListSelect } from './components/institutionListSelect/InstitutionListSelect';
 export { default as CrowdfundingThumb } from './components/crowdfundingThumb/CrowdfundingThumb';
+export { default as CrowdfundingPrivateThumb } from './components/crowdfundingPrivateThumb/CrowdfundingPrivateThumb';
 export { default as GiftCardThumb } from './components/giftCardThumb/GiftCardThumb';
 export { default as Giftcards } from './components/giftcards/Giftcards';
 export { default as Survey } from './components/survey/Survey';
@@ -48,4 +49,5 @@ export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';
 export { default as CheckboxField } from './elements/checkboxField/CheckboxField';
+export { default as RadioField } from './elements/radioField/RadioField';
 export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage';

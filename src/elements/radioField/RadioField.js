@@ -1,0 +1,45 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const RadioField = ({
+  value, name, onChange, checked, label, error, disabled, message,
+}) => (
+  <div className="radio-inline">
+    <div
+      className="form-group"
+    >
+      <label htmlFor={name}>
+        <input
+          type="radio"
+          id={name}
+          name={name}
+          value={value}
+          onChange={onChange}
+          checked={checked}
+          disabled={disabled}
+        />
+        {label}
+        <div className="checkbox" />
+      </label>
+      {message && (
+        <div className="message">
+          {message}
+        </div>
+      )}
+      {error && <span className="help-block">{error}</span>}
+    </div>
+  </div>
+);
+
+RadioField.propTypes = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
+  label: PropTypes.string,
+  error: PropTypes.string,
+  disabled: PropTypes.bool,
+  message: PropTypes.string,
+};
+
+export default RadioField;
