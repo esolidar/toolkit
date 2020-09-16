@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 import slugify from 'slugify';
 import filter from 'lodash/filter';
 import Button from '../button/Button';
+import Icon from '../icon/Icon';
 
 const ProjectThumb = ({
   project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl,
@@ -26,17 +28,36 @@ const ProjectThumb = ({
     }
   };
 
+  const editThumb = () => {
+    window.location.href = (project.status === 'DRAFT' || project.status === 'PENDING') ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title, {
+      replacement: '-',
+      remove: /[?$*_+~.,()'"!\-:@]/g,
+      lower: true,
+    })}${myProject ? `?owner=${myProject}` : ''}`;
+  };
+
   const isSelected = filter(selectedIds, (o) => o === project.id).length;
 
   return (
     <Col xs={12} sm={6} md={6} lg={cols}>
       <div className="project-thumb">
+        {(project.status === 'DRAFT' || project.status === 'PENDING') && (
+          <button type="button" className="edit-button" onClick={editThumb}>
+            <div className={`${project.status}`}>
+              <Icon iconClass="icon-ic-edit-request" />
+              <FormattedMessage
+                id="project.edit"
+                defaultMessage="Edit project"
+              />
+            </div>
+          </button>
+        )}
         <button type="button" className="project-button" onClick={clickThumb}>
           <div>
             {showStatus && (
               <Row className={`status ${project.status}`}>
                 <Col xs={6} />
-                <Col xs={6}>{status}</Col>
+                <Col xs={6} className="text-right">{status}</Col>
               </Row>
             )}
             <div

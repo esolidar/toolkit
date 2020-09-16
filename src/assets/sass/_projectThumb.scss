@@ -18,6 +18,10 @@
     background-color: lighten($graySemiDark, 40%);
     border-top      : 5px solid $graySemiDark;
     color           : $graySemiDark;
+
+    .edit-button {
+      color: $graySemiDark;
+    }
   }
 
   .PENDING {
@@ -25,6 +29,10 @@
     background-color: lighten($statusPendingColor, 40%);
     border-top      : 5px solid $statusPendingColor;
     color           : $statusPendingColor;
+
+    .edit-button {
+      color: $statusPendingColor;
+    }
   }
 
   .IN_REVIEW {
@@ -167,6 +175,7 @@
   padding   : 0;
   margin    : 0;
   width     : 100%;
+  cursor    : pointer;
 
   &:focus {
     outline: none;
@@ -180,4 +189,22 @@
   button {
     width: 100%;
   }
+}
+
+.edit-button {
+  background: transparent;
+  border    : none;
+  padding   : 0;
+  position  : absolute;
+  top       : 10px;
+  left      : 25px;
+  z-index   : 9999;
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+.edit-button>div {
+  border-top: none !important;
 }

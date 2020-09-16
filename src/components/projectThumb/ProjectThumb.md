@@ -50,7 +50,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor. Vestibulum pulvinar, nunc in maximus tempus, diam tortor ultrices leo, sed tempor nulla elit eget nunc. Nullam lacinia sem ipsum, at fermentum est elementum at. Curabitur ultrices mi tincidunt, feugiat quam vel, fermentum erat. Phasellus eget metus et ante euismod eleifend. Donec in egestas velit. Duis facilisis luctus rutrum.',
       form: '{}',
-      status: 'IN_REVIEW',
+      status: 'PENDING',
       uuid: '123',
     }
   }
@@ -60,7 +60,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
   showStatus={true}
   status='Em revisão'
   myProject={true}
-  select={true}
+  select={false}
   selectText="Select"
   selectedText="Selected"
   isSelected={true}
