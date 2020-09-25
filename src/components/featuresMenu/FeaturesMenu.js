@@ -238,7 +238,7 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 5,
-                pageRoute: '/projects/list',
+                pageRoute: '/user/projects',
                 showItem: true,
                 iconItem: 'icon projects',
                 itemText: translations.projects,
@@ -352,7 +352,7 @@ const FeaturesMenu = (props) => {
           }
           break;
 
-        case 'crowdfunding':
+        case ('crowdfunding' || 'crowdfunding-public'):
           switch (project) {
             case 'business-frontend':
               items.push({
@@ -379,9 +379,9 @@ const FeaturesMenu = (props) => {
             case 'whitelabel':
               items.push({
                 position: 8,
-                pageRoute: '/crowdfunding/private/list',
+                pageRoute: '/crowdfunding',
                 showItem: true,
-                iconItem: 'icon crowdfunding',
+                iconItem: 'icon crowdfunding-public',
                 itemText: translations.crowdfunding,
                 hide: feature.pivot.hide,
               });
@@ -399,6 +399,7 @@ const FeaturesMenu = (props) => {
           }
           break;
 
+          /*
         case 'crowdfunding-public':
           switch (project) {
             case 'business-frontend':
@@ -445,6 +446,7 @@ const FeaturesMenu = (props) => {
               });
           }
           break;
+        */
 
         case 'payments':
           switch (project) {
