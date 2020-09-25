@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { includes } from 'lodash';
 import { Container, Row, Col } from 'react-bootstrap';
 import SocialNetworks from '../socialNetworks/SocialNetworks';
 import ChangeLanguage from '../changeLanguage/ChangeLanguage';
@@ -40,28 +41,32 @@ const Footer = ({
   );
 
   const menu = (items) => (
-    items.map((item, index) => (
-      <li key={index}>
-        {item.url ? (
-          <a
-            href={item.url}
-            title={item.text}
-            target={item.target}
-          >
-            {item.text}
-          </a>
-        ) : (
-          <span title={item.text}>
-            {item.text}
-          </span>
-        )}
-        {item.submenu && (
-          <ul>
-            {submenu(item.submenu)}
-          </ul>
-        )}
-      </li>
-    ))
+    items.map((item, index) => {
+      if (includes(item.lang, currentLang)) {
+        return (
+          <li key={index}>
+            {item.url ? (
+              <a
+                href={item.url}
+                title={item.text}
+                target={item.target}
+              >
+                {item.text}
+              </a>
+            ) : (
+              <span title={item.text}>
+                {item.text}
+              </span>
+            )}
+            {item.submenu && (
+              <ul>
+                {submenu(item.submenu)}
+              </ul>
+            )}
+          </li>
+        );
+      }
+    })
   );
 
 
@@ -170,6 +175,7 @@ Footer.propTypes = {
       text: PropTypes.string,
       url: PropTypes.string,
       target: PropTypes.string,
+      lang: PropTypes.array,
     }),
   ),
   secondMenuFooter: PropTypes.arrayOf(
@@ -190,6 +196,5 @@ Footer.propTypes = {
   newsletterTitle: PropTypes.string,
   addressText: PropTypes.string,
 };
-
 
 export default Footer;

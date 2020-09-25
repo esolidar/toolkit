@@ -33,22 +33,23 @@ import { Footer } from '@esolidar/toolkit';
         {id:1,name:"U. S. Dollar",small:"USD",value:1.114,symbol:"€",status:1,lastUpdate:"2019-12-16 12:00:03"}
     ]} 
     mainMenuFooter={[
-        { text:"Follow us", url: "#", target: "_self"}, 
-        { text:"Follow us", url: "#", target: "_self"}, 
-        { text:"Follow us", url: "#", target: "_self"}, 
+        { text:"Follow us", url: "#", target: "_self", lang:['pt','br', 'en']}, 
+        { text:"Follow us", url: "#", target: "_self", lang:['pt','br', 'en']}, 
+        { text:"Follow us", url: "#", target: "_self", lang:['pt','br', 'en']}, 
+        { text:"Follow us", url: "#", target: "_self", lang:['pt','br']}, 
     ]}
     secondMenuFooter={[
-        { text: "Follow us", url: "#", target: "_self"}, 
+        { text: "Follow us", url: "#", target: "_self", lang:['pt','br', 'en']}, 
         { text: "Follow us",
             submenu:[
-                { text: "Follow us", url: "#", target: "_self"},
-                { text: "Follow us", url: "#", target: "_self"}
+                { text: "Follow us", url: "#", target: "_self", lang:['pt','br', 'en']},
+                { text: "Follow us", url: "#", target: "_self", lang:['pt','br', 'en']}
             ]
         }, 
     ]}
     bottomMenuFooter={[
-        { text: "Terms and Conditions", url: "#", target: "_self"},
-        { text: "Privacy Policy", url: "#", target: "_self"},
+        { text: "Terms and Conditions", url: "#", target: "_self", lang:['pt','br', 'en']},
+        { text: "Privacy Policy", url: "#", target: "_self", lang:['pt','br', 'en']},
     ]}
     addressText='Rua das Irmãs Missionárias do Espirito Santo, 33 Braga'
 />
