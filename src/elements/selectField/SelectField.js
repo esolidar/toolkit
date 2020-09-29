@@ -40,9 +40,11 @@ const SelectField = ({
         onChange={onChange}
         disabled={disabled}
       >
-        <option value="">
-          {selectText}
-        </option>
+        {selectText && (
+          <option value="">
+            {selectText}
+          </option>
+        )}
         {optionsList(options)}
       </select>
       {error && <span className="help-block">{error}</span>}
