@@ -46,6 +46,31 @@ const ProjectDetailInfo = ({
                   </p>
                 );
               }
+              if (q.type === 'checkbox') {
+                return (
+                  <div key={q.name}>
+                    <h4 style={{ color }}>
+                      {q.isPrivate && (
+                        <img
+                          style={{
+                            float: 'left', width: '18px', marginTop: '1px', marginRight: '5px',
+                          }}
+                          src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-lock.svg"
+                          alt="Private"
+                        />
+                      )}
+                      {q.name}
+                    </h4>
+                    <ul>
+                      {q.checked.map((item, index) => (
+                        <li key={index}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
               if ((q.type !== 'title') && (q.type !== 'paragraph') && (q.type !== 'ods') && (q.type !== 'dropdown') && (q.type !== 'upload-images') && (q.reply)) {
                 return (
                   <div key={q.name}>
