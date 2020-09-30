@@ -49,6 +49,28 @@ import { ProjectDetailInfo } from '@esolidar/toolkit';
           type: "title",
         },
         {
+            help: 'New multiple choice',
+            id: 'input-100',
+            isPrivate: true,
+            name: 'New multiple choice',
+            options: ['Option 1', 'Option 2', 'Option 3'],
+            required: true,
+            requiredMax: 3,
+            requiredMin: 1,
+            type: 'checkbox',
+            checked:['Option 1', 'Option 3'],
+        },
+        {
+            help: 'New single choice',
+            id: 'input-102',
+            isPrivate: true,
+            name: 'New single choice',
+            options: ['Option 4', 'Option 5', 'Option 6'],
+            required: true,
+            type: 'radiobox',
+            reply:'Option 3',
+        },
+        {
           name: 'Qual o modelo de governança da sua Iniciativa?', type: 'textarea', fixed: true, required: false, reply: '',
         },
         {

@@ -3,43 +3,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
+import slugify from 'slugify';
+import { includes } from 'lodash';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
 import CheckboxImage from '../../elements/checkboxImage/CheckboxImage';
+import CheckboxField from '../../elements/checkboxField/CheckboxField';
+import RadioField from '../../elements/radioField/RadioField';
 import Loading from '../loading/Loading';
 
 const ProjectAddForm = ({
-  color, form, errors, ods, newImages, onSelectOds, lang, uploadImagesLabel, onDrop, deleteImageGallery, deleteErrorImageGallery, hideDropZone, categories, dragAndDropMessage, onChange,
+  color, form, errors, ods, newImages, onSelectOds, lang, uploadImagesLabel, onDrop, deleteImageGallery, deleteErrorImageGallery, hideDropZone, categories, dragAndDropMessage, onChange, onChangeCheckbox, onChangeRadiobox,
 }) => {
   const renderFiles = () => (
     newImages.map((image, i) => (
       <div key={i} className="thumb">
         {image.loading && (
-        <Loading />
+          <Loading />
         )}
         {image.error && (
-        <button
-          type="button"
-          className="btn-delete-error-image"
-          onClick={(e) => deleteErrorImageGallery(e, image)}
-        >
-          <img
-            className="image-error"
-            src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
-            alt="Error"
-          />
-        </button>
+          <button
+            type="button"
+            className="btn-delete-error-image"
+            onClick={(e) => deleteErrorImageGallery(e, image)}
+          >
+            <img
+              className="image-error"
+              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
+              alt="Error"
+            />
+          </button>
         )}
         <img src={image.thumbs.thumb} alt="Thumb" className={(image.loading || image.error) ? 'image-thumb-loading' : 'image-thumb'} />
         {(!image.loading && !image.error) && (
-        <button
-          type="button"
-          className="btn-delete-image"
-          onClick={(e) => deleteImageGallery(e, image)}
-        >
-              x
-        </button>
+          <button
+            type="button"
+            className="btn-delete-image"
+            onClick={(e) => deleteImageGallery(e, image)}
+          >
+            x
+          </button>
         )}
       </div>
     ))
@@ -190,6 +194,100 @@ const ProjectAddForm = ({
               </Row>
             );
 
+          case 'checkbox':
+            return (
+              <div>
+                <div className="form-group">
+                  <label htmlFor={field.name} className="control-label">
+                    {field.name}
+                  </label>
+                </div>
+                <p style={{ marginBottom: '25px' }}>
+                  {field.name}
+                </p>
+                <div className="checkbox">
+                  {field.options.map((option, i) => (
+                    <CheckboxField
+                      key={i}
+                      label={option}
+                      onChange={(e) => onChangeCheckbox(e, field.id)}
+                      name={slugify(option, {
+                        replacement: '-',
+                        remove: /[?$*_+~.,()'"!\-:@]/g,
+                        lower: true,
+                      })}
+                      id={slugify(option, {
+                        replacement: '-',
+                        remove: /[?$*_+~.,()'"!\-:@]/g,
+                        lower: true,
+                      })}
+                      value={option}
+                      checked={includes(field.checked, option)}
+                    />
+                  ))}
+                  {errors[field.id] && (
+                    <div
+                      className="has-error"
+                      style={{
+                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                      }}
+                    >
+                      <div className="help-block">
+                        {errors[field.id]}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+
+          case 'radiobox':
+            return (
+              <div>
+                <div className="form-group">
+                  <label htmlFor={field.name} className="control-label">
+                    {field.name}
+                  </label>
+                </div>
+                <p style={{ marginBottom: '25px' }}>
+                  {field.name}
+                </p>
+                <div className="checkbox">
+                  {field.options.map((option, i) => (
+                    <RadioField
+                      key={i}
+                      label={option}
+                      onChange={(e) => onChangeRadiobox(e, field.id)}
+                      name={slugify(option, {
+                        replacement: '-',
+                        remove: /[?$*_+~.,()'"!\-:@]/g,
+                        lower: true,
+                      })}
+                      id={slugify(option, {
+                        replacement: '-',
+                        remove: /[?$*_+~.,()'"!\-:@]/g,
+                        lower: true,
+                      })}
+                      value={option}
+                      checked={field.reply === option}
+                    />
+                  ))}
+                  {errors[field.id] && (
+                    <div
+                      className="has-error"
+                      style={{
+                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                      }}
+                    >
+                      <div className="help-block">
+                        {errors[field.id]}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+
           default:
             return (
               <div key={field.id}>
@@ -218,6 +316,8 @@ ProjectAddForm.propTypes = {
   dragAndDropMessage: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   deleteErrorImageGallery: PropTypes.func,
+  onChangeCheckbox: PropTypes.func,
+  onChangeRadiobox: PropTypes.func,
 };
 
 ProjectAddForm.defaultProps = {
