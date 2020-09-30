@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const RadioField = ({
-  value, name, onChange, checked, label, error, disabled, message,
+  value, name, onChange, checked, label, error, disabled, message, id,
 }) => (
   <div className="radio-inline">
     <div
@@ -11,7 +11,7 @@ const RadioField = ({
       <label htmlFor={name}>
         <input
           type="radio"
-          id={name}
+          id={id || name}
           name={name}
           value={value}
           onChange={onChange}
@@ -34,6 +34,7 @@ const RadioField = ({
 RadioField.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
+  id: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   label: PropTypes.string,

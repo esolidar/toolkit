@@ -201,9 +201,33 @@ import { ProjectAddForm } from '@esolidar/toolkit';
       name:"Tem necessidades de formação no seu projecto? Especifique as áreas.",
       type:"textarea",
       required:true
+   },
+   {
+      help: 'New multiple choice',
+      id: 'input-100',
+      isPrivate: true,
+      name: 'New multiple choice',
+      options: ['Option 1', 'Option 2', 'Option 3'],
+      required: true,
+      requiredMax: 3,
+      requiredMin: 1,
+      type: 'checkbox',
+      checked:['Option 3'],
+   },
+   {
+      help: 'New single choice',
+      id: 'input-102',
+      isPrivate: true,
+      name: 'New single choice',
+      options: ['Option 4', 'Option 5', 'Option 6'],
+      required: true,
+      type: 'radiobox',
+      reply:'Option 3',
    }
    ]}
    dragAndDropMessage="Arraste e solte alguns ficheiros aqui ou clique para selecionar os ficheiros"
+   onChangeCheckbox={(e) => { alert('onChangeCheckbox checked')}}
+   onChangeRadiobox={(e) => { alert('onChangeRadiobox checked')}}
 />
 
 ```

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CheckboxField = ({
-  value, name, onChange, checked, label, error, disabled,
+  value, name, onChange, checked, label, error, disabled, id,
 }) => (
   <div className="checkbox-inline">
     <div
@@ -11,7 +11,7 @@ const CheckboxField = ({
       <label htmlFor={name}>
         <input
           type="checkbox"
-          id={name}
+          id={id || name}
           name={name}
           value={value}
           onChange={onChange}
@@ -34,6 +34,7 @@ CheckboxField.propTypes = {
   label: PropTypes.string,
   error: PropTypes.string,
   disabled: PropTypes.bool,
+  id: PropTypes.string,
 };
 
 export default CheckboxField;
