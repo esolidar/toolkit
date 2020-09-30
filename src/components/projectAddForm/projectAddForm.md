@@ -226,8 +226,8 @@ import { ProjectAddForm } from '@esolidar/toolkit';
    }
    ]}
    dragAndDropMessage="Arraste e solte alguns ficheiros aqui ou clique para selecionar os ficheiros"
-   onChangeCheckbox={(e) => { alert('onChangeCheckbox checked')}}
-   onChangeRadiobox={(e) => { alert('onChangeRadiobox checked')}}
+   onChangeCheckbox={(e) => {}}
+   onChangeRadiobox={(e) => {}}
 />
 
 ```
