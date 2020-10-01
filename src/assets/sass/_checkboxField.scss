@@ -1,9 +1,10 @@
 .checkbox-inline {
-  position     : relative;
-  padding: 0;
+  position: relative;
+  padding : 0;
 
   .form-group {
     margin-bottom: 0;
+    color        : $inputLabelColor;
 
     input[type=checkbox] {
       position  : absolute;

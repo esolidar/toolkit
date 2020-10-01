@@ -17,32 +17,32 @@ const ProjectDetailInfo = ({
               if (q.type === 'title') {
                 return (
                   <h4 style={{ color }}>
+                    {q.name}
                     {q.isPrivate && (
                       <img
                         style={{
-                          float: 'left', width: '18px', marginTop: '1px', marginRight: '5px',
+                          marginLeft: '10px', width: '18px',
                         }}
                         src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-lock.svg"
                         alt="Private"
                       />
                     )}
-                    {q.name}
                   </h4>
                 );
               }
               if (q.type === 'paragraph') {
                 return (
                   <p>
+                    {q.name}
                     {q.isPrivate && (
                       <img
                         style={{
-                          float: 'left', width: '18px', marginTop: '3px', marginRight: '5px',
+                          marginLeft: '10px', width: '18px',
                         }}
                         src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-lock.svg"
                         alt="Private"
                       />
                     )}
-                    {q.name}
                   </p>
                 );
               }
@@ -50,16 +50,16 @@ const ProjectDetailInfo = ({
                 return (
                   <div key={q.name}>
                     <h4 style={{ color }}>
+                      {q.name}
                       {q.isPrivate && (
                         <img
                           style={{
-                            float: 'left', width: '18px', marginTop: '1px', marginRight: '5px',
+                            marginLeft: '10px', width: '18px',
                           }}
                           src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-lock.svg"
                           alt="Private"
                         />
                       )}
-                      {q.name}
                     </h4>
                     <ul>
                       {q.checked.map((item, index) => (
@@ -75,16 +75,16 @@ const ProjectDetailInfo = ({
                 return (
                   <div key={q.name}>
                     <h4 style={{ color }}>
+                      {q.name}
                       {q.isPrivate && (
                         <img
                           style={{
-                            float: 'left', width: '18px', marginTop: '1px', marginRight: '5px',
+                            marginLeft: '10px', width: '18px',
                           }}
                           src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-lock.svg"
                           alt="Private"
                         />
                       )}
-                      {q.name}
                     </h4>
                     {q.reply.split('\n').map((item, index) => (
                       <p key={index}>
