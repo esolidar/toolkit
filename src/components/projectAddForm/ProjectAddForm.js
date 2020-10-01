@@ -201,42 +201,42 @@ const ProjectAddForm = ({
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
                   </label>
-                </div>
-                <p style={{ marginBottom: '25px' }}>
-                  {field.name}
-                </p>
-                <div className="checkbox">
-                  {field.options.map((option, i) => (
-                    <CheckboxField
-                      key={i}
-                      label={option}
-                      onChange={(e) => onChangeCheckbox(e, field.id)}
-                      name={slugify(option, {
-                        replacement: '-',
-                        remove: /[?$*_+~.,()'"!\-:@]/g,
-                        lower: true,
-                      })}
-                      id={slugify(option, {
-                        replacement: '-',
-                        remove: /[?$*_+~.,()'"!\-:@]/g,
-                        lower: true,
-                      })}
-                      value={option}
-                      checked={includes(field.checked, option)}
-                    />
-                  ))}
-                  {errors[field.id] && (
-                    <div
-                      className="has-error"
-                      style={{
-                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
-                      }}
-                    >
-                      <div className="help-block">
-                        {errors[field.id]}
+                  <p className="help">
+                    {field.help}
+                  </p>
+                  <div className="checkbox">
+                    {field.options.map((option, i) => (
+                      <CheckboxField
+                        key={i}
+                        label={option}
+                        onChange={(e) => onChangeCheckbox(e, field.id)}
+                        name={slugify(option, {
+                          replacement: '-',
+                          remove: /[?$*_+~.,()'"!\-:@]/g,
+                          lower: true,
+                        })}
+                        id={slugify(option, {
+                          replacement: '-',
+                          remove: /[?$*_+~.,()'"!\-:@]/g,
+                          lower: true,
+                        })}
+                        value={option}
+                        checked={includes(field.checked, option)}
+                      />
+                    ))}
+                    {errors[field.id] && (
+                      <div
+                        className="has-error"
+                        style={{
+                          width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                        }}
+                      >
+                        <div className="help-block">
+                          {errors[field.id]}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -248,42 +248,42 @@ const ProjectAddForm = ({
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
                   </label>
-                </div>
-                <p style={{ marginBottom: '25px' }}>
-                  {field.name}
-                </p>
-                <div className="checkbox">
-                  {field.options.map((option, i) => (
-                    <RadioField
-                      key={i}
-                      label={option}
-                      onChange={(e) => onChangeRadiobox(e, field.id)}
-                      name={slugify(option, {
-                        replacement: '-',
-                        remove: /[?$*_+~.,()'"!\-:@]/g,
-                        lower: true,
-                      })}
-                      id={slugify(option, {
-                        replacement: '-',
-                        remove: /[?$*_+~.,()'"!\-:@]/g,
-                        lower: true,
-                      })}
-                      value={option}
-                      checked={field.reply === option}
-                    />
-                  ))}
-                  {errors[field.id] && (
-                    <div
-                      className="has-error"
-                      style={{
-                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
-                      }}
-                    >
-                      <div className="help-block">
-                        {errors[field.id]}
+                  <p className="help">
+                    {field.help}
+                  </p>
+                  <div className="checkbox">
+                    {field.options.map((option, i) => (
+                      <RadioField
+                        key={i}
+                        label={option}
+                        onChange={(e) => onChangeRadiobox(e, field.id)}
+                        name={slugify(option, {
+                          replacement: '-',
+                          remove: /[?$*_+~.,()'"!\-:@]/g,
+                          lower: true,
+                        })}
+                        id={slugify(option, {
+                          replacement: '-',
+                          remove: /[?$*_+~.,()'"!\-:@]/g,
+                          lower: true,
+                        })}
+                        value={option}
+                        checked={field.reply === option}
+                      />
+                    ))}
+                    {errors[field.id] && (
+                      <div
+                        className="has-error"
+                        style={{
+                          width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                        }}
+                      >
+                        <div className="help-block">
+                          {errors[field.id]}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             );
