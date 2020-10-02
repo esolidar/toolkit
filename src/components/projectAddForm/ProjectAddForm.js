@@ -261,12 +261,20 @@ const ProjectAddForm = ({
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
+<<<<<<< HEAD
                         })}-${i}-${field.id}`}
+=======
+                        })}-${i}`}
+>>>>>>> master
                         id={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
+<<<<<<< HEAD
                         })}-${i}-${field.id}`}
+=======
+                        })}-${i}`}
+>>>>>>> master
                         value={option}
                         checked={field.reply === option}
                       />
