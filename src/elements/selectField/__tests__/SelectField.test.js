@@ -30,6 +30,20 @@ describe('SelectField component', () => {
     expect(component.find('select').props().name).toEqual('example');
   });
 
+  it('renders SelectField with selectText', () => {
+    const component = shallow(
+      <SelectField
+        options={[{ id: 1, name: 'lorem' }]}
+        value=""
+        label="Select exemple"
+        field="example"
+        onChange={() => {}}
+        error="error"
+      />,
+    );
+    expect(component.find('option')).toHaveLength(2);
+  });
+
   it('renders SelectField without selectText', () => {
     const component = shallow(
       <SelectField
@@ -39,6 +53,7 @@ describe('SelectField component', () => {
         field="example"
         onChange={() => {}}
         error="error"
+        hiddenSelectText={true}
       />,
     );
     expect(component.find('option')).toHaveLength(1);

@@ -13,6 +13,7 @@ const SelectField = ({
   error,
   defaultValue,
   className,
+  hiddenSelectText,
 }) => {
   const optionsList = (options) => {
     if (options) {
@@ -40,7 +41,7 @@ const SelectField = ({
         onChange={onChange}
         disabled={disabled}
       >
-        {selectText && (
+        {!hiddenSelectText && (
           <option value="">
             {selectText}
           </option>
@@ -71,4 +72,9 @@ SelectField.propTypes = {
   disabled: PropTypes.bool,
   selectText: PropTypes.string,
   className: PropTypes.string,
+  hiddenSelectText: PropTypes.bool,
+};
+
+SelectField.defaultProps = {
+  hiddenSelectText: false,
 };
