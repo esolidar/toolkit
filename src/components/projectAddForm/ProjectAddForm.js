@@ -210,16 +210,16 @@ const ProjectAddForm = ({
                         key={i}
                         label={option}
                         onChange={(e) => onChangeCheckbox(e, field.id)}
-                        name={slugify(option, {
+                        name={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}
-                        id={slugify(option, {
+                        })}-${i}-${field.id}`}
+                        id={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}
+                        })}-${i}-${field.id}`}
                         value={option}
                         checked={includes(field.checked, option)}
                       />
@@ -261,12 +261,12 @@ const ProjectAddForm = ({
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}-${i}`}
+                        })}-${i}-${field.id}`}
                         id={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}-${i}`}
+                        })}-${i}-${field.id}`}
                         value={option}
                         checked={field.reply === option}
                       />
