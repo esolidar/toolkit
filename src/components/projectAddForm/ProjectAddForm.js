@@ -257,16 +257,16 @@ const ProjectAddForm = ({
                         key={i}
                         label={option}
                         onChange={(e) => onChangeRadiobox(e, field.id)}
-                        name={slugify(option, {
+                        name={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}
-                        id={slugify(option, {
+                        })}-${i}`}
+                        id={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
                           lower: true,
-                        })}
+                        })}-${i}`}
                         value={option}
                         checked={field.reply === option}
                       />
