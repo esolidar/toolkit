@@ -11,6 +11,7 @@ import { TicketsComments } from '@esolidar/toolkit';
   ticketComments={[
     {
     project_comment: {
+      text: 'Comment text',
       attachment_files: [
         {
           created_at: "2020-05-29 08:48:55",
