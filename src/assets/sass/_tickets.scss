@@ -35,6 +35,10 @@
       line-height: 40px;
       color      : $mainColor;
       display    : inline-block;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
 
       .support {
         display      : block;

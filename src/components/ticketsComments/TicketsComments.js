@@ -42,8 +42,8 @@ const TicketsComments = ({
         <Card.Body>
           <Row>
             <Col sm={3} className="header">
-              <img alt="Thumb" className="thumb" src={thumb || 'https://static.testesolidar.com/frontend/assets/no-image.png'} />
               <div className="user-post">
+                <img alt="Thumb" className="thumb" src={thumb || 'https://static.testesolidar.com/frontend/assets/no-image.png'} />
                 {user ? (
                   <span>
                     {user.institution ? user.institution.sigla : user.name}
