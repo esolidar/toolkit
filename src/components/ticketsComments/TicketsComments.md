@@ -11,6 +11,7 @@ import { TicketsComments } from '@esolidar/toolkit';
   ticketComments={[
     {
     project_comment: {
+      text: 'Comment text',
       attachment_files: [
         {
           created_at: "2020-05-29 08:48:55",
@@ -39,8 +40,16 @@ import { TicketsComments } from '@esolidar/toolkit';
         firstName: "Patricia",
         id: 51859,
         image: null,
-        institution: null,
-        institution_id: null,
+         institution: {
+          name: 'Associação XPTO',
+          sigla: 'AX',
+          thumbs: {
+            original: "https://static.testesolidar.com/frontend/assets/no-image.png",
+            standard: "https://static.testesolidar.com/frontend/assets/no-image.png",
+            thumb: "https://static.testesolidar.com/frontend/assets/no-image.png",
+          }, 
+        },
+        institution_id: 1,
         lastName: "Silva",
         name: "Patricia Silva",
         streamImage: "local",
