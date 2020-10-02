@@ -46,7 +46,7 @@ const TicketsComments = ({
               <div className="user-post">
                 {user ? (
                   <span>
-                    {user.institution ? user.institution.name : user.name}
+                    {user.institution ? user.institution.sigla : user.name}
                     {(supportTag && !user.institution) && (
                       <span className="support">
                         {intl.formatMessage({ id: 'tickets.supportTag', defaultMessage: 'Support eSolidar' })}
