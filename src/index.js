@@ -4,6 +4,7 @@ export { default as ChangeCurrency } from './components/changeCurrency/ChangeCur
 export { default as ChangeLanguage } from './components/changeLanguage/ChangeLanguage';
 export { default as CookiesMessage } from './components/cookiesMessage/CookiesMessage';
 export { default as Footer } from './components/footer/Footer';
+export { default as Faqs } from './components/faqs/Faqs';
 export { default as HeartSeparator } from './components/heartSeparator/HeartSeparator';
 export { default as Icon } from './components/icon/Icon';
 export { default as Loading } from './components/loading/Loading';

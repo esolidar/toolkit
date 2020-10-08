@@ -1,0 +1,97 @@
+.faqs {
+    background: #fbfcfc !important;
+    text-align: left;
+
+    .wrapper-tabs {
+        border-bottom: 1px solid #d0d6dd;
+
+        .tab.active {
+            color        : $mainColor;
+            border-bottom: 2px solid $mainColor;
+        }
+
+        .tab {
+            padding    : 20px;
+            text-align : center;
+            font-size  : 21px;
+            line-height: 33px;
+
+            &:hover {
+                cursor       : pointer;
+                color        : $mainColor;
+                border-bottom: 2px solid $mainColor;
+            }
+        }
+    }
+
+    .wrapper {
+        background-color: #fff;
+        border-radius   : 4px;
+        padding-top     : 20px;
+        margin-top      : 65px;
+
+        .accordion-item {
+            overflow  : hidden;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            height    : auto;
+            max-height: 9999px;
+        }
+
+        .accordion-item.collapsed {
+            max-height: 0;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .panel {
+            padding: 10px 15px;
+
+            .accordion-title.open {
+                color: $mainColor;
+
+                .arrow {
+                    transform: rotate(180deg);
+                    @include animate;
+                    transition-property: transform;
+                }
+            }
+
+            .accordion-title {
+                cursor         : pointer;
+                display        : flex;
+                justify-content: space-between;
+                align-items    : center;
+                font-size      : 21px;
+                color          : #738598;
+                line-height    : 33px;
+                display        : block;
+                width          : 100%;
+                text-align     : left;
+                padding        : 0;
+                text-decoration: none;
+
+                .arrow {
+                    float      : right;
+                    padding-top: 5px;
+                    @include animate;
+                }
+
+                &:hover {
+                    color          : $mainColor;
+                    text-decoration: none;
+                }
+
+                .dot-line {
+                    border-bottom: 1px dashed $borderColor;
+                }
+            }
+        }
+
+        .accordion-content {
+            font-size  : 15px;
+            color      : #6d6d6d;
+            line-height: 26px;
+            padding    : 30px;
+        }
+    }
+
+}
