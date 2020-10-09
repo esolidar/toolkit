@@ -16,7 +16,7 @@ const Step1 = (props) => {
           return (
             <div key={`${item.id}_${indx}`}>
               {indx === 0 && (<h2>Crowdfunding</h2>)}
-              <div className="box">
+              <div>
                 <CrowdfundingItem
                   item={item}
                   indx={indx}
