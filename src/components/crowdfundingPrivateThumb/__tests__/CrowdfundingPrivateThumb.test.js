@@ -1,10 +1,13 @@
 /* global expect */
+/* global jest */
 
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { advanceTo } from 'jest-date-mock';
 import CrowdfundingPrivateThumb from '../CrowdfundingPrivateThumb';
 
+jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
 const thumb = {
@@ -26,8 +29,8 @@ const thumb = {
   goal: 100,
   minimum_contribution: 1,
   currency_id: 1,
-  start_date: '2020-04-03 03:00:00',
-  end_date: '2020-04-30 03:00:00',
+  start_date: '2020-10-28 23:00:00',
+  end_date: '2020-11-30 23:00:00',
   position: 0,
   recipient_visible: 1,
   status: 'approved',
@@ -72,7 +75,41 @@ const convertedValue = '12.00€';
 
 describe('FeaturesMenu page', () => {
   it('renders the FeaturesMenu component', () => {
+    advanceTo(new Date(2020, 10, 10, 0, 0, 0));
     const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
     expect(component).toHaveLength(1);
+  });
+
+
+  it('expect return 30-04-2020 in ending date', () => {
+    advanceTo(new Date(2020, 10, 10, 0, 0, 0));
+    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    expect(component.find('.date-text').text()).toEqual('30-11-2020');
+  });
+
+  it('expect return running class', () => {
+    advanceTo(new Date(2020, 10, 10, 0, 0, 0));
+    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    expect(component.find('.label-text').text()).toEqual('Ends in');
+    expect(component.find('._date').hasClass('running')).toBe(true);
+  });
+
+  it('expect return soon class', () => {
+    advanceTo(new Date(2020, 1, 1, 0, 0, 0));
+    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    expect(component.find('.label-text').text()).toEqual('Starts in');
+    expect(component.find('._date').hasClass('soon')).toBe(true);
+  });
+
+  it('expect return ended class', () => {
+    advanceTo(new Date(2022, 1, 1, 0, 0, 0));
+    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    expect(component.find('.label-text').text()).toEqual('Ended in');
+    expect(component.find('._date').hasClass('ended')).toBe(true);
+  });
+
+  it('expect return raised value 12.00€', () => {
+    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    expect(component.find('.raised-value').text()).toEqual('12.00€');
   });
 });
