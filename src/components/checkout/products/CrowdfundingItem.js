@@ -23,7 +23,7 @@ const CrowdfundingItem = (props) => {
   };
 
   return (
-    <Row className="cart-item">
+    <Row className="cart-item box">
       <Col sm={8} xs={12} className="cart-item-row">
         <div className="checkbox-inline">
           <div className="form-group">
@@ -43,7 +43,7 @@ const CrowdfundingItem = (props) => {
               </div>
               <h3>{campaignTitle()}</h3>
               <BrowserView device={isBrowser}>
-                <p>{item.campaign.description}</p>
+                <p className="paragraph" title={item.campaign.description}>{item.campaign.description}</p>
               </BrowserView>
               {item.campaign.institution && (
                 <div className="checkout-supports">
