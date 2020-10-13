@@ -34,32 +34,28 @@ const Faqs = ({
         <Row>
           {(faqsFilterLang.length > 0 && !isLoading) && (
             <div className="wrapper">
-              {faqsFilterLang.map((faq, index) => {
-                if ((lang === 'pt' && faq.title_pt !== null) || (lang === 'en' && faq.title_en !== null) || (lang === 'br' && faq.title_br !== null)) {
-                  return (
-                    <FaqsItem
-                      key={index}
-                      env={env}
-                      changeId={changeId}
-                      id={id}
-                      faqId={faq.id}
-                      type={type}
-                      // eslint-disable-next-line no-nested-ternary
-                      title={lang === 'pt' ? faq.title_pt : lang === 'en' ? faq.title_en : lang === 'br' ? faq.title_br : ''}
-                      // eslint-disable-next-line no-nested-ternary
-                      cardBody={lang === 'pt' ? faq.description_pt : lang === 'en' ? faq.description_en : lang === 'br' ? faq.description_br : ''}
-                    />
-                  );
-                }
-              })}
+              {faqsFilterLang.map((faq, index) => (
+                <FaqsItem
+                  key={index}
+                  env={env}
+                  changeId={changeId}
+                  id={id}
+                  faqId={faq.id}
+                  type={type}
+                  // eslint-disable-next-line no-nested-ternary
+                  title={lang === 'pt' ? faq.title_pt : lang === 'en' ? faq.title_en : lang === 'br' ? faq.title_br : ''}
+                  // eslint-disable-next-line no-nested-ternary
+                  cardBody={lang === 'pt' ? faq.description_pt : lang === 'en' ? faq.description_en : lang === 'br' ? faq.description_br : ''}
+                />
+              ))}
             </div>
           )}
-          {(faqsFilterLang.length === 0 && !isLoading) && (
+          {(!faqsFilterLang.length && !isLoading) && (
             <Col sm={12}>
               <div className="wrapper">
                 <FormattedMessage
                   id="faqs.items.empty"
-                  defaultMessage="No faqs"
+                  defaultMessage="No FAQs found"
                 />
               </div>
             </Col>
