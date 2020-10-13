@@ -69,7 +69,10 @@ const Button = ({
 Button.propTypes = {
   extraClass: PropTypes.string,
   target: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   href: PropTypes.string,
   to: PropTypes.string,
   type: PropTypes.string,

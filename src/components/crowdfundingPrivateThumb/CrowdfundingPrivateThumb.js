@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';
 import Loading from '../loading/Loading';
 
@@ -33,8 +34,8 @@ class CrowdfundingPrivateThumb extends Component {
       });
 
       // Check if campaign is soon, running, ended
-      const inputStartDate = new Date(thumb.start_date.replace(/-/g, '/'));
-      const inputEndDate = new Date(thumb.end_date.replace(/-/g, '/'));
+      const inputStartDate = new Date(moment.utc(thumb.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
+      const inputEndDate = new Date(moment.utc(thumb.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
       const { translations } = this.props;
 
       // call setHours to take the time out of the comparison
