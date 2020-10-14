@@ -79,7 +79,7 @@ Faqs.propTypes = {
   type: PropTypes.string,
   changeType: PropTypes.func.isRequired,
   changeId: PropTypes.func.isRequired,
-  id: PropTypes.string,
+  id: PropTypes.number,
   isLoading: PropTypes.bool,
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
