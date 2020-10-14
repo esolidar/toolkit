@@ -32,7 +32,7 @@ FaqItem.propTypes = {
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),
-  id: PropTypes.string,
+  id: PropTypes.number,
   faqId: PropTypes.number,
   changeId: PropTypes.func,
   type: PropTypes.string,
