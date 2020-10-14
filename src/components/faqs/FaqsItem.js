@@ -10,9 +10,7 @@ const FaqItem = ({
     changeId(type, id);
   };
 
-  function createMarkup() {
-    return { __html: cardBody };
-  }
+  const renderHtmlFaqItem = () => ({ __html: cardBody });
 
   return (
     <div className="accordion-wrapper">
@@ -24,7 +22,7 @@ const FaqItem = ({
         </div>
         <div className={`accordion-item ${isOpen ? '' : 'collapsed'}`}>
           <div className="accordion-content">
-            <div dangerouslySetInnerHTML={createMarkup()} />
+            <div dangerouslySetInnerHTML={renderHtmlFaqItem()} />
           </div>
         </div>
       </div>
