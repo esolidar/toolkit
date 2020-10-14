@@ -1,50 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import Loading from '../loading/Loading';
+import ContributeRow from './ContributeRow';
 
 const ContributesList = ({
-  contributesList,
-  loadingContributesList,
+  contributesListTotal,
+  contributes,
   loadingContributes,
-  total,
   showMoreContributes,
-}) => (
-  <div className="col-sm-12">
-    <div className="row">
-      <div className="box" style={{ width: '100%' }}>
-        <h3 className="control-label">
-          <FormattedMessage
-            id="crowdfunding.last.donations.list"
-            defaultMessage="Latest donations"
+  env,
+}) => {
+  const renderContributes = () => {
+    if (contributes.length > 0) {
+      return contributes.map((contribute) => (
+        <div key={contribute.id}>
+          <ContributeRow
+            contribute={contribute}
+            env={env}
           />
-        </h3>
-        {loadingContributesList
+        </div>
+      ));
+    }
+    return (
+      <div className="no-contributions">
+        <FormattedMessage
+          id="crowdfunding.no-contributions"
+          defaultMessage="No contributions"
+        />
+      </div>
+    );
+  };
+
+  return (
+    <div>
+      {renderContributes()}
+      {(contributesListTotal > contributes.length) && (
+        <div className="text-center">
+          <button className="see-more-contributors" type="button" onClick={showMoreContributes}>
+            {!loadingContributes && (
+              <FormattedMessage
+                id="crowdfunding.more"
+                defaultMessage="See more"
+              />
+            )}
+            {loadingContributes
               && (
-              <div className="loading-contributes-list">
-                <Loading />
-              </div>
-              )}
-        {!loadingContributesList
-              && (
-              <ContributesList
-                contributes={contributesList}
-                loadingContributes={loadingContributes}
-                contributesListTotal={total}
-                showMoreContributes={showMoreContributes}
+              <FormattedMessage
+                id="crowdfunding.loading-text"
+                defaultMessage="Loading ..."
               />
               )}
-      </div>
+          </button>
+        </div>
+      )}
     </div>
-  </div>
-);
-
-ContributesList.propTypes = {
-  contributesList: PropTypes.array.isRequired,
-  loadingContributesList: PropTypes.bool,
-  loadingContributes: PropTypes.bool,
-  total: PropTypes.number,
-  showMoreContributes: PropTypes.func,
+  );
 };
 
 export default ContributesList;
+
+ContributesList.propTypes = {
+  contributesListTotal: PropTypes.number,
+  contributes: PropTypes.array,
+  loadingContributes: PropTypes.bool,
+  showMoreContributes: PropTypes.func,
+  env: PropTypes.shape({
+    cdn_static_url: PropTypes.string,
+  }),
+};
