@@ -10,6 +10,8 @@ const FaqItem = ({
     changeId(type, id);
   };
 
+  const renderHtmlFaqItem = () => ({ __html: cardBody });
+
   return (
     <div className="accordion-wrapper">
       <div className="panel">
@@ -19,7 +21,9 @@ const FaqItem = ({
           <div className="dot-line" />
         </div>
         <div className={`accordion-item ${isOpen ? '' : 'collapsed'}`}>
-          <div className="accordion-content">{cardBody}</div>
+          <div className="accordion-content">
+            <div dangerouslySetInnerHTML={renderHtmlFaqItem()} />
+          </div>
         </div>
       </div>
     </div>
