@@ -1,0 +1,85 @@
+// .crowdfunding-detail {
+//   @media (max-width: 425px) {
+//     overflow: hidden;
+//   }
+
+//   .open-lightbox {
+//     height  : 470px;
+//     overflow: hidden;
+//   }
+
+//   .donation-box {
+//     .currency-symbol {
+//       top: 51px !important;
+//     }
+
+//     input {
+//       padding-left: 25px;
+//     }
+
+//     .btn-submit {
+//       padding  : 5px 0;
+//       font-size: 17px;
+//       width    : 100%;
+//     }
+//   }
+// }
+
+.contribute-row-box {
+  padding: 10px 20px 10px 10px;
+
+  .contribute-thumb {
+    float: left;
+
+    img {
+      border-radius: 50%;
+      margin-right : 10px;
+      width        : 40px;
+    }
+  }
+
+  .contribute-row-text {
+    color      : $mainTextColorDark;
+    font-family: $fontFamily;
+    font-size  : 13px;
+    line-height: 22px;
+    display    : block;
+    margin-left: 50px;
+
+    .user {
+      font-family   : $fontHeavy;
+      font-size     : 15px;
+      color         : $mainTextColorDark;
+      letter-spacing: 0;
+      line-height   : 26px;
+      display       : block;
+    }
+  }
+
+  .contribute-row-date {
+    color         : $mainTextColorDark;
+    font-family   : $fontFamily;
+    font-size     : 12px;
+    font-weight   : 500;
+    line-height   : 24px;
+    display       : block;
+    text-transform: capitalize;
+    float         : right;
+  }
+
+  &.blink {
+    background                       : transparent;
+    -webkit-animation-name           : blinker;
+    -webkit-animation-duration       : 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-name              : blinker;
+    -moz-animation-duration          : 1s;
+    -moz-animation-timing-function   : linear;
+    -moz-animation-iteration-count   : 1;
+    animation-name                   : blinker;
+    animation-duration               : 1s;
+    animation-timing-function        : linear;
+    animation-iteration-count        : 1;
+  }
+}

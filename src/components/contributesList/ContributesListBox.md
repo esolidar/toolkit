@@ -92,7 +92,7 @@ import { ContributesListBox } from '@esolidar/toolkit';
   total={1}
 	showMoreContributes={() => {}}
 	env={{
-		cdn_static_url: "https://cdn.testesolidar.com/",
+		cdn_static_url: "https://static.esolidar.com",
 		cdn_uploads_url: "https://cdn.testesolidar.com",
 	}}
 />
