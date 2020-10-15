@@ -20,7 +20,14 @@ const TextareaField = ({
   resize,
 }) => {
   if (resize) {
-    autosize(document.getElementsByTagName('textarea'));
+    setTimeout(() => {
+      const item = document.getElementById(id || field);
+      autosize(item);
+
+      const evt = document.createEvent('Event');
+      evt.initEvent('autosize:update', true, false);
+      item.dispatchEvent(evt);
+    }, 500);
   }
 
   return (
@@ -36,7 +43,7 @@ const TextareaField = ({
         </p>
       )}
       <textarea
-        id={id}
+        id={id || field}
         disabled={disabled}
         onChange={onChange}
         value={value}
