@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import ContributeRow from './ContributeRow';
+import CrowdfundigContributeRow from './CrowdfundingContributeRow';
 
-const ContributesList = ({
+const CrowdfundigContributesList = ({
   contributesListTotal,
   contributes,
   loadingContributes,
@@ -11,10 +11,10 @@ const ContributesList = ({
   env,
 }) => {
   const renderContributes = () => {
-    if (contributes.length > 0) {
+    if (contributes && contributes.length) {
       return contributes.map((contribute) => (
         <div key={contribute.id}>
-          <ContributeRow
+          <CrowdfundigContributeRow
             contribute={contribute}
             env={env}
           />
@@ -34,7 +34,7 @@ const ContributesList = ({
   return (
     <div>
       {renderContributes()}
-      {(contributesListTotal > contributes.length) && (
+      {(contributes && (contributesListTotal > contributes.length)) && (
         <div className="text-center">
           <button className="see-more-contributors" type="button" onClick={showMoreContributes}>
             {!loadingContributes && (
@@ -57,9 +57,9 @@ const ContributesList = ({
   );
 };
 
-export default ContributesList;
+export default CrowdfundigContributesList;
 
-ContributesList.propTypes = {
+CrowdfundigContributesList.propTypes = {
   contributesListTotal: PropTypes.number,
   contributes: PropTypes.array,
   loadingContributes: PropTypes.bool,

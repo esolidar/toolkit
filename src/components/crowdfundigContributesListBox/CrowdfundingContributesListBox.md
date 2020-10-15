@@ -1,13 +1,13 @@
 #### Import
 
 ``` html
-import { ContributesListBox } from '@esolidar/toolkit';
+import { CrowdfundingContributesListBox } from '@esolidar/toolkit';
 ```
 
 #### Example
 
 ``` jsx
-<ContributesListBox
+<CrowdfundingContributesListBox
   contributesList={[
 	{
 		"id": 140,
@@ -89,7 +89,7 @@ import { ContributesListBox } from '@esolidar/toolkit';
 ]}
   loadingContributesList={false}
   loadingContributes={false}
-  total={1}
+  total={10}
 	showMoreContributes={() => {}}
 	env={{
 		cdn_static_url: "https://static.esolidar.com",

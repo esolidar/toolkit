@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import Loading from '../loading/Loading';
-import ContributesList from './ContributesList';
+import CrowdfundingContributesList from './CrowdfundingContributesList';
 
-const ContributesListBox = ({
+const CrowdfundingContributesListBox = ({
   contributesList,
   loadingContributesList,
   loadingContributes,
@@ -29,10 +29,10 @@ const ContributesListBox = ({
               )}
         {!loadingContributesList
               && (
-              <ContributesList
+              <CrowdfundingContributesList
+                contributesListTotal={total}
                 contributes={contributesList}
                 loadingContributes={loadingContributes}
-                contributesListTotal={total}
                 showMoreContributes={showMoreContributes}
                 env={env}
               />
@@ -42,7 +42,7 @@ const ContributesListBox = ({
   </div>
 );
 
-ContributesListBox.propTypes = {
+CrowdfundingContributesListBox.propTypes = {
   contributesList: PropTypes.array.isRequired,
   loadingContributesList: PropTypes.bool,
   loadingContributes: PropTypes.bool,
@@ -53,4 +53,4 @@ ContributesListBox.propTypes = {
   }),
 };
 
-export default ContributesListBox;
+export default CrowdfundingContributesListBox;

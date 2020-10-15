@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { FormattedNumber, FormattedMessage } from 'react-intl';
-// import env from '../../../../../../config/configEnv';
 
-const ContributeRow = ({ contribute, env }) => (
+const CrowdfundingContributeRow = ({ contribute, env }) => (
   <div className="contribute-row-box">
     <div className="contribute-thumb">
       {contribute.hidden === 1
@@ -53,9 +52,9 @@ const ContributeRow = ({ contribute, env }) => (
   </div>
 );
 
-export default ContributeRow;
+export default CrowdfundingContributeRow;
 
-ContributeRow.propTypes = {
+CrowdfundingContributeRow.propTypes = {
   contribute: PropTypes.object,
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
