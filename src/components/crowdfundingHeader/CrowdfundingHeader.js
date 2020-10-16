@@ -27,15 +27,19 @@ const CrowdfundingHeader = ({
         />
       </Col>
       <Col sm={6} className="goal-text text-right">
-        <FormattedMessage
-          id="crowdfunding.goal"
-          defaultMessage="Goal"
-        />
-        <FormattedNumber
-          value={campaign.goal}
-          style="currency"
-          currency={campaign.currency.small}
-        />
+        <span className="goal-span">
+          <FormattedMessage
+            id="crowdfunding.goal"
+            defaultMessage="Goal"
+          />
+        </span>
+        <span className="goal-span">
+          <FormattedNumber
+            value={campaign.goal}
+            style="currency"
+            currency={campaign.currency.small}
+          />
+        </span>
       </Col>
       <Col sm={12} className="total-donations-text">
         <FormattedMessage

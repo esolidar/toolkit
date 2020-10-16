@@ -13,28 +13,28 @@ const CrowdfundingPaymentMethod = ({
 }) => (
   <>
     <Col sm={12} className="share-label">
-      <h4 className="control-label">
+      <span className="control-label">
         <FormattedMessage
           id="payment.methods"
           defaultMessage="Payment methods"
         />
-      </h4>
+      </span>
     </Col>
     <Col sm={12}>
       {utrust === 1 && (
-      <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-utrust.png`} style={{ height: '20px', marginRight: '15px' }} alt="utrust" />
+        <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-utrust.png`} style={{ height: '20px', marginRight: '15px' }} alt="utrust" />
       )}
       {paypal === 1 && (
-      <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-paypal.png`} style={{ height: '20px', marginRight: '15px' }} alt="Paypal" />
+        <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-paypal.png`} style={{ height: '20px', marginRight: '15px' }} alt="Paypal" />
       )}
       {stripe === 1 && (
-      <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-creditcard.png`} style={{ height: '20px', marginRight: '15px' }} alt="Credit Card" />
+        <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-creditcard.png`} style={{ height: '20px', marginRight: '15px' }} alt="Credit Card" />
       )}
       {sibsMbway === 1 && (
-      <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-mbway.png`} style={{ height: '20px', marginRight: '15px' }} alt="MBway" />
+        <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-mbway.png`} style={{ height: '20px', marginRight: '15px' }} alt="MBway" />
       )}
       {sibsCc === 1 && (
-      <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-creditcard.png`} style={{ height: '20px', marginRight: '15px' }} alt="Credit Card" />
+        <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-creditcard.png`} style={{ height: '20px', marginRight: '15px' }} alt="Credit Card" />
       )}
     </Col>
   </>

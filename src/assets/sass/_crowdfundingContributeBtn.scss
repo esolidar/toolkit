@@ -1,0 +1,40 @@
+.donation-box {
+  margin-top: 25px;
+
+  .currency-symbol {
+    position      : absolute;
+    top           : 35px;
+    left          : 25px;
+    font-family   : $fontHeavy;
+    font-size     : 20px;
+    color         : $grayLight;
+    letter-spacing: 0;
+    line-height   : 22px;
+  }
+
+  input {
+    padding-left: 10px;
+  }
+
+  .btn-submit {
+    width        : 100%;
+    margin-top   : 25px;
+    padding-left : 0;
+    padding-right: 0;
+  }
+
+  .control-label {
+    margin-bottom: 15px;
+    line-height  : 0;
+    display: block;
+  }
+
+  .control-label span {
+    line-height: 15px;
+  }
+
+  .control-label-note {
+    color    : $mainTextColorDark;
+    font-size: 12px;
+  }
+}
