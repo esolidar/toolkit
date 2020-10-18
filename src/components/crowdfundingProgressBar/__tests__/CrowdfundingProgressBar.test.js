@@ -1,0 +1,33 @@
+/* global expect */
+
+import React from 'react';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import CrowdfundingProgressBar from '../CrowdfundingProgressBar';
+
+configure({ adapter: new Adapter() });
+
+describe('CrowdfundingProgressBar', () => {
+  it('render without crash', () => {
+    const wrapper = shallow(<CrowdfundingProgressBar />);
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('Progress bar with values', () => {
+    const wrapper = shallow(<CrowdfundingProgressBar
+      contributesSum={60}
+      goal={10000}
+    />);
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
+  });
+
+  it('Progress bar without values', () => {
+    const wrapper = shallow(<CrowdfundingProgressBar
+      contributesSum={0}
+      goal={0}
+    />);
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
+  });
+});

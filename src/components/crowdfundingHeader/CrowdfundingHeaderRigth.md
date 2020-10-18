@@ -1,13 +1,13 @@
 #### Import
 
 ``` html
-import { CrowdfundingHeader } from '@esolidar/toolkit';
+import { CrowdfundingHeaderRigth } from '@esolidar/toolkit';
 ```
 
 #### Example
 
 ``` jsx
-<CrowdfundingHeader
+<CrowdfundingHeaderRigth
   campaignTitle={() => { return 'Teste Rocha'}}
   campaign={
     {
@@ -29,7 +29,7 @@ import { CrowdfundingHeader } from '@esolidar/toolkit';
         "minimum_contribution": 10,
         "currency_id": 1,
         "start_date": "2020-06-21 23:00:00",
-        "end_date": "2020-07-28 15:30:00",
+        "end_date": "2021-07-28 15:30:00",
         "timezone": "America/Sao_Paulo",
         "position": 0,
         "recipient_visible": 1,
@@ -150,11 +150,5 @@ import { CrowdfundingHeader } from '@esolidar/toolkit';
   env={{
     cdn_static_url: 'https://static.esolidar.com'
   }}
-//   onChangeValue={() => {}}
-//   errors={null}
-//   value='10.00'
-//   countDownStatus='running'
-//   checkoutContribution={() => {}}
-//   isLoadingButton={false}
 />
 ```

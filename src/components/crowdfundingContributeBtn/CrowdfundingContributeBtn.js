@@ -54,7 +54,7 @@ const CrowdfundingContributeBtn = ({
 CrowdfundingContributeBtn.propTypes = {
   campaign: PropTypes.shape({
     status: PropTypes.string,
-    minimum_contribution: PropTypes.string,
+    minimum_contribution: PropTypes.number,
     currency: PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,

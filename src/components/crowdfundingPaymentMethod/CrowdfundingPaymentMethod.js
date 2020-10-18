@@ -41,11 +41,11 @@ const CrowdfundingPaymentMethod = ({
 );
 
 CrowdfundingPaymentMethod.propTypes = {
-  utrust: PropTypes.bool,
-  paypal: PropTypes.bool,
-  stripe: PropTypes.bool,
-  sibsMbway: PropTypes.bool,
-  sibsCc: PropTypes.bool,
+  utrust: PropTypes.number,
+  paypal: PropTypes.number,
+  stripe: PropTypes.number,
+  sibsMbway: PropTypes.number,
+  sibsCc: PropTypes.number,
   cdnStaticUrl: PropTypes.string,
 };
 

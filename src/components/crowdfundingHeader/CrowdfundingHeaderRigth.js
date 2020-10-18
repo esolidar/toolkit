@@ -6,19 +6,23 @@ import CrowdfundingProgressBar from '../crowdfundingProgressBar/CrowdfundingProg
 import CrowdfundingPaymentMethod from '../crowdfundingPaymentMethod/CrowdfundingPaymentMethod';
 import CrowdfundingContributeBtn from '../crowdfundingContributeBtn/CrowdfundingContributeBtn';
 
-const CrowdfundingHeader = ({
+const CrowdfundingHeaderRigth = ({
   campaignTitle,
   campaign,
   env,
 }) => (
   <Col md={5}>
+    {campaign && (
     <Row>
       <Col sm={12}>
-        <h2>
+        <h2 className="title-campaign">
           {campaignTitle()}
         </h2>
       </Col>
-      <CrowdfundingProgressBar contributesSum={campaign.contributes_sum} goal={campaign.goal} />
+      <CrowdfundingProgressBar
+        contributesSum={campaign.contributes_sum}
+        goal={campaign.goal}
+      />
       <Col sm={6} className="raised-text">
         <FormattedNumber
           value={campaign.contributes_sum}
@@ -60,24 +64,25 @@ const CrowdfundingHeader = ({
         cdnStaticUrl={env.cdn_static_url}
       />
     </Row>
+    )}
   </Col>
 );
 
-CrowdfundingHeader.propTypes = {
+CrowdfundingHeaderRigth.propTypes = {
   campaignTitle: PropTypes.func,
   campaign: PropTypes.shape({
     contributes_sum: PropTypes.number,
     goal: PropTypes.number,
     currency: PropTypes.shape({
-      small: PropTypes.number,
+      small: PropTypes.string,
     }),
     product: PropTypes.shape({
       payment_method: PropTypes.shape({
-        utrust: PropTypes.bool,
-        paypal: PropTypes.bool,
-        stripe: PropTypes.bool,
-        sibs_mbway: PropTypes.bool,
-        sibs_cc: PropTypes.bool,
+        utrust: PropTypes.number,
+        paypal: PropTypes.number,
+        stripe: PropTypes.number,
+        sibs_mbway: PropTypes.number,
+        sibs_cc: PropTypes.number,
       }),
     }),
     contributes_count: PropTypes.number,
@@ -87,4 +92,4 @@ CrowdfundingHeader.propTypes = {
   }),
 };
 
-export default CrowdfundingHeader;
+export default CrowdfundingHeaderRigth;
