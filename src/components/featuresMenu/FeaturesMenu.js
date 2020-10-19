@@ -359,7 +359,7 @@ const FeaturesMenu = (props) => {
                 position: 8,
                 pageRoute: '/crowdfunding',
                 showItem: true,
-                iconItem: 'icon crowdfunding',
+                iconItem: 'icon crowdfunding-public',
                 itemText: translations.crowdfunding,
                 hide: 0,
               });
