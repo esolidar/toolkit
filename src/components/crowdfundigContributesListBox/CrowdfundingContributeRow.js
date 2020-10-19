@@ -17,7 +17,7 @@ const CrowdfundingContributeRow = ({ contribute, env }) => (
           && (
           <img
             src={contribute.contributor.thumbs.thumb}
-            alt="User"
+            alt={contribute.contributor.name}
           />
           )}
     </div>

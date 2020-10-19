@@ -1,11 +1,13 @@
 /* global expect */
+/* global jest */
 
 import React from 'react';
-import { configure, mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { IntlProvider } from 'react-intl';
+import { advanceTo } from 'jest-date-mock';
 import CrowdfundingContributeBtn from '../CrowdfundingContributeBtn';
 
+jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
 const propsCampaign = {
@@ -27,7 +29,7 @@ const propsCampaign = {
   minimum_contribution: 10,
   currency_id: 1,
   start_date: '2020-06-21 23:00:00',
-  end_date: '2020-07-28 15:30:00',
+  end_date: '2020-09-01 15:30:00',
   timezone: 'America/Sao_Paulo',
   position: 0,
   recipient_visible: 1,
@@ -147,61 +149,63 @@ const propsCampaign = {
 
 describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingContributeBtn campaign={propsCampaign} />
-      </IntlProvider>,
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} />,
     );
     expect(wrapper).toHaveLength(1);
   });
 
   it('should exist input donation', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingContributeBtn
-          campaign={propsCampaign}
-          onChangeValue={() => {}}
-          value="60.00"
-          countDownStatus="running"
-          checkoutContribution={() => {}}
-          isLoadingButton={false}
-        />
-      </IntlProvider>,
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+      />,
     );
-    expect(wrapper.find('#inputDonation')).toHaveLength(1);
+    expect(wrapper.find('TextField')).toHaveLength(1);
   });
 
-  it('should input and button disable', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingContributeBtn
-          campaign={propsCampaign}
-          onChangeValue={() => {}}
-          value="60.00"
-          countDownStatus="running"
-          checkoutContribution={() => {}}
-          isLoadingButton={false}
-        />
-      </IntlProvider>,
+  it('should input and button disable - soon', () => {
+    advanceTo(new Date(2020, 1, 1, 0, 0, 0));
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+      />,
     );
-    wrapper.setState({ countDownStatus: 'soon' });
-    expect(wrapper.find('#inputDonation').is('[disabled]')).toBe(true);
-    expect(wrapper.find('.btn-esolidar.btn-success-full.btn.btn-submit').is('[disabled]')).toBe(true);
+    expect(wrapper.state('countDownStatus')).toEqual('soon');
+    expect(wrapper.find('TextField').prop('disabled')).toBe(true);
+    expect(wrapper.find('Button').prop('disabled')).toBe(true);
+  });
+
+  it('should input and button disable - running', () => {
+    advanceTo(new Date(2020, 7, 1, 0, 0, 0));
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+      />,
+    );
+    expect(wrapper.state('countDownStatus')).toEqual('running');
+    expect(wrapper.find('TextField').prop('disabled')).toBe(false);
+    expect(wrapper.find('Button').prop('disabled')).toBe(false);
+  });
+
+  it('should input and button disable - ended', () => {
+    advanceTo(new Date(2021, 1, 1, 0, 0, 0));
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+      />,
+    );
+    expect(wrapper.state('countDownStatus')).toEqual('ended');
+    expect(wrapper.find('TextField').prop('disabled')).toBe(true);
+    expect(wrapper.find('Button').prop('disabled')).toBe(true);
   });
 
   it('should exist button donate', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingContributeBtn
-          campaign={propsCampaign}
-          onChangeValue={() => {}}
-          value="60.00"
-          countDownStatus="running"
-          checkoutContribution={() => {}}
-          isLoadingButton={false}
-        />
-      </IntlProvider>,
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+      />,
     );
-    expect(wrapper.find('.btn-esolidar.btn-success-full.btn.btn-submit')).toHaveLength(1);
+    expect(wrapper.find('Button').length).toBe(1);
   });
 });

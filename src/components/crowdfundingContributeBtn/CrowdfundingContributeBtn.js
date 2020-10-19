@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
 import ReactGA from 'react-ga';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
 import Button from '../button/Button';
+import TextField from '../../elements/textField/TextField';
 
 class CrowdfundingContributeBtn extends Component {
   // eslint-disable-next-line react/static-property-placement
@@ -33,8 +35,8 @@ class CrowdfundingContributeBtn extends Component {
     localStorage.setItem('order_currency', campaign.currency.small);
 
     // Check if campaign is soon, running, ended
-    const inputStartDate = new Date(campaign.start_date.replace(/-/g, '/'));
-    const inputEndDate = new Date(campaign.end_date.replace(/-/g, '/'));
+    const inputStartDate = new Date(moment.utc(campaign.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
+    const inputEndDate = new Date(moment.utc(campaign.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
 
     // Get today's date
     const { todaysDate } = this.state;
@@ -190,7 +192,7 @@ class CrowdfundingContributeBtn extends Component {
                 defaultMessage="Use only integer numbers"
               />
             </span>
-            <input
+            <TextField
               type="number"
               id="inputDonation"
               onChange={(e) => {

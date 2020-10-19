@@ -30,4 +30,16 @@ describe('CrowdfundingProgressBar', () => {
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
   });
+
+  it('% Progress bar', () => {
+    const wrapper = shallow(<CrowdfundingProgressBar
+      contributesSum={50}
+      goal={100}
+    />);
+    // console.log(wrapper.find('.progress-goal-bar').prop('style'));
+    // expect(wrapper.find('.progress-goal-bar').prop('style')).toEqual("{'width': '50%'}");
+    expect(wrapper.find('.progress-goal-bar').props().style.width).toEqual('50%');
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
+  });
 });
