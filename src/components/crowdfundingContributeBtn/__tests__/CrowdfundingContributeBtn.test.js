@@ -155,7 +155,7 @@ describe('CrowdfundingHeader', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should exist button donate', () => {
+  it('should exist input donation', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
         <CrowdfundingContributeBtn
@@ -168,7 +168,25 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>,
     );
-    expect(wrapper.find('#inputDonation').props().value).toEqual('60.00');
+    expect(wrapper.find('#inputDonation')).toHaveLength(1);
+  });
+
+  it('should input and button disable', () => {
+    const wrapper = mount(
+      <IntlProvider locale="en">
+        <CrowdfundingContributeBtn
+          campaign={propsCampaign}
+          onChangeValue={() => {}}
+          value="60.00"
+          countDownStatus="running"
+          checkoutContribution={() => {}}
+          isLoadingButton={false}
+        />
+      </IntlProvider>,
+    );
+    wrapper.setState({ countDownStatus: 'soon' });
+    expect(wrapper.find('#inputDonation').is('[disabled]')).toBe(true);
+    expect(wrapper.find('.btn-esolidar.btn-success-full.btn.btn-submit').is('[disabled]')).toBe(true);
   });
 
   it('should exist button donate', () => {
@@ -184,7 +202,6 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>,
     );
-    // console.log(wrapper.debug());
     expect(wrapper.find('.btn-esolidar.btn-success-full.btn.btn-submit')).toHaveLength(1);
   });
 });
