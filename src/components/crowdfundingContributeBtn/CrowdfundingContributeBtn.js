@@ -195,7 +195,7 @@ class CrowdfundingContributeBtn extends Component {
               id="inputDonation"
               onChange={(e) => {
                 this.setState({
-                  value: `${Math.trunc(e.value)}.00`,
+                  value: e.target.value,
                   errors: {},
                 });
                 ReactGA.event({
@@ -204,11 +204,17 @@ class CrowdfundingContributeBtn extends Component {
                   label: 'change-contribute-value',
                 });
               }}
-              error={errors.value}
+              onBlur={(e) => {
+                this.setState({
+                  value: `${Math.trunc(e.target.value)}.00`,
+                  errors: {},
+                });
+              }}
               value={value}
               disabled={countDownStatus !== 'running'}
               placeholder={`${campaign.currency.symbol} 0,00`}
             />
+              {(value === '' || value < campaign.minimum_contribution) ? <div className="has-error"><span className="help-block">{errors.value}</span></div> : ''}
           </Col>
         )}
         {(campaign.status === 'approved' || campaign.status === 'completed') && (

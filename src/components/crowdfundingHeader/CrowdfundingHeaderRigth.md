@@ -150,5 +150,7 @@ import { CrowdfundingHeaderRigth } from '@esolidar/toolkit';
   env={{
     cdn_static_url: 'https://static.esolidar.com'
   }}
+  errorMsgRequired="Value is required."
+  errorMsgAmount =""
 />
 ```

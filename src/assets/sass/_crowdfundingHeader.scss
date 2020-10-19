@@ -55,3 +55,14 @@
   letter-spacing: 0;
   line-height   : 39px;
 }
+
+.form-group {
+  position: relative;
+}
+
+.has-error {
+  .help-block {
+    color    : $dangerColor !important;
+    font-size: 12px;
+  }
+}
