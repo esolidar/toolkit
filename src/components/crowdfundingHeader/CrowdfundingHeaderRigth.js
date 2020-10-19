@@ -15,7 +15,7 @@ const CrowdfundingHeaderRigth = ({
 }) => (
   <Col md={5}>
     {campaign && (
-    <Row>
+    <div>
       <Col sm={12}>
         <Row>
           <h2 className="title-campaign">
@@ -77,7 +77,7 @@ const CrowdfundingHeaderRigth = ({
         sibsCc={campaign.product.payment_method.sibs_cc}
         cdnStaticUrl={env.cdn_static_url}
       />
-    </Row>
+    </div>
     )}
   </Col>
 );
