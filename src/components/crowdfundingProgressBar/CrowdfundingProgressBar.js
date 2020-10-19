@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const CrowdfundingProgressBar = ({ contributesSum, goal }) => (
   <Col sm={12}>
-    <div className="goal">
+    <Row className="goal">
       <div
         className="progress-goal-bar"
         style={{ width: `${(contributesSum / goal) * 100}%` }}
       />
-    </div>
+    </Row>
   </Col>
 );
 

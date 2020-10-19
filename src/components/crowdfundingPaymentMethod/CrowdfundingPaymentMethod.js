@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 
 const CrowdfundingPaymentMethod = ({
@@ -11,7 +11,7 @@ const CrowdfundingPaymentMethod = ({
   sibsCc,
   cdnStaticUrl,
 }) => (
-  <>
+  <Row>
     <Col sm={12} className="share-label">
       <span className="control-label">
         <FormattedMessage
@@ -37,7 +37,7 @@ const CrowdfundingPaymentMethod = ({
         <img src={`${cdnStaticUrl}/frontend/icons/ic-pm-creditcard.png`} style={{ height: '20px', marginRight: '15px' }} alt="Credit Card" />
       )}
     </Col>
-  </>
+  </Row>
 );
 
 CrowdfundingPaymentMethod.propTypes = {

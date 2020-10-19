@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import Button from '../button/Button';
 
 const CrowdfundingContributeBtn = ({
@@ -12,7 +12,7 @@ const CrowdfundingContributeBtn = ({
   checkoutContribution,
   isLoadingButton,
 }) => (
-  <>
+  <Row>
     {(campaign.status === 'approved' || campaign.status === 'completed') && (
       <Col sm={7} className="donation-box">
         <span className="control-label">
@@ -48,7 +48,7 @@ const CrowdfundingContributeBtn = ({
         />
       </Col>
     )}
-  </>
+  </Row>
 );
 
 CrowdfundingContributeBtn.propTypes = {

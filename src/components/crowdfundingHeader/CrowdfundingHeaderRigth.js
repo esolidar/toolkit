@@ -15,20 +15,24 @@ const CrowdfundingHeaderRigth = ({
     {campaign && (
     <Row>
       <Col sm={12}>
-        <h2 className="title-campaign">
-          {campaignTitle()}
-        </h2>
+        <Row>
+          <h2 className="title-campaign">
+            {campaignTitle()}
+          </h2>
+        </Row>
       </Col>
       <CrowdfundingProgressBar
         contributesSum={campaign.contributes_sum}
         goal={campaign.goal}
       />
       <Col sm={6} className="raised-text">
-        <FormattedNumber
-          value={campaign.contributes_sum}
-          style="currency"
-          currency={campaign.currency.small}
-        />
+        <Row>
+          <FormattedNumber
+            value={campaign.contributes_sum}
+            style="currency"
+            currency={campaign.currency.small}
+          />
+        </Row>
       </Col>
       <Col sm={6} className="goal-text text-right">
         <span className="goal-span">
@@ -46,13 +50,17 @@ const CrowdfundingHeaderRigth = ({
         </span>
       </Col>
       <Col sm={12} className="total-donations-text">
-        <FormattedMessage
-          id="crowdfunding.total.number.donations"
-          defaultMessage="Number of donations"
-        />
+        <Row>
+          <FormattedMessage
+            id="crowdfunding.total.number.donations"
+            defaultMessage="Number of donations"
+          />
+        </Row>
       </Col>
       <Col sm={12} className="total-donations-value">
-        {campaign.contributes_count}
+        <Row>
+          {campaign.contributes_count}
+        </Row>
       </Col>
       <CrowdfundingContributeBtn campaign={campaign} />
       <CrowdfundingPaymentMethod

@@ -15,12 +15,12 @@ const CrowdfundingContributesListBox = ({
   <div className="col-sm-12">
     <div className="row">
       <div className="box" style={{ width: '100%' }}>
-        <h3 className="control-label">
+        <p className="control-label mb-4">
           <FormattedMessage
             id="crowdfunding.last.donations.list"
             defaultMessage="Latest donations"
           />
-        </h3>
+        </p>
         {loadingContributesList
               && (
               <div className="loading-contributes-list">
@@ -43,7 +43,7 @@ const CrowdfundingContributesListBox = ({
 );
 
 CrowdfundingContributesListBox.propTypes = {
-  contributesList: PropTypes.array.isRequired,
+  contributesList: PropTypes.array,
   loadingContributesList: PropTypes.bool,
   loadingContributes: PropTypes.bool,
   total: PropTypes.number,
