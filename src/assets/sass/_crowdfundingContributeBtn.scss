@@ -13,20 +13,38 @@
   }
 
   input {
-    padding-left: 10px;
+    padding-left      : 10px;
+    height            : 40px;
+    background-color  : #FFFFFF;
+    border            : 2px solid #D0D6DD;
+    border-radius     : 3px;
+    box-shadow        : none;
+    -webkit-box-shadow: none;
+    -moz-appearance   : none;
+    font-family       : 'AvenirLT-Roman';
+    font-size         : 15px;
+    color             : #455C75;
+    letter-spacing    : -0.31px;
+    line-height       : 24px;
+    padding-top       : 10px;
+    resize            : none;
   }
 
   .btn-submit {
     width        : 100%;
-    margin-top   : 25px;
+    margin-top   : 47px;
     padding-left : 0;
     padding-right: 0;
+
+    @media (max-width: 425px) {
+      margin-top   : 15px;
+    }
   }
 
   .control-label {
     margin-bottom: 15px;
     line-height  : 0;
-    display: block;
+    display      : block;
   }
 
   .control-label span {
