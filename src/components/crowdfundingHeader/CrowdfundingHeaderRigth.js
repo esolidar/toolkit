@@ -12,6 +12,7 @@ const CrowdfundingHeaderRigth = ({
   env,
   errorMsgRequired,
   errorMsgAmount,
+  showDonate,
 }) => (
   <Col md={5}>
     {campaign && (
@@ -64,11 +65,13 @@ const CrowdfundingHeaderRigth = ({
           {campaign.contributes_count}
         </Row>
       </Col>
-      <CrowdfundingContributeBtn
-        campaign={campaign}
-        errorMsgRequired={errorMsgRequired}
-        errorMsgAmount={errorMsgAmount}
-      />
+      {showDonate && (
+        <CrowdfundingContributeBtn
+          campaign={campaign}
+          errorMsgRequired={errorMsgRequired}
+          errorMsgAmount={errorMsgAmount}
+        />
+      )}
       <CrowdfundingPaymentMethod
         utrust={campaign.product.payment_method.utrust}
         paypal={campaign.product.payment_method.paypal}
@@ -106,6 +109,11 @@ CrowdfundingHeaderRigth.propTypes = {
   }),
   errorMsgRequired: PropTypes.string,
   errorMsgAmount: PropTypes.string,
+  showDonate: PropTypes.bool,
+};
+
+CrowdfundingHeaderRigth.defaultProps = {
+  showDonate: true,
 };
 
 export default CrowdfundingHeaderRigth;
