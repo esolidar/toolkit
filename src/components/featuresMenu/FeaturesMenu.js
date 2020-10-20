@@ -117,9 +117,11 @@ const FeaturesMenu = (props) => {
           }
           break;
 
-        case ('manage-employees' || 'manage-members'):
+        case 'manage-employees':
+        case 'manage-members':
           switch (project) {
             case 'business-frontend':
+              if (_.find(items, (o) => o.pageRoute === '/community')) break;
               items.push({
                 position: 3,
                 pageRoute: '/community',
@@ -352,9 +354,11 @@ const FeaturesMenu = (props) => {
           }
           break;
 
-        case ('crowdfunding' || 'crowdfunding-public'):
+        case 'crowdfunding':
+        case 'crowdfunding-public':
           switch (project) {
             case 'business-frontend':
+              if (_.find(items, (o) => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -366,6 +370,7 @@ const FeaturesMenu = (props) => {
               break;
 
             case 'esolidar':
+              if (_.find(items, (o) => o.pageRoute === '/user/campaigns')) break;
               items.push({
                 position: 8,
                 pageRoute: '/user/campaigns',
@@ -377,6 +382,7 @@ const FeaturesMenu = (props) => {
               break;
 
             case 'whitelabel':
+              if (_.find(items, (o) => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -398,55 +404,6 @@ const FeaturesMenu = (props) => {
               });
           }
           break;
-
-          /*
-        case 'crowdfunding-public':
-          switch (project) {
-            case 'business-frontend':
-              items.push({
-                position: 9,
-                pageRoute: '/crowdfunding-public',
-                showItem: true,
-                iconItem: 'icon crowdfunding-public',
-                itemText: translations.crowdfundingPublic,
-                hide: 0,
-              });
-              break;
-
-            case 'esolidar':
-              items.push({
-                position: 9,
-                pageRoute: '/user/crowdfunding-public',
-                showItem: false,
-                iconItem: 'icon crowdfunding',
-                itemText: translations.crowdfundingPublic,
-                hide: feature.pivot.hide,
-              });
-              break;
-
-            case 'whitelabel':
-              items.push({
-                position: 9,
-                pageRoute: '/crowdfunding/list',
-                showItem: true,
-                iconItem: 'icon crowdfunding-public',
-                itemText: translations.crowdfundingPublic,
-                hide: feature.pivot.hide,
-              });
-              break;
-
-            default:
-              items.push({
-                position: 9,
-                pageRoute: '/crowdfunding-companies',
-                showItem: false,
-                iconItem: 'icon crowdfunding-public',
-                itemText: translations.crowdfundingPublic,
-                hide: 0,
-              });
-          }
-          break;
-        */
 
         case 'payments':
           switch (project) {
