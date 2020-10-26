@@ -58,7 +58,7 @@ class CrowdfundingDescription extends Component {
           <Row>
             {campaign.projects.length > 0 && (
               <Col md={12}>
-                <div className="description-header">
+                <div className="description-header" style={{ 'margin-top': '50px' }}>
                   <FormattedMessage
                     id="crowdfunding.description.ods"
                     defaultMessage="Sustainable Development Goals"
@@ -87,7 +87,7 @@ class CrowdfundingDescription extends Component {
         )}
         <Row>
           <Col md={12}>
-            <div className="description-header" style={{ color, borderColor: color }}>
+            <div className="description-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
               <FormattedMessage
                 id="crowdfunding.description"
                 defaultMessage="Description"
@@ -117,7 +117,7 @@ class CrowdfundingDescription extends Component {
           <Col md={12}>
             {campaign.reward === 1 && (
               <div>
-                <div className="description-header" style={{ color, borderColor: color }}>
+                <div className="description-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
                   <FormattedMessage
                     id="crowdfunding.reward.text"
                     defaultMessage="Reward"

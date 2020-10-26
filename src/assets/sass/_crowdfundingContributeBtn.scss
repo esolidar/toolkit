@@ -30,19 +30,28 @@
     resize            : none;
   }
 
+  .has-error {
+    .help-block {
+      color    : #ff494c !important;
+      font-size: 12px;
+      top      : -10px;
+      position : relative;
+    }
+  }
+
   .btn-submit {
     width        : 100%;
-    margin-top   : 47px;
+    margin-top   : 20px;
     padding-left : 0;
     padding-right: 0;
 
     @media (max-width: 425px) {
-      margin-top   : 15px;
+      margin-top: 15px;
     }
   }
 
   .control-label {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     line-height  : 0;
     display      : block;
   }

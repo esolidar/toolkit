@@ -28,29 +28,34 @@ const CrowdfundingHeaderRigth = ({
         contributesSum={campaign.contributes_sum}
         goal={campaign.goal}
       />
-      <Col sm={6} className="raised-text">
+      <Col>
         <Row>
-          <FormattedNumber
-            value={campaign.contributes_sum}
-            style="currency"
-            currency={campaign.currency.small}
-          />
+          <Col sm={6} className="raised-text">
+            <Row>
+              <FormattedNumber
+                value={campaign.contributes_sum}
+                style="currency"
+                currency={campaign.currency.small}
+              />
+            </Row>
+          </Col>
+          <Col sm={6} className="goal-text text-right">
+            <span className="goal-span">
+              <FormattedMessage
+                id="crowdfunding.goal"
+                defaultMessage="Goal"
+              />
+            </span>
+            <span className="goal-span">
+              <FormattedNumber
+                value={campaign.goal}
+                style="currency"
+                currency={campaign.currency.small}
+              />
+            </span>
+          </Col>
         </Row>
-      </Col>
-      <Col sm={6} className="goal-text text-right">
-        <span className="goal-span">
-          <FormattedMessage
-            id="crowdfunding.goal"
-            defaultMessage="Goal"
-          />
-        </span>
-        <span className="goal-span">
-          <FormattedNumber
-            value={campaign.goal}
-            style="currency"
-            currency={campaign.currency.small}
-          />
-        </span>
+
       </Col>
       <Col sm={12} className="total-donations-text">
         <Row>
@@ -66,11 +71,11 @@ const CrowdfundingHeaderRigth = ({
         </Row>
       </Col>
       {showDonate && (
-        <CrowdfundingContributeBtn
-          campaign={campaign}
-          errorMsgRequired={errorMsgRequired}
-          errorMsgAmount={errorMsgAmount}
-        />
+      <CrowdfundingContributeBtn
+        campaign={campaign}
+        errorMsgRequired={errorMsgRequired}
+        errorMsgAmount={errorMsgAmount}
+      />
       )}
       <CrowdfundingPaymentMethod
         utrust={campaign.product.payment_method.utrust}

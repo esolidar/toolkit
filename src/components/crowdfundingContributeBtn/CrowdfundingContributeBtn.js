@@ -93,7 +93,7 @@ class CrowdfundingContributeBtn extends Component {
     } else if (Number(value) < campaign.minimum_contribution) {
       this.setState({
         errors: {
-          value: errorMsgAmount + campaign.minimum_contribution,
+          value: errorMsgAmount + campaign.currency.symbol + campaign.minimum_contribution,
         },
       });
       ReactGA.event({
@@ -216,7 +216,13 @@ class CrowdfundingContributeBtn extends Component {
               disabled={countDownStatus !== 'running'}
               placeholder={`${campaign.currency.symbol} 0,00`}
             />
-              {(value === '' || value < campaign.minimum_contribution) ? <div className="has-error"><span className="help-block">{errors.value}</span></div> : ''}
+              {(value === '' || value < campaign.minimum_contribution) ? (
+                <div className="has-error">
+                  <span className="help-block">
+                    {errors.value}
+                  </span>
+                </div>
+              ) : ''}
           </Col>
         )}
         {(campaign.status === 'approved' || campaign.status === 'completed') && (

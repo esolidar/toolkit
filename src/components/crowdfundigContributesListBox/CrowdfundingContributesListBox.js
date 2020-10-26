@@ -14,7 +14,7 @@ const CrowdfundingContributesListBox = ({
 }) => (
   <div className="col-sm-12">
     <div className="row">
-      <div className="box" style={{ width: '100%' }}>
+      <div className="box" style={{ width: '100%', 'margin-top': '75px' }}>
         <p className="control-label mb-4">
           <FormattedMessage
             id="crowdfunding.last.donations.list"
