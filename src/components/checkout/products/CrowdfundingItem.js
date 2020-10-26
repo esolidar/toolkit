@@ -23,97 +23,101 @@ const CrowdfundingItem = (props) => {
   };
 
   return (
-    <Row className="cart-item box">
-      <Col sm={8} xs={12} className="cart-item-row">
-        <div className="checkbox-inline">
-          <div className="form-group">
-            <label htmlFor="addCart">
-              <BrowserView device={isBrowser}>
+    <div className="cart-item box">
+      <Row>
+        <Col sm={8} xs={12} className="cart-item-row">
+          <div className="checkbox-inline">
+            <div className="form-group">
+              <label htmlFor="addCart">
+                <BrowserView device={isBrowser}>
+                  <div>
+                    {item.campaign.images.length > 0 && (<img src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=95&height=95`} alt={campaignTitle()} />)}
+                  </div>
+                </BrowserView>
+                <MobileView device={isMobile}>
+                  <div>
+                    {item.campaign.images.length > 0 && (<img src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=400`} alt={campaignTitle()} style={{ width: '90%' }} />)}
+                  </div>
+                </MobileView>
                 <div>
-                  {item.campaign.images.length > 0 && (<img src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=95&height=95`} alt={campaignTitle()} />)}
+                  {item.campaign.images.length === 0 && (<img src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`} style={{ width: 95 }} alt={campaignTitle()} />)}
                 </div>
-              </BrowserView>
-              <MobileView device={isMobile}>
-                <div>
-                  {item.campaign.images.length > 0 && (<img src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=400`} alt={campaignTitle()} style={{ width: '90%' }} />)}
-                </div>
-              </MobileView>
-              <div>
-                {item.campaign.images.length === 0 && (<img src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`} style={{ width: 95 }} alt={campaignTitle()} />)}
-              </div>
-              <h3>{campaignTitle()}</h3>
-              <BrowserView device={isBrowser}>
-                <p className="paragraph" title={item.campaign.description}>{item.campaign.description}</p>
-              </BrowserView>
-              {item.campaign.institution && (
-                <div className="checkout-supports">
-                  {translateMessage({ id: 'checkout.suports', defaultMessage: 'Supports' })}
+                <h3>{campaignTitle()}</h3>
+                <BrowserView device={isBrowser}>
+                  <p className="paragraph" title={item.campaign.description}>{item.campaign.description}</p>
+                </BrowserView>
+                {item.campaign.institution && (
+                  <div className="checkout-supports">
+                    {translateMessage({ id: 'checkout.suports', defaultMessage: 'Supports' })}
                   &nbsp;
-                  <strong>{item.campaign.institution.name}</strong>
-                </div>
-              )}
-              <input
-                type="checkbox"
-                name="hidden"
-                id="addCart"
-                value={item.checked}
-                onChange={(e) => props.onAddToCheckout(e, props.indx)}
-                checked={item.extra.checked === 1}
-              />
-              <div className="checkbox" />
-            </label>
+                    <strong>{item.campaign.institution.name}</strong>
+                  </div>
+                )}
+                <input
+                  type="checkbox"
+                  name="hidden"
+                  id="addCart"
+                  value={item.checked}
+                  onChange={(e) => props.onAddToCheckout(e, props.indx)}
+                  checked={item.extra.checked === 1}
+                />
+                <div className="checkbox" />
+              </label>
+            </div>
           </div>
-        </div>
-      </Col>
-      <Col sm={2} xs={8} className="price">
-        <FormattedNumber
-          style="currency"
-          currency={item.currency.small}
-          value={item.amount}
-        />
-      </Col>
-      <Col sm={2} xs={4} className="price text-center">
-        <button
-          type="button"
-          className="btn-remove-item"
-          onClick={() => props.removeCartItem(item.id)}
-        >
-          <FormattedMessage
-            id="checkout.remove.item"
-            defaultMessage="Remove"
+        </Col>
+        <Col sm={2} xs={8} className="price">
+          <FormattedNumber
+            style="currency"
+            currency={item.currency.small}
+            value={item.amount}
           />
-        </button>
-      </Col>
-      <Col xs={12}>
-        <div className="checkbox-inline">
-          <div className="form-group">
-            <label htmlFor="hidden">
-              <FormattedMessage
-                id="crowdfunding.donation.checkout.anonymous"
-                defaultMessage="Make an anonymous donation."
-              />
-              <input
-                type="checkbox"
-                name="hidden"
-                id="hidden"
-                value={item.hidden}
-                onChange={(e) => props.onChangCheckBox(e, props.indx)}
-                checked={item.extra.hidden === '1'}
-              />
-              <div className="checkbox" />
-            </label>
+        </Col>
+        <Col sm={2} xs={4} className="price text-center">
+          <button
+            type="button"
+            className="btn-remove-item"
+            onClick={() => props.removeCartItem(item.id)}
+          >
+            <FormattedMessage
+              id="checkout.remove.item"
+              defaultMessage="Remove"
+            />
+          </button>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12}>
+          <div className="checkbox-inline">
+            <div className="form-group">
+              <label htmlFor="hidden">
+                <FormattedMessage
+                  id="crowdfunding.donation.checkout.anonymous"
+                  defaultMessage="Make an anonymous donation."
+                />
+                <input
+                  type="checkbox"
+                  name="hidden"
+                  id="hidden"
+                  value={item.hidden}
+                  onChange={(e) => props.onChangCheckBox(e, props.indx)}
+                  checked={item.extra.hidden === '1'}
+                />
+                <div className="checkbox" />
+              </label>
+            </div>
           </div>
-        </div>
-      </Col>
-      <Col xs={12}>
-        <TextareaField
-          label={translateMessage({ id: 'crowdfunding.message', defaultMessage: 'Leave a message' })}
-          onChange={(e) => props.onChangeMessage(e, props.indx)}
-          value={item.extra.message}
-          field="message"
-        />
-      </Col>
-    </Row>
+        </Col>
+        <Col xs={12}>
+          <TextareaField
+            label={translateMessage({ id: 'crowdfunding.message', defaultMessage: 'Leave a message' })}
+            onChange={(e) => props.onChangeMessage(e, props.indx)}
+            value={item.extra.message}
+            field="message"
+          />
+        </Col>
+      </Row>
+    </div>
   );
 };
 
