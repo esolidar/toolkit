@@ -65,7 +65,10 @@ TextField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.string,
+  error: PropTypes.PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,

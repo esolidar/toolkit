@@ -8,10 +8,21 @@ import TextareaField from '../../elements/textareaField/TextareaField';
 import Button from '../button/Button';
 import getEmployeeName from '../../utils/getEmployeeName';
 
-const Reviews = (props) => {
-  const {
-    reviews, companyId, serverlessResizeImage, noReviewsText, texts, myUser, onChange, submitReview, myRate, myReview, savedReview,
-  } = props;
+const Reviews = ({
+  defaultActiveKey,
+  reviews,
+  companyId,
+  serverlessResizeImage,
+  noReviewsText,
+  texts,
+  myUser,
+  onChange,
+  onChangeRate,
+  submitReview,
+  myRate,
+  myReview,
+  savedReview,
+}) => {
   const [showMyReview, setShowMyReview] = useState(filter(reviews, ['user_id', myUser.id]).length);
 
   useEffect(() => {
@@ -36,10 +47,10 @@ const Reviews = (props) => {
         </div>
       )}
       {reviews.length > 0 && (
-        <Accordion>
+        <Accordion defaultActiveKey={defaultActiveKey.toString()}>
           {reviews.map((review, indx) => (
             <Card key={review.id}>
-              <Accordion.Toggle as={Card.Header} eventKey={indx}>
+              <Accordion.Toggle as={Card.Header} eventKey={indx.toString()}>
                 <div className="header-user">
                   <img src={review.user.s3_key ? `${serverlessResizeImage}/${review.user.s3_key}?width=40` : 'https://static.esolidar.com/frontend/assets/no-image.png'} alt={getEmployeeName(companyId, review.user)} />
                   {getEmployeeName(companyId, review.user)}
@@ -69,7 +80,7 @@ const Reviews = (props) => {
                   />
                 </div>
               </Accordion.Toggle>
-              <Accordion.Collapse eventKey={indx}>
+              <Accordion.Collapse eventKey={indx.toString()}>
                 <Card.Body>
                   {review.review}
                 </Card.Body>
@@ -115,7 +126,7 @@ const Reviews = (props) => {
                   />
                 )}
                 initialRating={myRate}
-                onChange={(rate) => props.onChangeRate(rate)}
+                onChange={(rate) => onChangeRate(rate)}
               />
             </div>
           </div>
@@ -129,6 +140,7 @@ const Reviews = (props) => {
 };
 
 Reviews.propTypes = {
+  defaultActiveKey: PropTypes.number,
   companyId: PropTypes.number.isRequired,
   reviews: PropTypes.array.isRequired,
   serverlessResizeImage: PropTypes.string.isRequired,
@@ -144,6 +156,7 @@ Reviews.propTypes = {
 };
 
 Reviews.defaultProps = {
+  defaultActiveKey: '',
   texts: {
     reviewTitle: 'Reviews',
     myReviewTitle: 'Review from',
