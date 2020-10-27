@@ -1,11 +1,10 @@
 .project-thumb {
   border-radius: 3px;
   padding      : 0 !important;
-  margin       : 0 !important;
-  ;
+  margin       : 0px !important;
   margin-bottom: 40px !important;
-  ;
-  border: 1px solid $grayExtraLight;
+  border       : 1px solid $grayExtraLight;
+  min-width    : 300px;
 
   .status {
     padding    : 5px 0;

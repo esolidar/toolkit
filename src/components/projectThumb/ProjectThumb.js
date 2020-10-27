@@ -42,23 +42,23 @@ const ProjectThumb = ({
     <Col xs={12} sm={6} md={6} lg={cols}>
       <div className="project-thumb">
         {(project.status === 'DRAFT' || project.status === 'PENDING') && (
-          <button type="button" className="edit-button" onClick={editThumb}>
-            <div className={`${project.status}`}>
-              <Icon iconClass="icon-ic-edit-request" />
-              <FormattedMessage
-                id="project.edit"
-                defaultMessage="Edit project"
-              />
-            </div>
-          </button>
+        <button type="button" className="edit-button" onClick={editThumb}>
+          <div className={`${project.status}`}>
+            <Icon iconClass="icon-ic-edit-request" />
+            <FormattedMessage
+              id="project.edit"
+              defaultMessage="Edit project"
+            />
+          </div>
+        </button>
         )}
         <button type="button" className="project-button" onClick={clickThumb}>
           <div>
             {showStatus && (
-              <Row className={`status ${project.status}`}>
-                <Col xs={6} />
-                <Col xs={6} className="text-right">{status}</Col>
-              </Row>
+            <Row className={`status ${project.status}`}>
+              <Col xs={6} />
+              <Col xs={6} className="text-right">{status}</Col>
+            </Row>
             )}
             <div
               className="thumb"
@@ -86,20 +86,20 @@ const ProjectThumb = ({
             </div>
             <div className="description">{project.description}</div>
             {project.user && (
-              <div className="owner">
-                <img src={project.user.thumbs.thumb} alt={project.user.name} />
-                {project.user.name}
-              </div>
+            <div className="owner">
+              <img src={project.user.thumbs.thumb} alt={project.user.name} />
+              {project.user.name}
+            </div>
             )}
             {followers && (
-              <div />
+            <div />
             )}
           </div>
         </button>
         {select && (
-          <div className="select-project">
-            <Button extraClass={isSelected === 1 ? 'info' : 'dark'} onClick={() => selectProject(project.id)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
-          </div>
+        <div className="select-project">
+          <Button extraClass={isSelected === 1 ? 'info-full' : 'dark'} onClick={() => selectProject(project.id)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
+        </div>
         )}
       </div>
     </Col>
