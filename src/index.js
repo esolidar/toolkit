@@ -44,7 +44,7 @@ export { default as Comments } from './components/comments/Comments';
 export { default as CreateComment } from './components/comments/CreateComment';
 export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
 export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
-export { default as CrowdfundigContributesListBox } from './components/crowdfundigContributesListBox/CrowdfundingContributesListBox';
+export { default as CrowdfundingContributesListBox } from './components/crowdfundingContributesListBox/CrowdfundingContributesListBox';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
