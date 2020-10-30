@@ -42,7 +42,7 @@ class CrowdfundingThumb extends Component {
       if (thumb.status === 'pending') {
         this.setState({
           status: 'pending-campaign',
-          date: '',
+          date: `${inputStartDate.getDate()}-${Number(inputStartDate.getMonth() + 1)}-${inputStartDate.getFullYear()}`,
           labelStatus: translations.pending,
         });
       } else if (Date.parse(inputStartDate) >= Math.floor(Date.now())) {
