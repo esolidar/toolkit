@@ -42,25 +42,25 @@ class CrowdfundingThumb extends Component {
       if (thumb.status === 'pending') {
         this.setState({
           status: 'pending-campaign',
-          date: '',
+          date: `${moment(inputStartDate).format('DD-MM-YYYY')}`,
           labelStatus: translations.pending,
         });
       } else if (Date.parse(inputStartDate) >= Math.floor(Date.now())) {
         this.setState({
           status: 'soon',
-          date: `${inputStartDate.getDate()}-${Number(inputStartDate.getMonth() + 1)}-${inputStartDate.getFullYear()}`,
+          date: `${moment(inputStartDate).format('DD-MM-YYYY')}`,
           labelStatus: translations.startsIn,
         });
       } else if (Math.floor(Date.now()) < Date.parse(inputEndDate)) {
         this.setState({
           status: 'running',
-          date: `${inputEndDate.getDate()}-${Number(inputEndDate.getMonth() + 1)}-${inputEndDate.getFullYear()}`,
+          date: `${moment(inputEndDate).format('DD-MM-YYYY')}`,
           labelStatus: translations.endsIn,
         });
       } else {
         this.setState({
           status: 'ended',
-          date: `${inputEndDate.getDate()}-${Number(inputEndDate.getMonth() + 1)}-${inputEndDate.getFullYear()}`,
+          date: `${moment(inputEndDate).format('DD-MM-YYYY')}`,
           labelStatus: translations.endedIn,
         });
       }
