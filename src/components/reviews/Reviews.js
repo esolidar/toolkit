@@ -140,7 +140,10 @@ const Reviews = ({
 };
 
 Reviews.propTypes = {
-  defaultActiveKey: PropTypes.number,
+  defaultActiveKey: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   companyId: PropTypes.number.isRequired,
   reviews: PropTypes.array.isRequired,
   serverlessResizeImage: PropTypes.string.isRequired,
