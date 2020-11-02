@@ -1,0 +1,36 @@
+.input-company-logo {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 1px solid #A2ADBA;
+  border-radius: 50%;
+  &:hover {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  @media (max-width: $mobileWidth) {
+    width: 200px;
+    float: none;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  img {
+    margin-left: 45px;
+    margin-top: 44px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 20%;
+  }
+}
+
+.input-image {
+  cursor : pointer;
+  top    : 0;
+  left   : 0;
+  opacity: 0;
+  width  : 100%;
+  z-index: 1;
+  bottom : 0;
+  right  : 0;
+}

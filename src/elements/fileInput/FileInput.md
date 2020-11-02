@@ -11,9 +11,9 @@ import { FileInput } from '@esolidar/toolkit';
   name="logo_image"
   accept=".png,.jpg,.jpeg"
   className="input-image"
-  disabled={false}
+  disabled="disabled"
   placeholder=""
   value=""
-  handleChange=""
+  handleChange={() => {}}
 />
 ```
