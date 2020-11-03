@@ -116,7 +116,7 @@ CrowdfundingHeaderRigth.propTypes = {
   }),
   errorMsgRequired: PropTypes.string,
   errorMsgAmount: PropTypes.string,
-  textBtnDonate: PropTypes.string,
+  textBtnDonate: PropTypes.string.isRequired,
   showDonate: PropTypes.bool,
 };
 
