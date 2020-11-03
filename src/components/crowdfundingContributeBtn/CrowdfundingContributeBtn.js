@@ -170,7 +170,7 @@ class CrowdfundingContributeBtn extends Component {
   }
 
   render() {
-    const { campaign } = this.props;
+    const { campaign, textBtnDonate } = this.props;
     const {
       isLoadingButton, errors, value, countDownStatus,
     } = this.state;
@@ -231,7 +231,7 @@ class CrowdfundingContributeBtn extends Component {
               extraClass="success-full btn btn-submit"
               onClick={this.checkoutContribution}
               disabled={((countDownStatus !== 'running') || isLoadingButton)}
-              text="Donate"
+              text={textBtnDonate}
             />
           </Col>
         )}
@@ -269,6 +269,7 @@ CrowdfundingContributeBtn.propTypes = {
   }),
   errorMsgRequired: PropTypes.string,
   errorMsgAmount: PropTypes.string,
+  textBtnDonate: PropTypes.string.isRequired,
 };
 
 export default CrowdfundingContributeBtn;
