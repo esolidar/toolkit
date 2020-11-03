@@ -157,5 +157,6 @@ import { CrowdfundingContributeBtn } from '@esolidar/toolkit';
   isLoadingButton={false}
   errorMsgRequired="Value is required."
   errorMsgAmount ="The amount must be equal or greater than "
+  textBtnDonate="Contribuir"
 />
 ```
