@@ -2,18 +2,13 @@
 
 ``` html
 import { HtmlEditor } from '@esolidar/toolkit';
+
 ```
 
 #### Example
 
 ``` jsx
-<HtmlEditor 
-  html=""
-  columns={1}
-  submitTextHtml={() => {}}
-  cancelTextHtml={() => {}}
-  changeColumns={() => {}}
-  fileUpload={() => {}}
-  imageUrl=""
-/>
+<HtmlEditor initialContent="<p>Titulo</p>" columns={1} />
+
 ```
+
