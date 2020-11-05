@@ -13,6 +13,7 @@ const CrowdfundingHeaderRigth = ({
   errorMsgRequired,
   errorMsgAmount,
   showDonate,
+  textBtnDonate,
 }) => (
   <Col md={5}>
     {campaign && (
@@ -75,6 +76,7 @@ const CrowdfundingHeaderRigth = ({
         campaign={campaign}
         errorMsgRequired={errorMsgRequired}
         errorMsgAmount={errorMsgAmount}
+        textBtnDonate={textBtnDonate}
       />
       )}
       <CrowdfundingPaymentMethod
@@ -114,6 +116,7 @@ CrowdfundingHeaderRigth.propTypes = {
   }),
   errorMsgRequired: PropTypes.string,
   errorMsgAmount: PropTypes.string,
+  textBtnDonate: PropTypes.string.isRequired,
   showDonate: PropTypes.bool,
 };
 
