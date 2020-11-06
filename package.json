@@ -44,6 +44,7 @@
   "author": "Patrícia Silva",
   "license": "MIT",
   "peerDependencies": {
+    "@pedroguia/react-draft-wysiwyg": "^1.14.8",
     "classnames": "^2.2.6",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
