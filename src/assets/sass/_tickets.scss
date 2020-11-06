@@ -1,11 +1,11 @@
 .ticketCard {
   background-color: #fff;
-  border          : 1px solid #E7EBED !important;
+  border          : 1px solid #e7ebed !important;
 
   .card-title {
     padding      : 0px 15px 15px 15px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #E7EBED;
+    border-bottom: 1px solid #e7ebed;
   }
 
   .card-body {
@@ -15,9 +15,9 @@
   .comment-date {
     display    : block;
     line-height: 40px;
-    font-family: 'AvenirLTStd-Heavy';
+    font-family: "AvenirLTStd-Heavy";
     font-size  : 12px;
-    color      : #455C75;
+    color      : #455c75;
   }
 
   .header {
@@ -29,16 +29,16 @@
     }
 
     .user-post {
-      font-family: 'AvenirLT-Roman';
-      font-size  : 20px;
-      font-weight: 300;
-      line-height: 40px;
-      color      : $mainColor;
-      display    : inline-block;
+      font-family  : "AvenirLT-Roman";
+      font-size    : 20px;
+      font-weight  : 300;
+      line-height  : 40px;
+      color        : $mainColor;
+      display      : inline-block;
       text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
+      overflow     : hidden;
+      white-space  : nowrap;
+      width        : 100%;
 
       .support {
         display      : block;
@@ -52,7 +52,7 @@
   }
 
   h6 {
-    color: #6C757D;
+    color: #6c757d;
   }
 
   p {
@@ -77,15 +77,22 @@
 }
 
 .files-list {
-  background: #F6F9F9;
-  padding   : 15px !important;
-  max-height: 230px;
-  overflow  : auto;
-  margin-top: 15px;
-  width     : 100%;
+  background   : #f6f9f9;
+  max-height   : 200px;
+  overflow     : auto;
+  border       : 1px solid #d9d9d9;
+  border-radius: 3px;
+
+  .thumb-box {
+    margin: 8px !important;
+
+    .thumb-box {
+      margin: 0 !important;
+    }
+  }
 
   .file-list-imported {
-    border-bottom: 1px solid #D0D6DD;
+    border-bottom: 1px solid #d0d6dd;
     padding      : 15px 0;
 
     .checkbox-label {
@@ -94,9 +101,9 @@
     }
 
     .name {
-      font-family   : 'AvenirLTStd-Heavy';
+      font-family   : "AvenirLTStd-Heavy";
       font-size     : 15px;
-      color         : #455C75;
+      color         : #455c75;
       letter-spacing: 0;
     }
   }
@@ -109,7 +116,7 @@ th[class^="MuiTableCell-root-"] {
     float: left;
 
     .control-label {
-      color         : #6C757D;
+      color         : #6c757d;
       text-transform: capitalize;
       font-size     : 1rem;
       font-weight   : 500;
@@ -137,7 +144,7 @@ th[class^="MuiTableCell-root-"] {
 
   .states {
     font-size     : 15px;
-    color         : #455C75;
+    color         : #455c75;
     letter-spacing: -0.31px;
     line-height   : 24px;
     border-radius : 3px;
@@ -189,7 +196,7 @@ th[class^="MuiTableCell-root-"] {
   }
 
   .green {
-    color: #6C757D;
+    color: #6c757d;
   }
 
   .greenLight {
@@ -253,28 +260,43 @@ th[class^="MuiTableCell-root-"] {
   }
 }
 
-.header-import {
-  padding: 0 25px;
+.upload-file {
+  margin-bottom: 25px;
 
-  .upload-file {
-    border       : 1px solid $mainTextColorLight;
-    padding      : 0;
-    text-align   : center;
-    margin-bottom: 25px;
+  &>div:first-of-type {
+    text-align: center;
+
+    &:focus {
+      outline: none !important;
+    }
 
     p {
-      padding: 30px 25px;
-      margin : 0;
-      color  : $mainTextColorLight;
+      padding         : 20px 25px;
+      margin          : 0;
+      background-color: #fafafa;
+      color           : #bdbdbd;
+      border-color    : #eeeeee;
+      border-style    : dashed;
+      transition      : all 0.2s ease;
 
       .error {
         font-size: 12px;
+      }
+
+      &:hover {
+        border-color: #d9d9d9;
+        transition  : all 0.2s ease;
       }
     }
 
     .Loading {
       min-height: 122px;
     }
+  }
+
+  & .rejected-files {
+    color    : $statusDeletedColor;
+    font-size: 12px;
   }
 }
 
@@ -313,7 +335,7 @@ th[class^="MuiTableCell-root-"] {
     word-break: break-all;
     padding   : 10px;
     z-index   : 1;
-    color     : #fff
+    color     : #fff;
   }
 
   .thumb-box-file {
@@ -337,7 +359,7 @@ th[class^="MuiTableCell-root-"] {
     left   : auto !important;
   }
 
-  input[type=checkbox]:checked~.file-thumb {
+  input[type="checkbox"]:checked~.file-thumb {
     border: 2px solid red;
   }
 }
@@ -415,7 +437,7 @@ th[class^="MuiTableCell-root-"] {
 
     p {
       font-size     : 15px;
-      color         : #455C75;
+      color         : #455c75;
       letter-spacing: 0;
       line-height   : 22px;
       padding       : 50px 25px;

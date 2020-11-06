@@ -44,6 +44,7 @@ const TicketsForm = ({
   isLoadingUplod,
   onDrop,
   onDropRejected,
+  onDropErrorFileList,
   removeFile,
   showFeaturesOptions,
   featureDefault,
@@ -363,76 +364,92 @@ const TicketsForm = ({
         )}
       </Col>
       <Modal show={showModalFiles} onHide={toggleModalFiles} className="md-import-employees import-files">
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="mb-2">
           <Modal.Title>
             <div style={{ paddingLeft: '10px' }}>
               {intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
             </div>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <Row className="header-import select-employees-list">
-            <Col sm={12} className="upload-file">
-              <Dropzone
-                ref={dropzoneRef}
-                onDrop={onDrop}
-                onDropRejected={onDropRejected}
-                maxSize={5000000}
-                accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
-              >
-                {({ getRootProps, getInputProps }) => (
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    {isLoadingUplod && (
-                      <Loading />
-                    )}
-                    {!isLoadingUplod && (
-                      <div>
-                        <p>
-                          {intl.formatMessage({
-                            id: 'document.files.modal.drop',
-                            defaultMessage: 'Drag and drop some files here, or click to select files',
-                          })}
-                          <br />
-                          <small>
-                            {`(${intl.formatMessage({
-                              id: 'document.files.modal.maxSize',
-                              defaultMessage: 'Maximum file size: 5mb',
-                            })
-                            })`}
-                          </small>
-                          {errors.file && (
-                            <span className="error">{errors.file}</span>
-                          )}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </Dropzone>
-            </Col>
-            <Col sm={12} style={{ padding: '0' }}>
-              <TextField
-                type="text"
-                className="search-files"
-                onChange={searchFiles}
-                placeholder={intl.formatMessage({ id: 'project.tickets.searchFiles', defaultMessage: 'Pesquisar por nome' })}
-                defaultValue={search}
-                field="search"
-              />
-            </Col>
-            <Col sm={12} className="files-list checkbox-inline">
-              {renderFilesList(files, loadingFiles)}
-            </Col>
-            <Col sm={12} className="border-top">
-              <Button
-                extraClass="success-full"
-                onClick={toggleModalFiles}
-                text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
-              />
-            </Col>
-          </Row>
+        <Modal.Body className="p-4">
+          <div className="upload-file w-100">
+            <Dropzone
+              ref={dropzoneRef}
+              onDrop={onDrop}
+              onDropRejected={(files) => onDropRejected(files, 5000000)}
+              maxSize={5000000}
+              accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
+            >
+              {({ getRootProps, getInputProps }) => (
+                <div {...getRootProps()}>
+                  <input {...getInputProps()} />
+                  {isLoadingUplod && (
+                    <Loading />
+                  )}
+                  {!isLoadingUplod && (
+                    <p>
+                      {intl.formatMessage({
+                        id: 'document.files.modal.drop',
+                        defaultMessage: 'Drag and drop some files here, or click to select files',
+                      })}
+                      <br />
+                      <small>
+                        {`(${intl.formatMessage({
+                          id: 'document.files.modal.maxSize',
+                          defaultMessage: 'Maximum file size: 5mb',
+                        })
+                        })`}
+                      </small>
+                      {errors.file && (
+                        <span className="error">{errors.file}</span>
+                      )}
+                    </p>
+                  )}
+                </div>
+              )}
+            </Dropzone>
+            {(onDropErrorFileList !== undefined && onDropErrorFileList.length > 0 && (
+              <div className="rejected-files">
+                <div>
+                  {intl.formatMessage({
+                    id: 'document.files.modal.rejectedTitle',
+                    defaultMessage: 'The following files exceed the size limit:',
+                  })}
+                </div>
+                <ul>
+                  {onDropErrorFileList.map((fileName, i) => (<li key={i}>{fileName}</li>))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <h5>
+            {intl.formatMessage({
+              id: 'document.files.modal.fileList',
+              defaultMessage: 'File list',
+            })}
+
+          </h5>
+          <div className="w-100">
+            <TextField
+              type="text"
+              className="mb-0"
+              onChange={searchFiles}
+              placeholder={intl.formatMessage({ id: 'project.tickets.searchFiles', defaultMessage: 'Pesquisar por nome' })}
+              defaultValue={search}
+              field="search"
+            />
+          </div>
+          <div className="w-100 files-list checkbox-inline">
+            {renderFilesList(files, loadingFiles)}
+          </div>
         </Modal.Body>
+        <Modal.Footer>
+          <Button
+            extraClass="success-full"
+            onClick={toggleModalFiles}
+            text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+          />
+        </Modal.Footer>
       </Modal>
       <Modal show={showModalSimpleFiles} className="md-modal-medium" onHide={toggleModalSimpleFiles}>
         <Modal.Header closeButton>
@@ -524,6 +541,7 @@ TicketsForm.propTypes = {
   isLoadingUplod: PropTypes.bool,
   onDrop: PropTypes.func,
   onDropRejected: PropTypes.func,
+  onDropErrorFileList: PropTypes.array,
   removeFile: PropTypes.func,
   showFeaturesOptions: PropTypes.bool,
   featureDefault: PropTypes.oneOfType([

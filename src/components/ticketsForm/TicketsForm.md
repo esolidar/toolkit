@@ -29,7 +29,7 @@ import { TicketsForm } from '@esolidar/toolkit';
   onSubmitComment={()=>{}}
   onChangeComment={()=>{}}
   addComment={()=>{}}
-  showCommentForm={true}
+  showCommentForm={false}
   uploadedFiles={[
     {
       created_at: "2020-06-01 10:44:34",
@@ -94,6 +94,8 @@ import { TicketsForm } from '@esolidar/toolkit';
   onChangeFile={() => {}}
   isLoadingUplod={false}
   onDrop={() => {}}
+  onDropRejected={() => {}}
+  onDropErrorFileList={[]}
 />
 
 ```
