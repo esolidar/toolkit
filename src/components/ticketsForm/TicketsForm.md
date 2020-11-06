@@ -94,6 +94,8 @@ import { TicketsForm } from '@esolidar/toolkit';
   onChangeFile={() => {}}
   isLoadingUplod={false}
   onDrop={() => {}}
+  onDropRejected={() => {}}
+  onDropErrorFileList={[]}
 />
 
 ```
