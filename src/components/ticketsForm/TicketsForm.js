@@ -43,6 +43,7 @@ const TicketsForm = ({
   onChangeFile,
   isLoadingUplod,
   onDrop,
+  onDropRejected,
   removeFile,
   showFeaturesOptions,
   featureDefault,
@@ -124,199 +125,189 @@ const TicketsForm = ({
         {!showCommentForm ? (
           <Card className="ticketCard">
             <Card.Body>
-              <Row className="p-3">
-                <Col md={12} className="company-box">
-                  <Row>
-                    {showFeaturesOptions && (
-                      <Col sm={12} className="noPadding">
-                        <Col sm={12}>
-                          <SelectField
-                            value={featureDefault}
-                            onChange={onChange}
-                            field="feature_id"
-                            label={intl.formatMessage({ id: 'tickets.feature', defaultMessage: 'Feature' })}
-                            options={features}
-                            error={errors.feature_id}
-                            required={true}
-                            disabled={disabledFeatureSelect}
-                          />
-                        </Col>
-                        {featureDefault && (
-                          <Col sm={12}>
-                            <SelectField
-                              defaultValue={typeDefault}
-                              onChange={onChange}
-                              field="type"
-                              label={intl.formatMessage({ id: 'tickets.type', defaultMessage: 'Type' })}
-                              options={types}
-                              error={errors.type}
-                              required={true}
-                              disabled={disabledTypeSelect}
-                            />
-                          </Col>
-                        )}
-                        {(featureDefault && featureDefault === '2') && (
-                          <Col sm={12}>
-                            <div className="form-group">
-                              <label className="control-label">{intl.formatMessage({ id: 'tickets.auctions', defaultMessage: 'Auctions' })}</label>
-                              <AsyncPaginate
-                                isClearable
-                                defaultValue={auctionDefault}
-                                cacheOptions
-                                placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
-                                additional={defaultAdditional}
-                                loadOptions={loadOptionsAuctions}
-                                onChange={updateValueAuctions}
-                              />
-                              {errors.related_feature_id
-                                && (
-                                  <div className="has-error">
-                                    <span className="help-block">
-                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
-                                    </span>
-                                  </div>
-                                )}
-                            </div>
-                          </Col>
-                        )}
-                        {(featureDefault && featureDefault === '4') && (
-                          <Col sm={12}>
-                            <div className="form-group">
-                              <label className="control-label">{intl.formatMessage({ id: 'tickets.crowdfunding', defaultMessage: 'Crowdfunding' })}</label>
-                              <AsyncPaginate
-                                isClearable
-                                defaultValue={crowdfundingDefault}
-                                cacheOptions
-                                placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
-                                additional={defaultAdditional}
-                                loadOptions={loadOptionsCrowdfunding}
-                                onChange={updateValueCrowdfunding}
-                              />
-                              {errors.related_feature_id
-                                && (
-                                  <div className="has-error">
-                                    <span className="help-block">
-                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
-                                    </span>
-                                  </div>
-                                )}
-                            </div>
-                          </Col>
-                        )}
-                        {assignedDefault && (
-                          <Col sm={12}>
-                            <div className="form-group">
-                              <label className="control-label">
-                                {intl.formatMessage({ id: 'tickets.assigned', defaultMessage: 'Assigned to' })}
-                              </label>
-                              <AsyncPaginate
-                                isClearable={!disabledAssignedSelect}
-                                defaultValue={assignedDefault}
-                                cacheOptions
-                                placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
-                                additional={defaultAdditional}
-                                loadOptions={loadOptionsUsers}
-                                onChange={updateValueUsers}
-                                isOptionDisabled={disabledAssignedSelect}
-                              />
-                              {errors.assignee_id
-                                && (
-                                  <div className="has-error">
-                                    <span className="help-block">
-                                      {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
-                                    </span>
-                                  </div>
-                                )}
-                            </div>
-                          </Col>
-                        )}
-                      </Col>
-                    )}
+              <Row>
+                {showFeaturesOptions && (
+                  <Col sm={12} className="noPadding">
                     <Col sm={12}>
-                      <TextField
-                        label={intl.formatMessage({ id: 'project.tickets.title', defaultMessage: 'Title' })}
-                        type="text"
-                        onChange={onChange}
-                        error={errors.title}
-                        placeholder={intl.formatMessage({ id: 'project.tickets.titlePlaceholder', defaultMessage: 'Title' })}
-                        defaultValue={editTicket.title}
-                        field="title"
-                        required={true}
-                      />
-                    </Col>
-                    {!hideText && (
-                      <Col sm={12}>
-                        <div className="form-group">
-                          <TextareaField
-                            label={intl.formatMessage({ id: 'project.tickets.text', defaultMessage: 'Description' })}
-                            error={errors.text}
-                            placeholder={intl.formatMessage({ id: 'project.tickets.textPlaceholder', defaultMessage: 'Enter your issue here.' })}
-                            onChange={onChange}
-                            field="text"
-                            defaultValue={editTicket.text}
-                            message=""
-                            required={true}
-                          />
-                        </div>
-                      </Col>
-                    )}
-                    <Col sm={6}>
                       <SelectField
-                        defaultValue={statusDefault}
+                        value={featureDefault}
                         onChange={onChange}
-                        field="status"
-                        label={intl.formatMessage({ id: 'project.tickets.status', defaultMessage: 'Status' })}
-                        options={status}
-                        error={errors.status}
+                        field="feature_id"
+                        label={intl.formatMessage({ id: 'tickets.feature', defaultMessage: 'Feature' })}
+                        options={features}
+                        error={errors.feature_id}
                         required={true}
-                        disabled={disabledStatusSelect}
+                        disabled={disabledFeatureSelect}
                       />
                     </Col>
-                    <Col sm={6}>
-                      <SelectField
-                        defaultValue={priorityDefault}
-                        onChange={onChange}
-                        field="priority"
-                        label={intl.formatMessage({ id: 'project.tickets.priority', defaultMessage: 'Priority' })}
-                        options={priority}
-                        error={errors.priority}
-                        required={true}
-                      />
-                    </Col>
-                    {(uploadedFiles.length > 0) && (
+                    {featureDefault && (
                       <Col sm={12}>
-                        <div className="form-group">
-                          <span htmlFor="status" className="control-label">
-                            {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
-                          </span>
-                          <div className="attachments-box">
-                            {renderUploadedFiles(uploadedFiles)}
-                          </div>
-                        </div>
-                      </Col>
-                    )}
-                    {showAddFilesButtton && (
-                      <Col sm={12}>
-                        <Button
-                          extraClass="dark-full float-left"
-                          onClick={toggleModalFiles}
-                          text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+                        <SelectField
+                          defaultValue={typeDefault}
+                          onChange={onChange}
+                          field="type"
+                          label={intl.formatMessage({ id: 'tickets.type', defaultMessage: 'Type' })}
+                          options={types}
+                          error={errors.type}
+                          required={true}
+                          disabled={disabledTypeSelect}
                         />
                       </Col>
                     )}
-                    <Col sm={12}>
-                      <Row>
-                        <Col sm={12} className="text-right">
-                          <Button
-                            extraClass="success-full"
-                            onClick={onSubmit}
-                            disabled={disabled}
-                            text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
+                    {(featureDefault && featureDefault === '2') && (
+                      <Col sm={12}>
+                        <div className="form-group">
+                          <label className="control-label">{intl.formatMessage({ id: 'tickets.auctions', defaultMessage: 'Auctions' })}</label>
+                          <AsyncPaginate
+                            isClearable
+                            defaultValue={auctionDefault}
+                            cacheOptions
+                            placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
+                            additional={defaultAdditional}
+                            loadOptions={loadOptionsAuctions}
+                            onChange={updateValueAuctions}
                           />
-                        </Col>
-                      </Row>
-                    </Col>
-                  </Row>
+                          {errors.related_feature_id
+                            && (
+                              <div className="has-error">
+                                <span className="help-block">
+                                  {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                </span>
+                              </div>
+                            )}
+                        </div>
+                      </Col>
+                    )}
+                    {(featureDefault && featureDefault === '4') && (
+                      <Col sm={12}>
+                        <div className="form-group">
+                          <label className="control-label">{intl.formatMessage({ id: 'tickets.crowdfunding', defaultMessage: 'Crowdfunding' })}</label>
+                          <AsyncPaginate
+                            isClearable
+                            defaultValue={crowdfundingDefault}
+                            cacheOptions
+                            placeholder={intl.formatMessage({ id: 'tickets.search.byIdOrTitle', defaultMessage: 'Search by title ou ID...' })}
+                            additional={defaultAdditional}
+                            loadOptions={loadOptionsCrowdfunding}
+                            onChange={updateValueCrowdfunding}
+                          />
+                          {errors.related_feature_id
+                            && (
+                              <div className="has-error">
+                                <span className="help-block">
+                                  {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                </span>
+                              </div>
+                            )}
+                        </div>
+                      </Col>
+                    )}
+                    {assignedDefault && (
+                      <Col sm={12}>
+                        <div className="form-group">
+                          <label className="control-label">
+                            {intl.formatMessage({ id: 'tickets.assigned', defaultMessage: 'Assigned to' })}
+                          </label>
+                          <AsyncPaginate
+                            isClearable={!disabledAssignedSelect}
+                            defaultValue={assignedDefault}
+                            cacheOptions
+                            placeholder={intl.formatMessage({ id: 'tickets.search', defaultMessage: 'Search here...' })}
+                            additional={defaultAdditional}
+                            loadOptions={loadOptionsUsers}
+                            onChange={updateValueUsers}
+                            isOptionDisabled={disabledAssignedSelect}
+                          />
+                          {errors.assignee_id
+                            && (
+                              <div className="has-error">
+                                <span className="help-block">
+                                  {intl.formatMessage({ id: 'form.required', defaultMessage: 'This field is required.' })}
+                                </span>
+                              </div>
+                            )}
+                        </div>
+                      </Col>
+                    )}
+                  </Col>
+                )}
+                <Col sm={12}>
+                  <TextField
+                    label={intl.formatMessage({ id: 'project.tickets.title', defaultMessage: 'Title' })}
+                    type="text"
+                    onChange={onChange}
+                    error={errors.title}
+                    placeholder={intl.formatMessage({ id: 'project.tickets.titlePlaceholder', defaultMessage: 'Title' })}
+                    defaultValue={editTicket.title}
+                    field="title"
+                    required={true}
+                  />
+                </Col>
+                {!hideText && (
+                  <Col sm={12}>
+                    <div className="form-group">
+                      <TextareaField
+                        label={intl.formatMessage({ id: 'project.tickets.text', defaultMessage: 'Description' })}
+                        error={errors.text}
+                        placeholder={intl.formatMessage({ id: 'project.tickets.textPlaceholder', defaultMessage: 'Enter your issue here.' })}
+                        onChange={onChange}
+                        field="text"
+                        defaultValue={editTicket.text}
+                        message=""
+                        required={true}
+                      />
+                    </div>
+                  </Col>
+                )}
+                <Col sm={6}>
+                  <SelectField
+                    defaultValue={statusDefault}
+                    onChange={onChange}
+                    field="status"
+                    label={intl.formatMessage({ id: 'project.tickets.status', defaultMessage: 'Status' })}
+                    options={status}
+                    error={errors.status}
+                    required={true}
+                    disabled={disabledStatusSelect}
+                  />
+                </Col>
+                <Col sm={6}>
+                  <SelectField
+                    defaultValue={priorityDefault}
+                    onChange={onChange}
+                    field="priority"
+                    label={intl.formatMessage({ id: 'project.tickets.priority', defaultMessage: 'Priority' })}
+                    options={priority}
+                    error={errors.priority}
+                    required={true}
+                  />
+                </Col>
+                {(uploadedFiles.length > 0) && (
+                  <Col sm={12}>
+                    <div className="form-group">
+                      <span htmlFor="status" className="control-label">
+                        {intl.formatMessage({ id: 'project.tickets.files', defaultMessage: 'Files' })}
+                      </span>
+                      <div className="attachments-box">
+                        {renderUploadedFiles(uploadedFiles)}
+                      </div>
+                    </div>
+                  </Col>
+                )}
+                <Col sm={12} className="mt-3 d-flex align-items-center justify-content-end">
+                  {showAddFilesButtton && (
+                    <Button
+                      extraClass="dark-full float-left"
+                      onClick={toggleModalFiles}
+                      text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+                    />
+                  )}
+                  <Button
+                    extraClass="success-full ml-auto"
+                    onClick={onSubmit}
+                    disabled={disabled}
+                    text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
+                  />
                 </Col>
               </Row>
             </Card.Body>
@@ -348,29 +339,23 @@ const TicketsForm = ({
                   </div>
                 </Col>
                 )}
-                <Col sm={12} className="mt-3 text-left">
+                <Col sm={12} className="mt-3 d-flex align-items-center">
                   <Button
-                    extraClass="dark-full float-left"
+                    extraClass="dark-full mr-auto"
                     onClick={toggleModalFiles}
                     text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
                   />
-                </Col>
-                <Col sm={12}>
-                  <Row>
-                    <Col sm={12} className="text-right">
-                      <Button
-                        extraClass="dark-full mr-3"
-                        onClick={addComment}
-                        text={intl.formatMessage({ id: 'Company.department.cancel', defaultMessage: 'Cancel' })}
-                      />
-                      <Button
-                        extraClass="success-full"
-                        onClick={onSubmitComment}
-                        text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
-                        disabled={disabled}
-                      />
-                    </Col>
-                  </Row>
+                  <Button
+                    extraClass="dark mr-2"
+                    onClick={addComment}
+                    text={intl.formatMessage({ id: 'Company.department.cancel', defaultMessage: 'Cancel' })}
+                  />
+                  <Button
+                    extraClass="success-full"
+                    onClick={onSubmitComment}
+                    text={intl.formatMessage({ id: 'Company.department.save', defaultMessage: 'Save' })}
+                    disabled={disabled}
+                  />
                 </Col>
               </Row>
             </Card.Body>
@@ -391,6 +376,8 @@ const TicketsForm = ({
               <Dropzone
                 ref={dropzoneRef}
                 onDrop={onDrop}
+                onDropRejected={onDropRejected}
+                maxSize={5000000}
                 accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
               >
                 {({ getRootProps, getInputProps }) => (
@@ -400,16 +387,25 @@ const TicketsForm = ({
                       <Loading />
                     )}
                     {!isLoadingUplod && (
-                      <p>
-                        {intl.formatMessage({
-                          id: 'document.files.modal.drop',
-                          defaultMessage: 'Drag and drop some files here, or click to select files',
-                        })}
-                        <br />
-                        {errors.file && (
-                          <span className="error">{errors.file}</span>
-                        )}
-                      </p>
+                      <div>
+                        <p>
+                          {intl.formatMessage({
+                            id: 'document.files.modal.drop',
+                            defaultMessage: 'Drag and drop some files here, or click to select files',
+                          })}
+                          <br />
+                          <small>
+                            {`(${intl.formatMessage({
+                              id: 'document.files.modal.maxSize',
+                              defaultMessage: 'Maximum file size: 5mb',
+                            })
+                            })`}
+                          </small>
+                          {errors.file && (
+                            <span className="error">{errors.file}</span>
+                          )}
+                        </p>
+                      </div>
                     )}
                   </div>
                 )}
@@ -527,6 +523,7 @@ TicketsForm.propTypes = {
   onChangeFile: PropTypes.func,
   isLoadingUplod: PropTypes.bool,
   onDrop: PropTypes.func,
+  onDropRejected: PropTypes.func,
   removeFile: PropTypes.func,
   showFeaturesOptions: PropTypes.bool,
   featureDefault: PropTypes.oneOfType([
