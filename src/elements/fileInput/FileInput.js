@@ -31,7 +31,6 @@ const FileInput = ({
             name={name}
             className="input-image"
             onChange={handleOnChange}
-            styleLogo={styleLogo}
             disabled={disabled}
             accept={accept}
             style={{
@@ -61,7 +60,7 @@ FileInput.propTypes = {
   accept: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   disabled: PropTypes.string,
-  styleLogo: PropTypes.string,
+  styleLogo: PropTypes.object,
   onChange: PropTypes.func,
 };
 
