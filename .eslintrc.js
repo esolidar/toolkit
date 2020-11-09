@@ -30,5 +30,7 @@ module.exports = {
     "react/no-danger": 0,
     "no-loop-func": 0,
     "linebreak-style": 0,
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0,
   }
 };

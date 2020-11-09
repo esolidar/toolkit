@@ -64,7 +64,7 @@ TextareaField.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
   label: PropTypes.string,
-  error: PropTypes.PropTypes.oneOfType([
+  error: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
   ]),

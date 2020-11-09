@@ -65,7 +65,10 @@ SelectField.propTypes = {
     PropTypes.number,
     PropTypes.string,
   ]),
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   label: PropTypes.string,
   onChange: PropTypes.func,
   field: PropTypes.string,
