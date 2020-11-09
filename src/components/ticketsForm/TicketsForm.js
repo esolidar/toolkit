@@ -388,10 +388,20 @@ const TicketsForm = ({
                   )}
                   {!isLoadingUplod && (
                     <p>
-                      {intl.formatMessage({
-                        id: 'document.files.modal.drop',
-                        defaultMessage: 'Drag and drop some files here, or click to select files',
-                      })}
+                      <strong>
+                        {intl.formatMessage({
+                          id: 'document.files.modal.drop',
+                          defaultMessage: 'Drag and drop some files here, or click to select files',
+                        })}
+                      </strong>
+                      <br />
+                      <small>
+                        {`${intl.formatMessage({
+                          id: 'document.files.modal.acceptedFiles',
+                          defaultMessage: 'Accepted files:',
+                        })
+                        } .pdf, .doc, .docx, .ppt, .pptx, .xlsx, .txt, .zip, .jpg, .jpeg, .png, .gif, .bmp`}
+                      </small>
                       <br />
                       <small>
                         {`(${intl.formatMessage({
