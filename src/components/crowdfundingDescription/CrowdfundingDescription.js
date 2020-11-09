@@ -58,7 +58,7 @@ class CrowdfundingDescription extends Component {
           <Row>
             {campaign.projects.length > 0 && (
               <Col md={12}>
-                <div className="description-header" style={{ 'margin-top': '50px' }}>
+                <div className="description-header" style={{ marginTop: '50px' }}>
                   <FormattedMessage
                     id="crowdfunding.description.ods"
                     defaultMessage="Sustainable Development Goals"

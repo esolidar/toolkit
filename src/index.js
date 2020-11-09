@@ -47,6 +47,7 @@ export { default as CrowdfundingDescription } from './components/crowdfundingDes
 export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
 export { default as CrowdfundingContributesListBox } from './components/crowdfundingContributesListBox/CrowdfundingContributesListBox';
 export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHeader/CrowdfundingHeaderRigth';
+export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
