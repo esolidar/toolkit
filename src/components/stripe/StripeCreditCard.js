@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { findIndex } from 'lodash';
 import { NotificationManager } from 'react-notifications';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import StripeCheckoutFormSca from './StripeCheckoutFormSca';
@@ -11,7 +12,7 @@ class StripeCreditCard extends Component {
 
   componentDidUpdate(prevProps) {
     const {
-      updateState, submitStripePayment, order,
+      updateState, order,
     } = this.props;
     const { stripe } = this.state;
 
@@ -46,7 +47,7 @@ class StripeCreditCard extends Component {
                 updateState({
                   isLoadingPayment: true,
                 });
-                submitStripePayment(data);
+                this.submitStripePayment(data);
               } else {
                 const url = new URL(window.location.href);
                 url.searchParams.set('checkout_step', 4);
@@ -103,7 +104,7 @@ class StripeCreditCard extends Component {
 
   submit = (stripe, elements) => {
     const {
-      updateState, submitStripePayment,
+      updateState,
     } = this.props;
 
     this.updateState({ errors: {}, stripe });
@@ -123,12 +124,54 @@ class StripeCreditCard extends Component {
           updateState({
             isLoadingPayment: true,
           });
-          submitStripePayment(paymentMethod);
+          this.submitStripePayment(paymentMethod);
         } else if (error) {
           NotificationManager.error(error.message, '', 15000);
         }
       }
     })();
+  }
+
+  submitStripePayment = (data) => {
+    const {
+      state, postOrder, updateState,
+    } = this.props;
+
+    const firstChecked = findIndex(state.order.products, (o) => o.extra.checked === 1);
+    const cartCurrency = firstChecked >= 0 ? state.order.products[firstChecked].currency.id : state.order.products[0].currency.id;
+
+    if (data) {
+      this.updateState({ isLoadingPayment: true });
+      updateState({ isLoadingPayment: true });
+      if (data.action === 'confirm') {
+        postOrder(data);
+      } else {
+        const stripeOrderPayment = {
+          method: 'stripe',
+          action: 'create',
+          currency_id: cartCurrency,
+          method_info: {
+            id: data.id,
+            card: data.card,
+            livemode: data.livemode,
+            object: data.object,
+          },
+          products: [],
+          receipt: state.receipt,
+          invoice: {
+            nif: state.nif,
+            invoice_address: state.invoice_address,
+          },
+        };
+
+        state.order.products.map((campaign) => {
+          if (campaign.extra.checked) {
+            stripeOrderPayment.products.push(campaign);
+          }
+        });
+        postOrder(stripeOrderPayment);
+      }
+    }
   }
 
   updateState = (state) => {
@@ -178,8 +221,15 @@ StripeCreditCard.propTypes = {
         status: PropTypes.string,
       }),
     }),
-    products: PropTypes.array,
   }),
-  submitStripePayment: PropTypes.func,
+  postOrder: PropTypes.func,
+  state: PropTypes.shape({
+    invoice_address: PropTypes.any,
+    nif: PropTypes.any,
+    order: PropTypes.shape({
+      products: PropTypes.array,
+    }),
+    receipt: PropTypes.any,
+  }),
   updateState: PropTypes.func,
 };
