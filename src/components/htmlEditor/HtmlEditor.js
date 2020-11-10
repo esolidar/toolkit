@@ -77,9 +77,12 @@ const HtmlEditor = ({
         },
       }}
       toolbar={{
-        options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'colorPicker', 'link', 'image', 'remove', 'history'],
+        options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'image', 'remove', 'history'],
         inline: {
           options: ['bold', 'italic', 'underline', 'strikethrough'],
+        },
+        blockType: {
+          options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
         },
         link: {
           defaultTargetOption: '_blank',
