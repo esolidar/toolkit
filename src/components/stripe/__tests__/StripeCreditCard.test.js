@@ -386,9 +386,16 @@ describe('StripeCreditCard component', () => {
 
   it('calls submit', () => {
     const component = shallow(<StripeCreditCard {...props} />);
-
-    component.instance().submit();
+    const stripe = {
+      createPaymentMethod: jest.fn(),
+    };
+    const elements = {
+      getElement: jest.fn(),
+    };
+    component.instance().submit(stripe, elements);
     expect(component.state('errors')).toEqual({});
+    expect(component.state('disableButton')).toBe(true);
+    expect(component.state('stripe')).toEqual(stripe);
   });
 
   it('calls submitStripePayment', () => {
