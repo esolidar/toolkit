@@ -191,6 +191,48 @@ class StripeCreditCard extends Component {
     }
   }
 
+  submitStripePayment = (data) => {
+    const {
+      state, postOrder, updateState,
+    } = this.props;
+
+    const firstChecked = findIndex(state.order.products, (o) => o.extra.checked === 1);
+    const cartCurrency = firstChecked >= 0 ? state.order.products[firstChecked].currency.id : state.order.products[0].currency.id;
+
+    if (data) {
+      this.updateState({ isLoadingPayment: true });
+      updateState({ isLoadingPayment: true });
+      if (data.action === 'confirm') {
+        postOrder(data);
+      } else {
+        const stripeOrderPayment = {
+          method: 'stripe',
+          action: 'create',
+          currency_id: cartCurrency,
+          method_info: {
+            id: data.id,
+            card: data.card,
+            livemode: data.livemode,
+            object: data.object,
+          },
+          products: [],
+          receipt: state.receipt,
+          invoice: {
+            nif: state.nif,
+            invoice_address: state.invoice_address,
+          },
+        };
+
+        state.order.products.map((campaign) => {
+          if (campaign.extra.checked) {
+            stripeOrderPayment.products.push(campaign);
+          }
+        });
+        postOrder(stripeOrderPayment);
+      }
+    }
+  }
+
   updateState = (state) => {
     this.setState(state);
   }
