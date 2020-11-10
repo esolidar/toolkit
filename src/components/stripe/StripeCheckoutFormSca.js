@@ -10,6 +10,7 @@ import {
   CardCVCElement,
   injectStripe,
 } from 'react-stripe-elements';
+import Button from '../button/Button';
 
 const createOptions = () => ({
   style: {
@@ -29,59 +30,64 @@ const createOptions = () => ({
 });
 
 const StripeCheckoutFormSca = ({
-  errors, handleChange, submit, stripe, elements,
-}) => (
-  <Row className="checkout">
-    <Col sm={12}>
-      <label className={!isEmpty(errors) ? 'error' : ''}>
-        <FormattedMessage
-          id="checkout.payment.cardnumber"
-          defaultMessage="Card number"
+  errors, handleChange, submit, stripe, elements, disableButton,
+}) => {
+  const text = () => (
+    <FormattedMessage
+      id="checkout.payment.pay"
+      defaultMessage="Pay"
+    />
+  );
+
+  return (
+    <Row className="checkout">
+      <Col sm={12}>
+        <label className={!isEmpty(errors) ? 'error' : ''}>
+          <FormattedMessage
+            id="checkout.payment.cardnumber"
+            defaultMessage="Card number"
+          />
+          <CardNumberElement
+            {...createOptions()}
+            onChange={handleChange}
+          />
+        </label>
+      </Col>
+      <Col sm={6}>
+        <label className={!isEmpty(errors) ? 'error' : ''}>
+          <FormattedMessage
+            id="checkout.payment.expiration"
+            defaultMessage="Expiration date"
+          />
+          <CardExpiryElement
+            {...createOptions()}
+            onChange={handleChange}
+          />
+        </label>
+      </Col>
+      <Col sm={6}>
+        <label className={!isEmpty(errors) ? 'error' : ''}>
+          <FormattedMessage
+            id="checkout.payment.cvc"
+            defaultMessage="CVC"
+          />
+          <CardCVCElement
+            {...createOptions()}
+            onChange={handleChange}
+          />
+        </label>
+      </Col>
+      <Col sm={12} className="text-right">
+        <Button
+          disabled={disableButton}
+          extraClass="success-full"
+          onClick={() => submit(stripe, elements)}
+          text={text()}
         />
-        <CardNumberElement
-          {...createOptions()}
-          onChange={handleChange}
-        />
-      </label>
-    </Col>
-    <Col sm={6}>
-      <label className={!isEmpty(errors) ? 'error' : ''}>
-        <FormattedMessage
-          id="checkout.payment.expiration"
-          defaultMessage="Expiration date"
-        />
-        <CardExpiryElement
-          {...createOptions()}
-          onChange={handleChange}
-        />
-      </label>
-    </Col>
-    <Col sm={6}>
-      <label className={!isEmpty(errors) ? 'error' : ''}>
-        <FormattedMessage
-          id="checkout.payment.cvc"
-          defaultMessage="CVC"
-        />
-        <CardCVCElement
-          {...createOptions()}
-          onChange={handleChange}
-        />
-      </label>
-    </Col>
-    <Col sm={12} className="text-right">
-      <button
-        type="button"
-        onClick={() => submit(stripe, elements)}
-        className="pay-now"
-      >
-        <FormattedMessage
-          id="checkout.payment.pay"
-          defaultMessage="Pay"
-        />
-      </button>
-    </Col>
-  </Row>
-);
+      </Col>
+    </Row>
+  );
+};
 
 StripeCheckoutFormSca.propTypes = {
   elements: PropTypes.any,
@@ -89,6 +95,7 @@ StripeCheckoutFormSca.propTypes = {
   handleChange: PropTypes.any,
   stripe: PropTypes.any,
   submit: PropTypes.func,
+  disableButton: PropTypes.bool,
 };
 
 export default injectStripe(StripeCheckoutFormSca);

@@ -8,6 +8,7 @@ import StripeCheckoutFormSca from './StripeCheckoutFormSca';
 class StripeCreditCard extends Component {
   state = {
     errors: {},
+    disableButton: true,
   };
 
   componentDidUpdate(prevProps) {
@@ -28,6 +29,7 @@ class StripeCreditCard extends Component {
 
               if (error) {
                 NotificationManager.error(error.message, '', 15000);
+                this.setState({ disableButton: false });
                 updateState({
                   isLoadingPayment: false,
                 });
@@ -44,6 +46,7 @@ class StripeCreditCard extends Component {
                   },
                   products: JSON.parse(localStorage.order).products,
                 };
+                this.setState({ disableButton: true });
                 updateState({
                   isLoadingPayment: true,
                 });
@@ -52,6 +55,7 @@ class StripeCreditCard extends Component {
                 const url = new URL(window.location.href);
                 url.searchParams.set('checkout_step', 4);
                 window.history.pushState({ path: url.href }, '', url.href);
+                this.setState({ disableButton: false });
                 updateState({
                   currentStep: 4,
                   isLoadingPayment: false,
@@ -93,7 +97,7 @@ class StripeCreditCard extends Component {
 
   handleChange = ({ error }) => {
     const { errors } = this.state;
-
+    this.setState({ disableButton: false });
     if (error) {
       errors[error.code] = error.message;
       this.setState({ errors });
@@ -103,14 +107,20 @@ class StripeCreditCard extends Component {
   };
 
   submit = (stripe, elements) => {
+    const cardElement = elements.getElement('cardNumber');
     const {
       updateState,
     } = this.props;
 
-    this.updateState({ errors: {}, stripe });
-    (async () => {
-      if (stripe) {
-        const cardElement = elements.getElement('cardNumber');
+    this.updateState({
+      disableButton: true,
+      errors: {},
+      stripe,
+      isLoadingPayment: true,
+    });
+
+    if (stripe && cardElement) {
+      (async () => {
         const { paymentMethod, error } = await stripe.createPaymentMethod({
           type: 'card',
           card: cardElement,
@@ -121,15 +131,64 @@ class StripeCreditCard extends Component {
         });
 
         if (paymentMethod) {
+          this.setState({ disableButton: true });
           updateState({
             isLoadingPayment: true,
           });
           this.submitStripePayment(paymentMethod);
         } else if (error) {
           NotificationManager.error(error.message, '', 15000);
+          this.setState({ disableButton: false });
+          updateState({
+            isLoadingPayment: false,
+          });
         }
+      })();
+    } else {
+      this.setState({ disableButton: true });
+    }
+  }
+
+  submitStripePayment = (data) => {
+    const {
+      state, postOrder, updateState,
+    } = this.props;
+
+    const firstChecked = findIndex(state.order.products, (o) => o.extra.checked === 1);
+    const cartCurrency = firstChecked >= 0 ? state.order.products[firstChecked].currency.id : state.order.products[0].currency.id;
+
+    if (data) {
+      this.updateState({ isLoadingPayment: true });
+      updateState({ isLoadingPayment: true });
+      if (data.action === 'confirm') {
+        postOrder(data);
+      } else {
+        const stripeOrderPayment = {
+          method: 'stripe',
+          action: 'create',
+          currency_id: cartCurrency,
+          method_info: {
+            id: data.id,
+            card: data.card,
+            livemode: data.livemode,
+            object: data.object,
+          },
+          products: [],
+          receipt: state.receipt,
+          invoice: {
+            nif: state.nif,
+            invoice_address: state.invoice_address,
+          },
+        };
+
+        state.order.products.map((campaign) => {
+          if (campaign.extra.checked) {
+            stripeOrderPayment.products.push(campaign);
+          }
+        });
+        postOrder(stripeOrderPayment);
       }
-    })();
+    }
   }
 
   submitStripePayment = (data) => {
@@ -181,7 +240,7 @@ class StripeCreditCard extends Component {
   render() {
     const { currencyId, env } = this.props;
     const stripeKey = currencyId === 17 ? env.stripe.publishableKeyBr : env.stripe.publishableKey;
-    const { errors } = this.state;
+    const { errors, disableButton } = this.state;
 
     return (
       <StripeProvider apiKey={stripeKey}>
@@ -191,7 +250,7 @@ class StripeCreditCard extends Component {
               handleChange={this.handleChange}
               submit={this.submit}
               errors={errors}
-
+              disableButton={disableButton}
             />
           </Elements>
         </div>
