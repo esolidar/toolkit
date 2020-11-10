@@ -61,4 +61,4 @@ export { default as FileInput } from './elements/fileInput/FileInput';
 // Utils
 export {
   getEmployeeName, isDefined, clone, firstElemOf, lastElemOf,
-} from './utils/utils';
+} from './utils';

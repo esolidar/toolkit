@@ -6,7 +6,7 @@ import { filter } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import Button from '../button/Button';
-import { getEmployeeName } from '../../utils/utils';
+import { getEmployeeName } from '../../utils';
 
 const Reviews = ({
   defaultActiveKey,
