@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
 import { findIndex } from 'lodash';
 import CommentPost from '../commentPost/CommentPost';
-import getEmployeeName from '../../utils/getEmployeeName';
+import { getEmployeeName } from '../../utils/utils';
 import TextareaField from '../../elements/textareaField/TextareaField';
 
 class Post extends Component {

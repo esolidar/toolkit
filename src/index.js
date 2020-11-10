@@ -57,3 +57,8 @@ export { default as CheckboxField } from './elements/checkboxField/CheckboxField
 export { default as RadioField } from './elements/radioField/RadioField';
 export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage';
 export { default as FileInput } from './elements/fileInput/FileInput';
+
+// Utils
+export {
+  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf,
+} from './utils/utils';
