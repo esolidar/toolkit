@@ -91,6 +91,8 @@ class StripeCreditCard extends Component {
             });
           }
         }
+      } else {
+        this.updateState({ disableButton: false });
       }
     }
   }
