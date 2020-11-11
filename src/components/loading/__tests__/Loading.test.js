@@ -18,4 +18,9 @@ describe('Loading component', () => {
     const component = shallow(<Loading message="message" />);
     expect(component.find('.loader-message').text()).toEqual('message');
   });
+
+  it('renders Loading with prop curtain', () => {
+    const component = shallow(<Loading loadingClass="testCss" curtain={true} />);
+    expect(component.props().className).toEqual('testCss curtain');
+  });
 });
