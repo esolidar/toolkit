@@ -19,3 +19,22 @@ export const clone = (v) => JSON.parse(JSON.stringify(v));
 export const firstElemOf = (array) => array[0];
 
 export const lastElemOf = (array) => array[array.length - 1];
+
+export const addUrlParam = (param, value) => {
+  const url = new URL(window.location.href);
+  url.searchParams.set(param, value);
+  window.history.pushState({ path: url.href }, '', url.href);
+};
+
+export const removeUrlParam = (param) => {
+  const url = new URL(window.location.href);
+  url.searchParams.delete(param);
+  window.history.pushState({ path: url.href }, '', url.href);
+};
+
+export const getUrlParam = (param) => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+  return urlParams.get(param);
+};

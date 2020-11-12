@@ -29,7 +29,8 @@
     "verbose": true,
     "setupFiles": [
       "jest-localstorage-mock",
-      "jest-date-mock"
+      "jest-date-mock",
+      "./__globals__/globals.js"
     ],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
