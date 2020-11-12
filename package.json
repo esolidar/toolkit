@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.20.7",
+  "version": "1.20.8",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -29,7 +29,8 @@
     "verbose": true,
     "setupFiles": [
       "jest-localstorage-mock",
-      "jest-date-mock"
+      "jest-date-mock",
+      "./__globals__/globals.js"
     ],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"

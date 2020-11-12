@@ -8,6 +8,12 @@ module.exports = {
   assetsDir: './styleguide/',
   sections: [
     {
+      name: 'Utils',
+      components: 'src/utils/index.js',
+      exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
+      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+    },
+    {
       name: 'Icons',
       components: 'src/components/icon/Icon.js',
       exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'

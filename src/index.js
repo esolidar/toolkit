@@ -60,5 +60,5 @@ export { default as FileInput } from './elements/fileInput/FileInput';
 
 // Utils
 export {
-  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf,
+  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam,
 } from './utils';
