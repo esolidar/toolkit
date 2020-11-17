@@ -48,6 +48,8 @@ export { default as ConvertToMyTimezone } from './components/convertToMyTimezone
 export { default as CrowdfundingContributesListBox } from './components/crowdfundingContributesListBox/CrowdfundingContributesListBox';
 export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHeader/CrowdfundingHeaderRigth';
 export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
+export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';
+export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
