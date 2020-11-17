@@ -1,0 +1,207 @@
+.request-detail {
+  .request-right-box {
+    padding-right: 0;
+    padding-left : 30px;
+  }
+
+  .box {
+    padding: 35px;
+  }
+
+  h3 {
+    font-size     : 20px;
+    color         : $mainTextColorDark;
+    letter-spacing: 0;
+    line-height   : 28px;
+  }
+
+  h4 {
+    margin        : 25px 0;
+    color         : $mainColor;
+    font-weight   : bold;
+    font-size     : 12px;
+    letter-spacing: 0;
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  p {
+    font-size     : 15px;
+    color         : $mainTextColorDark;
+    letter-spacing: 0;
+    line-height   : 26px;
+  }
+
+  .separator-blue {
+    margin    : 40px 0;
+    border-top: 2px solid $mainColor;
+  }
+
+  .separator-gray {
+    border-top: 1px solid $mainTextColorLight;
+  }
+
+  .arrow-list {
+    margin : 0 0 0 18px;
+    padding: 0;
+
+    li {
+      list-style-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-arrow-right.svg');
+      font-size       : 15px;
+      color           : $mainTextColorDark;
+      letter-spacing  : 0;
+      line-height     : 22px;
+      padding-left    : 8px;
+    }
+  }
+}
+
+.status-box {
+  background-color: #FFFFFF;
+  box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border          : 1px solid $grayExtraLight;
+  border-radius   : 4px;
+  padding         : 15px;
+
+  @media (max-width: 425px) {
+    margin: 25px 0;
+  }
+
+  .header {
+    margin        : 0;
+    width         : 100%;
+    font-family   : $fontFamily;
+    font-size     : 12px;
+    letter-spacing: 0;
+    line-height   : 19px;
+
+    b {
+      text-transform: uppercase;
+      font-family   : $fontHeavy;
+      display       : inline-block;
+      font-weight   : 100;
+    }
+
+    span {
+      padding: 10px 0;
+      display: inline-block;
+    }
+  }
+
+  ul {
+    margin : 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding   : 5px 10px;
+
+      img {
+        float       : left;
+        width       : 16px;
+        margin-right: 25px;
+      }
+
+      span {
+        font-family   : $fontFamily;
+        font-size     : 15px;
+        color         : $mainTextColorDark;
+        letter-spacing: 0;
+        line-height   : 22px;
+      }
+    }
+  }
+
+  .footer {
+    margin          : 0;
+    padding         : 10px 0;
+    background-color: $grayWhite;
+
+    img {
+      width        : 40px;
+      height       : 40px;
+      border-radius: 50%;
+      float        : left;
+    }
+
+    span {
+      font-family   : $fontFamily;
+      font-size     : 15px;
+      color         : $mainTextColorDark;
+      letter-spacing: 0;
+      line-height   : 40px;
+      padding       : 0 15px;
+    }
+  }
+
+  &.status-active {
+    padding   : 0 !important;
+    border-top: 6px solid $statusActiveColor;
+
+    .header {
+      background-color: lighten($statusActiveColor, 40%);
+      color           : $statusActiveColor;
+    }
+  }
+
+  &.status-pending {
+    padding   : 0 !important;
+    border-top: 6px solid $statusPendingColor;
+
+    .header {
+      background-color: lighten($statusPendingColor, 40%);
+      color           : $statusPendingColor;
+    }
+  }
+
+  &.status-ended {
+    padding   : 0 !important;
+    border-top: 6px solid $statusEndedColor;
+
+    .header {
+      background-color: lighten($statusEndedColor, 40%);
+      color           : $statusEndedColor;
+    }
+  }
+
+  &.status-deleted {
+    padding   : 0 !important;
+    border-top: 6px solid $statusDeclinedColor;
+
+    .header {
+      background-color: lighten($statusDeclinedColor, 33%);
+      color           : $statusDeclinedColor;
+    }
+  }
+
+  &.status-reviewed {
+    padding   : 0 !important;
+    border-top: 6px solid $statusDeletedColor;
+
+    .header {
+      background-color: lighten($statusDeletedColor, 33%);
+      color           : $statusDeletedColor;
+    }
+  }
+}
+
+.md-request-im-in {
+  .modal-content {
+    max-width: 600px;
+
+    .h4 {
+      color    : $mainColor;
+      font-size: 20px;
+    }
+
+    .checkbox-inline {
+      padding: 0 15px;
+    }
+
+    textarea {
+      height: 120px;
+    }
+  }
+}
