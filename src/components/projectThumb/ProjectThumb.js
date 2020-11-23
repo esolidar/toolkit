@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import slugify from 'slugify';
 import filter from 'lodash/filter';
@@ -36,70 +36,78 @@ const ProjectThumb = ({
     })}${myProject ? `?owner=${myProject}` : ''}`;
   };
 
+  const handleClickOpenTab = () => {
+    const win = window.open(whitelabelUrl ? `https://${whitelabelUrl}${link}` : link, '_blank');
+    win.focus();
+  };
+
   const isSelected = filter(selectedIds, (o) => o === project.id).length;
 
   return (
     <Col xs={12} sm={6} md={6} lg={cols}>
       <div className="project-thumb">
-        {(project.status === 'DRAFT' || project.status === 'PENDING') && (
-        <button type="button" className="edit-button" onClick={editThumb}>
-          <div className={`${project.status}`}>
-            <Icon iconClass="icon-ic-edit-request" />
-            <FormattedMessage
-              id="project.edit"
-              defaultMessage="Edit project"
-            />
+        {showStatus && (
+          <div className={`${project.status} status-bar`}>
+            {['DRAFT', 'PENDING'].includes(project.status) && (
+              <button type="button" className="edit-button" onClick={editThumb}>
+                <Icon iconClass="icon-ic-edit-request" />
+                <FormattedMessage
+                  id="project.edit"
+                  defaultMessage="Edit project"
+                />
+              </button>
+            )}
+            <div className="status">
+              {status}
+            </div>
+            <button type="button" onClick={handleClickOpenTab}>
+              <Icon iconClass="icon-ic-edit-request ml-2" />
+            </button>
           </div>
-        </button>
         )}
         <button type="button" className="project-button" onClick={clickThumb}>
-          <div>
-            {showStatus && (
-            <Row className={`status ${project.status}`}>
-              <Col xs={6} />
-              <Col xs={6} className="text-right">{status}</Col>
-            </Row>
-            )}
-            <div
-              className="thumb"
-              style={{ backgroundImage: `url('${serverlessResizeImage}/${thumbImage}')` }}
-            >
-              <div className="content">
-                <div className="title">
-                  {project.title}
-                </div>
-              </div>
-              <div className="ods-thumb">
-                {project.ods.map((item, indx) => {
-                  if (indx < 4) {
-                    return (
-                      <img src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png`} key={item.id} className="ods" alt={`ods-${item.id}`} />
-                    );
-                  }
-                  if (indx === 4) {
-                    return (
-                      <div className="more-ods" key={item.id}>+</div>
-                    );
-                  }
-                })}
+          <div
+            className="thumb"
+            style={{
+              backgroundImage: `url('${serverlessResizeImage}/${thumbImage}')`,
+              height: project.ods.length > 4 ? '190px' : 'unset',
+            }}
+          >
+            <div className="content">
+              <div className="title">
+                {project.title}
               </div>
             </div>
-            <div className="description">{project.description}</div>
-            {project.user && (
+            <div className="ods-thumb">
+              {project.ods.map((item, indx) => {
+                if (indx < 4) {
+                  return (
+                    <img src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png`} key={item.id} className="ods" alt={`ods-${item.id}`} />
+                  );
+                }
+                if (indx === 4) {
+                  return (
+                    <div className="more-ods" key={item.id}>+</div>
+                  );
+                }
+              })}
+            </div>
+          </div>
+          <div className="description">{project.description}</div>
+          {project.user && (
             <div className="owner">
               <img src={project.user.thumbs.thumb} alt={project.user.name} />
               {project.user.name}
             </div>
-            )}
-            {followers && (
+          )}
+          {followers && (
             <div />
-            )}
-          </div>
+          )}
         </button>
         {select && (
-        <div className="select-project">
-          <Button extraClass={isSelected === 1 ? 'info-full' : 'dark'} onClick={() => selectProject(project.id)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
-        </div>
+          <div className="select-project">
+            <Button extraClass={isSelected === 1 ? 'info-full' : 'dark'} onClick={() => selectProject(project.id)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
+          </div>
         )}
       </div>
     </Col>

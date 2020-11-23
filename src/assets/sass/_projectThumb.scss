@@ -5,10 +5,22 @@
   margin-bottom: 40px !important;
   border       : 1px solid $grayExtraLight;
 
-  .status {
-    padding    : 5px 0;
-    text-align : right;
-    font-weight: bold;
+  & .status-bar {
+    display        : flex;
+    align-items    : center;
+    justify-content: end;
+    padding        : 4px 8px;
+
+    &>* {
+      overflow     : hidden;
+      text-overflow: ellipsis;
+      white-space  : nowrap;
+    }
+
+    .status {
+      margin-left: auto;
+      font-weight: bold;
+    }
   }
 
   .DRAFT {
@@ -19,6 +31,10 @@
 
     .edit-button {
       color: $graySemiDark;
+
+      &:hover {
+        color: darken($graySemiDark, 30%);
+      }
     }
   }
 
@@ -30,6 +46,10 @@
 
     .edit-button {
       color: $statusPendingColor;
+
+      &:hover {
+        color: darken($statusPendingColor, 30%);
+      }
     }
   }
 
@@ -109,7 +129,7 @@
         float           : left;
         width           : 40px;
         height          : 40px;
-        margin          : 0 5px;
+        margin          : 0 5px 5px 5px;
         background-color: rgb(22, 51, 83);
         background-size : cover;
 
@@ -193,16 +213,24 @@
   background: transparent;
   border    : none;
   padding   : 0;
-  position  : absolute;
   top       : 10px;
   left      : 25px;
   z-index   : 9;
+  transition: color .2s ease-out;
 
   i {
     margin-right: 5px;
   }
-}
 
-.edit-button>div {
-  border-top: none !important;
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: color .2s ease-in;
+  }
+
+  &>div {
+    border-top: none !important;
+  }
 }
