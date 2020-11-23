@@ -19,8 +19,9 @@ const TextField = ({
   disabled,
   help,
   required,
+  className,
 }) => (
-  <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
+  <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
     {label && (
     <label htmlFor={id || field} className="control-label">
       {label}
@@ -77,6 +78,7 @@ TextField.propTypes = {
   disabled: PropTypes.bool,
   help: PropTypes.string,
   required: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default TextField;

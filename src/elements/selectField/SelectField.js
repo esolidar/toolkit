@@ -18,7 +18,7 @@ const SelectField = ({
   const optionsList = (options) => {
     if (options) {
       return options.map((option) => (
-        <option value={option.id} key={option.id}>
+        <option value={option.id} key={option.id} disabled={option.disabled}>
           {option.name || option.title}
         </option>
       ));

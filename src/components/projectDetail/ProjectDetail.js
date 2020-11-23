@@ -5,6 +5,8 @@ import isEmpty from 'lodash/isEmpty';
 import ProjectDetailInfo from '../projectDetailInfo/ProjectDetailInfo';
 import ProjectDetailThumb from '../projectDetailThumb/ProjectDetailThumb';
 
+// TODO: fix/hide ask changes button
+
 const ProjectDetail = ({
   project, color, status, lang, serverlessResizeImage, admin,
 }) => {
