@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SelectField } from '../../index';
+import SelectField from '../../elements/selectField/SelectField';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../button/Button';
-// TODO: translations
 
 const ProjectDetailThumb = ({
-  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView,
+  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl,
 }) => {
   const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
   const projectState = projectStatesMap.indexOf(project.status);
@@ -78,7 +77,7 @@ const ProjectDetailThumb = ({
               { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
             ]}
             value={projectState}
-            label="Alterar estado do prejeto"
+            label={intl.formatMessage({ id: 'project.change.status.title', defaultMessage: 'Change project status' })}
             field="changeState"
             onChange={handleChangeState}
             hiddenSelectText={true}
@@ -86,6 +85,7 @@ const ProjectDetailThumb = ({
           />
           {project.status === projectStatesMap[1] && (
             <Button
+              id="request-info-btn"
               extraClass="info-full w-100"
               onClick={() => admin.changeStatus('REQUEST_INFO')}
               text={admin.requestInfoText}
@@ -115,6 +115,9 @@ ProjectDetailThumb.propTypes = {
     rejectText: PropTypes.string,
   }),
   showRequestInfoView: PropTypes.bool,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
-export default ProjectDetailThumb;
+export default injectIntl(ProjectDetailThumb);

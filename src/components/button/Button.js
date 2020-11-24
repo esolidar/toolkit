@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to, type, disabled, className, icon,
+  extraClass, target, href, text, onClick, to, type, disabled, className, icon, id,
 }) => {
   let style;
-  if (onClick || type === 'button') {
+  if (onClick) {
     style = 'button';
   } else if (type === 'submit') {
     style = 'submit';
@@ -22,6 +22,7 @@ const Button = ({
       case 'button':
         return (
           <button
+            id={id}
             type="button"
             onClick={onClick}
             className={classes}
@@ -35,6 +36,7 @@ const Button = ({
       case 'submit':
         return (
           <button
+            id={id}
             type="submit"
             className={classes}
             disabled={disabled}
@@ -47,6 +49,7 @@ const Button = ({
       case 'link':
         return (
           <Link
+            id={id}
             to={to}
             className={classes}
           >
@@ -58,6 +61,7 @@ const Button = ({
       default:
         return (
           <a
+            id={id}
             href={href}
             target={target || '_self'}
             className={classes}
@@ -86,6 +90,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   icon: PropTypes.node,
+  id: PropTypes.string,
 };
 
 Button.defaultProps = {

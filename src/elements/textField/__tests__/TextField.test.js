@@ -70,4 +70,15 @@ describe('TextField component', () => {
     );
     expect(component.find('.form-group input').props().disabled).toBe(true);
   });
+
+  it('renders TextField classes from className prop', () => {
+    const component = shallow(
+      <TextField
+        field="businessEmail"
+        className="test new-class"
+      />,
+    );
+    expect(component.find('.test').length).toBe(1);
+    expect(component.find('.new-class').length).toBe(1);
+  });
 });
