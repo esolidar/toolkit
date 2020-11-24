@@ -97,7 +97,9 @@ import { ProjectDetail } from '@esolidar/toolkit';
   serverlessResizeImage='https://image.testesolidar.com'
   admin={{
     changeStatus: () => {},
-    inReviewText: 'Em vevisão',
+    pendingText: 'Pendente',
+    requestInfoText: 'Solicitar informação',
+    inReviewText: 'Em revisão',
     aproveText: 'Aprovar',
     completeText: 'Finalizar',
     rejectText: 'Rejeitar',

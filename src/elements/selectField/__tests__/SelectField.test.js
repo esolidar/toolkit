@@ -58,4 +58,20 @@ describe('SelectField component', () => {
     );
     expect(component.find('option')).toHaveLength(1);
   });
+
+  it('renders SelectField with disabled options', () => {
+    const component = shallow(
+      <SelectField
+        options={[{ id: 1, name: 'lorem', disabled: true }]}
+        value=""
+        label="Select exemple"
+        field="example"
+        onChange={() => {}}
+        error="error"
+        hiddenSelectText={true}
+      />,
+    );
+
+    expect(component.find('option').is('[disabled]')).toBe(true);
+  });
 });
