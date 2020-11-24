@@ -49,7 +49,7 @@ const ProjectThumb = ({
         {showStatus && (
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
-              <button type="button" className="edit-button" onClick={editThumb}>
+              <button type="button" className="edit-button hover" onClick={editThumb}>
                 <FontAwesomeIcon icon="pen" className="mr-1" />
                 <FormattedMessage
                   id="project.edit"
@@ -60,7 +60,7 @@ const ProjectThumb = ({
             <div className="status">
               {status}
             </div>
-            <FontAwesomeIcon icon="external-link-alt" className="ml-2 edit-button" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} />
+            <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} />
           </div>
         )}
         <button type="button" className="project-button" onClick={clickThumb}>
