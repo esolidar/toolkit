@@ -1,6 +1,6 @@
 /* global expect */
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam,
+  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -47,5 +47,29 @@ describe('test utils functions', () => {
   test('should return addUrlParam', () => {
     addUrlParam('page', '2');
     expect(getUrlParam('page')).toEqual('2');
+  });
+
+  test('should return array without duplicate keys', () => {
+    const array = [{
+      id: 1,
+      name: 'Name1',
+    }, {
+      id: 2,
+      Name: 'Name2',
+    }, {
+      id: 1,
+      name: 'Name3',
+    }];
+
+    const expectArray = [{
+      id: 1,
+      name: 'Name1',
+    }, {
+      id: 2,
+      Name: 'Name2',
+    }];
+
+    filterUnique(array, 'id');
+    expect(filterUnique(array, 'id')).toEqual(expectArray);
   });
 });
