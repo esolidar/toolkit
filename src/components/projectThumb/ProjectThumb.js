@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import slugify from 'slugify';
 import filter from 'lodash/filter';
 import Button from '../button/Button';
-import Icon from '../icon/Icon';
 
 const ProjectThumb = ({
   project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl,
@@ -50,7 +50,7 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
               <button type="button" className="edit-button" onClick={editThumb}>
-                <Icon iconClass="icon-ic-edit-request" />
+                <FontAwesomeIcon icon="pen" className="mr-1" />
                 <FormattedMessage
                   id="project.edit"
                   defaultMessage="Edit project"
@@ -60,9 +60,7 @@ const ProjectThumb = ({
             <div className="status">
               {status}
             </div>
-            <button type="button" onClick={handleClickOpenTab}>
-              <Icon iconClass="icon-ic-edit-request ml-2" />
-            </button>
+            <FontAwesomeIcon icon="external-link-alt" className="ml-2 edit-button" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} />
           </div>
         )}
         <button type="button" className="project-button" onClick={clickThumb}>
@@ -70,7 +68,7 @@ const ProjectThumb = ({
             className="thumb"
             style={{
               backgroundImage: `url('${serverlessResizeImage}/${thumbImage}')`,
-              height: project.ods.length > 4 ? '190px' : 'unset',
+              height: project.ods.length > 4 ? '190px' : '155px',
             }}
           >
             <div className="content">

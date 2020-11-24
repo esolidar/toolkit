@@ -216,7 +216,7 @@
   top       : 10px;
   left      : 25px;
   z-index   : 9;
-  transition: color .2s ease-out;
+  transition: color .1s ease-out;
 
   i {
     margin-right: 5px;
@@ -227,7 +227,7 @@
   }
 
   &:hover {
-    transition: color .2s ease-in;
+    transition: color .1s ease-in;
   }
 
   &>div {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Col, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SelectField from '../../elements/selectField/SelectField';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
@@ -21,10 +20,11 @@ const ProjectDetailThumb = ({
   return (
     <div className="project-detail">
       <div className="project-thumb">
-        <Row className={`status ${project.status}`}>
-          <Col xs={6} />
-          <Col xs={6}>{status}</Col>
-        </Row>
+        <div className={`${project.status} status-bar`}>
+          <div className="status">
+            {status}
+          </div>
+        </div>
         <div
           className="image"
         >
