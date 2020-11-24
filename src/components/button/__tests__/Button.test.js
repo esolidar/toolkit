@@ -2,6 +2,7 @@
 /* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button';
 
 const onClickFunc = jest.fn();
@@ -14,7 +15,7 @@ describe('Button component', () => {
 
   it('renders Button with prop extraClass', () => {
     const component = shallow(<Button extraClass="danger" />);
-    expect(component.props().className).toEqual('btn-esolidar btn-danger');
+    expect(component.props().className).toEqual('btn-esolidar btn-danger ');
   });
 
   it('renders Button with prop onClick', () => {
@@ -30,5 +31,17 @@ describe('Button component', () => {
   it('renders Button with prop link', () => {
     const component = shallow(<Button extraClass="danger" to="login" />);
     expect(component.props().to).toEqual('login');
+  });
+
+  it('renders Button classes from className prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" className="test new-class" />);
+    expect(component.find('.test').length).toBe(1);
+    expect(component.find('.new-class').length).toBe(1);
+  });
+
+  it('renders Button icon prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" icon={<FontAwesomeIcon icon="info-circle" className="mr-2" />} />);
+    expect(component.find('FontAwesomeIcon').length).toBe(1);
+    expect(component.find('FontAwesomeIcon').props().icon).toBe('info-circle');
   });
 });

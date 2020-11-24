@@ -18,6 +18,7 @@ const TextareaField = ({
   help,
   required,
   resize,
+  className,
 }) => {
   if (resize) {
     setTimeout(() => {
@@ -31,7 +32,7 @@ const TextareaField = ({
   }
 
   return (
-    <div className={classnames('form-group', { 'has-error': error || message }, { required })}>
+    <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
       {label && (
         <label htmlFor={field} className="control-label">
           {label}
@@ -83,5 +84,6 @@ TextareaField.propTypes = {
   help: PropTypes.string,
   required: PropTypes.bool,
   resize: PropTypes.bool,
+  className: PropTypes.string,
 };
 export default TextareaField;
