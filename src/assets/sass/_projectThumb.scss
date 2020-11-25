@@ -5,10 +5,22 @@
   margin-bottom: 40px !important;
   border       : 1px solid $grayExtraLight;
 
-  .status {
-    padding    : 5px 0;
-    text-align : right;
-    font-weight: bold;
+  & .status-bar {
+    display        : flex;
+    align-items    : center;
+    justify-content: end;
+    padding        : 4px 8px;
+
+    &>* {
+      overflow     : hidden;
+      text-overflow: ellipsis;
+      white-space  : nowrap;
+    }
+
+    .status {
+      margin-left: auto;
+      font-weight: bold;
+    }
   }
 
   .DRAFT {
@@ -19,6 +31,12 @@
 
     .edit-button {
       color: $graySemiDark;
+    }
+
+    .hover {
+      &:hover {
+        color: darken($graySemiDark, 30%);
+      }
     }
   }
 
@@ -31,6 +49,12 @@
     .edit-button {
       color: $statusPendingColor;
     }
+
+    .hover {
+      &:hover {
+        color: darken($statusPendingColor, 30%);
+      }
+    }
   }
 
   .IN_REVIEW {
@@ -38,6 +62,12 @@
     background-color: lighten($inReview, 40%);
     border-top      : 5px solid $inReview;
     color           : $inReview;
+
+    .hover {
+      &:hover {
+        color: darken($inReview, 30%);
+      }
+    }
   }
 
   .APPROVED {
@@ -45,6 +75,12 @@
     background-color: lighten($statusActiveColor, 40%);
     border-top      : 5px solid $statusActiveColor;
     color           : $statusActiveColor;
+
+    .hover {
+      &:hover {
+        color: darken($statusActiveColor, 30%);
+      }
+    }
   }
 
   .COMPLETED {
@@ -52,6 +88,12 @@
     background-color: lighten($infoColor, 40%);
     border-top      : 5px solid $infoColor;
     color           : $infoColor;
+
+    .hover {
+      &:hover {
+        color: darken($infoColor, 30%);
+      }
+    }
   }
 
   .REJECTED {
@@ -59,6 +101,12 @@
     background-color: lighten($dangerColor, 40%);
     border-top      : 5px solid $dangerColor;
     color           : $dangerColor;
+
+    .hover {
+      &:hover {
+        color: darken($dangerColor, 30%);
+      }
+    }
   }
 
   .thumb {
@@ -109,7 +157,7 @@
         float           : left;
         width           : 40px;
         height          : 40px;
-        margin          : 0 5px;
+        margin          : 0 5px 5px 5px;
         background-color: rgb(22, 51, 83);
         background-size : cover;
 
@@ -193,16 +241,24 @@
   background: transparent;
   border    : none;
   padding   : 0;
-  position  : absolute;
   top       : 10px;
   left      : 25px;
   z-index   : 9;
+  transition: color .1s ease-out;
 
   i {
     margin-right: 5px;
   }
-}
 
-.edit-button>div {
-  border-top: none !important;
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: color .1s ease-in;
+  }
+
+  &>div {
+    border-top: none !important;
+  }
 }
