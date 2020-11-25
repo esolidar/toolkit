@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import slugify from 'slugify';
@@ -50,7 +50,7 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
               <button type="button" className="edit-button hover" onClick={editThumb}>
-                <FontAwesomeIcon icon="pen" className="mr-1" />
+                <FontAwesomeIcon icon="pen" className="mr-1" title="Edit project" />
                 <FormattedMessage
                   id="project.edit"
                   defaultMessage="Edit project"
@@ -60,7 +60,19 @@ const ProjectThumb = ({
             <div className="status">
               {status}
             </div>
-            <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} />
+            <OverlayTrigger
+              placement="top"
+              overlay={(
+                <Tooltip id={0}>
+                  <FormattedMessage
+                    id="open.new.tab"
+                    defaultMessage="Open in new tab"
+                  />
+                </Tooltip>
+              )}
+            >
+              <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title="Open in new tab" />
+            </OverlayTrigger>
           </div>
         )}
         <button type="button" className="project-button" onClick={clickThumb}>
