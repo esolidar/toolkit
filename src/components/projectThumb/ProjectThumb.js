@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import slugify from 'slugify';
 import filter from 'lodash/filter';
 import Button from '../button/Button';
 
 const ProjectThumb = ({
-  project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl,
+  project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl, intl,
 }) => {
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
@@ -50,7 +50,7 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
               <button type="button" className="edit-button hover" onClick={editThumb}>
-                <FontAwesomeIcon icon="pen" className="mr-1" title="Edit project" />
+                <FontAwesomeIcon icon="pen" className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
                 <FormattedMessage
                   id="project.edit"
                   defaultMessage="Edit project"
@@ -71,7 +71,7 @@ const ProjectThumb = ({
                 </Tooltip>
               )}
             >
-              <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title="Open in new tab" />
+              <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title={intl.formatMessage({ id: 'open.new.tab', defaultMessage: 'Open in new tab' })} />
             </OverlayTrigger>
           </div>
         )}
@@ -148,10 +148,13 @@ ProjectThumb.propTypes = {
   selectedIds: PropTypes.array,
   selectProject: PropTypes.func,
   whitelabelUrl: PropTypes.string,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
 ProjectThumb.defaultProps = {
   cols: 4,
 };
 
-export default ProjectThumb;
+export default injectIntl(ProjectThumb);
