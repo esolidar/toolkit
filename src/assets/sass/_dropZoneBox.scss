@@ -1,0 +1,27 @@
+.gallery-thumb {
+  position: relative;
+  width : 64px !important;
+  height: 64px !important;
+  margin: 0 25px;
+
+  .no-image {
+    width        : 64px;
+    border       : 2px solid #D0D6DD;
+    border-radius: 3px;
+    background   : #FFF;
+    padding      : 20px;
+    display      : inline-block;
+    margin       : 0 15px;
+  }
+
+  img {
+    position         : absolute;
+    left             : 50%;
+    top              : 50%;
+    height           : 100%;
+    width            : auto;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform    : translate(-50%, -50%);
+    transform        : translate(-50%, -50%);
+  }
+}

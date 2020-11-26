@@ -1,20 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { createRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Row, Col, Card, Modal,
 } from 'react-bootstrap';
-import Dropzone from 'react-dropzone';
 import { injectIntl } from 'react-intl';
 import AsyncPaginate from 'react-select-async-paginate';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
+import DropZoneBox from '../../elements/dropZone/DropZoneBox';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
-
-const dropzoneRef = createRef();
 
 const TicketsForm = ({
   errors,
@@ -41,10 +39,7 @@ const TicketsForm = ({
   files,
   loadingFiles,
   onChangeFile,
-  isLoadingUplod,
   onDrop,
-  onDropRejected,
-  onDropErrorFileList,
   removeFile,
   showFeaturesOptions,
   featureDefault,
@@ -58,7 +53,6 @@ const TicketsForm = ({
   updateValueUsers,
   showModalSimpleFiles,
   toggleModalSimpleFiles,
-  onDropSimpleFiles,
   assignedDefault,
   disabledAssignedSelect,
   disabledFeatureSelect,
@@ -67,6 +61,8 @@ const TicketsForm = ({
   crowdfundingDefault,
   loadOptionsCrowdfunding,
   updateValueCrowdfunding,
+  errorMessages,
+  maxSize,
 }) => {
   const renderUploadedFiles = (files) => {
     if (files.length > 0) {
@@ -372,65 +368,12 @@ const TicketsForm = ({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-4">
-          <div className="upload-file w-100">
-            <Dropzone
-              ref={dropzoneRef}
-              onDrop={onDrop}
-              onDropRejected={(files) => onDropRejected(files, 5000000)}
-              maxSize={5000000}
-              accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
-            >
-              {({ getRootProps, getInputProps }) => (
-                <div {...getRootProps()}>
-                  <input {...getInputProps()} />
-                  {isLoadingUplod && (
-                    <Loading />
-                  )}
-                  {!isLoadingUplod && (
-                    <p>
-                      <strong>
-                        {intl.formatMessage({
-                          id: 'document.files.modal.drop',
-                          defaultMessage: 'Drag and drop some files here, or click to select files',
-                        })}
-                      </strong>
-                      <br />
-                      <small>
-                        {`${intl.formatMessage({
-                          id: 'document.files.modal.acceptedFiles',
-                          defaultMessage: 'Accepted files:',
-                        })
-                        } .pdf, .doc, .docx, .ppt, .pptx, .xlsx, .txt, .zip, .jpg, .jpeg, .png, .gif, .bmp`}
-                      </small>
-                      <br />
-                      <small>
-                        {`(${intl.formatMessage({
-                          id: 'document.files.modal.maxSize',
-                          defaultMessage: 'Maximum file size: 5mb',
-                        })
-                        })`}
-                      </small>
-                      {errors.file && (
-                        <span className="error">{errors.file}</span>
-                      )}
-                    </p>
-                  )}
-                </div>
-              )}
-            </Dropzone>
-            {(onDropErrorFileList !== undefined && onDropErrorFileList.length > 0 && (
-              <div className="rejected-files">
-                <div>
-                  {intl.formatMessage({
-                    id: 'document.files.modal.rejectedTitle',
-                    defaultMessage: 'The following files exceed the size limit:',
-                  })}
-                </div>
-                <ul>
-                  {onDropErrorFileList.map((fileName, i) => (<li key={i}>{fileName}</li>))}
-                </ul>
-              </div>
-            ))}
+          <div className="w-100">
+            <DropZoneBox
+              onSelect={onDrop}
+              errorMessages={errorMessages}
+              maxSize={maxSize}
+            />
           </div>
           <h5>
             {intl.formatMessage({
@@ -480,34 +423,11 @@ const TicketsForm = ({
               <Row>
                 <Col sm={12}>
                   <div className="form-group">
-                    <div className="upload-file">
-                      <Dropzone
-                        ref={dropzoneRef}
-                        onDrop={onDropSimpleFiles}
-                        accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*, .doc, .docx,.ppt,.pptx,.txt,.xlsx,.zip"
-                      >
-                        {({ getRootProps, getInputProps }) => (
-                          <div {...getRootProps()}>
-                            <input {...getInputProps()} />
-                            {isLoadingUplod && (
-                              <Loading />
-                            )}
-                            {!isLoadingUplod && (
-                              <p>
-                                {intl.formatMessage({
-                                  id: 'tickets.modal.simpleFiles.drop',
-                                  defaultMessage: 'Drag and drop some files here, or click to select files',
-                                })}
-                                <br />
-                                {errors.file && (
-                                  <span className="error">{errors.file}</span>
-                                )}
-                              </p>
-                            )}
-                          </div>
-                        )}
-                      </Dropzone>
-                    </div>
+                    <DropZoneBox
+                      onSelect={onDrop}
+                      errorMessages={errorMessages}
+                      maxSize={maxSize}
+                    />
                   </div>
                 </Col>
               </Row>
@@ -548,10 +468,7 @@ TicketsForm.propTypes = {
   files: PropTypes.array,
   loadingFiles: PropTypes.bool,
   onChangeFile: PropTypes.func,
-  isLoadingUplod: PropTypes.bool,
   onDrop: PropTypes.func,
-  onDropRejected: PropTypes.func,
-  onDropErrorFileList: PropTypes.array,
   removeFile: PropTypes.func,
   showFeaturesOptions: PropTypes.bool,
   featureDefault: PropTypes.oneOfType([
@@ -561,8 +478,6 @@ TicketsForm.propTypes = {
   features: PropTypes.array,
   assignedDefault: PropTypes.object,
   auctionDefault: PropTypes.object,
-  auctionsList: PropTypes.array,
-  auctionsSearchList: PropTypes.func,
   loadOptionsAuctions: PropTypes.func,
   updateValueAuctions: PropTypes.func,
   typeDefault: PropTypes.string,
@@ -571,7 +486,6 @@ TicketsForm.propTypes = {
   updateValueUsers: PropTypes.func,
   showModalSimpleFiles: PropTypes.bool,
   toggleModalSimpleFiles: PropTypes.func,
-  onDropSimpleFiles: PropTypes.func,
   disabledAssignedSelect: PropTypes.func,
   disabledFeatureSelect: PropTypes.bool,
   disabledTypeSelect: PropTypes.bool,
@@ -579,6 +493,8 @@ TicketsForm.propTypes = {
   crowdfundingDefault: PropTypes.object,
   loadOptionsCrowdfunding: PropTypes.func,
   updateValueCrowdfunding: PropTypes.func,
+  errorMessages: PropTypes.array,
+  maxSize: PropTypes.number,
 };
 
 export default injectIntl(TicketsForm);
