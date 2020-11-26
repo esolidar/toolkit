@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import { Col, Row } from 'react-bootstrap';
+import { FormattedMessage, injectIntl } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SelectField from '../../elements/selectField/SelectField';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../button/Button';
 
-const ProjectDetailThumb = (props) => {
-  const {
-    project, status, lang, serverlessResizeImage, color, admin,
-  } = props;
+const ProjectDetailThumb = ({
+  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl,
+}) => {
+  const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
+  const projectState = projectStatesMap.indexOf(project.status);
+
+  const handleChangeState = (e) => {
+    const { value } = e.target;
+    admin.changeStatus(projectStatesMap[+value]);
+  };
+
   return (
     <div className="project-detail">
       <div className="project-thumb">
-        <Row className={`status ${project.status}`}>
-          <Col xs={6} />
-          <Col xs={6}>{status}</Col>
-        </Row>
+        <div className={`${project.status} status-bar`}>
+          <div className="status">
+            {status}
+          </div>
+        </div>
         <div
           className="image"
         >
@@ -57,20 +66,34 @@ const ProjectDetailThumb = (props) => {
         )}
       </div>
       {admin && (
-        <Row className="admin-buttons">
-          <Col sm={12} className="text-center">
-            <Button extraClass="warning" onClick={() => admin.changeStatus('IN_REVIEW')} text={admin.inReviewText} disabled={project.status === 'IN_REVIEW'} />
-          </Col>
-          <Col sm={12} className="text-center">
-            <Button extraClass="success" onClick={() => admin.changeStatus('APPROVED')} text={admin.aproveText} disabled={project.status === 'APPROVED'} />
-          </Col>
-          <Col sm={12} className="text-center">
-            <Button extraClass="info" onClick={() => admin.changeStatus('COMPLETED')} text={admin.completeText} disabled={project.status === 'COMPLETED'} />
-          </Col>
-          <Col sm={12} className="text-center">
-            <Button extraClass="danger" onClick={() => admin.changeStatus('REJECTED')} text={admin.rejectText} disabled={project.status === 'REJECTED'} />
-          </Col>
-        </Row>
+        <div>
+          <SelectField
+            className="mb-4"
+            options={[
+              { id: 0, name: admin.pendingText, disabled: project.status === projectStatesMap[0] },
+              { id: 1, name: admin.inReviewText, disabled: project.status === projectStatesMap[1] },
+              { id: 2, name: admin.aproveText, disabled: project.status === projectStatesMap[2] },
+              { id: 3, name: admin.completeText, disabled: project.status === projectStatesMap[3] },
+              { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
+            ]}
+            value={projectState}
+            label={intl.formatMessage({ id: 'project.change.status.title', defaultMessage: 'Change project status' })}
+            field="changeState"
+            onChange={handleChangeState}
+            hiddenSelectText={true}
+            disabled={showRequestInfoView}
+          />
+          {project.status === projectStatesMap[1] && (
+            <Button
+              id="request-info-btn"
+              extraClass="info-full w-100"
+              onClick={() => admin.changeStatus('REQUEST_INFO')}
+              text={admin.requestInfoText}
+              icon={<FontAwesomeIcon icon="info-circle" className="mr-2" />}
+              disabled={showRequestInfoView}
+            />
+          )}
+        </div>
       )}
     </div>
   );
@@ -84,11 +107,17 @@ ProjectDetailThumb.propTypes = {
   serverlessResizeImage: PropTypes.string.isRequired,
   admin: PropTypes.shape({
     changeStatus: PropTypes.func,
+    requestInfoText: PropTypes.string,
+    pendingText: PropTypes.string,
     inReviewText: PropTypes.string,
     aproveText: PropTypes.string,
     completeText: PropTypes.string,
     rejectText: PropTypes.string,
   }),
+  showRequestInfoView: PropTypes.bool,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
-export default ProjectDetailThumb;
+export default injectIntl(ProjectDetailThumb);

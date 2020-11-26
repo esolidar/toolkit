@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to, type, disabled,
+  extraClass, target, href, text, onClick, to, type, disabled, className, icon, id,
 }) => {
   let style;
   if (onClick) {
@@ -15,16 +15,20 @@ const Button = ({
     style = 'link';
   }
 
+  const classes = classnames(`btn-esolidar btn-${extraClass} ${className}`);
+
   const renderButton = () => {
     switch (style) {
       case 'button':
         return (
           <button
+            id={id}
             type="button"
             onClick={onClick}
-            className={classnames(`btn-esolidar btn-${extraClass}`)}
+            className={classes}
             disabled={disabled}
           >
+            {icon}
             {text}
           </button>
         );
@@ -32,10 +36,12 @@ const Button = ({
       case 'submit':
         return (
           <button
+            id={id}
             type="submit"
-            className={classnames(`btn-esolidar btn-${extraClass}`)}
+            className={classes}
             disabled={disabled}
           >
+            {icon}
             {text}
           </button>
         );
@@ -43,9 +49,11 @@ const Button = ({
       case 'link':
         return (
           <Link
+            id={id}
             to={to}
-            className={classnames(`btn-esolidar btn-${extraClass}`)}
+            className={classes}
           >
+            {icon}
             {text}
           </Link>
         );
@@ -53,10 +61,12 @@ const Button = ({
       default:
         return (
           <a
+            id={id}
             href={href}
             target={target || '_self'}
-            className={classnames(`btn-esolidar btn-${extraClass}`)}
+            className={classes}
           >
+            {icon}
             {text}
           </a>
         );
@@ -78,10 +88,14 @@ Button.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
+  icon: PropTypes.node,
+  id: PropTypes.string,
 };
 
 Button.defaultProps = {
   type: 'button',
+  className: '',
 };
 
 export default Button;
