@@ -2,6 +2,7 @@
 
 ```html
 import { CustomModal } from '@esolidar/toolkit';
+
 ```
 
 #### Example
@@ -20,4 +21,5 @@ import { CustomModal } from '@esolidar/toolkit';
   title="Title"
   subtitle="subtitle"
 />
+
 ```

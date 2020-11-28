@@ -52,7 +52,7 @@ const CustomModal = ({
     >
       <Modal.Header
         className={headerClassName}
-        closeButton={!!onHide}
+        closeButton={true}
         closeLabel="Close"
         onHide={onHide}
         style={headerStyle}
