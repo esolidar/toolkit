@@ -23,6 +23,7 @@ import { TicketsForm } from '@esolidar/toolkit';
   intl={{}}
   showAddFilesButtton={true}
   showModalFiles={false}
+  showModalSimpleFiles={false}
   toggleModalFiles={()=>{}}
   searchFiles={()=>{}}
   search=''
