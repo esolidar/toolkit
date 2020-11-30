@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Row, Col, Card, Modal,
+  Row, Col, Card,
 } from 'react-bootstrap';
 import { injectIntl } from 'react-intl';
 import AsyncPaginate from 'react-select-async-paginate';
@@ -13,6 +13,7 @@ import SelectField from '../../elements/selectField/SelectField';
 import DropZoneBox from '../../elements/dropZone/DropZoneBox';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
+import CustomModal from '../../elements/customModal/CustomModal';
 
 const TicketsForm = ({
   errors,
@@ -117,8 +118,8 @@ const TicketsForm = ({
   };
 
   return (
-    <Row>
-      <Col sm={12}>
+    <>
+      <div>
         {!showCommentForm ? (
           <Card className="ticketCard">
             <Card.Body>
@@ -358,84 +359,63 @@ const TicketsForm = ({
             </Card.Body>
           </Card>
         )}
-      </Col>
-      <Modal show={showModalFiles} onHide={toggleModalFiles} className="md-import-employees import-files">
-        <Modal.Header closeButton className="mb-2">
-          <Modal.Title>
-            <div style={{ paddingLeft: '10px' }}>
-              {intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
-            </div>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="p-4">
-          <div className="w-100">
-            <DropZoneBox
-              onSelect={onDrop}
-              errorMessages={errorMessages}
-              maxSize={maxSize}
-            />
-          </div>
-          <h5>
-            {intl.formatMessage({
-              id: 'document.files.modal.fileList',
-              defaultMessage: 'File list',
-            })}
-
-          </h5>
-          <div className="w-100">
-            <TextField
-              type="text"
-              className="mb-0"
-              onChange={searchFiles}
-              placeholder={intl.formatMessage({ id: 'project.tickets.searchFiles', defaultMessage: 'Pesquisar por nome' })}
-              defaultValue={search}
-              field="search"
-            />
-          </div>
-          <div className="w-100 files-list checkbox-inline">
-            {renderFilesList(files, loadingFiles)}
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
+      </div>
+      <CustomModal
+        actionsChildren={(
           <Button
             extraClass="success-full"
             onClick={toggleModalFiles}
             text={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
           />
-        </Modal.Footer>
-      </Modal>
-      <Modal show={showModalSimpleFiles} className="md-modal-medium" onHide={toggleModalSimpleFiles}>
-        <Modal.Header closeButton>
-          <Row>
-            <Col xs={12}>
-              <Modal.Title>
-                {intl.formatMessage({
-                  id: 'tickets.modal.simpleFiles.title',
-                  defaultMessage: 'Add Attachment',
-                })}
-              </Modal.Title>
-            </Col>
-          </Row>
-        </Modal.Header>
-        <Modal.Body>
-          <Row>
-            <Col md={12} className="ticket-attachment">
-              <Row>
-                <Col sm={12}>
-                  <div className="form-group">
-                    <DropZoneBox
-                      onSelect={onDrop}
-                      errorMessages={errorMessages}
-                      maxSize={maxSize}
-                    />
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Modal.Body>
-      </Modal>
-    </Row>
+        )}
+        bodyChildren={(
+          <>
+            <DropZoneBox
+              onSelect={onDrop}
+              errorMessages={errorMessages}
+              maxSize={maxSize}
+            />
+            <h5>
+              {intl.formatMessage({
+                id: 'document.files.modal.fileList',
+                defaultMessage: 'File list',
+              })}
+            </h5>
+            <TextField
+              type="text"
+              className="mb-3"
+              onChange={searchFiles}
+              placeholder={intl.formatMessage({ id: 'project.tickets.searchFiles', defaultMessage: 'Pesquisar por nome' })}
+              defaultValue={search}
+              field="search"
+            />
+            <div className="files-list checkbox-inline">
+              {renderFilesList(files, loadingFiles)}
+            </div>
+          </>
+        )}
+        dividerBottom={true}
+        dividerTop={true}
+        onHide={toggleModalFiles}
+        show={showModalFiles}
+        size="lg"
+        title={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+      />
+      <CustomModal
+        bodyChildren={(
+          <DropZoneBox
+            onSelect={onDrop}
+            errorMessages={errorMessages}
+            maxSize={maxSize}
+          />
+        )}
+        dividerTop={true}
+        onHide={toggleModalSimpleFiles}
+        size="lg"
+        show={showModalSimpleFiles}
+        title={intl.formatMessage({ id: 'tickets.modal.simpleFiles.title', defaultMessage: 'Add Attachment' })}
+      />
+    </>
   );
 };
 
