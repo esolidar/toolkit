@@ -39,7 +39,7 @@ describe('StatisticsBox component', () => {
 
   it('StatisticsBox component with 3 footer lines', () => {
     const component = shallow(<StatisticsBox features={propFeatures} footer={propFooter} />);
-    expect(component.find('.stats-bottom ForwardRef')).toHaveLength(3);
+    expect(component.find('[data-testid="footer-row"]')).toHaveLength(3);
   });
 
   it('StatisticsBox component with 3 footer lines and 2 Icons', () => {

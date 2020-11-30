@@ -52,7 +52,6 @@ const NotificationsMobile = ({
     });
   }
 
-
   return (
     <div className="notification-box-page">
       <div className="inline-block">
@@ -103,7 +102,6 @@ const NotificationsMobile = ({
     </div>
   );
 };
-
 
 NotificationsMobile.propTypes = {
   notificationsHeadTitle: PropTypes.string,

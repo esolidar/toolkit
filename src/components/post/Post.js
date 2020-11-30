@@ -59,7 +59,6 @@ class Post extends Component {
     this.setState(state);
   }
 
-
   toggleModal(id) {
     const { showDeleteModal } = this.state;
     this.updateState({
@@ -84,7 +83,6 @@ class Post extends Component {
       readMoreComment: !readMoreComment,
     });
   }
-
 
   renderReplies(comments) {
     const { readMoreComment, currentUser } = this.state;

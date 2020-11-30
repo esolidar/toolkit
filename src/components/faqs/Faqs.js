@@ -66,7 +66,6 @@ const Faqs = ({
   );
 };
 
-
 Faqs.propTypes = {
   lang: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(

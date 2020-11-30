@@ -69,7 +69,6 @@ const Footer = ({
     })
   );
 
-
   return (
     <footer className="landing-footer">
       <Container>

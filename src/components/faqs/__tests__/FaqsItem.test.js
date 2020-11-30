@@ -44,7 +44,6 @@ const items = [
   },
 ];
 
-
 describe('FaqItem', () => {
   it('renders the FaqItem component', () => {
     const component = shallow(

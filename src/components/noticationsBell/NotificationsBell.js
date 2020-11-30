@@ -55,7 +55,6 @@ const NotificationsBell = ({
     });
   }
 
-
   return (
     <div className="inline-block">
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
@@ -121,7 +120,6 @@ const NotificationsBell = ({
     </div>
   );
 };
-
 
 NotificationsBell.propTypes = {
   notificationsHeadTitle: PropTypes.string,
