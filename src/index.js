@@ -59,7 +59,7 @@ export { default as CheckboxField } from './elements/checkboxField/CheckboxField
 export { default as RadioField } from './elements/radioField/RadioField';
 export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage';
 export { default as FileInput } from './elements/fileInput/FileInput';
-export { default as DropZoneBox } from './elements/dropZone/DropZoneBox';
+export { default as DropZoneBox } from './elements/dropZoneBox/DropZoneBox';
 export { default as CustomModal } from './elements/customModal/CustomModal';
 
 // Utils

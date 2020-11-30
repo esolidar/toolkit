@@ -10,7 +10,7 @@ import AsyncPaginate from 'react-select-async-paginate';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
-import DropZoneBox from '../../elements/dropZone/DropZoneBox';
+import DropZoneBox from '../../elements/dropZoneBox/DropZoneBox';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
 import CustomModal from '../../elements/customModal/CustomModal';
