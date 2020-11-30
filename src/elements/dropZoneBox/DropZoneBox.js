@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import Loading from '../../components/loading/Loading';
 import { lastElemOf } from '../../utils/index';
 
@@ -18,12 +18,12 @@ const DropZoneBox = ({
   noDrag,
   noKeyboard,
   onSelect,
-  errorMessages,
   showImagesPreviews,
   imagesList,
   env,
   imagesPreviewPosition,
   deleteImageGallery,
+  intl,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
@@ -52,6 +52,12 @@ const DropZoneBox = ({
       ))}
     </div>
   );
+
+  const errorMessages = [
+    { id: 'extensionError', message: intl.formatMessage({ id: 'document.files.modal.error.extension', defaultMessage: 'extension not allowed ' }) },
+    { id: 'maxSizeError', message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMax', defaultMessage: 'size larger than ' }) },
+    { id: 'minSizeError', message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMin', defaultMessage: 'size less than ' }) },
+  ];
 
   const { getRootProps, getInputProps, open } = useDropzone({
     accept,
@@ -194,6 +200,9 @@ DropZoneBox.propTypes = {
     ['top', 'bottom'],
   ),
   deleteImageGallery: PropTypes.func,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
 DropZoneBox.defaultProps = {
@@ -210,4 +219,4 @@ DropZoneBox.defaultProps = {
   imagesPreviewPosition: 'bottom',
   imagesList: [],
 };
-export default DropZoneBox;
+export default injectIntl(DropZoneBox);
