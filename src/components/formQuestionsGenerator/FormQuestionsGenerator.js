@@ -5,7 +5,6 @@ import TextareaField from '../../elements/textareaField/TextareaField';
 import TextField from '../../elements/textField/TextField';
 import FormQuestionValueRow from './FormQuestionValueRow';
 
-
 const FormQuestionsGenerator = ({
   locale,
   state,

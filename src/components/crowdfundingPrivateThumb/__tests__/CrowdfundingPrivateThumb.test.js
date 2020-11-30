@@ -1,6 +1,5 @@
 /* global expect */
 /* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -79,7 +78,6 @@ describe('FeaturesMenu page', () => {
     const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
     expect(component).toHaveLength(1);
   });
-
 
   it('expect return 30-04-2020 in ending date', () => {
     advanceTo(new Date(2020, 10, 10, 0, 0, 0));

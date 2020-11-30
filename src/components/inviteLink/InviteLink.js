@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Row } from 'react-bootstrap';
 import Button from '../button/Button';
 
-
 const InviteLink = ({
   inviteLinkText, inviteLink, copyLinkFunc, copied, CopyLinkText, CopiedLinkText,
 }) => (

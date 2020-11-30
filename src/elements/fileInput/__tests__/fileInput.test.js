@@ -18,7 +18,6 @@ describe('FileInput component', () => {
     useStateMock.mockImplementation((init) => [init, setState]);
   });
 
-
   afterEach(() => {
     jest.clearAllMocks();
   });

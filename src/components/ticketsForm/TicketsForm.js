@@ -419,7 +419,6 @@ const TicketsForm = ({
   );
 };
 
-
 TicketsForm.propTypes = {
   onSubmit: PropTypes.func,
   onChange: PropTypes.func,

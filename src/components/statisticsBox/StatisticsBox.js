@@ -31,7 +31,7 @@ const StatisticsBox = ({
   );
   const footerList = (items) => (
     items.map((item, index) => (
-      <Row key={index}>
+      <Row key={index} data-testid="footer-row">
         <Col sm={5}>
           <h3>
             {item.iconClass && (
