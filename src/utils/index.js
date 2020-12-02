@@ -1,4 +1,6 @@
+import React from 'react';
 import find from 'lodash/find';
+import { FormattedNumber } from 'react-intl';
 
 export const getEmployeeName = (companyId, user) => {
   if (user && user.work_email) {
@@ -40,3 +42,20 @@ export const getUrlParam = (param) => {
 };
 
 export const filterUnique = (array, key) => array.filter((v, i, a) => a.findIndex((t) => (t[key] === v[key])) === i);
+
+export const convertToMyCurrency = (value, currency) => {
+  let convertedValue = value;
+  const myCurrency = localStorage.currency && localStorage.currency !== 'null' ? JSON.parse(localStorage.currency) : currency;
+
+  if (myCurrency.id !== currency.id) {
+    convertedValue = (value * currency.value) / myCurrency.value;
+  }
+
+  return (
+    <FormattedNumber
+      value={convertedValue}
+      style="currency"
+      currency={myCurrency.small}
+    />
+  );
+};

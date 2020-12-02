@@ -50,6 +50,7 @@ export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHea
 export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
 export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';
 export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
+export { default as AuctionThumb } from './components/auctionThumb/AuctionThumb';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
@@ -64,5 +65,5 @@ export { default as CustomModal } from './elements/customModal/CustomModal';
 
 // Utils
 export {
-  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique,
+  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique, convertToMyCurrency,
 } from './utils';
