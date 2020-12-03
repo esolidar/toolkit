@@ -82,13 +82,11 @@
     display    : flex;
 
     .text {
-      font-family: $fontFamily;
       font-size  : 15px;
       color      : #455C75;
       line-height: 22px;
 
       a {
-        font-family: $fontFamily;
         font-size  : 15px;
         color      : #455C75;
         line-height: 22px;
@@ -124,7 +122,7 @@
     }
 
     .last-bid-label {
-      font-family   : $fontHeavy;
+      font-weight   : bold;
       font-size     : 12px;
       color         : #05C6E5;
       line-height   : 40px;
@@ -133,7 +131,6 @@
     }
 
     .last-bid-value {
-      font-family: $fontLight;
       font-size  : 25px;
       color      : #05C6E5;
       line-height: 43px;
@@ -155,7 +152,6 @@
   }
 
   .countdown-ended {
-    font-family   : $fontLight;
     font-size     : 30px;
     color         : #fff;
     line-height   : 43px;
@@ -164,5 +160,9 @@
     text-align    : center;
     padding-top   : 13px;
     text-transform: uppercase;
+  }
+
+  .private {
+    color: $warningColor;
   }
 }

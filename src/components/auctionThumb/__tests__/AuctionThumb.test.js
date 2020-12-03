@@ -14,6 +14,7 @@ jest.useFakeTimers();
 configure({ adapter: new Adapter() });
 
 const propsAuction = {
+  private: 0,
   id: 299,
   user_id: 1124,
   cause_id: null,

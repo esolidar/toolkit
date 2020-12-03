@@ -117,6 +117,7 @@ class Countdown extends Component {
   render() {
     const countDown = this.state;
     const { loading } = this.state;
+    const { thumb } = this.props;
     let { status } = this.state;
 
     if (loading) {
@@ -166,6 +167,7 @@ class Countdown extends Component {
             </div>
           )}
         <div className={`Countdown-box ${status}`}>
+          {((countDown.days > 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
             <span className="Countdown-col-element">
               <strong>{this.addLeadingZeros(countDown.days)}</strong>
@@ -175,6 +177,7 @@ class Countdown extends Component {
               />
             </span>
           </span>
+          )}
 
           <span className="Countdown-col">
             <span className="Countdown-col-element">
@@ -196,6 +199,7 @@ class Countdown extends Component {
             </span>
           </span>
 
+          {((countDown.days === 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
             <span className="Countdown-col-element">
               <strong>{this.addLeadingZeros(countDown.sec)}</strong>
@@ -205,6 +209,7 @@ class Countdown extends Component {
               />
             </span>
           </span>
+          )}
         </div>
       </div>
     );
@@ -214,6 +219,11 @@ class Countdown extends Component {
 Countdown.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
+  thumb: PropTypes.bool,
+};
+
+Countdown.defaultProps = {
+  thumb: false,
 };
 
 export default Countdown;
