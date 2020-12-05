@@ -51,6 +51,8 @@ export { default as StripeCreditCard } from './components/stripe/StripeCreditCar
 export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';
 export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
 export { default as AuctionThumb } from './components/auctionThumb/AuctionThumb';
+export { default as ShareNetwork } from './components/shareNetwork/ShareNetwork';
+export { default as AuctionDetail } from './components/auctionDetail/AuctionDetail';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
