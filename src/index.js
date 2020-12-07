@@ -50,7 +50,6 @@ export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHea
 export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
 export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';
 export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
-export { default as TicketsTable } from './components/ticketsTable/TicketsTable';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
