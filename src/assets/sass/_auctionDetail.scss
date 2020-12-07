@@ -65,13 +65,13 @@
   }
 
   h2 {
-    font-family   : $fontLight;
-    font-size     : 23px;
-    color         : $mainTextColorLight;
-    letter-spacing: 0;
-    line-height   : 39px;
-    margin        : 0;
-    min-height    : 155px;
+    font-family      : $fontLight;
+    font-size        : 23px;
+    color            : $mainTextColorLight;
+    letter-spacing   : 0;
+    line-height      : 39px;
+    margin           : 0;
+    // min-height    : 155px;
 
     @media(max-width: 425px) {
       text-align: center;
@@ -215,7 +215,7 @@
     overflow          : hidden;
     text-overflow     : ellipsis;
     display           : -webkit-box;
-    height            : 90px;
+    height            : 100px;
     line-height       : 33px !important;
     -webkit-line-clamp: 3 !important;
   }
@@ -275,25 +275,29 @@
     }
   }
 
-  .description-header,
-  .shipping-header,
-  .payment-header {
-    margin-top    : 0px;
-    margin-bottom : 25px;
-    font-family   : $fontFamily;
-    font-size     : 20px;
-    color         : $mainColor;
-    letter-spacing: 0;
-    line-height   : 31px;
-    border-bottom : 1px dotted #04C7E5;
-    margin-right  : 30px;
+  // .description-header,
+  // .shipping-header,
+  // .payment-header {
+  //   margin-top    : 0px;
+  //   margin-bottom : 25px;
+  //   font-family   : $fontFamily;
+  //   font-size     : 20px;
+  //   color         : $mainColor;
+  //   letter-spacing: 0;
+  //   line-height   : 31px;
+  //   border-bottom : 1px dotted #04C7E5;
+  //   margin-right  : 30px;
 
-    @media (max-width: 425px) {
-      margin-top: 0px;
-      margin    : 15px 0;
-    }
+  //   @media (max-width: 425px) {
+  //     margin-top: 0px;
+  //     margin    : 15px 0;
+  //   }
+  // }
+
+  .btn-esolidar {
+    width     : 100%;
+    text-align: center;
   }
-  
 
   .description-text {
     opacity       : 0.9;
@@ -395,5 +399,63 @@
     color         : $mainTextColorLight;
     letter-spacing: 0;
     line-height   : 26px;
+  }
+
+  .comments-box {
+    background: #fff;
+    border: 1px solid #e7eaed;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    border-radius: 2px;
+    padding: 30px 70px;
+
+    h3 {
+      color: $grayDark;
+    }
+}
+
+  .support-cause {
+    background: #fff;
+    border    : 1px solid #e7eaed;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    margin-top: 50px;
+    padding   : 30px 70px;
+
+    .npo-thumb {
+      width        : 60px;
+      height       : 60px;
+      border-radius: 60px;
+      margin-right : 20px;
+      margin-bottom: 70px;
+    }
+
+    .npo-name {
+      font-size     : 24px;
+      color         : #05c6e5;
+      letter-spacing: -.72px;
+      line-height   : 38px;
+      margin        : 0;
+      padding       : 0;
+    }
+
+    .npo-summary {
+      font-size     : 15px;
+      color         : #738598;
+      letter-spacing: -.31px;
+      line-height   : 26px;
+      margin        : 0;
+      padding       : 0;
+    }
+  }
+
+  .other-auctions {
+    h4 {
+      font-family   : $fontLight;
+      margin-bottom : 55px;
+      margin-top    : 25px;
+      font-size     : 42px;
+      color         : #05c6e5;
+      letter-spacing: -1px;
+      line-height   : 58px;
+    }
   }
 }

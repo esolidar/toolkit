@@ -1,0 +1,18 @@
+.description-header,
+.shipping-header,
+.payment-header {
+  margin-top    : 0px;
+  margin-bottom : 25px;
+  font-family   : $fontFamily;
+  font-size     : 20px;
+  color         : $mainColor;
+  letter-spacing: 0;
+  line-height   : 31px;
+  border-bottom : 1px dotted #04C7E5;
+  margin-right  : 30px;
+
+  @media (max-width: 425px) {
+    margin-top: 0px;
+    margin    : 15px 0;
+  }
+}

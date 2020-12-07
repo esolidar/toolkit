@@ -17,7 +17,6 @@ import { AuctionDetail } from '@esolidar/toolkit';
     {
         private: 0,
         id: 299,
-        // length: 1,
         user_id: 1124,
         cause_id: null,
         currency_id: 1,
@@ -29,7 +28,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
         status: "A",
         goal: 1000,
         description: "Uma descrição teste",
-        description_en: null,
+        description_en: "Description test",
         shipping_description: "Os portes de envio serão à responsabilidade do vencedor.",
         shipping_description_en: "Please note postage is not included as part of the final bid.",
         payment_description: "O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.",
@@ -254,11 +253,31 @@ import { AuctionDetail } from '@esolidar/toolkit';
                     thumb: "https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg",
                 },
                 s3_image_key: "institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
-                s3_cover_key: null
+                s3_cover_key: null,
+                description: "A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.",
             },
             phones: [],
         },
+        brand: {
+            id: 3,
+            name: "A marca da Cátia Catita",
+            username: "catita",
+            logo: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png",
+            cover: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg",
+            logo_thumbs: {
+                standard: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png",
+                detail: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png",
+                thumb: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png"
+            },
+            cover_thumbs: {
+                standard: "https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg",
+                detail: "https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg"
+            },
+            s3_logo_key: "brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png",
+            s3_cover_key: "brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg"
+        }
     }
   }
+  translateMessage={() => 'Some text'}
 />
 ```

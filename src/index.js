@@ -53,6 +53,7 @@ export { default as RequestDetailThumb } from './components/requestDetail/Reques
 export { default as AuctionThumb } from './components/auctionThumb/AuctionThumb';
 export { default as ShareNetwork } from './components/shareNetwork/ShareNetwork';
 export { default as AuctionDetail } from './components/auctionDetail/AuctionDetail';
+export { default as DescriptionDetail } from './components/descriptionDetail/DescriptionDetail';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
