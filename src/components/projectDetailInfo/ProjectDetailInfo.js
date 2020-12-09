@@ -149,7 +149,7 @@ const Question = ({
             </ul>
           </div>
         )}
-        {(type === 'ods') && (
+        {(type === 'ods') && showRequestInfoView && (
           <div>
             <h4 style={{ color }}>
               {name}
