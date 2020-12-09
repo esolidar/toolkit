@@ -61,6 +61,7 @@ export { default as CheckboxImage } from './elements/checkboxImage/CheckboxImage
 export { default as FileInput } from './elements/fileInput/FileInput';
 export { default as DropZoneBox } from './elements/dropZoneBox/DropZoneBox';
 export { default as CustomModal } from './elements/customModal/CustomModal';
+export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage';
 
 // Utils
 export {
