@@ -267,32 +267,22 @@
     }
   }
 
-  .subscribe-auction {
-    text-decoration: underline;
-
-    a {
-      color: $grayDark;
+  .has-error {
+    .bid-input {
+      input {
+        border: 2px solid red !important;
+      }
     }
   }
 
-  // .description-header,
-  // .shipping-header,
-  // .payment-header {
-  //   margin-top    : 0px;
-  //   margin-bottom : 25px;
-  //   font-family   : $fontFamily;
-  //   font-size     : 20px;
-  //   color         : $mainColor;
-  //   letter-spacing: 0;
-  //   line-height   : 31px;
-  //   border-bottom : 1px dotted #04C7E5;
-  //   margin-right  : 30px;
-
-  //   @media (max-width: 425px) {
-  //     margin-top: 0px;
-  //     margin    : 15px 0;
-  //   }
-  // }
+  .subscribe-auction {
+    a,
+    button {
+      color: $grayDark;
+      text-decoration: underline;
+    }
+    
+  }
 
   .btn-esolidar {
     width     : 100%;
@@ -402,16 +392,16 @@
   }
 
   .comments-box {
-    background: #fff;
-    border: 1px solid #e7eaed;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    background   : #fff;
+    border       : 1px solid #e7eaed;
+    box-shadow   : 0 1px 1px 0 rgba(0, 0, 0, .05);
     border-radius: 2px;
-    padding: 30px 70px;
+    padding      : 30px 70px;
 
     h3 {
       color: $grayDark;
     }
-}
+  }
 
   .support-cause {
     background: #fff;

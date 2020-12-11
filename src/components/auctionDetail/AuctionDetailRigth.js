@@ -14,13 +14,15 @@ const AuctionDetailRigth = ({
   isShowBid,
   isEnded,
   handleClickBid,
+  valueBidTextField,
+  error,
 }) => {
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
   const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const supported = auction.recipient ? auction.recipient : auction.user;
+  const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
 
   const selectedCheck = (e, i) => {
     const { checked } = e.target;
@@ -29,6 +31,8 @@ const AuctionDetailRigth = ({
     if (i === 1) setIsCheckedEmailFirstBid(checked);
     if (i === 2) setIsCheckedEmail24H(checked);
   };
+
+  const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
   return (
     <>
@@ -52,7 +56,7 @@ const AuctionDetailRigth = ({
           <Row>
             <Col sm={12} className="txt-price-t">
               <FormattedNumber
-                value={auction.last_bid.value}
+                value={valueBid}
                 style="currency"
                 currency={auction.currency.small}
               />
@@ -60,7 +64,7 @@ const AuctionDetailRigth = ({
           </Row>
           <Row>
             <Col sm={12} className="txt-bid-aprox">
-              {convertToMyCurrency(auction.last_bid.value, auction.currency)}
+              {convertToMyCurrency(valueBid, auction.currency)}
               <FormattedMessage
                 id="auction.detail.bidApprox"
                 defaultMessage=" approx."
@@ -75,14 +79,13 @@ const AuctionDetailRigth = ({
                   defaultMessage="New Bid"
                 />
               </Col>
-              <Col sm={6}>
+              <Col sm={6} className={error && 'has-error'}>
                 <TextField
-                  label=""
+                  className="bid-input"
                   type="text"
-                  onChange={() => { }}
-                  error=""
+                  onChange={(e) => valueBidTextField(e)}
+                  error={error}
                   placeholder="Min. Value"
-                  defaultValue=""
                   field="forCompanies"
                 />
               </Col>
@@ -127,15 +130,15 @@ const AuctionDetailRigth = ({
               </Row>
             </>
           )}
-          {supported.institution && (
+          {supported && (
             <Col sm={12} className="auction-box text-center">
               <div className="text-center">
-                <img className="npo-thumb" src={supported.institution.thumbs.thumb} alt="" />
+                <img className="npo-thumb" src={supported.thumbs.thumb} alt="" />
                 <FormattedMessage
                   id="auction.detail.lastbid"
                   defaultMessage="Proceeds support "
                 />
-                <strong>{supported.institution.name}</strong>
+                <strong>{supported.name}</strong>
               </div>
             </Col>
           )}
@@ -181,6 +184,8 @@ AuctionDetailRigth.propTypes = {
   isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
   handleClickBid: PropTypes.func,
+  valueBidTextField: PropTypes.func,
+  error: PropTypes.string,
 };
 
 AuctionDetailRigth.defaultProps = {

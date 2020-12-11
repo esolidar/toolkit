@@ -8,6 +8,7 @@ const CrowdfundigContributesList = ({
   contributes,
   loadingContributes,
   showMoreContributes,
+  currency,
   env,
 }) => {
   const renderContributes = () => {
@@ -16,6 +17,7 @@ const CrowdfundigContributesList = ({
         <div key={contribute.id}>
           <CrowdfundigContributeRow
             contribute={contribute}
+            currency={currency}
             env={env}
           />
         </div>
@@ -64,6 +66,7 @@ CrowdfundigContributesList.propTypes = {
   contributes: PropTypes.array,
   loadingContributes: PropTypes.bool,
   showMoreContributes: PropTypes.func,
+  currency: PropTypes.string,
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),

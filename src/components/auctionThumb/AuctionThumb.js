@@ -12,7 +12,7 @@ const AuctionThumb = ({
 }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
   const auctionEndDate = moment(auction.dateLimit, 'YYYY-MM-DD HH:mm').toDate();
-  const supported = auction.recipient ? auction.recipient : auction.user;
+  const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
 
   let auctionTitle = '';
   if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
@@ -40,8 +40,8 @@ const AuctionThumb = ({
           {auctionTitle}
         </Col>
         <Col xs={4} className="text-right npo-logo">
-          <Tooltip placement="top" overlay={supported.institution ? supported.institution.name : ''}>
-            <img src={supported.institution ? supported.institution.thumbs.thumb : ''} width="60" height="60" alt={supported.institution ? supported.institution.name : ''} />
+          <Tooltip placement="top" overlay={supported ? supported.name : ''}>
+            <img src={supported ? supported.thumbs.thumb : ''} width="60" height="60" alt={supported ? supported.name : ''} />
           </Tooltip>
         </Col>
       </Row>

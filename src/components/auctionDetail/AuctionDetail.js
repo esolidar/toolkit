@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import moment from 'moment-timezone';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import AuctionDetailRigth from './AuctionDetailRigth';
 import TextField from '../../elements/textField/TextField';
@@ -12,17 +13,25 @@ import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import AuctionLastBid from './AuctionLastBid';
 import Comments from '../comments/Comments';
-import AuctionThumb from '../auctionThumb/AuctionThumb';
-import AuctionListBidBox from './auctionListBids/AuctionListBidBox';
+import CreateComment from '../comments/CreateComment';
 import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
 import CustomModal from '../../elements/customModal/CustomModal';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
-import RadioField from '../../elements/radioField/RadioField';
+import AuctionOthers from './auctionOthers/AuctionOthers';
+import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/CrowdfundingContributesListBox';
 
 const AuctionDetail = ({
   auction,
-  isPrivate,
   translateMessage,
+  listAuctionCategorie,
+  postAsCompany,
+  postAsUser,
+  comments,
+  loadingNewComment,
+  listBid,
+  listBidTotal,
+  showMoreContributes,
+  onSubmitComment,
   env,
 }) => {
   const [isShowmoreDesc] = useState(false);
@@ -30,8 +39,10 @@ const AuctionDetail = ({
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
-  const [isRadioCc, setIsRadioCc] = useState(0);
   const [isShowModal, setIsShowModal] = useState(false);
+  const [valueBid, setValueBid] = useState(0);
+  const [userComment, setUserComment] = useState('');
+  const [error, setError] = useState('');
 
   const auctionTitle = () => {
     let title;
@@ -56,10 +67,14 @@ const AuctionDetail = ({
     return description;
   };
 
-  // const showMoreDescAction = () => {
-  //   setIsShowmoreDesc(true);
-  //   setIsShowMoreDescButton(false);
-  // };
+  const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
+  const isEnded = (todaysDate > new Date(auction.dateLimit));
+
+  const bidValueAuction = auction.last_bid ? auction.last_bid.value : auction.bid_start;
+
+  const valueBidTextField = (e) => {
+    setValueBid(e.target.value);
+  };
 
   const selectedCheck = (e, i) => {
     const { checked } = e.target;
@@ -69,11 +84,44 @@ const AuctionDetail = ({
     if (i === 2) setIsCheckedTerms(checked);
   };
 
-  const supported = auction.recipient ? auction.recipient : auction.user;
+  const modalShow = () => {
+    setIsShowModal(true);
+  };
+
+  const handleClickBid = () => {
+    if (valueBid > auction.bid_max_interval) {
+      setError(`Put a numeric value equal or lower than ${bidValueAuction + auction.bid_max_interval} `);
+      return false;
+    }
+
+    if (((valueBid > bidValueAuction) && (valueBid < (auction.bid_interval + bidValueAuction)))) {
+      setIsShowModal(true);
+      setError('');
+    } else {
+      setError(`Put a numeric value equal or higher than ${bidValueAuction + 1}`);
+    }
+  };
+
+  const onChangeComments = (e) => {
+    setUserComment(e.target.value);
+  };
+
+  const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
+
+  const userType = localStorage.user ? JSON.parse(localStorage.user).type : 'guest';
+  let thumb = '';
+
+  if (userType === 'guest') {
+    thumb = `${env.cdn_static_url}/frontend/assets/no-image.png`;
+  } else if (userType === 'npo') {
+    thumb = JSON.parse(localStorage.user).institution.thumbs.thumb;
+  } else {
+    thumb = JSON.parse(localStorage.user).thumbs.thumb;
+  }
 
   return (
     <Container className="auction-detail">
-      {isPrivate && (
+      {auction.private === 1 && (
         <Row>
           <Col className="mdPrivateCode">
             <Row>
@@ -111,11 +159,11 @@ const AuctionDetail = ({
           </Col>
         </Row>
       )}
-      {!isPrivate && (
+      {auction.private === 0 && (
         <>
           <Row>
             <Col md={12} className="content-wrapper">
-              {supported.institution && (
+              {supported && (
                 <Row className="content-header hidden-xs">
                   <Col sm={12} className="text-center">
                     <div className="auction-supported">
@@ -125,8 +173,8 @@ const AuctionDetail = ({
                       />
                     </div>
                     <h1 className="text-center">
-                      <img src={supported.institution.thumbs.thumb} alt="" />
-                      {supported.institution.name}
+                      <img src={supported.thumbs.thumb} alt="" />
+                      {supported.name}
                     </h1>
                   </Col>
                 </Row>
@@ -191,10 +239,13 @@ const AuctionDetail = ({
                       )}
                     </Col>
                     <AuctionDetailRigth
+                      isEnded={isEnded}
                       auctionTitle={auctionTitle()}
                       auction={auction}
                       isShowBid={true}
-                      handleClickBid={() => setIsShowModal(true)}
+                      handleClickBid={handleClickBid}
+                      valueBidTextField={valueBidTextField}
+                      error={error}
                     />
                   </Row>
                 </Col>
@@ -233,8 +284,10 @@ const AuctionDetail = ({
             <Col xs={12} sm={3}>
               <AuctionLastBid
                 auction={auction}
-                isEnded={false}
-                handleClickBid={() => setIsShowModal(true)}
+                isEnded={isEnded}
+                handleClickBid={handleClickBid}
+                isShowModal={modalShow}
+                error={error}
               />
             </Col>
             <Col sm={9} className="comments-box mt-5">
@@ -244,6 +297,17 @@ const AuctionDetail = ({
                   defaultMessage="Comments"
                 />
               </h3>
+              <CreateComment
+                onSubmitComment={onSubmitComment}
+                onChange={onChangeComments}
+                comment={comments}
+                env={env}
+                postAsCompany={postAsCompany}
+                postAsUser={postAsUser}
+                translateMessage={translateMessage}
+                loadingNewComment={loadingNewComment}
+                thumb={thumb}
+              />
               <Comments
                 comments={[]}
                 replies={[]}
@@ -255,15 +319,13 @@ const AuctionDetail = ({
               />
             </Col>
             <Col xs={12} sm={3}>
-              <AuctionListBidBox
-                contributesList={auction.last_bid.user}
+              <CrowdfundingContributesListBox
+                contributesList={listBid}
                 loadingContributes={false}
-                total={10}
-                showMoreContributes={() => { }}
-                env={{
-                  cdn_static_url: 'https://static.esolidar.com',
-                  cdn_uploads_url: 'https://cdn.testesolidar.com',
-                }}
+                total={listBidTotal}
+                showMoreContributes={showMoreContributes}
+                env={env}
+                currency={auction.currency.small}
               />
             </Col>
           </Row>
@@ -285,26 +347,9 @@ const AuctionDetail = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={3}>
-              <AuctionThumb
-                auction={auction}
-              />
-            </Col>
-            <Col sm={3}>
-              <AuctionThumb
-                auction={auction}
-              />
-            </Col>
-            <Col sm={3}>
-              <AuctionThumb
-                auction={auction}
-              />
-            </Col>
-            <Col sm={3}>
-              <AuctionThumb
-                auction={auction}
-              />
-            </Col>
+            <AuctionOthers
+              listAuctions={listAuctionCategorie}
+            />
           </Row>
           <Row>
             <Col sm={3} className="mx-auto">
@@ -328,24 +373,9 @@ const AuctionDetail = ({
           <>
             <div>If you are the winner you will receive an email to:</div>
 
-            <ul>
-              <li className="border border-dark rounded p-3 mb-2">
-                <RadioField
-                  label="Credit card number: "
-                  onChange={() => setIsRadioCc(0)}
-                  value={0}
-                  checked={isRadioCc === 0}
-                />
-              </li>
-              <li className="border border-dark rounded p-3 mb-2">
-                <RadioField
-                  label="Credit card number 2: "
-                  onChange={() => setIsRadioCc(1)}
-                  value={1}
-                  checked={isRadioCc === 1}
-                />
-              </li>
-            </ul>
+            {/* {auction.cc === 1 && (
+              <CreditCardList />
+            )} */}
 
             <CheckboxField
               label="Anonymous bid"
@@ -383,6 +413,10 @@ AuctionDetail.propTypes = {
     dateLimit: PropTypes.string,
     dateStart: PropTypes.string,
     images: PropTypes.array,
+    bid_max_interval: PropTypes.number,
+    bid_interval: PropTypes.number,
+    sub_category_id: PropTypes.number,
+    listBid: PropTypes.number,
     last_bid_value: PropTypes.shape({
       value: PropTypes.number,
     }),
@@ -393,6 +427,7 @@ AuctionDetail.propTypes = {
           thumb: PropTypes.string,
         }),
       }),
+      causes: PropTypes.object,
     }),
     user: PropTypes.shape({
       institution: PropTypes.shape({
@@ -404,20 +439,26 @@ AuctionDetail.propTypes = {
     }),
     last_bid: PropTypes.shape({
       user: PropTypes.object,
+      value: PropTypes.number,
     }),
     video: PropTypes.string,
     title: PropTypes.string,
     title_en: PropTypes.string,
   }),
-  isPrivate: PropTypes.bool,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
+    cdn_static_url: PropTypes.string,
   }),
-  translateMessage: PropTypes.func.isRequired,
-};
-
-AuctionDetail.defaultProps = {
-  isPrivate: false,
+  listBidTotal: PropTypes.number,
+  showMoreContributes: PropTypes.func,
+  translateMessage: PropTypes.func,
+  listAuctionCategorie: PropTypes.func,
+  listBid: PropTypes.array,
+  postAsCompany: PropTypes.any,
+  postAsUser: PropTypes.any,
+  comments: PropTypes.any,
+  loadingNewComment: PropTypes.any,
+  onSubmitComment: PropTypes.func,
 };
 
 export default AuctionDetail;

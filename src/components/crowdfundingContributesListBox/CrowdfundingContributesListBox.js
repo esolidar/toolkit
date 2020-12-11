@@ -11,6 +11,7 @@ const CrowdfundingContributesListBox = ({
   total,
   showMoreContributes,
   env,
+  currency,
 }) => (
   <div className="col-sm-12">
     <div className="row">
@@ -34,6 +35,7 @@ const CrowdfundingContributesListBox = ({
                 contributes={contributesList}
                 loadingContributes={loadingContributes}
                 showMoreContributes={showMoreContributes}
+                currency={currency}
                 env={env}
               />
               )}
@@ -48,6 +50,7 @@ CrowdfundingContributesListBox.propTypes = {
   loadingContributes: PropTypes.bool,
   total: PropTypes.number,
   showMoreContributes: PropTypes.func,
+  currency: PropTypes.string,
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),
