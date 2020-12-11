@@ -1,0 +1,23 @@
+.cards-list {
+  padding-bottom: 0;
+
+  .add-card {
+    background     : transparent;
+    border         : none;
+    color          : $successColor;
+    text-decoration: underline;
+  }
+
+  label {
+    margin-bottom: 0 !important;
+  }
+
+  .expired {
+    color  : red;
+    padding: 0 !important;
+  }
+
+  .checkbox {
+    top: 4px !important;
+  }
+}
