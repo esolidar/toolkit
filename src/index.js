@@ -1,5 +1,4 @@
 // Components
-export { default as Button } from './components/button/Button';
 export { default as ChangeCurrency } from './components/changeCurrency/ChangeCurrency';
 export { default as ChangeLanguage } from './components/changeLanguage/ChangeLanguage';
 export { default as CookiesMessage } from './components/cookiesMessage/CookiesMessage';
@@ -52,6 +51,7 @@ export { default as RequestDetailInfo } from './components/requestDetail/Request
 export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
 
 // Elements
+export { default as Button } from './elements/button/Button';
 export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';

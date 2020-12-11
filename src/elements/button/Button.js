@@ -1,10 +1,19 @@
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to, type, disabled, className, icon, id,
+  extraClass,
+  target,
+  href, text,
+  onClick,
+  to,
+  type,
+  disabled,
+  className,
+  icon,
+  id,
+  size,
 }) => {
   let style;
   if (onClick) {
@@ -15,7 +24,13 @@ const Button = ({
     style = 'link';
   }
 
-  const classes = classnames(`btn-esolidar btn-${extraClass} ${className}`);
+  const classes = [
+    'btn-esolidar',
+    `btn-${extraClass}`,
+    `btn-${size}`,
+    disabled ? 'disabled' : '',
+    className,
+  ];
 
   const renderButton = () => {
     switch (style) {
@@ -25,7 +40,7 @@ const Button = ({
             id={id}
             type="button"
             onClick={onClick}
-            className={classes}
+            className={classes.join(' ')}
             disabled={disabled}
           >
             {icon}
@@ -38,7 +53,7 @@ const Button = ({
           <button
             id={id}
             type="submit"
-            className={classes}
+            className={classes.join(' ')}
             disabled={disabled}
           >
             {icon}
@@ -51,7 +66,7 @@ const Button = ({
           <Link
             id={id}
             to={to}
-            className={classes}
+            className={classes.join(' ')}
           >
             {icon}
             {text}
@@ -64,7 +79,7 @@ const Button = ({
             id={id}
             href={href}
             target={target || '_self'}
-            className={classes}
+            className={classes.join(' ')}
           >
             {icon}
             {text}
@@ -96,6 +111,7 @@ Button.propTypes = {
 Button.defaultProps = {
   type: 'button',
   className: '',
+  size: 'md',
 };
 
 export default Button;
