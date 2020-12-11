@@ -1,26 +1,24 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Button from '../button/Button';
 
 const BoxInfo = ({ text, button }) => (
   <div className="box">
-    <Row>
-      <Col sm={12}>
-        {button && (
-          <Button
-            extraClass={`${button.style ? button.style : 'success'} btn-box-info `}
-            onClick={button.onClick}
-            href={button.href}
-            text={button.text}
-            to={button.to}
-          />
-        )}
-        <p>
-          {text}
-        </p>
-      </Col>
-    </Row>
+    <p className="text">
+      {text}
+    </p>
+    {button && (
+      <div className="button">
+        <Button
+          extraClass={`${button.style ? button.style : 'success'}`}
+          onClick={button.onClick}
+          href={button.href}
+          text={button.text}
+          to={button.to}
+          disabled={button.disabled}
+        />
+      </div>
+    )}
   </div>
 );
 
@@ -32,6 +30,7 @@ BoxInfo.propTypes = {
     onClick: PropTypes.func,
     href: PropTypes.string,
     to: PropTypes.string,
+    disabled: PropTypes.bool,
   }),
 };
 

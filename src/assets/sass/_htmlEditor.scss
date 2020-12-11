@@ -11,6 +11,7 @@ $background-gradient: linear-gradient(
   &-editor {
     &-wrapper {
       border: 1px solid $border-color !important;
+      background-color: white !important;
     }
 
     &-main {
