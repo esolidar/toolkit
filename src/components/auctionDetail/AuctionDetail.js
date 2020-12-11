@@ -371,11 +371,12 @@ const AuctionDetail = ({
         )}
         bodyChildren={(
           <>
-            <div>If you are the winner you will receive an email to:</div>
-
-            {/* {auction.cc === 1 && (
-              <CreditCardList />
-            )} */}
+            <div>
+              {translateMessage({
+                id: 'auction.modal.bid.email',
+                defaultMessage: 'If you are the winner you will receive an email to:',
+              })}
+            </div>
 
             <CheckboxField
               label="Anonymous bid"
@@ -383,12 +384,18 @@ const AuctionDetail = ({
               checked={isAnonymous}
             />
             <CheckboxField
-              label="eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it."
+              label={translateMessage({
+                id: 'auction.modal.bid.check1',
+                defaultMessage: 'eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it.',
+              })}
               onChange={(e) => selectedCheck(e, 1)}
               checked={isCheckedLegal}
             />
             <CheckboxField
-              label="I agree with eSolidar’s Privacy Policy and Terms and Conditions ."
+              label={translateMessage({
+                id: 'auction.modal.bid.check2',
+                defaultMessage: 'I agree with eSolidar’s Privacy Policy and Terms and Conditions.',
+              })}
               onChange={(e) => selectedCheck(e, 2)}
               checked={isCheckedTerms}
             />
@@ -396,7 +403,12 @@ const AuctionDetail = ({
         )}
         onHide={() => setIsShowModal(false)}
         show={isShowModal}
-        title="Confirm bid €111"
+        title={
+          translateMessage({
+            id: 'auction.modal.bid.confirm',
+            defaultMessage: 'Confirm bid value',
+          })
+        }
         size="lg"
       />
     </Container>
