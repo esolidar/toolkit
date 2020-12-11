@@ -245,6 +245,7 @@ const AuctionDetail = ({
                       isShowBid={true}
                       handleClickBid={handleClickBid}
                       valueBidTextField={valueBidTextField}
+                      translateMessage={translateMessage}
                       error={error}
                     />
                   </Row>

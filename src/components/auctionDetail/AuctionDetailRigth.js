@@ -16,6 +16,7 @@ const AuctionDetailRigth = ({
   handleClickBid,
   valueBidTextField,
   error,
+  translateMessage,
 }) => {
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
@@ -154,17 +155,26 @@ const AuctionDetailRigth = ({
         bodyChildren={(
           <>
             <CheckboxField
-              label="Send me an email when the auction start."
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check1',
+                defaultMessage: 'Send me an email when the auction start.',
+              })}
               onChange={(e) => selectedCheck(e, 0)}
               checked={isCheckedEmailStart}
             />
             <CheckboxField
-              label="Send me an email when someone makes the first bid."
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check2',
+                defaultMessage: 'Send me an email when someone makes the first bid.',
+              })}
               onChange={(e) => selectedCheck(e, 1)}
               checked={isCheckedEmailFirstBid}
             />
             <CheckboxField
-              label="Send me an email 24 hours before the auction ends."
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check3',
+                defaultMessage: 'Send me an email 24 hours before the auction ends.',
+              })}
               onChange={(e) => selectedCheck(e, 2)}
               checked={isCheckedEmail24H}
             />
@@ -186,6 +196,7 @@ AuctionDetailRigth.propTypes = {
   handleClickBid: PropTypes.func,
   valueBidTextField: PropTypes.func,
   error: PropTypes.string,
+  translateMessage: PropTypes.func,
 };
 
 AuctionDetailRigth.defaultProps = {
