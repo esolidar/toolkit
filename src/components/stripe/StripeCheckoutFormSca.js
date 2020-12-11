@@ -30,14 +30,9 @@ const createOptions = () => ({
 });
 
 const StripeCheckoutFormSca = ({
-  errors, handleChange, submit, stripe, elements, disableButton,
+  errors, handleChange, submit, stripe, elements, disableButton, btnText,
 }) => {
-  const text = () => (
-    <FormattedMessage
-      id="checkout.payment.pay"
-      defaultMessage="Pay"
-    />
-  );
+  const text = () => (btnText || <FormattedMessage id="checkout.payment.pay" defaultMessage="Pay" />);
 
   return (
     <Row className="checkout">
@@ -96,6 +91,7 @@ StripeCheckoutFormSca.propTypes = {
   stripe: PropTypes.any,
   submit: PropTypes.func,
   disableButton: PropTypes.bool,
+  btnText: PropTypes.string,
 };
 
 export default injectStripe(StripeCheckoutFormSca);
