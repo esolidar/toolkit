@@ -5,6 +5,7 @@ import Button from '../button/Button';
 
 const AuctionSupport = ({
   auction,
+  translateMessage,
 }) => {
   const supported = auction.recipient ? auction.recipient : auction.user;
 
@@ -29,7 +30,10 @@ const AuctionSupport = ({
                 extraClass="info"
                 target="_blank"
                 href="#"
-                text="Support this charity"
+                text={translateMessage({
+                  id: 'auction.detail.supportCharity',
+                  defaultMessage: 'Support this charity',
+                })}
               />
             </Col>
           </Row>
@@ -58,7 +62,7 @@ AuctionSupport.propTypes = {
       }),
     }),
   }),
-
+  translateMessage: PropTypes.func,
 };
 
 export default AuctionSupport;

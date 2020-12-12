@@ -22,16 +22,16 @@ import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/Cr
 
 const AuctionDetail = ({
   auction,
-  translateMessage,
   listAuctionCategorie,
-  postAsCompany,
-  postAsUser,
-  comments,
-  loadingNewComment,
   listBid,
   listBidTotal,
   showMoreContributes,
+  comments,
+  loadingNewComment,
   onSubmitComment,
+  postAsUser,
+  postAsCompany,
+  translateMessage,
   env,
 }) => {
   const [isShowmoreDesc] = useState(false);
@@ -43,6 +43,10 @@ const AuctionDetail = ({
   const [valueBid, setValueBid] = useState(0);
   const [userComment, setUserComment] = useState('');
   const [error, setError] = useState('');
+
+  const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
+  const isEnded = (todaysDate > new Date(auction.dateLimit));
+  const bidValueAuction = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
   const auctionTitle = () => {
     let title;
@@ -67,11 +71,6 @@ const AuctionDetail = ({
     return description;
   };
 
-  const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
-  const isEnded = (todaysDate > new Date(auction.dateLimit));
-
-  const bidValueAuction = auction.last_bid ? auction.last_bid.value : auction.bid_start;
-
   const valueBidTextField = (e) => {
     setValueBid(e.target.value);
   };
@@ -90,7 +89,8 @@ const AuctionDetail = ({
 
   const handleClickBid = () => {
     if (valueBid > auction.bid_max_interval) {
-      setError(`Put a numeric value equal or lower than ${bidValueAuction + auction.bid_max_interval} `);
+      setError();
+      setError(translateMessage({ id: 'auction.detail.error.bidLower', defaultMessage: `Put a numeric value equal or lower than ${bidValueAuction + auction.bid_max_interval} ` }));
       return false;
     }
 
@@ -98,7 +98,7 @@ const AuctionDetail = ({
       setIsShowModal(true);
       setError('');
     } else {
-      setError(`Put a numeric value equal or higher than ${bidValueAuction + 1}`);
+      setError(translateMessage({ id: 'auction.detail.error.bid', defaultMessage: `Put a numeric value equal or higher than ${bidValueAuction + 1}` }));
     }
   };
 
@@ -120,14 +120,14 @@ const AuctionDetail = ({
   }
 
   return (
-    <Container className="auction-detail">
+    <Container className="auction-detail mt-3">
       {auction.private === 1 && (
         <Row>
           <Col className="mdPrivateCode">
             <Row>
               <h3 className="pb-4">
                 <FormattedMessage
-                  id="auctions.supportes"
+                  id="auctions.private.supportes"
                   defaultMessage="Insert the access code to display and bid on the auction:"
                 />
               </h3>
@@ -139,21 +139,19 @@ const AuctionDetail = ({
                 type="text"
                 onChange={() => { }}
                 error=""
-                placeholder="Insert the code"
-                defaultValue=""
-                field="forCompanies"
+                placeholder={translateMessage({ id: 'auction.private.insertCode', defaultMessage: 'Insert the code' })}
               />
             </Row>
             <div className="text-right">
               <Button
                 className="auction-private-cancel mr-3"
                 extraClass="dark"
-                text="Cancel"
+                text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
               />
               <Button
                 className="auction-private-cancel"
                 extraClass="success-full"
-                text="Confirm"
+                text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
               />
             </div>
           </Col>
@@ -168,7 +166,7 @@ const AuctionDetail = ({
                   <Col sm={12} className="text-center">
                     <div className="auction-supported">
                       <FormattedMessage
-                        id="auctions.supportes"
+                        id="auctions.public.supportes"
                         defaultMessage="This auctions supports:"
                       />
                     </div>
@@ -195,15 +193,15 @@ const AuctionDetail = ({
                     <div className={`status-${auction.status}`}>
                       <FormattedMessage
                         id="auction.detail.status.pending"
-                        defaultMessage="This crowdfunding campaign is pending."
+                        defaultMessage="This auction is pending."
                       />
                       &nbsp;
-                      <a style={{ color: '#716247' }} href={`/npo/auction/edit/${auction.id}`}>
+                      {/* <a style={{ color: '#716247' }} href={`/npo/auction/edit/${auction.id}`}>
                         <FormattedMessage
-                          id="editAuction"
+                          id="auction.detail.edit"
                           defaultMessage="Edit auction"
                         />
-                      </a>
+                      </a> */}
                     </div>
                   )}
                 </Col>
@@ -259,81 +257,86 @@ const AuctionDetail = ({
             description=""
           />
           <Row>
-            <Col xs={12} sm={9}>
-              <DescriptionDetail
-                color=""
-                title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
-                description={auctionDescriptionLang('description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={isShowMoreDescButton}
-              />
-              <DescriptionDetail
-                color=""
-                title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
-                description={auctionDescriptionLang('shipping_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={isShowMoreDescButton}
-              />
-              <DescriptionDetail
-                color=""
-                title={translateMessage({ id: 'auction.payment', defaultMessage: 'payment' })}
-                description={auctionDescriptionLang('payment_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={isShowMoreDescButton}
-              />
-            </Col>
-            <Col xs={12} sm={3}>
-              <AuctionLastBid
-                auction={auction}
-                isEnded={isEnded}
-                handleClickBid={handleClickBid}
-                isShowModal={modalShow}
-                error={error}
-              />
-            </Col>
-            <Col sm={9} className="comments-box mt-5">
-              <h3>
-                <FormattedMessage
-                  id="auction.detail.titleComments"
-                  defaultMessage="Comments"
-                />
-              </h3>
-              <CreateComment
-                onSubmitComment={onSubmitComment}
-                onChange={onChangeComments}
-                comment={comments}
-                env={env}
-                postAsCompany={postAsCompany}
-                postAsUser={postAsUser}
-                translateMessage={translateMessage}
-                loadingNewComment={loadingNewComment}
-                thumb={thumb}
-              />
-              <Comments
-                comments={[]}
-                replies={[]}
-                getEmployeeName={() => 'Miguel Rocha'}
-                env="https://static.testesolidar.com"
-                user={{
-                  id: 9,
-                }}
-              />
-            </Col>
-            <Col xs={12} sm={3}>
-              <CrowdfundingContributesListBox
-                contributesList={listBid}
-                loadingContributes={false}
-                total={listBidTotal}
-                showMoreContributes={showMoreContributes}
-                env={env}
-                currency={auction.currency.small}
-              />
+            <Col sm={12} md={{ span: 10, offset: 1 }}>
+              <Row>
+                <Col md={8}>
+                  <DescriptionDetail
+                    title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
+                    description={auctionDescriptionLang('description')}
+                    showmoreDesc={isShowmoreDesc}
+                    showMoreDescButton={isShowMoreDescButton}
+                  />
+                  <DescriptionDetail
+                    title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
+                    description={auctionDescriptionLang('shipping_description')}
+                    showmoreDesc={isShowmoreDesc}
+                    showMoreDescButton={isShowMoreDescButton}
+                  />
+                  <DescriptionDetail
+                    title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
+                    description={auctionDescriptionLang('payment_description')}
+                    showmoreDesc={isShowmoreDesc}
+                    showMoreDescButton={isShowMoreDescButton}
+                  />
+                </Col>
+                <Col xs={12} sm={4}>
+                  <AuctionLastBid
+                    auction={auction}
+                    isEnded={isEnded}
+                    handleClickBid={handleClickBid}
+                    isShowModal={modalShow}
+                    error={error}
+                    translateMessage={translateMessage}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={8} className="comments-box mt-5">
+                  <h3>
+                    <FormattedMessage
+                      id="auction.detail.titleComments"
+                      defaultMessage="Comments"
+                    />
+                  </h3>
+                  <CreateComment
+                    onSubmitComment={onSubmitComment}
+                    onChange={onChangeComments}
+                    comment={comments}
+                    env={env}
+                    postAsCompany={postAsCompany}
+                    postAsUser={postAsUser}
+                    translateMessage={translateMessage}
+                    loadingNewComment={loadingNewComment}
+                    thumb={thumb}
+                  />
+                  <Comments
+                    comments={[]}
+                    replies={[]}
+                    getEmployeeName={() => 'Miguel Rocha'}
+                    env="https://static.testesolidar.com"
+                    user={{
+                      id: 9,
+                    }}
+                  />
+                </Col>
+                <Col xs={12} sm={4}>
+                  <CrowdfundingContributesListBox
+                    contributesList={listBid}
+                    loadingContributes={false}
+                    total={listBidTotal}
+                    showMoreContributes={showMoreContributes}
+                    env={env}
+                    currency={auction.currency.small}
+                  />
+                </Col>
+              </Row>
             </Col>
           </Row>
           <Row>
             <Col sm={12}>
               <AuctionSupport
                 auction={auction}
+                translateMessage={translateMessage}
               />
             </Col>
           </Row>
@@ -357,7 +360,7 @@ const AuctionDetail = ({
               <Button
                 extraClass="info"
                 href="/auctions/"
-                text="See all auctions"
+                text={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
               />
             </Col>
           </Row>
@@ -380,7 +383,10 @@ const AuctionDetail = ({
             </div>
 
             <CheckboxField
-              label="Anonymous bid"
+              label={translateMessage({
+                id: 'auction.modal.bid.anonymousBid',
+                defaultMessage: 'Anonymous bid',
+              })}
               onChange={(e) => selectedCheck(e, 0)}
               checked={isAnonymous}
             />
@@ -467,10 +473,10 @@ AuctionDetail.propTypes = {
   translateMessage: PropTypes.func,
   listAuctionCategorie: PropTypes.func,
   listBid: PropTypes.array,
-  postAsCompany: PropTypes.any,
-  postAsUser: PropTypes.any,
-  comments: PropTypes.any,
-  loadingNewComment: PropTypes.any,
+  postAsCompany: PropTypes.func,
+  postAsUser: PropTypes.func,
+  comments: PropTypes.array,
+  loadingNewComment: PropTypes.func,
   onSubmitComment: PropTypes.func,
 };
 

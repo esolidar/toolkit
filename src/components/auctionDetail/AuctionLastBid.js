@@ -12,6 +12,7 @@ const AuctionLastBid = ({
   valueBidTextField,
   isShowModal,
   error,
+  translateMessage,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
@@ -20,18 +21,18 @@ const AuctionLastBid = ({
       <Row>
         <Col className="box sticky-top" style={{ width: '100%', 'margin-top': '75px' }}>
           <p className="control-label mb-2">
-            {auction.bid_start && (
-            <FormattedMessage
-              id="auction.detail.startbid"
-              defaultMessage="Start Bid"
-            />
-            )}
-            {auction.last_bid && (
-            <FormattedMessage
-              id="auction.detail.lastbid"
-              defaultMessage="Last Bid"
-            />
-            )}
+            {auction.last_bid ? (
+              <FormattedMessage
+                id="auction.detail.lastbid"
+                defaultMessage="Last Bid"
+              />
+            )
+              : (
+                <FormattedMessage
+                  id="auction.detail.startbid"
+                  defaultMessage="Start Bid"
+                />
+              )}
           </p>
           <Row>
             <Col sm={12} className="txt-price-t">
@@ -43,63 +44,63 @@ const AuctionLastBid = ({
             </Col>
           </Row>
           {!isEnded && (
-          <Row>
-            <Col sm={12} className="auction-content-label">
-              <FormattedMessage
-                id="auction.detail.newBid"
-                defaultMessage="New Bid"
-              />
-            </Col>
-            <Col sm={12} className={error && 'has-error'}>
-              <TextField
-                className="bid-input"
-                type="text"
-                onChange={(e) => valueBidTextField(e)}
-                error={error}
-                placeholder="Min. Value"
-                field="forCompanies"
-              />
-            </Col>
-            <Col sm={12}>
-              <Button
-                extraClass="success-full"
-                text="Bid"
-                onClick={handleClickBid}
-              />
-            </Col>
-            <Col sm={12} className="subscribe-auction text-center mt-5">
-              <button
-                type="button"
-                className="btn btn-link"
-                onClick={() => isShowModal(true)}
-              >
-                <FormattedMessage
-                  id="auction.detail.subscribeAuction"
-                  defaultMessage="Subscribe the auction"
-                />
-              </button>
-            </Col>
-          </Row>
-          )}
-          {isEnded && (
-          <>
             <Row>
               <Col sm={12} className="auction-content-label">
                 <FormattedMessage
-                  id="auction.detail.ended"
-                  defaultMessage="Ended"
+                  id="auction.detail.newBid"
+                  defaultMessage="New Bid"
                 />
               </Col>
-            </Row>
-            <Row>
-              <Col sm={12} className="end-auction">
-                <FormattedMessage
-                  id="auction.detail.endedAuction"
-                  defaultMessage="This auction has ended."
+              <Col sm={12} className={error && 'has-error'}>
+                <TextField
+                  className="bid-input"
+                  type="text"
+                  onChange={(e) => valueBidTextField(e)}
+                  error={error}
+                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value' })}
+                  field="forCompanies"
                 />
               </Col>
+              <Col sm={12}>
+                <Button
+                  extraClass="success-full"
+                  text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
+                  onClick={handleClickBid}
+                />
+              </Col>
+              <Col sm={12} className="subscribe-auction text-center mt-5">
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  onClick={() => isShowModal(true)}
+                >
+                  <FormattedMessage
+                    id="auction.detail.subscribeAuction"
+                    defaultMessage="Subscribe the auction"
+                  />
+                </button>
+              </Col>
             </Row>
-          </>
+          )}
+          {isEnded && (
+            <>
+              <Row>
+                <Col sm={12} className="auction-content-label">
+                  <FormattedMessage
+                    id="auction.detail.ended"
+                    defaultMessage="Ended"
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={12} className="end-auction">
+                  <FormattedMessage
+                    id="auction.detail.endedAuction"
+                    defaultMessage="This auction has ended."
+                  />
+                </Col>
+              </Row>
+            </>
           )}
         </Col>
       </Row>
@@ -120,6 +121,7 @@ AuctionLastBid.propTypes = {
   valueBidTextField: PropTypes.func,
   isShowModal: PropTypes.func,
   error: PropTypes.string,
+  translateMessage: PropTypes.string,
 };
 
 export default AuctionLastBid;

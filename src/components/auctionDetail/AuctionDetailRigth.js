@@ -86,14 +86,13 @@ const AuctionDetailRigth = ({
                   type="text"
                   onChange={(e) => valueBidTextField(e)}
                   error={error}
-                  placeholder="Min. Value"
-                  field="forCompanies"
+                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value' })}
                 />
               </Col>
               <Col sm={6}>
                 <Button
                   extraClass="success-full"
-                  text="Bid"
+                  text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
                   onClick={handleClickBid}
                 />
               </Col>
@@ -134,9 +133,9 @@ const AuctionDetailRigth = ({
           {supported && (
             <Col sm={12} className="auction-box text-center">
               <div className="text-center">
-                <img className="npo-thumb" src={supported.thumbs.thumb} alt="" />
+                <img className="npo-thumb" src={supported.thumbs.thumb} alt="thumb" />
                 <FormattedMessage
-                  id="auction.detail.lastbid"
+                  id="auction.detail.proceedsSupport"
                   defaultMessage="Proceeds support "
                 />
                 <strong>{supported.name}</strong>
@@ -148,8 +147,8 @@ const AuctionDetailRigth = ({
       <CustomModal
         actionsChildren={(
           <>
-            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text="Cancel" />
-            <Button extraClass="success-full" onClick={() => { }} text="Save" />
+            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })} />
+            <Button extraClass="success-full" onClick={() => { }} text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })} />
           </>
         )}
         bodyChildren={(
@@ -182,7 +181,10 @@ const AuctionDetailRigth = ({
         )}
         onHide={() => setIsShowModal(false)}
         show={isShowModal}
-        title="Subscrever leilão"
+        title={translateMessage({
+          id: 'auction.detail.subscribeAuction',
+          defaultMessage: 'Subscribe auction leilão',
+        })}
       />
     </>
   );
