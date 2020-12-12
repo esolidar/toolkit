@@ -22,7 +22,7 @@ import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/Cr
 
 const AuctionDetail = ({
   auction,
-  listAuctionCategorie,
+  listAuctions,
   listBid,
   listBidTotal,
   showMoreContributes,
@@ -352,14 +352,14 @@ const AuctionDetail = ({
           </Row>
           <Row>
             <AuctionOthers
-              listAuctions={listAuctionCategorie}
+              listAuctions={listAuctions}
             />
           </Row>
           <Row>
             <Col sm={3} className="mx-auto">
               <Button
                 extraClass="info"
-                href="/auctions/"
+                href="/auctions/list"
                 text={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
               />
             </Col>
@@ -471,7 +471,7 @@ AuctionDetail.propTypes = {
   listBidTotal: PropTypes.number,
   showMoreContributes: PropTypes.func,
   translateMessage: PropTypes.func,
-  listAuctionCategorie: PropTypes.func,
+  listAuctions: PropTypes.array,
   listBid: PropTypes.array,
   postAsCompany: PropTypes.func,
   postAsUser: PropTypes.func,

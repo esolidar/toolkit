@@ -19,7 +19,7 @@ const AuctionLastBid = ({
   return (
     <Col sm={12}>
       <Row>
-        <Col className="box sticky-top" style={{ width: '100%', 'margin-top': '75px' }}>
+        <Col className="box sticky-top" style={{ width: '100%', 'margin-top': '48px' }}>
           <p className="control-label mb-2">
             {auction.last_bid ? (
               <FormattedMessage

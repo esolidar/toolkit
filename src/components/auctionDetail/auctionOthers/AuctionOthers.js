@@ -18,7 +18,7 @@ const AuctionOthers = ({
 );
 
 AuctionOthers.propTypes = {
-  listAuctions: PropTypes.object,
+  listAuctions: PropTypes.array,
 };
 
 export default AuctionOthers;
