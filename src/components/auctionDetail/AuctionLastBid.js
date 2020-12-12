@@ -121,7 +121,7 @@ AuctionLastBid.propTypes = {
   valueBidTextField: PropTypes.func,
   isShowModal: PropTypes.func,
   error: PropTypes.string,
-  translateMessage: PropTypes.string,
+  translateMessage: PropTypes.func,
 };
 
 export default AuctionLastBid;

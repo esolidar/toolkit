@@ -54,7 +54,7 @@ export default CreateComment;
 
 CreateComment.propTypes = {
   comment: PropTypes.string,
-  env: PropTypes.string.isRequired,
+  env: PropTypes.object.isRequired,
   translateMessage: PropTypes.func.isRequired,
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,

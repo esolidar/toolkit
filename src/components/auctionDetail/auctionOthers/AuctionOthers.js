@@ -8,7 +8,7 @@ const AuctionOthers = ({
 }) => (
   <>
     {listAuctions && listAuctions.map((auction) => (
-      <Col sm={3}>
+      <Col key={auction.id} sm={3}>
         <AuctionThumb
           auction={auction}
         />
@@ -19,6 +19,9 @@ const AuctionOthers = ({
 
 AuctionOthers.propTypes = {
   listAuctions: PropTypes.array,
+  auction: PropTypes.shape({
+    id: PropTypes.number,
+  }),
 };
 
 export default AuctionOthers;

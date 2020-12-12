@@ -1,11 +1,7 @@
 .mdPrivateCode {
   width         : 600px;
   min-height    : 300px;
-  // position: absolute;
   z-index       : 999;
-  // top: 200px;
-  // left: 50%;
-  // margin-left: -300px;
   background    : #fff;
   border        : 1px solid #e7eaed;
   box-shadow    : 0 1px 1px 0 rgba(0, 0, 0, .05);
@@ -34,10 +30,6 @@
       margin: 15px 15px 0 15px;
     }
   }
-
-  // .contribute-row-box .message {
-  //   display: block !important;
-  // }
 
   .auction-supported {
     font-family   : $fontFamily;

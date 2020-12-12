@@ -426,7 +426,7 @@ AuctionDetail.propTypes = {
   auction: PropTypes.shape({
     id: PropTypes.number,
     status: PropTypes.string,
-    private: PropTypes.bool,
+    private: PropTypes.number,
     bid_start: PropTypes.number,
     currency: PropTypes.object,
     dateLimit: PropTypes.string,

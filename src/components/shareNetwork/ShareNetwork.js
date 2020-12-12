@@ -127,7 +127,7 @@ const ShareNetwork = ({
 
 ShareNetwork.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.array,
   description: PropTypes.string,
 };
 

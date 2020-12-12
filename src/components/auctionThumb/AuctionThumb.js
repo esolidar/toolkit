@@ -107,7 +107,7 @@ const AuctionThumb = ({
 
 AuctionThumb.propTypes = {
   auction: PropTypes.shape({
-    private: PropTypes.bool,
+    private: PropTypes.number,
     bid_start: PropTypes.number,
     currency: PropTypes.object,
     dateLimit: PropTypes.string,
