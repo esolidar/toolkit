@@ -1,4 +1,8 @@
 .box {
+  display         : flex;
+  align-items     : start;
+  justify-content : space-between;
+  flex-direction  : row;
   background-color: #FFFFFF;
   box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
   border          : 1px solid #E7EAED;
@@ -6,7 +10,12 @@
   padding         : 40px;
   margin-bottom   : 15px;
 
-  p {
+  @media(max-width: 1024px) {
+    flex-direction: column;
+    align-items   : center;
+  }
+
+  & .text {
     color         : $mainTextColorDark;
     font-size     : 15px;
     letter-spacing: 0;
@@ -15,8 +24,9 @@
     margin        : 0;
   }
 
-  .btn-box-info {
-    float      : right;
-    margin-left: 15px;
+  & .button {
+    @media(max-width: 1024px) {
+      margin-top: 10px;
+    }
   }
 }
