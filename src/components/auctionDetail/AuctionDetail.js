@@ -94,7 +94,7 @@ const AuctionDetail = ({
       return false;
     }
 
-    if (((valueBid > bidValueAuction) && (valueBid < (auction.bid_interval + bidValueAuction)))) {
+    if (valueBid > bidValueAuction) {
       setIsShowModal(true);
       setError('');
     } else {
