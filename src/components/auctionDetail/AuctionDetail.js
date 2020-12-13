@@ -26,6 +26,7 @@ const AuctionDetail = ({
   errorMsgPrivateCode,
   confirmPrivateCode,
   auction,
+  auctionSubscribe,
   listAuctions,
   listBid,
   listBidTotal,
@@ -252,8 +253,9 @@ const AuctionDetail = ({
                       handleClickBid={handleClickBid}
                       valueBidTextField={valueBidTextField}
                       translateMessage={translateMessage}
-                      error={error}
+                      auctionSubscribe={auctionSubscribe}
                       minValue={bidValueAuction}
+                      error={error}
                     />
                   </Row>
                 </Col>

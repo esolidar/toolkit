@@ -11,6 +11,7 @@ import CheckboxField from '../../elements/checkboxField/CheckboxField';
 const AuctionDetailRigth = ({
   auctionTitle,
   auction,
+  auctionSubscribe,
   isShowBid,
   isEnded,
   handleClickBid,
@@ -148,8 +149,16 @@ const AuctionDetailRigth = ({
       <CustomModal
         actionsChildren={(
           <>
-            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })} />
-            <Button extraClass="success-full" onClick={() => { }} text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })} />
+            <Button
+              extraClass="dark"
+              onClick={() => setIsShowModal(false)}
+              text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+            />
+            <Button
+              extraClass="success-full"
+              onClick={auctionSubscribe(isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H)}
+              text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })}
+            />
           </>
         )}
         bodyChildren={(
@@ -194,6 +203,7 @@ const AuctionDetailRigth = ({
 AuctionDetailRigth.propTypes = {
   auctionTitle: PropTypes.string,
   auction: PropTypes.object,
+  auctionSubscribe: PropTypes.func,
   isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
   handleClickBid: PropTypes.func,
