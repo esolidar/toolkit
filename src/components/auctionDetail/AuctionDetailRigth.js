@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { convertToMyCurrency } from '../../utils/index';
 import Button from '../button/Button';
 import TextField from '../../elements/textField/TextField';
-import CustomModal from '../../elements/customModal/CustomModal';
-import CheckboxField from '../../elements/checkboxField/CheckboxField';
 
 const AuctionDetailRigth = ({
   auctionTitle,
   auction,
-  auctionSubscribe,
   isShowBid,
   isEnded,
   handleClickBid,
@@ -19,23 +16,18 @@ const AuctionDetailRigth = ({
   error,
   translateMessage,
   minValue,
+  showModalSubscribe,
 }) => {
-  const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
-  const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
-  const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
-  const [isShowModal, setIsShowModal] = useState(false);
-
-  const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
-
-  const selectedCheck = (e, i) => {
-    const { checked } = e.target;
-
-    if (i === 0) setIsCheckedEmailStart(checked);
-    if (i === 1) setIsCheckedEmailFirstBid(checked);
-    if (i === 2) setIsCheckedEmail24H(checked);
-  };
-
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
+
+  let supported = '';
+  if (auction.brand) {
+    supported = auction.brand;
+  } else if (auction.recipient) {
+    supported = auction.recipient.institution;
+  } else {
+    supported = auction.recipient.causes;
+  }
 
   return (
     <>
@@ -102,7 +94,7 @@ const AuctionDetailRigth = ({
                 <button
                   type="button"
                   className="btn btn-link"
-                  onClick={() => setIsShowModal(true)}
+                  onClick={showModalSubscribe}
                 >
                   <FormattedMessage
                     id="auction.detail.subscribeAuction"
@@ -135,7 +127,7 @@ const AuctionDetailRigth = ({
           {supported && (
             <Col sm={12} className="auction-box text-center">
               <div className="text-center">
-                <img className="npo-thumb" src={supported.thumbs.thumb} alt="thumb" />
+                <img className="npo-thumb" src={auction.brand ? supported.logo_thumbs.thumb : supported.thumbs.thumb} alt="thumb" />
                 <FormattedMessage
                   id="auction.detail.proceedsSupport"
                   defaultMessage="Proceeds support "
@@ -146,56 +138,6 @@ const AuctionDetailRigth = ({
           )}
         </div>
       </Col>
-      <CustomModal
-        actionsChildren={(
-          <>
-            <Button
-              extraClass="dark"
-              onClick={() => setIsShowModal(false)}
-              text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
-            />
-            <Button
-              extraClass="success-full"
-              onClick={auctionSubscribe(isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H)}
-              text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })}
-            />
-          </>
-        )}
-        bodyChildren={(
-          <>
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.subscribe.check1',
-                defaultMessage: 'Send me an email when the auction start.',
-              })}
-              onChange={(e) => selectedCheck(e, 0)}
-              checked={isCheckedEmailStart}
-            />
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.subscribe.check2',
-                defaultMessage: 'Send me an email when someone makes the first bid.',
-              })}
-              onChange={(e) => selectedCheck(e, 1)}
-              checked={isCheckedEmailFirstBid}
-            />
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.subscribe.check3',
-                defaultMessage: 'Send me an email 24 hours before the auction ends.',
-              })}
-              onChange={(e) => selectedCheck(e, 2)}
-              checked={isCheckedEmail24H}
-            />
-          </>
-        )}
-        onHide={() => setIsShowModal(false)}
-        show={isShowModal}
-        title={translateMessage({
-          id: 'auction.detail.subscribeAuction',
-          defaultMessage: 'Subscribe auction leilão',
-        })}
-      />
     </>
   );
 };
@@ -203,7 +145,6 @@ const AuctionDetailRigth = ({
 AuctionDetailRigth.propTypes = {
   auctionTitle: PropTypes.string,
   auction: PropTypes.object,
-  auctionSubscribe: PropTypes.func,
   isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
   handleClickBid: PropTypes.func,
@@ -211,6 +152,7 @@ AuctionDetailRigth.propTypes = {
   error: PropTypes.string,
   translateMessage: PropTypes.func,
   minValue: PropTypes.number,
+  showModalSubscribe: PropTypes.func,
 };
 
 AuctionDetailRigth.defaultProps = {

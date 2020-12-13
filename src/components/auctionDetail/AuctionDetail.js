@@ -45,9 +45,14 @@ const AuctionDetail = ({
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
   const [valueBid, setValueBid] = useState(0);
   const [userComment, setUserComment] = useState('');
   const [error, setError] = useState('');
+
+  const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
+  const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
+  const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
   const isEnded = (todaysDate > new Date(auction.dateLimit));
@@ -88,8 +93,16 @@ const AuctionDetail = ({
     if (i === 2) setIsCheckedTerms(checked);
   };
 
-  const modalShow = () => {
-    setIsShowModal(true);
+  const modalShowSubscribe = () => {
+    setIsShowModalSubscribe(true);
+  };
+
+  const selectedCheckSubscribe = (e, i) => {
+    const { checked } = e.target;
+
+    if (i === 0) setIsCheckedEmailStart(checked);
+    if (i === 1) setIsCheckedEmailFirstBid(checked);
+    if (i === 2) setIsCheckedEmail24H(checked);
   };
 
   const handleClickBid = () => {
@@ -253,7 +266,7 @@ const AuctionDetail = ({
                       handleClickBid={handleClickBid}
                       valueBidTextField={valueBidTextField}
                       translateMessage={translateMessage}
-                      auctionSubscribe={auctionSubscribe}
+                      showModalSubscribe={modalShowSubscribe}
                       minValue={bidValueAuction}
                       error={error}
                     />
@@ -295,7 +308,7 @@ const AuctionDetail = ({
                     auction={auction}
                     isEnded={isEnded}
                     handleClickBid={handleClickBid}
-                    isShowModal={modalShow}
+                    isShowModal={modalShowSubscribe}
                     error={error}
                     translateMessage={translateMessage}
                   />
@@ -429,6 +442,56 @@ const AuctionDetail = ({
         }
         size="lg"
       />
+      <CustomModal
+        actionsChildren={(
+          <>
+            <Button
+              extraClass="dark"
+              onClick={() => setIsShowModalSubscribe(false)}
+              text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+            />
+            <Button
+              extraClass="success-full"
+              onClick={auctionSubscribe(isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H)}
+              text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })}
+            />
+          </>
+        )}
+        bodyChildren={(
+          <>
+            <CheckboxField
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check1',
+                defaultMessage: 'Send me an email when the auction start.',
+              })}
+              onChange={(e) => selectedCheckSubscribe(e, 0)}
+              checked={isCheckedEmailStart}
+            />
+            <CheckboxField
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check2',
+                defaultMessage: 'Send me an email when someone makes the first bid.',
+              })}
+              onChange={(e) => selectedCheckSubscribe(e, 1)}
+              checked={isCheckedEmailFirstBid}
+            />
+            <CheckboxField
+              label={translateMessage({
+                id: 'auction.modal.subscribe.check3',
+                defaultMessage: 'Send me an email 24 hours before the auction ends.',
+              })}
+              onChange={(e) => selectedCheckSubscribe(e, 2)}
+              checked={isCheckedEmail24H}
+            />
+          </>
+        )}
+        onHide={() => setIsShowModalSubscribe(false)}
+        show={isShowModalSubscribe}
+        title={translateMessage({
+          id: 'auction.detail.subscribeAuction',
+          defaultMessage: 'Subscribe auction leilão',
+        })}
+      />
     </Container>
   );
 };
@@ -438,6 +501,7 @@ AuctionDetail.propTypes = {
   handleChangePrivateCode: PropTypes.func,
   errorMsgPrivateCode: PropTypes.func,
   confirmPrivateCode: PropTypes.func,
+  auctionSubscribe: PropTypes.func,
   auction: PropTypes.shape({
     id: PropTypes.number,
     status: PropTypes.string,

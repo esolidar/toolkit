@@ -11,7 +11,7 @@ const AuctionSupport = ({
 
   return (
     <Row>
-      <Col md={10} className="support-cause offset-md-1">
+      <Col className="support-cause">
         {supported.institution && (
           <Row className="content-header">
             <Col sm={2} className="text-center">
