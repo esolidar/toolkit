@@ -10,25 +10,21 @@ const DescriptionDetail = ({
   showMoreDescButton,
 }) => (
   <>
-    {description && (
-    <>
-      <div className="shipping-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
-        {title}
-      </div>
-      <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
-        <span>{description}</span>
-      </div>
-      {showMoreDescButton && (
-      <div className="d-block d-sm-none text-center">
-        <button type="button" onClick={showMoreDescButton} className="readmore-button">
-          <FormattedMessage
-            id="readmore"
-            defaultMessage="Read more"
-          />
-        </button>
-      </div>
-      )}
-    </>
+    <div className="shipping-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
+      {title}
+    </div>
+    <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
+      <span>{description}</span>
+    </div>
+    {showMoreDescButton && (
+    <div className="d-block d-sm-none text-center">
+      <button type="button" onClick={showMoreDescButton} className="readmore-button">
+        <FormattedMessage
+          id="readmore"
+          defaultMessage="Read more"
+        />
+      </button>
+    </div>
     )}
   </>
 );

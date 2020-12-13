@@ -17,6 +17,7 @@ const AuctionDetailRigth = ({
   valueBidTextField,
   error,
   translateMessage,
+  minValue,
 }) => {
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
@@ -86,7 +87,7 @@ const AuctionDetailRigth = ({
                   type="text"
                   onChange={(e) => valueBidTextField(e)}
                   error={error}
-                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value' })}
+                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value: {value}', value: `${minValue + 1}` })}
                 />
               </Col>
               <Col sm={6}>
@@ -199,6 +200,7 @@ AuctionDetailRigth.propTypes = {
   valueBidTextField: PropTypes.func,
   error: PropTypes.string,
   translateMessage: PropTypes.func,
+  minValue: PropTypes.number,
 };
 
 AuctionDetailRigth.defaultProps = {

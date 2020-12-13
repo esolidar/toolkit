@@ -15,7 +15,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
     }}
   auction={
     {
-        private: 0,
+        private: 1,
         id: 299,
         user_id: 1124,
         cause_id: null,

@@ -21,6 +21,10 @@ import AuctionOthers from './auctionOthers/AuctionOthers';
 import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/CrowdfundingContributesListBox';
 
 const AuctionDetail = ({
+  accessAuction,
+  handleChangePrivateCode,
+  errorMsgPrivateCode,
+  confirmPrivateCode,
   auction,
   listAuctions,
   listBid,
@@ -121,7 +125,7 @@ const AuctionDetail = ({
 
   return (
     <Container className="auction-detail mt-3">
-      {auction.private === 1 && (
+      {!accessAuction && (
         <Row>
           <Col className="mdPrivateCode">
             <Row>
@@ -135,29 +139,33 @@ const AuctionDetail = ({
             <Row>
               <TextField
                 className="private-code pb-5"
-                label=""
                 type="text"
-                onChange={() => { }}
-                error=""
+                onChange={handleChangePrivateCode}
+                error={errorMsgPrivateCode}
                 placeholder={translateMessage({ id: 'auction.private.insertCode', defaultMessage: 'Insert the code' })}
               />
             </Row>
-            <div className="text-right">
-              <Button
-                className="auction-private-cancel mr-3"
-                extraClass="dark"
-                text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
-              />
-              <Button
-                className="auction-private-cancel"
-                extraClass="success-full"
-                text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
-              />
-            </div>
+            <Row>
+              <Col className="d-flex justify-content-center">
+                <Col sm={4} className="d-flex">
+                  <Button
+                    className="auction-private-cancel mr-3"
+                    extraClass="dark"
+                    text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+                  />
+                  <Button
+                    className="auction-private-cancel"
+                    extraClass="success-full"
+                    onClick={confirmPrivateCode}
+                    text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
+                  />
+                </Col>
+              </Col>
+            </Row>
           </Col>
         </Row>
       )}
-      {auction.private === 0 && (
+      {accessAuction && (
         <>
           <Row>
             <Col md={12} className="content-wrapper">
@@ -245,6 +253,7 @@ const AuctionDetail = ({
                       valueBidTextField={valueBidTextField}
                       translateMessage={translateMessage}
                       error={error}
+                      minValue={bidValueAuction}
                     />
                   </Row>
                 </Col>
@@ -369,8 +378,8 @@ const AuctionDetail = ({
       <CustomModal
         actionsChildren={(
           <>
-            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text="Cancel" />
-            <Button extraClass="success-full" onClick={() => { }} text="Confirm" />
+            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })} />
+            <Button extraClass="success-full" onClick={() => { }} text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })} />
           </>
         )}
         bodyChildren={(
@@ -423,6 +432,10 @@ const AuctionDetail = ({
 };
 
 AuctionDetail.propTypes = {
+  accessAuction: PropTypes.bool,
+  handleChangePrivateCode: PropTypes.func,
+  errorMsgPrivateCode: PropTypes.func,
+  confirmPrivateCode: PropTypes.func,
   auction: PropTypes.shape({
     id: PropTypes.number,
     status: PropTypes.string,
