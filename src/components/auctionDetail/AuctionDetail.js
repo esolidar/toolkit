@@ -27,7 +27,6 @@ const AuctionDetail = ({
   confirmPrivateCode,
   auction,
   auctionSubscribe,
-  listAuctions,
   comments,
   loadingNewComment,
   onSubmitComment,
@@ -42,6 +41,9 @@ const AuctionDetail = ({
   newBid,
   auctionsGetBidList,
   auctionsBidList,
+  auctionsGetList,
+  auctionList,
+  companyId,
 }) => {
   const [isShowmoreDesc] = useState(false);
   const [isShowMoreDescButton] = useState(true);
@@ -59,6 +61,8 @@ const AuctionDetail = ({
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
 
+  const [auctionOthers, setauctionOthers] = useState([]);
+
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
   const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
@@ -70,6 +74,7 @@ const AuctionDetail = ({
 
   useEffect(() => {
     auctionsGetBidList(auction.id, page, perPage);
+    auctionsGetList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
   }, []);
 
   useEffect(() => {
@@ -79,10 +84,14 @@ const AuctionDetail = ({
       setPage(auctionsBidList.data.current_page);
     }
 
+    if (auctionList.code === 200) {
+      setauctionOthers(auctionList.data.data);
+    }
+
     if (newBid.code === 200) {
       setIsShowModal(false);
     }
-  }, [auctionsBidList, newBid]);
+  }, [auctionsBidList, auctionList, newBid]);
 
   const auctionTitle = () => {
     let title;
@@ -418,7 +427,7 @@ const AuctionDetail = ({
           </Row>
           <Row>
             <AuctionOthers
-              listAuctions={listAuctions}
+              listAuctions={auctionOthers}
             />
           </Row>
           <Row>
@@ -622,11 +631,7 @@ AuctionDetail.propTypes = {
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
   }),
-  listBidTotal: PropTypes.number,
-  showMoreContributes: PropTypes.func,
   translateMessage: PropTypes.func,
-  listAuctions: PropTypes.array,
-  listBid: PropTypes.array,
   postAsCompany: PropTypes.func,
   postAsUser: PropTypes.func,
   comments: PropTypes.array,
@@ -635,7 +640,6 @@ AuctionDetail.propTypes = {
   requireLogin: PropTypes.func,
   user: PropTypes.number,
   reply: PropTypes.array,
-  bidAction: PropTypes.func,
   postNewBid: PropTypes.func,
   newBid: PropTypes.array,
 };
