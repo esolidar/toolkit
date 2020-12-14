@@ -26,22 +26,29 @@
     outline        : none;
   }
 
-  &.disabled {
-    opacity: 0.5;
-    cursor : not-allowed;
-  }
-
   &:disabled {
     opacity: 0.5;
     cursor : not-allowed;
   }
 
+  &.disabled {
+    opacity: 0.5;
+    cursor : not-allowed;
+  }
+
+  &.rounded {
+    border-radius: 100px !important;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
 
   &.btn {
     &-info {
       color           : $btnInfo;
       background-color: #fff;
-      border          : 2px solid $btnInfo;
+      border          : 1px solid $btnInfo;
       box-shadow      : none;
 
       &:hover {
@@ -54,7 +61,7 @@
     &-dark {
       color           : $btnDark;
       background-color: #fff;
-      border          : 2px solid $btnDark;
+      border          : 1px solid $btnDark;
       box-shadow      : none;
 
       &:hover {
@@ -68,11 +75,11 @@
         cursor : not-allowed;
       }
     }
-    
+
     &-success {
       color           : $btnSuccess;
       background-color: #fff;
-      border          : 2px solid $btnSuccess;
+      border          : 1px solid $btnSuccess;
       box-shadow      : none;
 
       &:hover {
@@ -85,7 +92,7 @@
     &-danger {
       color           : $btnDanger;
       background-color: #fff;
-      border          : 2px solid $btnDanger;
+      border          : 1px solid $btnDanger;
       box-shadow      : none;
 
       &:hover {
@@ -98,7 +105,7 @@
     &-warning {
       color           : $btnWarning;
       background-color: #fff;
-      border          : 2px solid $btnWarning;
+      border          : 1px solid $btnWarning;
       box-shadow      : none;
 
       &:hover {
@@ -109,7 +116,7 @@
     }
 
     &-info-full {
-      border          : 2px solid $btnInfo;
+      border          : 1px solid $btnInfo;
       color           : #fff !important;
       background-color: $btnInfo;
 
@@ -120,7 +127,7 @@
     }
 
     &-dark-full {
-      border          : 2px solid $btnDark;
+      border          : 1px solid $btnDark;
       color           : #fff !important;
       background-color: $btnDark;
 
@@ -131,7 +138,7 @@
     }
 
     &-success-full {
-      border          : 2px solid $btnSuccess;
+      border          : 1px solid $btnSuccess;
       color           : #fff !important;
       background-color: $btnSuccess;
 
@@ -142,7 +149,7 @@
     }
 
     &-danger-full {
-      border          : 2px solid $btnDanger;
+      border          : 1px solid $btnDanger;
       color           : #fff !important;
       background-color: $btnDanger;
 
@@ -153,7 +160,7 @@
     }
 
     &-warning-full {
-      border          : 2px solid $btnWarning;
+      border          : 1px solid $btnWarning;
       color           : #fff !important;
       background-color: $btnWarning;
 

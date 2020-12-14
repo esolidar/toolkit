@@ -30,7 +30,45 @@ import { Button } from '@esolidar/toolkit';
       href="#"
       text="warning-full"
     />
-  <Button extraClass="link" target="_blank" href="#" text="link" />
+    <Button extraClass="link" target="_blank" href="#" text="link" />
+  </div>
+  <h5>Rounded</h5>
+  <div className="mb-3">
+    <Button
+      extraClass="info-full"
+      target="_blank"
+      href="#"
+      text="info-full"
+      rounded={true}
+    />
+    <Button
+      extraClass="dark-full"
+      target="_blank"
+      href="#"
+      text="dark-full"
+      rounded={true}
+    />
+    <Button
+      extraClass="success-full"
+      target="_blank"
+      href="#"
+      text="success-full"
+      rounded={true}
+    />
+    <Button
+      extraClass="danger-full"
+      target="_blank"
+      href="#"
+      text="danger-full"
+      rounded={true}
+    />
+    <Button
+      extraClass="warning-full"
+      target="_blank"
+      href="#"
+      text="warning-full"
+      rounded={true}
+    />
   </div>
   <h5>Outline</h5>
   <div className="mb-3">

@@ -53,6 +53,7 @@ export { default as CreditCardList } from './components/creditCardList/CreditCar
 
 // Elements
 export { default as Button } from './elements/button/Button';
+export { default as ButtonGroup } from './elements/buttonGroup/ButtonGroup';
 export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';
