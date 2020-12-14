@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import moment from 'moment-timezone';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import AuctionDetailRigth from './AuctionDetailRigth';
@@ -28,9 +28,6 @@ const AuctionDetail = ({
   auction,
   auctionSubscribe,
   listAuctions,
-  listBid,
-  listBidTotal,
-  showMoreContributes,
   comments,
   loadingNewComment,
   onSubmitComment,
@@ -41,17 +38,26 @@ const AuctionDetail = ({
   user,
   reply,
   env,
+  postNewBid,
+  newBid,
+  auctionsGetBidList,
+  auctionsBidList,
 }) => {
   const [isShowmoreDesc] = useState(false);
   const [isShowMoreDescButton] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
+  const [isCheckedNotifications, setIsCheckedNotifications] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
   const [valueBid, setValueBid] = useState(0);
   const [userComment, setUserComment] = useState('');
   const [error, setError] = useState('');
+
+  const [listUsersBid, setListUsersBid] = useState([]);
+  const [listBidTotal, setListBidTotal] = useState(0);
+  const [page, setPage] = useState(1);
 
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
@@ -60,6 +66,23 @@ const AuctionDetail = ({
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
   const isEnded = (todaysDate > new Date(auction.dateLimit));
   const bidValueAuction = auction.last_bid ? auction.last_bid.value : auction.bid_start;
+  const perPage = 2;
+
+  useEffect(() => {
+    auctionsGetBidList(auction.id, page, perPage);
+  }, []);
+
+  useEffect(() => {
+    if (auctionsBidList.code === 200) {
+      setListUsersBid([...listUsersBid, ...auctionsBidList.data.data]);
+      setListBidTotal(auctionsBidList.data.total);
+      setPage(auctionsBidList.data.current_page);
+    }
+
+    if (newBid.code === 200) {
+      setIsShowModal(false);
+    }
+  }, [auctionsBidList, newBid]);
 
   const auctionTitle = () => {
     let title;
@@ -94,6 +117,7 @@ const AuctionDetail = ({
     if (i === 0) setIsAnonymous(checked);
     if (i === 1) setIsCheckedLegal(checked);
     if (i === 2) setIsCheckedTerms(checked);
+    if (i === 3) setIsCheckedNotifications(checked);
   };
 
   const modalShowSubscribe = () => {
@@ -115,16 +139,30 @@ const AuctionDetail = ({
       return false;
     }
 
-    if (valueBid > bidValueAuction) {
+    if (valueBid >= bidValueAuction + auction.bid_interval) {
       setIsShowModal(true);
       setError('');
     } else {
-      setError(translateMessage({ id: 'auction.detail.error.bid', defaultMessage: `Put a numeric value equal or higher than ${bidValueAuction + 1}` }));
+      setError(translateMessage({ id: 'auction.detail.error.bid', defaultMessage: `Put a numeric value equal or higher than ${bidValueAuction + auction.bid_interval}` }));
     }
   };
 
   const onChangeComments = (e) => {
     setUserComment(e.target.value);
+  };
+
+  const showMoreContributes = () => {
+    auctionsGetBidList(auction.id, page + 1, perPage);
+  };
+
+  const handleConfirmBid = () => {
+    const bidValues = {
+      value: valueBid,
+      hidden: 0,
+      last4: 1234,
+    };
+
+    postNewBid(bidValues, auction.id);
   };
 
   let supported = '';
@@ -273,7 +311,7 @@ const AuctionDetail = ({
                       valueBidTextField={valueBidTextField}
                       translateMessage={translateMessage}
                       showModalSubscribe={modalShowSubscribe}
-                      minValue={bidValueAuction}
+                      minValue={bidValueAuction + auction.bid_interval}
                       error={error}
                     />
                   </Row>
@@ -339,17 +377,17 @@ const AuctionDetail = ({
                     loadingNewComment={loadingNewComment}
                     thumb={thumb}
                   />
-                  <Comments
+                  {/* <Comments
                     requireLogin={requireLogin}
                     comments={comments}
                     replies={reply}
                     user={user}
                     env="https://static.testesolidar.com"
-                  />
+                  /> */}
                 </Col>
                 <Col xs={12} sm={4}>
                   <CrowdfundingContributesListBox
-                    contributesList={listBid}
+                    contributesList={listUsersBid}
                     loadingContributes={false}
                     total={listBidTotal}
                     showMoreContributes={showMoreContributes}
@@ -395,55 +433,88 @@ const AuctionDetail = ({
         </>
       )}
       <CustomModal
+        onHide={() => setIsShowModal(false)}
+        show={isShowModal}
+        title={(
+          <h2>
+            <FormattedMessage
+              id="auction.modal.bid.confirm"
+              defaultMessage="Confirm bid value {value}"
+              values={{
+                value: <FormattedNumber
+                  value={valueBid}
+                  style="currency"
+                  currency={auction.currency.small}
+                />,
+              }}
+            />
+
+          </h2>
+        )}
         actionsChildren={(
           <>
             <Button extraClass="dark" onClick={() => setIsShowModal(false)} text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })} />
-            <Button extraClass="success-full" onClick={() => { }} text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })} />
+            <Button extraClass="success-full" onClick={handleConfirmBid} text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })} />
           </>
         )}
         bodyChildren={(
           <>
-            <div>
+            <div className="mb-5">
               {translateMessage({
                 id: 'auction.modal.bid.email',
-                defaultMessage: 'If you are the winner you will receive an email to:',
+                defaultMessage: 'If you are the winner you will receive an email to: ',
               })}
+              <br />
+              {user.email}
+              <span> (</span>
+              <a href="/user/settings" title={translateMessage({ id: 'auction.modal.bid.chageEmail', defaultMessage: 'change e-mail' })}>
+                {translateMessage({ id: 'auction.modal.bid.chageEmail', defaultMessage: 'change e-mail' })}
+              </a>
+              <span>)</span>
             </div>
-
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.bid.anonymousBid',
-                defaultMessage: 'Anonymous bid',
-              })}
-              onChange={(e) => selectedCheck(e, 0)}
-              checked={isAnonymous}
-            />
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.bid.check1',
-                defaultMessage: 'eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it.',
-              })}
-              onChange={(e) => selectedCheck(e, 1)}
-              checked={isCheckedLegal}
-            />
-            <CheckboxField
-              label={translateMessage({
-                id: 'auction.modal.bid.check2',
-                defaultMessage: 'I agree with eSolidar’s Privacy Policy and Terms and Conditions.',
-              })}
-              onChange={(e) => selectedCheck(e, 2)}
-              checked={isCheckedTerms}
-            />
+            <div className="mb-2">
+              <CheckboxField
+                className="mb-2"
+                label={translateMessage({
+                  id: 'auction.modal.bid.anonymousBid',
+                  defaultMessage: 'Anonymous bid',
+                })}
+                onChange={(e) => selectedCheck(e, 0)}
+                checked={isAnonymous}
+              />
+            </div>
+            <div className="mb-2">
+              <CheckboxField
+                label={translateMessage({
+                  id: 'auction.modal.bid.check1',
+                  defaultMessage: 'eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it.',
+                })}
+                onChange={(e) => selectedCheck(e, 1)}
+                checked={isCheckedLegal}
+              />
+            </div>
+            <div className="mb-2">
+              <CheckboxField
+                label={translateMessage({
+                  id: 'auction.modal.bid.check3',
+                  defaultMessage: 'To be able to bid you must first accept to receive our notifications. This will allow us to inform you whenever you win an auction.',
+                })}
+                onChange={(e) => selectedCheck(e, 3)}
+                checked={isCheckedNotifications}
+              />
+            </div>
+            <div className="mb-2">
+              <CheckboxField
+                label={translateMessage({
+                  id: 'auction.modal.bid.check2',
+                  defaultMessage: 'I agree with eSolidar’s Privacy Policy and Terms and Conditions.',
+                })}
+                onChange={(e) => selectedCheck(e, 2)}
+                checked={isCheckedTerms}
+              />
+            </div>
           </>
         )}
-        onHide={() => setIsShowModal(false)}
-        show={isShowModal}
-        title={
-          translateMessage({
-            id: 'auction.modal.bid.confirm',
-            defaultMessage: 'Confirm bid value',
-          })
-        }
         size="lg"
       />
       <CustomModal
@@ -564,6 +635,9 @@ AuctionDetail.propTypes = {
   requireLogin: PropTypes.func,
   user: PropTypes.number,
   reply: PropTypes.array,
+  bidAction: PropTypes.func,
+  postNewBid: PropTypes.func,
+  newBid: PropTypes.array,
 };
 
-export default AuctionDetail;
+export default injectIntl(AuctionDetail);

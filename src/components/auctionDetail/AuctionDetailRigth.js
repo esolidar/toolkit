@@ -82,7 +82,15 @@ const AuctionDetailRigth = ({
                   type="text"
                   onChange={(e) => valueBidTextField(e)}
                   error={error}
-                  placeholder={intl.formatMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value: {value}', value: `${minValue + 1}` })}
+                  placeholder={
+                    intl.formatMessage(
+                      {
+                        id: 'auction.textfield.minValue',
+                        defaultMessage: 'Min. Value: {value}',
+                      },
+                      { value: minValue },
+                    )
+                }
                 />
               </Col>
               <Col sm={6}>

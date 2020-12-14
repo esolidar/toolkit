@@ -9,13 +9,18 @@ import { AuctionDetail } from '@esolidar/toolkit';
 ``` jsx
 <AuctionDetail
   total={2}
+  accessAuction={true}
+  user={{
+    email: 'rocha@esolidar.com'
+  }}
   env={{
       serverlessResizeImage: 'https://image.testesolidar.com',
       cdn_static_url: 'https://static.esolidar.com',
     }}
+  auctionSubscribe ={() => {}}
   auction={
     {
-        private: 1,
+        private: 0,
         id: 299,
         user_id: 1124,
         cause_id: null,
