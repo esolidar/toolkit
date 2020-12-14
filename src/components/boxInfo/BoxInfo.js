@@ -38,4 +38,8 @@ BoxInfo.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
+BoxInfo.defaultValues = {
+  className: '',
+};
+
 export default BoxInfo;
