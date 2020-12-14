@@ -167,7 +167,7 @@ const AuctionDetail = ({
             </Row>
             <Row>
               <Col className="d-flex justify-content-center">
-                <Col className="d-flex">
+                <Col sm={6} className="d-flex">
                   <Button
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
