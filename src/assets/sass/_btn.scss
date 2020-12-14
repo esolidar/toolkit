@@ -1,14 +1,13 @@
 .btn-esolidar {
   cursor                            : pointer;
   display                           : inline-block;
-  font-weight                       : 400;
-  padding                           : .375rem .75rem;
-  font-size                         : 1rem;
-  line-height                       : 1.5;
-  border-radius                     : 4px;
+  font-weight                       : 600;
+  padding                           : 6px 16px;
+  min-width                         : 64px;
+  border-radius                     : .25rem;
   font-family                       : $fontFamily;
-  font-size                         : 17px;
   white-space                       : nowrap;
+  box-shadow                        : 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
   -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
   -moz-transition                   : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
@@ -39,27 +38,29 @@
 
 
   &.btn {
-    &-success {
-      border          : 2px solid $btnSuccess;
-      color           : $btnSuccess;
+    &-info {
+      color           : $btnInfo;
       background-color: #fff;
+      border          : 2px solid $btnInfo;
+      box-shadow      : none;
 
       &:hover {
-        background-color: $btnSuccess;
-        border-color    : $btnSuccess;
-        color           : #fff;
+        color           : white;
+        background-color: $btnInfo;
+        border-color    : $btnInfo;
       }
     }
 
     &-dark {
-      border          : 2px solid lighten($btnDark, 40%);
       color           : $btnDark;
       background-color: #fff;
+      border          : 2px solid $btnDark;
+      box-shadow      : none;
 
       &:hover {
+        color           : white;
         background-color: $btnDark;
         border-color    : $btnDark;
-        color           : #fff;
       }
 
       &.disabled {
@@ -67,62 +68,43 @@
         cursor : not-allowed;
       }
     }
-
-    &-info {
-      border          : 2px solid $btnInfo;
-      color           : $btnInfo;
+    
+    &-success {
+      color           : $btnSuccess;
       background-color: #fff;
+      border          : 2px solid $btnSuccess;
+      box-shadow      : none;
 
       &:hover {
-        background-color: $btnInfo;
-        border-color    : $btnInfo;
-        color           : #fff;
-      }
-    }
-
-    &-warning {
-      border          : 2px solid $btnWarning;
-      color           : $btnWarning;
-      background-color: #fff;
-
-      &:hover {
-        background-color: $btnWarning;
-        border-color    : $btnWarning;
-        color           : #fff;
+        color           : white;
+        background-color: $btnSuccess;
+        border-color    : $btnSuccess;
       }
     }
 
     &-danger {
-      border          : 2px solid $btnDanger;
       color           : $btnDanger;
       background-color: #fff;
+      border          : 2px solid $btnDanger;
+      box-shadow      : none;
 
       &:hover {
+        color           : white;
         background-color: $btnDanger;
         border-color    : $btnDanger;
-        color           : #fff;
       }
     }
 
-    &-success-full {
-      border          : 2px solid $btnSuccess;
-      color           : #fff !important;
-      background-color: $btnSuccess;
+    &-warning {
+      color           : $btnWarning;
+      background-color: #fff;
+      border          : 2px solid $btnWarning;
+      box-shadow      : none;
 
       &:hover {
-        background-color: darken($btnSuccess, 22%);
-        border-color    : darken($btnSuccess, 22%);
-      }
-    }
-
-    &-dark-full {
-      border          : 2px solid $btnDark;
-      color           : #fff !important;
-      background-color: $btnDark;
-
-      &:hover {
-        background-color: darken($btnDark, 22%);
-        border-color    : darken($btnDark, 22%);
+        color           : white;
+        background-color: $btnWarning;
+        border-color    : $btnWarning;
       }
     }
 
@@ -137,14 +119,25 @@
       }
     }
 
-    &-warning-full {
-      border          : 2px solid $btnWarning;
+    &-dark-full {
+      border          : 2px solid $btnDark;
       color           : #fff !important;
-      background-color: $btnWarning;
+      background-color: $btnDark;
 
       &:hover {
-        background-color: darken($btnWarning, 22%);
-        border-color    : darken($btnWarning, 22%);
+        background-color: darken($btnDark, 22%);
+        border-color    : darken($btnDark, 22%);
+      }
+    }
+
+    &-success-full {
+      border          : 2px solid $btnSuccess;
+      color           : #fff !important;
+      background-color: $btnSuccess;
+
+      &:hover {
+        background-color: darken($btnSuccess, 22%);
+        border-color    : darken($btnSuccess, 22%);
       }
     }
 
@@ -156,6 +149,30 @@
       &:hover {
         background-color: darken($btnDanger, 22%);
         border-color    : darken($btnDanger, 22%);
+      }
+    }
+
+    &-warning-full {
+      border          : 2px solid $btnWarning;
+      color           : #fff !important;
+      background-color: $btnWarning;
+
+      &:hover {
+        background-color: darken($btnWarning, 22%);
+        border-color    : darken($btnWarning, 22%);
+      }
+    }
+
+    &-link {
+      color           : $mainColor;
+      background-color: transparent;
+      box-shadow      : none;
+
+      &:hover {
+        color           : $mainColorDark;
+        text-decoration : underline;
+        background-color: transparent;
+        border-color    : transparent;
       }
     }
   }

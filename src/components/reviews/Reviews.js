@@ -5,7 +5,7 @@ import Rating from 'react-rating';
 import { filter } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import TextareaField from '../../elements/textareaField/TextareaField';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import { getEmployeeName } from '../../utils';
 
 const Reviews = ({

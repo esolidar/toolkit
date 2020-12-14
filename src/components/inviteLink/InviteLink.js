@@ -2,7 +2,7 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
 import { Row } from 'react-bootstrap';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const InviteLink = ({
   inviteLinkText, inviteLink, copyLinkFunc, copied, CopyLinkText, CopiedLinkText,

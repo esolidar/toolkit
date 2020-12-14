@@ -5,7 +5,7 @@ import { FormattedDate, FormattedMessage, FormattedNumber } from 'react-intl';
 import Moment from 'react-moment';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import TextareaField from '../../elements/textareaField/TextareaField';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const RequestDetailThumb = ({
   request, translateMessage, onReviewRequest, onCloseRequest, errors, admin,
