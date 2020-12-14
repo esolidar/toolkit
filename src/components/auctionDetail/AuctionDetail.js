@@ -127,7 +127,10 @@ const AuctionDetail = ({
     setUserComment(e.target.value);
   };
 
-  const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
+  let supported = '';
+  if (accessAuction) {
+    supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
+  }
 
   const userType = localStorage.user ? JSON.parse(localStorage.user).type : 'guest';
   let thumb = '';
@@ -144,12 +147,12 @@ const AuctionDetail = ({
     <Container className="auction-detail mt-3">
       {!accessAuction && (
         <Row>
-          <Col className="mdPrivateCode">
+          <Col sm={6} className="mdPrivateCode offset-md-3">
             <Row>
               <h3 className="pb-4">
                 <FormattedMessage
                   id="auctions.private.supportes"
-                  defaultMessage="Insert the access code to display and bid on the auction:"
+                  defaultMessage="Insert the access code to display and bid on the auction"
                 />
               </h3>
             </Row>
@@ -164,7 +167,7 @@ const AuctionDetail = ({
             </Row>
             <Row>
               <Col className="d-flex justify-content-center">
-                <Col sm={4} className="d-flex">
+                <Col className="d-flex">
                   <Button
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
@@ -174,7 +177,7 @@ const AuctionDetail = ({
                     className="auction-private-cancel"
                     extraClass="success-full"
                     onClick={confirmPrivateCode}
-                    text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
+                    text={translateMessage({ id: 'auction.private.validate', defaultMessage: 'Validate' })}
                   />
                 </Col>
               </Col>
