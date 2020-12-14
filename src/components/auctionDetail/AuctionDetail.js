@@ -37,6 +37,9 @@ const AuctionDetail = ({
   postAsUser,
   postAsCompany,
   translateMessage,
+  requireLogin,
+  user,
+  reply,
   env,
 }) => {
   const [isShowmoreDesc] = useState(false);
@@ -334,13 +337,11 @@ const AuctionDetail = ({
                     thumb={thumb}
                   />
                   <Comments
-                    comments={[]}
-                    replies={[]}
-                    getEmployeeName={() => 'Miguel Rocha'}
+                    requireLogin={requireLogin}
+                    comments={comments}
+                    replies={reply}
+                    user={user}
                     env="https://static.testesolidar.com"
-                    user={{
-                      id: 9,
-                    }}
                   />
                 </Col>
                 <Col xs={12} sm={4}>
@@ -557,6 +558,9 @@ AuctionDetail.propTypes = {
   comments: PropTypes.array,
   loadingNewComment: PropTypes.func,
   onSubmitComment: PropTypes.func,
+  requireLogin: PropTypes.func,
+  user: PropTypes.number,
+  reply: PropTypes.array,
 };
 
 export default AuctionDetail;

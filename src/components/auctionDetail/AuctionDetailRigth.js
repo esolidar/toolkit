@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+
 import { convertToMyCurrency } from '../../utils/index';
 import Button from '../button/Button';
 import TextField from '../../elements/textField/TextField';
@@ -17,6 +18,7 @@ const AuctionDetailRigth = ({
   translateMessage,
   minValue,
   showModalSubscribe,
+  intl,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
@@ -80,7 +82,7 @@ const AuctionDetailRigth = ({
                   type="text"
                   onChange={(e) => valueBidTextField(e)}
                   error={error}
-                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value: {value}', value: `${minValue + 1}` })}
+                  placeholder={intl.formatMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value: {value}', value: `${minValue + 1}` })}
                 />
               </Col>
               <Col sm={6}>
@@ -153,10 +155,13 @@ AuctionDetailRigth.propTypes = {
   translateMessage: PropTypes.func,
   minValue: PropTypes.number,
   showModalSubscribe: PropTypes.func,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
 AuctionDetailRigth.defaultProps = {
   isShowBid: true,
 };
 
-export default AuctionDetailRigth;
+export default injectIntl(AuctionDetailRigth);

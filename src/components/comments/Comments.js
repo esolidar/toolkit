@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
+import { getEmployeeName } from '../../utils';
 
 const Comments = ({
-  comments, deleteComment, deleteReply, getEmployeeName, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
+  comments, deleteComment, deleteReply, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
 
@@ -197,7 +198,6 @@ Comments.propTypes = {
   user: PropTypes.object.isRequired,
   deleteComment: PropTypes.func.isRequired,
   deleteReply: PropTypes.func,
-  getEmployeeName: PropTypes.func.isRequired,
   reply: PropTypes.string.isRequired,
   requireLogin: PropTypes.func.isRequired,
   onSubmitResponse: PropTypes.func.isRequired,
