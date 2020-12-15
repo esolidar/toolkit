@@ -7,18 +7,17 @@ import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import AuctionDetailRigth from './AuctionDetailRigth';
 import TextField from '../../elements/textField/TextField';
 import Button from '../button/Button';
-import AuctionSupport from './AuctionSupport';
 import Countdown from '../countdown/Countdown';
 import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import AuctionLastBid from './AuctionLastBid';
+import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
+import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/CrowdfundingContributesListBox';
 import Comments from '../comments/Comments';
 import CreateComment from '../comments/CreateComment';
-import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
 import CustomModal from '../../elements/customModal/CustomModal';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
 import AuctionOthers from './auctionOthers/AuctionOthers';
-import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/CrowdfundingContributesListBox';
 
 const AuctionDetail = ({
   accessAuction,
@@ -38,12 +37,12 @@ const AuctionDetail = ({
   env,
   postNewBid,
   newBid,
-  auctionsGetBidList,
-  auctionsBidList,
+  getAuctionBidList,
+  auctionBidList,
   auctionList,
   companyId,
-  auctionsGetList,
-  auctionsGetComments,
+  getAuctionList,
+  getAuctionComment,
   auctionComments,
 }) => {
   const [isShowmoreDesc] = useState(false);
@@ -75,16 +74,16 @@ const AuctionDetail = ({
   const perPage = 2;
 
   useEffect(() => {
-    auctionsGetBidList(auction.id, page, perPage);
-    auctionsGetList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
-    auctionsGetComments(auction.id, 1, '4');
+    getAuctionBidList(auction.id, page, perPage);
+    getAuctionList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
+    getAuctionComment(auction.id, 1, '4');
   }, []);
 
   useEffect(() => {
-    if (auctionsBidList.code === 200) {
-      setListUsersBid([...listUsersBid, ...auctionsBidList.data.data]);
-      setListBidTotal(auctionsBidList.data.total);
-      setPage(auctionsBidList.data.current_page);
+    if (auctionBidList.code === 200) {
+      setListUsersBid([...listUsersBid, ...auctionBidList.data.data]);
+      setListBidTotal(auctionBidList.data.total);
+      setPage(auctionBidList.data.current_page);
     }
 
     if (auctionList.code === 200) {
@@ -98,7 +97,7 @@ const AuctionDetail = ({
     if (newBid.code === 200) {
       setIsShowModal(false);
     }
-  }, [auctionsBidList, auctionList, auctionComments, newBid]);
+  }, [auctionBidList, auctionList, auctionComments, newBid]);
 
   const auctionTitle = () => {
     let title;
@@ -168,7 +167,7 @@ const AuctionDetail = ({
   };
 
   const showMoreContributes = () => {
-    auctionsGetBidList(auction.id, page + 1, perPage);
+    getAuctionBidList(auction.id, page + 1, perPage);
   };
 
   const handleConfirmBid = () => {
@@ -404,6 +403,7 @@ const AuctionDetail = ({
                 </Col>
                 <Col xs={12} sm={4}>
                   <CrowdfundingContributesListBox
+                    testeId="CrowdfundingContributesListBox"
                     contributesList={listUsersBid}
                     loadingContributes={false}
                     total={listBidTotal}
@@ -413,14 +413,6 @@ const AuctionDetail = ({
                   />
                 </Col>
               </Row>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={12}>
-              <AuctionSupport
-                auction={auction}
-                translateMessage={translateMessage}
-              />
             </Col>
           </Row>
           <Row className="other-auctions">
@@ -642,7 +634,6 @@ AuctionDetail.propTypes = {
   translateMessage: PropTypes.func,
   postAsCompany: PropTypes.func,
   postAsUser: PropTypes.func,
-  comments: PropTypes.array,
   loadingNewComment: PropTypes.func,
   onSubmitComment: PropTypes.func,
   requireLogin: PropTypes.func,
@@ -650,11 +641,13 @@ AuctionDetail.propTypes = {
   reply: PropTypes.array,
   postNewBid: PropTypes.func,
   newBid: PropTypes.array,
-  auctionsGetBidList: PropTypes.func,
-  auctionsBidList: PropTypes.array,
-  auctionsGetList: PropTypes.func,
+  getAuctionBidList: PropTypes.func,
+  auctionBidList: PropTypes.array,
+  getAuctionList: PropTypes.func,
   auctionList: PropTypes.array,
   companyId: PropTypes.number,
+  getAuctionComment: PropTypes.func,
+  auctionComments: PropTypes.array,
 };
 
 export default injectIntl(AuctionDetail);
