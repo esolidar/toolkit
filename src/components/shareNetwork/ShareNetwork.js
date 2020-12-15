@@ -26,15 +26,17 @@ const ShareNetwork = ({
   image,
   description,
 }) => (
-  <Row>
-    <Col sm={12} className="share-label text-center mb-3 mt-3">
-      <FormattedMessage
-        id="share"
-        defaultMessage="SHARE"
-      />
-    </Col>
-    <Col md={12} className="content-wrapper">
-      <Col sm={12} className="text-center">
+  <>
+    <Row>
+      <Col sm={12} className="share-label text-center mb-3 mt-3">
+        <FormattedMessage
+          id="share"
+          defaultMessage="SHARE"
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col sm={12} className="content-wrapper text-center">
         <FacebookShareButton
           url={window.location.href}
           quote={title}
@@ -48,7 +50,7 @@ const ShareNetwork = ({
         <TwitterShareButton
           url={window.location.href}
           title={title}
-          className="share-icon"
+          className="share-icon "
         >
           <TwitterIcon
             size={32}
@@ -121,8 +123,8 @@ const ShareNetwork = ({
           />
         </EmailShareButton>
       </Col>
-    </Col>
-  </Row>
+    </Row>
+  </>
 );
 
 ShareNetwork.propTypes = {
