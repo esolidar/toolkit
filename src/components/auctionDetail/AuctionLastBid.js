@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import Button from '../button/Button';
 import TextField from '../../elements/textField/TextField';
 
@@ -13,6 +13,8 @@ const AuctionLastBid = ({
   isShowModal,
   error,
   translateMessage,
+  intl,
+  minValue,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
@@ -61,7 +63,15 @@ const AuctionLastBid = ({
                   type="text"
                   onChange={(e) => valueBidTextField(e)}
                   error={error}
-                  placeholder={translateMessage({ id: 'auction.textfield.minValue', defaultMessage: 'Min. Value' })}
+                  placeholder={
+                    intl.formatMessage(
+                      {
+                        id: 'auction.textfield.minValue',
+                        defaultMessage: 'Min. Value: {value}',
+                      },
+                      { value: minValue },
+                    )
+                }
                   field="forCompanies"
                 />
               </Col>
@@ -126,6 +136,9 @@ AuctionLastBid.propTypes = {
   isShowModal: PropTypes.func,
   error: PropTypes.string,
   translateMessage: PropTypes.func,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
-export default AuctionLastBid;
+export default injectIntl(AuctionLastBid);

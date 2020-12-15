@@ -27,7 +27,6 @@ const AuctionDetail = ({
   confirmPrivateCode,
   auction,
   auctionSubscribe,
-  comments,
   loadingNewComment,
   onSubmitComment,
   postAsUser,
@@ -41,9 +40,11 @@ const AuctionDetail = ({
   newBid,
   auctionsGetBidList,
   auctionsBidList,
-  auctionsGetList,
   auctionList,
   companyId,
+  auctionsGetList,
+  auctionsGetComments,
+  auctionComments,
 }) => {
   const [isShowmoreDesc] = useState(false);
   const [isShowMoreDescButton] = useState(true);
@@ -62,6 +63,7 @@ const AuctionDetail = ({
   const [page, setPage] = useState(1);
 
   const [auctionOthers, setauctionOthers] = useState([]);
+  const [commentsList, setComments] = useState([]);
 
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
@@ -75,6 +77,7 @@ const AuctionDetail = ({
   useEffect(() => {
     auctionsGetBidList(auction.id, page, perPage);
     auctionsGetList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
+    auctionsGetComments(auction.id, 1, '4');
   }, []);
 
   useEffect(() => {
@@ -88,10 +91,14 @@ const AuctionDetail = ({
       setauctionOthers(auctionList.data.data);
     }
 
+    if (auctionComments.code === 200) {
+      setComments(auctionComments.data.data);
+    }
+
     if (newBid.code === 200) {
       setIsShowModal(false);
     }
-  }, [auctionsBidList, auctionList, newBid]);
+  }, [auctionsBidList, auctionList, auctionComments, newBid]);
 
   const auctionTitle = () => {
     let title;
@@ -364,6 +371,7 @@ const AuctionDetail = ({
                     isShowModal={modalShowSubscribe}
                     error={error}
                     translateMessage={translateMessage}
+                    minValue={bidValueAuction + auction.bid_interval}
                   />
                 </Col>
               </Row>
@@ -378,7 +386,7 @@ const AuctionDetail = ({
                   <CreateComment
                     onSubmitComment={onSubmitComment}
                     onChange={onChangeComments}
-                    comment={comments}
+                    comment={auctionComments}
                     env={env}
                     postAsCompany={postAsCompany}
                     postAsUser={postAsUser}
@@ -386,13 +394,13 @@ const AuctionDetail = ({
                     loadingNewComment={loadingNewComment}
                     thumb={thumb}
                   />
-                  {/* <Comments
+                  <Comments
                     requireLogin={requireLogin}
-                    comments={comments}
+                    comments={commentsList}
                     replies={reply}
                     user={user}
                     env="https://static.testesolidar.com"
-                  /> */}
+                  />
                 </Col>
                 <Col xs={12} sm={4}>
                   <CrowdfundingContributesListBox
@@ -642,6 +650,11 @@ AuctionDetail.propTypes = {
   reply: PropTypes.array,
   postNewBid: PropTypes.func,
   newBid: PropTypes.array,
+  auctionsGetBidList: PropTypes.func,
+  auctionsBidList: PropTypes.array,
+  auctionsGetList: PropTypes.func,
+  auctionList: PropTypes.array,
+  companyId: PropTypes.number,
 };
 
 export default injectIntl(AuctionDetail);
