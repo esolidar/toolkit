@@ -8,7 +8,6 @@ import { DescriptionDetail } from '@esolidar/toolkit';
 
 ``` jsx
 <DescriptionDetail
-  color=""
   title="Description"
   description="Test Description"
   showmoreDesc= {false}
