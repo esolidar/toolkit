@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container } from 'react-bootstrap';
-import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { isEmpty } from 'lodash';
 import moment from 'moment-timezone';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
@@ -224,13 +224,18 @@ const AuctionDetail = ({
     }
   };
 
-  const handleConfirmSubscrive = (isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H) => {
+  const handleConfirmSubscribe = (isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H) => {
+    const auctionStart = isCheckedEmailStart || 0;
+    const auctionFirstBid = isCheckedEmailFirstBid || 0;
+    const auction24hEnd = isCheckedEmail24H || 0;
+
     const subscribeChecked = {
-      auction_on_start: isCheckedEmailStart,
-      auction_first_bid: isCheckedEmailFirstBid,
-      auction_24h_end: isCheckedEmail24H,
+      auction_on_start: auctionStart,
+      auction_first_bid: auctionFirstBid,
+      auction_24h_end: auction24hEnd,
     };
-    // postAuctionSubscribe(auctionDetailInfo.id, subscribeChecked);
+    postAuctionSubscribe(auctionId, subscribeChecked);
+    setIsShowModalSubscribe(false);
   };
 
   let supported = '';
@@ -563,14 +568,15 @@ const AuctionDetail = ({
             />
             <Button
               extraClass="success-full"
-              onClick={handleConfirmSubscrive(isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H)}
+              onClick={() => handleConfirmSubscribe(isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H)}
               text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })}
             />
           </>
         )}
         bodyChildren={(
-          <>
+          <div>
             <CheckboxField
+              dataTestId="checkStart"
               label={translateMessage({
                 id: 'auction.modal.subscribe.check1',
                 defaultMessage: 'Send me an email when the auction start.',
@@ -579,6 +585,7 @@ const AuctionDetail = ({
               checked={isCheckedEmailStart}
             />
             <CheckboxField
+              dataTestId="checkEmailBid"
               label={translateMessage({
                 id: 'auction.modal.subscribe.check2',
                 defaultMessage: 'Send me an email when someone makes the first bid.',
@@ -587,6 +594,7 @@ const AuctionDetail = ({
               checked={isCheckedEmailFirstBid}
             />
             <CheckboxField
+              dataTestId="checkEmail24"
               label={translateMessage({
                 id: 'auction.modal.subscribe.check3',
                 defaultMessage: 'Send me an email 24 hours before the auction ends.',
@@ -594,7 +602,7 @@ const AuctionDetail = ({
               onChange={(e) => selectedCheckSubscribe(e, 2)}
               checked={isCheckedEmail24H}
             />
-          </>
+          </div>
         )}
         onHide={() => setIsShowModalSubscribe(false)}
         show={isShowModalSubscribe}
@@ -678,4 +686,4 @@ AuctionDetail.propTypes = {
   translateMessage: PropTypes.func,
 };
 
-export default injectIntl(AuctionDetail);
+export default AuctionDetail;

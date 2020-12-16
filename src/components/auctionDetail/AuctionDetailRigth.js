@@ -102,12 +102,12 @@ const AuctionDetailRigth = ({
               <Col sm={12} className="subscribe-auction mt-5">
                 <button
                   type="button"
-                  className="btn btn-link"
+                  className="btn btn-link "
                   onClick={showModalSubscribe}
                 >
                   <FormattedMessage
                     id="auction.detail.subscribeAuction"
-                    defaultMessage="Subscribe the auction"
+                    defaultMessage="Subscribe the auction 1"
                   />
                 </button>
               </Col>
