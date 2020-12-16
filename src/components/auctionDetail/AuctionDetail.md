@@ -8,6 +8,8 @@ import { AuctionDetail } from '@esolidar/toolkit';
 
 ``` jsx
 <AuctionDetail
+  auctionId={299}
+  getAuctionDetail={() => {}}
   auctionDetail={
     code: 200,
     data : {
@@ -464,19 +466,16 @@ import { AuctionDetail } from '@esolidar/toolkit';
     total: 50,
   }
   }
+  userPrivateCode={null}
   postNewBid={() => {}}
   newBid={[]}
   getAuctionBidList= {() => {}}
   auctionBidList={[]}
+  getAuctionList={() => {}}
   auctionList={() => {}}
   companyId="1"
-  getAuctionList={() => {}}
   getAuctionComment={() => {}}
   auctionComments={[]}
-  getAuctionDetail={() => {}}
-  userPrivateCode={null}
-  total={2}
-  accessAuction={true}
   user={{
     email: 'rocha@esolidar.com'
   }}
@@ -484,6 +483,5 @@ import { AuctionDetail } from '@esolidar/toolkit';
       serverlessResizeImage: 'https://image.testesolidar.com',
       cdn_static_url: 'https://static.esolidar.com',
     }}
-  auctionSubscribe ={() => {}}
 />
 ```

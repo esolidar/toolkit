@@ -36,10 +36,6 @@ const AuctionDetail = ({
   getAuctionComment,
   auctionComments,
   user,
-  loadingNewComment,
-  onSubmitComment,
-  postAsUser,
-  postAsCompany,
   translateMessage,
   requireLogin,
   env,
@@ -54,6 +50,10 @@ const AuctionDetail = ({
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
   const [valueBid, setValueBid] = useState(0);
   const [userComment, setUserComment] = useState('');
+  const [loadingNewComment, setLoadingNewComment] = useState('');
+  const [onSubmitComment, setOnSubmitComment] = useState('');
+  const [postAsUser, setPostAsUser] = useState('');
+  const [postAsCompany, sePostAsCompany] = useState('');
   const [error, setError] = useState('');
 
   const [listUsersBid, setListUsersBid] = useState([]);
@@ -119,8 +119,8 @@ const AuctionDetail = ({
   if (isLoadingAuction) return (<Loading />);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
-  const isEnded = (todaysDate > new Date(auctionDetail.dateLimit));
-  const bidValueAuction = auctionDetail.last_bid ? auctionDetail.last_bid.value : auctionDetail.bid_start;
+  const isEnded = (todaysDate > new Date(auctionDetailInfo.dateLimit));
+  const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
 
   const auctionTitle = () => {
     let title;
@@ -596,71 +596,70 @@ const AuctionDetail = ({
 };
 
 AuctionDetail.propTypes = {
-  auction: PropTypes.shape({
-    id: PropTypes.number,
-    status: PropTypes.string,
-    private: PropTypes.number,
-    bid_start: PropTypes.number,
-    currency: PropTypes.object,
-    dateLimit: PropTypes.string,
-    dateStart: PropTypes.string,
-    images: PropTypes.array,
-    bid_max_interval: PropTypes.number,
-    bid_interval: PropTypes.number,
-    sub_category_id: PropTypes.number,
-    listBid: PropTypes.number,
-    last_bid_value: PropTypes.shape({
-      value: PropTypes.number,
-    }),
-    recipient: PropTypes.shape({
-      institution: PropTypes.shape({
-        name: PropTypes.string,
-        thumbs: PropTypes.shape({
-          thumb: PropTypes.string,
+  auctionId: PropTypes.number,
+  getAuctionDetail: PropTypes.func,
+  auctionDetail: PropTypes.shape({
+    code: PropTypes.number,
+    data: PropTypes.shape({
+      code: PropTypes.number,
+      id: PropTypes.number,
+      status: PropTypes.string,
+      private: PropTypes.number,
+      bid_start: PropTypes.number,
+      currency: PropTypes.object,
+      dateLimit: PropTypes.string,
+      dateStart: PropTypes.string,
+      images: PropTypes.array,
+      bid_max_interval: PropTypes.number,
+      bid_interval: PropTypes.number,
+      sub_category_id: PropTypes.number,
+      listBid: PropTypes.number,
+      last_bid_value: PropTypes.shape({
+        value: PropTypes.number,
+      }),
+      recipient: PropTypes.shape({
+        institution: PropTypes.shape({
+          name: PropTypes.string,
+          thumbs: PropTypes.shape({
+            thumb: PropTypes.string,
+          }),
+        }),
+        causes: PropTypes.object,
+      }),
+      user: PropTypes.shape({
+        institution: PropTypes.shape({
+          name: PropTypes.string,
+          thumbs: PropTypes.shape({
+            thumb: PropTypes.string,
+          }),
         }),
       }),
-      causes: PropTypes.object,
-    }),
-    user: PropTypes.shape({
-      institution: PropTypes.shape({
-        name: PropTypes.string,
-        thumbs: PropTypes.shape({
-          thumb: PropTypes.string,
-        }),
+      last_bid: PropTypes.shape({
+        user: PropTypes.object,
+        value: PropTypes.number,
       }),
+      video: PropTypes.string,
+      title: PropTypes.string,
+      title_en: PropTypes.string,
     }),
-    last_bid: PropTypes.shape({
-      user: PropTypes.object,
-      value: PropTypes.number,
-    }),
-    video: PropTypes.string,
-    title: PropTypes.string,
-    title_en: PropTypes.string,
   }),
+  userPrivateCode: PropTypes.number,
+  postNewBid: PropTypes.func,
+  newBid: PropTypes.array,
+  getAuctionBidList: PropTypes.func,
+  auctionList: PropTypes.array,
+  auctionBidList: PropTypes.array,
+  requireLogin: PropTypes.func,
+  getAuctionList: PropTypes.func,
+  companyId: PropTypes.number,
+  getAuctionComment: PropTypes.func,
+  auctionComments: PropTypes.array,
+  user: PropTypes.number,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
   }),
   translateMessage: PropTypes.func,
-  postAsCompany: PropTypes.func,
-  postAsUser: PropTypes.func,
-  loadingNewComment: PropTypes.func,
-  onSubmitComment: PropTypes.func,
-  requireLogin: PropTypes.func,
-  user: PropTypes.number,
-  postNewBid: PropTypes.func,
-  newBid: PropTypes.array,
-  getAuctionBidList: PropTypes.func,
-  auctionBidList: PropTypes.array,
-  getAuctionList: PropTypes.func,
-  auctionList: PropTypes.array,
-  companyId: PropTypes.number,
-  getAuctionComment: PropTypes.func,
-  auctionComments: PropTypes.array,
-  getAuctionDetail: PropTypes.func,
-  auctionDetail: PropTypes.array,
-  userPrivateCode: PropTypes.number,
-  auctionId: PropTypes.number,
 };
 
 export default injectIntl(AuctionDetail);
