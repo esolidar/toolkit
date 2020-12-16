@@ -473,5 +473,14 @@ import { AuctionDetail } from '@esolidar/toolkit';
     total: 50,
   }
   }
+  postNewBid={() => {}}
+  newBid={[]}
+  getAuctionBidList= {() => {}}
+  auctionBidList={[]}
+  auctionList={() => {}}
+  companyId="1"
+  getAuctionList={() => {}}
+  getAuctionComment={() => {}}
+  auctionComments={[]}
 />
 ```

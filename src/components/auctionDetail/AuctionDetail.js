@@ -17,7 +17,7 @@ import Comments from '../comments/Comments';
 import CreateComment from '../comments/CreateComment';
 import CustomModal from '../../elements/customModal/CustomModal';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
-import AuctionOthers from './auctionOthers/AuctionOthers';
+import AuctionsList from './auctionsList/AuctionsList';
 
 const AuctionDetail = ({
   accessAuction,
@@ -61,7 +61,7 @@ const AuctionDetail = ({
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
 
-  const [auctionOthers, setauctionOthers] = useState([]);
+  const [listAuctions, setlistAuctions] = useState([]);
   const [commentsList, setComments] = useState([]);
 
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
@@ -87,7 +87,7 @@ const AuctionDetail = ({
     }
 
     if (auctionList.code === 200) {
-      setauctionOthers(auctionList.data.data);
+      setlistAuctions(auctionList.data.data);
     }
 
     if (auctionComments.code === 200) {
@@ -276,13 +276,6 @@ const AuctionDetail = ({
                         id="auction.detail.status.pending"
                         defaultMessage="This auction is pending."
                       />
-                      &nbsp;
-                      {/* <a style={{ color: '#716247' }} href={`/npo/auction/edit/${auction.id}`}>
-                        <FormattedMessage
-                          id="auction.detail.edit"
-                          defaultMessage="Edit auction"
-                        />
-                      </a> */}
                     </div>
                   )}
                 </Col>
@@ -415,30 +408,11 @@ const AuctionDetail = ({
               </Row>
             </Col>
           </Row>
-          <Row className="other-auctions">
-            <Col sm={12} className="text-center">
-              <h4>
-                <FormattedMessage
-                  id="auction.detail.otherAuctions"
-                  defaultMessage="Other auctions"
-                />
-              </h4>
-            </Col>
-          </Row>
-          <Row>
-            <AuctionOthers
-              listAuctions={auctionOthers}
-            />
-          </Row>
-          <Row>
-            <Col sm={3} className="mx-auto">
-              <Button
-                extraClass="info"
-                href="/auctions/list"
-                text={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
-              />
-            </Col>
-          </Row>
+          <AuctionsList
+            title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other auctions' })}
+            listAuctions={listAuctions}
+            buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
+          />
         </>
       )}
       <CustomModal
