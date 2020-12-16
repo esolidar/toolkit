@@ -1,4 +1,4 @@
-import find from 'lodash/find';
+import { findIndex, find } from 'lodash';
 
 export const getEmployeeName = (companyId, user) => {
   if (user && user.work_email) {
@@ -40,3 +40,8 @@ export const getUrlParam = (param) => {
 };
 
 export const filterUnique = (array, key) => array.filter((v, i, a) => a.findIndex((t) => (t[key] === v[key])) === i);
+
+export const isCompanyAdmin = (companyId, user) => {
+  const isAdmin = findIndex(user.work_email, (o) => o.company_id === companyId && (o.role === 'admin' || o.role === 'owner'));
+  return isAdmin >= 0;
+};
