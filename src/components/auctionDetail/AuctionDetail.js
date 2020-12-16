@@ -33,6 +33,10 @@ const AuctionDetail = ({
   getAuctionList,
   auctionList,
   companyId,
+  getAuctionSubscribe,
+  auctionSubscribeList,
+  postAuctionSubscribe,
+  auctionSubscribe,
   getAuctionComment,
   auctionComments,
   user,
@@ -159,6 +163,13 @@ const AuctionDetail = ({
   };
 
   const modalShowSubscribe = () => {
+    getAuctionSubscribe(auctionId);
+
+    if (auctionSubscribeList.code === 200) {
+      if (auctionSubscribeList.data.auction_on_start) setIsCheckedEmailStart(true);
+      if (auctionSubscribeList.data.auction_first_bid) setIsCheckedEmailFirstBid(true);
+      if (auctionSubscribeList.data.auction_24h_end) setIsCheckedEmail24H(true);
+    }
     setIsShowModalSubscribe(true);
   };
 
@@ -219,6 +230,7 @@ const AuctionDetail = ({
       auction_first_bid: isCheckedEmailFirstBid,
       auction_24h_end: isCheckedEmail24H,
     };
+    // postAuctionSubscribe(auctionDetailInfo.id, subscribeChecked);
   };
 
   let supported = '';
@@ -652,6 +664,10 @@ AuctionDetail.propTypes = {
   requireLogin: PropTypes.func,
   getAuctionList: PropTypes.func,
   companyId: PropTypes.number,
+  getAuctionSubscribe: PropTypes.func,
+  auctionSubscribeList: PropTypes.array,
+  postAuctionSubscribe: PropTypes.func,
+  auctionSubscribe: PropTypes.array,
   getAuctionComment: PropTypes.func,
   auctionComments: PropTypes.array,
   user: PropTypes.number,
