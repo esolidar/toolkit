@@ -54,7 +54,7 @@ export { default as AuctionThumb } from './components/auctionThumb/AuctionThumb'
 export { default as ShareNetwork } from './components/shareNetwork/ShareNetwork';
 export { default as AuctionDetail } from './components/auctionDetail/AuctionDetail';
 export { default as DescriptionDetail } from './components/descriptionDetail/DescriptionDetail';
-export { default as AuctionOthers } from './components/auctionDetail/auctionOthers/AuctionOthers';
+export { default as AuctionsList } from './components/auctionDetail/auctionsList/AuctionsList';
 export { default as CreditCardList } from './components/creditCardList/CreditCardList';
 
 // Elements
