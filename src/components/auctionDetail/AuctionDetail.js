@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
-import { isEmpty } from 'lodash';
+import { isEmpty, findIndex } from 'lodash';
 import moment from 'moment-timezone';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import AuctionDetailRigth from './AuctionDetailRigth';
@@ -43,6 +43,12 @@ const AuctionDetail = ({
   translateMessage,
   requireLogin,
   env,
+  postAuctionUserComment,
+  auctionUserComment,
+  postAuctionCompanyComment,
+  auctionCompanyComment,
+  getAuctionUserCommentResponse,
+  auctionUserCommentsResponse.
 }) => {
   const [isShowmoreDesc] = useState(false);
   const [isShowMoreDescButton] = useState(true);
@@ -53,19 +59,22 @@ const AuctionDetail = ({
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
   const [valueBid, setValueBid] = useState(0);
-  const [userComment, setUserComment] = useState('');
-  const [loadingNewComment, setLoadingNewComment] = useState('');
-  const [onSubmitComment, setOnSubmitComment] = useState('');
-  const [postAsUser, setPostAsUser] = useState('');
-  const [postAsCompany, sePostAsCompany] = useState('');
-  const [error, setError] = useState('');
-
+  
   const [listUsersBid, setListUsersBid] = useState([]);
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
 
+  const [userComment, setUserComment] = useState([]);
+  const [loadingNewComment, setLoadingNewComment] = useState(false);
+  const [postAsUser, setPostAsUser] = useState('');
+  const [postAsCompany, sePostAsCompany] = useState('');
+  const [reply, setReply] = useState('');
+  const [error, setError] = useState('');
+
   const [listAuctions, setlistAuctions] = useState([]);
-  const [commentsList, setComments] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [totalComments, setTotalComments] = useState(0);
+  const [loadingPostReply, setLoadingPostReply] = useState(0);
 
   const [privateCode, setPrivateCode] = useState('');
   const [errorPrivateCode, setErrorPrivateCode] = useState('');
@@ -86,6 +95,7 @@ const AuctionDetail = ({
     getAuctionBidList(auctionId, page, perPage);
     getAuctionList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
     getAuctionComment(auctionId, 1, '4');
+    // getAuctionUserCommentResponse(auctionId,)
   }, []);
 
   useEffect(() => {
@@ -121,7 +131,14 @@ const AuctionDetail = ({
     if (newBid.code === 200) {
       setIsShowModal(false);
     }
-  }, [auctionDetail, auctionBidList, auctionList, auctionComments, newBid]);
+
+    if (auctionUserComment && auctionUserComment.code === 200) {
+      const newComment = [auctionUserComment.data];
+      setComments([...newComment, ...comments]);
+      setTotalComments(totalComments + 1);
+      setLoadingNewComment(false);
+    }
+  }, [auctionDetail, auctionBidList, auctionList, auctionComments, newBid, auctionUserComment]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -199,10 +216,6 @@ const AuctionDetail = ({
     }
   };
 
-  const onChangeComments = (e) => {
-    setUserComment(e.target.value);
-  };
-
   const showMoreContributes = () => {
     getAuctionBidList(auctionDetailInfo.id, page + 1, perPage);
     setIsloadingContributes(true);
@@ -240,6 +253,26 @@ const AuctionDetail = ({
     };
     postAuctionSubscribe(auctionId, subscribeChecked);
     setIsShowModalSubscribe(false);
+  };
+
+  const onSubmitComment = (e) => {
+    e.preventDefault();
+    requireLogin();
+
+    if (userComment && requireLogin()) {
+      postAuctionUserComment(auctionId, { comment: userComment });
+      setLoadingNewComment(true);
+      setUserComment('');
+    }
+  };
+
+  const onSubmitResponse = (e, commentId) => {
+    e.preventDefault();
+
+    if (e.target.value) {
+      setLoadingPostReply(true);
+      postUserCrowdfundingCommentResponse(auctionId, { comment: e.target.value, comment_id: commentId });
+    }
   };
 
   let supported = '';
@@ -439,21 +472,31 @@ const AuctionDetail = ({
                   </h3>
                   <CreateComment
                     onSubmitComment={onSubmitComment}
-                    onChange={onChangeComments}
-                    comment={auctionComments}
-                    env={env}
-                    postAsCompany={postAsCompany}
-                    postAsUser={postAsUser}
-                    translateMessage={translateMessage}
+                    onChange={(e) => setUserComment(e.target.value)}
+                    comment={userComment}
+                    postAsUser={postAuctionUserComment}
+                    postAsCompany={postAuctionCompanyComment}
                     loadingNewComment={loadingNewComment}
                     thumb={thumb}
+                    translateMessage={translateMessage}
+                    env={env}
                   />
                   <Comments
                     requireLogin={requireLogin}
-                    comments={commentsList}
-                    replies={[]}
+                    onSubmitResponse={onSubmitResponse}
+                    loadMore={this.loadMore}
+                    getEmployeeName={getEmployeeName}
+                    onChange={this.onChange}
+                    comments={comments}
+                    reply={reply}
+                    laodingPostReply={laodingPostReply}
+                    deleteComment={this.deleteComment}
+                    totalComments={total}
+                    loadingMoreComments={loadingMoreComments}
+                    loadMoreComments={this.loadMoreComments}
                     user={user}
-                    env="https://static.testesolidar.com"
+                    env={env.cdn_static_url}
+                    translateMessage={translateMessage}
                   />
                 </Col>
                 <Col xs={12} sm={4}>
@@ -668,9 +711,15 @@ AuctionDetail.propTypes = {
       title_en: PropTypes.string,
     }),
   }),
+  auctionUserComment: PropTypes.shape({
+    code: PropTypes.number,
+    data: PropTypes.object,
+  }),
   userPrivateCode: PropTypes.number,
   postNewBid: PropTypes.func,
   newBid: PropTypes.array,
+  postAuctionUserComment: PropTypes.func,
+  userComment: PropTypes.array,
   getAuctionBidList: PropTypes.func,
   auctionList: PropTypes.array,
   auctionBidList: PropTypes.array,

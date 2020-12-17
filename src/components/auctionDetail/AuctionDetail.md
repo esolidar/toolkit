@@ -283,6 +283,8 @@ import { AuctionDetail } from '@esolidar/toolkit';
   userPrivateCode={null}
   postNewBid={() => {}}
   newBid={[]}
+  postAuctionComment={() => {}}
+  userComment={[]}
   getAuctionBidList= {() => {}}
   auctionBidList={{
     request_time: 67,
@@ -378,7 +380,180 @@ import { AuctionDetail } from '@esolidar/toolkit';
   auctionList={() => {}}
   companyId="1"
   getAuctionComment={() => {}}
-  auctionComments={[]}
+  auctionComments={{
+    request_time: 23,
+    code: 200,
+    data: {
+      current_page: 1,
+      data: [
+        {
+          id: 228,
+          auction_id: 334,
+          user_id: 9,
+          company_id: null,
+          comment_id: null,
+          comment: 'Comentario BD',
+          dateAdded: '2020-09-30 13:20:41',
+          deleted_at: null,
+          user: {
+            id: 9,
+            institution_id: null,
+            firstName: 'Joel F.',
+            lastName: 'Calheiros',
+            image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1607971152.jpg?v=1607971152',
+            streamImage: 'amazons3',
+            language: {
+              id: 2,
+              name: 'pt',
+              translate: 'Português (PT)',
+              status: 1,
+              locale: 'pt_PT',
+              dateAdded: '2015-02-24 11:02:06',
+            },
+            currency: {
+              id: 1,
+              name: 'Euro',
+              small: 'EUR',
+              value: '1.212',
+              symbol: '€',
+              status: true,
+              lastUpdate: '2020-12-03 12:00:03',
+            },
+            thumbs: {
+              original: 'https://cdn.testesolidar.com/users/9/1607971152.jpg?v=1607971152',
+              standard: 'https://cdn.testesolidar.com/users/9/1607971152-STANDARD.jpg',
+              thumb: 'https://cdn.testesolidar.com/users/9/1607971152-THUMB.jpg',
+            },
+            work_email: [
+              {
+                company_id: 1,
+                name: '',
+                role: 'admin',
+                department: null,
+                user: null,
+              },
+              {
+                company_id: 171,
+                name: '',
+                role: null,
+                department: null,
+                user: null,
+              },
+              {
+                company_id: 251,
+                name: '',
+                role: null,
+                department: null,
+                user: null,
+              },
+              {
+                company_id: 257,
+                name: '',
+                role: 'owner',
+                department: null,
+                user: null,
+              },
+              {
+                company_id: 258,
+                name: '',
+                role: 'owner',
+                department: null,
+                user: null,
+              },
+            ],
+            name: 'Joel F. Calheiros',
+            s3_key: 'users/9/1607971152.jpg?v=1607971152',
+            institution: null,
+            phones: [
+              {
+                id: 77,
+                user_id: 9,
+                phone: '+351965790981',
+                code: '7597',
+                main: 1,
+                twilio_sid: 'SM05d868fe86a44bd3b49cc2d11bc67ff2',
+                verified: 1,
+                updatedDate: '2016-10-14 13:46:02',
+                dateAdded: '2016-10-14 14:45:51',
+              },
+              {
+                id: 111,
+                user_id: 9,
+                phone: '+351965790981',
+                code: '5078',
+                main: 0,
+                twilio_sid: 'SM9d44c07828f74ddb889b1cedaab10856',
+                verified: 0,
+                updatedDate: '2017-02-06 13:31:59',
+                dateAdded: '2017-02-06 13:31:59',
+              },
+              {
+                id: 119,
+                user_id: 9,
+                phone: '351965790981',
+                code: '8935',
+                main: 0,
+                twilio_sid: 'SMb29401a491154147b9a78e454fd9cdbd',
+                verified: 1,
+                updatedDate: '2019-08-26 09:44:12',
+                dateAdded: '2019-08-06 11:06:36',
+              },
+              {
+                id: 131,
+                user_id: 9,
+                phone: '+351965790981',
+                code: '1562',
+                main: 0,
+                twilio_sid: 'SMe27d1239bc1f4ab585040284d1f10e4e',
+                verified: 1,
+                updatedDate: '2019-09-17 15:22:32',
+                dateAdded: '2019-09-17 16:20:50',
+              },
+              {
+                id: 132,
+                user_id: 9,
+                phone: '+351965790981',
+                code: '5530',
+                main: 0,
+                twilio_sid: 'SM3c2df52d426d45b3900f3678c3dab485',
+                verified: 1,
+                updatedDate: '2019-09-18 13:32:29',
+                dateAdded: '2019-09-18 14:32:02',
+              },
+            ],
+          },
+          company: null,
+        },
+      ],
+      first_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
+      from: 1,
+      last_page: 1,
+      last_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
+      links: [
+        {
+          url: null,
+          label: '&laquo; Previous',
+          active: false,
+        },
+        {
+          url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
+          label: 1,
+          active: true,
+        },
+        {
+          url: null,
+          label: 'Next &raquo;',
+          active: false,
+        },
+      ],
+      next_page_url: null,
+      path: 'https://apidev.testesolidar.com/v1/auctions/334/comments',
+      per_page: 6,
+      prev_page_url: null,
+      to: 1,
+      total: 1,
+    },
+  }}
   user={{
     email: 'rocha@esolidar.com'
   }}
