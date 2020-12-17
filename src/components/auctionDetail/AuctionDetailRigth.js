@@ -107,7 +107,7 @@ const AuctionDetailRigth = ({
                 >
                   <FormattedMessage
                     id="auction.detail.subscribeAuction"
-                    defaultMessage="Subscribe the auction 1"
+                    defaultMessage="Subscribe the auction."
                   />
                 </button>
               </Col>
