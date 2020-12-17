@@ -316,7 +316,7 @@ const props = {
   },
 };
 
-test('should increment counter', async () => {
+test('should render component AuctionDetail and verify checkboxs', async () => {
   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
   await waitFor(() => {
