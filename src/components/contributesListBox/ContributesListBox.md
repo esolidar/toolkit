@@ -1,13 +1,13 @@
 #### Import
 
 ``` html
-import { CrowdfundingContributesListBox } from '@esolidar/toolkit';
+import { ContributesListBox } from '@esolidar/toolkit';
 ```
 
 #### Example
 
 ``` jsx
-<CrowdfundingContributesListBox
+<ContributesListBox
   contributesList={[
 	{
 		"id": 140,

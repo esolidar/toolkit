@@ -45,7 +45,7 @@ export { default as Comments } from './components/comments/Comments';
 export { default as CreateComment } from './components/comments/CreateComment';
 export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
 export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
-export { default as CrowdfundingContributesListBox } from './components/crowdfundingContributesListBox/CrowdfundingContributesListBox';
+export { default as CrowdfundingContributesListBox } from './components/contributesListBox/ContributesListBox';
 export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHeader/CrowdfundingHeaderRigth';
 export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
 export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';

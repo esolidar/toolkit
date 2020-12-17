@@ -13,7 +13,7 @@ import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import AuctionLastBid from './AuctionLastBid';
 import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
-import CrowdfundingContributesListBox from '../crowdfundingContributesListBox/CrowdfundingContributesListBox';
+import ContributesListBox from '../contributesListBox/ContributesListBox';
 import Comments from '../comments/Comments';
 import CreateComment from '../comments/CreateComment';
 import CustomModal from '../../elements/customModal/CustomModal';
@@ -77,6 +77,8 @@ const AuctionDetail = ({
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
   const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
 
+  const [isloadingContributes, setIsloadingContributes] = useState(false);
+
   const perPage = 2;
 
   useEffect(() => {
@@ -105,6 +107,7 @@ const AuctionDetail = ({
       setListUsersBid([...listUsersBid, ...auctionBidList.data.data]);
       setListBidTotal(auctionBidList.data.total);
       setPage(auctionBidList.data.current_page);
+      setIsloadingContributes(false);
     }
 
     if (auctionList.code === 200) {
@@ -202,6 +205,7 @@ const AuctionDetail = ({
 
   const showMoreContributes = () => {
     getAuctionBidList(auctionDetailInfo.id, page + 1, perPage);
+    setIsloadingContributes(true);
   };
 
   const handleConfirmBid = () => {
@@ -453,21 +457,22 @@ const AuctionDetail = ({
                   />
                 </Col>
                 <Col xs={12} sm={4}>
-                  <CrowdfundingContributesListBox
-                    testeId="CrowdfundingContributesListBox"
+                  <ContributesListBox
+                    isAuction={true}
+                    testeId="ContributesListBox"
+                    title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
                     contributesList={listUsersBid}
-                    loadingContributes={false}
+                    loadingContributes={isloadingContributes}
                     total={listBidTotal}
                     showMoreContributes={showMoreContributes}
-                    env={env}
                     currency={auctionDetailInfo.currency.small}
+                    env={env}
                   />
                 </Col>
               </Row>
             </Col>
           </Row>
           <AuctionsList
-            title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other auctions' })}
             listAuctions={listAuctions}
             buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
           />

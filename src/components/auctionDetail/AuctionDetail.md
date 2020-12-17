@@ -10,9 +10,9 @@ import { AuctionDetail } from '@esolidar/toolkit';
 <AuctionDetail
   auctionId={299}
   getAuctionDetail={() => {}}
-  auctionDetail={
-    code: 200,
-    data : {
+  auctionDetail={{
+      code: 200,
+      data : {
         private: 0,
         id: 299,
         user_id: 1124,
@@ -276,14 +276,104 @@ import { AuctionDetail } from '@esolidar/toolkit';
             },
             s3_logo_key: "brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png",
             s3_cover_key: "brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg"
+            }
         }
-    }
-  }
+     }
+  }        
   userPrivateCode={null}
   postNewBid={() => {}}
   newBid={[]}
   getAuctionBidList= {() => {}}
-  auctionBidList={[]}
+  auctionBidList={{
+    request_time: 67,
+    code: 200,
+    data: {
+      current_page: 1,
+      data: [
+        {
+          id: 1255,
+          auction_id: 334,
+          value: 65,
+          hidden: 0,
+          stripelast4: null,
+          dateAdded: '2020-12-11 17:27:43',
+          user: {
+            id: 51792,
+            institution_id: null,
+            firstName: 'Miguel',
+            lastName: 'Rocha',
+            image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+            currency: {
+              id: 1,
+              name: 'Euro',
+              small: 'EUR',
+              value: '1.212',
+              symbol: '€',
+              status: true,
+              lastUpdate: '2020-12-03 12:00:03',
+            },
+            language: {
+              id: 1,
+              name: 'en',
+              translate: 'English',
+              status: 1,
+              locale: 'en_US',
+              dateAdded: '2015-01-06 16:58:22',
+            },
+            thumbs: {
+              original: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
+              standard: 'https://cdn.testesolidar.com/users/51792/1601463876-STANDARD.jpg',
+              thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
+            },
+            work_email: [],
+            name: 'Miguel Rocha',
+            s3_key: 'users/51792/1601463876.jpg?v=1601463877',
+            institution: null,
+            phones: [
+              {
+                id: 134,
+                user_id: 51792,
+                phone: '+351919552199',
+                code: '6121',
+                main: 1,
+                twilio_sid: 'SM089ce92c633246ccb8da10ce994c67d4',
+                verified: 1,
+                updatedDate: '2020-09-30 11:11:05',
+                dateAdded: '2020-09-30 11:10:45',
+              },
+            ],
+          },
+        },
+      ],
+      first_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+      from: 1,
+      last_page: 1,
+      last_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+      links: [
+        {
+          url: null,
+          label: '&laquo; Previous',
+          active: false,
+        },
+        {
+          url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+          label: 1,
+          active: true,
+        },
+        {
+          url: null,
+          label: 'Next &raquo;',
+          active: false,
+        },
+      ],
+      next_page_url: null,
+      path: 'https://apidev.testesolidar.com/v1/auctions/334/bids',
+      per_page: '10',
+      prev_page_url: null,
+      to: 6,
+      total: 6,
+    },
+  }}
   getAuctionList={() => {}}
   auctionList={() => {}}
   companyId="1"

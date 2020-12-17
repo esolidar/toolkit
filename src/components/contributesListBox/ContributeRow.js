@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { FormattedNumber, FormattedMessage } from 'react-intl';
 
-const CrowdfundingContributeRow = ({ contribute, env, currency }) => {
+const ContributeRow = ({ contribute, env, currency }) => {
   const row = {
     hidden: contribute.hidden,
     thumb: contribute.contributor ? contribute.contributor.thumbs.thumb : contribute.user.thumbs.thumb,
@@ -34,7 +34,7 @@ const CrowdfundingContributeRow = ({ contribute, env, currency }) => {
       </div>
       <div>
         <span className="contribute-row-date">
-          <Moment fromNow utc ago>{contribute.created_at}</Moment>
+          <Moment fromNow utc ago>{contribute.created_at || contribute.dateAdded}</Moment>
         </span>
         <span className="contribute-row-text">
           <div>
@@ -66,9 +66,9 @@ const CrowdfundingContributeRow = ({ contribute, env, currency }) => {
   );
 };
 
-export default CrowdfundingContributeRow;
+export default ContributeRow;
 
-CrowdfundingContributeRow.propTypes = {
+ContributeRow.propTypes = {
   contribute: PropTypes.object,
   currency: PropTypes.string,
   env: PropTypes.shape({
