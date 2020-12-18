@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment-timezone';
+import { isEmpty, forEach, findIndex } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
-import { isEmpty, findIndex } from 'lodash';
-import moment from 'moment-timezone';
-import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
-import AuctionDetailRigth from './AuctionDetailRigth';
-import TextField from '../../elements/textField/TextField';
+import { getEmployeeName } from '../../utils';
 import Button from '../button/Button';
-import Countdown from '../countdown/Countdown';
-import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
-import ShareNetwork from '../shareNetwork/ShareNetwork';
-import AuctionLastBid from './AuctionLastBid';
-import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
-import ContributesListBox from '../contributesListBox/ContributesListBox';
-import Comments from '../comments/Comments';
-import CreateComment from '../comments/CreateComment';
-import CustomModal from '../../elements/customModal/CustomModal';
-import CheckboxField from '../../elements/checkboxField/CheckboxField';
-import AuctionsList from './auctionsList/AuctionsList';
 import Loading from '../loading/Loading';
+import Comments from '../comments/Comments';
+import AuctionLastBid from './AuctionLastBid';
+import Countdown from '../countdown/Countdown';
+import CreateComment from '../comments/CreateComment';
+import AuctionDetailRigth from './AuctionDetailRigth';
+import AuctionsList from './auctionsList/AuctionsList';
+import ShareNetwork from '../shareNetwork/ShareNetwork';
+import TextField from '../../elements/textField/TextField';
+import CustomModal from '../../elements/customModal/CustomModal';
+import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
+import CheckboxField from '../../elements/checkboxField/CheckboxField';
+import ContributesListBox from '../contributesListBox/ContributesListBox';
+import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
+import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
 
 const AuctionDetail = ({
   auctionId,
@@ -48,22 +49,28 @@ const AuctionDetail = ({
   postAuctionCompanyComment,
   auctionCompanyComment,
   getAuctionUserCommentResponse,
-  auctionUserCommentsResponse.
+  auctionUserCommentsResponse,
+  deleteAuctionComment,
+  deleteComment,
 }) => {
+  // Modals
+  const [isShowModal, setIsShowModal] = useState(false);
+  const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
+
   const [isShowmoreDesc] = useState(false);
   const [isShowMoreDescButton] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
   const [isCheckedNotifications, setIsCheckedNotifications] = useState(false);
-  const [isShowModal, setIsShowModal] = useState(false);
-  const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
   const [valueBid, setValueBid] = useState(0);
-  
+
+  // List Bids
   const [listUsersBid, setListUsersBid] = useState([]);
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
 
+  // Create Comments
   const [userComment, setUserComment] = useState([]);
   const [loadingNewComment, setLoadingNewComment] = useState(false);
   const [postAsUser, setPostAsUser] = useState('');
@@ -71,11 +78,15 @@ const AuctionDetail = ({
   const [reply, setReply] = useState('');
   const [error, setError] = useState('');
 
+  // Comments
   const [listAuctions, setlistAuctions] = useState([]);
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
   const [loadingPostReply, setLoadingPostReply] = useState(0);
+  const [loadingMoreComments, setLoadingMoreComments] = useState(false);
+  const [commentId, setCommentId] = useState(0);
 
+  // Private Auction
   const [privateCode, setPrivateCode] = useState('');
   const [errorPrivateCode, setErrorPrivateCode] = useState('');
   const [accessAuction, setAccessAuction] = useState(false);
@@ -95,7 +106,6 @@ const AuctionDetail = ({
     getAuctionBidList(auctionId, page, perPage);
     getAuctionList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
     getAuctionComment(auctionId, 1, '4');
-    // getAuctionUserCommentResponse(auctionId,)
   }, []);
 
   useEffect(() => {
@@ -125,7 +135,12 @@ const AuctionDetail = ({
     }
 
     if (auctionComments.code === 200) {
-      setComments(auctionComments.data.data);
+      const { data } = auctionComments.data;
+      setComments(data);
+
+      data.forEach((comment) => {
+        getAuctionUserCommentResponse(auctionId, comment.id);
+      });
     }
 
     if (newBid.code === 200) {
@@ -134,11 +149,57 @@ const AuctionDetail = ({
 
     if (auctionUserComment && auctionUserComment.code === 200) {
       const newComment = [auctionUserComment.data];
-      setComments([...newComment, ...comments]);
-      setTotalComments(totalComments + 1);
-      setLoadingNewComment(false);
+      if (auctionUserComment.data.comment_id === null) {
+        setComments([...newComment, ...comments]);
+        setTotalComments(totalComments + 1);
+        setLoadingNewComment(false);
+      } else {
+        const arrayIndx = findIndex(comments, (o) => o.id === auctionUserComment.data.comment_id);
+        comments[arrayIndx].replies = auctionUserComment.data;
+        // aqui
+        setComments(comments);
+        setLoadingPostReply(false);
+      }
     }
-  }, [auctionDetail, auctionBidList, auctionList, auctionComments, newBid, auctionUserComment]);
+
+    if (deleteComment.code === 200) {
+      const deleteComment = commentId;
+      const currentComments = comments;
+      for (let i = 0; i < currentComments.length; i += 1) {
+        if (currentComments[i].id === deleteComment) {
+          currentComments.splice(i, 1);
+          setTotalComments({ total: currentComments.length });
+          break;
+        } else if (currentComments[i].replies) {
+          forEach(currentComments[i].replies, (reply, indx) => {
+            if (reply) {
+              if (reply.id === deleteComment) {
+                // this.props.getUserCrowdfundingCommentResponses(id, currentComments[i].id, currentComments[i].replies.length, 1);
+                currentComments[i].replies.splice(indx, 1);
+                comments[i].totalReplies -= 1;
+                // this.updateState({ forceGetReplies: true });
+              }
+            }
+          });
+        }
+      }
+      setComments(currentComments);
+    }
+  }, [auctionDetail, auctionBidList, auctionList, auctionComments, newBid, auctionUserComment, deleteComment]);
+
+  useEffect(() => {
+    if (auctionUserCommentsResponse.code === 200) {
+      const commentsArray = [...comments];
+      const { data, total } = auctionUserCommentsResponse.data;
+
+      if (data.length > 0) {
+        const arrayIndx = findIndex(commentsArray, (o) => o.id === data[0].comment_id);
+        commentsArray[arrayIndx].replies = data;
+        commentsArray[arrayIndx].totalReplies = total;
+        setComments(commentsArray);
+      }
+    }
+  }, [auctionUserCommentsResponse]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -271,8 +332,22 @@ const AuctionDetail = ({
 
     if (e.target.value) {
       setLoadingPostReply(true);
-      postUserCrowdfundingCommentResponse(auctionId, { comment: e.target.value, comment_id: commentId });
+      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId });
     }
+  };
+
+  const loadMore = (commentId, page) => {
+    deleteAuctionComment(auctionId, commentId, 3, page + 1);
+  };
+
+  const handleDeleteComment = (commentId) => {
+    setCommentId(commentId);
+    deleteAuctionComment(auctionId, commentId);
+  };
+
+  const loadMoreComments = () => {
+    setLoadingMoreComments(true);
+    getAuctionComment(auctionId, page + 1, perPage);
   };
 
   let supported = '';
@@ -484,16 +559,16 @@ const AuctionDetail = ({
                   <Comments
                     requireLogin={requireLogin}
                     onSubmitResponse={onSubmitResponse}
-                    loadMore={this.loadMore}
+                    loadMore={loadMore}
                     getEmployeeName={getEmployeeName}
-                    onChange={this.onChange}
+                    onChange={(e) => setReply(e.target.value)}
                     comments={comments}
                     reply={reply}
-                    laodingPostReply={laodingPostReply}
-                    deleteComment={this.deleteComment}
-                    totalComments={total}
+                    laodingPostReply={loadingPostReply}
+                    deleteComment={handleDeleteComment}
+                    totalComments={totalComments}
                     loadingMoreComments={loadingMoreComments}
-                    loadMoreComments={this.loadMoreComments}
+                    loadMoreComments={loadMoreComments}
                     user={user}
                     env={env.cdn_static_url}
                     translateMessage={translateMessage}
@@ -516,6 +591,7 @@ const AuctionDetail = ({
             </Col>
           </Row>
           <AuctionsList
+            title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
             listAuctions={listAuctions}
             buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
           />
@@ -715,6 +791,9 @@ AuctionDetail.propTypes = {
     code: PropTypes.number,
     data: PropTypes.object,
   }),
+  deleteComment: PropTypes.shape({
+    code: PropTypes.number,
+  }),
   userPrivateCode: PropTypes.number,
   postNewBid: PropTypes.func,
   newBid: PropTypes.array,
@@ -724,14 +803,18 @@ AuctionDetail.propTypes = {
   auctionList: PropTypes.array,
   auctionBidList: PropTypes.array,
   requireLogin: PropTypes.func,
+  auctionCompanyComment: PropTypes.func,
   getAuctionList: PropTypes.func,
   companyId: PropTypes.number,
   getAuctionSubscribe: PropTypes.func,
+  getAuctionUserCommentResponse: PropTypes.func,
   auctionSubscribeList: PropTypes.array,
   postAuctionSubscribe: PropTypes.func,
   auctionSubscribe: PropTypes.array,
   getAuctionComment: PropTypes.func,
   auctionComments: PropTypes.array,
+  auctionUserCommentsResponse: PropTypes.array,
+  deleteAuctionComment: PropTypes.array,
   user: PropTypes.number,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
