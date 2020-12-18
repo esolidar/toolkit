@@ -93,6 +93,7 @@ const AuctionDetail = ({
   const [auctionDetailInfo, setAuctionDetailInfo] = useState({});
   const [isLoadingAuction, setIsLoadingAuction] = useState(true);
 
+  // Subscribe
   const [isCheckedEmailStart, setIsCheckedEmailStart] = useState(false);
   const [isCheckedEmailFirstBid, setIsCheckedEmailFirstBid] = useState(false);
   const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
@@ -794,24 +795,25 @@ AuctionDetail.propTypes = {
   deleteComment: PropTypes.shape({
     code: PropTypes.number,
   }),
-  userPrivateCode: PropTypes.number,
-  postNewBid: PropTypes.func,
-  newBid: PropTypes.array,
-  postAuctionUserComment: PropTypes.func,
-  userComment: PropTypes.array,
+  getAuctionComment: PropTypes.func,
   getAuctionBidList: PropTypes.func,
+  getAuctionList: PropTypes.func,
+  getAuctionSubscribe: PropTypes.func,
+  getAuctionUserCommentResponse: PropTypes.func,
+  postAuctionUserComment: PropTypes.func,
+  postNewBid: PropTypes.func,
+  postAuctionCompanyComment: PropTypes.func,
+  postAuctionSubscribe: PropTypes.func,
+  userPrivateCode: PropTypes.number,
+  newBid: PropTypes.array,
+  userComment: PropTypes.array,
+  auctionSubscribe: PropTypes.array,
   auctionList: PropTypes.array,
   auctionBidList: PropTypes.array,
   requireLogin: PropTypes.func,
-  auctionCompanyComment: PropTypes.func,
-  getAuctionList: PropTypes.func,
+  auctionCompanyComment: PropTypes.array,
   companyId: PropTypes.number,
-  getAuctionSubscribe: PropTypes.func,
-  getAuctionUserCommentResponse: PropTypes.func,
   auctionSubscribeList: PropTypes.array,
-  postAuctionSubscribe: PropTypes.func,
-  auctionSubscribe: PropTypes.array,
-  getAuctionComment: PropTypes.func,
   auctionComments: PropTypes.array,
   auctionUserCommentsResponse: PropTypes.array,
   deleteAuctionComment: PropTypes.array,
