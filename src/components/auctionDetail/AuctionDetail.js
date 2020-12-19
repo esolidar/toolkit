@@ -122,13 +122,6 @@ const AuctionDetail = ({
       }
     }
 
-    if (auctionBidList.code === 200) {
-      setListUsersBid([...listUsersBid, ...auctionBidList.data.data]);
-      setListBidTotal(auctionBidList.data.total);
-      setPage(auctionBidList.data.current_page);
-      setIsloadingContributes(false);
-    }
-
     if (auctionList.code === 200) {
       setlistAuctions(auctionList.data.data);
     }
@@ -183,7 +176,7 @@ const AuctionDetail = ({
       }
       setComments(currentComments);
     }
-  }, [auctionDetail, auctionBidList, auctionList, auctionComments, newBid, auctionUserComment, deleteComment]);
+  }, [auctionDetail, auctionList, auctionComments, newBid, auctionUserComment, deleteComment]);
 
   useEffect(() => {
     if (auctionUserCommentsResponse.code === 200) {
@@ -198,6 +191,15 @@ const AuctionDetail = ({
       }
     }
   }, [auctionUserCommentsResponse]);
+
+  useEffect(() => {
+    if (auctionBidList.code === 200) {
+      setListUsersBid([...listUsersBid, ...auctionBidList.data.data]);
+      setListBidTotal(auctionBidList.data.total);
+      setPage(auctionBidList.data.current_page);
+      setIsloadingContributes(false);
+    }
+  }, [auctionBidList]);
 
   if (isLoadingAuction) return (<Loading />);
 
