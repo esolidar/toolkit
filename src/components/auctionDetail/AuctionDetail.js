@@ -73,18 +73,16 @@ const AuctionDetail = ({
   // Create Comments
   const [userComment, setUserComment] = useState([]);
   const [loadingNewComment, setLoadingNewComment] = useState(false);
-  const [postAsUser, setPostAsUser] = useState('');
-  const [postAsCompany, sePostAsCompany] = useState('');
   const [reply, setReply] = useState('');
   const [error, setError] = useState('');
 
   // Comments
-  const [listAuctions, setlistAuctions] = useState([]);
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
   const [loadingPostReply, setLoadingPostReply] = useState(0);
   const [loadingMoreComments, setLoadingMoreComments] = useState(false);
   const [commentId, setCommentId] = useState(0);
+  const [listAuctions, setlistAuctions] = useState([]);
 
   // Private Auction
   const [privateCode, setPrivateCode] = useState('');
@@ -178,7 +176,6 @@ const AuctionDetail = ({
                 // this.props.getUserCrowdfundingCommentResponses(id, currentComments[i].id, currentComments[i].replies.length, 1);
                 currentComments[i].replies.splice(indx, 1);
                 comments[i].totalReplies -= 1;
-                // this.updateState({ forceGetReplies: true });
               }
             }
           });
@@ -265,8 +262,12 @@ const AuctionDetail = ({
 
   const handleClickBid = () => {
     if (valueBid > auctionDetailInfo.bid_max_interval) {
-      setError();
       setError(translateMessage({ id: 'auction.detail.error.bidLower', defaultMessage: `Put a numeric value equal or lower than ${bidValueAuction + auctionDetailInfo.bid_max_interval} ` }));
+      // setError({
+      //   id: 'auction.detail.error.bidLower',
+      //   defaultMessage: 'Put a numeric value equal or lower than ',
+      //   value: bidValueAuction + auctionDetailInfo.bid_max_interval,
+      // });
       return false;
     }
 
@@ -275,6 +276,11 @@ const AuctionDetail = ({
       setError('');
     } else {
       setError(translateMessage({ id: 'auction.detail.error.bid', defaultMessage: `Put a numeric value equal or higher than ${bidValueAuction + auctionDetailInfo.bid_interval}` }));
+      // setError({
+      //   id: 'auction.detail.error.bid',
+      //   defaultMessage: 'Put a numeric value equal or higher than ',
+      //   value: bidValueAuction + auctionDetailInfo.bid_interval,
+      // });
     }
   };
 
@@ -356,15 +362,15 @@ const AuctionDetail = ({
     supported = auctionDetailInfo.recipient.institution ? auctionDetailInfo.recipient.institution : auctionDetailInfo.recipient.causes;
   }
 
-  const userType = localStorage.user ? JSON.parse(localStorage.user).type : 'guest';
+  const userType = user ? user.type : 'guest';
   let thumb = '';
 
   if (userType === 'guest') {
     thumb = `${env.cdn_static_url}/frontend/assets/no-image.png`;
   } else if (userType === 'npo') {
-    thumb = JSON.parse(localStorage.user).institution.thumbs.thumb;
+    thumb = user.institution.thumbs.thumb;
   } else {
-    thumb = JSON.parse(localStorage.user).thumbs.thumb;
+    thumb = user.thumbs.thumb;
   }
 
   return (
@@ -553,14 +559,13 @@ const AuctionDetail = ({
                     postAsUser={postAuctionUserComment}
                     postAsCompany={postAuctionCompanyComment}
                     loadingNewComment={loadingNewComment}
-                    thumb={thumb}
                     translateMessage={translateMessage}
+                    thumb={thumb}
                     env={env}
                   />
                   <Comments
                     requireLogin={requireLogin}
                     onSubmitResponse={onSubmitResponse}
-                    loadMore={loadMore}
                     getEmployeeName={getEmployeeName}
                     onChange={(e) => setReply(e.target.value)}
                     comments={comments}
@@ -568,9 +573,11 @@ const AuctionDetail = ({
                     laodingPostReply={loadingPostReply}
                     deleteComment={handleDeleteComment}
                     totalComments={totalComments}
+                    loadMore={loadMore}
                     loadingMoreComments={loadingMoreComments}
                     loadMoreComments={loadMoreComments}
                     user={user}
+                    thumb={thumb}
                     env={env.cdn_static_url}
                     translateMessage={translateMessage}
                   />
