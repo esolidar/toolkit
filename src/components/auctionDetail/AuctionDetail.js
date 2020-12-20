@@ -148,7 +148,7 @@ const AuctionDetail = ({
       } else {
         const arrayIndx = findIndex(comments, (o) => o.id === auctionUserComment.data.comment_id);
         comments[arrayIndx].replies = auctionUserComment.data;
-        // aqui
+        comments[arrayIndx].totalReplies = auctionUserComment.total;
         setComments(comments);
         setLoadingPostReply(false);
       }
@@ -160,13 +160,12 @@ const AuctionDetail = ({
       for (let i = 0; i < currentComments.length; i += 1) {
         if (currentComments[i].id === deleteComment) {
           currentComments.splice(i, 1);
-          setTotalComments({ total: currentComments.length });
+          currentComments.totalReplies = currentComments.length;
           break;
         } else if (currentComments[i].replies) {
           forEach(currentComments[i].replies, (reply, indx) => {
             if (reply) {
               if (reply.id === deleteComment) {
-                // this.props.getUserCrowdfundingCommentResponses(id, currentComments[i].id, currentComments[i].replies.length, 1);
                 currentComments[i].replies.splice(indx, 1);
                 comments[i].totalReplies -= 1;
               }
@@ -799,6 +798,7 @@ AuctionDetail.propTypes = {
   auctionUserComment: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.object,
+    total: PropTypes.number,
   }),
   deleteComment: PropTypes.shape({
     code: PropTypes.number,
