@@ -439,23 +439,22 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          {/* <Row> */}
           <Col sm={12} md={10} className="offset-md-1 mobile-nopadding">
             <Row className="box mobile-nopadding">
               <Col sm={12} className="countdown text-center hidden-xs">
                 {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
-                <Countdown
-                  endDate={auctionDetailInfo.dateStart}
-                  startDate={auctionDetailInfo.dateLimit}
-                />
+                  <Countdown
+                    endDate={auctionDetailInfo.dateStart}
+                    startDate={auctionDetailInfo.dateLimit}
+                  />
                 )}
                 {auctionDetailInfo.status === 'P' && (
-                <div className={`status-${auctionDetailInfo.status}`}>
-                  <FormattedMessage
-                    id="auction.detail.status.pending"
-                    defaultMessage="This auction is pending."
-                  />
-                </div>
+                  <div className={`status-${auctionDetailInfo.status}`}>
+                    <FormattedMessage
+                      id="auction.detail.status.pending"
+                      defaultMessage="This auction is pending."
+                    />
+                  </div>
                 )}
               </Col>
               <Col sm={12} className="text-center hidden-xs">
@@ -476,17 +475,17 @@ const AuctionDetail = ({
                 <Row>
                   <Col md={7} className="mobile-nopadding">
                     {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
-                    <SliderImagesLightbox
-                      video={auctionDetailInfo.video}
-                      images={auctionDetailInfo.images}
-                      env={env}
-                    />
+                      <SliderImagesLightbox
+                        video={auctionDetailInfo.video}
+                        images={auctionDetailInfo.images}
+                        env={env}
+                      />
                     )}
                     {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
-                    <div
-                      className="slider-image"
-                      style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
-                    />
+                      <div
+                        className="slider-image"
+                        style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
+                      />
                     )}
                   </Col>
                   <AuctionDetailRigth
@@ -506,7 +505,6 @@ const AuctionDetail = ({
               </Col>
             </Row>
           </Col>
-          {/* </Row> */}
           <ShareNetwork
             title={auctionTitle()}
             image={auctionDetailInfo.images}
