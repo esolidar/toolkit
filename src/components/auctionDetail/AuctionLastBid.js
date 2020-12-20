@@ -139,6 +139,7 @@ AuctionLastBid.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  minValue: PropTypes.number,
 };
 
 export default injectIntl(AuctionLastBid);

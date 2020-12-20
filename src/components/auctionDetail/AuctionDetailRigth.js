@@ -17,9 +17,11 @@ const AuctionDetailRigth = ({
   translateMessage,
   minValue,
   showModalSubscribe,
+  user,
   intl,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
+  const isSameCurrency = auction.currency.small === user.currency.small;
 
   let supported = '';
   if (auction.brand) {
@@ -58,15 +60,17 @@ const AuctionDetailRigth = ({
               />
             </Col>
           </Row>
-          <Row>
-            <Col sm={12} className="txt-bid-aprox">
-              {convertToMyCurrency(valueBid, auction.currency)}
-              <FormattedMessage
-                id="auction.detail.bidApprox"
-                defaultMessage=" approx."
-              />
-            </Col>
-          </Row>
+          {!isSameCurrency && (
+            <Row>
+              <Col sm={12} className="txt-bid-aprox">
+                {convertToMyCurrency(valueBid, auction.currency)}
+                <FormattedMessage
+                  id="auction.detail.bidApprox"
+                  defaultMessage=" approx."
+                />
+              </Col>
+            </Row>
+          )}
           {(isShowBid && !isEnded) && (
             <Row>
               <Col sm={12} className="auction-content-label">
@@ -89,7 +93,7 @@ const AuctionDetailRigth = ({
                       },
                       { value: minValue },
                     )
-                }
+                  }
                 />
               </Col>
               <Col sm={6}>
@@ -162,6 +166,11 @@ AuctionDetailRigth.propTypes = {
   translateMessage: PropTypes.func,
   minValue: PropTypes.number,
   showModalSubscribe: PropTypes.func,
+  user: PropTypes.shape({
+    currency: PropTypes.shape({
+      small: PropTypes.string,
+    }),
+  }),
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),

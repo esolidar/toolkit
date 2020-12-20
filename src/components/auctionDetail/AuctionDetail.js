@@ -439,73 +439,74 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          <Row>
-            <Col sm={12} md={10} className="offset-md-1 mobile-nopadding">
-              <Row className="box mobile-nopadding">
-                <Col sm={12} className="countdown text-center hidden-xs">
-                  {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
-                    <Countdown
-                      endDate={auctionDetailInfo.dateStart}
-                      startDate={auctionDetailInfo.dateLimit}
+          {/* <Row> */}
+          <Col sm={12} md={10} className="offset-md-1 mobile-nopadding">
+            <Row className="box mobile-nopadding">
+              <Col sm={12} className="countdown text-center hidden-xs">
+                {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
+                <Countdown
+                  endDate={auctionDetailInfo.dateStart}
+                  startDate={auctionDetailInfo.dateLimit}
+                />
+                )}
+                {auctionDetailInfo.status === 'P' && (
+                <div className={`status-${auctionDetailInfo.status}`}>
+                  <FormattedMessage
+                    id="auction.detail.status.pending"
+                    defaultMessage="This auction is pending."
+                  />
+                </div>
+                )}
+              </Col>
+              <Col sm={12} className="text-center hidden-xs">
+                <div className="end-date">
+                  <FormattedMessage
+                    id="auction.detail.ends"
+                    defaultMessage="This auction ends in: "
+                  />
+                  <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
+                  <br />
+                  <FormattedMessage
+                    id="auction.detail.infoBid"
+                    defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
+                  />
+                </div>
+              </Col>
+              <Col sm={12}>
+                <Row>
+                  <Col md={7} className="mobile-nopadding">
+                    {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
+                    <SliderImagesLightbox
+                      video={auctionDetailInfo.video}
+                      images={auctionDetailInfo.images}
+                      env={env}
                     />
-                  )}
-                  {auctionDetailInfo.status === 'P' && (
-                    <div className={`status-${auctionDetailInfo.status}`}>
-                      <FormattedMessage
-                        id="auction.detail.status.pending"
-                        defaultMessage="This auction is pending."
-                      />
-                    </div>
-                  )}
-                </Col>
-                <Col sm={12} className="text-center hidden-xs">
-                  <div className="end-date">
-                    <FormattedMessage
-                      id="auction.detail.ends"
-                      defaultMessage="This auction ends in: "
+                    )}
+                    {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
+                    <div
+                      className="slider-image"
+                      style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
                     />
-                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                    <br />
-                    <FormattedMessage
-                      id="auction.detail.infoBid"
-                      defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
-                    />
-                  </div>
-                </Col>
-                <Col sm={12}>
-                  <Row>
-                    <Col md={7} className="mobile-nopadding">
-                      {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
-                        <SliderImagesLightbox
-                          video={auctionDetailInfo.video}
-                          images={auctionDetailInfo.images}
-                          env={env}
-                        />
-                      )}
-                      {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
-                        <div
-                          className="slider-image"
-                          style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
-                        />
-                      )}
-                    </Col>
-                    <AuctionDetailRigth
-                      isEnded={isEnded}
-                      auctionTitle={auctionTitle()}
-                      auction={auctionDetailInfo}
-                      isShowBid={true}
-                      handleClickBid={handleClickBid}
-                      valueBidTextField={valueBidTextField}
-                      translateMessage={translateMessage}
-                      showModalSubscribe={modalShowSubscribe}
-                      minValue={bidValueAuction + auctionDetailInfo.bid_interval}
-                      error={error}
-                    />
-                  </Row>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+                    )}
+                  </Col>
+                  <AuctionDetailRigth
+                    isEnded={isEnded}
+                    auctionTitle={auctionTitle()}
+                    auction={auctionDetailInfo}
+                    isShowBid={true}
+                    handleClickBid={handleClickBid}
+                    valueBidTextField={valueBidTextField}
+                    translateMessage={translateMessage}
+                    showModalSubscribe={modalShowSubscribe}
+                    minValue={bidValueAuction + auctionDetailInfo.bid_interval}
+                    error={error}
+                    user={user}
+                  />
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+          {/* </Row> */}
           <ShareNetwork
             title={auctionTitle()}
             image={auctionDetailInfo.images}
@@ -584,7 +585,7 @@ const AuctionDetail = ({
                     translateMessage={translateMessage}
                   />
                 </Col>
-                <Col xs={12} sm={4}>
+                <Col xs={12} sm={4} className="mt-5">
                   <ContributesListBox
                     isAuction={true}
                     testeId="ContributesListBox"

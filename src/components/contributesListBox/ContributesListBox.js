@@ -16,7 +16,7 @@ const ContributesListBox = ({
 }) => (
   <div className="col-sm-12">
     <div className="row">
-      <div className="box" style={{ width: '100%', 'margin-top': '75px' }}>
+      <div className="box" style={{ width: '100%' }}>
         <p className="control-label mb-4">
           {!isAuction && (
             <FormattedMessage
