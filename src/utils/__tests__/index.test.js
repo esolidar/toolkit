@@ -1,6 +1,6 @@
 /* global expect */
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, isCompanyAdmin,
+  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, isCompanyAdmin, isValidURL,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -108,5 +108,10 @@ describe('test utils functions', () => {
     expect(isCompanyAdmin(4, userWithWorkEmail)).toBe(false);
     expect(isCompanyAdmin(1, userWithWorkEmailEmpty)).toBe(false);
     expect(isCompanyAdmin(1, withoutWithWorkEmail)).toBe(false);
+  });
+  test('should return if url is valid', () => {
+    expect(isValidURL('https://www.esolidar.com')).toBe(true);
+    expect(isValidURL('esolidar.com')).toBe(true);
+    expect(isValidURL('esolidar')).toBe(false);
   });
 });
