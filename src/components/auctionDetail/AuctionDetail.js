@@ -147,35 +147,14 @@ const AuctionDetail = ({
         setLoadingNewComment(false);
       } else {
         const arrayIndx = findIndex(comments, (o) => o.id === auctionUserComment.data.comment_id);
-        comments[arrayIndx].replies = auctionUserComment.data;
-        comments[arrayIndx].totalReplies = auctionUserComment.total;
+        const repliesArray = comments[arrayIndx].replies || [];
+        comments[arrayIndx].replies = [...auctionUserComment.data, ...repliesArray];
+        comments[arrayIndx].totalReplies = comments[arrayIndx].replies.length;
         setComments(comments);
         setLoadingPostReply(false);
       }
     }
-
-    if (deleteComment.code === 200) {
-      const deleteComment = commentId;
-      const currentComments = comments;
-      for (let i = 0; i < currentComments.length; i += 1) {
-        if (currentComments[i].id === deleteComment) {
-          currentComments.splice(i, 1);
-          currentComments.totalReplies = currentComments.length;
-          break;
-        } else if (currentComments[i].replies) {
-          forEach(currentComments[i].replies, (reply, indx) => {
-            if (reply) {
-              if (reply.id === deleteComment) {
-                currentComments[i].replies.splice(indx, 1);
-                comments[i].totalReplies -= 1;
-              }
-            }
-          });
-        }
-      }
-      setComments(currentComments);
-    }
-  }, [auctionDetail, auctionList, auctionComments, newBid, auctionUserComment, deleteComment]);
+  }, [auctionDetail, auctionList, auctionComments, newBid, auctionUserComment]);
 
   useEffect(() => {
     if (auctionUserCommentsResponse.code === 200) {
@@ -341,6 +320,7 @@ const AuctionDetail = ({
     if (e.target.value) {
       setLoadingPostReply(true);
       postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId });
+      setReply('');
     }
   };
 
@@ -351,6 +331,25 @@ const AuctionDetail = ({
   const handleDeleteComment = (commentId) => {
     setCommentId(commentId);
     deleteAuctionComment(auctionId, commentId);
+    const deleteComment = commentId;
+    const currentComments = comments;
+    for (let i = 0; i < currentComments.length; i += 1) {
+      if (currentComments[i].id === deleteComment) {
+        currentComments.splice(i, 1);
+        currentComments.totalReplies = currentComments.length - 1;
+        setTotalComments(currentComments.totalReplies);
+        break;
+      } else if (currentComments[i].replies) {
+        forEach(currentComments[i].replies, (reply, indx) => {
+          if (reply) {
+            if (reply.id === deleteComment) {
+              currentComments[i].replies.splice(indx, 1);
+              comments[i].totalReplies -= 1;
+            }
+          }
+        });
+      }
+    }
   };
 
   const loadMoreComments = () => {
