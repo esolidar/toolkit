@@ -15,6 +15,7 @@ import AuctionDetailRigth from './AuctionDetailRigth';
 import AuctionsList from './auctionsList/AuctionsList';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import TextField from '../../elements/textField/TextField';
+import CreditCardList from '../creditCardList/CreditCardList';
 import CustomModal from '../../elements/customModal/CustomModal';
 import DescriptionDetail from '../descriptionDetail/DescriptionDetail';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
@@ -52,6 +53,10 @@ const AuctionDetail = ({
   auctionUserCommentsResponse,
   deleteAuctionComment,
   deleteComment,
+  getStripeCreditCardlist,
+  postStripeCreditCard,
+  stripeCreditCardList,
+  stripeCreditCard,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -620,7 +625,6 @@ const AuctionDetail = ({
                 />,
               }}
             />
-
           </h2>
         )}
         actionsChildren={(
@@ -644,6 +648,16 @@ const AuctionDetail = ({
               </a>
               <span>)</span>
             </div>
+            {auction}
+            <CreditCardList
+              getStripeCreditCardlist={getStripeCreditCardlist}
+              postStripeCreditCard={postStripeCreditCard}
+              stripeCreditCardList={stripeCreditCardList}
+              stripeCreditCard={stripeCreditCard}
+              showAddBtnCreditCard={true}
+              env={env.stripe}
+              translateMessage={translateMessage}
+            />
             <div className="mb-2">
               <CheckboxField
                 className="mb-2"

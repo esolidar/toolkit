@@ -14,6 +14,7 @@ const SelectField = ({
   defaultValue,
   className,
   hiddenSelectText,
+  dataTestId,
 }) => {
   const optionsList = (options) => {
     if (options) {
@@ -34,6 +35,7 @@ const SelectField = ({
           </label>
         )}
       <select
+        data-testid={dataTestId}
         name={field}
         className={`form-control ${className}`}
         value={value}
@@ -56,6 +58,7 @@ const SelectField = ({
 export default SelectField;
 
 SelectField.propTypes = {
+  dataTestId: PropTypes.string,
   options: PropTypes.array,
   value: PropTypes.oneOfType([
     PropTypes.number,
