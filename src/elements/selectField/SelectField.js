@@ -15,11 +15,12 @@ const SelectField = ({
   className,
   hiddenSelectText,
   dataTestId,
+  optionTestId,
 }) => {
   const optionsList = (options) => {
     if (options) {
       return options.map((option) => (
-        <option value={option.id} key={option.id} disabled={option.disabled}>
+        <option data-testid={`${optionTestId}-${option.id}`} value={option.id} key={option.id} disabled={option.disabled}>
           {option.name || option.title}
         </option>
       ));
@@ -59,6 +60,7 @@ export default SelectField;
 
 SelectField.propTypes = {
   dataTestId: PropTypes.string,
+  optionTestId: PropTypes.string,
   options: PropTypes.array,
   value: PropTypes.oneOfType([
     PropTypes.number,

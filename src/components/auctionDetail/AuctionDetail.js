@@ -84,7 +84,7 @@ const AuctionDetail = ({
   // Comments
   const [comments, setComments] = useState([]);
   const [totalComments, setTotalComments] = useState(0);
-  const [loadingPostReply, setLoadingPostReply] = useState(0);
+  const [loadingPostReply, setLoadingPostReply] = useState(false);
   const [loadingMoreComments, setLoadingMoreComments] = useState(false);
   const [commentId, setCommentId] = useState(0);
   const [listAuctions, setlistAuctions] = useState([]);
@@ -648,16 +648,17 @@ const AuctionDetail = ({
               </a>
               <span>)</span>
             </div>
-            {auction}
-            <CreditCardList
-              getStripeCreditCardlist={getStripeCreditCardlist}
-              postStripeCreditCard={postStripeCreditCard}
-              stripeCreditCardList={stripeCreditCardList}
-              stripeCreditCard={stripeCreditCard}
-              showAddBtnCreditCard={true}
-              env={env.stripe}
-              translateMessage={translateMessage}
-            />
+            {auctionDetailInfo.cc === 1 && (
+              <CreditCardList
+                getStripeCreditCardlist={getStripeCreditCardlist}
+                postStripeCreditCard={postStripeCreditCard}
+                stripeCreditCardList={stripeCreditCardList}
+                stripeCreditCard={stripeCreditCard}
+                showAddBtnCreditCard={true}
+                env={env.stripe}
+                translateMessage={translateMessage}
+              />
+            )}
             <div className="mb-2">
               <CheckboxField
                 className="mb-2"
@@ -761,7 +762,7 @@ const AuctionDetail = ({
 };
 
 AuctionDetail.propTypes = {
-  auctionId: PropTypes.number,
+  auctionId: PropTypes.string,
   getAuctionDetail: PropTypes.func,
   auctionDetail: PropTypes.shape({
     code: PropTypes.number,
@@ -826,18 +827,18 @@ AuctionDetail.propTypes = {
   postAuctionCompanyComment: PropTypes.func,
   postAuctionSubscribe: PropTypes.func,
   userPrivateCode: PropTypes.number,
-  newBid: PropTypes.array,
-  userComment: PropTypes.array,
-  auctionSubscribe: PropTypes.array,
-  auctionList: PropTypes.array,
-  auctionBidList: PropTypes.array,
+  newBid: PropTypes.object,
+  userComment: PropTypes.object,
+  auctionSubscribe: PropTypes.object,
+  auctionList: PropTypes.object,
+  auctionBidList: PropTypes.object,
   requireLogin: PropTypes.func,
-  auctionCompanyComment: PropTypes.array,
+  auctionCompanyComment: PropTypes.object,
   companyId: PropTypes.number,
-  auctionSubscribeList: PropTypes.array,
-  auctionComments: PropTypes.array,
-  auctionUserCommentsResponse: PropTypes.array,
-  deleteAuctionComment: PropTypes.array,
+  auctionSubscribeList: PropTypes.object,
+  auctionComments: PropTypes.object,
+  auctionUserCommentsResponse: PropTypes.object,
+  deleteAuctionComment: PropTypes.func,
   user: PropTypes.number,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
