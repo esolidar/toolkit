@@ -21,10 +21,10 @@ const ValidateTelephone = ({
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
-    if (validatePhone.code === 200) {
+    if (validatePhone && validatePhone.code === 200) {
       setIsLoading(false);
       setShowVerifyCode(true);
-    } else if (validatePhone.code === 403) {
+    } else if (validatePhone && validatePhone.code === 400) {
       errors.phone = localStorage.lang === 'en' ? 'Phone number is invalid' : 'O número é inválido';
       setErrors(errors);
       setIsLoading(true);
@@ -32,10 +32,10 @@ const ValidateTelephone = ({
   }, [validatePhone]);
 
   useEffect(() => {
-    if (confirmPhone.code === 200) {
+    if (confirmPhone && confirmPhone.code === 200) {
       setVerified(1);
       setShowVerifyCode(false);
-    } else if (confirmPhone.code === 403) {
+    } else if (confirmPhone && confirmPhone.code === 400) {
       setCode('');
     }
   }, [confirmPhone]);
@@ -98,7 +98,7 @@ const ValidateTelephone = ({
             </div>
           )}
           {verified === 1
-            && <div className="phone-verified" />}
+            && <div className="phone-verified" data-testId="verified-number" />}
         </Col>
         {verified === 0
           && (
