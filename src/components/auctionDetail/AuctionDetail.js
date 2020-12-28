@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
-import { isEmpty, forEach, findIndex } from 'lodash';
+import {
+  isEmpty, forEach, findIndex, set,
+} from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import { getEmployeeName } from '../../utils';
@@ -285,10 +287,10 @@ const AuctionDetail = ({
     setIsloadingContributes(true);
   };
 
-  const handleConfirmBid = () => {
+  const handleConfirmBid = (isAnonymous) => {
     const bidValues = {
       value: valueBid,
-      hidden: 0,
+      hidden: isAnonymous || 0,
       last4: 1234,
     };
 
@@ -641,8 +643,17 @@ const AuctionDetail = ({
         )}
         actionsChildren={(
           <>
-            <Button extraClass="dark" onClick={() => setIsShowModal(false)} text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })} />
-            <Button extraClass="success-full" onClick={handleConfirmBid} text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })} />
+            <Button
+              extraClass="dark"
+              onClick={() => setIsShowModal(false)}
+              text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+            />
+            <Button
+              extraClass="success-full"
+              onClick={() => handleConfirmBid(isAnonymous)}
+              disabled={(!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms)}
+              text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
+            />
           </>
         )}
         bodyChildren={(
@@ -667,8 +678,8 @@ const AuctionDetail = ({
                 stripeCreditCardList={stripeCreditCardList}
                 stripeCreditCard={stripeCreditCard}
                 showAddBtnCreditCard={true}
-                env={env.stripe}
                 translateMessage={translateMessage}
+                env={env.stripe}
               />
             )}
             {!hasPhoneValidate && (
