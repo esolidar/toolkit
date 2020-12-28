@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { isEmpty, forEach, findIndex } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import { getEmployeeName } from '../../utils';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
@@ -59,6 +59,7 @@ const AuctionDetail = ({
   validatePhone,
   mobileConfirmPost,
   confirmPhone,
+  intl,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -189,6 +190,15 @@ const AuctionDetail = ({
     }
   }, [auctionBidList]);
 
+  useEffect(() => {
+    if (auctionSubscribeList.code === 200) {
+      if (auctionSubscribeList.data.auction_on_start) setIsCheckedEmailStart(true);
+      if (auctionSubscribeList.data.auction_first_bid) setIsCheckedEmailFirstBid(true);
+      if (auctionSubscribeList.data.auction_24h_end) setIsCheckedEmail24H(true);
+      setIsShowModalSubscribe(true);
+    }
+  }, [auctionSubscribeList]);
+
   if (isLoadingAuction) return (<Loading />);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
@@ -218,10 +228,6 @@ const AuctionDetail = ({
     return description;
   };
 
-  const valueBidTextField = (e) => {
-    setValueBid(e.target.value);
-  };
-
   const selectedCheck = (e, i) => {
     const { checked } = e.target;
 
@@ -233,13 +239,6 @@ const AuctionDetail = ({
 
   const modalShowSubscribe = () => {
     getAuctionSubscribe(auctionId);
-
-    if (auctionSubscribeList.code === 200) {
-      if (auctionSubscribeList.data.auction_on_start) setIsCheckedEmailStart(true);
-      if (auctionSubscribeList.data.auction_first_bid) setIsCheckedEmailFirstBid(true);
-      if (auctionSubscribeList.data.auction_24h_end) setIsCheckedEmail24H(true);
-    }
-    setIsShowModalSubscribe(true);
   };
 
   const selectedCheckSubscribe = (e, i) => {
@@ -250,27 +249,34 @@ const AuctionDetail = ({
     if (i === 2) setIsCheckedEmail24H(checked);
   };
 
-  const handleClickBid = () => {
-    if (valueBid > auctionDetailInfo.bid_max_interval) {
-      setError(translateMessage({ id: 'auction.detail.error.bidLower', defaultMessage: `Put a numeric value equal or lower than ${bidValueAuction + auctionDetailInfo.bid_max_interval} ` }));
-      // setError({
-      //   id: 'auction.detail.error.bidLower',
-      //   defaultMessage: 'Put a numeric value equal or lower than ',
-      //   value: bidValueAuction + auctionDetailInfo.bid_max_interval,
-      // });
+  const handleClickBid = (value) => {
+    if (value > auctionDetailInfo.bid_max_interval) {
+      setError(
+        intl.formatMessage(
+          {
+            id: 'auction.detail.error.bidLower',
+            defaultMessage: 'Put a numeric value equal or lower than {value}',
+          },
+          { value: bidValueAuction + auctionDetailInfo.bid_max_interval },
+        ),
+      );
       return false;
     }
 
-    if (valueBid >= bidValueAuction + auctionDetailInfo.bid_interval) {
+    if (value >= bidValueAuction + auctionDetailInfo.bid_interval) {
       setIsShowModal(true);
       setError('');
+      setValueBid(value);
     } else {
-      setError(translateMessage({ id: 'auction.detail.error.bid', defaultMessage: `Put a numeric value equal or higher than ${bidValueAuction + auctionDetailInfo.bid_interval}` }));
-      // setError({
-      //   id: 'auction.detail.error.bid',
-      //   defaultMessage: 'Put a numeric value equal or higher than ',
-      //   value: bidValueAuction + auctionDetailInfo.bid_interval,
-      // });
+      setError(
+        intl.formatMessage(
+          {
+            id: 'auction.detail.error.bid',
+            defaultMessage: 'Put a numeric value equal or higher than {value}',
+          },
+          { value: bidValueAuction + auctionDetailInfo.bid_interval },
+        ),
+      );
     }
   };
 
@@ -287,6 +293,7 @@ const AuctionDetail = ({
     };
 
     postNewBid(bidValues, auctionDetailInfo.id);
+    setIsShowModal(false);
   };
 
   const handleChangePrivateCode = (e) => {
@@ -502,7 +509,6 @@ const AuctionDetail = ({
                     auction={auctionDetailInfo}
                     isShowBid={true}
                     handleClickBid={handleClickBid}
-                    valueBidTextField={valueBidTextField}
                     translateMessage={translateMessage}
                     showModalSubscribe={modalShowSubscribe}
                     minValue={bidValueAuction + auctionDetailInfo.bid_interval}
@@ -666,13 +672,13 @@ const AuctionDetail = ({
               />
             )}
             {!hasPhoneValidate && (
-              <ValidateTelephone
-                localStorage={localStorage}
-                mobileValidatePost={mobileValidatePost}
-                validatePhone={validatePhone}
-                mobileConfirmPost={mobileConfirmPost}
-                confirmPhone={confirmPhone}
-              />
+            <ValidateTelephone
+              localStorage={localStorage}
+              mobileValidatePost={mobileValidatePost}
+              validatePhone={validatePhone}
+              mobileConfirmPost={mobileConfirmPost}
+              confirmPhone={confirmPhone}
+            />
             )}
             <div className="mb-2">
               <CheckboxField
@@ -723,6 +729,7 @@ const AuctionDetail = ({
         size="lg"
       />
       <CustomModal
+        bodyPadding="15px"
         dialogClassName="auction-modal-subscribe"
         actionsChildren={(
           <>
@@ -867,6 +874,9 @@ AuctionDetail.propTypes = {
     stripe: PropTypes.object,
   }),
   translateMessage: PropTypes.func,
+  intl: PropTypes.shape({
+    formatMessage: PropTypes.func,
+  }),
 };
 
-export default AuctionDetail;
+export default injectIntl(AuctionDetail);

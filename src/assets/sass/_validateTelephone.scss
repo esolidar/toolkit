@@ -1,4 +1,11 @@
 .validate-telephone {
+  .title-add-contact {
+    font-family: $fontHeavy;
+    font-size: 15px;
+    color: $mainColor;
+    letter-spacing: -.31px;
+    line-height: 65px;
+  }
   .phone-box {
     .react-tel-input input[type=tel] {
       height               : 40px;
@@ -10,7 +17,6 @@
       -moz-appearance      : none;
       font-family          : $fontFamily;
       font-size            : 15px;
-      // color             : @inputLabelColor;
       letter-spacing       : -0.31px;
       line-height          : 24px;
       padding-top          : 10px;

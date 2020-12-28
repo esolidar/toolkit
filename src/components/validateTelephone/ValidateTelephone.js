@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
@@ -20,6 +20,26 @@ const ValidateTelephone = ({
   const [countryCode, setCountryCode] = useState(false);
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    if (validatePhone.code === 200) {
+      setIsLoading(false);
+      setShowVerifyCode(true);
+    } else if (validatePhone.code === 403) {
+      errors.phone = localStorage.lang === 'en' ? 'Phone number is invalid' : 'O número é inválido';
+      setErrors(errors);
+      setIsLoading(true);
+    }
+  }, [validatePhone]);
+
+  useEffect(() => {
+    if (confirmPhone.code === 200) {
+      setVerified(1);
+      setShowVerifyCode(false);
+    } else if (confirmPhone.code === 403) {
+      setCode('');
+    }
+  }, [confirmPhone]);
+
   const handleInputBlur = (telNumber, selectedCountry) => {
     setPhoneNumber(telNumber);
     setCountryCode(selectedCountry.iso2);
@@ -31,39 +51,31 @@ const ValidateTelephone = ({
   };
 
   const onChangeCode = (e) => {
-    setCode({ [e.target.name]: e.target.value, unsaved: true });
+    setCode(e.target.value);
   };
 
   const mobileValidate = () => {
     const userId = JSON.parse(localStorage.user).id;
     setIsLoading(true);
     setErrors({});
-    mobileValidatePost(userId, { phone: phoneNumber, country_code: countryCode }).then(() => {
-      if (validatePhone.code === 200) {
-        setIsLoading(false);
-        setShowVerifyCode(true);
-      } else {
-        errors.phone = localStorage.lang === 'en' ? 'Phone number is invalid' : 'O número é inválido';
-        setErrors(errors);
-        setIsLoading(true);
-      }
-    });
+    mobileValidatePost(userId, { phone: phoneNumber, country_code: countryCode });
   };
 
   const mobileVerify = () => {
     const userId = JSON.parse(localStorage.user).id;
-    mobileConfirmPost(userId, { code }).then(() => {
-      if (confirmPhone.code === 200) {
-        setVerified(1);
-        setShowVerifyCode(false);
-      } else {
-        setCode('');
-      }
-    });
+    mobileConfirmPost(userId, { code });
   };
 
   return (
     <Col className="validate-telephone box mb-3">
+      <Row>
+        <Col className="title-add-contact">
+          <FormattedMessage
+            id="user.settings.title.addContact"
+            defaultMessage="Add Contact"
+          />
+        </Col>
+      </Row>
       <Row className="phone-box">
         <Col sm={8}>
           <ReactTelephoneInput

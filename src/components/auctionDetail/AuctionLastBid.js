@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
@@ -9,7 +9,6 @@ const AuctionLastBid = ({
   auction,
   isEnded,
   handleClickBid,
-  valueBidTextField,
   isShowModal,
   error,
   translateMessage,
@@ -17,6 +16,12 @@ const AuctionLastBid = ({
   minValue,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
+
+  const [value, setValue] = useState('');
+
+  const valueBidTextField = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <Col sm={12}>
@@ -61,8 +66,9 @@ const AuctionLastBid = ({
                 <TextField
                   className="bid-input"
                   type="text"
-                  onChange={(e) => valueBidTextField(e)}
+                  onChange={valueBidTextField}
                   error={error}
+                  value={value}
                   placeholder={
                     intl.formatMessage(
                       {
@@ -79,7 +85,7 @@ const AuctionLastBid = ({
                 <Button
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
-                  onClick={handleClickBid}
+                  onClick={() => handleClickBid(value)}
                 />
               </Col>
               <Col sm={12} className="subscribe-auction text-center mt-5">
@@ -132,7 +138,6 @@ AuctionLastBid.propTypes = {
   }),
   isEnded: PropTypes.bool,
   handleClickBid: PropTypes.func,
-  valueBidTextField: PropTypes.func,
   isShowModal: PropTypes.func,
   error: PropTypes.string,
   translateMessage: PropTypes.func,

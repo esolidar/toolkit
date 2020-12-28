@@ -14,8 +14,11 @@ import { ValidateTelephone } from '@esolidar/toolkit';
     user: {
       id: "51792",
     }
-  }
-}
+  }}
+  mobileValidatePost={()=> {}}
+  validatePhone={[]}
+  mobileConfirmPost={()=> {}}
+  confirmPhone={[]}
 />
 
 ```

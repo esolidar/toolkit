@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
@@ -12,7 +12,6 @@ const AuctionDetailRigth = ({
   isShowBid,
   isEnded,
   handleClickBid,
-  valueBidTextField,
   error,
   translateMessage,
   minValue,
@@ -22,6 +21,12 @@ const AuctionDetailRigth = ({
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = auction.currency.small === user.currency.small;
+
+  const [value, setValue] = useState('');
+
+  const valueBidTextField = (e) => {
+    setValue(e.target.value);
+  };
 
   let supported = '';
   if (auction.brand) {
@@ -83,8 +88,9 @@ const AuctionDetailRigth = ({
                 <TextField
                   className="bid-input"
                   type="text"
-                  onChange={(e) => valueBidTextField(e)}
+                  onChange={valueBidTextField}
                   error={error}
+                  value={value}
                   placeholder={
                     intl.formatMessage(
                       {
@@ -100,7 +106,7 @@ const AuctionDetailRigth = ({
                 <Button
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
-                  onClick={handleClickBid}
+                  onClick={() => handleClickBid(value)}
                 />
               </Col>
               <Col sm={12} className="subscribe-auction mt-5">
@@ -161,7 +167,6 @@ AuctionDetailRigth.propTypes = {
   isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
   handleClickBid: PropTypes.func,
-  valueBidTextField: PropTypes.func,
   error: PropTypes.string,
   translateMessage: PropTypes.func,
   minValue: PropTypes.number,
