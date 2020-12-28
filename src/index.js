@@ -56,6 +56,7 @@ export { default as AuctionDetail } from './components/auctionDetail/AuctionDeta
 export { default as DescriptionDetail } from './components/descriptionDetail/DescriptionDetail';
 export { default as AuctionsList } from './components/auctionDetail/auctionsList/AuctionsList';
 export { default as CreditCardList } from './components/creditCardList/CreditCardList';
+export { default as ValidateTelephone } from './components/validateTelephone/ValidateTelephone';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';

@@ -22,6 +22,7 @@ import CheckboxField from '../../elements/checkboxField/CheckboxField';
 import ContributesListBox from '../contributesListBox/ContributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
+import ValidateTelephone from '../validateTelephone/ValidateTelephone';
 
 const AuctionDetail = ({
   auctionId,
@@ -38,7 +39,6 @@ const AuctionDetail = ({
   getAuctionSubscribe,
   auctionSubscribeList,
   postAuctionSubscribe,
-  auctionSubscribe,
   getAuctionComment,
   auctionComments,
   user,
@@ -48,15 +48,17 @@ const AuctionDetail = ({
   postAuctionUserComment,
   auctionUserComment,
   postAuctionCompanyComment,
-  auctionCompanyComment,
   getAuctionUserCommentResponse,
   auctionUserCommentsResponse,
   deleteAuctionComment,
-  deleteComment,
   getStripeCreditCardlist,
   postStripeCreditCard,
   stripeCreditCardList,
   stripeCreditCard,
+  mobileValidatePost,
+  validatePhone,
+  mobileConfirmPost,
+  confirmPhone,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -105,10 +107,13 @@ const AuctionDetail = ({
 
   const perPage = 2;
 
+  const { phones } = JSON.parse(localStorage.user);
+  const hasPhoneValidate = phones.some((phone) => phone.verified === 1);
+
   useEffect(() => {
     getAuctionDetail(auctionId, userPrivateCode);
     getAuctionBidList(auctionId, page, perPage);
-    getAuctionList(companyId, 1, 'dateLimit', 'desc', 'A', '4', '&active');
+    getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 4, undefined, undefined, undefined);
     getAuctionComment(auctionId, 1, '4');
   }, []);
 
@@ -610,6 +615,7 @@ const AuctionDetail = ({
         </>
       )}
       <CustomModal
+        dialogClassName="auction-modal-bid"
         onHide={() => setIsShowModal(false)}
         show={isShowModal}
         title={(
@@ -635,7 +641,7 @@ const AuctionDetail = ({
         )}
         bodyChildren={(
           <>
-            <div className="mb-5">
+            <div className="mb-3">
               {translateMessage({
                 id: 'auction.modal.bid.email',
                 defaultMessage: 'If you are the winner you will receive an email to: ',
@@ -648,7 +654,7 @@ const AuctionDetail = ({
               </a>
               <span>)</span>
             </div>
-            {auctionDetailInfo.cc === 1 && (
+            {(hasPhoneValidate && auctionDetailInfo.cc === 1) && (
               <CreditCardList
                 getStripeCreditCardlist={getStripeCreditCardlist}
                 postStripeCreditCard={postStripeCreditCard}
@@ -659,9 +665,18 @@ const AuctionDetail = ({
                 translateMessage={translateMessage}
               />
             )}
+            {!hasPhoneValidate && (
+              <ValidateTelephone
+                localStorage={localStorage}
+                mobileValidatePost={mobileValidatePost}
+                validatePhone={validatePhone}
+                mobileConfirmPost={mobileConfirmPost}
+                confirmPhone={confirmPhone}
+              />
+            )}
             <div className="mb-2">
               <CheckboxField
-                className="mb-2"
+                className="mb-2 checkbox-modal-bid"
                 label={translateMessage({
                   id: 'auction.modal.bid.anonymousBid',
                   defaultMessage: 'Anonymous bid',
@@ -672,6 +687,7 @@ const AuctionDetail = ({
             </div>
             <div className="mb-2">
               <CheckboxField
+                className="checkbox-modal-bid"
                 label={translateMessage({
                   id: 'auction.modal.bid.check1',
                   defaultMessage: 'eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it.',
@@ -682,6 +698,7 @@ const AuctionDetail = ({
             </div>
             <div className="mb-2">
               <CheckboxField
+                className="checkbox-modal-bid"
                 label={translateMessage({
                   id: 'auction.modal.bid.check3',
                   defaultMessage: 'To be able to bid you must first accept to receive our notifications. This will allow us to inform you whenever you win an auction.',
@@ -692,6 +709,7 @@ const AuctionDetail = ({
             </div>
             <div className="mb-2">
               <CheckboxField
+                className="checkbox-modal-bid"
                 label={translateMessage({
                   id: 'auction.modal.bid.check2',
                   defaultMessage: 'I agree with eSolidar’s Privacy Policy and Terms and Conditions.',
@@ -705,6 +723,7 @@ const AuctionDetail = ({
         size="lg"
       />
       <CustomModal
+        dialogClassName="auction-modal-subscribe"
         actionsChildren={(
           <>
             <Button
@@ -814,35 +833,38 @@ AuctionDetail.propTypes = {
     data: PropTypes.object,
     total: PropTypes.number,
   }),
-  deleteComment: PropTypes.shape({
-    code: PropTypes.number,
-  }),
   getAuctionComment: PropTypes.func,
   getAuctionBidList: PropTypes.func,
   getAuctionList: PropTypes.func,
   getAuctionSubscribe: PropTypes.func,
   getAuctionUserCommentResponse: PropTypes.func,
+  getStripeCreditCardlist: PropTypes.func,
+  postStripeCreditCard: PropTypes.object,
+  stripeCreditCardList: PropTypes.func,
+  stripeCreditCard: PropTypes.object,
   postAuctionUserComment: PropTypes.func,
   postNewBid: PropTypes.func,
   postAuctionCompanyComment: PropTypes.func,
   postAuctionSubscribe: PropTypes.func,
   userPrivateCode: PropTypes.number,
   newBid: PropTypes.object,
-  userComment: PropTypes.object,
-  auctionSubscribe: PropTypes.object,
   auctionList: PropTypes.object,
   auctionBidList: PropTypes.object,
   requireLogin: PropTypes.func,
-  auctionCompanyComment: PropTypes.object,
   companyId: PropTypes.number,
   auctionSubscribeList: PropTypes.object,
   auctionComments: PropTypes.object,
   auctionUserCommentsResponse: PropTypes.object,
   deleteAuctionComment: PropTypes.func,
+  mobileValidatePost: PropTypes.func,
+  validatePhone: PropTypes.object,
+  mobileConfirmPost: PropTypes.func,
+  confirmPhone: PropTypes.object,
   user: PropTypes.number,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
+    stripe: PropTypes.object,
   }),
   translateMessage: PropTypes.func,
 };

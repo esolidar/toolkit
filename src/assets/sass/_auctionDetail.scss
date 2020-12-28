@@ -24,7 +24,20 @@
 
 }
 
+.auction-modal-bid,
+.auction-modal-subscribe {
+  
+  label {
+    font-size     : 15px !important;
+    margin        : 5px 0 !important;
+    text-transform: inherit !important;
+    color         : #455C75 !important;
+    font-weight   : inherit !important;
+  }
+}
+
 .auction-detail {
+
   .mobile-countdown {
     .countdown {
       margin: 15px 15px 0 15px;

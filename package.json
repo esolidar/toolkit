@@ -180,6 +180,7 @@
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.5",
+    "react-telephone-input": "^4.73.4"
   }
 }

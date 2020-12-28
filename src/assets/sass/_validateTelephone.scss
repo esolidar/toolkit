@@ -1,0 +1,142 @@
+.validate-telephone {
+  .phone-box {
+    .react-tel-input input[type=tel] {
+      height               : 40px;
+      background-color     : #FFFFFF;
+      border               : 2px solid #D0D6DD;
+      border-radius        : 3px;
+      box-shadow           : none;
+      -webkit-box-shadow   : none;
+      -moz-appearance      : none;
+      font-family          : $fontFamily;
+      font-size            : 15px;
+      // color             : @inputLabelColor;
+      letter-spacing       : -0.31px;
+      line-height          : 24px;
+      padding-top          : 10px;
+      padding-left         : 80px;
+
+      &:focus {
+        border    : 2px solid #738598;
+        box-shadow: none;
+      }
+    }
+
+    .phone-verified {
+      position  : absolute;
+      right     : 25px;
+      top       : 9px;
+      width     : 24px;
+      height    : 24px;
+      background: url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-verified.svg") 50% 50% no-repeat;
+    }
+
+    .sms-message {
+      font-family   : $fontFamily;
+      font-size     : 12px;
+      color         : #738598;
+      letter-spacing: -.25px;
+      margin-top    : 15px;
+    }
+
+    .btn-validate-phone {
+      border                            : 2px solid #34C77F;
+      color                             : #34C77F;
+      background                        : #fff;
+      border-radius                     : 100px;
+      padding-left                      : 30px;
+      padding-right                     : 30px;
+      font-family                       : 'AvenirLTStd-Light';
+      font-size                         : 17px;
+      -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition                   : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition                     : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition                        : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition-timing-function   : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition-timing-function     : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function        : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+
+      &:hover {
+        background  : #34C77F;
+        border-color: #34C77F;
+        color       : #fff !important;
+      }
+    }
+
+    .verify-box {
+      display   : inline-block;
+      padding   : 15px;
+      margin-top: 20px;
+      background: $grayWhite;
+
+      h3 {
+        padding       : 0;
+        margin        : 0;
+        font-family   : $fontHeavy;
+        font-size     : 15px;
+        color         : $mainColor;
+        letter-spacing: 0;
+        margin-bottom : 15px;
+
+        img {
+          margin-right: 15px;
+        }
+      }
+
+      input {
+        text-align    : center;
+        font-family   : $fontFamily;
+        font-size     : 21px;
+        color         : #A2ADBA;
+        letter-spacing: 2.8px;
+        line-height   : 26px;
+      }
+
+      .btn-verify-phone {
+        border                            : 2px solid #34C77F;
+        color                             : #34C77F !important;
+        background                        : #fff;
+        border-radius                     : 100px;
+        padding-left                      : 30px;
+        padding-right                     : 30px;
+        font-family                       : $fontLight;
+        font-size                         : 17px;
+        -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+        -webkit-transition                : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        -moz-transition                   : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        -o-transition                     : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        transition                        : all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        -moz-transition-timing-function   : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        -o-transition-timing-function     : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        transition-timing-function        : cubic-bezier(0.115, 0.65, 0.215, 1.005);
+        margin-top                        : 15px;
+        width                             : 100%;
+      }
+    }
+  }
+
+  .thumb-box {
+    float  : left;
+    width  : 100%;
+    display: inline-block;
+
+    .thumb {
+      width              : 120px;
+      height             : 120px;
+      border-radius      : 50%;
+      float              : left;
+      background-size    : cover;
+      background-position: 50% 50%;
+    }
+
+    .thumbInput {
+      float: left;
+      width: 230px;
+    }
+  }
+}
