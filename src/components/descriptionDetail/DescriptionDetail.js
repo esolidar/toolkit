@@ -10,7 +10,7 @@ const DescriptionDetail = ({
   showMoreDescButton,
 }) => (
   <>
-    <div className="shipping-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
+    <div className="shipping-header" style={{ color, borderColor: color, marginTop: '50px' }}>
       {title}
     </div>
     <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>

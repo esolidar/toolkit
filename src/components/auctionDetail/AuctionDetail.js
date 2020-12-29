@@ -672,21 +672,7 @@ const AuctionDetail = ({
         dialogClassName="auction-modal-bid"
         onHide={() => setIsShowModal(false)}
         show={isShowModal}
-        title={(
-          <h2>
-            <FormattedMessage
-              id="auction.modal.bid.confirm"
-              defaultMessage="Confirm bid value {value}"
-              values={{
-                value: <FormattedNumber
-                  value={valueBid}
-                  style="currency"
-                  currency={auctionDetailInfo.currency.small}
-                />,
-              }}
-            />
-          </h2>
-        )}
+        title={translateMessage({ id: 'auction.modal.bid.confirm', defaultMessage: 'Confirm bid' })}
         actionsChildren={(
           <>
             <Button
@@ -704,6 +690,19 @@ const AuctionDetail = ({
         )}
         bodyChildren={(
           <>
+            <p className="font-weight-bold">
+              <FormattedMessage
+                id="auction.modal.bid.confirmText"
+                defaultMessage="A sua licitação é de {value}"
+                values={{
+                  value: <FormattedNumber
+                    value={valueBid}
+                    style="currency"
+                    currency={auctionDetailInfo.currency.small}
+                  />,
+                }}
+              />
+            </p>
             <div className="mb-3">
               {translateMessage({
                 id: 'auction.modal.bid.email',

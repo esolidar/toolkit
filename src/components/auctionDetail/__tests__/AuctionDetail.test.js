@@ -1,5 +1,7 @@
 /* global expect */
 /* global jest */
+/* global beforeAll */
+/* global afterAll */
 
 import React from 'react';
 import '@testing-library/jest-dom';
@@ -17,6 +19,7 @@ const props = {
   getAuctionList: fx,
   getAuctionComment: fx,
   getAuctionSubscribe: fx,
+  getStripeCreditCardlist: fx,
   auctionDetail: {
     code: 200,
     data: {
@@ -298,6 +301,9 @@ const props = {
   newBid: {
     code: 404,
   },
+  auctionUserCommentsResponse: {
+    code: 404,
+  },
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
@@ -305,6 +311,12 @@ const props = {
   translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
+    currency: {
+      small: 'EUR',
+    },
+    thumbs: {
+      thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
+    },
   },
   auctionSubscribeList: {
     code: 200,
@@ -315,6 +327,25 @@ const props = {
     },
   },
 };
+
+const user = {
+  phones: [
+    {
+      code: '6121',
+      phone: '+351919552199',
+      user_id: 51792,
+      verified: 1,
+    },
+  ],
+};
+
+beforeAll(() => {
+  localStorage.setItem('user', JSON.stringify(user));
+});
+
+afterAll(() => {
+  localStorage.clear();
+});
 
 test('should render component AuctionDetail and verify checkboxs', async () => {
   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);

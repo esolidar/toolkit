@@ -10,7 +10,6 @@ const CustomModal = ({
   bodyClassName,
   bodyPadding,
   dialogClassName,
-  disableEscapeKeyDown,
   dividerBottom,
   dividerTop,
   footerClassName,
@@ -43,7 +42,6 @@ const CustomModal = ({
       backdrop={backdrop}
       centered={centered}
       dialogClassName={`custom-modal ${dialogClassName}`}
-      disableEscapeKeyDown={disableEscapeKeyDown}
       onHide={onHide}
       scrollable={scrollable}
       show={show}
@@ -101,7 +99,6 @@ CustomModal.propTypes = {
   bodyClassName: PropTypes.string,
   bodyPadding: PropTypes.string,
   dialogClassName: PropTypes.string,
-  disableEscapeKeyDown: PropTypes.bool,
   dividerBottom: PropTypes.bool,
   dividerTop: PropTypes.bool,
   footerClassName: PropTypes.string,
@@ -121,7 +118,6 @@ CustomModal.defaultProps = {
   centered: true,
   bodyClassName: '',
   dialogClassName: '',
-  disableEscapeKeyDown: false,
   dividerBottom: false,
   dividerTop: false,
   footerClassName: '',
