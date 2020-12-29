@@ -33,7 +33,9 @@ CheckboxField.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string, PropTypes.node,
+  ]),
   error: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,

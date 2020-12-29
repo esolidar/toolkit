@@ -86,6 +86,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={6} className={error && 'has-error'}>
                 <TextField
+                  field="id"
                   className="bid-input"
                   type="text"
                   onChange={valueBidTextField}

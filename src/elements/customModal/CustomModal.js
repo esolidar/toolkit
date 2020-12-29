@@ -42,7 +42,7 @@ const CustomModal = ({
     <Modal
       backdrop={backdrop}
       centered={centered}
-      dialogClassName={dialogClassName}
+      dialogClassName={`custom-modal ${dialogClassName}`}
       disableEscapeKeyDown={disableEscapeKeyDown}
       onHide={onHide}
       scrollable={scrollable}
@@ -118,7 +118,7 @@ CustomModal.propTypes = {
 
 CustomModal.defaultProps = {
   backdrop: 'static',
-  centered: false,
+  centered: true,
   bodyClassName: '',
   dialogClassName: '',
   disableEscapeKeyDown: false,

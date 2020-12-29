@@ -26,7 +26,7 @@
 
 .auction-modal-bid,
 .auction-modal-subscribe {
-  
+
   label {
     font-size     : 15px !important;
     margin        : 5px 0 !important;
@@ -42,6 +42,10 @@
     .countdown {
       margin: 15px 15px 0 15px;
     }
+  }
+
+  .readmore-button {
+    display: none;
   }
 
   .auction-supported {
@@ -196,9 +200,9 @@
     margin-top   : -75px;
     margin-bottom: 10px;
 
-    @media(max-width: 425px) {
-      margin-top: -50px;
-    }
+    // @media(max-width: 425px) {
+    //   margin-top: -50px;
+    // }
   }
 
   .txt-price-t {

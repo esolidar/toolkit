@@ -34,7 +34,7 @@ DescriptionDetail.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   showmoreDesc: PropTypes.bool,
-  showMoreDescButton: PropTypes.bool,
+  showMoreDescButton: PropTypes.func,
 };
 
 export default DescriptionDetail;

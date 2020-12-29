@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import {
-  isEmpty, forEach, findIndex, set,
+  isEmpty, forEach, findIndex,
 } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
@@ -68,7 +68,6 @@ const AuctionDetail = ({
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
 
   const [isShowmoreDesc] = useState(false);
-  const [isShowMoreDescButton] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
@@ -91,7 +90,7 @@ const AuctionDetail = ({
   const [totalComments, setTotalComments] = useState(0);
   const [loadingPostReply, setLoadingPostReply] = useState(false);
   const [loadingMoreComments, setLoadingMoreComments] = useState(false);
-  const [commentId, setCommentId] = useState(0);
+  // const [commentId, setCommentId] = useState(0);
   const [listAuctions, setlistAuctions] = useState([]);
 
   // Private Auction
@@ -107,6 +106,8 @@ const AuctionDetail = ({
   const [isCheckedEmail24H, setIsCheckedEmail24H] = useState(false);
 
   const [isloadingContributes, setIsloadingContributes] = useState(false);
+  const [isErrorSelectCard, setIsErrorSelectCard] = useState(false);
+  const [hasCardSelected, setHasCardSelected] = useState(false);
 
   const perPage = 2;
 
@@ -149,6 +150,7 @@ const AuctionDetail = ({
     }
 
     if (newBid.code === 200) {
+      getAuctionDetail(auctionId, userPrivateCode);
       setIsShowModal(false);
     }
 
@@ -288,6 +290,10 @@ const AuctionDetail = ({
   };
 
   const handleConfirmBid = (isAnonymous) => {
+    if (!hasCardSelected) {
+      setIsErrorSelectCard(true);
+      return;
+    }
     const bidValues = {
       value: valueBid,
       hidden: isAnonymous || 0,
@@ -295,7 +301,6 @@ const AuctionDetail = ({
     };
 
     postNewBid(bidValues, auctionDetailInfo.id);
-    setIsShowModal(false);
   };
 
   const handleChangePrivateCode = (e) => {
@@ -306,6 +311,22 @@ const AuctionDetail = ({
     if (privateCode) {
       getAuctionDetail(auctionDetailInfo.id, privateCode);
     }
+  };
+
+  const textPrivacyandTerms = () => {
+    const initialText = translateMessage({ id: 'auctions.private.supportes1', defaultMessage: 'I agree with eSolidar’s ' });
+    const privacyPolicy = translateMessage({ id: 'auctions.private.privacy', defaultMessage: 'Privacy Policy' });
+    const and = translateMessage({ id: 'auctions.private.and', defaultMessage: 'and' });
+    const terms = translateMessage({ id: 'auctions.private.terms', defaultMessage: 'Terms and Conditions' });
+
+    const html = `
+      <span>${initialText}</span>
+      <a href='#'>${privacyPolicy}</a>
+      <span>${and}</span>
+      <a href='#'>${terms}</a>
+    `;
+
+    return html;
   };
 
   const handleConfirmSubscribe = (isCheckedEmailStart, isCheckedEmailFirstBid, isCheckedEmail24H) => {
@@ -348,7 +369,7 @@ const AuctionDetail = ({
   };
 
   const handleDeleteComment = (commentId) => {
-    setCommentId(commentId);
+    // setCommentId(commentId);
     deleteAuctionComment(auctionId, commentId);
     const deleteComment = commentId;
     const currentComments = comments;
@@ -374,6 +395,14 @@ const AuctionDetail = ({
   const loadMoreComments = () => {
     setLoadingMoreComments(true);
     getAuctionComment(auctionId, page + 1, perPage);
+  };
+
+  const showMoreDescButton = () => {
+
+  };
+
+  const handleOnSelect = () => {
+    setHasCardSelected(true);
   };
 
   let supported = '';
@@ -534,19 +563,19 @@ const AuctionDetail = ({
                     title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
                     description={auctionDescriptionLang('description')}
                     showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={isShowMoreDescButton}
+                    showMoreDescButton={showMoreDescButton}
                   />
                   <DescriptionDetail
                     title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
                     description={auctionDescriptionLang('shipping_description')}
                     showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={isShowMoreDescButton}
+                    showMoreDescButton={showMoreDescButton}
                   />
                   <DescriptionDetail
                     title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
                     description={auctionDescriptionLang('payment_description')}
                     showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={isShowMoreDescButton}
+                    showMoreDescButton={showMoreDescButton}
                   />
                 </Col>
                 <Col xs={12} sm={4}>
@@ -680,16 +709,18 @@ const AuctionDetail = ({
                 showAddBtnCreditCard={true}
                 translateMessage={translateMessage}
                 env={env.stripe}
+                isErrorSelectCard={isErrorSelectCard}
+                selectedCard={handleOnSelect}
               />
             )}
             {!hasPhoneValidate && (
-            <ValidateTelephone
-              localStorage={localStorage}
-              mobileValidatePost={mobileValidatePost}
-              validatePhone={validatePhone}
-              mobileConfirmPost={mobileConfirmPost}
-              confirmPhone={confirmPhone}
-            />
+              <ValidateTelephone
+                localStorage={localStorage}
+                mobileValidatePost={mobileValidatePost}
+                validatePhone={validatePhone}
+                mobileConfirmPost={mobileConfirmPost}
+                confirmPhone={confirmPhone}
+              />
             )}
             <div className="mb-2">
               <CheckboxField
@@ -727,10 +758,9 @@ const AuctionDetail = ({
             <div className="mb-2">
               <CheckboxField
                 className="checkbox-modal-bid"
-                label={translateMessage({
-                  id: 'auction.modal.bid.check2',
-                  defaultMessage: 'I agree with eSolidar’s Privacy Policy and Terms and Conditions.',
-                })}
+                label={
+                  <div dangerouslySetInnerHTML={{ __html: textPrivacyandTerms() }} />
+                }
                 onChange={(e) => selectedCheck(e, 2)}
                 checked={isCheckedTerms}
               />
@@ -857,8 +887,8 @@ AuctionDetail.propTypes = {
   getAuctionSubscribe: PropTypes.func,
   getAuctionUserCommentResponse: PropTypes.func,
   getStripeCreditCardlist: PropTypes.func,
-  postStripeCreditCard: PropTypes.object,
-  stripeCreditCardList: PropTypes.func,
+  postStripeCreditCard: PropTypes.func,
+  stripeCreditCardList: PropTypes.object,
   stripeCreditCard: PropTypes.object,
   postAuctionUserComment: PropTypes.func,
   postNewBid: PropTypes.func,
@@ -878,7 +908,7 @@ AuctionDetail.propTypes = {
   validatePhone: PropTypes.object,
   mobileConfirmPost: PropTypes.func,
   confirmPhone: PropTypes.object,
-  user: PropTypes.number,
+  user: PropTypes.object,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
