@@ -98,12 +98,12 @@ const CreditCardList = ({
 
   return (
     <div className="stripe-checkout cards-list">
-      <h3>
+      <p className="font-weight-bold">
         <FormattedMessage
           id="creditcard.info.title"
           defaultMessage="Credit card details"
         />
-      </h3>
+      </p>
       {isLoading && (
         <Loading />
       )}
@@ -148,7 +148,12 @@ const CreditCardList = ({
                 </li>
               )}
             {(isErrorSelectCard && isRadioCc === null) && (
-              <span className="hasError">Não está selecionado</span>
+              <span className="hasError text-danger">
+                <FormattedMessage
+                  id="creditcard.notSelected"
+                  defaultMessage="You must select a credit card"
+                />
+              </span>
             )}
           </>
           {showAddBtnCreditCard && (

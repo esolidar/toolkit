@@ -88,7 +88,7 @@ const AuctionLastBid = ({
                   onClick={() => handleClickBid(value)}
                 />
               </Col>
-              <Col sm={12} className="subscribe-auction text-center mt-5">
+              <Col sm={12} className="subscribe-auction text-center mt-4">
                 <button
                   type="button"
                   className="btn btn-link"

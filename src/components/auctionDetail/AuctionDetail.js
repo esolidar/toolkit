@@ -301,6 +301,10 @@ const AuctionDetail = ({
     };
 
     postNewBid(bidValues, auctionDetailInfo.id);
+    setIsAnonymous(false);
+    setIsCheckedLegal(false);
+    setIsCheckedTerms(false);
+    setIsCheckedNotifications(false);
   };
 
   const handleChangePrivateCode = (e) => {
@@ -314,16 +318,12 @@ const AuctionDetail = ({
   };
 
   const textPrivacyandTerms = () => {
-    const initialText = translateMessage({ id: 'auctions.private.supportes1', defaultMessage: 'I agree with eSolidar’s ' });
-    const privacyPolicy = translateMessage({ id: 'auctions.private.privacy', defaultMessage: 'Privacy Policy' });
-    const and = translateMessage({ id: 'auctions.private.and', defaultMessage: 'and' });
-    const terms = translateMessage({ id: 'auctions.private.terms', defaultMessage: 'Terms and Conditions' });
+    const initialText = translateMessage({ id: 'auctions.private.iagree', defaultMessage: 'I agree with eSolidar’s ' });
+    const privacyPolicy = translateMessage({ id: 'auctions.private.privacy', defaultMessage: 'Privacy policy' });
 
     const html = `
       <span>${initialText}</span>
-      <a href='#'>${privacyPolicy}</a>
-      <span>${and}</span>
-      <a href='#'>${terms}</a>
+      <a href='/privacy'>${privacyPolicy}</a>
     `;
 
     return html;
@@ -403,6 +403,14 @@ const AuctionDetail = ({
 
   const handleOnSelect = () => {
     setHasCardSelected(true);
+  };
+
+  const handleCloseModalBid = () => {
+    setIsAnonymous(false);
+    setIsCheckedLegal(false);
+    setIsCheckedTerms(false);
+    setIsCheckedNotifications(false);
+    setIsShowModal(false);
   };
 
   let supported = '';
@@ -652,6 +660,7 @@ const AuctionDetail = ({
         </>
       )}
       <CustomModal
+        bodyPadding="30px"
         dialogClassName="auction-modal-bid"
         onHide={() => setIsShowModal(false)}
         show={isShowModal}
@@ -674,7 +683,7 @@ const AuctionDetail = ({
           <>
             <Button
               extraClass="dark"
-              onClick={() => setIsShowModal(false)}
+              onClick={() => handleCloseModalBid()}
               text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
             />
             <Button
@@ -770,7 +779,7 @@ const AuctionDetail = ({
         size="lg"
       />
       <CustomModal
-        bodyPadding="15px"
+        bodyPadding="30px"
         dialogClassName="auction-modal-subscribe"
         actionsChildren={(
           <>
