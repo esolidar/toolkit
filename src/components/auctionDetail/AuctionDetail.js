@@ -135,11 +135,15 @@ const AuctionDetail = ({
         setErrorPrivateCode(translateMessage({ id: 'auction.detail.error.privateCode', defaultMessage: 'The code is wrong.' }));
       }
     }
+  }, [auctionDetail]);
 
+  useEffect(() => {
     if (auctionList.code === 200) {
       setlistAuctions(auctionList.data.data);
     }
+  }, [auctionList]);
 
+  useEffect(() => {
     if (auctionComments.code === 200) {
       const { data } = auctionComments.data;
       setComments(data);
@@ -148,12 +152,16 @@ const AuctionDetail = ({
         getAuctionUserCommentResponse(auctionId, comment.id);
       });
     }
+  }, [auctionComments]);
 
+  useEffect(() => {
     if (newBid.code === 200) {
       getAuctionDetail(auctionId, userPrivateCode);
       setIsShowModal(false);
     }
+  }, [newBid]);
 
+  useEffect(() => {
     if (auctionUserComment && auctionUserComment.code === 200) {
       const newComment = [auctionUserComment.data];
       if (auctionUserComment.data.comment_id === null) {
@@ -169,7 +177,7 @@ const AuctionDetail = ({
         setLoadingPostReply(false);
       }
     }
-  }, [auctionDetail, auctionList, auctionComments, newBid, auctionUserComment]);
+  }, [auctionUserComment]);
 
   useEffect(() => {
     if (auctionUserCommentsResponse.code === 200) {
