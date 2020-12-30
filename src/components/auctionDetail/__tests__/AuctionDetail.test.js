@@ -9,7 +9,6 @@ import {
   render, waitFor, screen, fireEvent,
 } from '@testing-library/react';
 import { advanceTo } from 'jest-date-mock';
-import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import AuctionDetail from '../AuctionDetail';
 
@@ -409,36 +408,36 @@ afterAll(() => {
   localStorage.clear();
 });
 
-// test('simulate private auction', async () => {
-//   render(<IntlProvider locale="en"><AuctionDetail {...propsAuctionPrivate} /></IntlProvider>);
+test('simulate private auction', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...propsAuctionPrivate} /></IntlProvider>);
 
-//   await waitFor(() => {
-//     const titlePrivate = screen.getByTestId('title-private');
-//     expect(titlePrivate).toBeInTheDocument();
-//     expect(titlePrivate).toHaveTextContent('Insert the access code to display and bid on the auction');
-//     const inputCode = screen.getByTestId('input-private-code');
-//     expect(inputCode).toBeInTheDocument();
-//     fireEvent.change(inputCode, { target: { value: '123456' } });
-//     expect(inputCode.value).toBe('123456');
-//     const btnCancel = screen.getByTestId('btn-private-cancel');
-//     expect(btnCancel).toBeInTheDocument();
-//     const btnValidate = screen.getByTestId('btn-private-validate');
-//     expect(btnValidate).toBeInTheDocument();
-//   });
-// });
+  await waitFor(() => {
+    const titlePrivate = screen.getByTestId('title-private');
+    expect(titlePrivate).toBeInTheDocument();
+    expect(titlePrivate).toHaveTextContent('Insert the access code to display and bid on the auction');
+    const inputCode = screen.getByTestId('input-private-code');
+    expect(inputCode).toBeInTheDocument();
+    fireEvent.change(inputCode, { target: { value: '123456' } });
+    expect(inputCode.value).toBe('123456');
+    const btnCancel = screen.getByTestId('btn-private-cancel');
+    expect(btnCancel).toBeInTheDocument();
+    const btnValidate = screen.getByTestId('btn-private-validate');
+    expect(btnValidate).toBeInTheDocument();
+  });
+});
 
-// test('should exist auction support', async () => {
-//   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+test('should exist auction support', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
-//   await waitFor(() => {
-//     const auctionSupport = screen.getByTestId('auction-support');
-//     expect(auctionSupport).toBeInTheDocument();
-//     expect(auctionSupport).toHaveTextContent('This auctions supports:');
-//     const thumbImage = screen.getByAltText('thumb-supported');
-//     expect(thumbImage).toBeInTheDocument();
-//     expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
-//   });
-// });
+  await waitFor(() => {
+    const auctionSupport = screen.getByTestId('auction-support');
+    expect(auctionSupport).toBeInTheDocument();
+    expect(auctionSupport).toHaveTextContent('This auctions supports:');
+    const thumbImage = screen.getByAltText('thumb-supported');
+    expect(thumbImage).toBeInTheDocument();
+    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
+  });
+});
 
 test('should exist countdown with time', async () => {
   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
@@ -459,14 +458,61 @@ test('should exist countdown with time', async () => {
   });
 });
 
-// test('should render component AuctionDetail and verify checkboxs', async () => {
-//   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+test('should exist slide image', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
-//   await waitFor(() => {
-//     fireEvent.click(screen.getByText('Subscribe the auction.'));
-//     expect(screen.getByTestId('modal')).toBeInTheDocument();
-//     expect(screen.getByTestId('checkStart').checked).toEqual(true);
-//     expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
-//     expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
-//   });
-// });
+  await waitFor(() => {
+    const auctionSlide = screen.getByTestId('slide-image-multiple');
+    expect(auctionSlide).toBeInTheDocument();
+  });
+});
+
+test('should exist buttons share social media', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    const shareAuction = screen.getByTestId('btn-share');
+    expect(shareAuction).toBeInTheDocument();
+    expect(screen.getByLabelText('facebook')).toBeInTheDocument();
+    expect(screen.getByLabelText('twitter')).toBeInTheDocument();
+    expect(screen.getByLabelText('whatsapp')).toBeInTheDocument();
+    expect(screen.getByLabelText('telegram')).toBeInTheDocument();
+    expect(screen.getByLabelText('linkedin')).toBeInTheDocument();
+    expect(screen.getByLabelText('pinterest')).toBeInTheDocument();
+    expect(screen.getByLabelText('reddit')).toBeInTheDocument();
+    expect(screen.getByLabelText('email')).toBeInTheDocument();
+  });
+});
+
+test('should exist description, shipping and payment', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    const titleDescription = screen.getByTestId('description');
+    expect(titleDescription).toHaveTextContent('Some text');
+    const descriptionText = screen.getByTestId('description-text');
+    expect(descriptionText).toHaveTextContent('Uma descrição teste');
+
+    const titleShipping = screen.getByTestId('shipping');
+    expect(titleShipping).toHaveTextContent('Some text');
+    const shippingText = screen.getByTestId('shipping-text');
+    expect(shippingText).toHaveTextContent('Os portes de envio serão à responsabilidade do vencedor.');
+
+    const titlePayment = screen.getByTestId('payment');
+    expect(titlePayment).toHaveTextContent('Some text');
+    const paymentText = screen.getByTestId('payment-text');
+    expect(paymentText).toHaveTextContent('O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.');
+  });
+});
+
+test('should render component AuctionDetail and verify checkboxs', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    fireEvent.click(screen.getByText('Subscribe the auction.'));
+    expect(screen.getByTestId('modal')).toBeInTheDocument();
+    expect(screen.getByTestId('checkStart').checked).toEqual(true);
+    expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
+    expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
+  });
+});

@@ -8,12 +8,14 @@ const DescriptionDetail = ({
   description,
   showmoreDesc,
   showMoreDescButton,
+  dataTestIdTitle,
+  dataTestIdDescription,
 }) => (
   <>
-    <div className="shipping-header" style={{ color, borderColor: color, marginTop: '50px' }}>
+    <div className="shipping-header" style={{ color, borderColor: color, marginTop: '50px' }} data-testid={dataTestIdTitle}>
       {title}
     </div>
-    <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
+    <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`} data-testid={dataTestIdDescription}>
       <span>{description}</span>
     </div>
     {showMoreDescButton && (
@@ -35,6 +37,8 @@ DescriptionDetail.propTypes = {
   description: PropTypes.string,
   showmoreDesc: PropTypes.bool,
   showMoreDescButton: PropTypes.func,
+  dataTestIdTitle: PropTypes.string,
+  dataTestIdDescription: PropTypes.string,
 };
 
 export default DescriptionDetail;

@@ -36,7 +36,7 @@ const ShareNetwork = ({
       </Col>
     </Row>
     <Row>
-      <Col sm={12} className="content-wrapper text-center">
+      <Col sm={12} className="content-wrapper text-center" data-testid="btn-share">
         <FacebookShareButton
           url={window.location.href}
           quote={title}
@@ -129,7 +129,7 @@ const ShareNetwork = ({
 
 ShareNetwork.propTypes = {
   title: PropTypes.string,
-  image: PropTypes.array,
+  image: PropTypes.string,
   description: PropTypes.string,
 };
 

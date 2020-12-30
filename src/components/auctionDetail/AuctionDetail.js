@@ -115,7 +115,7 @@ const AuctionDetail = ({
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
 
   if (isLoggedIn) {
-    const { phones } = user;
+    const { phones } = JSON.parse(localStorage.user);
     hasPhoneValidate = phones.some((phone) => phone.verified === 1);
   }
 
@@ -554,7 +554,7 @@ const AuctionDetail = ({
               </Col>
               <Col sm={12}>
                 <Row>
-                  <Col md={7} className="mobile-nopadding">
+                  <Col md={7} className="mobile-nopadding" data-testid="slide-image-multiple">
                     {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
                       <SliderImagesLightbox
                         video={auctionDetailInfo.video}
@@ -564,6 +564,7 @@ const AuctionDetail = ({
                     )}
                     {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
                       <div
+                        data-testid="slide-one-image"
                         className="slider-image"
                         style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
                       />
@@ -595,18 +596,24 @@ const AuctionDetail = ({
               <Row>
                 <Col md={8}>
                   <DescriptionDetail
+                    dataTestIdTitle="description"
+                    dataTestIdDescription="description-text"
                     title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
                     description={auctionDescriptionLang('description')}
                     showmoreDesc={isShowmoreDesc}
                     showMoreDescButton={showMoreDescButton}
                   />
                   <DescriptionDetail
+                    dataTestIdTitle="shipping"
+                    dataTestIdDescription="shipping-text"
                     title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
                     description={auctionDescriptionLang('shipping_description')}
                     showmoreDesc={isShowmoreDesc}
                     showMoreDescButton={showMoreDescButton}
                   />
                   <DescriptionDetail
+                    dataTestIdTitle="payment"
+                    dataTestIdDescription="payment-text"
                     title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
                     description={auctionDescriptionLang('payment_description')}
                     showmoreDesc={isShowmoreDesc}
