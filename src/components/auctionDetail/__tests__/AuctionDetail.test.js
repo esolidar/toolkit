@@ -8,18 +8,22 @@ import '@testing-library/jest-dom';
 import {
   render, waitFor, screen, fireEvent,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import AuctionDetail from '../AuctionDetail';
+import AuctionDetailRigth from '../AuctionDetailRigth';
 
 const fx = jest.fn();
 const props = {
-  auctionId: 299,
+  auctionId: '299',
   getAuctionDetail: fx,
   getAuctionBidList: fx,
   getAuctionList: fx,
   getAuctionComment: fx,
   getAuctionSubscribe: fx,
   getStripeCreditCardlist: fx,
+  postStripeCreditCard: fx,
+  requireLogin: fx,
   auctionDetail: {
     code: 200,
     data: {
@@ -341,6 +345,7 @@ const user = {
 
 beforeAll(() => {
   localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('lang', 'pt');
 });
 
 afterAll(() => {
@@ -356,5 +361,21 @@ test('should render component AuctionDetail and verify checkboxs', async () => {
     expect(screen.getByTestId('checkStart').checked).toEqual(true);
     expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
     expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
+  });
+});
+
+test('should open modal bid and confirm bid', async () => {
+  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+
+  await waitFor(() => {
+    const inputBidValue = screen.getByTestId('inputBid');
+    fireEvent.change(inputBidValue, { target: { value: '33' } });
+    expect(inputBidValue.value).toBe('33');
+    const btnBid = screen.getByTestId('buttonBid');
+    userEvent.click(btnBid);
+    expect(screen.getByTestId('modal')).toBeInTheDocument();
+    // expect(screen.getByTestId('checkbox-anonymous')).toBeInTheDocument();
+    // expect(screen.getByText(/Confirm bid/i)).toBeInTheDocument();
+    // expect(screen.getByTestId('checkbox-anonymous').checked).toEqual(false);
   });
 });

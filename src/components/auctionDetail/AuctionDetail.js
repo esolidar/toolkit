@@ -668,6 +668,7 @@ const AuctionDetail = ({
         </>
       )}
       <CustomModal
+        dataTestId="modalBid"
         bodyPadding="30px"
         dialogClassName="auction-modal-bid"
         onHide={() => setIsShowModal(false)}
@@ -693,7 +694,7 @@ const AuctionDetail = ({
             <p className="font-weight-bold">
               <FormattedMessage
                 id="auction.modal.bid.confirmText"
-                defaultMessage="A sua licitação é de {value}"
+                defaultMessage="Your bid is {value}"
                 values={{
                   value: <FormattedNumber
                     value={valueBid}
@@ -740,6 +741,7 @@ const AuctionDetail = ({
             )}
             <div className="mb-2">
               <CheckboxField
+                dataTestId="checkbox-anonymous"
                 className="mb-2 checkbox-modal-bid"
                 label={translateMessage({
                   id: 'auction.modal.bid.anonymousBid',

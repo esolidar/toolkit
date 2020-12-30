@@ -43,13 +43,13 @@ const AuctionDetailRigth = ({
         <div>
           <Row>
             <Col sm={12}>
-              <h2 className="auction-title">
+              <h2 className="auction-title" data-testid="auction-title">
                 {auctionTitle}
               </h2>
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="auction-content-label">
+            <Col sm={12} className="auction-content-label" data-testid="last-bid">
               <FormattedMessage
                 id="auction.detail.lastbid"
                 defaultMessage="Last Bid"
@@ -57,7 +57,7 @@ const AuctionDetailRigth = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="txt-price-t">
+            <Col sm={12} className="txt-price-t" data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -86,6 +86,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={6} className={error && 'has-error'}>
                 <TextField
+                  dataTestId="inputBid"
                   field="id"
                   className="bid-input"
                   type="text"
@@ -105,6 +106,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={6}>
                 <Button
+                  dataTestId="button-bid"
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
                   onClick={() => handleClickBid(value)}
@@ -127,7 +129,7 @@ const AuctionDetailRigth = ({
           {(isShowBid && isEnded) && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label">
+                <Col sm={12} className="auction-content-label" data-testid="label-ended">
                   <FormattedMessage
                     id="auction.detail.ended"
                     defaultMessage="Ended"
@@ -135,7 +137,7 @@ const AuctionDetailRigth = ({
                 </Col>
               </Row>
               <Row>
-                <Col sm={12} className="end-auction">
+                <Col sm={12} className="end-auction" data-testid="label-ended-message">
                   <FormattedMessage
                     id="auction.detail.endedAuction"
                     defaultMessage="This auction has ended."
@@ -145,7 +147,7 @@ const AuctionDetailRigth = ({
             </>
           )}
           {supported && (
-            <Col sm={12} className="auction-box text-center">
+            <Col sm={12} className="auction-box text-center" data-testid="supported-section">
               <div className="text-center">
                 <img className="npo-thumb" src={auction.brand ? supported.logo_thumbs.thumb : supported.thumbs.thumb} alt="thumb" />
                 <FormattedMessage
