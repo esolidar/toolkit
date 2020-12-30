@@ -29,7 +29,7 @@ const AuctionLastBid = ({
         <Col className="box sticky-top" style={{ width: '100%', marginTop: '48px' }}>
           <Row>
             <Col>
-              <p className="control-label mb-2">
+              <p className="control-label mb-2" data-testid="title-last-bid">
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -46,7 +46,7 @@ const AuctionLastBid = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="txt-price-t">
+            <Col sm={12} className="txt-price-t" data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -56,7 +56,7 @@ const AuctionLastBid = ({
           </Row>
           {!isEnded && (
             <Row>
-              <Col sm={12} className="auction-content-label">
+              <Col sm={12} className="auction-content-label" data-testid="new-bid">
                 <FormattedMessage
                   id="auction.detail.newBid"
                   defaultMessage="New Bid"
@@ -64,6 +64,7 @@ const AuctionLastBid = ({
               </Col>
               <Col sm={12} className={error && 'has-error'}>
                 <TextField
+                  dataTestId="bid-input"
                   className="bid-input"
                   type="text"
                   onChange={valueBidTextField}
@@ -83,12 +84,13 @@ const AuctionLastBid = ({
               </Col>
               <Col sm={12}>
                 <Button
+                  dataTestId="button-bid"
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
                   onClick={() => handleClickBid(value)}
                 />
               </Col>
-              <Col sm={12} className="subscribe-auction text-center mt-4">
+              <Col sm={12} className="subscribe-auction text-center mt-4" data-testid="subscribe-link">
                 <button
                   type="button"
                   className="btn btn-link"
@@ -105,7 +107,7 @@ const AuctionLastBid = ({
           {isEnded && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label">
+                <Col sm={12} className="auction-content-label" data-testid="label-ended">
                   <FormattedMessage
                     id="auction.detail.ended"
                     defaultMessage="Ended"
@@ -113,7 +115,7 @@ const AuctionLastBid = ({
                 </Col>
               </Row>
               <Row>
-                <Col sm={12} className="end-auction">
+                <Col sm={12} className="end-auction" data-testid="label-ended-message">
                   <FormattedMessage
                     id="auction.detail.endedAuction"
                     defaultMessage="This auction has ended."
