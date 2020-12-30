@@ -48,6 +48,7 @@ const Button = ({
       case 'submit':
         return (
           <button
+            data-testid={dataTestId}
             id={id}
             type="submit"
             className={classes}
@@ -61,6 +62,7 @@ const Button = ({
       case 'link':
         return (
           <Link
+            data-testid={dataTestId}
             id={id}
             to={to}
             className={classes}
@@ -73,6 +75,7 @@ const Button = ({
       default:
         return (
           <a
+            data-testid={dataTestId}
             id={id}
             href={href}
             target={target || '_self'}

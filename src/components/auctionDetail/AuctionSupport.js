@@ -11,22 +11,23 @@ const AuctionSupport = ({
 
   return (
     <Row>
-      <Col className="support-cause">
+      <Col className="support-cause" data-testid="supported-section">
         {supported.institution && (
           <Row className="content-header">
             <Col sm={2} className="text-center">
-              <img className="npo-thumb" src={supported.institution.thumbs.thumb} alt="" />
+              <img className="npo-thumb" src={supported.institution.thumbs.thumb} alt="thumb" />
             </Col>
             <Col sm={7}>
-              <h4 className="npo-name">
+              <h4 className="npo-name" data-testid="supported-name">
                 {supported.institution.name}
               </h4>
-              <p className="npo-summary">
+              <p className="npo-summary" data-testid="supported-summary">
                 {supported.institution.description}
               </p>
             </Col>
             <Col sm={3}>
               <Button
+                dataTestId="btn-support-charity"
                 extraClass="info"
                 target="_blank"
                 href="#"
