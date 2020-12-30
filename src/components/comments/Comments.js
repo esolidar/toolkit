@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
-import { getEmployeeName } from '../../utils';
+import { getEmployeeName, isDefined } from '../../utils';
 
 const Comments = ({
   comments, deleteComment, deleteReply, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
@@ -13,7 +13,7 @@ const Comments = ({
   const [showTextArea, setShowTextArea] = useState(null);
 
   const showTextAreaClick = (comment) => {
-    const isLoggedIn = user || null;
+    const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
     if (!isLoggedIn) {
       requireLogin();
     }

@@ -389,7 +389,7 @@ test('should exist section new bid and insert value equal or higher last bid', a
     expect(inputBid).toBeInTheDocument();
     fireEvent.change(inputBid, { target: { value: '30' } });
     expect(inputBid.value).toBe('30');
-    const btnBid = screen.getByTestId('button-bid');
+    const btnBid = screen.getByTestId('btn-bid');
     userEvent.click(btnBid);
     expect(screen.getByText(/Put a numeric value equal or higher than 32/i)).toBeInTheDocument();
   });

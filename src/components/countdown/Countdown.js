@@ -169,7 +169,7 @@ class Countdown extends Component {
         <div className={`Countdown-box ${status}`}>
           {((countDown.days > 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
-            <span className="Countdown-col-element">
+            <span className="Countdown-col-element" datat-testid="countdown-days">
               <strong>{this.addLeadingZeros(countDown.days)}</strong>
               <FormattedMessage
                 id="countdown.day"
@@ -180,7 +180,7 @@ class Countdown extends Component {
           )}
 
           <span className="Countdown-col">
-            <span className="Countdown-col-element">
+            <span className="Countdown-col-element" data-testid="countdown-hour">
               <strong>{this.addLeadingZeros(countDown.hours)}</strong>
               <FormattedMessage
                 id="countdown.hours"
@@ -190,7 +190,7 @@ class Countdown extends Component {
           </span>
 
           <span className="Countdown-col">
-            <span className="Countdown-col-element">
+            <span className="Countdown-col-element" data-testid="countdown-min">
               <strong>{this.addLeadingZeros(countDown.min)}</strong>
               <FormattedMessage
                 id="countdown.min"
@@ -201,7 +201,7 @@ class Countdown extends Component {
 
           {((countDown.days === 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
-            <span className="Countdown-col-element">
+            <span className="Countdown-col-element" data-testid="countdown-seconds">
               <strong>{this.addLeadingZeros(countDown.sec)}</strong>
               <FormattedMessage
                 id="countdown.sec"

@@ -20,7 +20,7 @@ const AuctionDetailRigth = ({
   intl,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
-  const isSameCurrency = auction.currency.small === user.currency.small;
+  const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
 
   const [value, setValue] = useState('');
 
@@ -106,7 +106,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={6}>
                 <Button
-                  dataTestId="button-bid"
+                  dataTestId="btn-bid"
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
                   onClick={() => handleClickBid(value)}

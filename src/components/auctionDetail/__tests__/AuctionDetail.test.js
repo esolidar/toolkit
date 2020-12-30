@@ -8,10 +8,10 @@ import '@testing-library/jest-dom';
 import {
   render, waitFor, screen, fireEvent,
 } from '@testing-library/react';
+import { advanceTo } from 'jest-date-mock';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import AuctionDetail from '../AuctionDetail';
-import AuctionDetailRigth from '../AuctionDetailRigth';
 
 const fx = jest.fn();
 const props = {
@@ -332,6 +332,63 @@ const props = {
   },
 };
 
+const propsAuctionPrivate = {
+  auctionId: '299',
+  getAuctionDetail: fx,
+  getAuctionBidList: fx,
+  getAuctionList: fx,
+  getAuctionComment: fx,
+  getAuctionSubscribe: fx,
+  getStripeCreditCardlist: fx,
+  postStripeCreditCard: fx,
+  requireLogin: fx,
+  auctionDetail: {
+    data: {
+      code: 403,
+      data: {
+        private: 1,
+      },
+    },
+  },
+  auctionBidList: {
+    code: 404,
+  },
+  auctionList: {
+    code: 404,
+  },
+  auctionComments: {
+    code: 404,
+  },
+  newBid: {
+    code: 404,
+  },
+  auctionUserCommentsResponse: {
+    code: 404,
+  },
+  env: {
+    serverlessResizeImage: 'https://image.testesolidar.com',
+    cdn_static_url: 'https://static.esolidar.com',
+  },
+  translateMessage: () => 'Some text',
+  user: {
+    email: 'rocha@esolidar.com',
+    currency: {
+      small: 'EUR',
+    },
+    thumbs: {
+      thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
+    },
+  },
+  auctionSubscribeList: {
+    code: 200,
+    data: {
+      auction_on_start: 1,
+      auction_first_bid: 0,
+      auction_24h_end: 1,
+    },
+  },
+};
+
 const user = {
   phones: [
     {
@@ -352,30 +409,64 @@ afterAll(() => {
   localStorage.clear();
 });
 
-test('should render component AuctionDetail and verify checkboxs', async () => {
+// test('simulate private auction', async () => {
+//   render(<IntlProvider locale="en"><AuctionDetail {...propsAuctionPrivate} /></IntlProvider>);
+
+//   await waitFor(() => {
+//     const titlePrivate = screen.getByTestId('title-private');
+//     expect(titlePrivate).toBeInTheDocument();
+//     expect(titlePrivate).toHaveTextContent('Insert the access code to display and bid on the auction');
+//     const inputCode = screen.getByTestId('input-private-code');
+//     expect(inputCode).toBeInTheDocument();
+//     fireEvent.change(inputCode, { target: { value: '123456' } });
+//     expect(inputCode.value).toBe('123456');
+//     const btnCancel = screen.getByTestId('btn-private-cancel');
+//     expect(btnCancel).toBeInTheDocument();
+//     const btnValidate = screen.getByTestId('btn-private-validate');
+//     expect(btnValidate).toBeInTheDocument();
+//   });
+// });
+
+// test('should exist auction support', async () => {
+//   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+//   await waitFor(() => {
+//     const auctionSupport = screen.getByTestId('auction-support');
+//     expect(auctionSupport).toBeInTheDocument();
+//     expect(auctionSupport).toHaveTextContent('This auctions supports:');
+//     const thumbImage = screen.getByAltText('thumb-supported');
+//     expect(thumbImage).toBeInTheDocument();
+//     expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
+//   });
+// });
+
+test('should exist countdown with time', async () => {
   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
+  advanceTo(new Date(2020, 1, 12, 0, 0, 0));
+
   await waitFor(() => {
-    fireEvent.click(screen.getByText('Subscribe the auction.'));
-    expect(screen.getByTestId('modal')).toBeInTheDocument();
-    expect(screen.getByTestId('checkStart').checked).toEqual(true);
-    expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
-    expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
+    const divCountDown = screen.getByTestId('div-countdown');
+    expect(divCountDown).toBeInTheDocument();
+    const countdownHour = screen.getByTestId('countdown-hour');
+    expect(countdownHour).toHaveTextContent('16HOUR');
+    const countdownMin = screen.getByTestId('countdown-min');
+    expect(countdownMin).toHaveTextContent('00MIN');
+    const countdownSec = screen.getByTestId('countdown-seconds');
+    expect(countdownSec).toHaveTextContent('00SEC');
+    const endDateInfo = screen.getByTestId('end-date-info');
+    expect(endDateInfo).toHaveTextContent('This auction ends in: Wednesday, December 30, 2020 4:00 PM');
   });
 });
 
-test('should open modal bid and confirm bid', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+// test('should render component AuctionDetail and verify checkboxs', async () => {
+//   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
-  await waitFor(() => {
-    const inputBidValue = screen.getByTestId('inputBid');
-    fireEvent.change(inputBidValue, { target: { value: '33' } });
-    expect(inputBidValue.value).toBe('33');
-    const btnBid = screen.getByTestId('buttonBid');
-    userEvent.click(btnBid);
-    expect(screen.getByTestId('modal')).toBeInTheDocument();
-    // expect(screen.getByTestId('checkbox-anonymous')).toBeInTheDocument();
-    // expect(screen.getByText(/Confirm bid/i)).toBeInTheDocument();
-    // expect(screen.getByTestId('checkbox-anonymous').checked).toEqual(false);
-  });
-});
+//   await waitFor(() => {
+//     fireEvent.click(screen.getByText('Subscribe the auction.'));
+//     expect(screen.getByTestId('modal')).toBeInTheDocument();
+//     expect(screen.getByTestId('checkStart').checked).toEqual(true);
+//     expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
+//     expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
+//   });
+// });
