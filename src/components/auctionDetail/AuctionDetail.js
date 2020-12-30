@@ -259,6 +259,9 @@ const AuctionDetail = ({
   };
 
   const modalShowSubscribe = () => {
+    if (!requireLogin()) {
+      return;
+    }
     getAuctionSubscribe(auctionId);
   };
 
@@ -271,7 +274,11 @@ const AuctionDetail = ({
   };
 
   const handleClickBid = (value) => {
-    if ((value > auctionDetailInfo.bid_max_interval) && requireLogin()) {
+    if (!requireLogin()) {
+      return;
+    }
+
+    if (value > auctionDetailInfo.bid_max_interval) {
       setError(
         intl.formatMessage(
           {
@@ -281,10 +288,10 @@ const AuctionDetail = ({
           { value: bidValueAuction + auctionDetailInfo.bid_max_interval },
         ),
       );
-      return false;
+      return;
     }
 
-    if ((value >= bidValueAuction + auctionDetailInfo.bid_interval) && requireLogin()) {
+    if (value >= bidValueAuction + auctionDetailInfo.bid_interval) {
       setIsShowModal(true);
       setError('');
       setValueBid(value);
