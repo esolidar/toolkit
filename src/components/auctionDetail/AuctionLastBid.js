@@ -8,6 +8,7 @@ import TextField from '../../elements/textField/TextField';
 const AuctionLastBid = ({
   auction,
   isEnded,
+  isCommingSoon,
   handleClickBid,
   isShowModal,
   error,
@@ -54,7 +55,7 @@ const AuctionLastBid = ({
               />
             </Col>
           </Row>
-          {!isEnded && (
+          {(!isEnded && !isCommingSoon) && (
             <Row>
               <Col sm={12} className="auction-content-label" data-testid="new-bid">
                 <FormattedMessage
@@ -78,7 +79,7 @@ const AuctionLastBid = ({
                       },
                       { value: minValue },
                     )
-                }
+                  }
                   field="forCompanies"
                 />
               </Col>
@@ -124,6 +125,26 @@ const AuctionLastBid = ({
               </Row>
             </>
           )}
+          {isCommingSoon && (
+            <>
+              <Row>
+                <Col sm={12} className="auction-content-label" data-testid="label-ended">
+                  <FormattedMessage
+                    id="auction.detail.commingSoon"
+                    defaultMessage="Comming Soon"
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={12} className="end-auction" data-testid="label-ended-message">
+                  <FormattedMessage
+                    id="auction.detail.commingSoonAuction"
+                    defaultMessage="You can make bids when this auction starts."
+                  />
+                </Col>
+              </Row>
+            </>
+          )}
         </Col>
       </Row>
     </Col>
@@ -139,6 +160,7 @@ AuctionLastBid.propTypes = {
     currency: PropTypes.object,
   }),
   isEnded: PropTypes.bool,
+  isCommingSoon: PropTypes.bool,
   handleClickBid: PropTypes.func,
   isShowModal: PropTypes.func,
   error: PropTypes.string,

@@ -212,9 +212,9 @@ const AuctionDetail = ({
 
   useEffect(() => {
     if (auctionSubscribeList.code === 200) {
-      if (auctionSubscribeList.data.auction_on_start) setIsCheckedEmailStart(true);
-      if (auctionSubscribeList.data.auction_first_bid) setIsCheckedEmailFirstBid(true);
-      if (auctionSubscribeList.data.auction_24h_end) setIsCheckedEmail24H(true);
+      if (auctionSubscribeList.data && auctionSubscribeList.data.auction_on_start) setIsCheckedEmailStart(true);
+      if (auctionSubscribeList.data && auctionSubscribeList.data.auction_first_bid) setIsCheckedEmailFirstBid(true);
+      if (auctionSubscribeList.data && auctionSubscribeList.data.auction_24h_end) setIsCheckedEmail24H(true);
       setIsShowModalSubscribe(true);
     }
   }, [auctionSubscribeList]);
@@ -223,6 +223,7 @@ const AuctionDetail = ({
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
   const isEnded = (todaysDate > new Date(auctionDetailInfo.dateLimit));
+  const isCommingSoon = (todaysDate < new Date(auctionDetailInfo.dateStart));
   const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
 
   const auctionTitle = () => {
@@ -525,8 +526,8 @@ const AuctionDetail = ({
                 {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
                   <Countdown
                     dataTestId="auction-detail"
-                    endDate={auctionDetailInfo.dateStart}
-                    startDate={auctionDetailInfo.dateLimit}
+                    startDate={auctionDetailInfo.dateStart}
+                    endDate={auctionDetailInfo.dateLimit}
                   />
                 )}
                 {auctionDetailInfo.status === 'P' && (
@@ -572,6 +573,7 @@ const AuctionDetail = ({
                   </Col>
                   <AuctionDetailRigth
                     isEnded={isEnded}
+                    isCommingSoon={isCommingSoon}
                     auctionTitle={auctionTitle()}
                     auction={auctionDetailInfo}
                     isShowBid={true}
@@ -624,6 +626,7 @@ const AuctionDetail = ({
                   <AuctionLastBid
                     auction={auctionDetailInfo}
                     isEnded={isEnded}
+                    isCommingSoon={isCommingSoon}
                     handleClickBid={handleClickBid}
                     isShowModal={modalShowSubscribe}
                     error={error}

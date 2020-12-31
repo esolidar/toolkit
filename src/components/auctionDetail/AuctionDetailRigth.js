@@ -11,6 +11,7 @@ const AuctionDetailRigth = ({
   auction,
   isShowBid,
   isEnded,
+  isCommingSoon,
   handleClickBid,
   error,
   translateMessage,
@@ -76,7 +77,7 @@ const AuctionDetailRigth = ({
               </Col>
             </Row>
           )}
-          {(isShowBid && !isEnded) && (
+          {(isShowBid && !isEnded && !isCommingSoon) && (
             <Row>
               <Col sm={12} className="auction-content-label">
                 <FormattedMessage
@@ -126,7 +127,7 @@ const AuctionDetailRigth = ({
               </Col>
             </Row>
           )}
-          {(isShowBid && isEnded) && (
+          {isEnded && (
             <>
               <Row>
                 <Col sm={12} className="auction-content-label" data-testid="label-ended">
@@ -141,6 +142,26 @@ const AuctionDetailRigth = ({
                   <FormattedMessage
                     id="auction.detail.endedAuction"
                     defaultMessage="This auction has ended."
+                  />
+                </Col>
+              </Row>
+            </>
+          )}
+          {isCommingSoon && (
+            <>
+              <Row>
+                <Col sm={12} className="auction-content-label" data-testid="label-ended">
+                  <FormattedMessage
+                    id="auction.detail.commingSoon"
+                    defaultMessage="Comming Soon"
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col sm={12} className="end-auction" data-testid="label-ended-message">
+                  <FormattedMessage
+                    id="auction.detail.commingSoonAuction"
+                    defaultMessage="You can make bids when this auction starts."
                   />
                 </Col>
               </Row>
@@ -169,6 +190,7 @@ AuctionDetailRigth.propTypes = {
   auction: PropTypes.object,
   isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
+  isCommingSoon: PropTypes.bool,
   handleClickBid: PropTypes.func,
   error: PropTypes.string,
   translateMessage: PropTypes.func,

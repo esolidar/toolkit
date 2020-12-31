@@ -8,12 +8,12 @@
   padding   : 25px 50px;
 
   h3 {
-    font-family      : $fontLight;
-    font-size        : 24px;
-    color            : #05c6e5;
-    letter-spacing   : -1px;
-    line-height      : 40px;
-    margin           : auto;
+    font-family   : $fontLight;
+    font-size     : 24px;
+    color         : #05c6e5;
+    letter-spacing: -1px;
+    line-height   : 40px;
+    margin        : auto;
   }
 
   .private-code {
@@ -25,7 +25,7 @@
 
 .auction-modal-bid,
 .auction-modal-subscribe {
-  
+
   .modal-body {
     @media(max-width: 425px) {
       padding: 0px !important;
@@ -35,7 +35,7 @@
   .modal-title {
     color: $mainColor;
   }
-  
+
   h2 {
     color: $mainColor;
   }
@@ -91,12 +91,12 @@
   }
 
   h2 {
-    font-family      : $fontLight;
-    font-size        : 23px;
-    color            : $mainTextColorLight;
-    letter-spacing   : 0;
-    line-height      : 39px;
-    margin           : 0;
+    font-family   : $fontLight;
+    font-size     : 23px;
+    color         : $mainTextColorLight;
+    letter-spacing: 0;
+    line-height   : 39px;
+    margin        : 0;
 
     @media(max-width: 425px) {
       text-align: center;
@@ -142,6 +142,10 @@
     @media (max-width: 425px) {
       height: 250px;
     }
+  }
+
+  .slick-dots {
+    bottom: -15px !important;
   }
 
   .slick-slider {
