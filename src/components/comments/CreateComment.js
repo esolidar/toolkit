@@ -27,6 +27,7 @@ const CreateComment = (props) => {
             <img src={thumb} alt="user-thumb" />
           </div>
           <textarea
+            data-testid="create-comment"
             className="input"
             style={
               {

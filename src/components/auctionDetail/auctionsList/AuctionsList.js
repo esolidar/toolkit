@@ -14,14 +14,14 @@ const AuctionsList = ({
     <>
       <Row className="other-auctions">
         <Col sm={12} className="text-center">
-          <h4 className="title">
+          <h4 className="title" data-testid="title-other-auctions">
             {title}
           </h4>
         </Col>
       </Row>
       <Row>
         {listAuctions.map((auction) => (
-          <Col key={auction.id} sm={3}>
+          <Col key={auction.id} sm={3} data-testid={`listAuction-${auction.id}`}>
             <a
               href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title, {
                 replacement: '-',
@@ -40,6 +40,7 @@ const AuctionsList = ({
       <Row>
         <Col sm={3} className="mx-auto">
           <Button
+            dataTestId="see-all-auctions"
             className="see-all-auctions"
             extraClass="info"
             href="/auctions/list"

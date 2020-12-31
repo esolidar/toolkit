@@ -117,7 +117,7 @@ class Countdown extends Component {
   render() {
     const countDown = this.state;
     const { loading } = this.state;
-    const { thumb } = this.props;
+    const { thumb, dataTestId } = this.props;
     let { status } = this.state;
 
     if (loading) {
@@ -169,7 +169,7 @@ class Countdown extends Component {
         <div className={`Countdown-box ${status}`}>
           {((countDown.days > 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
-            <span className="Countdown-col-element" datat-testid="countdown-days">
+            <span className="Countdown-col-element" datat-testid={`${dataTestId}-countdown-days`}>
               <strong>{this.addLeadingZeros(countDown.days)}</strong>
               <FormattedMessage
                 id="countdown.day"
@@ -180,7 +180,7 @@ class Countdown extends Component {
           )}
 
           <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid="countdown-hour">
+            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-hour`}>
               <strong>{this.addLeadingZeros(countDown.hours)}</strong>
               <FormattedMessage
                 id="countdown.hours"
@@ -190,7 +190,7 @@ class Countdown extends Component {
           </span>
 
           <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid="countdown-min">
+            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-min`}>
               <strong>{this.addLeadingZeros(countDown.min)}</strong>
               <FormattedMessage
                 id="countdown.min"
@@ -201,7 +201,7 @@ class Countdown extends Component {
 
           {((countDown.days === 0 && thumb) || !thumb) && (
           <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid="countdown-seconds">
+            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-seconds`}>
               <strong>{this.addLeadingZeros(countDown.sec)}</strong>
               <FormattedMessage
                 id="countdown.sec"
@@ -220,10 +220,12 @@ Countdown.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   thumb: PropTypes.bool,
+  dataTestId: PropTypes.string,
 };
 
 Countdown.defaultProps = {
   thumb: false,
+  dataTestId: 'count',
 };
 
 export default Countdown;

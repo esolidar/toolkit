@@ -8,6 +8,7 @@ import '@testing-library/jest-dom';
 import {
   render, waitFor, screen, fireEvent,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { advanceTo } from 'jest-date-mock';
 import { IntlProvider } from 'react-intl';
 import AuctionDetail from '../AuctionDetail';
@@ -296,7 +297,43 @@ const props = {
     code: 404,
   },
   auctionList: {
-    code: 404,
+    code: 200,
+    data: {
+      data: [
+        {
+          id: 1,
+          title: 'Auction 1',
+          dateStart: '2020-02-08 07:00:00',
+          dateLimit: '2020-12-30 16:00:00',
+          recipient: {
+            institution: {
+              thumbs: {
+                thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+              },
+            },
+          },
+          last_bid_value: {
+            value: 1,
+          },
+        },
+        {
+          id: 2,
+          title: 'Auction 2',
+          dateStart: '2020-02-09 07:00:00',
+          dateLimit: '2020-12-21 16:00:00',
+          recipient: {
+            institution: {
+              thumbs: {
+                thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+              },
+            },
+          },
+          last_bid_value: {
+            value: 2,
+          },
+        },
+      ],
+    },
   },
   auctionComments: {
     code: 404,
@@ -447,11 +484,11 @@ test('should exist countdown with time', async () => {
   await waitFor(() => {
     const divCountDown = screen.getByTestId('div-countdown');
     expect(divCountDown).toBeInTheDocument();
-    const countdownHour = screen.getByTestId('countdown-hour');
+    const countdownHour = screen.getByTestId('auction-detail-countdown-hour');
     expect(countdownHour).toHaveTextContent('16HOUR');
-    const countdownMin = screen.getByTestId('countdown-min');
+    const countdownMin = screen.getByTestId('auction-detail-countdown-min');
     expect(countdownMin).toHaveTextContent('00MIN');
-    const countdownSec = screen.getByTestId('countdown-seconds');
+    const countdownSec = screen.getByTestId('auction-detail-countdown-seconds');
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent('This auction ends in: Wednesday, December 30, 2020 4:00 PM');
@@ -464,6 +501,32 @@ test('should exist slide image', async () => {
   await waitFor(() => {
     const auctionSlide = screen.getByTestId('slide-image-multiple');
     expect(auctionSlide).toBeInTheDocument();
+  });
+});
+
+test('should open modal bid', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    const inputBid = screen.getByTestId('inputBid');
+    expect(inputBid).toBeInTheDocument();
+    fireEvent.change(inputBid, { target: { value: '32' } });
+    expect(inputBid.value).toBe('32');
+    const btnBid = screen.getByTestId('btn-bid');
+    userEvent.click(btnBid);
+    expect(screen.getByTestId('modal')).toBeInTheDocument();
+  });
+});
+
+test('should render component AuctionDetail and verify checkboxs', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    fireEvent.click(screen.getByText('Subscribe the auction.'));
+    expect(screen.getByTestId('modal')).toBeInTheDocument();
+    expect(screen.getByTestId('checkStart').checked).toEqual(true);
+    expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
+    expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
   });
 });
 
@@ -505,14 +568,28 @@ test('should exist description, shipping and payment', async () => {
   });
 });
 
-test('should render component AuctionDetail and verify checkboxs', async () => {
+test('should exist comment box', async () => {
   render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
 
   await waitFor(() => {
-    fireEvent.click(screen.getByText('Subscribe the auction.'));
-    expect(screen.getByTestId('modal')).toBeInTheDocument();
-    expect(screen.getByTestId('checkStart').checked).toEqual(true);
-    expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
-    expect(screen.getByTestId('checkEmail24').checked).toEqual(true);
+    const createComment = screen.getByTestId('create-comment');
+    expect(createComment).toBeInTheDocument();
+  });
+});
+
+test('should exist 2 auction thumbs in auction list', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    const titleOtherAuctions = screen.getByTestId('title-other-auctions');
+    expect(titleOtherAuctions).toBeInTheDocument();
+    const btnSeeAllAuction = screen.getByTestId('see-all-auctions');
+    expect(btnSeeAllAuction).toBeInTheDocument();
+
+    const auctionThumb1 = screen.getByTestId('listAuction-1');
+    expect(auctionThumb1).toBeInTheDocument();
+
+    const auctionThumb2 = screen.getByTestId('listAuction-2');
+    expect(auctionThumb2).toBeInTheDocument();
   });
 });

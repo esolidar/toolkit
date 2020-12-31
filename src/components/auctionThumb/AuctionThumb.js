@@ -123,6 +123,7 @@ AuctionThumb.propTypes = {
           thumb: PropTypes.string,
         }),
       }),
+      causes: PropTypes.string,
     }),
     user: PropTypes.shape({
       institution: PropTypes.shape({

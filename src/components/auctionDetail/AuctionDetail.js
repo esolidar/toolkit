@@ -90,7 +90,6 @@ const AuctionDetail = ({
   const [totalComments, setTotalComments] = useState(0);
   const [loadingPostReply, setLoadingPostReply] = useState(false);
   const [loadingMoreComments, setLoadingMoreComments] = useState(false);
-  // const [commentId, setCommentId] = useState(0);
   const [listAuctions, setlistAuctions] = useState([]);
 
   // Private Auction
@@ -525,6 +524,7 @@ const AuctionDetail = ({
               <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
                 {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
                   <Countdown
+                    dataTestId="auction-detail"
                     endDate={auctionDetailInfo.dateStart}
                     startDate={auctionDetailInfo.dateLimit}
                   />
