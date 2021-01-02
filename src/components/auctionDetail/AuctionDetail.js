@@ -315,7 +315,7 @@ const AuctionDetail = ({
   };
 
   const handleConfirmBid = (isAnonymous) => {
-    if (!hasCardSelected) {
+    if (auctionDetailInfo.cc === 1 && !hasCardSelected) {
       setIsErrorSelectCard(true);
       return;
     }
@@ -520,7 +520,7 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          <Col sm={12} md={10} className="offset-md-1 mobile-nopadding">
+          <Col sm={12} lg={10} className="offset-lg-1 mobile-nopadding">
             <Row className="box mobile-nopadding">
               <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
                 {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (

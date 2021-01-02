@@ -40,7 +40,7 @@ const ShareNetwork = ({
         <FacebookShareButton
           url={window.location.href}
           quote={title}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <FacebookIcon
             size={32}
@@ -50,7 +50,7 @@ const ShareNetwork = ({
         <TwitterShareButton
           url={window.location.href}
           title={title}
-          className="share-icon "
+          className="share-icon mb-3"
         >
           <TwitterIcon
             size={32}
@@ -61,7 +61,7 @@ const ShareNetwork = ({
           url={window.location.href}
           title={title}
           separator=": "
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <WhatsappIcon
             size={32}
@@ -71,7 +71,7 @@ const ShareNetwork = ({
         <TelegramShareButton
           url={window.location.href}
           title={title}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <TelegramIcon size={32} round />
         </TelegramShareButton>
@@ -80,7 +80,7 @@ const ShareNetwork = ({
           title={title}
           windowWidth={750}
           windowHeight={600}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <LinkedinIcon
             size={32}
@@ -92,7 +92,7 @@ const ShareNetwork = ({
           media={image || 'https://www.esolidar.com/images/fb_esolidar.png'}
           windowWidth={1000}
           windowHeight={730}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <PinterestIcon
             size={32}
@@ -104,7 +104,7 @@ const ShareNetwork = ({
           title={title}
           windowWidth={660}
           windowHeight={460}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <RedditIcon
             size={32}
@@ -115,7 +115,7 @@ const ShareNetwork = ({
           url={window.location.href}
           subject={title}
           body={`${description}\n\n${window.location.href}`}
-          className="share-icon"
+          className="share-icon mb-3"
         >
           <EmailIcon
             size={32}

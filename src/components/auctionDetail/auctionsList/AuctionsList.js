@@ -21,7 +21,7 @@ const AuctionsList = ({
       </Row>
       <Row>
         {listAuctions.map((auction) => (
-          <Col key={auction.id} sm={3} data-testid={`listAuction-${auction.id}`}>
+          <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
             <a
               href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title, {
                 replacement: '-',
@@ -38,7 +38,7 @@ const AuctionsList = ({
         ))}
       </Row>
       <Row>
-        <Col sm={3} className="mx-auto">
+        <Col sm={3} md={4} className="mx-auto">
           <Button
             dataTestId="see-all-auctions"
             className="see-all-auctions"
