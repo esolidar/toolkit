@@ -51,13 +51,13 @@ const AuctionThumb = ({
             && (
               <Row className="last-bid">
                 <Col xs={5} className="last-bid-label">
-                  {auction.last_bid_value && (
+                  {auction.last_bid && (
                     <FormattedMessage
                       id="homepage.toolsbox.charityAuctions.lastBid"
                       defaultMessage="Last Bid"
                     />
                   )}
-                  {!auction.last_bid_value && (
+                  {!auction.last_bid && (
                     <FormattedMessage
                       id="homepage.toolsbox.charityAuctions.startBid"
                       defaultMessage="Starting Bid"
@@ -65,7 +65,7 @@ const AuctionThumb = ({
                   )}
                 </Col>
                 <Col xs={7} className="last-bid-value text-right">
-                  {convertToMyCurrency(auction.last_bid_value ? auction.last_bid_value.value : auction.bid_start, auction.currency)}
+                  {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
                 </Col>
               </Row>
             )}
@@ -77,12 +77,12 @@ const AuctionThumb = ({
                   defaultMessage="Raised"
                 />
               </Col>
-              {auction.last_bid_value && (
+              {auction.last_bid && (
                 <Col xs={7} className="last-bid-value text-right">
-                  {convertToMyCurrency(auction.last_bid_value ? auction.last_bid_value.value : auction.bid_start, auction.currency)}
+                  {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
                 </Col>
               )}
-              {!auction.last_bid_value && (
+              {!auction.last_bid && (
                 <Col xs={7} className="last-bid-value text-right">
                   {convertToMyCurrency('0', auction.currency)}
                 </Col>
@@ -113,7 +113,7 @@ AuctionThumb.propTypes = {
     dateLimit: PropTypes.string,
     dateStart: PropTypes.string,
     images: PropTypes.array,
-    last_bid_value: PropTypes.shape({
+    last_bid: PropTypes.shape({
       value: PropTypes.number,
     }),
     recipient: PropTypes.shape({
