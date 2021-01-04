@@ -108,6 +108,8 @@ const AuctionDetail = ({
   const [isErrorSelectCard, setIsErrorSelectCard] = useState(false);
   const [hasCardSelected, setHasCardSelected] = useState(false);
 
+  const [lastFour, setLastFour] = useState(null);
+
   const perPage = 2;
   let hasPhoneValidate = false;
 
@@ -319,13 +321,13 @@ const AuctionDetail = ({
       setIsErrorSelectCard(true);
       return;
     }
-    const bidValues = {
-      value: valueBid,
+    const bid = {
+      value: +valueBid,
       hidden: isAnonymous || 0,
-      last4: 1234,
+      last4: lastFour,
     };
 
-    postNewBid(bidValues, auctionDetailInfo.id);
+    postNewBid(bid, auctionDetailInfo.id);
     setIsAnonymous(false);
     setIsCheckedLegal(false);
     setIsCheckedTerms(false);
@@ -424,16 +426,17 @@ const AuctionDetail = ({
 
   };
 
-  const handleOnSelect = () => {
-    setHasCardSelected(true);
-  };
-
   const handleCloseModalBid = () => {
     setIsAnonymous(false);
     setIsCheckedLegal(false);
     setIsCheckedTerms(false);
     setIsCheckedNotifications(false);
     setIsShowModal(false);
+  };
+
+  const selectedCard = (card) => {
+    setLastFour(card);
+    setHasCardSelected(true);
   };
 
   let supported = '';
@@ -757,7 +760,7 @@ const AuctionDetail = ({
                     translateMessage={translateMessage}
                     env={env.stripe}
                     isErrorSelectCard={isErrorSelectCard}
-                    selectedCard={handleOnSelect}
+                    selectedCard={selectedCard}
                   />
                 )}
                 {!hasPhoneValidate && (
