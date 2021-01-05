@@ -4,10 +4,15 @@ import Moment from 'react-moment';
 import { FormattedNumber, FormattedMessage } from 'react-intl';
 
 const ContributeRow = ({ contribute, env, currency }) => {
+  const contributorThumb = contribute.contributor ? contribute.contributor.thumbs.thumb : null;
+  const userThumb = contribute.user ? contribute.user.thumbs.thumb : null;
+  const contributorName = contribute.contributor ? contribute.contributor.name : null;
+  const userName = contribute.user ? contribute.user.name : null;
+
   const row = {
     hidden: contribute.hidden,
-    thumb: contribute.contributor ? contribute.contributor.thumbs.thumb : contribute.user.thumbs.thumb,
-    name: contribute.contributor ? contribute.contributor.name : contribute.user.name,
+    thumb: contribute.contributor ? contributorThumb : userThumb,
+    name: contribute.contributor ? contributorName : userName,
     date: contribute.created_at,
     value: contribute.payment_product ? contribute.payment_product.amount : contribute.value,
     currency: contribute.payment_product ? contribute.payment_product.currency.small : currency,
@@ -15,7 +20,7 @@ const ContributeRow = ({ contribute, env, currency }) => {
   };
 
   return (
-    <div className="contribute-row-box">
+    <div className={contribute.blink ? 'contribute-row-box blink' : 'contribute-row-box'}>
       <div className="contribute-thumb">
         {contribute.hidden === 1
             && (

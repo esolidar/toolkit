@@ -446,6 +446,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
         },
     }
   }
+  thumb={true}
 />
 </div>
 ```

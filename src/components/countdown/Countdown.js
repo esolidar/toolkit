@@ -5,20 +5,16 @@ import moment from 'moment-timezone';
 import { FormattedMessage } from 'react-intl';
 
 class Countdown extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      status: '',
-      days: '',
-      hours: '',
-      min: '',
-      sec: '',
-      loading: false,
-    };
-
-    this.calculateCountdown = this.calculateCountdown.bind(this);
-  }
+  state = {
+    status: '',
+    days: '',
+    hours: '',
+    min: '',
+    sec: '',
+    loading: false,
+    isSoon: false,
+    isRunning: false,
+  };
 
   componentDidMount() {
     // update every second
@@ -40,12 +36,11 @@ class Countdown extends Component {
     return newValue;
   }
 
-  stop() {
-    clearInterval(this.interval);
-  }
-
-  calculateCountdown() {
-    const { startDate, endDate } = this.props;
+  calculateCountdown = () => {
+    const {
+      startDate, endDate, onStart, onExpiry,
+    } = this.props;
+    const { isSoon, isRunning } = this.state;
     const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
     let countDate;
     // Create date from input value
@@ -56,20 +51,29 @@ class Countdown extends Component {
     if (inputStartDate > todaysDate) {
       this.setState({
         status: 'soon',
+        isSoon: true,
       });
       countDate = startDate;
     } else if (todaysDate <= inputEndDate) {
+      if (isSoon) onStart();
+
       this.setState({
         status: 'running',
+        isSoon: false,
+        isRunning: true,
       });
+
       countDate = endDate;
     } else {
+      if (isRunning) onExpiry();
+
       this.setState({
         status: 'ended',
         days: 0,
         hours: 0,
         min: 0,
         sec: 0,
+        isRunning: false,
       });
       countDate = endDate;
     }
@@ -112,6 +116,10 @@ class Countdown extends Component {
 
     timeLeft.sec = diff;
     return timeLeft;
+  }
+
+  stop() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -168,15 +176,15 @@ class Countdown extends Component {
           )}
         <div className={`Countdown-box ${status}`}>
           {((countDown.days > 0 && thumb) || !thumb) && (
-          <span className="Countdown-col">
-            <span className="Countdown-col-element" datat-testid={`${dataTestId}-countdown-days`}>
-              <strong>{this.addLeadingZeros(countDown.days)}</strong>
-              <FormattedMessage
-                id="countdown.day"
-                defaultMessage="Day"
-              />
+            <span className="Countdown-col">
+              <span className="Countdown-col-element" datat-testid={`${dataTestId}-countdown-days`}>
+                <strong>{this.addLeadingZeros(countDown.days)}</strong>
+                <FormattedMessage
+                  id="countdown.day"
+                  defaultMessage="Day"
+                />
+              </span>
             </span>
-          </span>
           )}
 
           <span className="Countdown-col">
@@ -200,15 +208,15 @@ class Countdown extends Component {
           </span>
 
           {((countDown.days === 0 && thumb) || !thumb) && (
-          <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-seconds`}>
-              <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-              <FormattedMessage
-                id="countdown.sec"
-                defaultMessage="SEC"
-              />
+            <span className="Countdown-col">
+              <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-seconds`}>
+                <strong>{this.addLeadingZeros(countDown.sec)}</strong>
+                <FormattedMessage
+                  id="countdown.sec"
+                  defaultMessage="SEC"
+                />
+              </span>
             </span>
-          </span>
           )}
         </div>
       </div>
@@ -221,6 +229,8 @@ Countdown.propTypes = {
   endDate: PropTypes.string.isRequired,
   thumb: PropTypes.bool,
   dataTestId: PropTypes.string,
+  onExpiry: PropTypes.func,
+  onStart: PropTypes.func,
 };
 
 Countdown.defaultProps = {

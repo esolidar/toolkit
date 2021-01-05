@@ -32,6 +32,7 @@ const AuctionsList = ({
             >
               <AuctionThumb
                 auction={auction}
+                thumb={true}
               />
             </a>
           </Col>

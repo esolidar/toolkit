@@ -47,7 +47,7 @@ const AuctionLastBid = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="txt-price-t" data-testid="value-last-bid">
+            <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -158,6 +158,7 @@ AuctionLastBid.propTypes = {
       value: PropTypes.number,
     }),
     currency: PropTypes.object,
+    blink: PropTypes.bool,
   }),
   isEnded: PropTypes.bool,
   isCommingSoon: PropTypes.bool,

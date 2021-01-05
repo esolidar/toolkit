@@ -5,6 +5,7 @@ import {
   isEmpty, forEach, findIndex,
 } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
+import { NotificationManager } from 'react-notifications';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import { getEmployeeName, isDefined } from '../../utils';
 import Button from '../button/Button';
@@ -62,6 +63,7 @@ const AuctionDetail = ({
   mobileConfirmPost,
   confirmPhone,
   intl,
+  pusherData,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -109,8 +111,18 @@ const AuctionDetail = ({
   const [hasCardSelected, setHasCardSelected] = useState(false);
 
   const [lastFour, setLastFour] = useState(null);
+  const [errorCheckLegal, setErrorCheckLegal] = useState(false);
+  const [errorCheckedNotifications, setErrorCheckedNotifications] = useState(false);
+  const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
+  const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
 
-  const perPage = 2;
+  const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
+  const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
+
+  const [isEnded, setIsEnded] = useState(false);
+  const [isCommingSoon, setIsCommingSoon] = useState(false);
+
+  const perPage = 5;
   let hasPhoneValidate = false;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
@@ -130,7 +142,8 @@ const AuctionDetail = ({
       setIsLoadingAuction(false);
       setAuctionDetailInfo(auctionDetail.data);
       setAccessAuction(true);
-
+      setIsCommingSoon(todaysDate < new Date(auctionDetail.data.dateStart));
+      setIsEnded(todaysDate > new Date(auctionDetail.data.dateLimit));
       getAuctionBidList(auctionId, page, perPage);
       getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
@@ -166,8 +179,25 @@ const AuctionDetail = ({
 
   useEffect(() => {
     if (newBid.code === 200) {
-      getAuctionDetail(auctionId, userPrivateCode);
       setIsShowModal(false);
+      const newAuctionDetailInfo = auctionDetailInfo;
+      newAuctionDetailInfo.dateLimit = newBid.data.dateLimit;
+      newAuctionDetailInfo.last_bid.value = newBid.data.value;
+      setAuctionDetailInfo(newAuctionDetailInfo);
+      setListUsersBid([newBid.data, ...listUsersBid]);
+      setHasSubmitModalBid(false);
+      setLastFour(null);
+      setValueBid(null);
+    } else if (newBid.status === 400) {
+      switch (newBid.data) {
+        case 'AUCTION_IS_NOT_ON_GOING':
+          NotificationManager.error('Licitação ultrapassada', '', 15000);
+          break;
+        default:
+          NotificationManager.error('Licitação ultrapassada', '', 15000);
+      }
+    } else {
+      NotificationManager.error('Ocorreu um erro', '', 15000);
     }
   }, [newBid]);
 
@@ -221,12 +251,20 @@ const AuctionDetail = ({
     }
   }, [auctionSubscribeList]);
 
-  if (isLoadingAuction) return (<Loading />);
+  useEffect(() => {
+    if (pusherData) {
+      const newAuctionDetailInfo = auctionDetailInfo;
+      // newAuctionDetailInfo.dateLimit = pusherData.auctionBid.dateLimit;
+      newAuctionDetailInfo.last_bid.value = pusherData.auctionBid.value;
+      newAuctionDetailInfo.blink = true;
+      const newPusherData = pusherData.auctionBid;
+      newPusherData.blink = true;
+      setAuctionDetailInfo(newAuctionDetailInfo);
+      setListUsersBid([newPusherData, ...listUsersBid]);
+    }
+  }, [pusherData]);
 
-  const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
-  const isEnded = (todaysDate > new Date(auctionDetailInfo.dateLimit));
-  const isCommingSoon = (todaysDate < new Date(auctionDetailInfo.dateStart));
-  const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
+  if (isLoadingAuction) return (<Loading />);
 
   const auctionTitle = () => {
     let title;
@@ -245,8 +283,10 @@ const AuctionDetail = ({
 
     if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
       description = auctionDetailInfo[type];
-    } else {
+    } else if (auctionDetailInfo[`${type}_en`]) {
       description = auctionDetailInfo[`${type}_en`];
+    } else {
+      description = auctionDetailInfo[type];
     }
     return description;
   };
@@ -317,6 +357,14 @@ const AuctionDetail = ({
   };
 
   const handleConfirmBid = (isAnonymous) => {
+    setHasSubmitModalBid(true);
+
+    if (!isCheckedLegal) setErrorCheckLegal(true);
+    if (!isCheckedNotifications) setErrorCheckedNotifications(true);
+    if (!isCheckedTerms) setErrorCheckedTerms(true);
+
+    if (!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms) return;
+
     if (auctionDetailInfo.cc === 1 && !hasCardSelected) {
       setIsErrorSelectCard(true);
       return;
@@ -439,6 +487,14 @@ const AuctionDetail = ({
     setHasCardSelected(true);
   };
 
+  const onExpiry = () => {
+    setIsEnded(true);
+  };
+
+  const onStart = () => {
+    setIsCommingSoon(false);
+  };
+
   let supported = '';
   if (accessAuction) {
     supported = auctionDetailInfo.recipient.institution ? auctionDetailInfo.recipient.institution : auctionDetailInfo.recipient.causes;
@@ -528,6 +584,8 @@ const AuctionDetail = ({
               <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
                 {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
                   <Countdown
+                    onExpiry={onExpiry}
+                    onStart={onStart}
                     dataTestId="auction-detail"
                     startDate={auctionDetailInfo.dateStart}
                     endDate={auctionDetailInfo.dateLimit}
@@ -579,7 +637,6 @@ const AuctionDetail = ({
                     isCommingSoon={isCommingSoon}
                     auctionTitle={auctionTitle()}
                     auction={auctionDetailInfo}
-                    isShowBid={true}
                     handleClickBid={handleClickBid}
                     translateMessage={translateMessage}
                     showModalSubscribe={modalShowSubscribe}
@@ -702,7 +759,7 @@ const AuctionDetail = ({
       {(accessAuction && isLoggedIn) && (
         <>
           <CustomModal
-            bodyPadding="30px"
+            bodyPadding="14px"
             dialogClassName="auction-modal-bid"
             onHide={() => setIsShowModal(false)}
             show={isShowModal}
@@ -717,7 +774,6 @@ const AuctionDetail = ({
                 <Button
                   extraClass="success-full"
                   onClick={() => handleConfirmBid(isAnonymous)}
-                  disabled={(!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms)}
                   text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
                 />
               </>
@@ -794,6 +850,14 @@ const AuctionDetail = ({
                     onChange={(e) => selectedCheck(e, 1)}
                     checked={isCheckedLegal}
                   />
+                  {(errorCheckLegal && hasSubmitModalBid) && (
+                    <span className="hasError">
+                      <FormattedMessage
+                        id="auctions.modal.required"
+                        defaultMessage="Required field"
+                      />
+                    </span>
+                  )}
                 </div>
                 <div className="mb-2">
                   <CheckboxField
@@ -805,6 +869,14 @@ const AuctionDetail = ({
                     onChange={(e) => selectedCheck(e, 3)}
                     checked={isCheckedNotifications}
                   />
+                  {(errorCheckedNotifications && hasSubmitModalBid) && (
+                    <span className="hasError">
+                      <FormattedMessage
+                        id="auctions.modal.required"
+                        defaultMessage="Required field"
+                      />
+                    </span>
+                  )}
                 </div>
                 <div className="mb-2">
                   <CheckboxField
@@ -815,13 +887,21 @@ const AuctionDetail = ({
                     onChange={(e) => selectedCheck(e, 2)}
                     checked={isCheckedTerms}
                   />
+                  {(errorCheckedTerms && hasSubmitModalBid) && (
+                    <span className="hasError">
+                      <FormattedMessage
+                        id="auctions.modal.required"
+                        defaultMessage="Required field"
+                      />
+                    </span>
+                  )}
                 </div>
               </>
             )}
             size="lg"
           />
           <CustomModal
-            bodyPadding="30px"
+            bodyPadding="14px"
             dialogClassName="auction-modal-subscribe"
             actionsChildren={(
               <>
@@ -971,6 +1051,7 @@ AuctionDetail.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  pusherData: PropTypes.object,
 };
 
 export default injectIntl(AuctionDetail);

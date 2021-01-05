@@ -9,7 +9,6 @@ import TextField from '../../elements/textField/TextField';
 const AuctionDetailRigth = ({
   auctionTitle,
   auction,
-  isShowBid,
   isEnded,
   isCommingSoon,
   handleClickBid,
@@ -58,7 +57,7 @@ const AuctionDetailRigth = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="txt-price-t" data-testid="value-last-bid">
+            <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -77,7 +76,7 @@ const AuctionDetailRigth = ({
               </Col>
             </Row>
           )}
-          {(isShowBid && !isEnded && !isCommingSoon) && (
+          {(!isEnded && !isCommingSoon) && (
             <Row>
               <Col sm={12} className="auction-content-label">
                 <FormattedMessage
@@ -188,7 +187,6 @@ const AuctionDetailRigth = ({
 AuctionDetailRigth.propTypes = {
   auctionTitle: PropTypes.string,
   auction: PropTypes.object,
-  isShowBid: PropTypes.bool,
   isEnded: PropTypes.bool,
   isCommingSoon: PropTypes.bool,
   handleClickBid: PropTypes.func,
@@ -204,10 +202,6 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-};
-
-AuctionDetailRigth.defaultProps = {
-  isShowBid: true,
 };
 
 export default injectIntl(AuctionDetailRigth);

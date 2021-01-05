@@ -55,6 +55,24 @@
 
 .auction-detail {
 
+  @-webkit-keyframes blink {
+    0% {
+      background-color: #fff;
+      opacity         : 1;
+    }
+
+    100% {
+      background-color: $mainColor;
+    }
+  }
+
+  .blink {
+    -webkit-animation-name           : blink;
+    -webkit-animation-duration       : 900ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
   .mobile-countdown {
     .countdown {
       margin: 15px 15px 0 15px;
@@ -222,7 +240,7 @@
     padding        : 0px;
 
     @media (max-width: 768px) {
-      margin-top     : -55px;
+      margin-top: -55px;
     }
 
     .CountdownBox {

@@ -27,7 +27,7 @@ const ContributesList = ({
       <div className="no-contributions">
         <FormattedMessage
           id="crowdfunding.no-contributions"
-          defaultMessage="No contributions"
+          defaultMessage="No bids"
         />
       </div>
     );
