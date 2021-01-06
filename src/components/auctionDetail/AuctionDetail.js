@@ -31,7 +31,7 @@ const AuctionDetail = ({
   auctionId,
   getAuctionDetail,
   auctionDetail,
-  userPrivateCode,
+  // userPrivateCode,
   postNewBid,
   newBid,
   getAuctionBidList,
@@ -110,17 +110,19 @@ const AuctionDetail = ({
   const [isErrorSelectCard, setIsErrorSelectCard] = useState(false);
   const [hasCardSelected, setHasCardSelected] = useState(false);
 
-  const [lastFour, setLastFour] = useState(null);
+  const [lastFour, setLastFour] = useState('');
   const [errorCheckLegal, setErrorCheckLegal] = useState(false);
   const [errorCheckedNotifications, setErrorCheckedNotifications] = useState(false);
   const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
-  const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
+  // const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
+
+  const [value, setValue] = useState('');
 
   const perPage = 5;
   let hasPhoneValidate = false;
@@ -133,7 +135,7 @@ const AuctionDetail = ({
   }
 
   useEffect(() => {
-    getAuctionDetail(auctionId, userPrivateCode);
+    getAuctionDetail(auctionId);
   }, []);
 
   useEffect(() => {
@@ -148,7 +150,14 @@ const AuctionDetail = ({
       getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
 
-      if (privateCode) localStorage.setItem('privateCode', privateCode);
+      if (privateCode) {
+        const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
+        auctionPrivateCode.push({
+          id: auctionDetail.data.id,
+          code: privateCode,
+        });
+        localStorage.setItem('privateCode', JSON.stringify(auctionPrivateCode));
+      }
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
       setIsLoadingAuction(false);
@@ -161,8 +170,9 @@ const AuctionDetail = ({
   useEffect(() => {
     if (auctionList.code === 200) {
       const list = auctionList.data.data.filter((item) => item.id !== +auctionId);
-      list.length = 4;
-      setlistAuctions(list);
+      const listActive = list.filter((item) => new Date(item.dateLimit) > todaysDate);
+      listActive.length = 4;
+      setlistAuctions(listActive);
     }
   }, [auctionList]);
 
@@ -182,22 +192,64 @@ const AuctionDetail = ({
       setIsShowModal(false);
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = newBid.data.dateLimit;
-      newAuctionDetailInfo.last_bid.value = newBid.data.value;
+
+      if (newAuctionDetailInfo.last_bid) {
+        newAuctionDetailInfo.last_bid.value = newBid.data.value;
+      } else {
+        newAuctionDetailInfo.last_bid = {
+          value: newBid.data.value,
+        };
+      }
+
       setAuctionDetailInfo(newAuctionDetailInfo);
       setListUsersBid([newBid.data, ...listUsersBid]);
       setHasSubmitModalBid(false);
       setLastFour(null);
-      setValueBid(null);
+      setValueBid('');
     } else if (newBid.status === 400) {
       switch (newBid.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
-          NotificationManager.error('Licitação ultrapassada', '', 15000);
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.auctionEnded', defaultMessage: 'The auction is over!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
+          break;
+        case 'INVALID_BID_AMOUNT':
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.invalidBid', defaultMessage: 'Invalid Bid Amount!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
+          break;
+        case 'USER_IS_NOT_NOTIFIABLE':
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.userNotNotifiable', defaultMessage: 'User is not notifiable!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
+          break;
+        case 'USER_IS_NOT_ACTIVE':
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.userNotActive', defaultMessage: 'User is not active!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
+          break;
+        case 'USER_DOES_NOT_HAVE_VALIDATED_PHONE':
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.userNotValidatedPhone', defaultMessage: 'User dont have validated phone!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
           break;
         default:
-          NotificationManager.error('Licitação ultrapassada', '', 15000);
+          NotificationManager.error(translateMessage({
+            id: 'auctions.modal.error.otherError', defaultMessage: 'An error has occurred!',
+          }), translateMessage({
+            id: 'errror', defaultMessage: 'Error:',
+          }), 15000);
       }
-    } else {
-      NotificationManager.error('Ocorreu um erro', '', 15000);
     }
   }, [newBid]);
 
@@ -320,34 +372,46 @@ const AuctionDetail = ({
       return;
     }
 
-    if (value > auctionDetailInfo.bid_max_interval) {
-      setError(
-        intl.formatMessage(
-          {
-            id: 'auction.detail.error.bidLower',
-            defaultMessage: 'Put a numeric value equal or lower than {value}',
-          },
-          { value: bidValueAuction + auctionDetailInfo.bid_max_interval },
-        ),
-      );
-      return;
+    // StartBid
+    if (!auctionDetailInfo.last_bid) {
+      if (value < auctionDetailInfo.bid_start || value > auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval) {
+        setError(
+          intl.formatMessage(
+            {
+              id: 'auction.detail.error.startBidInvalid',
+              defaultMessage: 'Put a numeric value between {bidStart} and {maxBid}',
+            },
+            {
+              bidStart: auctionDetailInfo.bid_start,
+              maxBid: auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval,
+            },
+          ),
+        );
+        return;
+      }
     }
 
-    if (value >= bidValueAuction + auctionDetailInfo.bid_interval) {
-      setIsShowModal(true);
-      setError('');
-      setValueBid(value);
-    } else {
-      setError(
-        intl.formatMessage(
-          {
-            id: 'auction.detail.error.bid',
-            defaultMessage: 'Put a numeric value equal or higher than {value}',
-          },
-          { value: bidValueAuction + auctionDetailInfo.bid_interval },
-        ),
-      );
+    if (auctionDetailInfo.last_bid) {
+      if (value < auctionDetailInfo.last_bid.value || value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval) {
+        setError(
+          intl.formatMessage(
+            {
+              id: 'auction.detail.error.startBidInvalid',
+              defaultMessage: 'Put a numeric value between {bidStart} and {maxBid}',
+            },
+            {
+              bidStart: auctionDetailInfo.last_bid.value,
+              maxBid: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval,
+            },
+          ),
+        );
+        return;
+      }
     }
+
+    setIsShowModal(true);
+    setError('');
+    setValueBid(value);
   };
 
   const showMoreContributes = () => {
@@ -363,23 +427,26 @@ const AuctionDetail = ({
     if (!isCheckedNotifications) setErrorCheckedNotifications(true);
     if (!isCheckedTerms) setErrorCheckedTerms(true);
 
-    if (!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms) return;
-
     if (auctionDetailInfo.cc === 1 && !hasCardSelected) {
       setIsErrorSelectCard(true);
       return;
     }
+
+    if (!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms) return;
+
     const bid = {
       value: +valueBid,
       hidden: isAnonymous || 0,
-      last4: lastFour,
     };
+
+    if (auctionDetailInfo.cc === 1) bid.last4 = lastFour;
 
     postNewBid(bid, auctionDetailInfo.id);
     setIsAnonymous(false);
     setIsCheckedLegal(false);
     setIsCheckedTerms(false);
     setIsCheckedNotifications(false);
+    setValue('');
   };
 
   const handleChangePrivateCode = (e) => {
@@ -480,6 +547,12 @@ const AuctionDetail = ({
     setIsCheckedTerms(false);
     setIsCheckedNotifications(false);
     setIsShowModal(false);
+    setErrorCheckLegal(false);
+    setErrorCheckedNotifications(false);
+    setErrorCheckedTerms(false);
+    setIsErrorSelectCard(false);
+    setLastFour('');
+    setValue('');
   };
 
   const selectedCard = (card) => {
@@ -493,6 +566,15 @@ const AuctionDetail = ({
 
   const onStart = () => {
     setIsCommingSoon(false);
+  };
+
+  const valueBidTextField = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleMinValue = () => {
+    if (!auctionDetailInfo.last_bid) return auctionDetailInfo.bid_start;
+    if (auctionDetailInfo.last_bid) return auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval;
   };
 
   let supported = '';
@@ -640,9 +722,11 @@ const AuctionDetail = ({
                     handleClickBid={handleClickBid}
                     translateMessage={translateMessage}
                     showModalSubscribe={modalShowSubscribe}
-                    minValue={bidValueAuction + auctionDetailInfo.bid_interval}
+                    minValue={handleMinValue()}
                     error={error}
                     user={user}
+                    inputBidValue={value}
+                    valueBidTextField={valueBidTextField}
                   />
                 </Row>
               </Col>
@@ -691,7 +775,9 @@ const AuctionDetail = ({
                     isShowModal={modalShowSubscribe}
                     error={error}
                     translateMessage={translateMessage}
-                    minValue={bidValueAuction + auctionDetailInfo.bid_interval}
+                    minValue={handleMinValue()}
+                    inputBidValue={value}
+                    valueBidTextField={valueBidTextField}
                   />
                 </Col>
               </Row>
@@ -1027,7 +1113,6 @@ AuctionDetail.propTypes = {
   postNewBid: PropTypes.func,
   postAuctionCompanyComment: PropTypes.func,
   postAuctionSubscribe: PropTypes.func,
-  userPrivateCode: PropTypes.number,
   newBid: PropTypes.object,
   auctionList: PropTypes.object,
   auctionBidList: PropTypes.object,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
@@ -15,14 +15,10 @@ const AuctionLastBid = ({
   translateMessage,
   intl,
   minValue,
+  inputBidValue,
+  valueBidTextField,
 }) => {
-  const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
-
-  const [value, setValue] = useState('');
-
-  const valueBidTextField = (e) => {
-    setValue(e.target.value);
-  };
+  const lastBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
   return (
     <Col sm={12}>
@@ -49,7 +45,7 @@ const AuctionLastBid = ({
           <Row>
             <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
               <FormattedNumber
-                value={valueBid}
+                value={lastBid}
                 style="currency"
                 currency={auction.currency.small}
               />
@@ -70,7 +66,7 @@ const AuctionLastBid = ({
                   type="text"
                   onChange={valueBidTextField}
                   error={error}
-                  value={value}
+                  value={inputBidValue}
                   placeholder={
                     intl.formatMessage(
                       {
@@ -88,7 +84,7 @@ const AuctionLastBid = ({
                   dataTestId="button-bid"
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
-                  onClick={() => handleClickBid(value)}
+                  onClick={() => handleClickBid(inputBidValue)}
                 />
               </Col>
               <Col sm={12} className="subscribe-auction text-center mt-4" data-testid="subscribe-link">
@@ -170,6 +166,8 @@ AuctionLastBid.propTypes = {
     formatMessage: PropTypes.func,
   }),
   minValue: PropTypes.number,
+  inputBidValue: PropTypes.number,
+  valueBidTextField: PropTypes.func,
 };
 
 export default injectIntl(AuctionLastBid);

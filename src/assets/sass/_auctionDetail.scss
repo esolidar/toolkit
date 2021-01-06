@@ -51,14 +51,20 @@
       font-weight: inherit !important;
     }
   }
+
+  .hasError {
+    span {
+      color: red;
+    }
+  }
 }
 
 .auction-detail {
 
   @-webkit-keyframes blink {
     0% {
-      background-color: #fff;
-      opacity         : 1;
+      color  : #000;
+      opacity: 1;
     }
 
     100% {
@@ -507,6 +513,12 @@
       color         : #05c6e5;
       letter-spacing: -1px;
       line-height   : 58px;
+    }
+  }
+
+  .hasError {
+    span {
+      color: red;
     }
   }
 }

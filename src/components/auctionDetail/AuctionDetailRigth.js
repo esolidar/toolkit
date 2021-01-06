@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
@@ -18,15 +18,11 @@ const AuctionDetailRigth = ({
   showModalSubscribe,
   user,
   intl,
+  inputBidValue,
+  valueBidTextField,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
-
-  const [value, setValue] = useState('');
-
-  const valueBidTextField = (e) => {
-    setValue(e.target.value);
-  };
 
   let supported = '';
   if (auction.brand) {
@@ -49,11 +45,21 @@ const AuctionDetailRigth = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="auction-content-label" data-testid="last-bid">
-              <FormattedMessage
-                id="auction.detail.lastbid"
-                defaultMessage="Last Bid"
-              />
+            <Col>
+              <p className="control-label mb-2" data-testid="title-last-bid">
+                {auction.last_bid ? (
+                  <FormattedMessage
+                    id="auction.detail.lastbid"
+                    defaultMessage="Last Bid"
+                  />
+                )
+                  : (
+                    <FormattedMessage
+                      id="auction.detail.startbid"
+                      defaultMessage="Start Bid"
+                    />
+                  )}
+              </p>
             </Col>
           </Row>
           <Row>
@@ -92,7 +98,7 @@ const AuctionDetailRigth = ({
                   type="text"
                   onChange={valueBidTextField}
                   error={error}
-                  value={value}
+                  value={inputBidValue}
                   placeholder={
                     intl.formatMessage(
                       {
@@ -109,7 +115,7 @@ const AuctionDetailRigth = ({
                   dataTestId="btn-bid"
                   extraClass="success-full"
                   text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
-                  onClick={() => handleClickBid(value)}
+                  onClick={() => handleClickBid(inputBidValue)}
                 />
               </Col>
               <Col sm={12} className="subscribe-auction mt-4">
@@ -202,6 +208,8 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  inputBidValue: PropTypes.number,
+  valueBidTextField: PropTypes.func,
 };
 
 export default injectIntl(AuctionDetailRigth);
