@@ -151,12 +151,12 @@ const AuctionDetail = ({
       getAuctionComment(auctionId, 1, '4');
 
       if (privateCode) {
-        const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
-        auctionPrivateCode.push({
-          id: auctionDetail.data.id,
-          code: privateCode,
-        });
-        localStorage.setItem('privateCode', JSON.stringify(auctionPrivateCode));
+        // const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
+        // auctionPrivateCode.push({
+        //   id: auctionDetail.data.id,
+        //   code: privateCode,
+        // });
+        // localStorage.setItem('privateCode', JSON.stringify(auctionPrivateCode));
       }
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
@@ -455,6 +455,18 @@ const AuctionDetail = ({
 
   const handleConfirmPrivateCode = () => {
     if (privateCode) {
+      const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
+      const auctionCode = auctionPrivateCode.find((item) => +item.id === +auctionId);
+      if (auctionCode) {
+        auctionCode.code = privateCode;
+      } else {
+        auctionPrivateCode.push({
+          id: auctionId,
+          code: privateCode,
+        });
+      }
+
+      localStorage.setItem('privateCode', JSON.stringify(auctionPrivateCode));
       getAuctionDetail(auctionId, privateCode);
     }
   };
@@ -1113,6 +1125,7 @@ AuctionDetail.propTypes = {
   postNewBid: PropTypes.func,
   postAuctionCompanyComment: PropTypes.func,
   postAuctionSubscribe: PropTypes.func,
+  // userPrivateCode: PropTypes.number,
   newBid: PropTypes.object,
   auctionList: PropTypes.object,
   auctionBidList: PropTypes.object,

@@ -62,8 +62,8 @@ export const convertToMyCurrency = (value, currency) => {
 
 export const getLocalStorageAuctionPrivateCode = (auctionId) => {
   if (localStorage.privateCode) {
-    const hasAuctionCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
-    const auctionCode = hasAuctionCode.find((item) => item.id === +auctionId);
+    const hasAuctionCode = JSON.parse(localStorage.privateCode);
+    const auctionCode = hasAuctionCode.find((item) => +item.id === +auctionId);
     return auctionCode ? auctionCode.code : null;
   }
   return null;

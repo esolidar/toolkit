@@ -2,7 +2,7 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency,
+  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -147,5 +147,15 @@ describe('test utils functions', () => {
       style="currency"
       currency={currency.small}
     />);
+  });
+
+  test('getlocalstorage', () => {
+    localStorage.setItem('privateCode', JSON.stringify([{
+      id: 1,
+      code: 123456,
+    }]));
+
+    expect(getLocalStorageAuctionPrivateCode(1)).toEqual(123456);
+    expect(getLocalStorageAuctionPrivateCode(2)).toEqual(null);
   });
 });
