@@ -63,6 +63,8 @@ const AuctionDetail = ({
   confirmPhone,
   intl,
   pusherData,
+  postUpdatedUser,
+  updatedUser,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -119,6 +121,8 @@ const AuctionDetail = ({
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
+
+  const [hasNotifications, setHasNotifications] = useState(localStorage.user ? JSON.parse(localStorage.user).notifications : 0);
 
   const [value, setValue] = useState('');
 
@@ -189,6 +193,8 @@ const AuctionDetail = ({
           value: newBid.data.value,
         };
       }
+
+      if (!hasNotifications && isCheckedNotifications) postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
 
       setAuctionDetailInfo(newAuctionDetailInfo);
       setListUsersBid([newBid.data, ...listUsersBid]);
@@ -295,15 +301,37 @@ const AuctionDetail = ({
   useEffect(() => {
     if (pusherData) {
       const newAuctionDetailInfo = auctionDetailInfo;
-      // newAuctionDetailInfo.dateLimit = pusherData.auctionBid.dateLimit;
-      newAuctionDetailInfo.last_bid.value = pusherData.auctionBid.value;
+      newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
+      newAuctionDetailInfo.last_bid.value = pusherData.value;
       newAuctionDetailInfo.blink = true;
-      const newPusherData = pusherData.auctionBid;
-      newPusherData.blink = true;
       setAuctionDetailInfo(newAuctionDetailInfo);
-      setListUsersBid([newPusherData, ...listUsersBid]);
+      const existBid = listUsersBid.find((item) => item.id === pusherData.id);
+      if (!existBid) {
+        const newPusherData = {
+          id: pusherData.id,
+          dateAdded: pusherData.dateAdded,
+          hidden: pusherData.userName ? 0 : 1,
+          value: pusherData.value,
+          user: {
+            name: pusherData.userName,
+            thumbs: pusherData.userThumbs,
+          },
+          blink: true,
+        };
+        setListUsersBid([newPusherData, ...listUsersBid]);
+      }
     }
   }, [pusherData]);
+
+  useEffect(() => {
+    if (updatedUser.code === 200) {
+      const user = updatedUser.data;
+      const userLocalStorage = JSON.parse(localStorage.user);
+      userLocalStorage.notifications = user.notifications;
+      localStorage.setItem('user', JSON.stringify(userLocalStorage));
+      setHasNotifications(1);
+    }
+  }, [updatedUser]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -424,7 +452,7 @@ const AuctionDetail = ({
       return;
     }
 
-    if (!isCheckedLegal || !isCheckedNotifications || !isCheckedTerms) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms) return;
 
     const bid = {
       value: +valueBid,
@@ -950,16 +978,18 @@ const AuctionDetail = ({
                   )}
                 </div>
                 <div className="mb-2">
-                  <CheckboxField
-                    className="checkbox-modal-bid"
-                    label={translateMessage({
-                      id: 'auction.modal.bid.check3',
-                      defaultMessage: 'To be able to bid you must first accept to receive our notifications. This will allow us to inform you whenever you win an auction.',
-                    })}
-                    onChange={(e) => selectedCheck(e, 3)}
-                    checked={isCheckedNotifications}
-                  />
-                  {(errorCheckedNotifications && hasSubmitModalBid) && (
+                  {hasNotifications === 0 && (
+                    <CheckboxField
+                      className="checkbox-modal-bid"
+                      label={translateMessage({
+                        id: 'auction.modal.bid.check3',
+                        defaultMessage: 'To be able to bid you must first accept to receive our notifications. This will allow us to inform you whenever you win an auction.',
+                      })}
+                      onChange={(e) => selectedCheck(e, 3)}
+                      checked={isCheckedNotifications}
+                    />
+                  )}
+                  {(hasNotifications === 0 && errorCheckedNotifications && hasSubmitModalBid) && (
                     <span className="hasError">
                       <FormattedMessage
                         id="auctions.modal.required"
@@ -1117,7 +1147,6 @@ AuctionDetail.propTypes = {
   postNewBid: PropTypes.func,
   postAuctionCompanyComment: PropTypes.func,
   postAuctionSubscribe: PropTypes.func,
-  // userPrivateCode: PropTypes.number,
   newBid: PropTypes.object,
   auctionList: PropTypes.object,
   auctionBidList: PropTypes.object,
@@ -1142,6 +1171,8 @@ AuctionDetail.propTypes = {
     formatMessage: PropTypes.func,
   }),
   pusherData: PropTypes.object,
+  postUpdatedUser: PropTypes.func,
+  updatedUser: PropTypes.object,
 };
 
 export default injectIntl(AuctionDetail);
