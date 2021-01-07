@@ -35,6 +35,20 @@ const ValidateTelephone = ({
     if (confirmPhone && confirmPhone.code === 200) {
       setVerified(1);
       setShowVerifyCode(false);
+
+      const user = JSON.parse(localStorage.user);
+      user.phones.push({
+        code: confirmPhone.data.phone.code,
+        dateAdded: confirmPhone.data.phone.dateAdded,
+        id: confirmPhone.data.phone.id,
+        main: confirmPhone.data.phone.main,
+        phone: confirmPhone.data.phone.phone,
+        twilio_sid: confirmPhone.data.phone.twilio_sid,
+        updatedDate: confirmPhone.data.phone.updatedDate,
+        user_id: confirmPhone.data.phone.user_id,
+        verified: confirmPhone.data.phone.verified,
+      });
+      localStorage.setItem('user', JSON.stringify(user));
     } else if (confirmPhone && confirmPhone.code === 400) {
       setCode('');
     }
@@ -186,10 +200,15 @@ ValidateTelephone.propTypes = {
   localStorage: PropTypes.shape({
     lang: PropTypes.string,
     user: PropTypes.object,
+    setItem: PropTypes.object,
   }),
   validatePhone: PropTypes.object,
   confirmPhone: PropTypes.shape({
     code: PropTypes.number,
+    data: PropTypes.shape({
+      phone: PropTypes.string,
+      verified: PropTypes.number,
+    }),
   }),
 };
 

@@ -31,7 +31,6 @@ const AuctionDetail = ({
   auctionId,
   getAuctionDetail,
   auctionDetail,
-  // userPrivateCode,
   postNewBid,
   newBid,
   getAuctionBidList,
@@ -117,7 +116,6 @@ const AuctionDetail = ({
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
-  // const bidValueAuction = auctionDetailInfo.last_bid ? auctionDetailInfo.last_bid.value : auctionDetailInfo.bid_start;
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
@@ -149,15 +147,6 @@ const AuctionDetail = ({
       getAuctionBidList(auctionId, page, perPage);
       getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
-
-      if (privateCode) {
-        // const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
-        // auctionPrivateCode.push({
-        //   id: auctionDetail.data.id,
-        //   code: privateCode,
-        // });
-        // localStorage.setItem('privateCode', JSON.stringify(auctionPrivateCode));
-      }
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
       setIsLoadingAuction(false);
@@ -421,6 +410,9 @@ const AuctionDetail = ({
   };
 
   const handleConfirmBid = (isAnonymous) => {
+    const { phones } = JSON.parse(localStorage.user);
+    hasPhoneValidate = phones.some((phone) => phone.verified === 1);
+
     setHasSubmitModalBid(true);
 
     if (!isCheckedLegal) setErrorCheckLegal(true);
