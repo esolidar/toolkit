@@ -20,6 +20,7 @@ const TextField = ({
   help,
   required,
   className,
+  dataTestId,
 }) => (
   <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
     {label && (
@@ -33,6 +34,7 @@ const TextField = ({
       </p>
     )}
     <input
+      data-testid={dataTestId}
       autoComplete="off"
       onChange={onChange}
       onFocus={onFocus}
@@ -53,6 +55,7 @@ const TextField = ({
 );
 
 TextField.propTypes = {
+  dataTestId: PropTypes.string,
   field: PropTypes.string.isRequired,
   id: PropTypes.string,
   value: PropTypes.oneOfType([

@@ -1,3 +1,5 @@
+import React from 'react';
+import { FormattedNumber } from 'react-intl';
 import { findIndex, find } from 'lodash';
 
 export const getEmployeeName = (companyId, user) => {
@@ -40,6 +42,32 @@ export const getUrlParam = (param) => {
 };
 
 export const filterUnique = (array, key) => array.filter((v, i, a) => a.findIndex((t) => (t[key] === v[key])) === i);
+
+export const convertToMyCurrency = (value, currency) => {
+  let convertedValue = value;
+  const myCurrency = localStorage.currency && localStorage.currency !== 'null' ? JSON.parse(localStorage.currency) : currency;
+
+  if (myCurrency.id !== currency.id) {
+    convertedValue = (value * currency.value) / myCurrency.value;
+  }
+
+  return (
+    <FormattedNumber
+      value={convertedValue}
+      style="currency"
+      currency={myCurrency.small}
+    />
+  );
+};
+
+export const getLocalStorageAuctionPrivateCode = (auctionId) => {
+  if (localStorage.privateCode) {
+    const hasAuctionCode = JSON.parse(localStorage.privateCode);
+    const auctionCode = hasAuctionCode.find((item) => +item.id === +auctionId);
+    return auctionCode ? auctionCode.code : null;
+  }
+  return null;
+};
 
 export const isCompanyAdmin = (companyId, user) => {
   const isAdmin = findIndex(user.work_email, (o) => o.company_id === companyId && (o.role === 'admin' || o.role === 'owner'));

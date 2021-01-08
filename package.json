@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.25.7",
+  "version": "1.26.0",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -101,8 +101,11 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
     "@pedroguia/react-draft-wysiwyg": "^1.14.8",
+    "@react-mock/state": "^0.1.8",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
+    "@testing-library/react-hooks": "^3.7.0",
+    "@testing-library/user-event": "^12.6.0",
     "autosize": "^4.0.2",
     "babel-loader": "^8.2.1",
     "classnames": "^2.2.6",
@@ -178,6 +181,7 @@
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.5",
+    "react-telephone-input": "^4.73.4"
   }
 }

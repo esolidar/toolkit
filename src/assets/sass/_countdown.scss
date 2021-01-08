@@ -2,7 +2,7 @@
   display      : inline-block;
   border-radius: 3px;
   overflow     : hidden;
-  width        : 450px;
+  max-width        : 450px;
 
   @media(max-width: 425px) {
     width: 100%;
@@ -72,8 +72,14 @@
     height: 70px;
   }
 
+  @for $i from 1 through 5 {
+    span.Countdown-col:first-child:nth-last-child(#{$i}),
+    span.Countdown-col:first-child:nth-last-child(#{$i}) ~ span.Countdown-col {
+      width: #{100% / $i}
+    }
+  }
+
   .Countdown-col {
-    width     : 25%;
     display   : inline-block;
     padding   : 0 5px;
     text-align: center;

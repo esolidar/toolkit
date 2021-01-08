@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import CrowdfundigContributeRow from './CrowdfundingContributeRow';
+import ContributeRow from './ContributeRow';
 
-const CrowdfundigContributesList = ({
+const ContributesList = ({
   contributesListTotal,
   contributes,
   loadingContributes,
   showMoreContributes,
+  currency,
   env,
 }) => {
   const renderContributes = () => {
     if (contributes && contributes.length) {
       return contributes.map((contribute) => (
         <div key={contribute.id}>
-          <CrowdfundigContributeRow
+          <ContributeRow
             contribute={contribute}
+            currency={currency}
             env={env}
           />
         </div>
@@ -25,7 +27,7 @@ const CrowdfundigContributesList = ({
       <div className="no-contributions">
         <FormattedMessage
           id="crowdfunding.no-contributions"
-          defaultMessage="No contributions"
+          defaultMessage="No bids"
         />
       </div>
     );
@@ -57,13 +59,14 @@ const CrowdfundigContributesList = ({
   );
 };
 
-export default CrowdfundigContributesList;
+export default ContributesList;
 
-CrowdfundigContributesList.propTypes = {
+ContributesList.propTypes = {
   contributesListTotal: PropTypes.number,
   contributes: PropTypes.array,
   loadingContributes: PropTypes.bool,
   showMoreContributes: PropTypes.func,
+  currency: PropTypes.string,
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),

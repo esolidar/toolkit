@@ -3,13 +3,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import CrowdfundingContributesList from '../CrowdfundingContributesList';
+import ContributeRow from '../ContributeRow';
 
 configure({ adapter: new Adapter() });
 
-const props = {
-  contributesListTotal: 10,
-  contributes: [
+const propsHidden = {
+  contribute:
     {
       id: 140,
       company_id: null,
@@ -41,6 +40,14 @@ const props = {
         },
       },
     },
+  env: {
+    cdn_static_url: 'https://static.esolidar.com',
+    cdn_uploads_url: 'https://cdn.testesolidar.com',
+  },
+};
+
+const propsNoHidden = {
+  contribute:
     {
       id: 140,
       company_id: null,
@@ -87,40 +94,37 @@ const props = {
         },
       },
     },
-  ],
-  loadingContributes: false,
-  showMoreContributes: () => {},
   env: {
     cdn_static_url: 'https://static.esolidar.com',
     cdn_uploads_url: 'https://cdn.testesolidar.com',
   },
 };
 
-describe('CrowdfundingContributesList', () => {
-  it('renders the CrowdfundingContributesList component', () => {
-    const component = shallow(<CrowdfundingContributesList />);
+describe('ContributeRow', () => {
+  it('renders the ContributeRow component', () => {
+    const component = shallow(<ContributeRow
+      contribute={propsHidden.contribute}
+      env={propsHidden.env}
+    />);
     expect(component).toHaveLength(1);
+    expect(component.find('.contribute-row-box').length).toBe(1);
+    expect(component.find('.contribute-row-date').length).toBe(1);
+    expect(component.find('.user').length).toBe(1);
   });
 
-  it('renders the CrowdfundingContributesList component', () => {
-    const component = shallow(<CrowdfundingContributesList
-      contributesListTotal={0}
-      contributes={[]}
-      loadingContributes={false}
-      showMoreContributes={props.showMoreContributes}
-      env={props.env}
+  it('With anonymous image', () => {
+    const component = shallow(<ContributeRow
+      contribute={propsHidden.contribute}
+      env={propsHidden.env}
     />);
-    expect(component.find('.no-contributions').length).toBe(1);
+    expect(component.find('img').prop('src')).toEqual('https://static.esolidar.com/frontend/assets/anonymous-user.svg');
   });
 
-  it('show link see more', () => {
-    const component = shallow(<CrowdfundingContributesList
-      contributesListTotal={10}
-      contributes={props.contributes}
-      loadingContributes={false}
-      showMoreContributes={props.showMoreContributes}
-      env={props.env}
+  it('With user image', () => {
+    const component = shallow(<ContributeRow
+      contribute={propsNoHidden.contribute}
+      env={propsNoHidden.env}
     />);
-    expect(component.find('.see-more-contributors').length).toBe(1);
+    expect(component.find('img').prop('src')).toEqual('https://cdn.testesolidar.com/users/1/1602528294-THUMB.jpg');
   });
 });

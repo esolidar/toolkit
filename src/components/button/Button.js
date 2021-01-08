@@ -4,7 +4,18 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass, target, href, text, onClick, to, type, disabled, className, icon, id,
+  extraClass,
+  target,
+  href,
+  text,
+  onClick,
+  to,
+  type,
+  disabled,
+  className,
+  icon,
+  id,
+  dataTestId,
 }) => {
   let style;
   if (onClick) {
@@ -22,6 +33,7 @@ const Button = ({
       case 'button':
         return (
           <button
+            data-testid={dataTestId}
             id={id}
             type="button"
             onClick={onClick}
@@ -36,6 +48,7 @@ const Button = ({
       case 'submit':
         return (
           <button
+            data-testid={dataTestId}
             id={id}
             type="submit"
             className={classes}
@@ -49,6 +62,7 @@ const Button = ({
       case 'link':
         return (
           <Link
+            data-testid={dataTestId}
             id={id}
             to={to}
             className={classes}
@@ -61,6 +75,7 @@ const Button = ({
       default:
         return (
           <a
+            data-testid={dataTestId}
             id={id}
             href={href}
             target={target || '_self'}

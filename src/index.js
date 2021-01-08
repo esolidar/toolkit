@@ -45,12 +45,18 @@ export { default as Comments } from './components/comments/Comments';
 export { default as CreateComment } from './components/comments/CreateComment';
 export { default as CrowdfundingDescription } from './components/crowdfundingDescription/CrowdfundingDescription';
 export { default as ConvertToMyTimezone } from './components/convertToMyTimezone/ConvertToMyTimezone';
-export { default as CrowdfundingContributesListBox } from './components/crowdfundingContributesListBox/CrowdfundingContributesListBox';
+export { default as CrowdfundingContributesListBox } from './components/contributesListBox/ContributesListBox';
 export { default as CrowdfundingHeaderRigth } from './components/crowdfundingHeader/CrowdfundingHeaderRigth';
 export { default as StripeCreditCard } from './components/stripe/StripeCreditCard';
 export { default as RequestDetailInfo } from './components/requestDetail/RequestDetailInfo';
 export { default as RequestDetailThumb } from './components/requestDetail/RequestDetailThumb';
+export { default as AuctionThumb } from './components/auctionThumb/AuctionThumb';
+export { default as ShareNetwork } from './components/shareNetwork/ShareNetwork';
+export { default as AuctionDetail } from './components/auctionDetail/AuctionDetail';
+export { default as DescriptionDetail } from './components/descriptionDetail/DescriptionDetail';
+export { default as AuctionsList } from './components/auctionDetail/auctionsList/AuctionsList';
 export { default as CreditCardList } from './components/creditCardList/CreditCardList';
+export { default as ValidateTelephone } from './components/validateTelephone/ValidateTelephone';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
@@ -66,5 +72,5 @@ export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage
 
 // Utils
 export {
-  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique, isCompanyAdmin, isValidURL,
+  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode,
 } from './utils';
