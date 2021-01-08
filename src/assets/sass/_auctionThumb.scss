@@ -139,6 +139,24 @@
         font-size: 24px;
       }
     }
+
+    @-webkit-keyframes blink {
+      0% {
+        color  : #000;
+        opacity: 1;
+      }
+  
+      100% {
+        background-color: $mainColor;
+      }
+    }
+  
+    .blink {
+      -webkit-animation-name           : blink;
+      -webkit-animation-duration       : 900ms;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: ease-in-out;
+    }
   }
 
   &:hover {

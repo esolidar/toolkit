@@ -64,7 +64,7 @@ const AuctionThumb = ({
                     />
                   )}
                 </Col>
-                <Col xs={7} className="last-bid-value text-right">
+                <Col xs={7} className={auction.blink ? 'last-bid-value text-right blink' : 'last-bid-value text-right'}>
                   {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
                 </Col>
               </Row>
@@ -113,6 +113,7 @@ AuctionThumb.propTypes = {
     dateLimit: PropTypes.string,
     dateStart: PropTypes.string,
     images: PropTypes.array,
+    blink: PropTypes.bool,
     last_bid: PropTypes.shape({
       value: PropTypes.number,
     }),
