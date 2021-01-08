@@ -176,7 +176,7 @@ describe('CrowdfundingHeader', () => {
         <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
       </IntlProvider>,
     );
-    expect(wrapper.find('.raised-text.col-sm-6').text()).toEqual('€60.00');
+    expect(wrapper.find('.raised-text.col-5').text()).toEqual('€60.00');
   });
 
   it('should value of crowdfunding is €10,000.00', () => {

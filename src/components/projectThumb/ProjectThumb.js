@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
 import slugify from 'slugify';
 import filter from 'lodash/filter';
 import Button from '../button/Button';
@@ -50,7 +52,7 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
               <button type="button" className="edit-button hover" onClick={editThumb}>
-                <FontAwesomeIcon icon="pen" className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
+                <FontAwesomeIcon icon={faPen} className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
                 <FormattedMessage
                   id="project.edit"
                   defaultMessage="Edit project"
@@ -71,7 +73,7 @@ const ProjectThumb = ({
                 </Tooltip>
               )}
             >
-              <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title={intl.formatMessage({ id: 'open.new.tab', defaultMessage: 'Open in new tab' })} />
+              <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title={intl.formatMessage({ id: 'open.new.tab', defaultMessage: 'Open in new tab' })} />
             </OverlayTrigger>
           </div>
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
-import find from 'lodash/find';
 import { FormattedNumber } from 'react-intl';
+import { findIndex, find } from 'lodash';
 
 export const getEmployeeName = (companyId, user) => {
   if (user && user.work_email) {
@@ -67,4 +67,19 @@ export const getLocalStorageAuctionPrivateCode = (auctionId) => {
     return auctionCode ? auctionCode.code : null;
   }
   return null;
+};
+
+export const isCompanyAdmin = (companyId, user) => {
+  const isAdmin = findIndex(user.work_email, (o) => o.company_id === companyId && (o.role === 'admin' || o.role === 'owner'));
+  return isAdmin >= 0;
+};
+
+export const isValidURL = (str) => {
+  const pattern = new RegExp('^(https?:\\/\\/)?' // protocol
+    + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' // domain name
+    + '((\\d{1,3}\\.){3}\\d{1,3}))' // OR ip (v4) address
+    + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' // port and path
+    + '(\\?[;&a-z\\d%_.~+=-]*)?' // query string
+    + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+  return !!pattern.test(str);
 };

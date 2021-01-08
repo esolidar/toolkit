@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from 'lodash/isEmpty';
 import Button from '../button/Button';
@@ -112,7 +113,7 @@ const Question = ({
 
   if (type === 'dropdown' || type === 'upload-images') return null;
 
-  const PrivateIcon = () => <FontAwesomeIcon icon="lock" className="ml-2 text-secondary" style={{ width: '12px' }} />;
+  const PrivateIcon = () => <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />;
 
   const questionGroupClassName = ['question-group'];
   if (showRequestInfoView && !['title', 'paragraph'].includes(type)) questionGroupClassName.push('in-review');

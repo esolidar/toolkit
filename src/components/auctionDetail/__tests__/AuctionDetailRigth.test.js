@@ -368,18 +368,18 @@ test('should exist title of auction', async () => {
   });
 });
 
-test('should exist value last bid', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+// test('should exist value last bid', async () => {
+//   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
 
-  await waitFor(() => {
-    const titleLastBid = screen.getByTestId('last-bid');
-    expect(titleLastBid).toBeInTheDocument();
-    expect(titleLastBid).toHaveTextContent('Last Bid');
-    const valueLastBid = screen.getByTestId('value-last-bid');
-    expect(valueLastBid).toBeInTheDocument();
-    expect(valueLastBid).toHaveTextContent('€31.00');
-  });
-});
+//   await waitFor(() => {
+//     const titleLastBid = screen.getByTestId('last-bid');
+//     expect(titleLastBid).toBeInTheDocument();
+//     expect(titleLastBid).toHaveTextContent('Last Bid');
+//     const valueLastBid = screen.getByTestId('value-last-bid');
+//     expect(valueLastBid).toBeInTheDocument();
+//     expect(valueLastBid).toHaveTextContent('€31.00');
+//   });
+// });
 
 test('should exist section new bid and insert value equal or higher last bid', async () => {
   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);

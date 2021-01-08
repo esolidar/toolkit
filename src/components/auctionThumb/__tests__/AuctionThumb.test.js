@@ -21,7 +21,7 @@ const propsAuction = {
   currency_id: 1,
   title: '0 - teste caracter especial 2019/2020',
   title_en: 'test caracter special 2019/2020',
-  bid_start: 3,
+  bid_start: 31,
   dateStart: '2020-02-08 07:00:00',
   dateLimit: '2020-07-20 16:00:00',
   images: [
@@ -143,7 +143,7 @@ describe('AuctionThumb', () => {
     );
     expect(wrapper.find(FormattedNumber).prop('currency')).toEqual(propsAuction.currency.small);
     expect(wrapper.find(FormattedNumber).prop('value')).toEqual(propsAuction.last_bid_value.value);
-    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Last Bid');
+    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
   });
 
   it('should starting bid auction', () => {
