@@ -324,7 +324,7 @@ const AuctionDetail = ({
   }, [pusherData]);
 
   useEffect(() => {
-    if (updatedUser.code === 200) {
+    if (updatedUser && updatedUser.code === 200) {
       const user = updatedUser.data;
       const userLocalStorage = JSON.parse(localStorage.user);
       userLocalStorage.notifications = user.notifications;
