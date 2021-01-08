@@ -149,7 +149,7 @@ const AuctionDetail = ({
       setIsCommingSoon(todaysDate < new Date(auctionDetail.data.dateStart));
       setIsEnded(todaysDate > new Date(auctionDetail.data.dateLimit));
       getAuctionBidList(auctionId, page, perPage);
-      getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 5, undefined, undefined, undefined);
+      getAuctionList(companyId, 1, 'dateLimit,desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
@@ -867,11 +867,13 @@ const AuctionDetail = ({
               </Row>
             </Col>
           </Row>
-          <AuctionsList
-            title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
-            listAuctions={listAuctions}
-            buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
-          />
+          {listAuctions && (
+            <AuctionsList
+              title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
+              listAuctions={listAuctions}
+              buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
+            />
+          )}
         </>
       )}
       {(accessAuction && isLoggedIn) && (
