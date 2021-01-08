@@ -409,7 +409,7 @@ const AuctionDetail = ({
     }
 
     if (auctionDetailInfo.last_bid) {
-      if (value < auctionDetailInfo.last_bid.value || value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval) {
+      if (value <= auctionDetailInfo.last_bid.value || value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval) {
         setError(
           intl.formatMessage(
             {
