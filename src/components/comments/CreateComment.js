@@ -54,7 +54,7 @@ const CreateComment = (props) => {
 export default CreateComment;
 
 CreateComment.propTypes = {
-  comment: PropTypes.array,
+  comment: PropTypes.string,
   env: PropTypes.object.isRequired,
   translateMessage: PropTypes.func.isRequired,
   onSubmitComment: PropTypes.func.isRequired,
