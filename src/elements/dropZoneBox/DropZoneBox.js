@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import Cropper from 'react-cropper';
 import Loading from '../../components/loading/Loading';
+import CustomModal from '../customModal/CustomModal';
+import Button from '../../components/button/Button';
 import { lastElemOf } from '../../utils/index';
+
+const cropper = React.createRef(null);
 
 const DropZoneBox = ({
   accept,
@@ -24,9 +29,12 @@ const DropZoneBox = ({
   imagesPreviewPosition,
   deleteImageGallery,
   intl,
+  hasCropper,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
+  const [cropperModal, setCropperModal] = useState(false);
+  const [croppedFile, setCroppedFile] = useState(null);
 
   const wait = (delay, ...args) => new Promise((resolve) => setTimeout(resolve, delay, ...args));
 
@@ -59,6 +67,10 @@ const DropZoneBox = ({
     { id: 'minSizeError', message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMin', defaultMessage: 'size less than ' }) },
   ];
 
+  const toggleModalCropper = () => {
+    setCropperModal(false);
+  };
+
   const { getRootProps, getInputProps, open } = useDropzone({
     accept,
     disabled,
@@ -85,11 +97,23 @@ const DropZoneBox = ({
       setIsLoading(false);
     },
     onDropAccepted: async (acceptedFiles) => {
-      onSelect(
-        acceptedFiles.map((file) => Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        })),
-      );
+      if (hasCropper && hasCropper.showCropper) {
+        const reader = new FileReader();
+        const file = acceptedFiles[0];
+
+        reader.onloadend = () => {
+          setCroppedFile(reader.result);
+        };
+
+        reader.readAsDataURL(file);
+        setCropperModal(true);
+      } else {
+        onSelect(
+          acceptedFiles.map((file) => Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })),
+        );
+      }
     },
     onDropRejected: async (rejectedFiles) => {
       const fileExtensionOf = (extension) => lastElemOf(extension.split('.')).toLowerCase();
@@ -112,6 +136,11 @@ const DropZoneBox = ({
       setErrorList(onDropErrorFileList);
     },
   });
+
+  const handleSubmitCroppedImage = (blob) => {
+    debugger;
+    onSelect([blob]);
+  };
 
   return (
     <div>
@@ -175,6 +204,40 @@ const DropZoneBox = ({
         <ImagesPreview />
       )}
 
+      {cropperModal && (
+        <CustomModal
+          actionsChildren={(
+            <Button
+              extraClass="success-full"
+              onClick={() => {
+                cropper.current.getCroppedCanvas().toBlob((blob) => {
+                  handleSubmitCroppedImage(blob);
+                }, 'image/jpeg', 0.7);
+              }}
+              text={intl.formatMessage({ id: 'add.files', defaultMessage: 'Add File' })}
+            />
+          )}
+          bodyChildren={(
+            <>
+              <Cropper
+                ref={cropper}
+                src={croppedFile}
+                style={{ height: 400, width: '100%' }}
+                guides={true}
+                zoomable={false}
+                viewMode={1}
+                aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
+              />
+            </>
+          )}
+          dividerBottom={true}
+          dividerTop={true}
+          onHide={toggleModalCropper}
+          show={toggleModalCropper}
+          size="md"
+          title={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+        />
+      )}
     </div>
 
   );
@@ -192,6 +255,11 @@ DropZoneBox.propTypes = {
   noKeyboard: PropTypes.bool,
   onSelect: PropTypes.func,
   errorMessages: PropTypes.array,
+  hasCropper: PropTypes.shape({
+    showCropper: PropTypes.bool,
+    aspectRatioW: PropTypes.number,
+    aspectRatioH: PropTypes.number,
+  }),
   noDrag: PropTypes.bool,
   showImagesPreviews: PropTypes.bool,
   imagesList: PropTypes.array,
