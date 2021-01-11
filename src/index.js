@@ -74,3 +74,6 @@ export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage
 export {
   getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin,
 } from './utils';
+
+// Hooks
+export { default as useDebounce } from './hooks';

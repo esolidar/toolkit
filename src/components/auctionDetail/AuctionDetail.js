@@ -7,6 +7,7 @@ import {
 import { Row, Col, Container } from 'react-bootstrap';
 import { NotificationManager } from 'react-notifications';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
+import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
@@ -116,28 +117,26 @@ const AuctionDetail = ({
   const [errorCheckedNotifications, setErrorCheckedNotifications] = useState(false);
   const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
+  const [hasPhoneValidate, setHasPhoneValidate] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
-
   const [hasNotifications, setHasNotifications] = useState(localStorage.user ? JSON.parse(localStorage.user).notifications : 0);
-
   const [value, setValue] = useState('');
 
   const perPage = 5;
-  let hasPhoneValidate = false;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
 
-  if (isLoggedIn) {
-    const { phones } = JSON.parse(localStorage.user);
-    hasPhoneValidate = phones.some((phone) => phone.verified === 1);
-  }
-
   useEffect(() => {
     getAuctionDetail(auctionId);
+
+    if (isLoggedIn) {
+      const { phones } = JSON.parse(localStorage.user);
+      setHasPhoneValidate(phones.some((phone) => phone.verified === 1));
+    }
   }, []);
 
   useEffect(() => {
@@ -149,7 +148,7 @@ const AuctionDetail = ({
       setIsCommingSoon(todaysDate < new Date(auctionDetail.data.dateStart));
       setIsEnded(todaysDate > new Date(auctionDetail.data.dateLimit));
       getAuctionBidList(auctionId, page, perPage);
-      getAuctionList(companyId, 1, 'dateLimit', 'desc', '', 5, undefined, undefined, undefined);
+      getAuctionList(companyId, 1, 'dateLimit,desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
@@ -197,12 +196,28 @@ const AuctionDetail = ({
       if (!hasNotifications && isCheckedNotifications) postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
 
       setAuctionDetailInfo(newAuctionDetailInfo);
-      setListUsersBid([newBid.data, ...listUsersBid]);
+
+      const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
+      if (!existBid) {
+        const newBidData = {
+          id: newBid.data.id,
+          dateAdded: newBid.data.dateAdded,
+          hidden: newBid.data.hidden,
+          value: newBid.data.value,
+          user: {
+            name: newBid.data.user.name,
+            thumbs: newBid.user.thumbs.thumb,
+          },
+          blink: true,
+        };
+        setListUsersBid([newBidData, ...listUsersBid]);
+      }
+
       setHasSubmitModalBid(false);
       setLastFour(null);
       setValueBid('');
     } else if (newBid.status === 400) {
-      switch (newBid.data) {
+      switch (newBid.data.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
           NotificationManager.error(translateMessage({
             id: 'auctions.modal.error.auctionEnded', defaultMessage: 'The auction is over!',
@@ -363,10 +378,18 @@ const AuctionDetail = ({
   const selectedCheck = (e, i) => {
     const { checked } = e.target;
 
-    if (i === 0) setIsAnonymous(checked);
-    if (i === 1) setIsCheckedLegal(checked);
-    if (i === 2) setIsCheckedTerms(checked);
-    if (i === 3) setIsCheckedNotifications(checked);
+    if (i === 0) {
+      setIsAnonymous(checked);
+    } else if (i === 1) {
+      setIsCheckedLegal(checked);
+      if (errorCheckLegal && checked) setErrorCheckLegal(false);
+    } else if (i === 2) {
+      setIsCheckedTerms(checked);
+      if (errorCheckedTerms && checked) setErrorCheckedTerms(false);
+    } else if (i === 3) {
+      setIsCheckedNotifications(checked);
+      if (errorCheckedNotifications && checked) setErrorCheckedNotifications(false);
+    }
   };
 
   const modalShowSubscribe = () => {
@@ -439,7 +462,7 @@ const AuctionDetail = ({
 
   const handleConfirmBid = (isAnonymous) => {
     const { phones } = JSON.parse(localStorage.user);
-    hasPhoneValidate = phones.some((phone) => phone.verified === 1);
+    setHasPhoneValidate(phones.some((phone) => phone.verified === 1));
 
     setHasSubmitModalBid(true);
 
@@ -452,7 +475,7 @@ const AuctionDetail = ({
       return;
     }
 
-    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate) return;
 
     const bid = {
       value: +valueBid,
@@ -583,6 +606,7 @@ const AuctionDetail = ({
     setErrorCheckedNotifications(false);
     setErrorCheckedTerms(false);
     setIsErrorSelectCard(false);
+    setHasSubmitModalBid(false);
     setLastFour('');
     setValue('');
   };
@@ -769,7 +793,7 @@ const AuctionDetail = ({
             image={auctionDetailInfo.images[0].image_name}
             description={auctionDetailInfo.description}
           />
-          <Row>
+          <Row className="content">
             <Col sm={12} md={{ span: 10, offset: 1 }}>
               <Row>
                 <Col md={8}>
@@ -799,18 +823,27 @@ const AuctionDetail = ({
                   />
                 </Col>
                 <Col xs={12} sm={4}>
-                  <AuctionLastBid
-                    auction={auctionDetailInfo}
-                    isEnded={isEnded}
-                    isCommingSoon={isCommingSoon}
-                    handleClickBid={handleClickBid}
-                    isShowModal={modalShowSubscribe}
-                    error={error}
-                    translateMessage={translateMessage}
-                    minValue={handleMinValue()}
-                    inputBidValue={value}
-                    valueBidTextField={valueBidTextField}
-                  />
+                  <Sticky
+                    style={{ position: 'relative' }}
+                    stickyClassName="sticky-sidebar"
+                    topOffset={0}
+                    bottomOffset={0}
+                    hideOnBoundaryHit={false}
+                    boundaryElement=".content"
+                  >
+                    <AuctionLastBid
+                      auction={auctionDetailInfo}
+                      isEnded={isEnded}
+                      isCommingSoon={isCommingSoon}
+                      handleClickBid={handleClickBid}
+                      isShowModal={modalShowSubscribe}
+                      error={error}
+                      translateMessage={translateMessage}
+                      minValue={handleMinValue()}
+                      inputBidValue={value}
+                      valueBidTextField={valueBidTextField}
+                    />
+                  </Sticky>
                 </Col>
               </Row>
               <Row>
@@ -867,11 +900,13 @@ const AuctionDetail = ({
               </Row>
             </Col>
           </Row>
-          <AuctionsList
-            title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
-            listAuctions={listAuctions}
-            buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
-          />
+          {listAuctions && (
+            <AuctionsList
+              title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
+              listAuctions={listAuctions}
+              buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
+            />
+          )}
         </>
       )}
       {(accessAuction && isLoggedIn) && (
@@ -944,6 +979,7 @@ const AuctionDetail = ({
                     validatePhone={validatePhone}
                     mobileConfirmPost={mobileConfirmPost}
                     confirmPhone={confirmPhone}
+                    hasError={!hasPhoneValidate && hasSubmitModalBid}
                   />
                 )}
                 <div className="mb-2">
