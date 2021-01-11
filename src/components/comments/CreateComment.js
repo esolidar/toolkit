@@ -27,6 +27,7 @@ const CreateComment = (props) => {
             <img src={thumb} alt="user-thumb" />
           </div>
           <textarea
+            data-testid="create-comment"
             className="input"
             style={
               {
@@ -53,8 +54,8 @@ const CreateComment = (props) => {
 export default CreateComment;
 
 CreateComment.propTypes = {
-  comment: PropTypes.string,
-  env: PropTypes.string.isRequired,
+  comment: PropTypes.array,
+  env: PropTypes.object.isRequired,
   translateMessage: PropTypes.func.isRequired,
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,

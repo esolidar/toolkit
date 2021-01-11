@@ -25,7 +25,6 @@ describe('CreditCardList component', () => {
 
   it('renders Dropdown correctly', () => {
     const component = shallow(<CreditCardList {...props} />);
-    expect(component.find('h3').length).toBe(1);
     expect(component.find('Loading').length).toBe(1);
   });
 });

@@ -38,11 +38,6 @@ describe('CustomModal component', () => {
     expect(component.find('[data-testid="modal"]').props().size).toEqual('xl');
   });
 
-  it('sets disableEscapeKeyDown if prop "disableEscapeKeyDown" is defined', () => {
-    const component = shallow(<CustomModal {...props} disableEscapeKeyDown={true} />);
-    expect(component.find('[data-testid="modal"]').props().disableEscapeKeyDown).toEqual(true);
-  });
-
   it('sets scrollable if prop "scrollable" is defined', () => {
     const component = shallow(<CustomModal {...props} scrollable={false} />);
     expect(component.find('[data-testid="modal"]').props().scrollable).toEqual(false);

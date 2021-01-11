@@ -3,8 +3,8 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import CrowdfundingContributesListBox from '../CrowdfundingContributesListBox';
-import CrowdfundingContributesList from '../CrowdfundingContributesList';
+import ContributesListBox from '../ContributesListBox';
+import ContributesList from '../ContributesList';
 
 configure({ adapter: new Adapter() });
 
@@ -50,9 +50,9 @@ const props = {
   },
 };
 
-describe('CrowdfundingContributesListBox', () => {
+describe('ContributesListBox', () => {
   it('renders the CrowdfundingContributesListBox component', () => {
-    const wrapper = shallow(<CrowdfundingContributesListBox
+    const wrapper = shallow(<ContributesListBox
       contributesList={props.contributesList}
       loadingContributesList={props.loadingContributesList}
       total={props.total}
@@ -63,7 +63,7 @@ describe('CrowdfundingContributesListBox', () => {
   });
 
   it('should show loading', () => {
-    const wrapper = shallow(<CrowdfundingContributesListBox
+    const wrapper = shallow(<ContributesListBox
       contributesList={props.contributesList}
       loadingContributesList={true}
       total={props.total}
@@ -73,14 +73,14 @@ describe('CrowdfundingContributesListBox', () => {
     expect(wrapper.find('.loading-contributes-list').length).toBe(1);
   });
 
-  it('should render CrowdfundingContributesList', () => {
-    const component = shallow(<CrowdfundingContributesListBox
+  it('should render ContributesList', () => {
+    const component = shallow(<ContributesListBox
       contributesList={props.contributesList}
       loadingContributesList={false}
       total={props.total}
       showMoreContributes={props.showMoreContributes}
       env={props.env}
     />);
-    expect(component.containsMatchingElement(<CrowdfundingContributesList />)).toEqual(true);
+    expect(component.containsMatchingElement(<ContributesList />)).toEqual(true);
   });
 });

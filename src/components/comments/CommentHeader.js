@@ -34,7 +34,7 @@ const CommentHeader = ({
     </Dropdown>
     )}
     <div className="date">
-      <Moment utc toNow ago>{comment.created_at}</Moment>
+      <Moment utc toNow ago>{comment.created_at || comment.dateAdded}</Moment>
     </div>
   </div>
 );
