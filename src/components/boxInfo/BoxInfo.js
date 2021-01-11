@@ -38,7 +38,7 @@ BoxInfo.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-BoxInfo.defaultValues = {
+BoxInfo.defaultProps = {
   className: '',
 };
 

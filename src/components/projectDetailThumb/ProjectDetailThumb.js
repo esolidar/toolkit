@@ -144,7 +144,7 @@ ProjectDetailThumb.propTypes = {
   showReview: PropTypes.bool,
 };
 
-ProjectDetailThumb.defaultValues = {
+ProjectDetailThumb.defaultProps = {
   showReview: false,
 };
 
