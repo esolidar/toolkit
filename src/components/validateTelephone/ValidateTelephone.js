@@ -214,8 +214,8 @@ ValidateTelephone.propTypes = {
   mobileConfirmPost: PropTypes.func,
   localStorage: PropTypes.shape({
     lang: PropTypes.string,
-    user: PropTypes.object,
-    setItem: PropTypes.object,
+    user: PropTypes.string,
+    setItem: PropTypes.func,
   }),
   validatePhone: PropTypes.object,
   confirmPhone: PropTypes.shape({

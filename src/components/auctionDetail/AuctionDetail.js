@@ -198,12 +198,28 @@ const AuctionDetail = ({
       if (!hasNotifications && isCheckedNotifications) postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
 
       setAuctionDetailInfo(newAuctionDetailInfo);
-      setListUsersBid([newBid.data, ...listUsersBid]);
+
+      const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
+      if (!existBid) {
+        const newPusherData = {
+          id: newBid.data.id,
+          dateAdded: newBid.data.dateAdded,
+          hidden: newBid.data.hidden,
+          value: newBid.data.value,
+          user: {
+            name: newBid.data.user.name,
+            thumbs: newBid.user.thumbs.thumb,
+          },
+          blink: true,
+        };
+        setListUsersBid([newPusherData, ...listUsersBid]);
+      }
+
       setHasSubmitModalBid(false);
       setLastFour(null);
       setValueBid('');
     } else if (newBid.status === 400) {
-      switch (newBid.data) {
+      switch (newBid.data.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
           NotificationManager.error(translateMessage({
             id: 'auctions.modal.error.auctionEnded', defaultMessage: 'The auction is over!',
