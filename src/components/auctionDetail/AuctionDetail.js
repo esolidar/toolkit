@@ -7,6 +7,7 @@ import {
 import { Row, Col, Container } from 'react-bootstrap';
 import { NotificationManager } from 'react-notifications';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
+import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
 import Button from '../button/Button';
 import Loading from '../loading/Loading';
@@ -769,7 +770,7 @@ const AuctionDetail = ({
             image={auctionDetailInfo.images[0].image_name}
             description={auctionDetailInfo.description}
           />
-          <Row>
+          <Row className="content">
             <Col sm={12} md={{ span: 10, offset: 1 }}>
               <Row>
                 <Col md={8}>
@@ -799,18 +800,27 @@ const AuctionDetail = ({
                   />
                 </Col>
                 <Col xs={12} sm={4}>
-                  <AuctionLastBid
-                    auction={auctionDetailInfo}
-                    isEnded={isEnded}
-                    isCommingSoon={isCommingSoon}
-                    handleClickBid={handleClickBid}
-                    isShowModal={modalShowSubscribe}
-                    error={error}
-                    translateMessage={translateMessage}
-                    minValue={handleMinValue()}
-                    inputBidValue={value}
-                    valueBidTextField={valueBidTextField}
-                  />
+                  <Sticky
+                    style={{ position: 'relative' }}
+                    stickyClassName="sticky-sidebar"
+                    topOffset={0}
+                    bottomOffset={0}
+                    hideOnBoundaryHit={false}
+                    boundaryElement=".content"
+                  >
+                    <AuctionLastBid
+                      auction={auctionDetailInfo}
+                      isEnded={isEnded}
+                      isCommingSoon={isCommingSoon}
+                      handleClickBid={handleClickBid}
+                      isShowModal={modalShowSubscribe}
+                      error={error}
+                      translateMessage={translateMessage}
+                      minValue={handleMinValue()}
+                      inputBidValue={value}
+                      valueBidTextField={valueBidTextField}
+                    />
+                  </Sticky>
                 </Col>
               </Row>
               <Row>
