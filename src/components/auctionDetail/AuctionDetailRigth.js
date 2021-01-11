@@ -208,7 +208,7 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  inputBidValue: PropTypes.number,
+  inputBidValue: PropTypes.string,
   valueBidTextField: PropTypes.func,
 };
 

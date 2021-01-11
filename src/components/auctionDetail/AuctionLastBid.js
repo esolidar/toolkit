@@ -166,7 +166,7 @@ AuctionLastBid.propTypes = {
     formatMessage: PropTypes.func,
   }),
   minValue: PropTypes.number,
-  inputBidValue: PropTypes.number,
+  inputBidValue: PropTypes.string,
   valueBidTextField: PropTypes.func,
 };
 
