@@ -61,6 +61,10 @@
 
 .auction-detail {
 
+  .sticky-sidebar {
+    z-index: 9;
+  }
+
   @-webkit-keyframes blink {
     0% {
       color  : #000;

@@ -11,22 +11,24 @@ const ValidateTelephone = ({
   validatePhone,
   mobileConfirmPost,
   confirmPhone,
+  hasError,
 }) => {
   const [verified, setVerified] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showVerifyCode, setShowVerifyCode] = useState(false);
   const [code, setCode] = useState('');
+  const [errorCode, setErrorCode] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(false);
 
   useEffect(() => {
     if (validatePhone && validatePhone.code === 200) {
       setIsLoading(false);
       setShowVerifyCode(true);
-    } else if (validatePhone && validatePhone.code === 400) {
-      errors.phone = localStorage.lang === 'en' ? 'Phone number is invalid' : 'O número é inválido';
-      setErrors(errors);
+      setErrors(false);
+    } else if (validatePhone && validatePhone.status === 400) {
+      setErrors(true);
       setIsLoading(true);
     }
   }, [validatePhone]);
@@ -49,10 +51,15 @@ const ValidateTelephone = ({
         verified: confirmPhone.data.phone.verified,
       });
       localStorage.setItem('user', JSON.stringify(user));
-    } else if (confirmPhone && confirmPhone.code === 400) {
+    } else if (confirmPhone && confirmPhone.status === 400) {
       setCode('');
+      setErrorCode(true);
     }
   }, [confirmPhone]);
+
+  useEffect(() => {
+    setErrors(hasError);
+  }, [hasError]);
 
   const handleInputBlur = (telNumber, selectedCountry) => {
     setPhoneNumber(telNumber);
@@ -71,7 +78,6 @@ const ValidateTelephone = ({
   const mobileValidate = () => {
     const userId = JSON.parse(localStorage.user).id;
     setIsLoading(true);
-    setErrors({});
     mobileValidatePost(userId, { phone: phoneNumber, country_code: countryCode });
   };
 
@@ -102,12 +108,15 @@ const ValidateTelephone = ({
             onBlur={handleInputBlur}
             disabled={verified === 1}
           />
-          {errors.phone && (
+          {errors && (
             <div className="has-error">
               <span
                 className="help-block"
               >
-                {errors.phone}
+                <FormattedMessage
+                  id="user.settings.phone.errorNumber"
+                  defaultMessage="Phone is not valid"
+                />
               </span>
             </div>
           )}
@@ -172,6 +181,18 @@ const ValidateTelephone = ({
                     maxLength="4"
                     className="form-control"
                   />
+                  {errorCode && (
+                    <div className="has-error">
+                      <span
+                        className="help-block"
+                      >
+                        <FormattedMessage
+                          id="user.settings.phone.errorCode"
+                          defaultMessage="Code is not valid"
+                        />
+                      </span>
+                    </div>
+                  )}
                 </Col>
                 <Col sm={12}>
                   <button
@@ -199,17 +220,19 @@ ValidateTelephone.propTypes = {
   mobileConfirmPost: PropTypes.func,
   localStorage: PropTypes.shape({
     lang: PropTypes.string,
-    user: PropTypes.object,
-    setItem: PropTypes.object,
+    user: PropTypes.string,
+    setItem: PropTypes.func,
   }),
   validatePhone: PropTypes.object,
   confirmPhone: PropTypes.shape({
     code: PropTypes.number,
+    status: PropTypes.number,
     data: PropTypes.shape({
       phone: PropTypes.string,
       verified: PropTypes.number,
     }),
   }),
+  hasError: PropTypes.bool,
 };
 
 export default ValidateTelephone;
