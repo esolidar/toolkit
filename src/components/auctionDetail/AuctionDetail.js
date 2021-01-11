@@ -117,28 +117,26 @@ const AuctionDetail = ({
   const [errorCheckedNotifications, setErrorCheckedNotifications] = useState(false);
   const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
+  const [hasPhoneValidate, setHasPhoneValidate] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
-
   const [hasNotifications, setHasNotifications] = useState(localStorage.user ? JSON.parse(localStorage.user).notifications : 0);
-
   const [value, setValue] = useState('');
 
   const perPage = 5;
-  let hasPhoneValidate = false;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
 
-  if (isLoggedIn) {
-    const { phones } = JSON.parse(localStorage.user);
-    hasPhoneValidate = phones.some((phone) => phone.verified === 1);
-  }
-
   useEffect(() => {
     getAuctionDetail(auctionId);
+
+    if (isLoggedIn) {
+      const { phones } = JSON.parse(localStorage.user);
+      setHasPhoneValidate(phones.some((phone) => phone.verified === 1));
+    }
   }, []);
 
   useEffect(() => {
@@ -201,7 +199,7 @@ const AuctionDetail = ({
 
       const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
       if (!existBid) {
-        const newPusherData = {
+        const newBidData = {
           id: newBid.data.id,
           dateAdded: newBid.data.dateAdded,
           hidden: newBid.data.hidden,
@@ -212,7 +210,7 @@ const AuctionDetail = ({
           },
           blink: true,
         };
-        setListUsersBid([newPusherData, ...listUsersBid]);
+        setListUsersBid([newBidData, ...listUsersBid]);
       }
 
       setHasSubmitModalBid(false);
@@ -380,10 +378,18 @@ const AuctionDetail = ({
   const selectedCheck = (e, i) => {
     const { checked } = e.target;
 
-    if (i === 0) setIsAnonymous(checked);
-    if (i === 1) setIsCheckedLegal(checked);
-    if (i === 2) setIsCheckedTerms(checked);
-    if (i === 3) setIsCheckedNotifications(checked);
+    if (i === 0) {
+      setIsAnonymous(checked);
+    } else if (i === 1) {
+      setIsCheckedLegal(checked);
+      if (errorCheckLegal && checked) setErrorCheckLegal(false);
+    } else if (i === 2) {
+      setIsCheckedTerms(checked);
+      if (errorCheckedTerms && checked) setErrorCheckedTerms(false);
+    } else if (i === 3) {
+      setIsCheckedNotifications(checked);
+      if (errorCheckedNotifications && checked) setErrorCheckedNotifications(false);
+    }
   };
 
   const modalShowSubscribe = () => {
@@ -456,7 +462,7 @@ const AuctionDetail = ({
 
   const handleConfirmBid = (isAnonymous) => {
     const { phones } = JSON.parse(localStorage.user);
-    hasPhoneValidate = phones.some((phone) => phone.verified === 1);
+    setHasPhoneValidate(phones.some((phone) => phone.verified === 1));
 
     setHasSubmitModalBid(true);
 
@@ -469,7 +475,7 @@ const AuctionDetail = ({
       return;
     }
 
-    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate) return;
 
     const bid = {
       value: +valueBid,
@@ -600,6 +606,7 @@ const AuctionDetail = ({
     setErrorCheckedNotifications(false);
     setErrorCheckedTerms(false);
     setIsErrorSelectCard(false);
+    setHasSubmitModalBid(false);
     setLastFour('');
     setValue('');
   };
@@ -972,6 +979,7 @@ const AuctionDetail = ({
                     validatePhone={validatePhone}
                     mobileConfirmPost={mobileConfirmPost}
                     confirmPhone={confirmPhone}
+                    hasError={!hasPhoneValidate && hasSubmitModalBid}
                   />
                 )}
                 <div className="mb-2">

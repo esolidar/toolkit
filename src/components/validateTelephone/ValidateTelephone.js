@@ -11,6 +11,7 @@ const ValidateTelephone = ({
   validatePhone,
   mobileConfirmPost,
   confirmPhone,
+  hasError,
 }) => {
   const [verified, setVerified] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +26,7 @@ const ValidateTelephone = ({
     if (validatePhone && validatePhone.code === 200) {
       setIsLoading(false);
       setShowVerifyCode(true);
+      setErrors(false);
     } else if (validatePhone && validatePhone.status === 400) {
       setErrors(true);
       setIsLoading(true);
@@ -54,6 +56,10 @@ const ValidateTelephone = ({
       setErrorCode(true);
     }
   }, [confirmPhone]);
+
+  useEffect(() => {
+    setErrors(hasError);
+  }, [hasError]);
 
   const handleInputBlur = (telNumber, selectedCountry) => {
     setPhoneNumber(telNumber);
@@ -226,6 +232,7 @@ ValidateTelephone.propTypes = {
       verified: PropTypes.number,
     }),
   }),
+  hasError: PropTypes.bool,
 };
 
 export default ValidateTelephone;
