@@ -366,6 +366,9 @@ const props = {
       auction_24h_end: 1,
     },
   },
+  auctionSubscribe: {
+    code: 200,
+  },
 };
 
 const propsAuctionPrivate = {
