@@ -206,7 +206,7 @@ const AuctionDetail = ({
           value: newBid.data.value,
           user: {
             name: newBid.data.user.name,
-            thumbs: newBid.user.thumbs.thumb,
+            thumbs: newBid.data.user.thumbs.thumb,
           },
           blink: true,
         };
@@ -717,77 +717,79 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          <Col sm={12} lg={10} className="offset-lg-1 mobile-nopadding">
-            <Row className="box mobile-nopadding">
-              <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
-                {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
-                  <Countdown
-                    onExpiry={onExpiry}
-                    onStart={onStart}
-                    dataTestId="auction-detail"
-                    startDate={auctionDetailInfo.dateStart}
-                    endDate={auctionDetailInfo.dateLimit}
-                  />
-                )}
-                {auctionDetailInfo.status === 'P' && (
-                  <div className={`status-${auctionDetailInfo.status}`}>
+          <Row>
+            <Col sm={12} lg={10} className="offset-lg-1 mobile-nopadding">
+              <Row className="box mobile-nopadding mb-4">
+                <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
+                  {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
+                    <Countdown
+                      onExpiry={onExpiry}
+                      onStart={onStart}
+                      dataTestId="auction-detail"
+                      startDate={auctionDetailInfo.dateStart}
+                      endDate={auctionDetailInfo.dateLimit}
+                    />
+                  )}
+                  {auctionDetailInfo.status === 'P' && (
+                    <div className={`status-${auctionDetailInfo.status}`}>
+                      <FormattedMessage
+                        id="auction.detail.status.pending"
+                        defaultMessage="This auction is pending."
+                      />
+                    </div>
+                  )}
+                </Col>
+                <Col sm={12} className="text-center hidden-xs">
+                  <div className="end-date" data-testid="end-date-info">
                     <FormattedMessage
-                      id="auction.detail.status.pending"
-                      defaultMessage="This auction is pending."
+                      id="auction.detail.ends"
+                      defaultMessage="This auction ends in: "
+                    />
+                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
+                    <br />
+                    <FormattedMessage
+                      id="auction.detail.infoBid"
+                      defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
                     />
                   </div>
-                )}
-              </Col>
-              <Col sm={12} className="text-center hidden-xs">
-                <div className="end-date" data-testid="end-date-info">
-                  <FormattedMessage
-                    id="auction.detail.ends"
-                    defaultMessage="This auction ends in: "
-                  />
-                  <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                  <br />
-                  <FormattedMessage
-                    id="auction.detail.infoBid"
-                    defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
-                  />
-                </div>
-              </Col>
-              <Col sm={12}>
-                <Row>
-                  <Col md={7} className="mobile-nopadding" data-testid="slide-image-multiple">
-                    {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
-                      <SliderImagesLightbox
-                        video={auctionDetailInfo.video}
-                        images={auctionDetailInfo.images}
-                        env={env}
-                      />
-                    )}
-                    {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
-                      <div
-                        data-testid="slide-one-image"
-                        className="slider-image"
-                        style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
-                      />
-                    )}
-                  </Col>
-                  <AuctionDetailRigth
-                    isEnded={isEnded}
-                    isCommingSoon={isCommingSoon}
-                    auctionTitle={auctionTitle()}
-                    auction={auctionDetailInfo}
-                    handleClickBid={handleClickBid}
-                    translateMessage={translateMessage}
-                    showModalSubscribe={modalShowSubscribe}
-                    minValue={handleMinValue()}
-                    error={error}
-                    user={user}
-                    inputBidValue={value}
-                    valueBidTextField={valueBidTextField}
-                  />
-                </Row>
-              </Col>
-            </Row>
-          </Col>
+                </Col>
+                <Col sm={12}>
+                  <Row>
+                    <Col md={7} className="mobile-nopadding" data-testid="slide-image-multiple">
+                      {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
+                        <SliderImagesLightbox
+                          video={auctionDetailInfo.video}
+                          images={auctionDetailInfo.images}
+                          env={env}
+                        />
+                      )}
+                      {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
+                        <div
+                          data-testid="slide-one-image"
+                          className="slider-image"
+                          style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
+                        />
+                      )}
+                    </Col>
+                    <AuctionDetailRigth
+                      isEnded={isEnded}
+                      isCommingSoon={isCommingSoon}
+                      auctionTitle={auctionTitle()}
+                      auction={auctionDetailInfo}
+                      handleClickBid={handleClickBid}
+                      translateMessage={translateMessage}
+                      showModalSubscribe={modalShowSubscribe}
+                      minValue={handleMinValue()}
+                      error={error}
+                      user={user}
+                      inputBidValue={value}
+                      valueBidTextField={valueBidTextField}
+                    />
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
           <ShareNetwork
             title={auctionTitle()}
             image={auctionDetailInfo.images[0].image_name}
