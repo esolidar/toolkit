@@ -118,7 +118,7 @@ const AuctionDetailRigth = ({
                   onClick={() => handleClickBid(inputBidValue)}
                 />
               </Col>
-              <Col sm={12} className="subscribe-auction mt-4">
+              <Col sm={12} className="subscribe-auction mt-5">
                 <button
                   type="button"
                   className="btn btn-link "
