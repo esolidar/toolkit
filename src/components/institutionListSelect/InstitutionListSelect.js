@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import classnames from 'classnames';
@@ -24,6 +25,7 @@ const InstitutionListSelect = ({
   pagination,
   isLoading,
   user_id,
+  removeInstitutionSelected,
 }) => {
   const renderCharities = () => {
     if (institutions) {
@@ -59,7 +61,22 @@ const InstitutionListSelect = ({
                   <div className="npo-pin-thumb" style={divStyle} />
                   <div className="name">{charity.name}</div>
                   <div className="btn btn-select">
-                    {selectText}
+                    {selectText || ('')}
+                    {(!selectText && (+user_id !== charity.user_id)) && (
+                      <FormattedMessage
+                        id="institutions.list.select"
+                        defaultMessage="Select"
+                      />
+                    )}
+                    {(!selectText && (+user_id === charity.user_id)) && (
+                      <FormattedMessage
+                        id="institutions.list.selected"
+                        defaultMessage="Selected"
+                      />
+                    )}
+                    {(+user_id === charity.user_id && removeInstitutionSelected) && (
+                      <button onClick={removeInstitutionSelected} className="remove-selected" type="button">x</button>
+                    )}
                   </div>
                 </label>
               </div>
@@ -132,7 +149,7 @@ InstitutionListSelect.propTypes = {
   handlePageChange: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
-  selectText: PropTypes.string.isRequired,
+  selectText: PropTypes.string,
   NoResultsText: PropTypes.string.isRequired,
   selectCategoryText: PropTypes.string.isRequired,
   error: PropTypes.string,
@@ -146,6 +163,7 @@ InstitutionListSelect.propTypes = {
   }),
   isLoading: PropTypes.bool,
   user_id: PropTypes.number,
+  removeInstitutionSelected: PropTypes.func,
 };
 
 export default InstitutionListSelect;
