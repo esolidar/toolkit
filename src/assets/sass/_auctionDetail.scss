@@ -61,6 +61,10 @@
 
 .auction-detail {
 
+  .title-last-bid {
+    color: $mainColor;
+  }
+
   .sticky-sidebar {
     z-index: 9;
   }
@@ -465,7 +469,6 @@
     padding      : 30px 70px;
 
     @media (max-width: 425px) {
-      margin : 15px;
       padding: 15px 15px;
     }
 

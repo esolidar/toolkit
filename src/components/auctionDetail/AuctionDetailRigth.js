@@ -46,7 +46,7 @@ const AuctionDetailRigth = ({
           </Row>
           <Row>
             <Col>
-              <p className="control-label mb-2" data-testid="title-last-bid">
+              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid">
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -118,7 +118,7 @@ const AuctionDetailRigth = ({
                   onClick={() => handleClickBid(inputBidValue)}
                 />
               </Col>
-              <Col sm={12} className="subscribe-auction mt-4">
+              <Col sm={12} className="subscribe-auction mt-5">
                 <button
                   type="button"
                   className="btn btn-link "

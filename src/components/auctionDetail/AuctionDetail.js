@@ -40,6 +40,7 @@ const AuctionDetail = ({
   auctionList,
   companyId,
   getAuctionSubscribe,
+  auctionSubscribe,
   auctionSubscribeList,
   postAuctionSubscribe,
   getAuctionComment,
@@ -66,10 +67,12 @@ const AuctionDetail = ({
   pusherData,
   postUpdatedUser,
   updatedUser,
+  showAlert,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
+  const [isConfirmBid, setIsConfirmBid] = useState(false);
 
   const [isShowmoreDesc] = useState(false);
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -182,6 +185,7 @@ const AuctionDetail = ({
   useEffect(() => {
     if (newBid.code === 200) {
       setIsShowModal(false);
+      setIsConfirmBid(false);
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = newBid.data.dateLimit;
 
@@ -206,7 +210,7 @@ const AuctionDetail = ({
           value: newBid.data.value,
           user: {
             name: newBid.data.user.name,
-            thumbs: newBid.user.thumbs.thumb,
+            thumbs: newBid.data.user.thumbs.thumb,
           },
           blink: true,
         };
@@ -216,6 +220,15 @@ const AuctionDetail = ({
       setHasSubmitModalBid(false);
       setLastFour(null);
       setValueBid('');
+
+      showAlert({
+        alertBox: {
+          alertVisible: true,
+          alertClass: 'success',
+          message: 'Your bid was successful',
+          messageId: 'auctions.modal.success.newBid',
+        },
+      });
     } else if (newBid.status === 400) {
       switch (newBid.data.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
@@ -314,6 +327,19 @@ const AuctionDetail = ({
   }, [auctionSubscribeList]);
 
   useEffect(() => {
+    if (auctionSubscribe.code === 200) {
+      showAlert({
+        alertBox: {
+          alertVisible: true,
+          alertClass: 'success',
+          message: 'Your subscription was successful',
+          messageId: 'auctions.modal.success.subscribe',
+        },
+      });
+    }
+  }, [auctionSubscribe]);
+
+  useEffect(() => {
     if (pusherData) {
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
@@ -347,6 +373,15 @@ const AuctionDetail = ({
       setHasNotifications(1);
     }
   }, [updatedUser]);
+
+  useEffect(() => {
+    if (!isShowModal) {
+      setIsAnonymous(false);
+      setIsCheckedLegal(false);
+      setIsCheckedTerms(false);
+      setIsCheckedNotifications(false);
+    }
+  }, [isShowModal]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -485,10 +520,7 @@ const AuctionDetail = ({
     if (auctionDetailInfo.cc === 1) bid.last4 = lastFour;
 
     postNewBid(bid, auctionDetailInfo.id);
-    setIsAnonymous(false);
-    setIsCheckedLegal(false);
-    setIsCheckedTerms(false);
-    setIsCheckedNotifications(false);
+    setIsConfirmBid(true);
     setValue('');
   };
 
@@ -520,7 +552,7 @@ const AuctionDetail = ({
 
     const html = `
       <span>${initialText}</span>
-      <a href='/privacy'>${privacyPolicy}</a>
+      <a target='_blank' href='/privacy'>${privacyPolicy}</a>
     `;
 
     return html;
@@ -607,6 +639,7 @@ const AuctionDetail = ({
     setErrorCheckedTerms(false);
     setIsErrorSelectCard(false);
     setHasSubmitModalBid(false);
+    setIsConfirmBid(false);
     setLastFour('');
     setValue('');
   };
@@ -717,187 +750,181 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          <Col sm={12} lg={10} className="offset-lg-1 mobile-nopadding">
-            <Row className="box mobile-nopadding">
-              <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
-                {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
-                  <Countdown
-                    onExpiry={onExpiry}
-                    onStart={onStart}
-                    dataTestId="auction-detail"
-                    startDate={auctionDetailInfo.dateStart}
-                    endDate={auctionDetailInfo.dateLimit}
-                  />
-                )}
-                {auctionDetailInfo.status === 'P' && (
-                  <div className={`status-${auctionDetailInfo.status}`}>
+          <Row>
+            <Col sm={12} lg={10} className="offset-lg-1">
+              <Row className="box mb-4">
+                <Col sm={12} className="countdown text-center hidden-xs" data-testid="div-countdown">
+                  {(auctionDetailInfo.status === 'A' || auctionDetailInfo.status === 'F') && (
+                    <Countdown
+                      onExpiry={onExpiry}
+                      onStart={onStart}
+                      dataTestId="auction-detail"
+                      startDate={auctionDetailInfo.dateStart}
+                      endDate={auctionDetailInfo.dateLimit}
+                    />
+                  )}
+                  {auctionDetailInfo.status === 'P' && (
+                    <div className={`status-${auctionDetailInfo.status}`}>
+                      <FormattedMessage
+                        id="auction.detail.status.pending"
+                        defaultMessage="This auction is pending."
+                      />
+                    </div>
+                  )}
+                </Col>
+                <Col sm={12} className="text-center hidden-xs">
+                  <div className="end-date" data-testid="end-date-info">
                     <FormattedMessage
-                      id="auction.detail.status.pending"
-                      defaultMessage="This auction is pending."
+                      id="auction.detail.ends"
+                      defaultMessage="This auction ends in: "
+                    />
+                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
+                    <br />
+                    <FormattedMessage
+                      id="auction.detail.infoBid"
+                      defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
                     />
                   </div>
-                )}
-              </Col>
-              <Col sm={12} className="text-center hidden-xs">
-                <div className="end-date" data-testid="end-date-info">
-                  <FormattedMessage
-                    id="auction.detail.ends"
-                    defaultMessage="This auction ends in: "
-                  />
-                  <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                  <br />
-                  <FormattedMessage
-                    id="auction.detail.infoBid"
-                    defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
-                  />
-                </div>
-              </Col>
-              <Col sm={12}>
-                <Row>
-                  <Col md={7} className="mobile-nopadding" data-testid="slide-image-multiple">
-                    {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
-                      <SliderImagesLightbox
-                        video={auctionDetailInfo.video}
-                        images={auctionDetailInfo.images}
-                        env={env}
-                      />
-                    )}
-                    {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
-                      <div
-                        data-testid="slide-one-image"
-                        className="slider-image"
-                        style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
-                      />
-                    )}
-                  </Col>
-                  <AuctionDetailRigth
-                    isEnded={isEnded}
-                    isCommingSoon={isCommingSoon}
-                    auctionTitle={auctionTitle()}
-                    auction={auctionDetailInfo}
-                    handleClickBid={handleClickBid}
-                    translateMessage={translateMessage}
-                    showModalSubscribe={modalShowSubscribe}
-                    minValue={handleMinValue()}
-                    error={error}
-                    user={user}
-                    inputBidValue={value}
-                    valueBidTextField={valueBidTextField}
-                  />
-                </Row>
-              </Col>
-            </Row>
-          </Col>
+                </Col>
+                <Col sm={12}>
+                  <Row>
+                    <Col md={7} data-testid="slide-image-multiple">
+                      {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
+                        <SliderImagesLightbox
+                          video={auctionDetailInfo.video}
+                          images={auctionDetailInfo.images}
+                          env={env}
+                        />
+                      )}
+                      {auctionDetailInfo.images && auctionDetailInfo.images.length === 0 && (
+                        <div
+                          data-testid="slide-one-image"
+                          className="slider-image"
+                          style={{ backgroundImage: `url(${env.img_cdn}/frontend/assets/no-image.jpg)` }}
+                        />
+                      )}
+                    </Col>
+                    <AuctionDetailRigth
+                      isEnded={isEnded}
+                      isCommingSoon={isCommingSoon}
+                      auctionTitle={auctionTitle()}
+                      auction={auctionDetailInfo}
+                      handleClickBid={handleClickBid}
+                      translateMessage={translateMessage}
+                      showModalSubscribe={modalShowSubscribe}
+                      minValue={handleMinValue()}
+                      error={error}
+                      user={user}
+                      inputBidValue={value}
+                      valueBidTextField={valueBidTextField}
+                    />
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
           <ShareNetwork
             title={auctionTitle()}
             image={auctionDetailInfo.images[0].image_name}
             description={auctionDetailInfo.description}
           />
           <Row className="content">
-            <Col sm={12} md={{ span: 10, offset: 1 }}>
-              <Row>
-                <Col md={8}>
-                  <DescriptionDetail
-                    dataTestIdTitle="description"
-                    dataTestIdDescription="description-text"
-                    title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
-                    description={auctionDescriptionLang('description')}
-                    showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={showMoreDescButton}
-                  />
-                  <DescriptionDetail
-                    dataTestIdTitle="shipping"
-                    dataTestIdDescription="shipping-text"
-                    title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
-                    description={auctionDescriptionLang('shipping_description')}
-                    showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={showMoreDescButton}
-                  />
-                  <DescriptionDetail
-                    dataTestIdTitle="payment"
-                    dataTestIdDescription="payment-text"
-                    title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
-                    description={auctionDescriptionLang('payment_description')}
-                    showmoreDesc={isShowmoreDesc}
-                    showMoreDescButton={showMoreDescButton}
-                  />
-                </Col>
-                <Col xs={12} sm={4}>
-                  <Sticky
-                    style={{ position: 'relative' }}
-                    stickyClassName="sticky-sidebar"
-                    topOffset={0}
-                    bottomOffset={0}
-                    hideOnBoundaryHit={false}
-                    boundaryElement=".content"
-                  >
-                    <AuctionLastBid
-                      auction={auctionDetailInfo}
-                      isEnded={isEnded}
-                      isCommingSoon={isCommingSoon}
-                      handleClickBid={handleClickBid}
-                      isShowModal={modalShowSubscribe}
-                      error={error}
-                      translateMessage={translateMessage}
-                      minValue={handleMinValue()}
-                      inputBidValue={value}
-                      valueBidTextField={valueBidTextField}
-                    />
-                  </Sticky>
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={8} className="comments-box mt-5">
-                  <h3>
-                    <FormattedMessage
-                      id="auction.detail.titleComments"
-                      defaultMessage="Comments"
-                    />
-                  </h3>
-                  <CreateComment
-                    onSubmitComment={onSubmitComment}
-                    onChange={(e) => setUserComment(e.target.value)}
-                    comment={userComment}
-                    postAsUser={postAuctionUserComment}
-                    postAsCompany={postAuctionCompanyComment}
-                    loadingNewComment={loadingNewComment}
-                    translateMessage={translateMessage}
-                    thumb={thumb}
-                    env={env}
-                  />
-                  <Comments
-                    requireLogin={requireLogin}
-                    onSubmitResponse={onSubmitResponse}
-                    getEmployeeName={getEmployeeName}
-                    onChange={(e) => setReply(e.target.value)}
-                    comments={comments}
-                    reply={reply}
-                    laodingPostReply={loadingPostReply}
-                    deleteComment={handleDeleteComment}
-                    totalComments={totalComments}
-                    loadMore={loadMore}
-                    loadingMoreComments={loadingMoreComments}
-                    loadMoreComments={loadMoreComments}
-                    user={user || {}}
-                    thumb={thumb}
-                    env={env.cdn_static_url}
-                    translateMessage={translateMessage}
-                  />
-                </Col>
-                <Col xs={12} sm={4} className="mt-5">
-                  <ContributesListBox
-                    isAuction={true}
-                    testeId="ContributesListBox"
-                    title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
-                    contributesList={listUsersBid}
-                    loadingContributes={isloadingContributes}
-                    total={listBidTotal}
-                    showMoreContributes={showMoreContributes}
-                    currency={auctionDetailInfo.currency.small}
-                    env={env}
-                  />
-                </Col>
-              </Row>
+            <Col sm={12} md={12} lg={{ span: 6, offset: 1 }}>
+              <DescriptionDetail
+                dataTestIdTitle="description"
+                dataTestIdDescription="description-text"
+                title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
+                description={auctionDescriptionLang('description')}
+                showmoreDesc={isShowmoreDesc}
+                showMoreDescButton={showMoreDescButton}
+              />
+              <DescriptionDetail
+                dataTestIdTitle="shipping"
+                dataTestIdDescription="shipping-text"
+                title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
+                description={auctionDescriptionLang('shipping_description')}
+                showmoreDesc={isShowmoreDesc}
+                showMoreDescButton={showMoreDescButton}
+              />
+              <DescriptionDetail
+                dataTestIdTitle="payment"
+                dataTestIdDescription="payment-text"
+                title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
+                description={auctionDescriptionLang('payment_description')}
+                showmoreDesc={isShowmoreDesc}
+                showMoreDescButton={showMoreDescButton}
+              />
+              <h3 className="mt-5">
+                <FormattedMessage
+                  id="auction.detail.titleComments"
+                  defaultMessage="Comments"
+                />
+              </h3>
+              <div className="comments-box">
+                <CreateComment
+                  onSubmitComment={onSubmitComment}
+                  onChange={(e) => setUserComment(e.target.value)}
+                  comment={userComment}
+                  postAsUser={postAuctionUserComment}
+                  postAsCompany={postAuctionCompanyComment}
+                  loadingNewComment={loadingNewComment}
+                  translateMessage={translateMessage}
+                  thumb={thumb}
+                  env={env}
+                />
+                <Comments
+                  requireLogin={requireLogin}
+                  onSubmitResponse={onSubmitResponse}
+                  getEmployeeName={getEmployeeName}
+                  onChange={(e) => setReply(e.target.value)}
+                  comments={comments}
+                  reply={reply}
+                  laodingPostReply={loadingPostReply}
+                  deleteComment={handleDeleteComment}
+                  totalComments={totalComments}
+                  loadMore={loadMore}
+                  loadingMoreComments={loadingMoreComments}
+                  loadMoreComments={loadMoreComments}
+                  user={user || {}}
+                  thumb={thumb}
+                  env={env.cdn_static_url}
+                  translateMessage={translateMessage}
+                />
+              </div>
+            </Col>
+            <Col sm={12} md={12} lg={{ span: 4, offset: 0 }}>
+              <Sticky
+                style={{ position: 'relative' }}
+                stickyClassName="sticky-sidebar"
+                topOffset={0}
+                bottomOffset={0}
+                hideOnBoundaryHit={false}
+                boundaryElement=".content"
+              >
+                <AuctionLastBid
+                  auction={auctionDetailInfo}
+                  isEnded={isEnded}
+                  isCommingSoon={isCommingSoon}
+                  handleClickBid={handleClickBid}
+                  isShowModal={modalShowSubscribe}
+                  error={error}
+                  translateMessage={translateMessage}
+                  minValue={handleMinValue()}
+                  inputBidValue={value}
+                  valueBidTextField={valueBidTextField}
+                />
+              </Sticky>
+              <ContributesListBox
+                isAuction={true}
+                testeId="ContributesListBox"
+                title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
+                contributesList={listUsersBid}
+                loadingContributes={isloadingContributes}
+                total={listBidTotal}
+                showMoreContributes={showMoreContributes}
+                currency={auctionDetailInfo.currency.small}
+                env={env}
+              />
             </Col>
           </Row>
           {listAuctions && (
@@ -928,6 +955,7 @@ const AuctionDetail = ({
                   extraClass="success-full"
                   onClick={() => handleConfirmBid(isAnonymous)}
                   text={translateMessage({ id: 'auction.private.confirm', defaultMessage: 'Confirm' })}
+                  disabled={isConfirmBid}
                 />
               </>
             )}
@@ -954,7 +982,7 @@ const AuctionDetail = ({
                   <br />
                   {user.email}
                   <span> (</span>
-                  <a href="/user/settings" title={translateMessage({ id: 'auction.modal.bid.chageEmail', defaultMessage: 'change e-mail' })}>
+                  <a href="/user/settings" target="_blank" title={translateMessage({ id: 'auction.modal.bid.chageEmail', defaultMessage: 'change e-mail' })}>
                     {translateMessage({ id: 'auction.modal.bid.chageEmail', defaultMessage: 'change e-mail' })}
                   </a>
                   <span>)</span>
@@ -1188,6 +1216,7 @@ AuctionDetail.propTypes = {
   auctionBidList: PropTypes.object,
   requireLogin: PropTypes.func,
   companyId: PropTypes.number,
+  auctionSubscribe: PropTypes.object,
   auctionSubscribeList: PropTypes.object,
   auctionComments: PropTypes.object,
   auctionUserCommentsResponse: PropTypes.object,
@@ -1209,6 +1238,7 @@ AuctionDetail.propTypes = {
   pusherData: PropTypes.object,
   postUpdatedUser: PropTypes.func,
   updatedUser: PropTypes.object,
+  showAlert: PropTypes.func,
 };
 
 export default injectIntl(AuctionDetail);

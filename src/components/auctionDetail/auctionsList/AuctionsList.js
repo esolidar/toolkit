@@ -20,23 +20,27 @@ const AuctionsList = ({
         </Col>
       </Row>
       <Row>
-        {listAuctions.map((auction) => (
-          <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
-            <a
-              href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title, {
-                replacement: '-',
-                remove: /[?$*_+~./,()'"!\-:@]/g,
-                lower: true,
-              })}`}
-              title={auction.title}
-            >
-              <AuctionThumb
-                auction={auction}
-                thumb={true}
-              />
-            </a>
-          </Col>
-        ))}
+        <Col sm={11} className="offset-md-1">
+          <Row>
+            {listAuctions.map((auction) => (
+              <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
+                <a
+                  href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title, {
+                    replacement: '-',
+                    remove: /[?$*_+~./,()'"!\-:@]/g,
+                    lower: true,
+                  })}`}
+                  title={auction.title}
+                >
+                  <AuctionThumb
+                    auction={auction}
+                    thumb={true}
+                  />
+                </a>
+              </Col>
+            ))}
+          </Row>
+        </Col>
       </Row>
       <Row>
         <Col sm={3} md={4} className="mx-auto">
