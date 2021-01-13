@@ -9,12 +9,13 @@ const AuctionsList = ({
   title,
   listAuctions,
   buttonTitle,
+  primaryColor,
 }) => (
   listAuctions && (
     <>
       <Row className="other-auctions">
         <Col sm={12} className="text-center">
-          <h4 className="title" data-testid="title-other-auctions">
+          <h4 className="title" data-testid="title-other-auctions" style={{ color: primaryColor }}>
             {title}
           </h4>
         </Col>
@@ -35,6 +36,7 @@ const AuctionsList = ({
                   <AuctionThumb
                     auction={auction}
                     thumb={true}
+                    primaryColor={primaryColor}
                   />
                 </a>
               </Col>
@@ -64,6 +66,7 @@ AuctionsList.propTypes = {
     id: PropTypes.number,
   }),
   buttonTitle: PropTypes.string,
+  primaryColor: PropTypes.string,
 };
 
 export default AuctionsList;

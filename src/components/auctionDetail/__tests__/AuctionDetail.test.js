@@ -370,6 +370,12 @@ const props = {
   auctionSubscribe: {
     code: 200,
   },
+  deleteComment: {
+    code: 200,
+  },
+  confirmPhone: {
+    code: 200,
+  },
 };
 
 const propsAuctionPrivate = {
@@ -429,6 +435,12 @@ const propsAuctionPrivate = {
     },
   },
   auctionSubscribe: {
+    code: 200,
+  },
+  deleteComment: {
+    code: 200,
+  },
+  confirmPhone: {
     code: 200,
   },
 };

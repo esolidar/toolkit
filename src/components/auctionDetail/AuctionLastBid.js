@@ -17,6 +17,7 @@ const AuctionLastBid = ({
   minValue,
   inputBidValue,
   valueBidTextField,
+  primaryColor,
 }) => {
   const lastBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
@@ -26,7 +27,7 @@ const AuctionLastBid = ({
         <Col className="box sticky-top mb-5" style={{ width: '100%', marginTop: '48px' }}>
           <Row>
             <Col>
-              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid">
+              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid" style={{ color: primaryColor }}>
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -53,7 +54,7 @@ const AuctionLastBid = ({
           </Row>
           {(!isEnded && !isCommingSoon) && (
             <Row>
-              <Col sm={12} className="auction-content-label" data-testid="new-bid">
+              <Col sm={12} className="auction-content-label" data-testid="new-bid" style={{ color: primaryColor }}>
                 <FormattedMessage
                   id="auction.detail.newBid"
                   defaultMessage="New Bid"
@@ -104,7 +105,7 @@ const AuctionLastBid = ({
           {isEnded && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label" data-testid="label-ended">
+                <Col sm={12} className="auction-content-label" data-testid="label-ended" style={{ color: primaryColor }}>
                   <FormattedMessage
                     id="auction.detail.ended"
                     defaultMessage="Ended"
@@ -168,6 +169,7 @@ AuctionLastBid.propTypes = {
   minValue: PropTypes.number,
   inputBidValue: PropTypes.string,
   valueBidTextField: PropTypes.func,
+  primaryColor: PropTypes.string,
 };
 
 export default injectIntl(AuctionLastBid);

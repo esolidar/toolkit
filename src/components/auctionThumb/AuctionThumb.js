@@ -9,6 +9,7 @@ import { convertToMyCurrency } from '../../utils/index';
 
 const AuctionThumb = ({
   auction,
+  primaryColor,
 }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
   const auctionEndDate = moment(auction.dateLimit, 'YYYY-MM-DD HH:mm').toDate();
@@ -50,7 +51,7 @@ const AuctionThumb = ({
           {+today < +auctionEndDate
             && (
               <Row className="last-bid">
-                <Col xs={5} className="last-bid-label">
+                <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
                   {auction.last_bid && (
                     <FormattedMessage
                       id="homepage.toolsbox.charityAuctions.lastBid"
@@ -64,26 +65,26 @@ const AuctionThumb = ({
                     />
                   )}
                 </Col>
-                <Col xs={7} className={auction.blink ? 'last-bid-value text-right blink' : 'last-bid-value text-right'}>
+                <Col xs={7} className={auction.blink ? 'last-bid-value text-right blink' : 'last-bid-value text-right'} style={{ color: primaryColor }}>
                   {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
                 </Col>
               </Row>
             )}
           {+today >= +auctionEndDate && (
             <Row className="last-bid">
-              <Col xs={5} className="last-bid-label">
+              <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
                 <FormattedMessage
                   id="homepage.toolsbox.charityAuctions.raised"
                   defaultMessage="Raised"
                 />
               </Col>
               {auction.last_bid && (
-                <Col xs={7} className="last-bid-value text-right">
+                <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
                   {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
                 </Col>
               )}
               {!auction.last_bid && (
-                <Col xs={7} className="last-bid-value text-right">
+                <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
                   {convertToMyCurrency('0', auction.currency)}
                 </Col>
               )}
@@ -137,6 +138,7 @@ AuctionThumb.propTypes = {
     title: PropTypes.string,
     title_en: PropTypes.string,
   }),
+  primaryColor: PropTypes.string,
 };
 
 export default AuctionThumb;

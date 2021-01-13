@@ -368,19 +368,6 @@ test('should exist title of auction', async () => {
   });
 });
 
-// test('should exist value last bid', async () => {
-//   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
-
-//   await waitFor(() => {
-//     const titleLastBid = screen.getByTestId('last-bid');
-//     expect(titleLastBid).toBeInTheDocument();
-//     expect(titleLastBid).toHaveTextContent('Last Bid');
-//     const valueLastBid = screen.getByTestId('value-last-bid');
-//     expect(valueLastBid).toBeInTheDocument();
-//     expect(valueLastBid).toHaveTextContent('€31.00');
-//   });
-// });
-
 test('should exist section new bid and insert value equal or higher last bid', async () => {
   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
 
@@ -408,15 +395,15 @@ test('simulate auction ended', async () => {
   });
 });
 
-test('should exist section supported with thumb and name', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+// test('should exist section supported with thumb and name', async () => {
+//   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
 
-  await waitFor(() => {
-    const supported = screen.getByTestId('supported-section');
-    expect(supported).toBeInTheDocument();
-    expect(supported).toHaveTextContent('Proceeds support A marca do Rocha');
-    const thumbImage = screen.getByAltText('thumb');
-    expect(thumbImage).toBeInTheDocument();
-    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png');
-  });
-});
+//   await waitFor(() => {
+//     const supported = screen.getByTestId('supported-section');
+//     expect(supported).toBeInTheDocument();
+//     expect(supported).toHaveTextContent('Proceeds support A marca do Rocha');
+//     const thumbImage = screen.getByAltText('thumb');
+//     expect(thumbImage).toBeInTheDocument();
+//     expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png');
+//   });
+// });

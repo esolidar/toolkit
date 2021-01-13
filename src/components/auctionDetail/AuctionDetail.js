@@ -55,6 +55,7 @@ const AuctionDetail = ({
   getAuctionUserCommentResponse,
   auctionUserCommentsResponse,
   deleteAuctionComment,
+  deleteComment,
   getStripeCreditCardlist,
   postStripeCreditCard,
   stripeCreditCardList,
@@ -68,10 +69,15 @@ const AuctionDetail = ({
   postUpdatedUser,
   updatedUser,
   showAlert,
+  primaryColor,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
+  const [modalDelete, setModalDelete] = useState({
+    isOpen: false,
+    commentId: null,
+  });
   const [isConfirmBid, setIsConfirmBid] = useState(false);
 
   const [isShowmoreDesc] = useState(false);
@@ -121,6 +127,7 @@ const AuctionDetail = ({
   const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
   const [hasPhoneValidate, setHasPhoneValidate] = useState(false);
+  const [showPhoneValidate, setShowPhoneValidate] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
 
@@ -153,6 +160,13 @@ const AuctionDetail = ({
       getAuctionBidList(auctionId, page, perPage);
       getAuctionList(companyId, 1, 'dateLimit,desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
+      if (auctionDetail.data.private === 1) {
+        const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
+        const auctionCode = auctionPrivateCode.find((item) => +item.id === +auctionId);
+        if (auctionCode) {
+          setPrivateCode(auctionCode.code);
+        }
+      }
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
       setIsLoadingAuction(false);
@@ -185,6 +199,7 @@ const AuctionDetail = ({
   useEffect(() => {
     if (newBid.code === 200) {
       setIsShowModal(false);
+      setShowPhoneValidate(false);
       setIsConfirmBid(false);
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = newBid.data.dateLimit;
@@ -210,7 +225,7 @@ const AuctionDetail = ({
           value: newBid.data.value,
           user: {
             name: newBid.data.user.name,
-            thumbs: newBid.data.user.thumbs.thumb,
+            thumbs: newBid.data.user.thumbs,
           },
           blink: true,
         };
@@ -293,6 +308,20 @@ const AuctionDetail = ({
       }
     }
   }, [auctionUserComment]);
+
+  useEffect(() => {
+    if (deleteComment.code === 200) {
+      setModalDelete({ ...modalDelete, isOpen: false });
+      showAlert({
+        alertBox: {
+          alertVisible: true,
+          alertClass: 'success',
+          message: 'Your comment has been successfully deleted',
+          messageId: 'auctions.modal.success.deleteComment',
+        },
+      });
+    }
+  }, [deleteComment]);
 
   useEffect(() => {
     if (auctionUserCommentsResponse.code === 200) {
@@ -382,6 +411,10 @@ const AuctionDetail = ({
       setIsCheckedNotifications(false);
     }
   }, [isShowModal]);
+
+  useEffect(() => {
+    if (confirmPhone.code === 200) setHasPhoneValidate(true);
+  }, [confirmPhone]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -483,7 +516,8 @@ const AuctionDetail = ({
         return;
       }
     }
-
+    const { phones } = JSON.parse(localStorage.user || '{ "phones": [] }');
+    setShowPhoneValidate(phones.some((phone) => phone.verified === 1));
     setIsShowModal(true);
     setError('');
     setValueBid(value);
@@ -515,6 +549,7 @@ const AuctionDetail = ({
     const bid = {
       value: +valueBid,
       hidden: isAnonymous || 0,
+      private_code: privateCode,
     };
 
     if (auctionDetailInfo.cc === 1) bid.last4 = lastFour;
@@ -567,6 +602,7 @@ const AuctionDetail = ({
       auction_on_start: auctionStart,
       auction_first_bid: auctionFirstBid,
       auction_24h_end: auction24hEnd,
+      private_code: privateCode,
     };
     postAuctionSubscribe(auctionId, subscribeChecked);
     setIsShowModalSubscribe(false);
@@ -576,7 +612,7 @@ const AuctionDetail = ({
     e.preventDefault();
 
     if (userComment && requireLogin()) {
-      postAuctionUserComment(auctionId, { comment: userComment });
+      postAuctionUserComment(auctionId, { comment: userComment, private_code: privateCode });
       setLoadingNewComment(true);
       setUserComment('');
     }
@@ -587,13 +623,20 @@ const AuctionDetail = ({
 
     if (e.target.value) {
       setLoadingPostReply(true);
-      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId });
+      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId, private_code: privateCode });
       setReply('');
     }
   };
 
   const loadMore = (commentId, page) => {
     deleteAuctionComment(auctionId, commentId, 3, page + 1);
+  };
+
+  const handleOpenDeleteCommentModal = (commentId) => {
+    setModalDelete({
+      isOpen: true,
+      commentId,
+    });
   };
 
   const handleDeleteComment = (commentId) => {
@@ -686,7 +729,7 @@ const AuctionDetail = ({
     <Container className="auction-detail mt-3">
       {!accessAuction && (
         <Row>
-          <Col sm={6} className="mdPrivateCode offset-md-3">
+          <Col sm={6} className="mdPrivateCode mx-auto mt-5">
             <Row>
               <h3 className="pb-4 mb-4" data-testid="title-private">
                 <FormattedMessage
@@ -713,6 +756,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
+                    href="/auctions/list"
                     text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
                   />
                   <Button
@@ -741,7 +785,7 @@ const AuctionDetail = ({
                         defaultMessage="This auctions supports:"
                       />
                     </div>
-                    <h1 className="text-center">
+                    <h1 className="text-center" style={{ color: primaryColor }}>
                       <img src={supported.thumbs.thumb} alt="thumb-supported" />
                       {supported.name}
                     </h1>
@@ -817,6 +861,7 @@ const AuctionDetail = ({
                       user={user}
                       inputBidValue={value}
                       valueBidTextField={valueBidTextField}
+                      primaryColor={primaryColor}
                     />
                   </Row>
                 </Col>
@@ -837,6 +882,7 @@ const AuctionDetail = ({
                 description={auctionDescriptionLang('description')}
                 showmoreDesc={isShowmoreDesc}
                 showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="shipping"
@@ -845,6 +891,7 @@ const AuctionDetail = ({
                 description={auctionDescriptionLang('shipping_description')}
                 showmoreDesc={isShowmoreDesc}
                 showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="payment"
@@ -853,6 +900,7 @@ const AuctionDetail = ({
                 description={auctionDescriptionLang('payment_description')}
                 showmoreDesc={isShowmoreDesc}
                 showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <h3 className="mt-5">
                 <FormattedMessage
@@ -880,7 +928,7 @@ const AuctionDetail = ({
                   comments={comments}
                   reply={reply}
                   laodingPostReply={loadingPostReply}
-                  deleteComment={handleDeleteComment}
+                  deleteComment={handleOpenDeleteCommentModal}
                   totalComments={totalComments}
                   loadMore={loadMore}
                   loadingMoreComments={loadingMoreComments}
@@ -889,6 +937,7 @@ const AuctionDetail = ({
                   thumb={thumb}
                   env={env.cdn_static_url}
                   translateMessage={translateMessage}
+                  primaryColor={primaryColor}
                 />
               </div>
             </Col>
@@ -912,6 +961,7 @@ const AuctionDetail = ({
                   minValue={handleMinValue()}
                   inputBidValue={value}
                   valueBidTextField={valueBidTextField}
+                  primaryColor={primaryColor}
                 />
               </Sticky>
               <ContributesListBox
@@ -924,6 +974,7 @@ const AuctionDetail = ({
                 showMoreContributes={showMoreContributes}
                 currency={auctionDetailInfo.currency.small}
                 env={env}
+                primaryColor={primaryColor}
               />
             </Col>
           </Row>
@@ -932,6 +983,7 @@ const AuctionDetail = ({
               title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
               listAuctions={listAuctions}
               buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
+              primaryColor={primaryColor}
             />
           )}
         </>
@@ -987,7 +1039,7 @@ const AuctionDetail = ({
                   </a>
                   <span>)</span>
                 </div>
-                {(hasPhoneValidate && auctionDetailInfo.cc === 1) && (
+                {(auctionDetailInfo.cc === 1) && (
                   <CreditCardList
                     getStripeCreditCardlist={getStripeCreditCardlist}
                     postStripeCreditCard={postStripeCreditCard}
@@ -1000,7 +1052,7 @@ const AuctionDetail = ({
                     selectedCard={selectedCard}
                   />
                 )}
-                {!hasPhoneValidate && (
+                {(!showPhoneValidate) && (
                   <ValidateTelephone
                     localStorage={localStorage}
                     mobileValidatePost={mobileValidatePost}
@@ -1141,6 +1193,38 @@ const AuctionDetail = ({
           />
         </>
       )}
+      {modalDelete.isOpen && (
+        <CustomModal
+          bodyPadding="14px"
+          dialogClassName="auction-modal-comment-delete"
+          actionsChildren={(
+            <>
+              <Button
+                extraClass="dark"
+                onClick={() => setModalDelete({ ...modalDelete, isOpen: false })}
+                text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+              />
+              <Button
+                extraClass="success-full"
+                onClick={() => handleDeleteComment(modalDelete.commentId)}
+                text={translateMessage({ id: 'auction.modal.comment.Confirm', defaultMessage: 'Confirm' })}
+              />
+            </>
+          )}
+          bodyChildren={(
+            <FormattedMessage
+              id="auctions.comment.message.delete"
+              defaultMessage="Do you really want to delete this comment?"
+            />
+          )}
+          onHide={() => setModalDelete({ ...modalDelete, isOpen: false })}
+          show={modalDelete.isOpen}
+          title={translateMessage({
+            id: 'auction.modal.comment.title',
+            defaultMessage: 'Delete comment',
+          })}
+        />
+      )}
     </Container>
   );
 };
@@ -1221,6 +1305,7 @@ AuctionDetail.propTypes = {
   auctionComments: PropTypes.object,
   auctionUserCommentsResponse: PropTypes.object,
   deleteAuctionComment: PropTypes.func,
+  deleteComment: PropTypes.object,
   mobileValidatePost: PropTypes.func,
   validatePhone: PropTypes.object,
   mobileConfirmPost: PropTypes.func,
@@ -1239,6 +1324,7 @@ AuctionDetail.propTypes = {
   postUpdatedUser: PropTypes.func,
   updatedUser: PropTypes.object,
   showAlert: PropTypes.func,
+  primaryColor: PropTypes.string,
 };
 
 export default injectIntl(AuctionDetail);
