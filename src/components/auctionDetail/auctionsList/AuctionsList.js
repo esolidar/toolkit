@@ -14,14 +14,14 @@ const AuctionsList = ({
   listAuctions && (
     <>
       <Row className="other-auctions">
-        <Col sm={12} className="text-center">
+        <Col sm={12} className="text-center mt-5">
           <h4 className="title" data-testid="title-other-auctions" style={{ color: primaryColor }}>
             {title}
           </h4>
         </Col>
       </Row>
       <Row>
-        <Col sm={11} className="offset-md-1">
+        <Col sm={10} className="offset-md-1">
           <Row>
             {listAuctions.map((auction) => (
               <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>

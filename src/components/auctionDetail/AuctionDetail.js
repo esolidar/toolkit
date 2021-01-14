@@ -10,6 +10,7 @@ import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
 import Button from '../button/Button';
+import NoMatch from '../noMatch/NoMatch';
 import Loading from '../loading/Loading';
 import Comments from '../comments/Comments';
 import AuctionLastBid from './AuctionLastBid';
@@ -80,7 +81,6 @@ const AuctionDetail = ({
   });
   const [isConfirmBid, setIsConfirmBid] = useState(false);
 
-  const [isShowmoreDesc] = useState(false);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
@@ -91,6 +91,7 @@ const AuctionDetail = ({
   const [listUsersBid, setListUsersBid] = useState([]);
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
+  const [isLoadingContributesList, setIsLoadingContributesList] = useState(true);
 
   // Create Comments
   const [userComment, setUserComment] = useState([]);
@@ -128,6 +129,9 @@ const AuctionDetail = ({
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
   const [hasPhoneValidate, setHasPhoneValidate] = useState(false);
   const [showPhoneValidate, setShowPhoneValidate] = useState(false);
+
+  // Not Valid Auction
+  const [isAuctionForbiden, setIsAuctionForbiden] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
 
@@ -173,6 +177,9 @@ const AuctionDetail = ({
       if (privateCode) {
         setErrorPrivateCode(translateMessage({ id: 'auction.detail.error.privateCode', defaultMessage: 'The code is wrong.' }));
       }
+    } else {
+      setIsAuctionForbiden(true);
+      setIsLoadingAuction(false);
     }
   }, [auctionDetail]);
 
@@ -285,9 +292,10 @@ const AuctionDetail = ({
           NotificationManager.error(translateMessage({
             id: 'auctions.modal.error.otherError', defaultMessage: 'An error has occurred!',
           }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
+            id: 'auctions.modal.error.titleOtherError', defaultMessage: 'Error:',
           }), 15000);
       }
+      setIsConfirmBid(false);
     }
   }, [newBid]);
 
@@ -343,6 +351,7 @@ const AuctionDetail = ({
       setListBidTotal(auctionBidList.data.total);
       setPage(auctionBidList.data.current_page);
       setIsloadingContributes(false);
+      setIsLoadingContributesList(false);
     }
   }, [auctionBidList]);
 
@@ -473,6 +482,13 @@ const AuctionDetail = ({
     if (i === 0) setIsCheckedEmailStart(checked);
     if (i === 1) setIsCheckedEmailFirstBid(checked);
     if (i === 2) setIsCheckedEmail24H(checked);
+  };
+
+  const handleCancelModalSubscribe = () => {
+    setIsCheckedEmailStart(false);
+    setIsCheckedEmailFirstBid(false);
+    setIsCheckedEmail24H(false);
+    setIsShowModalSubscribe(false);
   };
 
   const handleClickBid = (value) => {
@@ -667,10 +683,6 @@ const AuctionDetail = ({
     getAuctionComment(auctionId, page + 1, perPage);
   };
 
-  const showMoreDescButton = () => {
-
-  };
-
   const handleCloseModalBid = () => {
     setIsAnonymous(false);
     setIsCheckedLegal(false);
@@ -701,7 +713,7 @@ const AuctionDetail = ({
   };
 
   const valueBidTextField = (e) => {
-    setValue(e.target.value);
+    setValue(parseFloat(e.target.value));
   };
 
   const handleMinValue = () => {
@@ -727,7 +739,14 @@ const AuctionDetail = ({
 
   return (
     <Container className="auction-detail mt-3">
-      {!accessAuction && (
+      {isAuctionForbiden && (
+        <Row className="not-found mt-5">
+          <NoMatch
+            color={primaryColor}
+          />
+        </Row>
+      )}
+      {(!isAuctionForbiden && !accessAuction) && (
         <Row>
           <Col sm={6} className="mdPrivateCode mx-auto mt-5">
             <Row>
@@ -772,7 +791,7 @@ const AuctionDetail = ({
           </Col>
         </Row>
       )}
-      {accessAuction && (
+      {(!isAuctionForbiden && accessAuction) && (
         <>
           <Row>
             <Col md={12} className="content-wrapper">
@@ -880,8 +899,6 @@ const AuctionDetail = ({
                 dataTestIdDescription="description-text"
                 title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
                 description={auctionDescriptionLang('description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
                 color={primaryColor}
               />
               <DescriptionDetail
@@ -889,8 +906,6 @@ const AuctionDetail = ({
                 dataTestIdDescription="shipping-text"
                 title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
                 description={auctionDescriptionLang('shipping_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
                 color={primaryColor}
               />
               <DescriptionDetail
@@ -898,8 +913,6 @@ const AuctionDetail = ({
                 dataTestIdDescription="payment-text"
                 title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
                 description={auctionDescriptionLang('payment_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
                 color={primaryColor}
               />
               <h3 className="mt-5">
@@ -969,6 +982,7 @@ const AuctionDetail = ({
                 testeId="ContributesListBox"
                 title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
                 contributesList={listUsersBid}
+                loadingContributesList={isLoadingContributesList}
                 loadingContributes={isloadingContributes}
                 total={listBidTotal}
                 showMoreContributes={showMoreContributes}
@@ -993,7 +1007,7 @@ const AuctionDetail = ({
           <CustomModal
             bodyPadding="14px"
             dialogClassName="auction-modal-bid"
-            onHide={() => setIsShowModal(false)}
+            onHide={() => handleCloseModalBid()}
             show={isShowModal}
             title={translateMessage({ id: 'auction.modal.bid.confirm', defaultMessage: 'Confirm bid' })}
             actionsChildren={(
@@ -1143,7 +1157,7 @@ const AuctionDetail = ({
               <>
                 <Button
                   extraClass="dark"
-                  onClick={() => setIsShowModalSubscribe(false)}
+                  onClick={() => handleCancelModalSubscribe()}
                   text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
                 />
                 <Button
@@ -1184,7 +1198,7 @@ const AuctionDetail = ({
                 />
               </div>
             )}
-            onHide={() => setIsShowModalSubscribe(false)}
+            onHide={() => handleCancelModalSubscribe()}
             show={isShowModalSubscribe}
             title={translateMessage({
               id: 'auction.detail.subscribeAuction',

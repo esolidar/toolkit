@@ -138,7 +138,7 @@ const AuctionDetailRigth = ({
           {isEnded && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label" data-testid="label-ended">
+                <Col sm={12} className="auction-content-label" data-testid="label-ended" style={{ color: primaryColor }}>
                   <FormattedMessage
                     id="auction.detail.ended"
                     defaultMessage="Ended"
