@@ -83,3 +83,5 @@ export const isValidURL = (str) => {
     + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
   return !!pattern.test(str);
 };
+
+export const isEmpty = (obj) => Object.keys(obj).length === 0;

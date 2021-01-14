@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 
 export default function validateAuctionForm(data) {
   const errors = {};
-  debugger;
+
   if (data.images.length === 0) {
     errors.images = (
       <FormattedMessage
@@ -25,6 +25,24 @@ export default function validateAuctionForm(data) {
 
   if (isEmpty(data.bid_start)) {
     errors.bid_start = (
+      <FormattedMessage
+        id="user.register.error.required"
+        defaultMessage="This field is required"
+      />
+    );
+  }
+
+  if (isEmpty(data.bid_interval)) {
+    errors.bid_interval = (
+      <FormattedMessage
+        id="user.register.error.required"
+        defaultMessage="This field is required"
+      />
+    );
+  }
+
+  if (isEmpty(data.bid_max_interval)) {
+    errors.bid_max_interval = (
       <FormattedMessage
         id="user.register.error.required"
         defaultMessage="This field is required"
@@ -79,7 +97,7 @@ export default function validateAuctionForm(data) {
         />
       );
     }
-    if (data.private_code.length < 6) {
+    if (data.private_code && data.private_code.length < 6) {
       errors.private_code = (
         <FormattedMessage
           id="user.register.error.length6characteres"
@@ -101,25 +119,31 @@ export default function validateAuctionForm(data) {
   }
 
   if (data.showInstitutions && data.showProjects) {
-    if (isEmpty(data.user_id) || data.projectIds.length === 0) {
+    if (isEmpty(data.user_id) && data.projectIds.length === 0) {
       errors.user_id = (
         <FormattedMessage
           id="user.register.error.required"
           defaultMessage="This field is required"
         />
       );
+      errors.projectIds = (
+        <FormattedMessage
+          id="user.register.error.required"
+          defaultMessage="This field is required"
+        />
+      );
     }
-    if (!isEmpty(data.user_id) || data.projectIds.length > 1) {
+    if (!isEmpty(data.user_id) && data.projectIds.length > 0) {
       errors.user_id = (
         <FormattedMessage
           id="user.register.error.select.only.one"
-          defaultMessage="'You can not select a cause and a project, please select only one.'"
+          defaultMessage="You can not select a cause and a project, please select only one."
         />
       );
       errors.projectIds = (
         <FormattedMessage
           id="user.register.error.select.only.one"
-          defaultMessage="'You can not select a cause and a project, please select only one.'"
+          defaultMessage="You can not select a cause and a project, please select only one."
         />
       );
     }

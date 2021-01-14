@@ -2,7 +2,16 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin, isValidURL,
+  getEmployeeName,
+  addUrlParam,
+  removeUrlParam,
+  getUrlParam,
+  filterUnique,
+  convertToMyCurrency,
+  getLocalStorageAuctionPrivateCode,
+  isCompanyAdmin,
+  isValidURL,
+  isEmpty,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -200,5 +209,16 @@ describe('test utils functions', () => {
     expect(isValidURL('https://www.esolidar.com')).toBe(true);
     expect(isValidURL('esolidar.com')).toBe(true);
     expect(isValidURL('esolidar')).toBe(false);
+  });
+
+  test('return object empty true or false', () => {
+    const objectEmpty = {};
+    const objectNotEmpty = { id: 1, name: 'name' };
+    const arrayEmpty = [];
+    const arrayNotEmpty = [1, 2];
+    expect(isEmpty(objectEmpty)).toBe(true);
+    expect(isEmpty(objectNotEmpty)).toBe(false);
+    expect(isEmpty(arrayEmpty)).toBe(true);
+    expect(isEmpty(arrayNotEmpty)).toBe(false);
   });
 });

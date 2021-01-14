@@ -152,7 +152,10 @@ InstitutionListSelect.propTypes = {
   selectText: PropTypes.string,
   NoResultsText: PropTypes.string.isRequired,
   selectCategoryText: PropTypes.string.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   search: PropTypes.string,
   placeholderSearch: PropTypes.string,
   institutionSelected: PropTypes.number,

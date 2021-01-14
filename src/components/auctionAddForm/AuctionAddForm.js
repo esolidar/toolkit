@@ -6,6 +6,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { WithContext as ReactTags } from 'react-tag-input';
 import classnames from 'classnames';
 import DatePicker, { registerLocale } from 'react-datepicker';
+import { NotificationManager } from 'react-notifications';
 import Datetime from 'react-datetime';
 import pt from 'date-fns/locale/pt';
 import en from 'date-fns/locale/en-US';
@@ -21,6 +22,7 @@ import ProjectThumb from '../projectThumb/ProjectThumb';
 import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField/SelectField';
 import validateAuctionForm from './validations';
+import { isEmpty } from '../../utils';
 
 registerLocale('pt', pt);
 registerLocale('en', en);
@@ -45,13 +47,22 @@ const AuctionAddForm = ({
   brands,
   postUploadImage,
   addImages,
-  deleteImages,
+  postAuction,
+  addAuction,
   postAuctionDeleteImage,
+  returnUrl,
 }) => {
   const [form, setForm] = useState({
     title: '',
     bid_start: '',
     description: '',
+    bid_interval: '1',
+    bid_max_interval: '100',
+    tax: JSON.parse(localStorage.company).country.auction_tax * 100,
+    acquisition_value: '0',
+    status: 'P',
+    private: '0',
+    private_code: '',
     shipping_description: '',
     payment_description: '',
     images: [],
@@ -65,6 +76,8 @@ const AuctionAddForm = ({
     projectIds: [],
     user_id: '',
     timezone: moment.tz.guess(),
+    currency_id: JSON.parse(localStorage.company).currency_id,
+    position: '1',
   });
   const [pagination, setPagination] = useState(
     {
@@ -138,6 +151,34 @@ const AuctionAddForm = ({
       setBrandsList(data);
     }
   }, [brands]);
+
+  // add Auction
+  useEffect(() => {
+    if (addAuction && addAuction.code === 200) {
+      NotificationManager.success(intl.formatMessage({
+        id: 'success.auction.create', defaultMessage: 'Your auction was successfully created. Our team will validate it and contact you soon.',
+      }), intl.formatMessage({
+        id: 'success', defaultMessage: 'Success:',
+      }), 15000);
+      setDisabled(false);
+
+      if (returnUrl) {
+        window.location.href = returnUrl;
+      } else {
+        window.location.href = '/';
+      }
+      return;
+    }
+    if (!isEmpty(addAuction)) {
+      NotificationManager.error(intl.formatMessage({
+        id: 'error.auction.create', defaultMessage: 'An error has occurred, please try again!',
+      }), intl.formatMessage({
+        id: 'error', defaultMessage: 'Error:',
+      }), 15000);
+
+      setDisabled(false);
+    }
+  }, [addAuction]);
 
   // Images list
   useEffect(() => {
@@ -229,11 +270,9 @@ const AuctionAddForm = ({
   const handleChangeEnd = (date) => {
     const { startDate } = form;
     const newDate = Datetime.moment(date).format('YYYY-MM-DD HH:mm:ss');
-
     if (!startDate || startDate < date) {
-      form.endDate = date;
-      form.dateLimit = newDate;
-      setForm(form);
+      setForm((prevState) => ({ ...prevState, endDate: date }));
+      setForm((prevState) => ({ ...prevState, dateLimit: newDate }));
     }
   };
 
@@ -255,10 +294,10 @@ const AuctionAddForm = ({
     const companyId = JSON.parse(localStorage.company).id;
     setCropModalStatus(true);
 
-    files.map((file, i) => {
+    files.map((file) => {
       const data = {
         image: [file],
-        position: [i],
+        position: [imagesCount + 1],
         default: [0],
       };
 
@@ -297,13 +336,12 @@ const AuctionAddForm = ({
     if (!isValid) {
       setErrors(errors);
       setTimeout(() => {
-        debugger;
-        // const firstError = document.getElementsByClassName('has-error')[0];
-        // if (firstError.getElementsByClassName('form-control')[0]) {
-        //   firstError.getElementsByClassName('form-control')[0].focus();
-        // } else {
-        //   firstError.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
-        // }
+        const firstError = document.getElementsByClassName('has-error');
+        if (firstError[0]) {
+          firstError[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+        } else {
+          document.getElementById('add-auction').scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
       }, 0);
     }
 
@@ -312,13 +350,11 @@ const AuctionAddForm = ({
 
   const onSubmit = () => {
     if (isValid()) {
+      const companyId = JSON.parse(localStorage.company).id;
       setDisabled(true);
-      console.log('form', form);
-      debugger;
+      postAuction(form, companyId);
     }
   };
-
-  console.log('errors', errors);
 
   return (
     <Container className="add-auction">
@@ -373,7 +409,7 @@ const AuctionAddForm = ({
                       />
                     </h3>
                   </Col>
-                  <div className="col-sm-8">
+                  <Col sm={8}>
                     <TextField
                       label={intl.formatMessage({ id: 'auctionTitle', defaultMessage: 'AUCTION TITLE' })}
                       onChange={(e) => handleChangeForm(e)}
@@ -382,10 +418,37 @@ const AuctionAddForm = ({
                       field="title"
                       fieldTranslate="auctionTitle"
                     />
-                  </div>
-                  <div className="col-sm-4">
+                  </Col>
+                  <Col sm={4}>
+                    <SelectField
+                      label={intl.formatMessage({
+                        id: 'auctions.status',
+                        defaultMessage: 'Auction status',
+                      })}
+                      options={[{
+                        id: 'P',
+                        name: intl.formatMessage({
+                          id: 'pending',
+                          defaultMessage: 'Pending',
+                        }),
+                      },
+                      {
+                        id: 'A',
+                        name: intl.formatMessage({
+                          id: 'active',
+                          defaultMessage: 'Active',
+                        }),
+                      }]}
+                      value={form.status}
+                      field="status"
+                      onChange={handleChangeForm}
+                      hiddenSelectText={true}
+                      disabled={true}
+                    />
+                  </Col>
+                  <Col sm={3}>
                     <TextFieldGroup
-                      label="STARTING BID"
+                      label={intl.formatMessage({ id: 'auctionStartBid', defaultMessage: 'STARTING BID' })}
                       onChange={handleChangeForm}
                       error={errors.bid_start}
                       value={form.bid_start}
@@ -393,9 +456,44 @@ const AuctionAddForm = ({
                       placeholder="0.00"
                       type="number"
                       groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
-                      fieldTranslate="auctionStartBid"
                     />
-                  </div>
+                  </Col>
+                  <Col sm={3}>
+                    <TextFieldGroup
+                      label={intl.formatMessage({ id: 'auctionBidInterval', defaultMessage: 'BID INTERVAL' })}
+                      onChange={handleChangeForm}
+                      error={errors.bid_interval}
+                      value={form.bid_interval}
+                      field="bid_interval"
+                      placeholder="0.00"
+                      type="number"
+                      groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
+                    />
+                  </Col>
+                  <Col sm={3}>
+                    <TextFieldGroup
+                      label={intl.formatMessage({ id: 'auctionBidMaxInterval', defaultMessage: 'MAX BID INTERVAL' })}
+                      onChange={handleChangeForm}
+                      error={errors.bid_max_interval}
+                      value={form.bid_max_interval}
+                      field="bid_max_interval"
+                      placeholder="0.00"
+                      type="number"
+                      groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
+                    />
+                  </Col>
+                  <Col sm={3}>
+                    <TextFieldGroup
+                      label={intl.formatMessage({ id: 'auctionEsolidarTax', defaultMessage: 'ESOLIDAR TAX' })}
+                      onChange={() => { }}
+                      error={errors.tax}
+                      value={form.tax}
+                      field="tax"
+                      type="number"
+                      groupText="%"
+                      disabled={true}
+                    />
+                  </Col>
                   <Col sm={12}>
                     <div className="form-group">
                       <label className="control-label">
@@ -423,7 +521,7 @@ const AuctionAddForm = ({
                       error={errors.description}
                       value={form.description}
                       field="description"
-                      fieldTranslate="auctionDescription"
+                      resize={true}
                     />
                   </Col>
                   <Col sm={12}>
@@ -437,7 +535,7 @@ const AuctionAddForm = ({
                         id: 'auctionShippingText',
                         defaultMessage: 'Information about the shipping costs of the prize to the winner.',
                       })}
-                      fieldTranslate="auctionDescriptionShipping"
+                      resize={true}
                     />
                   </Col>
                   <Col sm={12}>
@@ -451,6 +549,7 @@ const AuctionAddForm = ({
                         id: 'auctionPaymentText',
                         defaultMessage: 'Give instructions about how the winner will make the payment.',
                       })}
+                      resize={true}
                     />
                   </Col>
                 </Row>
@@ -543,6 +642,7 @@ const AuctionAddForm = ({
                         options={brandsList}
                         value={form.brand_id}
                         field="brand_id"
+                        error={errors.brand_id}
                         onChange={handleChangeForm}
                         selectText={intl.formatMessage({
                           id: 'Auctions.addBrand',
@@ -772,31 +872,35 @@ const AuctionAddForm = ({
                         />
                       </h3>
                     </Col>
-                    {projectsListData.map((project) => (
-                      <ProjectThumb
-                        key={project.id}
-                        project={project}
-                        serverlessResizeImage="https://image.testesolidar.com"
-                        lang={localStorage.lang}
-                        cols={6}
-                        showStatus={false}
-                        myProject={true}
-                        select={true}
-                        selectProject={handleSelectProject}
-                        selectText={intl.formatMessage({ id: 'select', defaultMessage: 'Select' })}
-                        selectedText={intl.formatMessage({ id: 'selected', defaultMessage: 'Selected' })}
-                        isSelected={true}
-                        selectedIds={form.projectIds}
-                      />
-                    ))}
-                    {errors.projectIds
-                      && (
-                        <span
-                          className="help-block d-block"
-                        >
-                          {errors.projectIds}
-                        </span>
-                      )}
+                    <Col sm={12} className={classnames('form-group', { 'has-error': errors.projectIds })}>
+                      <Row>
+                        {projectsListData.map((project) => (
+                          <ProjectThumb
+                            key={project.id}
+                            project={project}
+                            serverlessResizeImage="https://image.testesolidar.com"
+                            lang={localStorage.lang}
+                            cols={6}
+                            showStatus={false}
+                            myProject={true}
+                            select={true}
+                            selectProject={handleSelectProject}
+                            selectText={intl.formatMessage({ id: 'select', defaultMessage: 'Select' })}
+                            selectedText={intl.formatMessage({ id: 'selected', defaultMessage: 'Selected' })}
+                            isSelected={true}
+                            selectedIds={form.projectIds}
+                          />
+                        ))}
+                        {errors.projectIds
+                          && (
+                            <span
+                              className="help-block d-block"
+                            >
+                              {errors.projectIds}
+                            </span>
+                          )}
+                      </Row>
+                    </Col>
                   </Row>
                 </Col>
               </Row>
@@ -853,6 +957,10 @@ const AuctionAddForm = ({
 
 AuctionAddForm.propTypes = {
   action: PropTypes.string,
+  addAuction: PropTypes.shape({
+    code: PropTypes.number,
+    data: PropTypes.any,
+  }),
   addImages: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
@@ -864,7 +972,6 @@ AuctionAddForm.propTypes = {
     code: PropTypes.number,
     data: PropTypes.any,
   }),
-  deleteImages: PropTypes.any,
   getBrandsList: PropTypes.func,
   getInstitutionCategories: PropTypes.func,
   getInstitutions: PropTypes.func,
@@ -879,31 +986,33 @@ AuctionAddForm.propTypes = {
     code: PropTypes.number,
     data: PropTypes.shape({
       institutions: PropTypes.shape({
-        current_page: PropTypes.any,
-        data: PropTypes.any,
-        per_page: PropTypes.any,
-        total: PropTypes.any,
+        current_page: PropTypes.number,
+        data: PropTypes.object,
+        per_page: PropTypes.number,
+        total: PropTypes.number,
       }),
     }),
   }),
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  loadingPage: PropTypes.any,
+  loadingPage: PropTypes.bool,
+  postAuction: PropTypes.func,
   postAuctionDeleteImage: PropTypes.func,
   postUploadImage: PropTypes.func,
-  primaryColor: PropTypes.any,
+  primaryColor: PropTypes.string,
   projectsList: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
       data: PropTypes.any,
     }),
   }),
-  showBrands: PropTypes.any,
-  showInstitutions: PropTypes.any,
-  showPrivate: PropTypes.any,
-  showProjects: PropTypes.any,
-  timeZones: PropTypes.any,
+  showBrands: PropTypes.bool,
+  showInstitutions: PropTypes.bool,
+  showPrivate: PropTypes.bool,
+  showProjects: PropTypes.bool,
+  timeZones: PropTypes.array,
+  returnUrl: PropTypes.string,
 };
 
 export default injectIntl(AuctionAddForm);

@@ -36,9 +36,13 @@ const DropZoneBox = ({
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
+  const [disableCroppedImage, setDisableCroppedImage] = useState(false);
 
   useEffect(() => {
-    if (!cropModalStatus) setCropperModal(cropModalStatus);
+    if (!cropModalStatus) {
+      setCropperModal(cropModalStatus);
+      setDisableCroppedImage(false);
+    }
   }, [cropModalStatus]);
 
   const wait = (delay, ...args) => new Promise((resolve) => setTimeout(resolve, delay, ...args));
@@ -225,22 +229,26 @@ const DropZoneBox = ({
                   const imageHeight = cropper.current.getCroppedCanvas().height;
                   if (imageWidth > (hasCropper.minWidth || 0) && imageHeight > (hasCropper.minHeight || 0)) {
                     handleSubmitCroppedImage(blob);
+                    setDisableCroppedImage(true);
                   } else {
                     const errors = [];
                     errors.push({
                       name: '',
                       errors: [`${errorMessages.find((messageObj) => messageObj.id === 'dimensions').message}`],
                     });
-
                     setErrorList(errors);
                   }
                 }, 'image/jpeg', 0.7);
               }}
               text={intl.formatMessage({ id: 'add.files', defaultMessage: 'Add File' })}
+              disabled={disableCroppedImage}
             />
           )}
           bodyChildren={(
             <>
+              {disableCroppedImage && (
+                <Loading loadingClass="loading-cropper" />
+              )}
               <Cropper
                 ref={cropper}
                 src={croppedFile}
