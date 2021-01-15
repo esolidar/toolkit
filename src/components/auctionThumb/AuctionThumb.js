@@ -25,17 +25,6 @@ const AuctionThumb = ({
     auctionTitle = auction.title;
   }
 
-  // useEffect(() => {
-  //   if (auction.blink) {
-  //     const elm = document.getElementById(`auction-${auction.id}`);
-  //     elm.classList.add('blink');
-  //     setTimeout(
-  //       () => elm.classList.remove('blink'),
-  //       3000,
-  //     );
-  //   }
-  // }, [auction]);
-
   return (
     <div className="auction-pin-box">
       <div className="auction-photo-box">
