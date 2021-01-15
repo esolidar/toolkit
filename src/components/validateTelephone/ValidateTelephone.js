@@ -121,7 +121,7 @@ const ValidateTelephone = ({
             </div>
           )}
           {verified === 1
-            && <div className="phone-verified" data-testId="verified-number" />}
+            && <div className="phone-verified" data-testid="verified-number" />}
         </Col>
         {verified === 0
           && (
@@ -228,7 +228,7 @@ ValidateTelephone.propTypes = {
     code: PropTypes.number,
     status: PropTypes.number,
     data: PropTypes.shape({
-      phone: PropTypes.string,
+      phone: PropTypes.object,
       verified: PropTypes.number,
     }),
   }),

@@ -1,8 +1,19 @@
 /* global expect */
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
+import '@testing-library/jest-dom';
+import { screen, waitFor } from '@testing-library/react';
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin, isValidURL,
+  getEmployeeName,
+  addUrlParam,
+  removeUrlParam,
+  getUrlParam,
+  filterUnique,
+  convertToMyCurrency,
+  getLocalStorageAuctionPrivateCode,
+  isCompanyAdmin,
+  isValidURL,
+  blinkElement,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -200,5 +211,15 @@ describe('test utils functions', () => {
     expect(isValidURL('https://www.esolidar.com')).toBe(true);
     expect(isValidURL('esolidar.com')).toBe(true);
     expect(isValidURL('esolidar')).toBe(false);
+  });
+
+  test('should have class blink and then remove class blink', async () => {
+    document.body.innerHTML = '<div data-testid="text-id" id="text"></div>';
+    blinkElement('text', 'blink');
+    const wrapper = screen.getByTestId('text-id');
+    expect(wrapper).toHaveClass('blink');
+    await waitFor(() => {
+      expect(wrapper).not.toHaveClass('blink');
+    });
   });
 });

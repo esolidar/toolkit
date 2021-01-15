@@ -13,11 +13,12 @@ const ContributesListBox = ({
   showMoreContributes,
   env,
   currency,
+  primaryColor,
 }) => (
   <div className="col-sm-12">
     <div className="row">
       <div className="box" style={{ width: '100%' }}>
-        <p className="control-label mb-4">
+        <p className="control-label mb-4" style={{ color: primaryColor }}>
           {!isAuction && (
             <FormattedMessage
               id="crowdfunding.last.donations.list"
@@ -64,6 +65,7 @@ ContributesListBox.propTypes = {
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),
+  primaryColor: PropTypes.string,
 };
 
 ContributesListBox.defaultProps = {
