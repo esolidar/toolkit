@@ -86,6 +86,7 @@ export const isValidURL = (str) => {
 
 export const blinkElement = (elmId, className) => {
   const element = document.getElementById(elmId);
+  if (!isDefined(element)) return;
   element.classList.add(className);
   setTimeout(
     () => {
