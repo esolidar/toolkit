@@ -224,18 +224,23 @@ const AuctionDetail = ({
       setAuctionDetailInfo(newAuctionDetailInfo);
 
       const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
+
       if (!existBid) {
         const newBidData = {
           id: newBid.data.id,
           dateAdded: newBid.data.dateAdded,
           hidden: newBid.data.hidden,
           value: newBid.data.value,
-          user: {
-            name: newBid.data.user.name,
-            thumbs: newBid.data.user.thumbs,
-          },
+          user: null,
           blink: true,
         };
+
+        if (newBid.data.hidden === 0) {
+          newBidData.user = {
+            name: newBid.data.user.name,
+            thumbs: newBid.data.user.thumbs,
+          };
+        }
         setListUsersBid([newBidData, ...listUsersBid]);
       }
 
