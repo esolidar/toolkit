@@ -248,14 +248,6 @@ const AuctionAddForm = ({
     setForm((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleChangeFormStatus = (e) => {
-    const { name, value } = e.target;
-    setForm((prevState) => ({ ...prevState, [name]: value }));
-    if (value === '1') {
-      setForm((prevState) => ({ ...prevState, status: 'P' }));
-    }
-  };
-
   const handleTagBlur = () => {
     const { tagsArray } = form;
     form.tags = tagsArray.join();
@@ -315,7 +307,6 @@ const AuctionAddForm = ({
     setImagesCount(imagesCount + files.length);
     const companyId = company.id;
     setCropModalStatus(true);
-
     files.map((file) => {
       const data = {
         image: [file],
@@ -467,14 +458,14 @@ const AuctionAddForm = ({
                           defaultMessage: 'Show in eSoldiar.com',
                         })}
                         options={[{
-                          id: '0',
+                          id: 'no',
                           name: intl.formatMessage({
                             id: 'no',
                             defaultMessage: 'No',
                           }),
                         },
                         {
-                          id: '1',
+                          id: 'opened',
                           name: intl.formatMessage({
                             id: 'yes',
                             defaultMessage: 'Yes',
@@ -482,7 +473,7 @@ const AuctionAddForm = ({
                         }]}
                         value={form.esolidar_list}
                         field="esolidar_list"
-                        onChange={handleChangeFormStatus}
+                        onChange={handleChangeForm}
                         hiddenSelectText={true}
                       />
                     </Col>
@@ -540,7 +531,7 @@ const AuctionAddForm = ({
                       label={intl.formatMessage({ id: 'auctionEsolidarTax', defaultMessage: 'ESOLIDAR TAX' })}
                       onChange={() => { }}
                       error={errors.tax}
-                      value={form.tax}
+                      value={isEmpty(hasWhitelabel) ? form.tax : '0'}
                       field="tax"
                       type="number"
                       groupText="%"
@@ -975,7 +966,7 @@ const AuctionAddForm = ({
             <Row>
               <Col md={8} className="box-lbr text-center">
                 <Row>
-                  {(form.status === 'P' && form.esolidar_list === '1') && (
+                  {(isEmpty(hasWhitelabel)) && (
                     <Col sm={12} className="pb-5">
                       <span className="subtext">
                         <FormattedMessage
@@ -1078,7 +1069,7 @@ AuctionAddForm.propTypes = {
   institutionCategories: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
-      categories: PropTypes.object,
+      categories: PropTypes.array,
     }),
   }),
   institutions: PropTypes.shape({
