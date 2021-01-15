@@ -49,7 +49,7 @@ const AuctionDetailRigth = ({
           </Row>
           <Row>
             <Col>
-              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid" style={{ color: primaryColor }}>
+              <p className="control-label title-last-bid mb-2" id={`last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -66,7 +66,7 @@ const AuctionDetailRigth = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
+            <Col sm={12} className="txt-price-t" id={`last-bid-value-${auction.id}`} data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -98,7 +98,7 @@ const AuctionDetailRigth = ({
                   dataTestId="inputBid"
                   field="id"
                   className="bid-input"
-                  type="text"
+                  type="number"
                   onChange={valueBidTextField}
                   error={error}
                   value={inputBidValue}

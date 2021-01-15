@@ -11,6 +11,7 @@ const AuctionThumb = ({
   auction,
   primaryColor,
 }) => {
+  // const [blink, setBlink] = useState('last-bid-value text-right');
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
   const auctionEndDate = moment(auction.dateLimit, 'YYYY-MM-DD HH:mm').toDate();
   const supported = auction.recipient.institution ? auction.recipient.institution : auction.recipient.causes;
@@ -23,6 +24,17 @@ const AuctionThumb = ({
   } else {
     auctionTitle = auction.title;
   }
+
+  // useEffect(() => {
+  //   if (auction.blink) {
+  //     const elm = document.getElementById(`auction-${auction.id}`);
+  //     elm.classList.add('blink');
+  //     setTimeout(
+  //       () => elm.classList.remove('blink'),
+  //       3000,
+  //     );
+  //   }
+  // }, [auction]);
 
   return (
     <div className="auction-pin-box">
@@ -47,60 +59,60 @@ const AuctionThumb = ({
         </Col>
       </Row>
       {auction.private === 0 && (
-        <>
-          {+today < +auctionEndDate
-            && (
-              <Row className="last-bid">
-                <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
-                  {auction.last_bid && (
-                    <FormattedMessage
-                      id="homepage.toolsbox.charityAuctions.lastBid"
-                      defaultMessage="Last Bid"
-                    />
-                  )}
-                  {!auction.last_bid && (
-                    <FormattedMessage
-                      id="homepage.toolsbox.charityAuctions.startBid"
-                      defaultMessage="Starting Bid"
-                    />
-                  )}
-                </Col>
-                <Col xs={7} className={auction.blink ? 'last-bid-value text-right blink' : 'last-bid-value text-right'} style={{ color: primaryColor }}>
-                  {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
-                </Col>
-              </Row>
-            )}
-          {+today >= +auctionEndDate && (
+      <>
+        {+today < +auctionEndDate
+          && (
             <Row className="last-bid">
-              <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
-                <FormattedMessage
-                  id="homepage.toolsbox.charityAuctions.raised"
-                  defaultMessage="Raised"
-                />
+              <Col xs={5} className="last-bid-label" id={`last-bid-label-${auction.id}`} style={{ color: primaryColor }}>
+                {auction.last_bid && (
+                  <FormattedMessage
+                    id="homepage.toolsbox.charityAuctions.lastBid"
+                    defaultMessage="Last Bid"
+                  />
+                )}
+                {!auction.last_bid && (
+                  <FormattedMessage
+                    id="homepage.toolsbox.charityAuctions.startBid"
+                    defaultMessage="Starting Bid"
+                  />
+                )}
               </Col>
-              {auction.last_bid && (
-                <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
-                  {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
-                </Col>
-              )}
-              {!auction.last_bid && (
-                <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
-                  {convertToMyCurrency('0', auction.currency)}
-                </Col>
-              )}
+              <Col xs={7} className="last-bid-value text-right" id={`last-bid-value-${auction.id}`} style={{ color: primaryColor }}>
+                {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
+              </Col>
             </Row>
           )}
-        </>
+        {+today >= +auctionEndDate && (
+          <Row className="last-bid">
+            <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
+              <FormattedMessage
+                id="homepage.toolsbox.charityAuctions.raised"
+                defaultMessage="Raised"
+              />
+            </Col>
+            {auction.last_bid && (
+              <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
+                {convertToMyCurrency(auction.last_bid ? auction.last_bid.value : auction.bid_start, auction.currency)}
+              </Col>
+            )}
+            {!auction.last_bid && (
+              <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
+                {convertToMyCurrency('0', auction.currency)}
+              </Col>
+            )}
+          </Row>
+        )}
+      </>
       )}
       {auction.private === 1 && (
-        <Row className="last-bid">
-          <Col xs={12} className="text-center private">
-            <FormattedMessage
-              id="homepage.toolsbox.charityAuctions.private"
-              defaultMessage="PRIVATE AUCTION"
-            />
-          </Col>
-        </Row>
+      <Row className="last-bid">
+        <Col xs={12} className="text-center private">
+          <FormattedMessage
+            id="homepage.toolsbox.charityAuctions.private"
+            defaultMessage="PRIVATE AUCTION"
+          />
+        </Col>
+      </Row>
       )}
     </div>
   );
@@ -108,6 +120,7 @@ const AuctionThumb = ({
 
 AuctionThumb.propTypes = {
   auction: PropTypes.shape({
+    id: PropTypes.number,
     private: PropTypes.number,
     bid_start: PropTypes.number,
     currency: PropTypes.object,

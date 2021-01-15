@@ -2,7 +2,15 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin, isValidURL,
+  getEmployeeName,
+  addUrlParam,
+  removeUrlParam,
+  getUrlParam,
+  filterUnique,
+  convertToMyCurrency,
+  getLocalStorageAuctionPrivateCode,
+  isCompanyAdmin,
+  isValidURL,
 } from '../index';
 
 describe('test utils functions', () => {

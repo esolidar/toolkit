@@ -145,12 +145,12 @@
         color  : #000;
         opacity: 1;
       }
-  
+
       100% {
-        background-color: $mainColor;
+        color: $successColor;
       }
     }
-  
+
     .blink {
       -webkit-animation-name           : blink;
       -webkit-animation-duration       : 900ms;
@@ -181,9 +181,9 @@
   }
 
   .private {
-    color: $warningColor;
-    font-weight: bold;
-    font-size: 12px;
+    color         : $warningColor;
+    font-weight   : bold;
+    font-size     : 12px;
     text-transform: uppercase;
   }
 }

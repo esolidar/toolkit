@@ -83,3 +83,14 @@ export const isValidURL = (str) => {
     + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
   return !!pattern.test(str);
 };
+
+export const blinkElement = (elmId, className) => {
+  const elmLabel = document.getElementById(elmId);
+  elmLabel.classList.add(className);
+  setTimeout(
+    () => {
+      elmLabel.classList.remove(className);
+    },
+    1000,
+  );
+};

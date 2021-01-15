@@ -37,6 +37,10 @@
     color: $mainColor;
   }
 
+  .modal-content {
+    height: initial !important;
+  }
+
   h2 {
     color: $mainColor;
   }
@@ -77,7 +81,7 @@
     }
 
     100% {
-      background-color: $mainColor;
+      color: $successColor;
     }
   }
 
@@ -95,11 +99,11 @@
   }
 
   .readmore-button {
-    color: #04C7E5;
-    background: transparent;
-    border: none;
+    color          : #04C7E5;
+    background     : transparent;
+    border         : none;
     text-decoration: underline;
-    margin-bottom: 20px;
+    margin-bottom  : 20px;
   }
 
   .auction-supported {

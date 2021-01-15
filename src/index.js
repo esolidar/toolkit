@@ -73,7 +73,19 @@ export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage
 
 // Utils
 export {
-  getEmployeeName, isDefined, clone, firstElemOf, lastElemOf, addUrlParam, getUrlParam, removeUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin,
+  getEmployeeName,
+  isDefined,
+  clone,
+  firstElemOf,
+  lastElemOf,
+  addUrlParam,
+  getUrlParam,
+  removeUrlParam,
+  filterUnique,
+  convertToMyCurrency,
+  getLocalStorageAuctionPrivateCode,
+  isCompanyAdmin,
+  blinkElement,
 } from './utils';
 
 // Hooks

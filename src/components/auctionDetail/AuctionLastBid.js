@@ -27,7 +27,7 @@ const AuctionLastBid = ({
         <Col className="box sticky-top mb-5" style={{ width: '100%', marginTop: '90px' }}>
           <Row>
             <Col>
-              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid" style={{ color: primaryColor }}>
+              <p className="control-label title-last-bid mb-2" id={`auction-last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -44,7 +44,7 @@ const AuctionLastBid = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
+            <Col sm={12} className="txt-price-t" id={`auction-last-bid-value-${auction.id}`} data-testid="value-last-bid">
               <FormattedNumber
                 value={lastBid}
                 style="currency"
@@ -64,7 +64,7 @@ const AuctionLastBid = ({
                 <TextField
                   dataTestId="bid-input"
                   className="bid-input"
-                  type="text"
+                  type="number"
                   onChange={valueBidTextField}
                   error={error}
                   value={inputBidValue}
@@ -150,6 +150,7 @@ const AuctionLastBid = ({
 
 AuctionLastBid.propTypes = {
   auction: PropTypes.shape({
+    id: PropTypes.number,
     bid_start: PropTypes.number,
     last_bid: PropTypes.shape({
       value: PropTypes.number,
