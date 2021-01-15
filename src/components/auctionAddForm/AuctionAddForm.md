@@ -10,16 +10,13 @@ import { AuctionAddForm } from '@esolidar/toolkit';
 ``` jsx
 <AuctionAddForm
   loadingPage={false}
-  action='edit'
-  timeZones= {[]}
-  showInstitutions={true}
-  showProjects={false}
-  getInstitutions={()=>{}}
-  getProjectsList={()=>{}}
-  getInstitutionCategories={()=>{}}
-  removeInstitutionSelected={()=>{}}
-  primaryColor="red"
-  institutions={{
+  action={null}
+  intl={{
+    formatMessage: () => 'some text',
+  }}
+  timeZones={[]}
+  getInstitutions={() => {}}
+    institutions={{
     code: 200,
     data: {
       institutions: {
@@ -56,8 +53,36 @@ import { AuctionAddForm } from '@esolidar/toolkit';
       }
     }
   }}
-  institutionCategories={null}
+  showInstitutions={true}
+  showProjects={false}
+  showBrands={true}
+  showPrivate={true}
   projectsList={{}}
+  getInstitutionCategories={() => {}}
+  institutionCategories={{}}
+  getProjectsList={() => {}}
+  getBrandsList={() => {}}
+  postUploadImage={() => {}}
+  addImages={() => {}}
+  postAuction={() => {}}
+  addAuction={() => {}}
+  postAuctionDeleteImage={() => {}}
+  brands={{}}
+  returnUrl="/"
+  userRole="company"
+  subscription={[
+    {
+      created_at: "2019-10-25 10:08:39",
+      description: null,
+      description_en: null,
+      id: 7,
+      name: "whitelabel",
+      name_en: null,
+      pivot: {subscription_id: 1, feature_id: 7, hide: 0},
+      status: true,
+      updated_at: "2019-10-28 17:05:13",
+    }
+  ]}
 />
 
 ```

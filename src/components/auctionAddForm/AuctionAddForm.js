@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
@@ -27,6 +28,12 @@ import { isEmpty } from '../../utils';
 registerLocale('pt', pt);
 registerLocale('en', en);
 
+/**
+ * Auction add form.
+ *
+ * @visibleName Auction add form
+ */
+
 const AuctionAddForm = ({
   loadingPage,
   action,
@@ -51,14 +58,21 @@ const AuctionAddForm = ({
   addAuction,
   postAuctionDeleteImage,
   returnUrl,
+  userRole,
+  subscription,
 }) => {
+  const company = JSON.parse(localStorage[userRole] || '{}');
+  const hasWhitelabel = subscription.find((item) => item.name === 'whitelabel') || {};
+  const hasProjects = subscription.find((item) => item.name === 'projects') || {};
+
   const [form, setForm] = useState({
+    esolidar_list: '0',
     title: '',
     bid_start: '',
     description: '',
     bid_interval: '1',
     bid_max_interval: '100',
-    tax: JSON.parse(localStorage.company).country.auction_tax * 100,
+    tax: !isEmpty(company) ? company.country.auction_tax * 100 : 10,
     acquisition_value: '0',
     status: 'P',
     private: '0',
@@ -76,7 +90,7 @@ const AuctionAddForm = ({
     projectIds: [],
     user_id: '',
     timezone: moment.tz.guess(),
-    currency_id: JSON.parse(localStorage.company).currency_id,
+    currency_id: !isEmpty(company) ? company.currency_id : 1,
     position: '1',
   });
   const [pagination, setPagination] = useState(
@@ -104,13 +118,13 @@ const AuctionAddForm = ({
       getInstitutions(pagination.activePage, institutionCategory, institutionSearch);
       getInstitutionCategories();
     }
-    if (showProjects) {
-      const whitelabelConfig = JSON.parse(localStorage.company).whitelabel;
+    if (showProjects && hasProjects) {
+      const whitelabelConfig = company.whitelabel;
       getProjectsList(whitelabelConfig.id, 1, 'APPROVED', undefined, undefined, []);
     }
 
     if (showBrands) {
-      const companyId = JSON.parse(localStorage.company).id;
+      const companyId = company.id;
       getBrandsList(companyId);
     }
   }, []);
@@ -196,7 +210,7 @@ const AuctionAddForm = ({
       setForm((prevState) => ({ ...prevState, images }));
       setCropModalStatus(false);
     } else if (addImages && addImages.status === 400) {
-      debugger;
+      // debugger;
     }
   }, [addImages]);
 
@@ -232,6 +246,14 @@ const AuctionAddForm = ({
   const handleChangeForm = (e) => {
     const { name, value } = e.target;
     setForm((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleChangeFormStatus = (e) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({ ...prevState, [name]: value }));
+    if (value === '1') {
+      setForm((prevState) => ({ ...prevState, status: 'P' }));
+    }
   };
 
   const handleTagBlur = () => {
@@ -291,7 +313,7 @@ const AuctionAddForm = ({
 
   const handleSelectImage = (files) => {
     setImagesCount(imagesCount + files.length);
-    const companyId = JSON.parse(localStorage.company).id;
+    const companyId = company.id;
     setCropModalStatus(true);
 
     files.map((file) => {
@@ -306,7 +328,7 @@ const AuctionAddForm = ({
   };
 
   const handleDeleteImage = (e, idx) => {
-    const companyId = JSON.parse(localStorage.company).id;
+    const companyId = company.id;
     postAuctionDeleteImage(companyId, e.target.dataset.imageId);
 
     imagesList.splice(idx, 1);
@@ -332,7 +354,6 @@ const AuctionAddForm = ({
     data.showBrands = showBrands;
 
     const { errors, isValid } = validateAuctionForm(data);
-    console.log('errors', errors, 'isValid', isValid);
     if (!isValid) {
       setErrors(errors);
       setTimeout(() => {
@@ -350,7 +371,7 @@ const AuctionAddForm = ({
 
   const onSubmit = () => {
     if (isValid()) {
-      const companyId = JSON.parse(localStorage.company).id;
+      const companyId = company.id;
       setDisabled(true);
       postAuction(form, companyId);
     }
@@ -409,7 +430,66 @@ const AuctionAddForm = ({
                       />
                     </h3>
                   </Col>
-                  <Col sm={8}>
+                </Row>
+                {(!isEmpty(hasWhitelabel) && userRole === 'company') && (
+                  <Row>
+                    <Col sm={4}>
+                      <SelectField
+                        label={intl.formatMessage({
+                          id: 'auctions.status',
+                          defaultMessage: 'Auction status',
+                        })}
+                        options={[{
+                          id: 'P',
+                          name: intl.formatMessage({
+                            id: 'pending',
+                            defaultMessage: 'Pending',
+                          }),
+                        },
+                        {
+                          id: 'A',
+                          name: intl.formatMessage({
+                            id: 'active',
+                            defaultMessage: 'Active',
+                          }),
+                        }]}
+                        value={form.status}
+                        field="status"
+                        onChange={handleChangeForm}
+                        hiddenSelectText={true}
+                        disabled={form.esolidar_list === '1'}
+                      />
+                    </Col>
+                    <Col sm={4}>
+                      <SelectField
+                        label={intl.formatMessage({
+                          id: 'auctions.status',
+                          defaultMessage: 'Show in eSoldiar.com',
+                        })}
+                        options={[{
+                          id: '0',
+                          name: intl.formatMessage({
+                            id: 'no',
+                            defaultMessage: 'No',
+                          }),
+                        },
+                        {
+                          id: '1',
+                          name: intl.formatMessage({
+                            id: 'yes',
+                            defaultMessage: 'Yes',
+                          }),
+                        }]}
+                        value={form.esolidar_list}
+                        field="esolidar_list"
+                        onChange={handleChangeFormStatus}
+                        hiddenSelectText={true}
+                      />
+                    </Col>
+                  </Row>
+                )}
+                <Row>
+                  <Col sm={12}>
                     <TextField
                       label={intl.formatMessage({ id: 'auctionTitle', defaultMessage: 'AUCTION TITLE' })}
                       onChange={(e) => handleChangeForm(e)}
@@ -417,33 +497,6 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="auctionTitle"
-                    />
-                  </Col>
-                  <Col sm={4}>
-                    <SelectField
-                      label={intl.formatMessage({
-                        id: 'auctions.status',
-                        defaultMessage: 'Auction status',
-                      })}
-                      options={[{
-                        id: 'P',
-                        name: intl.formatMessage({
-                          id: 'pending',
-                          defaultMessage: 'Pending',
-                        }),
-                      },
-                      {
-                        id: 'A',
-                        name: intl.formatMessage({
-                          id: 'active',
-                          defaultMessage: 'Active',
-                        }),
-                      }]}
-                      value={form.status}
-                      field="status"
-                      onChange={handleChangeForm}
-                      hiddenSelectText={true}
-                      disabled={true}
                     />
                   </Col>
                   <Col sm={3}>
@@ -455,7 +508,7 @@ const AuctionAddForm = ({
                       field="bid_start"
                       placeholder="0.00"
                       type="number"
-                      groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
                     />
                   </Col>
                   <Col sm={3}>
@@ -467,7 +520,7 @@ const AuctionAddForm = ({
                       field="bid_interval"
                       placeholder="0.00"
                       type="number"
-                      groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
                     />
                   </Col>
                   <Col sm={3}>
@@ -479,7 +532,7 @@ const AuctionAddForm = ({
                       field="bid_max_interval"
                       placeholder="0.00"
                       type="number"
-                      groupText={localStorage.npo ? JSON.parse(localStorage.npo).currency.symbol : '€'}
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
                     />
                   </Col>
                   <Col sm={3}>
@@ -502,16 +555,14 @@ const AuctionAddForm = ({
                           defaultMessage="Keywords"
                         />
                       </label>
-                      <div className="tabs-box">
-                        <ReactTags
-                          tags={form.tagsObj}
-                          handleInputBlur={handleTagBlur}
-                          delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
-                          handleDelete={handleDelete}
-                          placeholder="Tags"
-                          handleAddition={handleAddition}
-                        />
-                      </div>
+                      <ReactTags
+                        tags={form.tagsObj}
+                        handleInputBlur={handleTagBlur}
+                        delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
+                        handleDelete={handleDelete}
+                        placeholder="Tags"
+                        handleAddition={handleAddition}
+                      />
                     </div>
                   </Col>
                   <Col sm={12}>
@@ -564,6 +615,22 @@ const AuctionAddForm = ({
                           defaultMessage="Help"
                         />
                       </h4>
+                      {(!isEmpty(hasWhitelabel) && userRole === 'company') && (
+                        <>
+                          <div className="header">
+                            <FormattedMessage
+                              id="Auctions.add.question0"
+                              defaultMessage="SHOW IN ESOLIDAR.COM"
+                            />
+                          </div>
+                          <div className="text mb-5">
+                            <FormattedMessage
+                              id="Auctions.add.answer0"
+                              defaultMessage="The auction can also appear on the eSolidar.com community website. To do so choose the Yes option in the Show in eSolidar.com field. If you activate this feature, the auction will be pending approval by the eSolidar team. Once the auction is approved, you will receive a notification/email."
+                            />
+                          </div>
+                        </>
+                      )}
                       <div className="header">
                         <FormattedMessage
                           id="Auctions.add.question1"
@@ -860,7 +927,7 @@ const AuctionAddForm = ({
                 </Col>
               </Row>
             )}
-            {showProjects && (
+            {(showProjects && hasProjects) && (
               <Row>
                 <Col md={8} className="box-lr">
                   <Row>
@@ -908,14 +975,16 @@ const AuctionAddForm = ({
             <Row>
               <Col md={8} className="box-lbr text-center">
                 <Row>
-                  <Col sm={12}>
-                    <span className="subtext">
-                      <FormattedMessage
-                        id="auction.add.submit.text"
-                        defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
-                      />
-                    </span>
-                  </Col>
+                  {(form.status === 'P' && form.esolidar_list === '1') && (
+                    <Col sm={12} className="pb-5">
+                      <span className="subtext">
+                        <FormattedMessage
+                          id="auction.add.submit.text"
+                          defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
+                        />
+                      </span>
+                    </Col>
+                  )}
                   <Col sm={12}>
                     {action === null && (
                       <Button
@@ -956,30 +1025,60 @@ const AuctionAddForm = ({
 };
 
 AuctionAddForm.propTypes = {
+  /**
+   * The action for the form 'null', 'edit' or 'clone'
+  */
   action: PropTypes.string,
+  /**
+   * The response from the API when post the form
+  */
   addAuction: PropTypes.shape({
     code: PropTypes.number,
-    data: PropTypes.any,
+    data: PropTypes.object,
   }),
+  /**
+   * The response from the API when post the images
+  */
   addImages: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
-      images: PropTypes.any,
+      images: PropTypes.object,
     }),
     status: PropTypes.number,
   }),
+  /**
+   * The response from the API when get brands
+  */
   brands: PropTypes.shape({
     code: PropTypes.number,
-    data: PropTypes.any,
+    data: PropTypes.object,
   }),
+  /**
+   * Action to get brands list
+  */
   getBrandsList: PropTypes.func,
+  /**
+   * Action to get Institution Categories list
+  */
   getInstitutionCategories: PropTypes.func,
+  /**
+   * Action to get Institution list
+  */
   getInstitutions: PropTypes.func,
+  /**
+   * Action to get Projects list (whitelabelId, page, status, categotyId, title, projectOds = [])
+   * @param {number} whitelabelId
+   * @param {number} page
+   * @param {string} status
+   * @param {number} categotyId
+   * @param {string} title
+   * @param {array} projectOds
+  */
   getProjectsList: PropTypes.func,
   institutionCategories: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
-      categories: PropTypes.any,
+      categories: PropTypes.object,
     }),
   }),
   institutions: PropTypes.shape({
@@ -993,6 +1092,9 @@ AuctionAddForm.propTypes = {
       }),
     }),
   }),
+  /**
+   * @ignore
+  */
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
@@ -1004,7 +1106,7 @@ AuctionAddForm.propTypes = {
   projectsList: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
-      data: PropTypes.any,
+      data: PropTypes.object,
     }),
   }),
   showBrands: PropTypes.bool,
@@ -1013,6 +1115,8 @@ AuctionAddForm.propTypes = {
   showProjects: PropTypes.bool,
   timeZones: PropTypes.array,
   returnUrl: PropTypes.string,
+  userRole: PropTypes.oneOf(['user', 'company']),
+  subscription: PropTypes.array,
 };
 
 export default injectIntl(AuctionAddForm);
