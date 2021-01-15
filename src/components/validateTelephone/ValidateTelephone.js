@@ -28,8 +28,9 @@ const ValidateTelephone = ({
       setShowVerifyCode(true);
       setErrors(false);
     } else if (validatePhone && validatePhone.status === 400) {
+      setVerified(0);
       setErrors(true);
-      setIsLoading(true);
+      setIsLoading(false);
     }
   }, [validatePhone]);
 
@@ -125,28 +126,27 @@ const ValidateTelephone = ({
         </Col>
         {verified === 0
           && (
-            <div className="col-sm-4">
-              <button
-                type="button"
-                onClick={mobileValidate}
-                disabled={isLoading}
-                className="btn btn-validate-phone"
-              >
+            <>
+              <div className="col-sm-4">
+                <button
+                  type="button"
+                  onClick={mobileValidate}
+                  disabled={isLoading}
+                  className="btn btn-validate-phone"
+                >
+                  <FormattedMessage
+                    id="user.settings.btn.validate.phone"
+                    defaultMessage="Validate"
+                  />
+                </button>
+              </div>
+              <div className="col-sm-12 sms-message">
                 <FormattedMessage
-                  id="user.settings.btn.validate.phone"
-                  defaultMessage="Validate"
+                  id="user.settings.validate.phone.sms.message"
+                  defaultMessage="You will receive an SMS with the validation code"
                 />
-              </button>
-            </div>
-          )}
-        {verified === 0
-          && (
-            <div className="col-sm-12 sms-message">
-              <FormattedMessage
-                id="user.settings.validate.phone.sms.message"
-                defaultMessage="You will receive an SMS with the validation code"
-              />
-            </div>
+              </div>
+            </>
           )}
         <div className="col-sm-12 sms-message">
           <FormattedMessage
