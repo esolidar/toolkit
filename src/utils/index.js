@@ -85,11 +85,11 @@ export const isValidURL = (str) => {
 };
 
 export const blinkElement = (elmId, className) => {
-  const elmLabel = document.getElementById(elmId);
-  elmLabel.classList.add(className);
+  const element = document.getElementById(elmId);
+  element.classList.add(className);
   setTimeout(
     () => {
-      elmLabel.classList.remove(className);
+      element.classList.remove(className);
     },
     1000,
   );
