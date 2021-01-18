@@ -1,6 +1,8 @@
 /* global expect */
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
+import '@testing-library/jest-dom';
+import { screen, waitFor } from '@testing-library/react';
 import {
   getEmployeeName,
   addUrlParam,
@@ -12,6 +14,7 @@ import {
   isCompanyAdmin,
   isValidURL,
   isEmpty,
+  blinkElement,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -220,5 +223,15 @@ describe('test utils functions', () => {
     expect(isEmpty(objectNotEmpty)).toBe(false);
     expect(isEmpty(arrayEmpty)).toBe(true);
     expect(isEmpty(arrayNotEmpty)).toBe(false);
+  });
+
+  test('should have class blink and then remove class blink', async () => {
+    document.body.innerHTML = '<div data-testid="text-id" id="text"></div>';
+    blinkElement('text', 'blink');
+    const wrapper = screen.getByTestId('text-id');
+    expect(wrapper).toHaveClass('blink');
+    await waitFor(() => {
+      expect(wrapper).not.toHaveClass('blink');
+    });
   });
 });

@@ -24,6 +24,7 @@ const props = {
   getStripeCreditCardlist: fx,
   postStripeCreditCard: fx,
   requireLogin: fx,
+  showAlert: fx,
   auctionDetail: {
     code: 200,
     data: {
@@ -366,6 +367,15 @@ const props = {
       auction_24h_end: 1,
     },
   },
+  auctionSubscribe: {
+    code: 200,
+  },
+  deleteComment: {
+    code: 200,
+  },
+  confirmPhone: {
+    code: 200,
+  },
 };
 
 const propsAuctionPrivate = {
@@ -378,6 +388,7 @@ const propsAuctionPrivate = {
   getStripeCreditCardlist: fx,
   postStripeCreditCard: fx,
   requireLogin: fx,
+  showAlert: fx,
   auctionDetail: {
     data: {
       code: 403,
@@ -422,6 +433,15 @@ const propsAuctionPrivate = {
       auction_first_bid: 0,
       auction_24h_end: 1,
     },
+  },
+  auctionSubscribe: {
+    code: 200,
+  },
+  deleteComment: {
+    code: 200,
+  },
+  confirmPhone: {
+    code: 200,
   },
 };
 

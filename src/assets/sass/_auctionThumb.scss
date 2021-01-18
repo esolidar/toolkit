@@ -123,7 +123,7 @@
 
     .last-bid-label {
       font-weight   : bold;
-      font-size     : 12px;
+      font-size     : 11px;
       color         : #05C6E5;
       line-height   : 40px;
       text-transform: uppercase;
@@ -131,7 +131,7 @@
     }
 
     .last-bid-value {
-      font-size  : 25px;
+      font-size  : 21px;
       color      : #05C6E5;
       line-height: 43px;
 
@@ -145,12 +145,12 @@
         color  : #000;
         opacity: 1;
       }
-  
+
       100% {
-        background-color: $mainColor;
+        color: $successColor;
       }
     }
-  
+
     .blink {
       -webkit-animation-name           : blink;
       -webkit-animation-duration       : 900ms;
@@ -181,6 +181,9 @@
   }
 
   .private {
-    color: $warningColor;
+    color         : $warningColor;
+    font-weight   : bold;
+    font-size     : 12px;
+    text-transform: uppercase;
   }
 }

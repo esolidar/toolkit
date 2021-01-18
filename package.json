@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.26.1",
+  "version": "1.26.11",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -165,6 +165,7 @@
     "react-select-async-paginate": "^0.3.14",
     "react-share": "^4.1.0",
     "react-slick": "^0.26.1",
+    "react-sticky-el": "^2.0.5",
     "react-stripe-elements": "^6.1.2",
     "react-styleguidist": "^10.3.2",
     "react-switch": "^5.0.1",

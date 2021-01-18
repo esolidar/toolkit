@@ -24,7 +24,8 @@
 }
 
 .auction-modal-bid,
-.auction-modal-subscribe {
+.auction-modal-subscribe,
+.auction-modal-comment-delete {
 
   .modal-body {
     @media(max-width: 425px) {
@@ -34,6 +35,10 @@
 
   .modal-title {
     color: $mainColor;
+  }
+
+  .modal-content {
+    height: initial !important;
   }
 
   h2 {
@@ -61,6 +66,14 @@
 
 .auction-detail {
 
+  .title-last-bid {
+    color: $mainColor;
+  }
+
+  .sticky-sidebar {
+    z-index: 9;
+  }
+
   @-webkit-keyframes blink {
     0% {
       color  : #000;
@@ -68,7 +81,7 @@
     }
 
     100% {
-      background-color: $mainColor;
+      color: $successColor;
     }
   }
 
@@ -86,7 +99,11 @@
   }
 
   .readmore-button {
-    display: none;
+    color          : #04C7E5;
+    background     : transparent;
+    border         : none;
+    text-decoration: underline;
+    margin-bottom  : 20px;
   }
 
   .auction-supported {
@@ -461,7 +478,6 @@
     padding      : 30px 70px;
 
     @media (max-width: 425px) {
-      margin : 15px;
       padding: 15px 15px;
     }
 

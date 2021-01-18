@@ -85,3 +85,15 @@ export const isValidURL = (str) => {
 };
 
 export const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+export const blinkElement = (elmId, className) => {
+  const element = document.getElementById(elmId);
+  if (!isDefined(element)) return;
+  element.classList.add(className);
+  setTimeout(
+    () => {
+      element.classList.remove(className);
+    },
+    1000,
+  );
+};
