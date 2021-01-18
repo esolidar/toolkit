@@ -165,7 +165,10 @@ InstitutionListSelect.propTypes = {
     totalItemsCount: PropTypes.number.isRequired,
   }),
   isLoading: PropTypes.bool,
-  user_id: PropTypes.number,
+  user_id: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   removeInstitutionSelected: PropTypes.func,
 };
 

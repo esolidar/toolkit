@@ -72,8 +72,11 @@ test('simulate add auction form', async () => {
   await waitFor(() => {
     const auctionInformation = screen.getByTestId('auction-information');
     const btnSubmit = screen.getByTestId('btn-submit');
+    const selectProjects = screen.getByTestId('select-projects');
     expect(auctionInformation).toBeInTheDocument();
     expect(auctionInformation).toHaveTextContent('Auction information');
     expect(btnSubmit).toHaveTextContent('Submit auction');
+    expect(selectProjects).toBeInTheDocument();
+    expect(selectProjects).toHaveTextContent('Select one project');
   });
 });

@@ -60,11 +60,13 @@ const AuctionAddForm = ({
   returnUrl,
   userRole,
   subscription,
+  auctionId,
+  auctionDetail,
+  getAuctionDetail,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find((item) => item.name === 'whitelabel') || {};
   const hasProjects = subscription.find((item) => item.name === 'projects') || {};
-
   const [form, setForm] = useState({
     esolidar_list: '0',
     title: '',
@@ -72,7 +74,7 @@ const AuctionAddForm = ({
     description: '',
     bid_interval: '1',
     bid_max_interval: '100',
-    tax: !isEmpty(company) ? company.country.auction_tax * 100 : 10,
+    tax: isEmpty(hasWhitelabel) ? company.country.auction_tax * 100 : 0,
     acquisition_value: '0',
     status: 'P',
     private: '0',
@@ -83,7 +85,6 @@ const AuctionAddForm = ({
     video: '',
     startDate: '',
     endDate: '',
-    timeZone: '',
     tags: '',
     tagsObj: [],
     tagsArray: [],
@@ -114,6 +115,9 @@ const AuctionAddForm = ({
   const [cropModalStatus, setCropModalStatus] = useState(false);
 
   useEffect(() => {
+    if (auctionId) {
+      getAuctionDetail(company.id, auctionId);
+    }
     if (showInstitutions) {
       getInstitutions(pagination.activePage, institutionCategory, institutionSearch);
       getInstitutionCategories();
@@ -165,6 +169,14 @@ const AuctionAddForm = ({
       setBrandsList(data);
     }
   }, [brands]);
+
+  // Auction detail
+  useEffect(() => {
+    if (auctionDetail && auctionDetail.code === 200) {
+      const { data } = auctionDetail;
+      setForm((prevState) => ({ ...prevState, data }));
+    }
+  }, [auctionDetail]);
 
   // add Auction
   useEffect(() => {
@@ -295,7 +307,7 @@ const AuctionAddForm = ({
     const isSelected = projectIds.filter((o) => o === id).length;
     let arrayProjects = projectIds;
     if (isSelected === 0) {
-      arrayProjects = [...arrayProjects, id];
+      arrayProjects = [id];
     } else {
       arrayProjects.splice(projectIds.findIndex((o) => o === id), 1);
     }
@@ -364,7 +376,37 @@ const AuctionAddForm = ({
     if (isValid()) {
       const companyId = company.id;
       setDisabled(true);
-      postAuction(form, companyId);
+      const data = {
+        acquisition_value: form.acquisition_value,
+        bid_interval: form.bid_interval,
+        bid_max_interval: form.bid_max_interval,
+        bid_start: form.bid_start,
+        brand_id: form.brand_id,
+        currency_id: form.currency_id,
+        dateLimit: form.dateLimit,
+        dateStart: form.dateStart,
+        description: form.description,
+        esolidar_list: form.esolidar_list,
+        images: form.images,
+        payment_description: form.payment_description,
+        position: form.position,
+        private: form.private,
+        private_code: form.private_code,
+        shipping_description: form.shipping_description,
+        status: form.status,
+        tags: form.tags,
+        tax: form.tax,
+        timezone: form.timezone,
+        title: form.title,
+        user_id: form.user_id,
+        video: form.video,
+      };
+
+      if (!isEmpty(form.projectIds)) {
+        data.project_id = form.projectIds.join();
+      }
+
+      postAuction(data, companyId);
     }
   };
 
@@ -448,13 +490,12 @@ const AuctionAddForm = ({
                         field="status"
                         onChange={handleChangeForm}
                         hiddenSelectText={true}
-                        disabled={form.esolidar_list === '1'}
                       />
                     </Col>
                     <Col sm={4}>
                       <SelectField
                         label={intl.formatMessage({
-                          id: 'auctions.status',
+                          id: 'auctions.show.esolidar',
                           defaultMessage: 'Show in eSoldiar.com',
                         })}
                         options={[{
@@ -925,8 +966,8 @@ const AuctionAddForm = ({
                     <Col sm={12}>
                       <h3 style={{ color: primaryColor, borderColor: primaryColor }} data-testid="select-projects">
                         <FormattedMessage
-                          id="crowdfunding.select.projects"
-                          defaultMessage="Select one or more projects"
+                          id="crowdfunding.select.project"
+                          defaultMessage="Select one project"
                         />
                       </h3>
                     </Col>
@@ -1042,7 +1083,7 @@ AuctionAddForm.propTypes = {
   */
   brands: PropTypes.shape({
     code: PropTypes.number,
-    data: PropTypes.object,
+    data: PropTypes.array,
   }),
   /**
    * Action to get brands list
@@ -1077,7 +1118,7 @@ AuctionAddForm.propTypes = {
     data: PropTypes.shape({
       institutions: PropTypes.shape({
         current_page: PropTypes.number,
-        data: PropTypes.object,
+        data: PropTypes.array,
         per_page: PropTypes.number,
         total: PropTypes.number,
       }),
@@ -1097,7 +1138,7 @@ AuctionAddForm.propTypes = {
   projectsList: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.shape({
-      data: PropTypes.object,
+      data: PropTypes.array,
     }),
   }),
   showBrands: PropTypes.bool,
@@ -1108,6 +1149,12 @@ AuctionAddForm.propTypes = {
   returnUrl: PropTypes.string,
   userRole: PropTypes.oneOf(['user', 'company']),
   subscription: PropTypes.array,
+  auctionId: PropTypes.string,
+  getAuctionDetail: PropTypes.func,
+  auctionDetail: PropTypes.shape({
+    code: PropTypes.number,
+    data: PropTypes.object,
+  }),
 };
 
 export default injectIntl(AuctionAddForm);
