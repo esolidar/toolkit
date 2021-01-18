@@ -13,6 +13,7 @@ import {
   getLocalStorageAuctionPrivateCode,
   isCompanyAdmin,
   isValidURL,
+  isEmpty,
   blinkElement,
 } from '../index';
 
@@ -211,6 +212,17 @@ describe('test utils functions', () => {
     expect(isValidURL('https://www.esolidar.com')).toBe(true);
     expect(isValidURL('esolidar.com')).toBe(true);
     expect(isValidURL('esolidar')).toBe(false);
+  });
+
+  test('return object empty true or false', () => {
+    const objectEmpty = {};
+    const objectNotEmpty = { id: 1, name: 'name' };
+    const arrayEmpty = [];
+    const arrayNotEmpty = [1, 2];
+    expect(isEmpty(objectEmpty)).toBe(true);
+    expect(isEmpty(objectNotEmpty)).toBe(false);
+    expect(isEmpty(arrayEmpty)).toBe(true);
+    expect(isEmpty(arrayNotEmpty)).toBe(false);
   });
 
   test('should have class blink and then remove class blink', async () => {

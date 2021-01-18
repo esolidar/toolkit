@@ -84,6 +84,8 @@ export const isValidURL = (str) => {
   return !!pattern.test(str);
 };
 
+export const isEmpty = (obj) => Object.keys(obj).length === 0;
+
 export const blinkElement = (elmId, className) => {
   const element = document.getElementById(elmId);
   if (!isDefined(element)) return;

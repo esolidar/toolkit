@@ -28,7 +28,7 @@ module.exports = {
     {
       name: 'Components',
       components: 'src/components/**/*.js',
-      ignore: ['src/components/icon/Icon.js', 'src/components/draftEditor/draft/*'],
+      ignore: ['src/components/icon/Icon.js', 'src/components/draftEditor/draft/*', 'src/components/auctionAddForm/validations.js'],
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },
