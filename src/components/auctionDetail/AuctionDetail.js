@@ -140,6 +140,8 @@ const AuctionDetail = ({
   const [hasNotifications, setHasNotifications] = useState(localStorage.user ? JSON.parse(localStorage.user).notifications : 0);
   const [value, setValue] = useState('');
 
+  const [bid, setBid] = useState('');
+
   const perPage = 5;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
@@ -219,8 +221,6 @@ const AuctionDetail = ({
         };
       }
 
-      if (!hasNotifications && isCheckedNotifications) postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
-
       setAuctionDetailInfo(newAuctionDetailInfo);
 
       const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
@@ -247,6 +247,7 @@ const AuctionDetail = ({
       setHasSubmitModalBid(false);
       setLastFour(null);
       setValueBid('');
+      setHasCardSelected(false);
 
       showAlert({
         alertBox: {
@@ -414,6 +415,7 @@ const AuctionDetail = ({
       userLocalStorage.notifications = user.notifications;
       localStorage.setItem('user', JSON.stringify(userLocalStorage));
       setHasNotifications(1);
+      if (hasNotifications === 0 && isCheckedNotifications) postNewBid(bid, auctionDetailInfo.id);
     }
   }, [updatedUser]);
 
@@ -564,8 +566,9 @@ const AuctionDetail = ({
       setIsErrorSelectCard(true);
       return;
     }
+    if (auctionDetailInfo.cc === 1 && hasCardSelected) setIsErrorSelectCard(false);
 
-    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !isErrorSelectCard)) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !hasCardSelected)) return;
 
     const bid = {
       value: +valueBid,
@@ -575,7 +578,13 @@ const AuctionDetail = ({
 
     if (auctionDetailInfo.cc === 1) bid.last4 = lastFour;
 
-    postNewBid(bid, auctionDetailInfo.id);
+    if (hasNotifications === 0 && isCheckedNotifications) {
+      setBid(bid);
+      postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
+    } else {
+      postNewBid(bid, auctionDetailInfo.id);
+    }
+
     setIsConfirmBid(true);
     setValue('');
   };
@@ -700,6 +709,7 @@ const AuctionDetail = ({
     setIsErrorSelectCard(false);
     setHasSubmitModalBid(false);
     setIsConfirmBid(false);
+    setHasCardSelected(false);
     setLastFour('');
     setValue('');
   };
