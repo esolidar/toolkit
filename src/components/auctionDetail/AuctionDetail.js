@@ -565,7 +565,7 @@ const AuctionDetail = ({
       return;
     }
 
-    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !isErrorSelectCard)) return;
 
     const bid = {
       value: +valueBid,
