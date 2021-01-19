@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import Cropper from 'react-cropper';
 import Loading from '../../components/loading/Loading';
+import CustomModal from '../customModal/CustomModal';
+import Button from '../../components/button/Button';
 import { lastElemOf } from '../../utils/index';
+
+const cropper = createRef(null);
 
 const DropZoneBox = ({
   accept,
@@ -24,9 +29,21 @@ const DropZoneBox = ({
   imagesPreviewPosition,
   deleteImageGallery,
   intl,
+  hasCropper,
+  cropModalStatus,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
+  const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
+  const [croppedFile, setCroppedFile] = useState(null);
+  const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+
+  useEffect(() => {
+    if (!cropModalStatus) {
+      setCropperModal(cropModalStatus);
+      setDisableCroppedImage(false);
+    }
+  }, [cropModalStatus]);
 
   const wait = (delay, ...args) => new Promise((resolve) => setTimeout(resolve, delay, ...args));
 
@@ -57,7 +74,17 @@ const DropZoneBox = ({
     { id: 'extensionError', message: intl.formatMessage({ id: 'document.files.modal.error.extension', defaultMessage: 'extension not allowed ' }) },
     { id: 'maxSizeError', message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMax', defaultMessage: 'size larger than ' }) },
     { id: 'minSizeError', message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMin', defaultMessage: 'size less than ' }) },
+    {
+      id: 'dimensions',
+      message: intl.formatMessage({ id: 'document.files.modal.error.dimensions', defaultMessage: 'The image should be at least {width}px by {height}px.' }, {
+        width: hasCropper ? hasCropper.minWidth : 0, height: hasCropper ? hasCropper.minHeight : 0,
+      }),
+    },
   ];
+
+  const toggleModalCropper = () => {
+    setCropperModal(false);
+  };
 
   const { getRootProps, getInputProps, open } = useDropzone({
     accept,
@@ -85,11 +112,23 @@ const DropZoneBox = ({
       setIsLoading(false);
     },
     onDropAccepted: async (acceptedFiles) => {
-      onSelect(
-        acceptedFiles.map((file) => Object.assign(file, {
-          preview: URL.createObjectURL(file),
-        })),
-      );
+      if (hasCropper && hasCropper.showCropper) {
+        const reader = new FileReader();
+        const file = acceptedFiles[0];
+
+        reader.onloadend = () => {
+          setCroppedFile(reader.result);
+        };
+
+        reader.readAsDataURL(file);
+        setCropperModal(true);
+      } else {
+        onSelect(
+          acceptedFiles.map((file) => Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })),
+        );
+      }
     },
     onDropRejected: async (rejectedFiles) => {
       const fileExtensionOf = (extension) => lastElemOf(extension.split('.')).toLowerCase();
@@ -112,6 +151,10 @@ const DropZoneBox = ({
       setErrorList(onDropErrorFileList);
     },
   });
+
+  const handleSubmitCroppedImage = (blob) => {
+    onSelect([blob]);
+  };
 
   return (
     <div>
@@ -175,6 +218,59 @@ const DropZoneBox = ({
         <ImagesPreview />
       )}
 
+      {cropperModal && (
+        <CustomModal
+          actionsChildren={(
+            <Button
+              extraClass="success-full"
+              onClick={() => {
+                cropper.current.getCroppedCanvas().toBlob((blob) => {
+                  const imageWidth = cropper.current.getCroppedCanvas().width;
+                  const imageHeight = cropper.current.getCroppedCanvas().height;
+                  if (imageWidth > (hasCropper.minWidth || 0) && imageHeight > (hasCropper.minHeight || 0)) {
+                    handleSubmitCroppedImage(blob);
+                    setDisableCroppedImage(true);
+                  } else {
+                    const errors = [];
+                    errors.push({
+                      name: '',
+                      errors: [`${errorMessages.find((messageObj) => messageObj.id === 'dimensions').message}`],
+                    });
+                    setErrorList(errors);
+                  }
+                }, 'image/jpeg', 0.7);
+              }}
+              text={intl.formatMessage({ id: 'add.files', defaultMessage: 'Add File' })}
+              disabled={disableCroppedImage}
+            />
+          )}
+          bodyChildren={(
+            <>
+              {disableCroppedImage && (
+                <Loading loadingClass="loading-cropper" />
+              )}
+              <Cropper
+                ref={cropper}
+                src={croppedFile}
+                style={{ height: 400, width: '100%' }}
+                guides={true}
+                zoomable={false}
+                viewMode={1}
+                aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
+              />
+              {errorList.map((file, idx) => (
+                <div key={idx} className="error ml-2">{`- ${file.name} ${file.errors.join(', ')}.`}</div>
+              ))}
+            </>
+          )}
+          dividerBottom={true}
+          dividerTop={true}
+          onHide={toggleModalCropper}
+          show={toggleModalCropper}
+          size="md"
+          title={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+        />
+      )}
     </div>
 
   );
@@ -192,6 +288,13 @@ DropZoneBox.propTypes = {
   noKeyboard: PropTypes.bool,
   onSelect: PropTypes.func,
   errorMessages: PropTypes.array,
+  hasCropper: PropTypes.shape({
+    showCropper: PropTypes.bool,
+    aspectRatioW: PropTypes.number,
+    aspectRatioH: PropTypes.number,
+    minWidth: PropTypes.number,
+    minHeight: PropTypes.number,
+  }),
   noDrag: PropTypes.bool,
   showImagesPreviews: PropTypes.bool,
   imagesList: PropTypes.array,
@@ -203,6 +306,7 @@ DropZoneBox.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  cropModalStatus: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {

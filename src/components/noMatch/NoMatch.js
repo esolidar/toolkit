@@ -4,6 +4,8 @@ import { FormattedMessage } from 'react-intl';
 
 const NoMatch = ({
   color,
+  link,
+  linkText,
 }) => (
   <>
     <div className="not-found-page mx-auto">
@@ -32,12 +34,9 @@ const NoMatch = ({
         <a
           className="link-homepage"
           data-testid="link-homepage"
-          href="/"
+          href={link}
         >
-          <FormattedMessage
-            id="back.to.homepage"
-            defaultMessage="Back to homepage"
-          />
+          {linkText}
         </a>
       </div>
     </div>
@@ -46,6 +45,8 @@ const NoMatch = ({
 
 NoMatch.propTypes = {
   color: PropTypes.string,
+  link: PropTypes.string,
+  linkText: PropTypes.string,
 };
 
 export default NoMatch;

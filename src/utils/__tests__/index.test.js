@@ -2,7 +2,7 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import '@testing-library/jest-dom';
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import {
   getEmployeeName,
   addUrlParam,
@@ -13,6 +13,7 @@ import {
   getLocalStorageAuctionPrivateCode,
   isCompanyAdmin,
   isValidURL,
+  isEmpty,
   blinkElement,
 } from '../index';
 
@@ -213,13 +214,28 @@ describe('test utils functions', () => {
     expect(isValidURL('esolidar')).toBe(false);
   });
 
+  test('return object empty true or false', () => {
+    const objectEmpty = {};
+    const objectNotEmpty = { id: 1, name: 'name' };
+    const arrayEmpty = [];
+    const arrayNotEmpty = [1, 2];
+    expect(isEmpty(objectEmpty)).toBe(true);
+    expect(isEmpty(objectNotEmpty)).toBe(false);
+    expect(isEmpty(arrayEmpty)).toBe(true);
+    expect(isEmpty(arrayNotEmpty)).toBe(false);
+  });
+
   test('should have class blink and then remove class blink', async () => {
     document.body.innerHTML = '<div data-testid="text-id" id="text"></div>';
     blinkElement('text', 'blink');
     const wrapper = screen.getByTestId('text-id');
     expect(wrapper).toHaveClass('blink');
-    await waitFor(() => {
-      expect(wrapper).not.toHaveClass('blink');
-    });
+
+    setTimeout(
+      () => {
+        expect(wrapper).not.toHaveClass('blink');
+      },
+      3000,
+    );
   });
 });
