@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import {
@@ -140,9 +140,8 @@ const AuctionDetail = ({
   const [value, setValue] = useState('');
 
   const [bid, setBid] = useState('');
-  // const [focusInput, setFocusInput] = useState(false);
 
-  const inputRef = React.createRef();
+  const inputRef = useRef(null);
 
   const perPage = 5;
 
@@ -173,12 +172,6 @@ const AuctionDetail = ({
       setHasPhoneValidate(phones.some((phone) => phone.verified === 1));
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (inputRef && inputRef.current) {
-  //     inputRef.current.focus();
-  //   }
-  // });
 
   useEffect(() => {
     if (isEmpty(auctionDetail)) return;
@@ -304,7 +297,9 @@ const AuctionDetail = ({
               values: { bidValue: valueBid },
             },
           });
-          // setFocusInput(true);
+          setTimeout(() => {
+            inputRef.current.focus();
+          }, 500);
           handleCloseModalBid();
           break;
         case 'USER_IS_NOT_NOTIFIABLE':
@@ -771,7 +766,7 @@ const AuctionDetail = ({
 
   let supported = {};
   if (accessAuction && auctionDetailInfo.recipient && auctionDetailInfo.recipient.institution) {
-    supported.title = auctionDetailInfo.recipient.institution;
+    supported.title = auctionDetailInfo.recipient.institution.name;
     supported.image = auctionDetailInfo.recipient.institution.thumbs.thumb;
   } else if (auctionDetailInfo.project) {
     supported.title = auctionDetailInfo.project.title;
@@ -864,7 +859,7 @@ const AuctionDetail = ({
                     </div>
                     <h1 className="text-center" style={{ color: primaryColor }}>
                       <img src={supported.image} alt="thumb-supported" />
-                      {supported.name}
+                      {supported.title}
                     </h1>
                   </Col>
                 </Row>

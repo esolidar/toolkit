@@ -28,7 +28,6 @@ const AuctionDetailRigth = ({
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
-  // const inputRef = React.createRef();
 
   let supported = {};
   if (auction.recipient && auction.recipient.institution) {

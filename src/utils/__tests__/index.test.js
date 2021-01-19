@@ -106,14 +106,16 @@ describe('test utils functions', () => {
   });
 
   test('convertToMyCurrency should return value with my currency', () => {
-    localStorage.setItem('currency', JSON.stringify({
-      id: 2,
-      name: 'Dollar',
-      small: 'USD',
-      value: '1.00',
-      symbol: '$',
-      status: true,
-      lastUpdate: '2020-11-26 12:00:05',
+    localStorage.setItem('user', JSON.stringify({
+      currency: {
+        id: 2,
+        name: 'Dollar',
+        small: 'USD',
+        value: '1.00',
+        symbol: '$',
+        status: true,
+        lastUpdate: '2020-11-26 12:00:05',
+      },
     }));
 
     const currency = {
@@ -134,14 +136,16 @@ describe('test utils functions', () => {
   });
 
   test('convertToMyCurrency should return value with my currency equal to localstorage', () => {
-    localStorage.setItem('currency', JSON.stringify({
-      id: 1,
-      name: 'Euro',
-      small: 'EUR',
-      value: '1.19',
-      symbol: '€',
-      status: true,
-      lastUpdate: '2020-11-26 12:00:05',
+    localStorage.setItem('user', JSON.stringify({
+      currency: {
+        id: 2,
+        name: 'Dollar',
+        small: 'USD',
+        value: '1.00',
+        symbol: '$',
+        status: true,
+        lastUpdate: '2020-11-26 12:00:05',
+      },
     }));
 
     const currency = {
@@ -155,9 +159,9 @@ describe('test utils functions', () => {
     };
 
     expect(convertToMyCurrency(100, currency)).toEqual(<FormattedNumber
-      value={100}
+      value={119}
       style="currency"
-      currency={currency.small}
+      currency="USD"
     />);
   });
 
