@@ -398,7 +398,7 @@ const AuctionAddForm = ({
         tax: form.tax,
         timezone: form.timezone,
         title: form.title,
-        user_id: form.user_id,
+        user_id: form.user_id || null,
         video: form.video,
       };
 
