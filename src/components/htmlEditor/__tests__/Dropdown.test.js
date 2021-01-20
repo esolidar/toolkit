@@ -9,7 +9,7 @@ describe('Dropdown component', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('renders Dropdown correctly', () => {
+  it('renders the correct number of options', () => {
     const component = shallow(<Dropdown title="Colunas" options={[1, 2, 3]} value={2} handleChange={() => {}} />);
     expect(component.find('Option').length).toBe(3);
   });

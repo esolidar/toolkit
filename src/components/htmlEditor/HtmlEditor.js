@@ -12,51 +12,62 @@ import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+const getInitialRawContent = (initialContent) => {
+  const isContentHtmlString = typeof initialContent === 'string';
+
+  if (isContentHtmlString) {
+    const fixedHtml = initialContent.replaceAll('<figure>', '<p>').replaceAll('</figure>', '</p>');
+    const numberOfElements = convertFromHTML(fixedHtml).contentBlocks.length;
+    const blocksFromHTML = htmlToDraft(fixedHtml);
+    const content = ContentState.createFromBlockArray(
+      blocksFromHTML.contentBlocks,
+      blocksFromHTML.entityMap,
+    );
+
+    const rawContent = convertToRaw(content);
+    if (rawContent.blocks.length > numberOfElements && rawContent.blocks[0].text === '') rawContent.blocks.shift();
+    return rawContent;
+  }
+  return initialContent;
+};
+
 const errorClass = 'rdw-editor-wrapper-error';
 const muiStyleClass = 'rdw-editor-wrapper-mui';
 const focusClass = 'rdw-editor-wrapper-focus';
 
+const translations = {
+  pt: {
+    'components.controls.link.linkTitle': 'Texto',
+    'components.controls.link.linkTarget': 'Endereço URL',
+    'components.controls.link.linkTargetOption': 'Abrir novo separador',
+    'components.controls.link.link': 'Adicionar ligação',
+    'components.controls.link.unlink': 'Remover ligação',
+  },
+};
+
 const HtmlEditor = ({
-  onFileUpload, initialContent, onChange, columns, changeColumns, intl, error, muiStyle, helperText,
+  onFileUpload, initialContent, onChange, columns, changeColumns, intl, error, muiStyle, helperText, showColumnsBtn,
 }) => {
-  const isContentHtmlString = typeof initialContent === 'string';
-
-  const getInitialRawContent = () => {
-    if (isContentHtmlString) {
-      const fixedHtml = initialContent.replaceAll('<figure>', '<p>').replaceAll('</figure>', '</p>');
-      const numberOfElements = convertFromHTML(fixedHtml).contentBlocks.length;
-      const blocksFromHTML = htmlToDraft(fixedHtml);
-      const content = ContentState.createFromBlockArray(
-        blocksFromHTML.contentBlocks,
-        blocksFromHTML.entityMap,
-      );
-
-      const rawContent = convertToRaw(content);
-      if (rawContent.blocks.length > numberOfElements && rawContent.blocks[0].text === '') rawContent.blocks.shift();
-      return rawContent;
-    }
-    return initialContent;
-  };
-
+  const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
     initialContent
-      ? EditorState.createWithContent(convertFromRaw(getInitialRawContent()))
+      ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
       : EditorState.createEmpty(),
   );
 
-  const [wrapperClassName, setWrapperClassName] = useState([]);
-
   useEffect(() => {
-    if (error) {
-      if (!wrapperClassName.includes(errorClass)) setWrapperClassName([...wrapperClassName, errorClass]);
-    } else setWrapperClassName(wrapperClassName.filter((item) => item !== errorClass));
-  }, [error]);
+    let newClassArray = [...wrapperClassName];
 
-  useEffect(() => {
     if (muiStyle) {
-      if (!wrapperClassName.includes(muiStyleClass)) setWrapperClassName([...wrapperClassName, muiStyleClass]);
-    } else setWrapperClassName(wrapperClassName.filter((item) => item !== muiStyleClass));
-  }, [muiStyle]);
+      if (!newClassArray.includes(muiStyleClass)) newClassArray.push(muiStyleClass);
+    } else newClassArray = newClassArray.filter((item) => item !== muiStyleClass);
+
+    if (error) {
+      if (!newClassArray.includes(errorClass)) newClassArray.push(errorClass);
+    } else newClassArray = newClassArray.filter((item) => item !== errorClass);
+
+    setWrapperClassName(newClassArray);
+  }, [muiStyle, error]);
 
   const handleFileUpload = (file) => new Promise(
     (resolve, reject) => {
@@ -69,8 +80,8 @@ const HtmlEditor = ({
       };
       reader.onerror = async () => {
         const imageUrl = await onFileUpload(reader.result);
-        const error = { data: { link: imageUrl } };
-        reject(error);
+        const err = { data: { link: imageUrl } };
+        reject(err);
       };
     },
   );
@@ -80,6 +91,27 @@ const HtmlEditor = ({
     setEditorState(editorState);
   };
 
+  const handleOnFocus = () => {
+    if (!wrapperClassName.includes(focusClass)) setWrapperClassName([...wrapperClassName, focusClass]);
+  };
+
+  const handleOnBlur = () => {
+    setWrapperClassName(wrapperClassName.filter((item) => item !== focusClass));
+  };
+
+  const toolbarCustomButtons = [];
+  if (showColumnsBtn) {
+    toolbarCustomButtons.push(
+      <Dropdown
+        title={intl.formatMessage({ id: 'columns', defaultMessage: 'Columns' })}
+        options={[1, 2, 3]}
+        value={columns}
+        handleChange={changeColumns}
+        testId="dropdown-btn"
+      />,
+    );
+  }
+
   return (
     <>
       <Editor
@@ -88,13 +120,7 @@ const HtmlEditor = ({
         onEditorStateChange={handleEditorStateChange}
         localization={{
           locale: 'pt',
-          translations: {
-            'components.controls.link.linkTitle': 'Texto',
-            'components.controls.link.linkTarget': 'Endereço URL',
-            'components.controls.link.linkTargetOption': 'Abrir novo separador',
-            'components.controls.link.link': 'Adicionar ligação',
-            'components.controls.link.unlink': 'Remover ligação',
-          },
+          translations: translations.pt,
         }}
         toolbar={{
           options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'image', 'remove', 'history'],
@@ -113,15 +139,13 @@ const HtmlEditor = ({
             previewImage: true,
           },
         }}
-        toolbarCustomButtons={[<Dropdown title={intl.formatMessage({ id: 'columns', defaultMessage: 'Columns' })} options={[1, 2, 3]} value={columns} handleChange={changeColumns} />]}
+        toolbarCustomButtons={toolbarCustomButtons}
         stripPastedStyles={true}
         spellCheck={true}
-        onFocus={() => {
-          if (!wrapperClassName.includes(focusClass)) setWrapperClassName([...wrapperClassName, focusClass]);
-        }}
-        onBlur={() => setWrapperClassName(wrapperClassName.filter((item) => item !== focusClass))}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
       />
-      {!!helperText && (<p className="helper-text__error">{helperText}</p>)}
+      {!!helperText && (<p aria-label="html-helper-text" className="helper-text__error">{helperText}</p>)}
     </>
   );
 };
@@ -138,6 +162,7 @@ HtmlEditor.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  showColumnsBtn: PropTypes.bool,
 };
 
 HtmlEditor.defaultProps = {
@@ -145,6 +170,7 @@ HtmlEditor.defaultProps = {
   columns: 1,
   error: false,
   muiStyle: false,
+  showColumnsBtn: true,
 };
 
 export default injectIntl(HtmlEditor);
