@@ -429,8 +429,7 @@ const AuctionDetail = ({
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
       if (newAuctionDetailInfo.last_bid === null) {
-        newAuctionDetailInfo.last_bid = {};
-        newAuctionDetailInfo.last_bid.value = pusherData.value;
+        newAuctionDetailInfo.last_bid = { value: pusherData.value };
       } else {
         newAuctionDetailInfo.last_bid.value = pusherData.value;
       }
