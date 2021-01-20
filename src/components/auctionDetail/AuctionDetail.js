@@ -760,7 +760,7 @@ const AuctionDetail = ({
   };
 
   const valueBidTextField = (e) => {
-    setValue(parseFloat(e.target.value));
+    setValue(parseFloat(e.target.value.replace(/[.,]/g, '')));
   };
 
   const handleMinValue = () => {
