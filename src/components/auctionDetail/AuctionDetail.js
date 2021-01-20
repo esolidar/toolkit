@@ -428,7 +428,12 @@ const AuctionDetail = ({
     if (pusherData) {
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
-      newAuctionDetailInfo.last_bid.value = pusherData.value;
+      if (newAuctionDetailInfo.last_bid === null) {
+        newAuctionDetailInfo.last_bid = {};
+        newAuctionDetailInfo.last_bid.value = pusherData.value;
+      } else {
+        newAuctionDetailInfo.last_bid.value = pusherData.value;
+      }
       newAuctionDetailInfo.blink = true;
       setAuctionDetailInfo(newAuctionDetailInfo);
       const existBid = listUsersBid.find((item) => item.id === pusherData.id);
