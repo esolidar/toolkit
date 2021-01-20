@@ -620,7 +620,7 @@ const AuctionDetail = ({
     if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !hasCardSelected)) return;
 
     const bid = {
-      value: +valueBid,
+      value: parseInt(+valueBid, 10),
       hidden: isAnonymous || 0,
       private_code: privateCode,
     };
@@ -760,7 +760,7 @@ const AuctionDetail = ({
   };
 
   const valueBidTextField = (e) => {
-    setValue(parseFloat(e.target.value.replace(/[.,]/g, '')));
+    setValue(e.target.value);
   };
 
   const handleMinValue = () => {
@@ -1093,7 +1093,7 @@ const AuctionDetail = ({
                     defaultMessage="Your bid is {value}"
                     values={{
                       value: <FormattedNumber
-                        value={valueBid}
+                        value={parseInt(+valueBid, 10)}
                         style="currency"
                         currency={auctionDetailInfo.currency.small}
                       />,
