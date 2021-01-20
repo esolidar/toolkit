@@ -236,7 +236,10 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  inputBidValue: PropTypes.string,
+  inputBidValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   valueBidTextField: PropTypes.func,
   primaryColor: PropTypes.string,
   env: PropTypes.object,
