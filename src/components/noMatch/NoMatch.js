@@ -34,9 +34,14 @@ const NoMatch = ({
         <a
           className="link-homepage"
           data-testid="link-homepage"
-          href={link}
+          href={link || '/'}
         >
-          {linkText}
+          {linkText || (
+            <FormattedMessage
+              id="back.to.homepage"
+              defaultMessage="Back to homepage"
+            />
+          )}
         </a>
       </div>
     </div>
