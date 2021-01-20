@@ -10,6 +10,7 @@ const AuctionsList = ({
   listAuctions,
   buttonTitle,
   primaryColor,
+  env,
 }) => (
   listAuctions && (
     <>
@@ -37,6 +38,7 @@ const AuctionsList = ({
                     auction={auction}
                     thumb={true}
                     primaryColor={primaryColor}
+                    env={env}
                   />
                 </a>
               </Col>
@@ -67,6 +69,7 @@ AuctionsList.propTypes = {
   }),
   buttonTitle: PropTypes.string,
   primaryColor: PropTypes.string,
+  env: PropTypes.object,
 };
 
 export default AuctionsList;

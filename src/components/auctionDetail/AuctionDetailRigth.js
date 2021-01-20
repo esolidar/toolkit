@@ -23,17 +23,24 @@ const AuctionDetailRigth = ({
   inputBidValue,
   valueBidTextField,
   primaryColor,
+  inputRef,
+  env,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
 
-  let supported = '';
-  if (auction.brand) {
-    supported = auction.brand;
-  } else if (auction.recipient) {
-    supported = auction.recipient.institution;
+  let supported = {};
+  if (auction.recipient && auction.recipient.institution) {
+    supported.title = auction.recipient.institution.name;
+    supported.image = auction.recipient.institution.thumbs.thumb;
+  } else if (auction.brand) {
+    supported.title = auction.brand.name;
+    supported.image = auction.brand.logo_thumbs.thumb;
+  } else if (auction.project) {
+    supported.title = auction.project.title;
+    supported.image = auction.project.images ? `${env.cdn_uploads_url}/${auction.project.images[0].image}` : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
   } else {
-    supported = auction.recipient.causes;
+    supported = null;
   }
 
   return (
@@ -97,6 +104,7 @@ const AuctionDetailRigth = ({
                 <TextField
                   dataTestId="inputBid"
                   field="id"
+                  id="input-bid-detail"
                   className="bid-input"
                   type="number"
                   onChange={valueBidTextField}
@@ -111,6 +119,7 @@ const AuctionDetailRigth = ({
                       { value: minValue },
                     )
                   }
+                  inputRef={inputRef}
                 />
               </Col>
               <Col sm={6}>
@@ -178,22 +187,22 @@ const AuctionDetailRigth = ({
           {supported && (
             <Col sm={12} className="auction-box" data-testid="supported-section">
               <div>
-                <img className="npo-thumb" src={auction.brand ? supported.logo_thumbs.thumb : supported.thumbs.thumb} alt="thumb" />
-                {(auction.brand && auction.recipient.institution) && (
+                <img className="npo-thumb" src={supported.image} alt="thumb" />
+                {(auction.brand && auction.recipient) && (
                   <FormattedMessage
                     id="auction.detail.brandSupport"
                     defaultMessage="{brandName} will benefit {instituionName} with this auction."
-                    values={{ brandName: supported.name, instituionName: auction.recipient.institution.name }}
+                    values={{ brandName: auction.brand.name, instituionName: auction.recipient.institution.name }}
                   />
                 )}
                 {(auction.brand && !auction.recipient) && (
                   <FormattedMessage
                     id="auction.detail.proceedsSupport"
                     defaultMessage="Proceeds support {brandName}"
-                    values={{ brandName: supported.name }}
+                    values={{ brandName: auction.brand.name }}
                   />
                 )}
-                {(!auction.brand && auction.recipient.institution) && (
+                {(!auction.brand && auction.recipient) && (
                   <FormattedMessage
                     id="auction.detail.institutionSupport"
                     defaultMessage="Proceeds support {instituionName}"
@@ -230,6 +239,8 @@ AuctionDetailRigth.propTypes = {
   inputBidValue: PropTypes.string,
   valueBidTextField: PropTypes.func,
   primaryColor: PropTypes.string,
+  env: PropTypes.object,
+  inputRef: PropTypes.object,
 };
 
 export default injectIntl(AuctionDetailRigth);
