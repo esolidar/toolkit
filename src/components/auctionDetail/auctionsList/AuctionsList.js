@@ -22,7 +22,7 @@ const AuctionsList = ({
         </Col>
       </Row>
       <Row>
-        <Col sm={10} className="offset-md-1">
+        <Col lg={10} className="offset-lg-1">
           <Row>
             {listAuctions.map((auction) => (
               <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>

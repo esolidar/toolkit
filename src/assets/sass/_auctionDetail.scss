@@ -294,7 +294,6 @@
     overflow          : hidden;
     text-overflow     : ellipsis;
     display           : -webkit-box;
-    height            : 100px;
     line-height       : 33px !important;
     -webkit-line-clamp: 3 !important;
   }
@@ -485,6 +484,10 @@
 
     h3 {
       color: $grayDark;
+    }
+
+    .textarea {
+      display: flex !important;
     }
   }
 

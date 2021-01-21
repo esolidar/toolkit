@@ -49,12 +49,12 @@ const AuctionDetailRigth = ({
         <div>
           <Row>
             <Col sm={12}>
-              <h2 className="auction-title" data-testid="auction-title">
+              <h2 className="auction-title d-none d-sm-block" data-testid="auction-title">
                 {auctionTitle}
               </h2>
             </Col>
           </Row>
-          <Row>
+          <Row className="mt-5">
             <Col>
               <p className="control-label title-last-bid mb-2" id={`last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
                 {auction.last_bid ? (
