@@ -1,5 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 const CreateComment = (props) => {
@@ -7,8 +9,10 @@ const CreateComment = (props) => {
     comment, env, translateMessage, onSubmitComment, loadingNewComment, onChange, thumb,
   } = props;
 
-  const addMessage = (e) => {
-    if (e.keyCode === 13 && e.shiftKey === false) {
+  const addMessage = (e, isMobile) => {
+    if (e.keyCode === 13 && e.shiftKey === false && !isMobile) {
+      onSubmitComment(e);
+    } else if (e.keyCode !== 13 && e.shiftKey === false && isMobile) {
       onSubmitComment(e);
     }
   };
@@ -40,11 +44,12 @@ const CreateComment = (props) => {
             }
             name="comment"
             onChange={onChange}
-            onKeyDown={addMessage}
+            onKeyDown={(e) => addMessage(e, false)}
             disabled={loadingNewComment}
             value={comment}
             placeholder={translateMessage({ id: 'commentHere', defaultMessage: 'Leave a comment' })}
           />
+          <FontAwesomeIcon icon={faPaperPlane} className="mr-1 d-lg-none mt-3" onClick={(e) => addMessage(e, true)} />
         </div>
       </div>
     </div>

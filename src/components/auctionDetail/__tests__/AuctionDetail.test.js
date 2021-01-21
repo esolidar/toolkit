@@ -511,7 +511,7 @@ test('should exist countdown with time', async () => {
     const countdownSec = screen.getByTestId('auction-detail-countdown-seconds');
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
-    expect(endDateInfo).toHaveTextContent('This auction ends in: Wednesday, December 30, 2020 4:00 PM');
+    expect(endDateInfo).toHaveTextContent('This auction ends in: 30/12/2020');
   });
 });
 

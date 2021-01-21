@@ -700,9 +700,9 @@ const AuctionDetail = ({
   const onSubmitResponse = (e, commentId) => {
     e.preventDefault();
 
-    if (e.target.value) {
+    if (reply) {
       setLoadingPostReply(true);
-      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId, private_code: privateCode });
+      postAuctionUserComment(auctionId, { comment: reply, comment_id: commentId, private_code: privateCode });
       setReply('');
     }
   };
@@ -850,7 +850,7 @@ const AuctionDetail = ({
       )}
       {(!isAuctionForbiden && accessAuction) && (
         <>
-          <Row>
+          <Row className="d-none d-sm-block">
             <Col md={12} className="content-wrapper">
               {supported && (
                 <Row className="content-header hidden-xs">
@@ -894,12 +894,13 @@ const AuctionDetail = ({
                 </Col>
                 <Col sm={12} className="text-center hidden-xs">
                   <div className="end-date" data-testid="end-date-info">
-                    <FormattedMessage
-                      id="auction.detail.ends"
-                      defaultMessage="This auction ends in: "
-                    />
-                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                    <br />
+                    <div className="mb-2">
+                      <FormattedMessage
+                        id="auction.detail.ends"
+                        defaultMessage="This auction ends in: "
+                      />
+                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="DD/MM/YYYY" />
+                    </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"
                       defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
@@ -907,6 +908,13 @@ const AuctionDetail = ({
                   </div>
                 </Col>
                 <Col sm={12}>
+                  <Row>
+                    <Col sm={12}>
+                      <h2 className="auction-title mb-2 d-block d-sm-none">
+                        {auctionTitle()}
+                      </h2>
+                    </Col>
+                  </Row>
                   <Row>
                     <Col md={7} data-testid="slide-image-multiple">
                       {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (

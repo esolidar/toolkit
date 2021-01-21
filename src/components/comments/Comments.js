@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
 import { getEmployeeName, isDefined } from '../../utils';
@@ -11,6 +13,24 @@ const Comments = ({
   comments, deleteComment, deleteReply, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
+  const [isShowResponsive, setIsShowResponsive] = useState(false);
+  const [backgroundImageStyle, setBackgroundImageStyle] = useState(`url(${env}/frontend/assets/send-comment.png)`);
+
+  useEffect(() => {
+    if (window.innerWidth < 1025) {
+      setIsShowResponsive(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (laodingPostReply && !isShowResponsive) {
+      setBackgroundImageStyle(`url(${env}/frontend/assets/loader.svg)`);
+    } else if (localStorage.lang === 'pt' && !isShowResponsive) {
+      setBackgroundImageStyle(`url(${env}/frontend/assets/enviar-comment.png)`);
+    } else if (isShowResponsive) {
+      setBackgroundImageStyle('');
+    }
+  }, [laodingPostReply, isShowResponsive]);
 
   const showTextAreaClick = (comment) => {
     const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
@@ -25,8 +45,10 @@ const Comments = ({
     }
   };
 
-  const addMessage = (e, id) => {
-    if (e.keyCode === 13 && e.shiftKey === false) {
+  const addMessage = (e, id, isResponsive) => {
+    if (e.keyCode === 13 && e.shiftKey === false && !isResponsive) {
+      onSubmitResponse(e, id);
+    } else if (isResponsive) {
       onSubmitResponse(e, id);
     }
   };
@@ -108,15 +130,16 @@ const Comments = ({
                       />
                       <textarea
                         className="input"
-                        style={{ backgroundImage: laodingPostReply ? `url(${env}/frontend/assets/loader.svg)` : (localStorage.lang === 'pt' ? `url(${env}/frontend/assets/enviar-comment.png)` : `url(${env}/frontend/assets/send-comment.png)`), backgroundSize: laodingPostReply ? '16px' : '48px' }}
+                        style={{ backgroundImage: backgroundImageStyle, backgroundSize: laodingPostReply ? '16px' : '48px' }}
                         name="reply"
                         id={`textarea-${comment.id}`}
                         onChange={onChange}
-                        onKeyDown={(e) => addMessage(e, comment.id)}
+                        onKeyDown={(e) => addMessage(e, comment.id, false)}
                         value={reply}
                         disabled={laodingPostReply}
                         placeholder={translateMessage({ id: 'commentHere', defaultMessage: 'Comment here…' })}
                       />
+                      <FontAwesomeIcon icon={faPaperPlane} className="mr-1 d-lg-none comment-reply" onClick={(e) => addMessage(e, comment.id, true)} />
                     </div>
                   </form>
                 )}
