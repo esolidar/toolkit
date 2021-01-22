@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.26.5",
+  "version": "1.27.5",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -76,6 +76,7 @@
     "react-router-dom": "^5.1.2",
     "react-select": "^3.1.0",
     "react-select-async-paginate": "^0.3.14",
+    "react-tag-input": "^4.6.2",
     "react-tooltip": "^4.2.5",
     "react-truncate": "^2.4.0",
     "redux": "^4.0.4",
@@ -111,6 +112,7 @@
     "babel-loader": "^8.2.1",
     "classnames": "^2.2.6",
     "css-loader": "^3.4.0",
+    "date-fns": "^2.16.1",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
     "draft-js-export-html": "^1.4.1",
@@ -141,6 +143,9 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-bootstrap-table": "^4.3.1",
     "react-copy-to-clipboard": "^5.0.2",
+    "react-cropper": "1.0.1",
+    "react-datepicker": "^3.3.0",
+    "react-datetime": "^3.0.4",
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.12.0",
     "react-dropzone": "^11.2.4",
@@ -165,6 +170,7 @@
     "react-stripe-elements": "^6.1.2",
     "react-styleguidist": "^10.3.2",
     "react-switch": "^5.0.1",
+    "react-tag-input": "^4.6.2",
     "react-tooltip": "^4.2.5",
     "react-truncate": "^2.4.0",
     "redux": "^4.0.5",
@@ -184,6 +190,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "react-google-maps": "^9.4.5",
     "react-telephone-input": "^4.73.4"
   }
 }

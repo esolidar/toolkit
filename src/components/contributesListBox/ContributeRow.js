@@ -5,7 +5,7 @@ import { FormattedNumber, FormattedMessage } from 'react-intl';
 
 const ContributeRow = ({ contribute, env, currency }) => {
   const contributorThumb = contribute.contributor ? contribute.contributor.thumbs.thumb : null;
-  const userThumb = contribute.user ? contribute.user.thumbs.thumb : null;
+  const userThumb = (contribute.user && contribute.hidden === 0) ? contribute.user.thumbs.thumb : null;
   const contributorName = contribute.contributor ? contribute.contributor.name : null;
   const userName = contribute.user ? contribute.user.name : null;
 

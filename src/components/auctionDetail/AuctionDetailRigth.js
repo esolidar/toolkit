@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
+import {
+  injectIntl, FormattedMessage, FormattedNumber,
+} from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { convertToMyCurrency } from '../../utils/index';
 import Button from '../button/Button';
@@ -20,17 +22,25 @@ const AuctionDetailRigth = ({
   intl,
   inputBidValue,
   valueBidTextField,
+  primaryColor,
+  inputRef,
+  env,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
 
-  let supported = '';
-  if (auction.brand) {
-    supported = auction.brand;
-  } else if (auction.recipient) {
-    supported = auction.recipient.institution;
+  let supported = {};
+  if (auction.recipient && auction.recipient.institution) {
+    supported.title = auction.recipient.institution.name;
+    supported.image = auction.recipient.institution.thumbs.thumb;
+  } else if (auction.brand) {
+    supported.title = auction.brand.name;
+    supported.image = auction.brand.logo_thumbs.thumb;
+  } else if (auction.project) {
+    supported.title = auction.project.title;
+    supported.image = auction.project.images ? `${env.cdn_uploads_url}/${auction.project.images[0].image}` : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
   } else {
-    supported = auction.recipient.causes;
+    supported = null;
   }
 
   return (
@@ -39,14 +49,14 @@ const AuctionDetailRigth = ({
         <div>
           <Row>
             <Col sm={12}>
-              <h2 className="auction-title" data-testid="auction-title">
+              <h2 className="auction-title d-none d-sm-block" data-testid="auction-title">
                 {auctionTitle}
               </h2>
             </Col>
           </Row>
-          <Row>
+          <Row className="mt-5">
             <Col>
-              <p className="control-label title-last-bid mb-2" data-testid="title-last-bid">
+              <p className="control-label title-last-bid mb-2" id={`last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
                 {auction.last_bid ? (
                   <FormattedMessage
                     id="auction.detail.lastbid"
@@ -63,7 +73,7 @@ const AuctionDetailRigth = ({
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className={auction.blink ? 'txt-price-t blink' : 'txt-price-t'} data-testid="value-last-bid">
+            <Col sm={12} className="txt-price-t" id={`last-bid-value-${auction.id}`} data-testid="value-last-bid">
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -84,7 +94,7 @@ const AuctionDetailRigth = ({
           )}
           {(!isEnded && !isCommingSoon) && (
             <Row>
-              <Col sm={12} className="auction-content-label">
+              <Col sm={12} className="auction-content-label" style={{ color: primaryColor }}>
                 <FormattedMessage
                   id="auction.detail.newBid"
                   defaultMessage="New Bid"
@@ -94,8 +104,9 @@ const AuctionDetailRigth = ({
                 <TextField
                   dataTestId="inputBid"
                   field="id"
+                  id="input-bid-detail"
                   className="bid-input"
-                  type="text"
+                  type="number"
                   onChange={valueBidTextField}
                   error={error}
                   value={inputBidValue}
@@ -108,6 +119,7 @@ const AuctionDetailRigth = ({
                       { value: minValue },
                     )
                   }
+                  inputRef={inputRef}
                 />
               </Col>
               <Col sm={6}>
@@ -135,7 +147,7 @@ const AuctionDetailRigth = ({
           {isEnded && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label" data-testid="label-ended">
+                <Col sm={12} className="auction-content-label" data-testid="label-ended" style={{ color: primaryColor }}>
                   <FormattedMessage
                     id="auction.detail.ended"
                     defaultMessage="Ended"
@@ -173,14 +185,30 @@ const AuctionDetailRigth = ({
             </>
           )}
           {supported && (
-            <Col sm={12} className="auction-box text-center" data-testid="supported-section">
-              <div className="text-center">
-                <img className="npo-thumb" src={auction.brand ? supported.logo_thumbs.thumb : supported.thumbs.thumb} alt="thumb" />
-                <FormattedMessage
-                  id="auction.detail.proceedsSupport"
-                  defaultMessage="Proceeds support "
-                />
-                <strong>{supported.name}</strong>
+            <Col sm={12} className="auction-box" data-testid="supported-section">
+              <div>
+                <img className="npo-thumb" src={supported.image} alt="thumb" />
+                {(auction.brand && auction.recipient) && (
+                  <FormattedMessage
+                    id="auction.detail.brandSupport"
+                    defaultMessage="{brandName} will benefit {instituionName} with this auction."
+                    values={{ brandName: auction.brand.name, instituionName: auction.recipient.institution.name }}
+                  />
+                )}
+                {(auction.brand && !auction.recipient) && (
+                  <FormattedMessage
+                    id="auction.detail.proceedsSupport"
+                    defaultMessage="Proceeds support {brandName}"
+                    values={{ brandName: auction.brand.name }}
+                  />
+                )}
+                {(!auction.brand && auction.recipient) && (
+                  <FormattedMessage
+                    id="auction.detail.institutionSupport"
+                    defaultMessage="Proceeds support {instituionName}"
+                    values={{ instituionName: auction.recipient.institution.name }}
+                  />
+                )}
               </div>
             </Col>
           )}
@@ -208,8 +236,14 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  inputBidValue: PropTypes.string,
+  inputBidValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   valueBidTextField: PropTypes.func,
+  primaryColor: PropTypes.string,
+  env: PropTypes.object,
+  inputRef: PropTypes.object,
 };
 
 export default injectIntl(AuctionDetailRigth);

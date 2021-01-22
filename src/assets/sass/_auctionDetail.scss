@@ -24,7 +24,8 @@
 }
 
 .auction-modal-bid,
-.auction-modal-subscribe {
+.auction-modal-subscribe,
+.auction-modal-comment-delete {
 
   .modal-body {
     @media(max-width: 425px) {
@@ -34,6 +35,10 @@
 
   .modal-title {
     color: $mainColor;
+  }
+
+  .modal-content {
+    height: initial !important;
   }
 
   h2 {
@@ -76,15 +81,17 @@
     }
 
     100% {
-      background-color: $mainColor;
+      color: $successColor;
     }
   }
 
   .blink {
     -webkit-animation-name           : blink;
-    -webkit-animation-duration       : 900ms;
-    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration       : 3000ms;
+    -webkit-animation-iteration-count: 2;
     -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-font-smoothing: antialiased;
   }
 
   .mobile-countdown {
@@ -94,7 +101,11 @@
   }
 
   .readmore-button {
-    display: none;
+    color          : #04C7E5;
+    background     : transparent;
+    border         : none;
+    text-decoration: underline;
+    margin-bottom  : 20px;
   }
 
   .auction-supported {
@@ -283,7 +294,6 @@
     overflow          : hidden;
     text-overflow     : ellipsis;
     display           : -webkit-box;
-    height            : 100px;
     line-height       : 33px !important;
     -webkit-line-clamp: 3 !important;
   }
@@ -474,6 +484,10 @@
 
     h3 {
       color: $grayDark;
+    }
+
+    .textarea {
+      display: flex !important;
     }
   }
 

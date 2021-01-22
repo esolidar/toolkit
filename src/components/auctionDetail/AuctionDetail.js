@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import {
   isEmpty, forEach, findIndex,
 } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
-import { NotificationManager } from 'react-notifications';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
 import Button from '../button/Button';
+import NoMatch from '../noMatch/NoMatch';
 import Loading from '../loading/Loading';
 import Comments from '../comments/Comments';
 import AuctionLastBid from './AuctionLastBid';
@@ -55,6 +55,7 @@ const AuctionDetail = ({
   getAuctionUserCommentResponse,
   auctionUserCommentsResponse,
   deleteAuctionComment,
+  deleteComment,
   getStripeCreditCardlist,
   postStripeCreditCard,
   stripeCreditCardList,
@@ -68,13 +69,17 @@ const AuctionDetail = ({
   postUpdatedUser,
   updatedUser,
   showAlert,
+  primaryColor,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
+  const [modalDelete, setModalDelete] = useState({
+    isOpen: false,
+    commentId: null,
+  });
   const [isConfirmBid, setIsConfirmBid] = useState(false);
 
-  const [isShowmoreDesc] = useState(false);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [isCheckedLegal, setIsCheckedLegal] = useState(false);
   const [isCheckedTerms, setIsCheckedTerms] = useState(false);
@@ -85,6 +90,7 @@ const AuctionDetail = ({
   const [listUsersBid, setListUsersBid] = useState([]);
   const [listBidTotal, setListBidTotal] = useState(0);
   const [page, setPage] = useState(1);
+  const [isLoadingContributesList, setIsLoadingContributesList] = useState(true);
 
   // Create Comments
   const [userComment, setUserComment] = useState([]);
@@ -121,6 +127,10 @@ const AuctionDetail = ({
   const [errorCheckedTerms, setErrorCheckedTerms] = useState(false);
   const [hasSubmitModalBid, setHasSubmitModalBid] = useState(false);
   const [hasPhoneValidate, setHasPhoneValidate] = useState(false);
+  const [showPhoneValidate, setShowPhoneValidate] = useState(false);
+
+  // Not Valid Auction
+  const [isAuctionForbiden, setIsAuctionForbiden] = useState(false);
 
   const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
 
@@ -129,9 +139,30 @@ const AuctionDetail = ({
   const [hasNotifications, setHasNotifications] = useState(localStorage.user ? JSON.parse(localStorage.user).notifications : 0);
   const [value, setValue] = useState('');
 
+  const [bid, setBid] = useState('');
+
+  const inputRef = useRef(null);
+
   const perPage = 5;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
+
+  const handleCloseModalBid = () => {
+    setIsAnonymous(false);
+    setIsCheckedLegal(false);
+    setIsCheckedTerms(false);
+    setIsCheckedNotifications(false);
+    setIsShowModal(false);
+    setErrorCheckLegal(false);
+    setErrorCheckedNotifications(false);
+    setErrorCheckedTerms(false);
+    setIsErrorSelectCard(false);
+    setHasSubmitModalBid(false);
+    setIsConfirmBid(false);
+    setHasCardSelected(false);
+    setLastFour('');
+    setValue('');
+  };
 
   useEffect(() => {
     getAuctionDetail(auctionId);
@@ -153,12 +184,22 @@ const AuctionDetail = ({
       getAuctionBidList(auctionId, page, perPage);
       getAuctionList(companyId, 1, 'dateLimit,desc', '', 5, undefined, undefined, undefined);
       getAuctionComment(auctionId, 1, '4');
+      if (auctionDetail.data.private === 1) {
+        const auctionPrivateCode = localStorage.privateCode ? JSON.parse(localStorage.privateCode) : [];
+        const auctionCode = auctionPrivateCode.find((item) => +item.id === +auctionId);
+        if (auctionCode) {
+          setPrivateCode(auctionCode.code);
+        }
+      }
     } else if (auctionDetail.data.code === 403) {
       setAccessAuction(false);
       setIsLoadingAuction(false);
       if (privateCode) {
         setErrorPrivateCode(translateMessage({ id: 'auction.detail.error.privateCode', defaultMessage: 'The code is wrong.' }));
       }
+    } else {
+      setIsAuctionForbiden(true);
+      setIsLoadingAuction(false);
     }
   }, [auctionDetail]);
 
@@ -185,6 +226,7 @@ const AuctionDetail = ({
   useEffect(() => {
     if (newBid.code === 200) {
       setIsShowModal(false);
+      setShowPhoneValidate(false);
       setIsConfirmBid(false);
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = newBid.data.dateLimit;
@@ -197,29 +239,33 @@ const AuctionDetail = ({
         };
       }
 
-      if (!hasNotifications && isCheckedNotifications) postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
-
       setAuctionDetailInfo(newAuctionDetailInfo);
 
       const existBid = listUsersBid.find((item) => item.id === newBid.data.id);
+
       if (!existBid) {
         const newBidData = {
           id: newBid.data.id,
           dateAdded: newBid.data.dateAdded,
           hidden: newBid.data.hidden,
           value: newBid.data.value,
-          user: {
-            name: newBid.data.user.name,
-            thumbs: newBid.data.user.thumbs.thumb,
-          },
+          user: null,
           blink: true,
         };
+
+        if (newBid.data.hidden === 0) {
+          newBidData.user = {
+            name: newBid.data.user.name,
+            thumbs: newBid.data.user.thumbs,
+          };
+        }
         setListUsersBid([newBidData, ...listUsersBid]);
       }
 
       setHasSubmitModalBid(false);
       setLastFour(null);
       setValueBid('');
+      setHasCardSelected(false);
 
       showAlert({
         alertBox: {
@@ -232,47 +278,71 @@ const AuctionDetail = ({
     } else if (newBid.status === 400) {
       switch (newBid.data.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.auctionEnded', defaultMessage: 'The auction is over!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'The auction is over!',
+              messageId: 'auctions.modal.error.auctionEnded',
+            },
+          });
           break;
         case 'INVALID_BID_AMOUNT':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.invalidBid', defaultMessage: 'Invalid Bid Amount!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'Your {bidValue} bid was not accepted. However, your bid has been exceeded!',
+              messageId: 'auctions.modal.error.invalidBid',
+              values: { bidValue: valueBid },
+            },
+          });
+          setTimeout(() => {
+            inputRef.current.focus();
+          }, 500);
+          handleCloseModalBid();
           break;
         case 'USER_IS_NOT_NOTIFIABLE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotNotifiable', defaultMessage: 'User is not notifiable!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User is not notifiable!',
+              messageId: 'auctions.modal.error.userNotNotifiable',
+            },
+          });
           break;
         case 'USER_IS_NOT_ACTIVE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotActive', defaultMessage: 'User is not active!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User is not active!',
+              messageId: 'auctions.modal.error.userNotActive',
+            },
+          });
           break;
         case 'USER_DOES_NOT_HAVE_VALIDATED_PHONE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotValidatedPhone', defaultMessage: 'User dont have validated phone!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User dont have validated phone!',
+              messageId: 'auctions.modal.error.userNotValidatedPhone',
+            },
+          });
           break;
         default:
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.otherError', defaultMessage: 'An error has occurred!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'An error has occurred!',
+              messageId: 'auctions.modal.error.userNotValidatedPhone',
+            },
+          });
       }
+      setIsConfirmBid(false);
     }
   }, [newBid]);
 
@@ -295,6 +365,20 @@ const AuctionDetail = ({
   }, [auctionUserComment]);
 
   useEffect(() => {
+    if (deleteComment.code === 200) {
+      setModalDelete({ ...modalDelete, isOpen: false });
+      showAlert({
+        alertBox: {
+          alertVisible: true,
+          alertClass: 'success',
+          message: 'Your comment has been successfully deleted',
+          messageId: 'auctions.modal.success.deleteComment',
+        },
+      });
+    }
+  }, [deleteComment]);
+
+  useEffect(() => {
     if (auctionUserCommentsResponse.code === 200) {
       const commentsArray = [...comments];
       const { data, total } = auctionUserCommentsResponse.data;
@@ -314,6 +398,7 @@ const AuctionDetail = ({
       setListBidTotal(auctionBidList.data.total);
       setPage(auctionBidList.data.current_page);
       setIsloadingContributes(false);
+      setIsLoadingContributesList(false);
     }
   }, [auctionBidList]);
 
@@ -343,7 +428,11 @@ const AuctionDetail = ({
     if (pusherData) {
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
-      newAuctionDetailInfo.last_bid.value = pusherData.value;
+      if (newAuctionDetailInfo.last_bid === null) {
+        newAuctionDetailInfo.last_bid = { value: pusherData.value };
+      } else {
+        newAuctionDetailInfo.last_bid.value = pusherData.value;
+      }
       newAuctionDetailInfo.blink = true;
       setAuctionDetailInfo(newAuctionDetailInfo);
       const existBid = listUsersBid.find((item) => item.id === pusherData.id);
@@ -371,6 +460,7 @@ const AuctionDetail = ({
       userLocalStorage.notifications = user.notifications;
       localStorage.setItem('user', JSON.stringify(userLocalStorage));
       setHasNotifications(1);
+      if (hasNotifications === 0 && isCheckedNotifications) postNewBid(bid, auctionDetailInfo.id);
     }
   }, [updatedUser]);
 
@@ -380,8 +470,16 @@ const AuctionDetail = ({
       setIsCheckedLegal(false);
       setIsCheckedTerms(false);
       setIsCheckedNotifications(false);
+
+      if (inputRef && inputRef.current) {
+        inputRef.current.focus();
+      }
     }
   }, [isShowModal]);
+
+  useEffect(() => {
+    if (confirmPhone.code === 200) setHasPhoneValidate(true);
+  }, [confirmPhone]);
 
   if (isLoadingAuction) return (<Loading />);
 
@@ -442,6 +540,13 @@ const AuctionDetail = ({
     if (i === 2) setIsCheckedEmail24H(checked);
   };
 
+  const handleCancelModalSubscribe = () => {
+    setIsCheckedEmailStart(false);
+    setIsCheckedEmailFirstBid(false);
+    setIsCheckedEmail24H(false);
+    setIsShowModalSubscribe(false);
+  };
+
   const handleClickBid = (value) => {
     if (!requireLogin()) {
       return;
@@ -483,7 +588,8 @@ const AuctionDetail = ({
         return;
       }
     }
-
+    const { phones } = JSON.parse(localStorage.user || '{ "phones": [] }');
+    setShowPhoneValidate(phones.some((phone) => phone.verified === 1));
     setIsShowModal(true);
     setError('');
     setValueBid(value);
@@ -509,17 +615,25 @@ const AuctionDetail = ({
       setIsErrorSelectCard(true);
       return;
     }
+    if (auctionDetailInfo.cc === 1 && hasCardSelected) setIsErrorSelectCard(false);
 
-    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate) return;
+    if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !hasCardSelected)) return;
 
     const bid = {
-      value: +valueBid,
+      value: parseInt(+valueBid, 10),
       hidden: isAnonymous || 0,
+      private_code: privateCode,
     };
 
     if (auctionDetailInfo.cc === 1) bid.last4 = lastFour;
 
-    postNewBid(bid, auctionDetailInfo.id);
+    if (hasNotifications === 0 && isCheckedNotifications) {
+      setBid(bid);
+      postUpdatedUser(JSON.parse(localStorage.user).id, { notifications: '1' });
+    } else {
+      postNewBid(bid, auctionDetailInfo.id);
+    }
+
     setIsConfirmBid(true);
     setValue('');
   };
@@ -567,6 +681,7 @@ const AuctionDetail = ({
       auction_on_start: auctionStart,
       auction_first_bid: auctionFirstBid,
       auction_24h_end: auction24hEnd,
+      private_code: privateCode,
     };
     postAuctionSubscribe(auctionId, subscribeChecked);
     setIsShowModalSubscribe(false);
@@ -576,7 +691,7 @@ const AuctionDetail = ({
     e.preventDefault();
 
     if (userComment && requireLogin()) {
-      postAuctionUserComment(auctionId, { comment: userComment });
+      postAuctionUserComment(auctionId, { comment: userComment, private_code: privateCode });
       setLoadingNewComment(true);
       setUserComment('');
     }
@@ -585,15 +700,22 @@ const AuctionDetail = ({
   const onSubmitResponse = (e, commentId) => {
     e.preventDefault();
 
-    if (e.target.value) {
+    if (reply) {
       setLoadingPostReply(true);
-      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId });
+      postAuctionUserComment(auctionId, { comment: reply, comment_id: commentId, private_code: privateCode });
       setReply('');
     }
   };
 
   const loadMore = (commentId, page) => {
     deleteAuctionComment(auctionId, commentId, 3, page + 1);
+  };
+
+  const handleOpenDeleteCommentModal = (commentId) => {
+    setModalDelete({
+      isOpen: true,
+      commentId,
+    });
   };
 
   const handleDeleteComment = (commentId) => {
@@ -624,26 +746,6 @@ const AuctionDetail = ({
     getAuctionComment(auctionId, page + 1, perPage);
   };
 
-  const showMoreDescButton = () => {
-
-  };
-
-  const handleCloseModalBid = () => {
-    setIsAnonymous(false);
-    setIsCheckedLegal(false);
-    setIsCheckedTerms(false);
-    setIsCheckedNotifications(false);
-    setIsShowModal(false);
-    setErrorCheckLegal(false);
-    setErrorCheckedNotifications(false);
-    setErrorCheckedTerms(false);
-    setIsErrorSelectCard(false);
-    setHasSubmitModalBid(false);
-    setIsConfirmBid(false);
-    setLastFour('');
-    setValue('');
-  };
-
   const selectedCard = (card) => {
     setLastFour(card);
     setHasCardSelected(true);
@@ -666,9 +768,15 @@ const AuctionDetail = ({
     if (auctionDetailInfo.last_bid) return auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval;
   };
 
-  let supported = '';
-  if (accessAuction) {
-    supported = auctionDetailInfo.recipient.institution ? auctionDetailInfo.recipient.institution : auctionDetailInfo.recipient.causes;
+  let supported = {};
+  if (accessAuction && auctionDetailInfo.recipient && auctionDetailInfo.recipient.institution) {
+    supported.title = auctionDetailInfo.recipient.institution.name;
+    supported.image = auctionDetailInfo.recipient.institution.thumbs.thumb;
+  } else if (auctionDetailInfo.project) {
+    supported.title = auctionDetailInfo.project.title;
+    supported.image = auctionDetailInfo.project.images ? `${env.cdn_uploads_url}/${auctionDetailInfo.project.images[0].image}` : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+  } else {
+    supported = null;
   }
 
   const userType = user ? user.type : 'guest';
@@ -684,9 +792,20 @@ const AuctionDetail = ({
 
   return (
     <Container className="auction-detail mt-3">
-      {!accessAuction && (
+      {isAuctionForbiden && (
+        <Row className="not-found mt-5">
+          <NoMatch
+            color={primaryColor}
+            link="/auctions/list"
+            linkText={translateMessage({
+              id: 'back.to.auctions', defaultMessage: 'Back to auctions',
+            })}
+          />
+        </Row>
+      )}
+      {(!isAuctionForbiden && !accessAuction) && (
         <Row>
-          <Col sm={6} className="mdPrivateCode offset-md-3">
+          <Col sm={6} className="mdPrivateCode mx-auto mt-5">
             <Row>
               <h3 className="pb-4 mb-4" data-testid="title-private">
                 <FormattedMessage
@@ -713,6 +832,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
+                    href="/auctions/list"
                     text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
                   />
                   <Button
@@ -728,9 +848,9 @@ const AuctionDetail = ({
           </Col>
         </Row>
       )}
-      {accessAuction && (
+      {(!isAuctionForbiden && accessAuction) && (
         <>
-          <Row>
+          <Row className="d-none d-sm-block">
             <Col md={12} className="content-wrapper">
               {supported && (
                 <Row className="content-header hidden-xs">
@@ -741,9 +861,9 @@ const AuctionDetail = ({
                         defaultMessage="This auctions supports:"
                       />
                     </div>
-                    <h1 className="text-center">
-                      <img src={supported.thumbs.thumb} alt="thumb-supported" />
-                      {supported.name}
+                    <h1 className="text-center" style={{ color: primaryColor }}>
+                      <img src={supported.image} alt="thumb-supported" />
+                      {supported.title}
                     </h1>
                   </Col>
                 </Row>
@@ -774,12 +894,13 @@ const AuctionDetail = ({
                 </Col>
                 <Col sm={12} className="text-center hidden-xs">
                   <div className="end-date" data-testid="end-date-info">
-                    <FormattedMessage
-                      id="auction.detail.ends"
-                      defaultMessage="This auction ends in: "
-                    />
-                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                    <br />
+                    <div className="mb-2">
+                      <FormattedMessage
+                        id="auction.detail.ends"
+                        defaultMessage="This auction ends in: "
+                      />
+                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="DD/MM/YYYY" />
+                    </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"
                       defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
@@ -787,6 +908,13 @@ const AuctionDetail = ({
                   </div>
                 </Col>
                 <Col sm={12}>
+                  <Row>
+                    <Col sm={12}>
+                      <h2 className="auction-title mb-2 d-block d-sm-none">
+                        {auctionTitle()}
+                      </h2>
+                    </Col>
+                  </Row>
                   <Row>
                     <Col md={7} data-testid="slide-image-multiple">
                       {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
@@ -817,6 +945,9 @@ const AuctionDetail = ({
                       user={user}
                       inputBidValue={value}
                       valueBidTextField={valueBidTextField}
+                      primaryColor={primaryColor}
+                      env={env}
+                      inputRef={inputRef}
                     />
                   </Row>
                 </Col>
@@ -835,24 +966,21 @@ const AuctionDetail = ({
                 dataTestIdDescription="description-text"
                 title={translateMessage({ id: 'auction.description', defaultMessage: 'Description' })}
                 description={auctionDescriptionLang('description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="shipping"
                 dataTestIdDescription="shipping-text"
                 title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
                 description={auctionDescriptionLang('shipping_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="payment"
                 dataTestIdDescription="payment-text"
                 title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
                 description={auctionDescriptionLang('payment_description')}
-                showmoreDesc={isShowmoreDesc}
-                showMoreDescButton={showMoreDescButton}
+                color={primaryColor}
               />
               <h3 className="mt-5">
                 <FormattedMessage
@@ -880,7 +1008,7 @@ const AuctionDetail = ({
                   comments={comments}
                   reply={reply}
                   laodingPostReply={loadingPostReply}
-                  deleteComment={handleDeleteComment}
+                  deleteComment={handleOpenDeleteCommentModal}
                   totalComments={totalComments}
                   loadMore={loadMore}
                   loadingMoreComments={loadingMoreComments}
@@ -889,6 +1017,7 @@ const AuctionDetail = ({
                   thumb={thumb}
                   env={env.cdn_static_url}
                   translateMessage={translateMessage}
+                  primaryColor={primaryColor}
                 />
               </div>
             </Col>
@@ -912,6 +1041,7 @@ const AuctionDetail = ({
                   minValue={handleMinValue()}
                   inputBidValue={value}
                   valueBidTextField={valueBidTextField}
+                  primaryColor={primaryColor}
                 />
               </Sticky>
               <ContributesListBox
@@ -919,11 +1049,13 @@ const AuctionDetail = ({
                 testeId="ContributesListBox"
                 title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
                 contributesList={listUsersBid}
+                loadingContributesList={isLoadingContributesList}
                 loadingContributes={isloadingContributes}
                 total={listBidTotal}
                 showMoreContributes={showMoreContributes}
                 currency={auctionDetailInfo.currency.small}
                 env={env}
+                primaryColor={primaryColor}
               />
             </Col>
           </Row>
@@ -932,6 +1064,8 @@ const AuctionDetail = ({
               title={translateMessage({ id: 'auction.detail.otherAuctions', defaultMessage: 'Other Auctions' })}
               listAuctions={listAuctions}
               buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
+              primaryColor={primaryColor}
+              env={env}
             />
           )}
         </>
@@ -941,7 +1075,7 @@ const AuctionDetail = ({
           <CustomModal
             bodyPadding="14px"
             dialogClassName="auction-modal-bid"
-            onHide={() => setIsShowModal(false)}
+            onHide={() => handleCloseModalBid()}
             show={isShowModal}
             title={translateMessage({ id: 'auction.modal.bid.confirm', defaultMessage: 'Confirm bid' })}
             actionsChildren={(
@@ -967,7 +1101,7 @@ const AuctionDetail = ({
                     defaultMessage="Your bid is {value}"
                     values={{
                       value: <FormattedNumber
-                        value={valueBid}
+                        value={parseInt(+valueBid, 10)}
                         style="currency"
                         currency={auctionDetailInfo.currency.small}
                       />,
@@ -987,7 +1121,7 @@ const AuctionDetail = ({
                   </a>
                   <span>)</span>
                 </div>
-                {(hasPhoneValidate && auctionDetailInfo.cc === 1) && (
+                {(auctionDetailInfo.cc === 1) && (
                   <CreditCardList
                     getStripeCreditCardlist={getStripeCreditCardlist}
                     postStripeCreditCard={postStripeCreditCard}
@@ -1000,7 +1134,7 @@ const AuctionDetail = ({
                     selectedCard={selectedCard}
                   />
                 )}
-                {!hasPhoneValidate && (
+                {(!showPhoneValidate) && (
                   <ValidateTelephone
                     localStorage={localStorage}
                     mobileValidatePost={mobileValidatePost}
@@ -1091,7 +1225,7 @@ const AuctionDetail = ({
               <>
                 <Button
                   extraClass="dark"
-                  onClick={() => setIsShowModalSubscribe(false)}
+                  onClick={() => handleCancelModalSubscribe()}
                   text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
                 />
                 <Button
@@ -1132,7 +1266,7 @@ const AuctionDetail = ({
                 />
               </div>
             )}
-            onHide={() => setIsShowModalSubscribe(false)}
+            onHide={() => handleCancelModalSubscribe()}
             show={isShowModalSubscribe}
             title={translateMessage({
               id: 'auction.detail.subscribeAuction',
@@ -1140,6 +1274,38 @@ const AuctionDetail = ({
             })}
           />
         </>
+      )}
+      {modalDelete.isOpen && (
+        <CustomModal
+          bodyPadding="14px"
+          dialogClassName="auction-modal-comment-delete"
+          actionsChildren={(
+            <>
+              <Button
+                extraClass="dark"
+                onClick={() => setModalDelete({ ...modalDelete, isOpen: false })}
+                text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+              />
+              <Button
+                extraClass="success-full"
+                onClick={() => handleDeleteComment(modalDelete.commentId)}
+                text={translateMessage({ id: 'auction.modal.comment.Confirm', defaultMessage: 'Confirm' })}
+              />
+            </>
+          )}
+          bodyChildren={(
+            <FormattedMessage
+              id="auctions.comment.message.delete"
+              defaultMessage="Do you really want to delete this comment?"
+            />
+          )}
+          onHide={() => setModalDelete({ ...modalDelete, isOpen: false })}
+          show={modalDelete.isOpen}
+          title={translateMessage({
+            id: 'auction.modal.comment.title',
+            defaultMessage: 'Delete comment',
+          })}
+        />
       )}
     </Container>
   );
@@ -1221,6 +1387,7 @@ AuctionDetail.propTypes = {
   auctionComments: PropTypes.object,
   auctionUserCommentsResponse: PropTypes.object,
   deleteAuctionComment: PropTypes.func,
+  deleteComment: PropTypes.object,
   mobileValidatePost: PropTypes.func,
   validatePhone: PropTypes.object,
   mobileConfirmPost: PropTypes.func,
@@ -1229,6 +1396,7 @@ AuctionDetail.propTypes = {
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
+    cdn_uploads_url: PropTypes.string,
     stripe: PropTypes.object,
   }),
   translateMessage: PropTypes.func,
@@ -1239,6 +1407,7 @@ AuctionDetail.propTypes = {
   postUpdatedUser: PropTypes.func,
   updatedUser: PropTypes.object,
   showAlert: PropTypes.func,
+  primaryColor: PropTypes.string,
 };
 
 export default injectIntl(AuctionDetail);

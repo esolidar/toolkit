@@ -1,8 +1,20 @@
 /* global expect */
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
+import '@testing-library/jest-dom';
+import { screen } from '@testing-library/react';
 import {
-  getEmployeeName, addUrlParam, removeUrlParam, getUrlParam, filterUnique, convertToMyCurrency, getLocalStorageAuctionPrivateCode, isCompanyAdmin, isValidURL,
+  getEmployeeName,
+  addUrlParam,
+  removeUrlParam,
+  getUrlParam,
+  filterUnique,
+  convertToMyCurrency,
+  getLocalStorageAuctionPrivateCode,
+  isCompanyAdmin,
+  isValidURL,
+  isEmpty,
+  blinkElement,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -94,14 +106,16 @@ describe('test utils functions', () => {
   });
 
   test('convertToMyCurrency should return value with my currency', () => {
-    localStorage.setItem('currency', JSON.stringify({
-      id: 2,
-      name: 'Dollar',
-      small: 'USD',
-      value: '1.00',
-      symbol: '$',
-      status: true,
-      lastUpdate: '2020-11-26 12:00:05',
+    localStorage.setItem('user', JSON.stringify({
+      currency: {
+        id: 2,
+        name: 'Dollar',
+        small: 'USD',
+        value: '1.00',
+        symbol: '$',
+        status: true,
+        lastUpdate: '2020-11-26 12:00:05',
+      },
     }));
 
     const currency = {
@@ -122,14 +136,16 @@ describe('test utils functions', () => {
   });
 
   test('convertToMyCurrency should return value with my currency equal to localstorage', () => {
-    localStorage.setItem('currency', JSON.stringify({
-      id: 1,
-      name: 'Euro',
-      small: 'EUR',
-      value: '1.19',
-      symbol: '€',
-      status: true,
-      lastUpdate: '2020-11-26 12:00:05',
+    localStorage.setItem('user', JSON.stringify({
+      currency: {
+        id: 2,
+        name: 'Dollar',
+        small: 'USD',
+        value: '1.00',
+        symbol: '$',
+        status: true,
+        lastUpdate: '2020-11-26 12:00:05',
+      },
     }));
 
     const currency = {
@@ -143,9 +159,9 @@ describe('test utils functions', () => {
     };
 
     expect(convertToMyCurrency(100, currency)).toEqual(<FormattedNumber
-      value={100}
+      value={119}
       style="currency"
-      currency={currency.small}
+      currency="USD"
     />);
   });
 
@@ -200,5 +216,30 @@ describe('test utils functions', () => {
     expect(isValidURL('https://www.esolidar.com')).toBe(true);
     expect(isValidURL('esolidar.com')).toBe(true);
     expect(isValidURL('esolidar')).toBe(false);
+  });
+
+  test('return object empty true or false', () => {
+    const objectEmpty = {};
+    const objectNotEmpty = { id: 1, name: 'name' };
+    const arrayEmpty = [];
+    const arrayNotEmpty = [1, 2];
+    expect(isEmpty(objectEmpty)).toBe(true);
+    expect(isEmpty(objectNotEmpty)).toBe(false);
+    expect(isEmpty(arrayEmpty)).toBe(true);
+    expect(isEmpty(arrayNotEmpty)).toBe(false);
+  });
+
+  test('should have class blink and then remove class blink', async () => {
+    document.body.innerHTML = '<div data-testid="text-id" id="text"></div>';
+    blinkElement('text', 'blink');
+    const wrapper = screen.getByTestId('text-id');
+    expect(wrapper).toHaveClass('blink');
+
+    setTimeout(
+      () => {
+        expect(wrapper).not.toHaveClass('blink');
+      },
+      3000,
+    );
   });
 });

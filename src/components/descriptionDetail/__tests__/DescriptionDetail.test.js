@@ -15,7 +15,8 @@ const propsDefault = {
 
 const props = {
   title: 'Description',
-  description: 'Test Description',
+  // eslint-disable-next-line max-len
+  description: 'Sed lacinia vehicula lorem mollis varius. Aliquam non tincidunt nibh. Suspendisse sapien est, auctor vel libero ut, pretium suscipit nisl. Pellentesque ut enim in dui aliquet aliquam ac sed nibh. Fusce nibh augue, dictum et turpis in, sollicitudin ornare est. Maecenas tincidunt ipsum et feugiat fermentum. Vestibulum sed aliquet ante. Nunc rhoncus, lectus nec venenatis vestibulum, nibh magna sodales nunc, eleifend luctus nisi magna eu magna. Cras mauris dolor, aliquet at laoreet sed, condimentum et mauris. Praesent lacinia purus vitae risus feugiat lobortis. Maecenas quis nulla varius, posuere lacus non, hendrerit metus. Cras euismod justo ac eros sollicitudin, id imperdiet risus sodales.',
   showmoreDesc: true,
   showMoreDescButton: true,
 };
@@ -36,11 +37,6 @@ describe('DescriptionDetail component', () => {
     const wrapper = shallow(<DescriptionDetail {...propsDefault} />);
     expect(wrapper.find('.description-text').length).toBe(1);
     expect(wrapper.find('.description-text').text()).toEqual('Test Description');
-  });
-
-  it('not exist button show more', () => {
-    const wrapper = shallow(<DescriptionDetail {...propsDefault} />);
-    expect(wrapper.find('.readmore-button').length).toBe(0);
   });
 
   it('exist button show more', () => {

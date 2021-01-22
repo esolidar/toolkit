@@ -45,7 +45,7 @@ export const filterUnique = (array, key) => array.filter((v, i, a) => a.findInde
 
 export const convertToMyCurrency = (value, currency) => {
   let convertedValue = value;
-  const myCurrency = localStorage.currency && localStorage.currency !== 'null' ? JSON.parse(localStorage.currency) : currency;
+  const myCurrency = localStorage.user && JSON.parse(localStorage.user).currency !== 'null' ? JSON.parse(localStorage.user).currency : currency;
 
   if (myCurrency.id !== currency.id) {
     convertedValue = (value * currency.value) / myCurrency.value;
@@ -82,4 +82,18 @@ export const isValidURL = (str) => {
     + '(\\?[;&a-z\\d%_.~+=-]*)?' // query string
     + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
   return !!pattern.test(str);
+};
+
+export const isEmpty = (obj) => Object.keys(obj).length === 0;
+
+export const blinkElement = (elmId, className) => {
+  const element = document.getElementById(elmId);
+  if (!isDefined(element)) return;
+  element.classList.add(className);
+  setTimeout(
+    () => {
+      element.classList.remove(className);
+    },
+    3000,
+  );
 };

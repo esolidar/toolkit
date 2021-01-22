@@ -16,24 +16,27 @@ $inputBackgroundColor: #f5f5f5 !default;
   &.checkbox-inline label {
     color: $inputTextColor;
   }
+}
 
-  .form-control {
-    border-color: $borderColor;
-    @include box-shadow($boxShadow);
+.form-control {
+  border-color: $borderColor;
+  @include box-shadow($boxShadow);
 
-    &:focus {
-      border-color: darken($borderColor, 10%);
-      @include box-shadow($boxShadowHover);
-    }
+  &:focus {
+    border-color: darken($borderColor, 10%);
+    @include box-shadow($boxShadowHover);
   }
+}
 
-  .input-group-addon {
-    color           : $inputTextColor;
-    border-color    : $borderColor;
-    background-color: $inputBackgroundColor;
-  }
+.input-group-addon {
+  color           : $inputTextColor;
+  border          : 2px solid $borderColor;
+  background-color: $inputBackgroundColor;
+  padding         : 0 10px;
+  margin-left     : -2px;
+  line-height     : 31px;
+}
 
-  .form-control-feedback {
-    color: $inputTextColor;
-  }
+.form-control-feedback {
+  color: $inputTextColor;
 }

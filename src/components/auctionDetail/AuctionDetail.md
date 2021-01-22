@@ -8,311 +8,160 @@ import { AuctionDetail } from '@esolidar/toolkit';
 
 ``` jsx
 <AuctionDetail
-  auctionId={299}
+  auctionId="279"
   getAuctionDetail={() => {}}
   auctionDetail={{
-      code: 200,
-      data : {
-        private: 0,
-        id: 299,
-        user_id: 1124,
-        cause_id: null,
-        cc: 1,
-        currency_id: 1,
-        title: "Work: Gustavo Massola's Collective Move",
-        title_en: "Work: Gustavo Massola's Collective Move",
-        bid_start: 3,
-        dateStart: "2020-02-08 07:00:00",
-        dateLimit: "2020-12-30 16:00:00",
-        bid_interval: 10,
-        bid_max_interval: 100,
-        status: "A",
-        goal: 1000,
-        description: "Uma descrição teste",
-        description_en: "Description test",
-        shipping_description: "Os portes de envio serão à responsabilidade do vencedor.",
-        shipping_description_en: "Please note postage is not included as part of the final bid.",
-        payment_description: "O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.",
-        payment_description_en: "The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.",
-        last_bid: {
-            id: 1241,
-            auction_id: 299,
-            value: 31,
-            hidden: 0,
-            stripelast4: null,
-            dateAdded: "2020-04-20 14:25:58",
-            user: {
-                id: 9,
-                institution_id: null,
-                firstName: "Joel F.",
-                lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
-                currency: {
-                    id: 1,
-                    name: "Euro",
-                    small: "EUR",
-                    value: "1.19",
-                    symbol: "€",
-                    status: true,
-                    lastUpdate: "2020-11-26 12:00:05"
-                },
-                language: {
-                    id: 2,
-                    name: "pt",
-                    translate: "Português (PT)",
-                    status: 1,
-                    locale: "pt_PT",
-                    dateAdded: "2015-02-24 11:02:06"
-                },
-                thumbs: {
-                    original: "https://cdn.testesolidar.com/users/9/1606232953.jpg",
-                    standard: "https://cdn.testesolidar.com/users/9/1606232953-STANDARD.jpg",
-                    thumb: "https://cdn.testesolidar.com/users/9/1606232953-THUMB.jpg"
-                },
-                work_email: [
-                    {
-                        company_id: 1,
-                        name: "",
-                        role: "admin",
-                        department: null,
-                        user: null
-                    },
-                    
-                ],
-                name: "Joel F. Calheiros",
-                s3_key: "users/9/1606232953.jpg",
-                institution: null,
-                phones: [
-                    {
-                        id: 77,
-                        user_id: 9,
-                        phone: "+351965790981",
-                        code: "7597",
-                        main: 1,
-                        twilio_sid: "SM05d868fe86a44bd3b49cc2d11bc67ff2",
-                        verified: 1,
-                        updatedDate: "2016-10-14 13:46:02",
-                        dateAdded: "2016-10-14 14:45:51"
-                    },
-                ]
-            }
-        },
-        images: [
-            {
-                id: 200,
-                auction_id: 299,
-                streamImage: "amazons3",
-                image_name: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
-                image_type: "image/jpeg",
-                image_size: "140004",
-                default: 1,
-                thumb: 0,
-                position: 0,
-                fb_image: 0,
-                lastUpdated: "2020-03-10 11:24:57",
-                dateAdded: "2019-09-16 10:51:01",
-                thumbs: {
-                    standard: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg",
-                    detail: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg",
-                    pin: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg",
-                    thumb: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg"
-                },
-                s3_key: "products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg"
-            },
-            {
-                id: 200,
-                auction_id: 299,
-                streamImage: "amazons3",
-                image_name: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
-                image_type: "image/jpeg",
-                image_size: "140004",
-                default: 1,
-                thumb: 0,
-                position: 0,
-                fb_image: 0,
-                lastUpdated: "2020-03-10 11:24:57",
-                dateAdded: "2019-09-16 10:51:01",
-                thumbs: {
-                    standard: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg",
-                    detail: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg",
-                    pin: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg",
-                    thumb: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg"
-                },
-                s3_key: "products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg"
-            },
-        ],
-        video: "https://www.youtube.com/watch?v=cVFzblT5VPE",
-        currency: {
+    code: 200,
+    data: {
+      id: 279,
+      user_id: 1073,
+      project_id: null,
+      title: 'Leilão teste NORMAL',
+      title_en: 'd3d34d43',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      description_en: null,
+      shipping_description: null,
+      shipping_description_en: null,
+      payment_description: null,
+      payment_description_en: null,
+      bid_start: 50,
+      goal: 0,
+      video: null,
+      dateStart: '2021-01-01 01:23:42',
+      dateLimit: '2021-02-01 01:23:42',
+      timezone: 'Europe/Dublin',
+      bid_interval: 1,
+      bid_max_interval: 100,
+      tax: 10,
+      status: 'A',
+      private: 0,
+      cc: 1,
+      brand_id: 1,
+      updatedDate: '2021-01-14 16:40:01',
+      dateAdded: '2014-04-10 00:00:00',
+      last_bid: {
+        id: 1606,
+        value: 73,
+        hidden: 0,
+        stripelast4: '3155',
+        dateAdded: '2021-01-15 13:03:47',
+        user: {
+          id: 51792,
+          institution_id: null,
+          firstName: 'Miguel',
+          lastName: 'Rocha',
+          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+          currency: {
             id: 1,
-            name: "Euro",
-            small: "EUR",
-            value: "1.19",
-            symbol: "€",
+            name: 'Euro',
+            small: 'EUR',
+            value: '1.212',
+            symbol: '€',
             status: true,
-            lastUpdate: "2020-11-26 12:00:05"
+            lastUpdate: '2021-01-20 12:00:03',
+          },
+          language: {
+            id: 2,
+            name: 'pt',
+            translate: 'Português (PT)',
+            status: 1,
+            locale: 'pt_PT',
+            dateAdded: '2015-02-24 11:02:06',
+          },
+          thumbs: {
+            original: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
+            standard: 'https://cdn.testesolidar.com/users/51792/1601463876-STANDARD.jpg',
+            thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
+          },
+          name: 'Miguel Rocha',
+          institution: null,
+          phones: [
+            {
+              id: 154,
+              user_id: 51792,
+              phone: '+351919552199',
+              code: '2125',
+              main: 0,
+              twilio_sid: 'SM831a407700fc4e10881f50e7684fd03a',
+              verified: 0,
+              updatedDate: '2021-01-09 19:42:07',
+              dateAdded: '2021-01-07 11:32:00',
+            },
+           
+          ],
         },
-        last_bid_value: {
-            id: 1241,
-            auction_id: 299,
-            value: 31,
-            hidden: 0,
-            stripelast4: null,
-            dateAdded: "2020-04-20 14:25:58",
-            user: {
-                id: 9,
-                institution_id: null,
-                firstName: "Joel F.",
-                lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
-                currency: {
-                    id: 1,
-                    name: "Euro",
-                    small: "EUR",
-                    value: "1.19",
-                    symbol: "€",
-                    status: true,
-                    lastUpdate: "2020-11-26 12:00:05"
-                },
-                language: {
-                    id: 2,
-                    name: "pt",
-                    translate: "Português (PT)",
-                    status: 1,
-                    locale: "pt_PT",
-                    dateAdded: "2015-02-24 11:02:06"
-                },
-                thumbs: {
-                    original: "https://cdn.testesolidar.com/users/9/1606232953.jpg",
-                    standard: "https://cdn.testesolidar.com/users/9/1606232953-STANDARD.jpg",
-                    thumb: "https://cdn.testesolidar.com/users/9/1606232953-THUMB.jpg"
-                },
-                work_email: [
-                    {
-                        company_id: 1,
-                        name: "",
-                        role: "admin",
-                        department: null,
-                        user: null
-                    },
-                ],
-                name: "Joel F. Calheiros",
-                s3_key: "users/9/1606232953.jpg",
-                institution: null,
-                phones: [
-                    {
-                        id: 77,
-                        user_id: 9,
-                        phone: "+351965790981",
-                        code: "7597",
-                        main: 1,
-                        twilio_sid: "SM05d868fe86a44bd3b49cc2d11bc67ff2",
-                        verified: 1,
-                        updatedDate: "2016-10-14 13:46:02",
-                        dateAdded: "2016-10-14 14:45:51"
-                    },
-                ]
-            }
+      },
+      images: [
+        {
+          id: 193,
+          image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/a5ecae84-050b-4945-abdd-13c77dd9e301.jpeg',
+          thumbs: {
+            standard: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-STANDARD.jpeg',
+            detail: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-DETAIL.jpeg',
+            pin: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-PIN.jpeg',
+            thumb: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-THUMB.jpeg',
+          },
         },
-        recipient: {
-            id: 1124,
-            institution_id: 30,
-            language: {
-                id: 2,
-                name: "pt",
-                translate: "Português (PT)",
-                status: 1,
-                locale: "pt_PT",
-                dateAdded: "2015-02-24 11:02:06"
-            },
-            currency: {
-                id: 2,
-                name: "U. S. Dollar",
-                small: "USD",
-                value: "1",
-                symbol: "$",
-                status: true,
-                lastUpdate: "2014-02-03 15:50:54"
-            },
-            image: null,
-            thumbs: {
-                original: "https://static.testesolidar.com/frontend/assets/no-image.png",
-                standard: "https://static.testesolidar.com/frontend/assets/no-image.png",
-                thumb: "https://static.testesolidar.com/frontend/assets/no-image.png"
-            },
-            work_email: [],
-            name: null,
-            s3_key: null,
-            institution: {
-                id: 30,
-                name: "Helpo",
-                image: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
-                currency: {
-                    id: 2
-                },
-                thumbs: {
-                    detail: "https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg",
-                    thumb: "https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg",
-                },
-                s3_image_key: "institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
-                s3_cover_key: null,
-                description: "A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.",
-            },
-            phones: [],
+      ],
+      currency: {
+        id: 1,
+        small: 'EUR',
+      },
+      recipient: {
+        id: 1073,
+        currency: {
+          id: 1,
+          small: 'EUR',
         },
-        brand: {
-            id: 3,
-            name: "A marca da Cátia Catita",
-            username: "catita",
-            logo: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png",
-            cover: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg",
-            logo_thumbs: {
-                standard: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png",
-                detail: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png",
-                thumb: "https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png"
-            },
-            cover_thumbs: {
-                standard: "https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg",
-                detail: "https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg"
-            },
-            s3_logo_key: "brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png",
-            s3_cover_key: "brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg"
-            }
-        }
-     }
-  }        
-  userPrivateCode={null}
+        thumbs: {
+          thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
+        },
+        institution: {
+          id: 51,
+          name: 'Fundo Brasileiro para a Biodiversidade',
+          image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
+          currency: {
+            id: 1,
+          },
+          thumbs: {
+            thumb: 'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-THUMB.JPG',
+          },
+        },
+        phones: [],
+      },
+    },
+  }}  
   postNewBid={() => {}}
-  newBid={[]}
-  postAuctionComment={() => {}}
-  userComment={[]}
+  newBid={{
+    code: 404,
+  }}
   getAuctionBidList= {() => {}}
   auctionBidList={{
-    request_time: 67,
     code: 200,
     data: {
       current_page: 1,
       data: [
         {
-          id: 1255,
-          auction_id: 334,
-          value: 65,
+          id: 1745,
+          auction_id: 224,
+          value: 2,
           hidden: 0,
           stripelast4: null,
-          dateAdded: '2020-12-11 17:27:43',
+          dateAdded: '2021-01-20 10:52:51',
           user: {
-            id: 51792,
+            id: 51842,
             institution_id: null,
-            firstName: 'Miguel',
+            firstName: 'Miguel2',
             lastName: 'Rocha',
-            image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+            image: null,
             currency: {
-              id: 1,
-              name: 'Euro',
-              small: 'EUR',
-              value: '1.212',
-              symbol: '€',
+              id: 2,
+              name: 'U. S. Dollar',
+              small: 'USD',
+              value: '1',
+              symbol: '$',
               status: true,
-              lastUpdate: '2020-12-03 12:00:03',
+              lastUpdate: '2014-02-03 15:50:54',
             },
             language: {
               id: 1,
@@ -323,34 +172,34 @@ import { AuctionDetail } from '@esolidar/toolkit';
               dateAdded: '2015-01-06 16:58:22',
             },
             thumbs: {
-              original: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
-              standard: 'https://cdn.testesolidar.com/users/51792/1601463876-STANDARD.jpg',
-              thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
+              original: 'https://static.testesolidar.com/frontend/assets/no-image.png',
+              standard: 'https://static.testesolidar.com/frontend/assets/no-image.png',
+              thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
             },
             work_email: [],
-            name: 'Miguel Rocha',
-            s3_key: 'users/51792/1601463876.jpg?v=1601463877',
+            name: 'Miguel2 Rocha',
+            s3_key: null,
             institution: null,
             phones: [
               {
-                id: 134,
-                user_id: 51792,
+                id: 177,
+                user_id: 51842,
                 phone: '+351919552199',
-                code: '6121',
-                main: 1,
-                twilio_sid: 'SM089ce92c633246ccb8da10ce994c67d4',
+                code: '8351',
+                main: 0,
+                twilio_sid: 'SM6884016027a74ee1b715bbfb0f2bca65',
                 verified: 1,
-                updatedDate: '2020-09-30 11:11:05',
-                dateAdded: '2020-09-30 11:10:45',
+                updatedDate: '2021-01-19 18:10:38',
+                dateAdded: '2021-01-19 18:10:20',
               },
             ],
           },
         },
       ],
-      first_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+      first_page_url: 'https://apidev.testesolidar.com/v1/auctions/224/bids?page=1',
       from: 1,
       last_page: 1,
-      last_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+      last_page_url: 'https://apidev.testesolidar.com/v1/auctions/224/bids?page=1',
       links: [
         {
           url: null,
@@ -358,7 +207,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
           active: false,
         },
         {
-          url: 'https://apidev.testesolidar.com/v1/auctions/334/bids?page=1',
+          url: 'https://apidev.testesolidar.com/v1/auctions/224/bids?page=1',
           label: 1,
           active: true,
         },
@@ -369,198 +218,68 @@ import { AuctionDetail } from '@esolidar/toolkit';
         },
       ],
       next_page_url: null,
-      path: 'https://apidev.testesolidar.com/v1/auctions/334/bids',
+      path: 'https://apidev.testesolidar.com/v1/auctions/224/bids',
       per_page: '10',
-      prev_page_url: null,
-      to: 6,
-      total: 6,
-    },
-  }}
-  getAuctionList={() => {}}
-  auctionList={() => {}}
-  companyId="1"
-  getAuctionComment={() => {}}
-  auctionComments={{
-    request_time: 23,
-    code: 200,
-    data: {
-      current_page: 1,
-      data: [
-        {
-          id: 228,
-          auction_id: 334,
-          user_id: 9,
-          company_id: null,
-          comment_id: null,
-          comment: 'Comentario BD',
-          dateAdded: '2020-09-30 13:20:41',
-          deleted_at: null,
-          user: {
-            id: 9,
-            institution_id: null,
-            firstName: 'Joel F.',
-            lastName: 'Calheiros',
-            image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1607971152.jpg?v=1607971152',
-            streamImage: 'amazons3',
-            language: {
-              id: 2,
-              name: 'pt',
-              translate: 'Português (PT)',
-              status: 1,
-              locale: 'pt_PT',
-              dateAdded: '2015-02-24 11:02:06',
-            },
-            currency: {
-              id: 1,
-              name: 'Euro',
-              small: 'EUR',
-              value: '1.212',
-              symbol: '€',
-              status: true,
-              lastUpdate: '2020-12-03 12:00:03',
-            },
-            thumbs: {
-              original: 'https://cdn.testesolidar.com/users/9/1607971152.jpg?v=1607971152',
-              standard: 'https://cdn.testesolidar.com/users/9/1607971152-STANDARD.jpg',
-              thumb: 'https://cdn.testesolidar.com/users/9/1607971152-THUMB.jpg',
-            },
-            work_email: [
-              {
-                company_id: 1,
-                name: '',
-                role: 'admin',
-                department: null,
-                user: null,
-              },
-              {
-                company_id: 171,
-                name: '',
-                role: null,
-                department: null,
-                user: null,
-              },
-              {
-                company_id: 251,
-                name: '',
-                role: null,
-                department: null,
-                user: null,
-              },
-              {
-                company_id: 257,
-                name: '',
-                role: 'owner',
-                department: null,
-                user: null,
-              },
-              {
-                company_id: 258,
-                name: '',
-                role: 'owner',
-                department: null,
-                user: null,
-              },
-            ],
-            name: 'Joel F. Calheiros',
-            s3_key: 'users/9/1607971152.jpg?v=1607971152',
-            institution: null,
-            phones: [
-              {
-                id: 77,
-                user_id: 9,
-                phone: '+351965790981',
-                code: '7597',
-                main: 1,
-                twilio_sid: 'SM05d868fe86a44bd3b49cc2d11bc67ff2',
-                verified: 1,
-                updatedDate: '2016-10-14 13:46:02',
-                dateAdded: '2016-10-14 14:45:51',
-              },
-              {
-                id: 111,
-                user_id: 9,
-                phone: '+351965790981',
-                code: '5078',
-                main: 0,
-                twilio_sid: 'SM9d44c07828f74ddb889b1cedaab10856',
-                verified: 0,
-                updatedDate: '2017-02-06 13:31:59',
-                dateAdded: '2017-02-06 13:31:59',
-              },
-              {
-                id: 119,
-                user_id: 9,
-                phone: '351965790981',
-                code: '8935',
-                main: 0,
-                twilio_sid: 'SMb29401a491154147b9a78e454fd9cdbd',
-                verified: 1,
-                updatedDate: '2019-08-26 09:44:12',
-                dateAdded: '2019-08-06 11:06:36',
-              },
-              {
-                id: 131,
-                user_id: 9,
-                phone: '+351965790981',
-                code: '1562',
-                main: 0,
-                twilio_sid: 'SMe27d1239bc1f4ab585040284d1f10e4e',
-                verified: 1,
-                updatedDate: '2019-09-17 15:22:32',
-                dateAdded: '2019-09-17 16:20:50',
-              },
-              {
-                id: 132,
-                user_id: 9,
-                phone: '+351965790981',
-                code: '5530',
-                main: 0,
-                twilio_sid: 'SM3c2df52d426d45b3900f3678c3dab485',
-                verified: 1,
-                updatedDate: '2019-09-18 13:32:29',
-                dateAdded: '2019-09-18 14:32:02',
-              },
-            ],
-          },
-          company: null,
-        },
-      ],
-      first_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
-      from: 1,
-      last_page: 1,
-      last_page_url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
-      links: [
-        {
-          url: null,
-          label: '&laquo; Previous',
-          active: false,
-        },
-        {
-          url: 'https://apidev.testesolidar.com/v1/auctions/334/comments?page=1',
-          label: 1,
-          active: true,
-        },
-        {
-          url: null,
-          label: 'Next &raquo;',
-          active: false,
-        },
-      ],
-      next_page_url: null,
-      path: 'https://apidev.testesolidar.com/v1/auctions/334/comments',
-      per_page: 6,
       prev_page_url: null,
       to: 1,
       total: 1,
     },
   }}
-  user={{
-    email: 'rocha@esolidar.com'
+  getAuctionList={() => {}}
+  auctionList={{}}
+  companyId="1"
+  getAuctionSubscribe={() => {}}
+  auctionSubscribe={{
+    code: 200,
   }}
+  auctionSubscribeList={{
+    code: 200,
+    data: {
+      auction_on_start: 1,
+      auction_first_bid: 0,
+      auction_24h_end: 1,
+    },
+  }}
+  postAuctionSubscribe={() => {}}
+  getAuctionComment={() => {}}
+  auctionComments={{
+    code: 404,
+  }}
+  user={null}
+  translateMessage={() => 'Some text'}
+  requireLogin={() => false}
   env={{
     serverlessResizeImage: 'https://image.testesolidar.com',
-      cdn_static_url: 'https://static.esolidar.com',
-    }}
-  translateMessage={() => 'Some text'}
+    cdn_static_url: 'https://static.esolidar.com',
+  }}
+  postAuctionUserComment={() => {}}
+  auctionUserComment={[]}
+  postAuctionCompanyComment={() => {}}
+  getAuctionUserCommentResponse={[]}
+  auctionUserCommentsResponse={{
+    code: 404,
+  }}
+  deleteAuctionComment={() => {}}
+  deleteComment={{
+    code: 200,
+  }}
+  getStripeCreditCardlist={() => {}}
+  postStripeCreditCard={() => {}}
+  stripeCreditCardList={{}}
+  stripeCreditCard={{}}
+  mobileValidatePost={() => {}}
+  validatePhone={{}}
+  mobileConfirmPost={() => {}}
+  confirmPhone={{
+    code: 200,
+  }}
+  intl={{
+    formatMessage: () => 'some text',
+  }}
+  pusherData={null}
+  postUpdatedUser={{}}
+  updatedUser={() => {}}
+  showAlert={() => {}}
+  primaryColor="#05c6e5"
 />
 ```
