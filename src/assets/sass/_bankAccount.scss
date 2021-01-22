@@ -1,0 +1,26 @@
+.bank-account {
+  h1 {
+    margin        : 0;
+    font-size     : 36px;
+    color         : $mainColor;
+    letter-spacing: -0.5px;
+    line-height   : 50px;
+    margin-bottom : 15px;
+  }
+
+  .box {
+    padding-top: 25px;
+
+
+    h4 {
+      margin-bottom: 20px;
+      color        : $mainColor;
+    }
+  }
+
+  .no-bank-accounts {
+    color    : $grayDark;
+    padding  : 40px;
+    font-size: 16px;
+  }
+}

@@ -59,6 +59,7 @@ export { default as CreditCardList } from './components/creditCardList/CreditCar
 export { default as ValidateTelephone } from './components/validateTelephone/ValidateTelephone';
 export { default as AuctionAddForm } from './components/auctionAddForm/AuctionAddForm';
 export { default as NoMatch } from './components/noMatch/NoMatch';
+export { default as BankAccount } from './components/bankAccounts/BankAccount';
 
 // Elements
 export { default as SelectField } from './elements/selectField/SelectField';
@@ -71,6 +72,7 @@ export { default as FileInput } from './elements/fileInput/FileInput';
 export { default as DropZoneBox } from './elements/dropZoneBox/DropZoneBox';
 export { default as CustomModal } from './elements/customModal/CustomModal';
 export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage';
+export { default as ConfirmModal } from './elements/confirmModal/ConfirmModal';
 
 // Utils
 export {
