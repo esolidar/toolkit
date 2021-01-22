@@ -46,7 +46,17 @@ const translations = {
 };
 
 const HtmlEditor = ({
-  onFileUpload, initialContent, onChange, columns, changeColumns, intl, error, muiStyle, helperText, showColumnsBtn,
+  dataTestId,
+  onFileUpload,
+  initialContent,
+  onChange,
+  columns,
+  changeColumns,
+  intl,
+  error,
+  muiStyle,
+  helperText,
+  showColumnsBtn,
 }) => {
   const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
@@ -144,6 +154,7 @@ const HtmlEditor = ({
         spellCheck={true}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
+        data-testid={dataTestId}
       />
       {!!helperText && (<p aria-label="html-helper-text" className="helper-text__error">{helperText}</p>)}
     </>
@@ -151,6 +162,7 @@ const HtmlEditor = ({
 };
 
 HtmlEditor.propTypes = {
+  dataTestId: PropTypes.string,
   onFileUpload: PropTypes.func,
   initialContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onChange: PropTypes.func,

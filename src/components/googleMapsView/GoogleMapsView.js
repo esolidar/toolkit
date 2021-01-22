@@ -5,6 +5,7 @@ import {
 } from 'react-google-maps';
 
 const GoogleMapsView = ({
+  dataTestId,
   defaultZoom,
   draggable,
   isMarkerShown,
@@ -16,6 +17,7 @@ const GoogleMapsView = ({
     defaultZoom={defaultZoom}
     defaultCenter={{ lat: +(latitude), lng: +(longitude) }}
     center={{ lat: +(latitude), lng: +(longitude) }}
+    data-testid={dataTestId}
   >
     {isMarkerShown && (
       <Marker
@@ -28,6 +30,7 @@ const GoogleMapsView = ({
 );
 
 GoogleMapsView.propTypes = {
+  dataTestId: PropTypes.string,
   defaultZoom: PropTypes.number,
   draggable: PropTypes.bool,
   isMarkerShown: PropTypes.bool,
