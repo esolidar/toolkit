@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import IBAN from 'iban';
@@ -19,9 +19,17 @@ const BankAccount = ({
   color,
   postBankTransfer,
   userId,
+  getBankTransfer,
+  updateLocalstorage,
 }) => {
   const [errors, setErrors] = useState({});
   const [bankAccounts, setBankAccounts] = useState(bankTransfer || {});
+
+  useEffect(() => {
+    if (getBankTransfer && getBankTransfer.code === 200) {
+      updateLocalstorage(bankAccounts);
+    }
+  }, [getBankTransfer]);
 
   const handdleChangeAccount = (e, i, countryId) => {
     const { name, value } = e.target;
@@ -94,6 +102,7 @@ const BankAccount = ({
   const isValid = () => {
     setErrors({});
     let isValid = true;
+
     Object.keys(bankAccounts).map((key) => {
       const value = bankAccounts[key];
       value.map((item, i) => {
@@ -133,20 +142,19 @@ const BankAccount = ({
     if (!isEmpty(accounts) && !isEmpty(accounts[1] || [])) {
       return (
         accounts[1].map((account, i) => (
-          <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error' : ''}>
+          <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}>
             <Row>
               <Col sm={12}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
-                      id="bank.account"
+                      id="bank.account.international.value"
                       defaultMessage="International account #{value}"
                       values={{ value: i + 1 }}
                     />
-
                     <ConfirmModal
                       onConfirm={() => handleDeleteInternationalAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.international.delete.title', defaultMessage: 'Delete international account' })}
+                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
                       body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
                       confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
@@ -184,12 +192,15 @@ const BankAccount = ({
     }
 
     return (
-      <Col sm={12} className="bank-account">
+      <Col sm={12} className="bank-account" data-testid="no-international-accounts">
         <div className="box text-center no-bank-accounts">
           <FormattedMessage
             id="bank.account.empty.international"
             defaultMessage="There are no international bank accounts, please add."
           />
+          <br />
+          <br />
+          <Button extraClass="dark" onClick={handleAddIntenationalAccount} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add international account' })} />
         </div>
       </Col>
     );
@@ -201,7 +212,7 @@ const BankAccount = ({
         case 150: // Brasil
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error' : ''}>
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -224,7 +235,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`bank_number[${i}]`}
-                    label={intl.formatMessage({ id: 'bank.account', defaultMessage: 'Account' })}
+                    label={intl.formatMessage({ id: 'bank.account.field', defaultMessage: 'Account' })}
                     type="text"
                     onChange={(e) => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
@@ -275,7 +286,7 @@ const BankAccount = ({
         case 208: // Portugal
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error' : ''}>
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -331,7 +342,7 @@ const BankAccount = ({
         case 231: // United Kingdom
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error' : ''}>
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -387,7 +398,7 @@ const BankAccount = ({
         default: // Rest of the world
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error' : ''}>
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -433,45 +444,71 @@ const BankAccount = ({
       }
     }
     return (
-      <Col sm={12} className="bank-account">
+      <Col sm={12} className="bank-account" data-testid="no-national-accounts">
         <div className="box text-center no-bank-accounts">
           <FormattedMessage
             id="bank.account.empty"
             defaultMessage="There are no bank accounts, please add."
           />
+          <br />
+          <br />
+          <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add', defaultMessage: 'Add account' })} />
         </div>
       </Col>
     );
   };
 
   return (
-    <Row className="bank-account">
-      <Col sm={12}>
-        <h1 style={{ color }}>
-          <FormattedMessage
-            id="bank.account.title"
-            defaultMessage="Bank accounts"
-          />
-        </h1>
-      </Col>
-      {renderInternacionalAccounts(bankAccounts)}
-      <Col sm={12} className="text-right">
-        <Button extraClass="dark" onClick={handleAddIntenationalAccount} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add international account' })} />
-      </Col>
-      <Col sm={12}>
-        <hr />
-      </Col>
-      {renderAccounts(bankAccounts)}
-      <Col sm={12} className="text-right">
-        <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add account' })} />
-      </Col>
-      <Col sm={12}>
-        <hr />
-      </Col>
-      <Col sm={12}>
-        <Button extraClass="success-full" onClick={handleSubmit} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add account' })} />
-      </Col>
-    </Row>
+    <>
+      {(countryId === 150 || countryId === 231) && (
+        <Row className="bank-account">
+          <Col sm={12}>
+            <h3 style={{ color }} data-testid="international-account-title">
+              <FormattedMessage
+                id="bank.account.international"
+                defaultMessage="International bank accounts"
+              />
+            </h3>
+          </Col>
+          {renderInternacionalAccounts(bankAccounts)}
+          {(!isEmpty(bankAccounts[1] || [])) && (
+            <Col sm={4} className="text-right mb-5">
+              <div className="box">
+                <div className="add-account">
+                  <Button extraClass="dark" onClick={handleAddIntenationalAccount} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add international account' })} />
+                </div>
+              </div>
+            </Col>
+          )}
+        </Row>
+      )}
+      <Row className="bank-account">
+        <Col sm={12}>
+          <h3 style={{ color }} data-testid="account-title">
+            <FormattedMessage
+              id="bank.account.subtitle"
+              defaultMessage="Bank accounts"
+            />
+          </h3>
+        </Col>
+        {renderAccounts(bankAccounts)}
+        {(!isEmpty(bankAccounts[countryId] || [])) && (
+          <Col sm={4} className="text-center mb-5">
+            <div className="box">
+              <div className="add-account">
+                <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add', defaultMessage: 'Add account' })} />
+              </div>
+            </div>
+          </Col>
+        )}
+        <Col sm={12}>
+          <hr />
+        </Col>
+        <Col sm={12} className="text-right" data-testid="submit-button">
+          <Button extraClass="success-full" onClick={handleSubmit} text={intl.formatMessage({ id: 'bank.account.save', defaultMessage: 'Save' })} />
+        </Col>
+      </Row>
+    </>
   );
 };
 
@@ -479,11 +516,13 @@ BankAccount.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  countryId: PropTypes.number,
+  countryId: PropTypes.number.isRequired,
   bankTransfer: PropTypes.object,
   color: PropTypes.string,
-  postBankTransfer: PropTypes.func,
-  userId: PropTypes.string,
+  postBankTransfer: PropTypes.func.isRequired,
+  updateLocalstorage: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
+  getBankTransfer: PropTypes.object,
 };
 
 export default injectIntl(BankAccount);

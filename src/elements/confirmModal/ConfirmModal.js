@@ -4,6 +4,20 @@ import { Modal, Button as BootstrapButton } from 'react-bootstrap';
 import Button from '../../components/button/Button';
 
 const ConfirmModal = (props) => {
+  const border = '1px solid #dee2e6';
+
+  const headerStyle = {
+    borderBottom: props.dividerTop ? border : 'none',
+  };
+
+  const bodyStyle = {
+    padding: props.bodyPadding || 'auto',
+  };
+
+  const footerStyle = {
+    borderTop: props.dividerBottom ? border : 'none',
+  };
+
   const [isOpened, setIsOpened] = useState(props.visible);
 
   const onButtonClick = () => {
@@ -42,16 +56,34 @@ const ConfirmModal = (props) => {
       centered
       data-testid="modal"
     >
-      <Modal.Header>
-        <Modal.Title>{props.title}</Modal.Title>
+      <Modal.Header
+        className={props.headerClassName}
+        closeButton={true}
+        closeLabel="Close"
+        onHide={props.onHide}
+        style={headerStyle}
+        data-testid="header"
+      >
+        <Modal.Title>
+          <span
+            className={`mr-2 ${props.titleClassName}`}
+            data-testid="title"
+          >
+            {props.title}
+          </span>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body
+        className={props.bodyClassName}
+        style={bodyStyle}
         data-testid="body"
       >
         {props.body}
 
       </Modal.Body>
       <Modal.Footer
+        className={props.footerClassName}
+        style={footerStyle}
         data-testid="footer"
       >
         {cancelButton}
@@ -109,6 +141,7 @@ ConfirmModal.defaultProps = {
   confirmText: 'Confirm',
   confirmClass: 'danger-full',
   showCancelButton: true,
+  className: 'condirm-modal',
 };
 
 export default ConfirmModal;
