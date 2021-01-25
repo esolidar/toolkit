@@ -460,6 +460,26 @@ const BankAccount = ({
 
   return (
     <>
+      <Row className="bank-account">
+        <Col sm={12}>
+          <h3 style={{ color }} data-testid="account-title">
+            <FormattedMessage
+              id="bank.account.subtitle"
+              defaultMessage="Bank accounts"
+            />
+          </h3>
+        </Col>
+        {renderAccounts(bankAccounts)}
+        {(!isEmpty(bankAccounts[countryId] || [])) && (
+          <Col sm={4} className="text-center mb-5">
+            <div className="box">
+              <div className="add-account">
+                <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add', defaultMessage: 'Add account' })} dataTestId="add-bank-account" />
+              </div>
+            </div>
+          </Col>
+        )}
+      </Row>
       {(countryId === 150 || countryId === 231) && (
         <Row className="bank-account">
           <Col sm={12}>
@@ -482,25 +502,7 @@ const BankAccount = ({
           )}
         </Row>
       )}
-      <Row className="bank-account">
-        <Col sm={12}>
-          <h3 style={{ color }} data-testid="account-title">
-            <FormattedMessage
-              id="bank.account.subtitle"
-              defaultMessage="Bank accounts"
-            />
-          </h3>
-        </Col>
-        {renderAccounts(bankAccounts)}
-        {(!isEmpty(bankAccounts[countryId] || [])) && (
-          <Col sm={4} className="text-center mb-5">
-            <div className="box">
-              <div className="add-account">
-                <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add', defaultMessage: 'Add account' })} dataTestId="add-bank-account" />
-              </div>
-            </div>
-          </Col>
-        )}
+      <Row>
         <Col sm={12}>
           <hr />
         </Col>
