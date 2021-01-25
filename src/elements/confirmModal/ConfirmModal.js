@@ -87,7 +87,7 @@ const ConfirmModal = (props) => {
         data-testid="footer"
       >
         {cancelButton}
-        <Button extraClass={props.confirmClass} onClick={onConfirm} text={props.confirmText} />
+        <Button extraClass={props.confirmClass} onClick={onConfirm} text={props.confirmText} dataTestId="btn-confirm" />
       </Modal.Footer>
     </Modal>
   );

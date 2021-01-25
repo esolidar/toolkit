@@ -142,7 +142,7 @@ const BankAccount = ({
     if (!isEmpty(accounts) && !isEmpty(accounts[1] || [])) {
       return (
         accounts[1].map((account, i) => (
-          <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid="international-accounts">
+          <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`international-accounts-${i}`}>
             <Row>
               <Col sm={12}>
                 <div className="box">
@@ -160,7 +160,7 @@ const BankAccount = ({
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                       style={{ float: 'right', color: '#888' }}
                     >
-                      <button type="button" className="edit-button">
+                      <button type="button" className="edit-button" data-testid={`btn-delete-international-account-${i}`}>
                         <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
                       </button>
                     </ConfirmModal>
@@ -212,7 +212,7 @@ const BankAccount = ({
         case 150: // Brasil
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid="national-accounts">
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -228,7 +228,7 @@ const BankAccount = ({
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                       style={{ float: 'right', color: '#888' }}
                     >
-                      <button type="button" className="edit-button" onClick={() => handleDeleteAccount(i)} style={{ float: 'right', color: '#888' }}>
+                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
                         <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
                       </button>
                     </ConfirmModal>
@@ -286,7 +286,7 @@ const BankAccount = ({
         case 208: // Portugal
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid="national-accounts">
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -302,7 +302,7 @@ const BankAccount = ({
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                       style={{ float: 'right', color: '#888' }}
                     >
-                      <button type="button" className="edit-button" onClick={() => handleDeleteAccount(i)} style={{ float: 'right', color: '#888' }}>
+                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
                         <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
                       </button>
                     </ConfirmModal>
@@ -342,7 +342,7 @@ const BankAccount = ({
         case 231: // United Kingdom
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid="national-accounts">
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -358,7 +358,7 @@ const BankAccount = ({
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                       style={{ float: 'right', color: '#888' }}
                     >
-                      <button type="button" className="edit-button" onClick={() => handleDeleteAccount(i)} style={{ float: 'right', color: '#888' }}>
+                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
                         <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
                       </button>
                     </ConfirmModal>
@@ -398,7 +398,7 @@ const BankAccount = ({
         default: // Rest of the world
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid="national-accounts">
+              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -414,7 +414,7 @@ const BankAccount = ({
                       cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
                       style={{ float: 'right', color: '#888' }}
                     >
-                      <button type="button" className="edit-button" onClick={() => handleDeleteAccount(i)} style={{ float: 'right', color: '#888' }}>
+                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }}>
                         <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
                       </button>
                     </ConfirmModal>

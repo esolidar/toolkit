@@ -7,6 +7,7 @@ import {
   render, waitFor, screen,
 } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
+import userEvent from '@testing-library/user-event';
 import BankAccount from '../BankAccount';
 
 const fx = jest.fn();
@@ -32,13 +33,17 @@ const propsBankAccount = {
   getBankTransfer: {},
   bankTransfer: {
     1: [{
-      iban: '',
-      bic: '',
+      iban: '123123123123',
+      bic: '123123',
+    },
+    {
+      iban: '123123123123',
+      bic: '123123',
     }],
     231: [{
-      accountholder: '',
-      banksortcode: '',
-      accountnumber: '',
+      accountholder: '123123',
+      banksortcode: '123123',
+      accountnumber: '132123',
     }],
   },
 };
@@ -65,7 +70,7 @@ test('simulate bank account', async () => {
 test('simulate add international bank account', async () => {
   render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
   await waitFor(() => {
-    const internationalAccounts = screen.getByTestId('international-accounts');
+    const internationalAccounts = screen.getByTestId('international-accounts-0');
     expect(internationalAccounts).toBeInTheDocument();
   });
 });
@@ -73,7 +78,33 @@ test('simulate add international bank account', async () => {
 test('simulate add national bank account', async () => {
   render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
   await waitFor(() => {
-    const internationalAccounts = screen.getByTestId('national-accounts');
+    const internationalAccounts = screen.getByTestId('national-accounts-0');
     expect(internationalAccounts).toBeInTheDocument();
+  });
+});
+
+test('simulate delete international bank account show modal', async () => {
+  render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
+  await waitFor(() => {
+    const btnDelete0 = screen.getByTestId('btn-delete-international-account-0');
+    const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');
+    expect(btnDelete0).toBeInTheDocument();
+
+    userEvent.click(btnDelete1);
+    const modal = screen.getByTestId('modal');
+    expect(modal).toBeInTheDocument();
+  });
+});
+
+test('simulate delete natoinal bank account show modal', async () => {
+  render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
+  await waitFor(() => {
+    const btnDelete0 = screen.getByTestId('btn-delete-national-account-0');
+    const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');
+    expect(btnDelete0).toBeInTheDocument();
+
+    userEvent.click(btnDelete1);
+    const modal = screen.getByTestId('modal');
+    expect(modal).toBeInTheDocument();
   });
 });
