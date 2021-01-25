@@ -27,7 +27,7 @@ const Comments = ({
       setBackgroundImageStyle(`url(${env}/frontend/assets/loader.svg)`);
     } else if (localStorage.lang === 'pt' && !isShowResponsive) {
       setBackgroundImageStyle(`url(${env}/frontend/assets/enviar-comment.png)`);
-    } else if (isShowResponsive) {
+    } else if (isShowResponsive || !laodingPostReply) {
       setBackgroundImageStyle('');
     }
   }, [laodingPostReply, isShowResponsive]);

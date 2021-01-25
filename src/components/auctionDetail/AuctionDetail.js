@@ -573,7 +573,7 @@ const AuctionDetail = ({
     }
 
     if (auctionDetailInfo.last_bid) {
-      if (value <= auctionDetailInfo.last_bid.value || value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval) {
+      if (value <= auctionDetailInfo.last_bid.value || value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval || value < auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval) {
         setError(
           intl.formatMessage(
             {
@@ -581,7 +581,7 @@ const AuctionDetail = ({
               defaultMessage: 'Put a numeric value between {bidStart} and {maxBid}',
             },
             {
-              bidStart: auctionDetailInfo.last_bid.value,
+              bidStart: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval,
               maxBid: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval,
             },
           ),
