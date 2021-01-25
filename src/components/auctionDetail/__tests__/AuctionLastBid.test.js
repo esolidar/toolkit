@@ -296,48 +296,6 @@ const propsAuctionLastBid = {
   },
 };
 
-const propsAuctionEnded = {
-  handleClickBid: fx,
-  isShowBid: true,
-  isEnded: true,
-  auction: {
-    last_bid: {
-      value: 31,
-    },
-    currency: {
-      id: 1,
-      small: 'EUR',
-    },
-    recipient: {
-      institution: {
-        id: 30,
-        name: 'Helpo',
-        image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
-        currency: {
-          id: 2,
-        },
-        thumbs: {
-          detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-          thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
-        },
-        s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
-        s3_cover_key: null,
-        description: 'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
-      },
-      phones: [],
-    },
-  },
-  user: {
-    email: 'rocha@esolidar.com',
-    currency: {
-      small: 'EUR',
-    },
-    thumbs: {
-      thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
-    },
-  },
-};
-
 const user = {
   phones: [
     {
@@ -382,23 +340,4 @@ test('should exist section new bid and insert value equal or higher last bid', a
   const btnBid = screen.getByTestId('button-bid');
   userEvent.click(btnBid);
   expect(screen.getByText(/Put a numeric value equal or higher than 32/i)).toBeInTheDocument();
-});
-
-test('should exist link subscribe auction', async () => {
-  render(<IntlProvider locale="en"><AuctionLastBid {...propsAuctionLastBid} /></IntlProvider>);
-
-  const linkSubscribe = screen.getByTestId('subscribe-link');
-  expect(linkSubscribe).toBeInTheDocument();
-  expect(linkSubscribe).toHaveTextContent('Subscribe the auction');
-});
-
-test('simulate auction ended', async () => {
-  render(<IntlProvider locale="en"><AuctionLastBid {...propsAuctionEnded} /></IntlProvider>);
-
-  const titleEnded = screen.getByTestId('label-ended');
-  expect(titleEnded).toBeInTheDocument();
-  expect(titleEnded).toHaveTextContent('Ended');
-  const messageEnded = screen.getByTestId('label-ended-message');
-  expect(messageEnded).toBeInTheDocument();
-  expect(messageEnded).toHaveTextContent('This auction has ended.');
 });
