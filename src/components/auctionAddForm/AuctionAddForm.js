@@ -63,12 +63,12 @@ const AuctionAddForm = ({
   auctionId,
   auctionDetail,
   getAuctionDetail,
+  esolidarList,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find((item) => item.name === 'whitelabel') || {};
   const hasProjects = subscription.find((item) => item.name === 'projects') || {};
   const [form, setForm] = useState({
-    esolidar_list: '0',
     title: '',
     bid_start: '',
     description: '',
@@ -492,32 +492,34 @@ const AuctionAddForm = ({
                         hiddenSelectText={true}
                       />
                     </Col>
-                    <Col sm={4}>
-                      <SelectField
-                        label={intl.formatMessage({
-                          id: 'auctions.show.esolidar',
-                          defaultMessage: 'Show in eSoldiar.com',
-                        })}
-                        options={[{
-                          id: 'no',
-                          name: intl.formatMessage({
+                    {esolidarList && (
+                      <Col sm={4}>
+                        <SelectField
+                          label={intl.formatMessage({
+                            id: 'auctions.show.esolidar',
+                            defaultMessage: 'Show in eSoldiar.com',
+                          })}
+                          options={[{
                             id: 'no',
-                            defaultMessage: 'No',
-                          }),
-                        },
-                        {
-                          id: 'opened',
-                          name: intl.formatMessage({
-                            id: 'yes',
-                            defaultMessage: 'Yes',
-                          }),
-                        }]}
-                        value={form.esolidar_list}
-                        field="esolidar_list"
-                        onChange={handleChangeForm}
-                        hiddenSelectText={true}
-                      />
-                    </Col>
+                            name: intl.formatMessage({
+                              id: 'no',
+                              defaultMessage: 'No',
+                            }),
+                          },
+                          {
+                            id: 'opened',
+                            name: intl.formatMessage({
+                              id: 'yes',
+                              defaultMessage: 'Yes',
+                            }),
+                          }]}
+                          value={form.esolidar_list}
+                          field="esolidar_list"
+                          onChange={handleChangeForm}
+                          hiddenSelectText={true}
+                        />
+                      </Col>
+                    )}
                   </Row>
                 )}
                 <Row>
@@ -1142,6 +1144,7 @@ AuctionAddForm.propTypes = {
     }),
   }),
   showBrands: PropTypes.bool,
+  esolidarList: PropTypes.bool,
   showInstitutions: PropTypes.bool,
   showPrivate: PropTypes.bool,
   showProjects: PropTypes.bool,
