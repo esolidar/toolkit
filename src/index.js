@@ -92,6 +92,7 @@ export {
   blinkElement,
   isEmpty,
   isValidURL,
+  slugify,
 } from './utils';
 
 // Hooks

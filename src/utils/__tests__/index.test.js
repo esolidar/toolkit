@@ -15,6 +15,7 @@ import {
   isValidURL,
   isEmpty,
   blinkElement,
+  slugify,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -241,5 +242,10 @@ describe('test utils functions', () => {
       },
       3000,
     );
+  });
+
+  test('should return slugify url', () => {
+    const expectedString = '34-projecto-de-uma-organizacao';
+    expect(slugify('34 projecto de uma organização ?*_+~./,()!:@')).toBe(expectedString);
   });
 });
