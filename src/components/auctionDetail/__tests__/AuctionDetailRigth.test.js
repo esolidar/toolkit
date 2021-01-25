@@ -651,7 +651,7 @@ test('should exist title of auction', async () => {
   });
 });
 
-test('should exist section new bid and insert value equal or higher last bid', async () => {
+test('should exist section new bid and insert value equal or higher last bid and not open Modal', async () => {
   render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
 
   await waitFor(() => {
@@ -677,6 +677,20 @@ test('Insert value equal or higher last bid and open Modal', async () => {
     const btnBid = screen.getByTestId('btn-bid');
     userEvent.click(btnBid);
     expect(screen.queryByText(/Put a numeric value between 41 and 131/i)).not.toBeInTheDocument();
+  });
+});
+
+test('Insert value higher bid max interval ', async () => {
+  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+
+  await waitFor(() => {
+    const inputBid = screen.getByTestId('inputBid');
+    expect(inputBid).toBeInTheDocument();
+    fireEvent.change(inputBid, { target: { value: '132' } });
+    expect(inputBid.value).toBe('132');
+    const btnBid = screen.getByTestId('btn-bid');
+    userEvent.click(btnBid);
+    expect(screen.queryByText(/Put a numeric value between 41 and 131/i)).toBeInTheDocument();
   });
 });
 
