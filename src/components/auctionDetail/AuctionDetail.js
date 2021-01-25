@@ -17,6 +17,7 @@ import Countdown from '../countdown/Countdown';
 import CreateComment from '../comments/CreateComment';
 import AuctionDetailRigth from './AuctionDetailRigth';
 import AuctionsList from './auctionsList/AuctionsList';
+import ProjectThumb from '../projectThumb/ProjectThumb';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import TextField from '../../elements/textField/TextField';
 import CreditCardList from '../creditCardList/CreditCardList';
@@ -960,6 +961,30 @@ const AuctionDetail = ({
             description={auctionDetailInfo.description}
           />
           <Row className="content">
+            <Col sm={12}>
+              <Sticky
+                style={{ position: 'relative' }}
+                stickyClassName="sticky-sidebar"
+                topOffset={0}
+                bottomOffset={0}
+                hideOnBoundaryHit={false}
+                boundaryElement=".content"
+              >
+                <AuctionLastBid
+                  auction={auctionDetailInfo}
+                  isEnded={isEnded}
+                  isCommingSoon={isCommingSoon}
+                  handleClickBid={handleClickBid}
+                  isShowModal={modalShowSubscribe}
+                  error={error}
+                  translateMessage={translateMessage}
+                  minValue={handleMinValue()}
+                  inputBidValue={value}
+                  valueBidTextField={valueBidTextField}
+                  primaryColor={primaryColor}
+                />
+              </Sticky>
+            </Col>
             <Col sm={12} md={12} lg={{ span: 6, offset: 1 }}>
               <DescriptionDetail
                 dataTestIdTitle="description"
@@ -1021,29 +1046,7 @@ const AuctionDetail = ({
                 />
               </div>
             </Col>
-            <Col sm={12} md={12} lg={{ span: 4, offset: 0 }}>
-              <Sticky
-                style={{ position: 'relative' }}
-                stickyClassName="sticky-sidebar"
-                topOffset={0}
-                bottomOffset={0}
-                hideOnBoundaryHit={false}
-                boundaryElement=".content"
-              >
-                <AuctionLastBid
-                  auction={auctionDetailInfo}
-                  isEnded={isEnded}
-                  isCommingSoon={isCommingSoon}
-                  handleClickBid={handleClickBid}
-                  isShowModal={modalShowSubscribe}
-                  error={error}
-                  translateMessage={translateMessage}
-                  minValue={handleMinValue()}
-                  inputBidValue={value}
-                  valueBidTextField={valueBidTextField}
-                  primaryColor={primaryColor}
-                />
-              </Sticky>
+            <Col className="mt-5" sm={12} md={12} lg={{ span: 4, offset: 0 }}>
               <ContributesListBox
                 isAuction={true}
                 testeId="ContributesListBox"
@@ -1057,6 +1060,18 @@ const AuctionDetail = ({
                 env={env}
                 primaryColor={primaryColor}
               />
+              {auctionDetailInfo.projects && (
+                <Row>
+                  <ProjectThumb
+                    project={auctionDetailInfo.projects}
+                    serverlessResizeImage={env.cdn_uploads_url}
+                    lang={localStorage.lang || 'pt'}
+                    cols={12}
+                    showStatus={false}
+                    status=""
+                  />
+                </Row>
+              )}
             </Col>
           </Row>
           {listAuctions && (

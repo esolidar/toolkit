@@ -57,6 +57,7 @@ export { default as DescriptionDetail } from './components/descriptionDetail/Des
 export { default as AuctionsList } from './components/auctionDetail/auctionsList/AuctionsList';
 export { default as CreditCardList } from './components/creditCardList/CreditCardList';
 export { default as ValidateTelephone } from './components/validateTelephone/ValidateTelephone';
+export { default as GoogleMapsView } from './components/googleMapsView/GoogleMapsView';
 export { default as AuctionAddForm } from './components/auctionAddForm/AuctionAddForm';
 export { default as NoMatch } from './components/noMatch/NoMatch';
 
@@ -88,7 +89,9 @@ export {
   isCompanyAdmin,
   blinkElement,
   isEmpty,
+  isValidURL,
 } from './utils';
 
 // Hooks
-export { default as useDebounce } from './hooks';
+export { default as useDebounce } from './hooks/useDebounce';
+export { default as useIsFirstRender } from './hooks/useIsFirstRender';
