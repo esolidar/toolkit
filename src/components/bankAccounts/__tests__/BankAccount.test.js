@@ -22,7 +22,28 @@ const propsWithoutBankAccount = {
   bankTransfer: null,
 };
 
-test('simulate add bank account', async () => {
+const propsBankAccount = {
+  intl: fx,
+  countryId: 231,
+  color: 'green',
+  userId: 1,
+  postBankTransfer: fx,
+  updateLocalstorage: fx,
+  getBankTransfer: {},
+  bankTransfer: {
+    1: [{
+      iban: '',
+      bic: '',
+    }],
+    231: [{
+      accountholder: '',
+      banksortcode: '',
+      accountnumber: '',
+    }],
+  },
+};
+
+test('simulate bank account', async () => {
   render(<IntlProvider locale="en"><BankAccount {...propsWithoutBankAccount} /></IntlProvider>);
   await waitFor(() => {
     const internationalAccountTitle = screen.getByTestId('international-account-title');
@@ -38,5 +59,21 @@ test('simulate add bank account', async () => {
     expect(submitButton).toBeInTheDocument();
     expect(noInternationalAccounts).toBeInTheDocument();
     expect(noNationalAccounts).toBeInTheDocument();
+  });
+});
+
+test('simulate add international bank account', async () => {
+  render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
+  await waitFor(() => {
+    const internationalAccounts = screen.getByTestId('international-accounts');
+    expect(internationalAccounts).toBeInTheDocument();
+  });
+});
+
+test('simulate add national bank account', async () => {
+  render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
+  await waitFor(() => {
+    const internationalAccounts = screen.getByTestId('national-accounts');
+    expect(internationalAccounts).toBeInTheDocument();
   });
 });
