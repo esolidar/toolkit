@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.27.1",
+  "version": "1.28.2",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -68,6 +68,7 @@
     "react-device-detect": "^1.11.14",
     "react-dom": "^16.12.0",
     "react-dropzone": "^10.2.1",
+    "react-google-maps": "^9.4.5",
     "react-images": "^1.1.0-beta.3",
     "react-infinite-scroller": "^1.2.4",
     "react-intl": "^3.9.1",
@@ -191,6 +192,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "react-google-maps": "^9.4.5",
     "react-telephone-input": "^4.73.4"
   }
 }

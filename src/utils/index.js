@@ -45,7 +45,7 @@ export const filterUnique = (array, key) => array.filter((v, i, a) => a.findInde
 
 export const convertToMyCurrency = (value, currency) => {
   let convertedValue = value;
-  const myCurrency = localStorage.currency && localStorage.currency !== 'null' ? JSON.parse(localStorage.currency) : currency;
+  const myCurrency = localStorage.user && JSON.parse(localStorage.user).currency !== 'null' ? JSON.parse(localStorage.user).currency : currency;
 
   if (myCurrency.id !== currency.id) {
     convertedValue = (value * currency.value) / myCurrency.value;
@@ -94,6 +94,6 @@ export const blinkElement = (elmId, className) => {
     () => {
       element.classList.remove(className);
     },
-    1000,
+    3000,
   );
 };

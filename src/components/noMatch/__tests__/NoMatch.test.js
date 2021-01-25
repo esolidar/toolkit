@@ -9,6 +9,8 @@ import NoMatch from '../NoMatch';
 
 const props = {
   color: 'red',
+  link: '/',
+  linkText: 'Back to Homepage',
 };
 
 test('should loading component, exist text 404 and link go back homepage ', () => {

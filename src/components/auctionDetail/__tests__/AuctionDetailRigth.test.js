@@ -404,7 +404,7 @@ test('should exist section supported with thumb and name', async () => {
     expect(supported).toHaveTextContent('A marca do Rocha will benefit Helpo with this auction.');
     const thumbImage = screen.getByAltText('thumb');
     expect(thumbImage).toBeInTheDocument();
-    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png');
+    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
   });
 });
 

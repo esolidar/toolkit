@@ -258,6 +258,18 @@
         margin-left: -35px;
       }
     }
+
+    .comment-reply {
+      position  : absolute;
+      margin-top: 35px;
+      right     : 40px;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        position: relative;
+        margin-bottom: 18px;
+        right: 40px;
+      }
+    }
   }
 }
 
@@ -358,25 +370,25 @@ button.renderMoreBtn {
 
 .comments {
   .no-results {
-    margin        : 50px 0;
+    margin           : 50px 0;
     // font-family   : $fontRoman;
-    font-weight   : 200;
-    font-size     : 15px;
+    font-weight      : 200;
+    font-size        : 15px;
     // color         : $mainTextColor;
-    letter-spacing: 0;
-    line-height   : 24px;
+    letter-spacing   : 0;
+    line-height      : 24px;
   }
 
   .create-comment {
     margin: 20px 0;
 
     .title {
-      font-family   : $fontHeavy;
-      font-size     : 12px;
+      font-family      : $fontHeavy;
+      font-size        : 12px;
       // color         : @mainTextColor;
-      letter-spacing: 0;
-      line-height   : 19px;
-      text-transform: uppercase;
+      letter-spacing   : 0;
+      line-height      : 19px;
+      text-transform   : uppercase;
     }
 
     .textarea {
@@ -485,11 +497,11 @@ button.renderMoreBtn {
 
   label {
     // font-family   : @fontRoman;
-    font-weight   : 200;
-    font-size     : 12px;
+    font-weight      : 200;
+    font-size        : 12px;
     // color         : @mainTextColor;
-    letter-spacing: 0;
-    line-height   : 24px;
+    letter-spacing   : 0;
+    line-height      : 24px;
   }
 
   .request-comment {
@@ -507,29 +519,29 @@ button.renderMoreBtn {
 
       .company-name {
         // font-family   : @fontHeavy;
-        font-size     : 15px;
+        font-size        : 15px;
         // color         : @mainTextColor;
-        letter-spacing: 0;
-        line-height   : 38px;
-        float         : left;
-        white-space   : nowrap;
-        overflow      : hidden;
-        text-overflow : ellipsis;
-        width         : 70%;
+        letter-spacing   : 0;
+        line-height      : 38px;
+        float            : left;
+        white-space      : nowrap;
+        overflow         : hidden;
+        text-overflow    : ellipsis;
+        width            : 70%;
 
         span {
           // font-family: @fontLight;
-          font-size  : 12px;
+          font-size: 12px;
         }
       }
 
       .date {
-        float         : right;
+        float            : right;
         // font-family   : @fontRoman;
-        font-size     : 12px;
-        color         : #455C75;
-        letter-spacing: 0;
-        line-height   : 36px;
+        font-size        : 12px;
+        color            : #455C75;
+        letter-spacing   : 0;
+        line-height      : 36px;
       }
 
       .options-reply {
@@ -576,32 +588,32 @@ button.renderMoreBtn {
     }
 
     .content {
-      margin-left   : 20px;
-      padding-left  : 35px;
+      margin-left      : 20px;
+      padding-left     : 35px;
       // border-left   : 1px solid @mischka;
       // font-family   : @fontRoman;
-      font-size     : 15px;
+      font-size        : 15px;
       // color         : @mainTextColor;
-      letter-spacing: 0;
-      line-height   : 22px;
+      letter-spacing   : 0;
+      line-height      : 22px;
     }
 
     .content-reply {
-      margin-left : 20px;
-      padding-left: 35px;
+      margin-left    : 20px;
+      padding-left   : 35px;
       // border-left : 1px solid @mischka;
 
       .btn-add-comment-reply {
-        padding        : 0;
-        margin-top     : 5px;
-        background     : transparent;
-        border         : none;
+        padding           : 0;
+        margin-top        : 5px;
+        background        : transparent;
+        border            : none;
         // font-family    : @fontRoman;
-        font-size      : 15px;
+        font-size         : 15px;
         // color          : @mainColor;
-        letter-spacing : 0;
-        line-height    : 22px;
-        text-decoration: underline;
+        letter-spacing    : 0;
+        line-height       : 22px;
+        text-decoration   : underline;
 
         img {
           margin-right: 10px;
@@ -665,20 +677,20 @@ button.renderMoreBtn {
         }
 
         .input {
-          background-color: #FFFFFF;
-          box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+          background-color   : #FFFFFF;
+          box-shadow         : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
           // border          : 1px solid @porcelainDark;
-          border-radius   : 4px;
-          width           : 100%;
-          margin-top      : 20px;
+          border-radius      : 4px;
+          width              : 100%;
+          margin-top         : 20px;
           // font-family     : @fontRoman;
-          font-size       : 15px;
+          font-size          : 15px;
           // color           : @mainTextColor;
-          letter-spacing  : 0;
-          line-height     : 26px;
-          padding         : 10px 15px;
-          outline         : none;
-          outline-offset  : -2px;
+          letter-spacing     : 0;
+          line-height        : 26px;
+          padding            : 10px 15px;
+          outline            : none;
+          outline-offset     : -2px;
         }
 
         textarea {
@@ -698,17 +710,17 @@ button.renderMoreBtn {
           }
 
           .btn-add-comment-reply {
-            padding        : 0;
-            margin-top     : 5px;
-            background     : transparent;
-            border         : none;
+            padding           : 0;
+            margin-top        : 5px;
+            background        : transparent;
+            border            : none;
             // font-family    : @fontRoman;
-            font-size      : 15px;
+            font-size         : 15px;
             // color          : @mainColor;
-            letter-spacing : 0;
-            line-height    : 22px;
-            text-decoration: underline;
-            margin-left    : 55px;
+            letter-spacing    : 0;
+            line-height       : 22px;
+            text-decoration   : underline;
+            margin-left       : 55px;
 
             img {
               margin-right: 10px;
@@ -721,10 +733,10 @@ button.renderMoreBtn {
         }
 
         .readmore-box {
-          margin     : 15px 0;
+          margin        : 15px 0;
           // background : @porcelainMedium;
-          padding    : 15px 0;
-          margin-left: -35px;
+          padding       : 15px 0;
+          margin-left   : -35px;
         }
       }
     }

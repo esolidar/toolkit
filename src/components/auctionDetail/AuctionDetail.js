@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import {
   isEmpty, forEach, findIndex,
 } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
-import { NotificationManager } from 'react-notifications';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
@@ -18,6 +17,7 @@ import Countdown from '../countdown/Countdown';
 import CreateComment from '../comments/CreateComment';
 import AuctionDetailRigth from './AuctionDetailRigth';
 import AuctionsList from './auctionsList/AuctionsList';
+import ProjectThumb from '../projectThumb/ProjectThumb';
 import ShareNetwork from '../shareNetwork/ShareNetwork';
 import TextField from '../../elements/textField/TextField';
 import CreditCardList from '../creditCardList/CreditCardList';
@@ -142,9 +142,28 @@ const AuctionDetail = ({
 
   const [bid, setBid] = useState('');
 
+  const inputRef = useRef(null);
+
   const perPage = 5;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
+
+  const handleCloseModalBid = () => {
+    setIsAnonymous(false);
+    setIsCheckedLegal(false);
+    setIsCheckedTerms(false);
+    setIsCheckedNotifications(false);
+    setIsShowModal(false);
+    setErrorCheckLegal(false);
+    setErrorCheckedNotifications(false);
+    setErrorCheckedTerms(false);
+    setIsErrorSelectCard(false);
+    setHasSubmitModalBid(false);
+    setIsConfirmBid(false);
+    setHasCardSelected(false);
+    setLastFour('');
+    setValue('');
+  };
 
   useEffect(() => {
     getAuctionDetail(auctionId);
@@ -260,46 +279,69 @@ const AuctionDetail = ({
     } else if (newBid.status === 400) {
       switch (newBid.data.data) {
         case 'AUCTION_IS_NOT_ON_GOING':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.auctionEnded', defaultMessage: 'The auction is over!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'The auction is over!',
+              messageId: 'auctions.modal.error.auctionEnded',
+            },
+          });
           break;
         case 'INVALID_BID_AMOUNT':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.invalidBid', defaultMessage: 'Invalid Bid Amount!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'Your {bidValue} bid was not accepted. However, your bid has been exceeded!',
+              messageId: 'auctions.modal.error.invalidBid',
+              values: { bidValue: valueBid },
+            },
+          });
+          setTimeout(() => {
+            inputRef.current.focus();
+          }, 500);
+          handleCloseModalBid();
           break;
         case 'USER_IS_NOT_NOTIFIABLE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotNotifiable', defaultMessage: 'User is not notifiable!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User is not notifiable!',
+              messageId: 'auctions.modal.error.userNotNotifiable',
+            },
+          });
           break;
         case 'USER_IS_NOT_ACTIVE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotActive', defaultMessage: 'User is not active!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User is not active!',
+              messageId: 'auctions.modal.error.userNotActive',
+            },
+          });
           break;
         case 'USER_DOES_NOT_HAVE_VALIDATED_PHONE':
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.userNotValidatedPhone', defaultMessage: 'User dont have validated phone!',
-          }), translateMessage({
-            id: 'errror', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'User dont have validated phone!',
+              messageId: 'auctions.modal.error.userNotValidatedPhone',
+            },
+          });
           break;
         default:
-          NotificationManager.error(translateMessage({
-            id: 'auctions.modal.error.otherError', defaultMessage: 'An error has occurred!',
-          }), translateMessage({
-            id: 'auctions.modal.error.titleOtherError', defaultMessage: 'Error:',
-          }), 15000);
+          showAlert({
+            alertBox: {
+              alertVisible: true,
+              alertClass: 'danger',
+              message: 'An error has occurred!',
+              messageId: 'auctions.modal.error.userNotValidatedPhone',
+            },
+          });
       }
       setIsConfirmBid(false);
     }
@@ -387,7 +429,11 @@ const AuctionDetail = ({
     if (pusherData) {
       const newAuctionDetailInfo = auctionDetailInfo;
       newAuctionDetailInfo.dateLimit = pusherData.dateLimit;
-      newAuctionDetailInfo.last_bid.value = pusherData.value;
+      if (newAuctionDetailInfo.last_bid === null) {
+        newAuctionDetailInfo.last_bid = { value: pusherData.value };
+      } else {
+        newAuctionDetailInfo.last_bid.value = pusherData.value;
+      }
       newAuctionDetailInfo.blink = true;
       setAuctionDetailInfo(newAuctionDetailInfo);
       const existBid = listUsersBid.find((item) => item.id === pusherData.id);
@@ -425,6 +471,10 @@ const AuctionDetail = ({
       setIsCheckedLegal(false);
       setIsCheckedTerms(false);
       setIsCheckedNotifications(false);
+
+      if (inputRef && inputRef.current) {
+        inputRef.current.focus();
+      }
     }
   }, [isShowModal]);
 
@@ -571,7 +621,7 @@ const AuctionDetail = ({
     if (!isCheckedLegal || (hasNotifications === 0 && !isCheckedNotifications) || !isCheckedTerms || !hasPhoneValidate || (auctionDetailInfo.cc === 1 && !hasCardSelected)) return;
 
     const bid = {
-      value: +valueBid,
+      value: parseInt(+valueBid, 10),
       hidden: isAnonymous || 0,
       private_code: privateCode,
     };
@@ -651,9 +701,9 @@ const AuctionDetail = ({
   const onSubmitResponse = (e, commentId) => {
     e.preventDefault();
 
-    if (e.target.value) {
+    if (reply) {
       setLoadingPostReply(true);
-      postAuctionUserComment(auctionId, { comment: e.target.value, comment_id: commentId, private_code: privateCode });
+      postAuctionUserComment(auctionId, { comment: reply, comment_id: commentId, private_code: privateCode });
       setReply('');
     }
   };
@@ -697,23 +747,6 @@ const AuctionDetail = ({
     getAuctionComment(auctionId, page + 1, perPage);
   };
 
-  const handleCloseModalBid = () => {
-    setIsAnonymous(false);
-    setIsCheckedLegal(false);
-    setIsCheckedTerms(false);
-    setIsCheckedNotifications(false);
-    setIsShowModal(false);
-    setErrorCheckLegal(false);
-    setErrorCheckedNotifications(false);
-    setErrorCheckedTerms(false);
-    setIsErrorSelectCard(false);
-    setHasSubmitModalBid(false);
-    setIsConfirmBid(false);
-    setHasCardSelected(false);
-    setLastFour('');
-    setValue('');
-  };
-
   const selectedCard = (card) => {
     setLastFour(card);
     setHasCardSelected(true);
@@ -728,7 +761,7 @@ const AuctionDetail = ({
   };
 
   const valueBidTextField = (e) => {
-    setValue(parseFloat(e.target.value));
+    setValue(e.target.value);
   };
 
   const handleMinValue = () => {
@@ -736,9 +769,15 @@ const AuctionDetail = ({
     if (auctionDetailInfo.last_bid) return auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval;
   };
 
-  let supported = '';
-  if (accessAuction) {
-    supported = auctionDetailInfo.recipient.institution ? auctionDetailInfo.recipient.institution : auctionDetailInfo.recipient.causes;
+  let supported = {};
+  if (accessAuction && auctionDetailInfo.recipient && auctionDetailInfo.recipient.institution) {
+    supported.title = auctionDetailInfo.recipient.institution.name;
+    supported.image = auctionDetailInfo.recipient.institution.thumbs.thumb;
+  } else if (auctionDetailInfo.project) {
+    supported.title = auctionDetailInfo.project.title;
+    supported.image = auctionDetailInfo.project.images ? `${env.cdn_uploads_url}/${auctionDetailInfo.project.images[0].image}` : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+  } else {
+    supported = null;
   }
 
   const userType = user ? user.type : 'guest';
@@ -758,6 +797,10 @@ const AuctionDetail = ({
         <Row className="not-found mt-5">
           <NoMatch
             color={primaryColor}
+            link="/auctions/list"
+            linkText={translateMessage({
+              id: 'back.to.auctions', defaultMessage: 'Back to auctions',
+            })}
           />
         </Row>
       )}
@@ -808,7 +851,7 @@ const AuctionDetail = ({
       )}
       {(!isAuctionForbiden && accessAuction) && (
         <>
-          <Row>
+          <Row className="d-none d-sm-block">
             <Col md={12} className="content-wrapper">
               {supported && (
                 <Row className="content-header hidden-xs">
@@ -820,8 +863,8 @@ const AuctionDetail = ({
                       />
                     </div>
                     <h1 className="text-center" style={{ color: primaryColor }}>
-                      <img src={supported.thumbs.thumb} alt="thumb-supported" />
-                      {supported.name}
+                      <img src={supported.image} alt="thumb-supported" />
+                      {supported.title}
                     </h1>
                   </Col>
                 </Row>
@@ -852,12 +895,13 @@ const AuctionDetail = ({
                 </Col>
                 <Col sm={12} className="text-center hidden-xs">
                   <div className="end-date" data-testid="end-date-info">
-                    <FormattedMessage
-                      id="auction.detail.ends"
-                      defaultMessage="This auction ends in: "
-                    />
-                    <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
-                    <br />
+                    <div className="mb-2">
+                      <FormattedMessage
+                        id="auction.detail.ends"
+                        defaultMessage="This auction ends in: "
+                      />
+                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="DD/MM/YYYY" />
+                    </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"
                       defaultMessage="Any bid made in the last 2 minutes of the auction will automatically reset the auction timer to 2 minutes remaining."
@@ -865,6 +909,13 @@ const AuctionDetail = ({
                   </div>
                 </Col>
                 <Col sm={12}>
+                  <Row>
+                    <Col sm={12}>
+                      <h2 className="auction-title mb-2 d-block d-sm-none">
+                        {auctionTitle()}
+                      </h2>
+                    </Col>
+                  </Row>
                   <Row>
                     <Col md={7} data-testid="slide-image-multiple">
                       {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
@@ -896,6 +947,8 @@ const AuctionDetail = ({
                       inputBidValue={value}
                       valueBidTextField={valueBidTextField}
                       primaryColor={primaryColor}
+                      env={env}
+                      inputRef={inputRef}
                     />
                   </Row>
                 </Col>
@@ -908,6 +961,30 @@ const AuctionDetail = ({
             description={auctionDetailInfo.description}
           />
           <Row className="content">
+            <Col sm={12}>
+              <Sticky
+                style={{ position: 'relative' }}
+                stickyClassName="sticky-sidebar"
+                topOffset={0}
+                bottomOffset={0}
+                hideOnBoundaryHit={false}
+                boundaryElement=".content"
+              >
+                <AuctionLastBid
+                  auction={auctionDetailInfo}
+                  isEnded={isEnded}
+                  isCommingSoon={isCommingSoon}
+                  handleClickBid={handleClickBid}
+                  isShowModal={modalShowSubscribe}
+                  error={error}
+                  translateMessage={translateMessage}
+                  minValue={handleMinValue()}
+                  inputBidValue={value}
+                  valueBidTextField={valueBidTextField}
+                  primaryColor={primaryColor}
+                />
+              </Sticky>
+            </Col>
             <Col sm={12} md={12} lg={{ span: 6, offset: 1 }}>
               <DescriptionDetail
                 dataTestIdTitle="description"
@@ -969,29 +1046,7 @@ const AuctionDetail = ({
                 />
               </div>
             </Col>
-            <Col sm={12} md={12} lg={{ span: 4, offset: 0 }}>
-              <Sticky
-                style={{ position: 'relative' }}
-                stickyClassName="sticky-sidebar"
-                topOffset={0}
-                bottomOffset={0}
-                hideOnBoundaryHit={false}
-                boundaryElement=".content"
-              >
-                <AuctionLastBid
-                  auction={auctionDetailInfo}
-                  isEnded={isEnded}
-                  isCommingSoon={isCommingSoon}
-                  handleClickBid={handleClickBid}
-                  isShowModal={modalShowSubscribe}
-                  error={error}
-                  translateMessage={translateMessage}
-                  minValue={handleMinValue()}
-                  inputBidValue={value}
-                  valueBidTextField={valueBidTextField}
-                  primaryColor={primaryColor}
-                />
-              </Sticky>
+            <Col className="mt-5" sm={12} md={12} lg={{ span: 4, offset: 0 }}>
               <ContributesListBox
                 isAuction={true}
                 testeId="ContributesListBox"
@@ -1005,6 +1060,18 @@ const AuctionDetail = ({
                 env={env}
                 primaryColor={primaryColor}
               />
+              {auctionDetailInfo.projects && (
+                <Row>
+                  <ProjectThumb
+                    project={auctionDetailInfo.projects}
+                    serverlessResizeImage={env.cdn_uploads_url}
+                    lang={localStorage.lang || 'pt'}
+                    cols={12}
+                    showStatus={false}
+                    status=""
+                  />
+                </Row>
+              )}
             </Col>
           </Row>
           {listAuctions && (
@@ -1013,6 +1080,7 @@ const AuctionDetail = ({
               listAuctions={listAuctions}
               buttonTitle={translateMessage({ id: 'auction.detail.seeAll', defaultMessage: 'See all auctions' })}
               primaryColor={primaryColor}
+              env={env}
             />
           )}
         </>
@@ -1048,7 +1116,7 @@ const AuctionDetail = ({
                     defaultMessage="Your bid is {value}"
                     values={{
                       value: <FormattedNumber
-                        value={valueBid}
+                        value={parseInt(+valueBid, 10)}
                         style="currency"
                         currency={auctionDetailInfo.currency.small}
                       />,
@@ -1343,6 +1411,7 @@ AuctionDetail.propTypes = {
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
+    cdn_uploads_url: PropTypes.string,
     stripe: PropTypes.object,
   }),
   translateMessage: PropTypes.func,
