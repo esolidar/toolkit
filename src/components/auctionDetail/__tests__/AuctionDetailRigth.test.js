@@ -17,7 +17,7 @@ const propsAuctionDetailRigth = {
   handleClickBid: fx,
   isShowBid: true,
   auctionTitle: 'Work: Gustavo Massola Collective Move',
-  error: 'Put a numeric value equal or higher than 32',
+  error: 'Put a numeric value between 41 and 131',
   auction: {
     private: 0,
     id: 299,
@@ -378,7 +378,7 @@ test('should exist section new bid and insert value equal or higher last bid', a
     expect(inputBid.value).toBe('30');
     const btnBid = screen.getByTestId('btn-bid');
     userEvent.click(btnBid);
-    expect(screen.getByText(/Put a numeric value equal or higher than 32/i)).toBeInTheDocument();
+    expect(screen.getByText(/Put a numeric value between 41 and 131/i)).toBeInTheDocument();
   });
 });
 
