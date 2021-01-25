@@ -1046,7 +1046,7 @@ const AuctionDetail = ({
                 />
               </div>
             </Col>
-            <Col sm={12} md={12} lg={{ span: 4, offset: 0 }}>
+            <Col className="mt-5" sm={12} md={12} lg={{ span: 4, offset: 0 }}>
               <ContributesListBox
                 isAuction={true}
                 testeId="ContributesListBox"
@@ -1065,7 +1065,7 @@ const AuctionDetail = ({
                   <ProjectThumb
                     project={auctionDetailInfo.projects}
                     serverlessResizeImage={env.cdn_uploads_url}
-                    lang={localStorage.lang}
+                    lang={localStorage.lang || 'pt'}
                     cols={12}
                     showStatus={false}
                     status=""

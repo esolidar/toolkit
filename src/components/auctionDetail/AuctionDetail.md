@@ -477,6 +477,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
   env={{
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
+    cdn_uploads_url: 'https://cdn.testesolidar.com'
   }}
   postAuctionUserComment={() => {}}
   auctionUserComment={[]}
