@@ -57,6 +57,8 @@ const HtmlEditor = ({
   muiStyle,
   helperText,
   showColumnsBtn,
+  showAddImageBtn,
+  showAddUrlBtn,
 }) => {
   const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
@@ -109,6 +111,10 @@ const HtmlEditor = ({
     setWrapperClassName(wrapperClassName.filter((item) => item !== focusClass));
   };
 
+  const options = ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'remove', 'history'];
+  if (showAddImageBtn) options.push('image');
+  if (showAddUrlBtn) options.push('link');
+
   const toolbarCustomButtons = [];
   if (showColumnsBtn) {
     toolbarCustomButtons.push(
@@ -133,7 +139,7 @@ const HtmlEditor = ({
           translations: translations.pt,
         }}
         toolbar={{
-          options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'link', 'image', 'remove', 'history'],
+          options,
           inline: {
             options: ['bold', 'italic', 'underline', 'strikethrough'],
           },
@@ -175,6 +181,8 @@ HtmlEditor.propTypes = {
     formatMessage: PropTypes.func,
   }),
   showColumnsBtn: PropTypes.bool,
+  showAddImageBtn: PropTypes.bool,
+  showAddUrlBtn: PropTypes.bool,
 };
 
 HtmlEditor.defaultProps = {
@@ -183,6 +191,8 @@ HtmlEditor.defaultProps = {
   error: false,
   muiStyle: false,
   showColumnsBtn: true,
+  showAddImageBtn: true,
+  showAddUrlBtn: true,
 };
 
 export default injectIntl(HtmlEditor);
