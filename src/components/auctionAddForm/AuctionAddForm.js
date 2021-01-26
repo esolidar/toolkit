@@ -23,6 +23,8 @@ import InstitutionListSelect from '../institutionListSelect/InstitutionListSelec
 import ProjectThumb from '../projectThumb/ProjectThumb';
 import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField/SelectField';
+import BankAccount from '../bankAccounts/BankAccount';
+import CustomModal from '../../elements/confirmModal/ConfirmModal';
 import validateAuctionForm from './validations';
 import { isEmpty } from '../../utils';
 
@@ -65,6 +67,7 @@ const AuctionAddForm = ({
   auctionDetail,
   getAuctionDetail,
   esolidarList,
+  bankTransferData,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find((item) => item.name === 'whitelabel') || {};
@@ -1040,54 +1043,72 @@ const AuctionAddForm = ({
                 </Col>
               </Row>
             )}
+          </Col>
+        </Row>
+        <Row>
+          <Col md={8} className="box-lbr text-center">
             <Row>
-              <Col md={8} className="box-lbr text-center">
-                <Row>
-                  {(isEmpty(hasWhitelabel)) && (
-                    <Col sm={12} className="pb-5">
-                      <span className="subtext">
-                        <FormattedMessage
-                          id="auction.add.submit.text"
-                          defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
-                        />
-                      </span>
-                    </Col>
-                  )}
-                  <Col sm={12}>
-                    {action === null && (
-                      <Button
-                        dataTestId="btn-submit"
-                        extraClass="success-full btn-submit"
-                        onClick={onSubmit}
-                        text={intl.formatMessage({ id: 'auctions.add.submitAuction', defaultMessage: 'Submit auction' })}
-                        disabled={disabled}
-                      />
-                    )}
-                    {action === 'edit' && (
-                      <Button
-                        dataTestId="btn-submit"
-                        extraClass="success-full btn-submit"
-                        onClick={onSubmit}
-                        text={intl.formatMessage({ id: 'auctions.edit.submitAuction', defaultMessage: 'Update auction' })}
-                        disabled={disabled}
-                      />
-                    )}
-                    {action === 'clone' && (
-                      <Button
-                        dataTestId="btn-submit"
-                        extraClass="success-full btn-submit"
-                        onClick={onSubmit}
-                        text={intl.formatMessage({ id: 'auctions.clone.submitAuction', defaultMessage: 'Clone auction' })}
-                        disabled={disabled}
-                      />
-                    )}
-                  </Col>
-                </Row>
+              {(isEmpty(hasWhitelabel)) && (
+                <Col sm={12} className="pb-5">
+                  <span className="subtext">
+                    <FormattedMessage
+                      id="auction.add.submit.text"
+                      defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
+                    />
+                  </span>
+                </Col>
+              )}
+              <Col sm={12}>
+                {action === null && (
+                  <Button
+                    dataTestId="btn-submit"
+                    extraClass="success-full btn-submit"
+                    onClick={onSubmit}
+                    text={intl.formatMessage({ id: 'auctions.add.submitAuction', defaultMessage: 'Submit auction' })}
+                    disabled={disabled}
+                  />
+                )}
+                {action === 'edit' && (
+                  <Button
+                    dataTestId="btn-submit"
+                    extraClass="success-full btn-submit"
+                    onClick={onSubmit}
+                    text={intl.formatMessage({ id: 'auctions.edit.submitAuction', defaultMessage: 'Update auction' })}
+                    disabled={disabled}
+                  />
+                )}
+                {action === 'clone' && (
+                  <Button
+                    dataTestId="btn-submit"
+                    extraClass="success-full btn-submit"
+                    onClick={onSubmit}
+                    text={intl.formatMessage({ id: 'auctions.clone.submitAuction', defaultMessage: 'Clone auction' })}
+                    disabled={disabled}
+                  />
+                )}
               </Col>
             </Row>
           </Col>
         </Row>
       </section>
+      {(isEmpty(bankTransferData) && !isEmpty(form.projectIds)) && (
+        <CustomModal
+          bodyChildren={(
+            <BankAccount
+              countryId={company.country_id}
+              postBankTransfer={props.putCompanyBankTransfer}
+              getBankTransfer={props.bankTransfer}
+              bankTransfer={JSON.parse(company.bank_transfer || '{}')}
+              userId={company.id}
+              updateLocalstorage={updateLocalstorage}
+            />
+          )}
+          onHide={() => { }}
+          show={false}
+          title="Title"
+          subtitle="subtitle"
+        />
+      )}
     </Container>
   );
 };
@@ -1195,6 +1216,7 @@ AuctionAddForm.propTypes = {
     code: PropTypes.number,
     data: PropTypes.object,
   }),
+  bankTransferData: PropTypes.object,
 };
 
 export default injectIntl(AuctionAddForm);
