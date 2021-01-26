@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
-import slugify from 'slugify';
 import { includes } from 'lodash';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
@@ -11,6 +10,7 @@ import SelectField from '../../elements/selectField/SelectField';
 import CheckboxImage from '../../elements/checkboxImage/CheckboxImage';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
 import RadioField from '../../elements/radioField/RadioField';
+import { slugify } from '../../utils/index';
 import Loading from '../loading/Loading';
 
 const ProjectAddForm = ({
@@ -210,16 +210,8 @@ const ProjectAddForm = ({
                         key={i}
                         label={option}
                         onChange={(e) => onChangeCheckbox(e, field.id)}
-                        name={`${slugify(option, {
-                          replacement: '-',
-                          remove: /[?$*_+~.,()'"!\-:@]/g,
-                          lower: true,
-                        })}-${i}-${field.id}`}
-                        id={`${slugify(option, {
-                          replacement: '-',
-                          remove: /[?$*_+~.,()'"!\-:@]/g,
-                          lower: true,
-                        })}-${i}-${field.id}`}
+                        name={`${slugify(option)}-${i}-${field.id}`}
+                        id={`${slugify(option)}-${i}-${field.id}`}
                         value={option}
                         checked={includes(field.checked, option)}
                       />

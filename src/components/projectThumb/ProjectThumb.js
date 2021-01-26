@@ -4,9 +4,8 @@ import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-
-import slugify from 'slugify';
 import filter from 'lodash/filter';
+import { slugify } from '../../utils/index';
 import Button from '../button/Button';
 
 const ProjectThumb = ({
@@ -14,11 +13,7 @@ const ProjectThumb = ({
 }) => {
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
-  const link = project.status === 'DRAFT' ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title, {
-    replacement: '-',
-    remove: /[?$*_+~.,()'"!\-:@]/g,
-    lower: true,
-  })}${myProject ? `?owner=${myProject}` : ''}`;
+  const link = project.status === 'DRAFT' ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${myProject ? `?owner=${myProject}` : ''}`;
 
   const clickThumb = () => {
     if (select) {
@@ -31,11 +26,7 @@ const ProjectThumb = ({
   };
 
   const editThumb = () => {
-    window.location.href = (project.status === 'DRAFT' || project.status === 'PENDING') ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title, {
-      replacement: '-',
-      remove: /[?$*_+~.,()'"!\-:@]/g,
-      lower: true,
-    })}${myProject ? `?owner=${myProject}` : ''}`;
+    window.location.href = (project.status === 'DRAFT' || project.status === 'PENDING') ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${myProject ? `?owner=${myProject}` : ''}`;
   };
 
   const handleClickOpenTab = () => {
