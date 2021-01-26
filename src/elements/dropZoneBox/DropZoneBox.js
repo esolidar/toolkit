@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading/Loading';
 import CustomModal from '../customModal/CustomModal';
-import Button from '../../components/button/Button';
+import Button from '../button/Button';
 import { lastElemOf } from '../../utils/index';
 
 const cropper = createRef(null);

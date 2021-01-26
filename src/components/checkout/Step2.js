@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 import Loading from '../loading/Loading';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import InvoicingData from './invoicing/InvoicingData';
 
 const Step2 = (props) => (

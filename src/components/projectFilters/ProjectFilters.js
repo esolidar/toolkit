@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import TextField from '../../elements/textField/TextField';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
 import SelectField from '../../elements/selectField/SelectField';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const ProjectFilters = ({
   searchTitleLabel,

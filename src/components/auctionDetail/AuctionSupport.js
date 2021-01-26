@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const AuctionSupport = ({
   auction,

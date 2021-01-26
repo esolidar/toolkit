@@ -8,7 +8,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined } from '../../utils';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import NoMatch from '../noMatch/NoMatch';
 import Loading from '../loading/Loading';
 import Comments from '../comments/Comments';
