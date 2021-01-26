@@ -10,7 +10,7 @@ import {
   CardCVCElement,
   injectStripe,
 } from 'react-stripe-elements';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const createOptions = () => ({
   style: {

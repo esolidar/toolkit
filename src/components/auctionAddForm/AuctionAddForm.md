@@ -9,6 +9,7 @@ import { AuctionAddForm } from '@esolidar/toolkit';
 
 ``` jsx
 <AuctionAddForm
+  esolidarList={false}
   loadingPage={false}
   action={null}
   intl={{

@@ -1,5 +1,4 @@
 // Components
-export { default as Button } from './components/button/Button';
 export { default as ChangeCurrency } from './components/changeCurrency/ChangeCurrency';
 export { default as ChangeLanguage } from './components/changeLanguage/ChangeLanguage';
 export { default as CookiesMessage } from './components/cookiesMessage/CookiesMessage';
@@ -60,8 +59,11 @@ export { default as ValidateTelephone } from './components/validateTelephone/Val
 export { default as GoogleMapsView } from './components/googleMapsView/GoogleMapsView';
 export { default as AuctionAddForm } from './components/auctionAddForm/AuctionAddForm';
 export { default as NoMatch } from './components/noMatch/NoMatch';
+export { default as BankAccount } from './components/bankAccounts/BankAccount';
 
 // Elements
+export { default as Button } from './elements/button/Button';
+export { default as ButtonGroup } from './elements/buttonGroup/ButtonGroup';
 export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';
@@ -72,6 +74,7 @@ export { default as FileInput } from './elements/fileInput/FileInput';
 export { default as DropZoneBox } from './elements/dropZoneBox/DropZoneBox';
 export { default as CustomModal } from './elements/customModal/CustomModal';
 export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage';
+export { default as ConfirmModal } from './elements/confirmModal/ConfirmModal';
 
 // Utils
 export {
@@ -90,6 +93,7 @@ export {
   blinkElement,
   isEmpty,
   isValidURL,
+  slugify,
 } from './utils';
 
 // Hooks

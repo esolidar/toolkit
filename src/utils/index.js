@@ -1,4 +1,5 @@
 import React from 'react';
+import slg from 'slugify';
 import { FormattedNumber } from 'react-intl';
 import { findIndex, find } from 'lodash';
 
@@ -97,3 +98,9 @@ export const blinkElement = (elmId, className) => {
     3000,
   );
 };
+
+export const slugify = (v) => slg(v, {
+  replacement: '-',
+  remove: /[?$*_+~./,()'"!\-:@]/g,
+  lower: true,
+});

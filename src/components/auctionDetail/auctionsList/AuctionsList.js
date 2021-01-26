@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import slugify from 'slugify';
-import Button from '../../button/Button';
+import Button from '../../../elements/button/Button';
+import { slugify } from '../../../utils/index';
 import AuctionThumb from '../../auctionThumb/AuctionThumb';
 
 const AuctionsList = ({
@@ -27,11 +27,7 @@ const AuctionsList = ({
             {listAuctions.map((auction) => (
               <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
                 <a
-                  href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title, {
-                    replacement: '-',
-                    remove: /[?$*_+~./,()'"!\-:@]/g,
-                    lower: true,
-                  })}`}
+                  href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title)}`}
                   title={auction.title}
                 >
                   <AuctionThumb

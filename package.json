@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.28.4",
+  "version": "1.31.0",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest -u",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
     "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add . && git commit -m \"automated deployment\"  && git push",
@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn test:lint"
+      "pre-commit": "yarn test -u && yarn test:lint"
     }
   },
   "jest": {
@@ -55,6 +55,7 @@
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
     "draft-js-export-html": "^1.4.1",
+    "iban": "^0.0.14",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
@@ -127,6 +128,7 @@
     "file-loader": "^5.0.2",
     "html-to-draftjs": "^1.5.0",
     "husky": "^3.1.0",
+    "iban": "^0.0.14",
     "jest": "^26.6.3",
     "jest-css-modules": "^2.1.0",
     "jest-date-mock": "^1.0.8",

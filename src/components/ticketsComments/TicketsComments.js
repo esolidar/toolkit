@@ -7,7 +7,7 @@ import { injectIntl } from 'react-intl';
 import Moment from 'react-moment';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const TicketsComments = ({
   ticketComments,
