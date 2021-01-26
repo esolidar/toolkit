@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import ReactGA from 'react-ga';
 import { FormattedMessage } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import TextField from '../../elements/textField/TextField';
 
 class CrowdfundingContributeBtn extends Component {

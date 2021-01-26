@@ -1,5 +1,4 @@
 // Components
-export { default as Button } from './components/button/Button';
 export { default as ChangeCurrency } from './components/changeCurrency/ChangeCurrency';
 export { default as ChangeLanguage } from './components/changeLanguage/ChangeLanguage';
 export { default as CookiesMessage } from './components/cookiesMessage/CookiesMessage';
@@ -63,6 +62,8 @@ export { default as NoMatch } from './components/noMatch/NoMatch';
 export { default as BankAccount } from './components/bankAccounts/BankAccount';
 
 // Elements
+export { default as Button } from './elements/button/Button';
+export { default as ButtonGroup } from './elements/buttonGroup/ButtonGroup';
 export { default as SelectField } from './elements/selectField/SelectField';
 export { default as TextareaField } from './elements/textareaField/TextareaField';
 export { default as TextField } from './elements/textField/TextField';

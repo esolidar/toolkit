@@ -7,7 +7,7 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import Rating from 'react-rating';
 import SelectField from '../../elements/selectField/SelectField';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 
 const ProjectDetailThumb = ({
   project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl, showReview,

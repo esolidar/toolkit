@@ -5,7 +5,7 @@ import {
 } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { convertToMyCurrency } from '../../utils/index';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import TextField from '../../elements/textField/TextField';
 
 const AuctionDetailRigth = ({

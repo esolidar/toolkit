@@ -18,7 +18,7 @@ import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import TextFieldGroup from '../../elements/textFieldGroup/TextFieldGroup';
 import DropZoneBox from '../../elements/dropZoneBox/DropZoneBox';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import InstitutionListSelect from '../institutionListSelect/InstitutionListSelect';
 import ProjectThumb from '../projectThumb/ProjectThumb';
 import '../../assets/sass/_react-datepicker.scss';

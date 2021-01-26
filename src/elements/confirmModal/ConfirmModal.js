@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button as BootstrapButton } from 'react-bootstrap';
-import Button from '../../components/button/Button';
+import Button from '../button/Button';
 
 const ConfirmModal = (props) => {
   const border = '1px solid #dee2e6';

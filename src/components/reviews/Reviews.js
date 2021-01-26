@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import TextareaField from '../../elements/textareaField/TextareaField';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import { getEmployeeName, isDefined } from '../../utils';
 
 const Reviews = ({

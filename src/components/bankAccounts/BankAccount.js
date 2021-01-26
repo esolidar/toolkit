@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import TextField from '../../elements/textField/TextField';
 import ConfirmModal from '../../elements/confirmModal/ConfirmModal';
-import Button from '../button/Button';
+import Button from '../../elements/button/Button';
 import { isEmpty } from '../../utils';
 
 const BankAccount = ({

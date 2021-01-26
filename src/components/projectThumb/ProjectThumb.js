@@ -5,8 +5,8 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import filter from 'lodash/filter';
+import Button from '../../elements/button/Button';
 import { slugify } from '../../utils/index';
-import Button from '../button/Button';
 
 const ProjectThumb = ({
   project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl, intl,

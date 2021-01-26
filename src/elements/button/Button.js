@@ -1,21 +1,24 @@
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  extraClass,
-  target,
-  href,
-  text,
-  onClick,
-  to,
-  type,
-  disabled,
   className,
+  dataTestId,
+  disabled,
+  extraClass,
+  fullWidth,
+  href,
   icon,
   id,
-  dataTestId,
+  onClick,
+  rel,
+  rounded,
+  size,
+  target,
+  text,
+  to,
+  type,
 }) => {
   let style;
   if (onClick) {
@@ -26,7 +29,15 @@ const Button = ({
     style = 'link';
   }
 
-  const classes = classnames(`btn-esolidar btn-${extraClass} ${className}`);
+  const classes = [
+    'btn-esolidar',
+    `btn-${extraClass}`,
+    `btn-${size}`,
+    rounded ? 'rounded' : '',
+    fullWidth ? 'full-width' : '',
+    disabled ? 'disabled' : '',
+    className,
+  ];
 
   const renderButton = () => {
     switch (style) {
@@ -37,7 +48,7 @@ const Button = ({
             id={id}
             type="button"
             onClick={onClick}
-            className={classes}
+            className={classes.join(' ')}
             disabled={disabled}
           >
             {icon}
@@ -51,7 +62,7 @@ const Button = ({
             data-testid={dataTestId}
             id={id}
             type="submit"
-            className={classes}
+            className={classes.join(' ')}
             disabled={disabled}
           >
             {icon}
@@ -65,7 +76,7 @@ const Button = ({
             data-testid={dataTestId}
             id={id}
             to={to}
-            className={classes}
+            className={classes.join(' ')}
           >
             {icon}
             {text}
@@ -79,7 +90,8 @@ const Button = ({
             id={id}
             href={href}
             target={target || '_self'}
-            className={classes}
+            rel={rel}
+            className={classes.join(' ')}
           >
             {icon}
             {text}
@@ -92,25 +104,32 @@ const Button = ({
 };
 
 Button.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
   extraClass: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  href: PropTypes.string,
+  icon: PropTypes.node,
+  id: PropTypes.string,
+  onClick: PropTypes.func,
+  rel: PropTypes.string,
+  rounded: PropTypes.bool,
+  size: PropTypes.string,
   target: PropTypes.string,
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
   ]),
-  href: PropTypes.string,
   to: PropTypes.string,
   type: PropTypes.string,
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  icon: PropTypes.node,
-  id: PropTypes.string,
 };
 
 Button.defaultProps = {
-  type: 'button',
   className: '',
+  fullWidth: false,
+  rounded: true,
+  size: 'md',
+  type: 'button',
 };
 
 export default Button;
