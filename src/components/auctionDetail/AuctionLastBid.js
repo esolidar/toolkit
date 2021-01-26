@@ -28,7 +28,7 @@ const AuctionLastBid = ({
             <Row className="d-flex justify-content-between">
               <div className="d-none d-sm-block">
                 <Col>
-                  <p className="control-label title-last-bid mb-2" id={`auction-last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
+                  <p className="control-label title-last-bid mb-3" id={`auction-last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
                     {auction.last_bid ? (
                       <FormattedMessage
                         id="auction.detail.lastbid"
