@@ -15,7 +15,7 @@ describe('Button component', () => {
 
   it('renders Button with prop extraClass', () => {
     const component = shallow(<Button extraClass="danger" />);
-    expect(component.props().className).toEqual('btn-esolidar btn-danger ');
+    expect(component.props().className).toEqual('btn-esolidar btn-danger btn-md rounded   ');
   });
 
   it('renders Button with prop onClick', () => {
@@ -43,5 +43,25 @@ describe('Button component', () => {
     const component = shallow(<Button extraClass="danger" to="login" icon={<FontAwesomeIcon icon="info-circle" className="mr-2" />} />);
     expect(component.find('FontAwesomeIcon').length).toBe(1);
     expect(component.find('FontAwesomeIcon').props().icon).toBe('info-circle');
+  });
+
+  it('renders Button classes from rounded prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" rounded={true} />);
+    expect(component.find('.rounded').length).toBe(1);
+  });
+
+  it('renders Button classes from fullWidth prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" fullWidth={true} />);
+    expect(component.find('.full-width').length).toBe(1);
+  });
+
+  it('renders Button classes from disabled prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" disabled={true} />);
+    expect(component.find('.disabled').length).toBe(1);
+  });
+
+  it('renders Button classes from size prop', () => {
+    const component = shallow(<Button extraClass="danger" to="login" size="lg" />);
+    expect(component.find('.btn-lg').length).toBe(1);
   });
 });

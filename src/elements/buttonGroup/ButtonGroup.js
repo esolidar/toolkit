@@ -10,8 +10,9 @@ const ButtonGroup = ({
 }) => (
   <BSButtonGroup className={`${className} button-group`} size={size} style={style}>
     {
-      buttonList.map((btn) => (
+      buttonList.map((btn, i) => (
         <Button
+          key={i}
           variant=""
           className={`${btn.className} ${btn.isActive ? 'active' : ''}`}
           onClick={btn.onClick}
@@ -27,7 +28,13 @@ const ButtonGroup = ({
 export default ButtonGroup;
 
 ButtonGroup.propTypes = {
-  buttonList: PropTypes.array.isRequired,
+  buttonList: PropTypes.arrayOf(
+    PropTypes.shape({
+      isActive: PropTypes.bool,
+      onClick: PropTypes.func,
+      text: PropTypes.string,
+    }),
+  ).isRequired,
   className: PropTypes.string,
   size: PropTypes.string,
   style: PropTypes.object,

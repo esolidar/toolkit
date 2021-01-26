@@ -122,7 +122,7 @@ Button.propTypes = {
 Button.defaultProps = {
   className: '',
   fullWidth: false,
-  rounded: false,
+  rounded: true,
   size: 'md',
   type: 'button',
 };

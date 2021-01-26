@@ -8,7 +8,7 @@ import { Button } from '@esolidar/toolkit';
 
 ```jsx
 <div>
-  <h5>Full</h5>
+  <h5>Rounded</h5>
   <div className="mb-3">
     <Button extraClass="info-full" target="_blank" href="#" text="info-full" />
     <Button extraClass="dark-full" target="_blank" href="#" text="dark-full" />
@@ -32,42 +32,42 @@ import { Button } from '@esolidar/toolkit';
     />
     <Button extraClass="link" target="_blank" href="#" text="link" />
   </div>
-  <h5>Rounded</h5>
+  <h5>Squared</h5>
   <div className="mb-3">
     <Button
       extraClass="info-full"
       target="_blank"
       href="#"
       text="info-full"
-      rounded={true}
+      rounded={false}
     />
     <Button
       extraClass="dark-full"
       target="_blank"
       href="#"
       text="dark-full"
-      rounded={true}
+      rounded={false}
     />
     <Button
       extraClass="success-full"
       target="_blank"
       href="#"
       text="success-full"
-      rounded={true}
+      rounded={false}
     />
     <Button
       extraClass="danger-full"
       target="_blank"
       href="#"
       text="danger-full"
-      rounded={true}
+      rounded={false}
     />
     <Button
       extraClass="warning-full"
       target="_blank"
       href="#"
       text="warning-full"
-      rounded={true}
+      rounded={false}
     />
   </div>
   <h5>Outline</h5>
