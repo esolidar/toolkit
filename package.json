@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest -u",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
     "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add . && git commit -m \"automated deployment\"  && git push",

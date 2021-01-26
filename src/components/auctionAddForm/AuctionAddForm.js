@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Container } from 'react-bootstrap';
+import Pagination from 'react-js-pagination';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { WithContext as ReactTags } from 'react-tag-input';
 import classnames from 'classnames';
@@ -96,9 +97,16 @@ const AuctionAddForm = ({
   });
   const [pagination, setPagination] = useState(
     {
-      activePage: 1,
-      itemsCountPerPage: 1,
-      totalItemsCount: 1,
+      institutions: {
+        activePage: 1,
+        itemsCountPerPage: 1,
+        totalItemsCount: 1,
+      },
+      projects: {
+        activePage: 1,
+        itemsCountPerPage: 1,
+        totalItemsCount: 1,
+      },
     },
   );
   const [errors, setErrors] = useState({});
@@ -119,7 +127,7 @@ const AuctionAddForm = ({
       getAuctionDetail(company.id, auctionId);
     }
     if (showInstitutions) {
-      getInstitutions(pagination.activePage, institutionCategory, institutionSearch);
+      getInstitutions(pagination.institutions.activePage, institutionCategory, institutionSearch);
       getInstitutionCategories();
     }
     if (showProjects && hasProjects) {
@@ -138,11 +146,12 @@ const AuctionAddForm = ({
     if (institutions && institutions.code === 200) {
       setIsLoadingInstitutionListSelect(false);
       setInstitutionsData(institutions.data.institutions.data);
-      setPagination({
+      const data = {
         activePage: institutions.data.institutions.current_page,
         itemsCountPerPage: institutions.data.institutions.per_page,
         totalItemsCount: institutions.data.institutions.total,
-      });
+      };
+      setPagination((prevState) => ({ ...prevState, institutions: data }));
     }
   }, [institutions]);
 
@@ -159,6 +168,13 @@ const AuctionAddForm = ({
     if (projectsList && projectsList.code === 200) {
       const { data } = projectsList;
       setProjectsListData(data.data);
+      const dataPaginator = {
+        activePage: data.current_page,
+        itemsCountPerPage: data.per_page,
+        totalItemsCount: data.total,
+      };
+
+      setPagination((prevState) => ({ ...prevState, projects: dataPaginator }));
     }
   }, [projectsList]);
 
@@ -235,6 +251,12 @@ const AuctionAddForm = ({
   const handleInstitutionsPageChange = (page) => {
     setIsLoadingInstitutionListSelect(true);
     getInstitutions(page, institutionCategory, institutionSearch);
+  };
+
+  const handleProjectsPageChange = (page) => {
+    // setIsLoadingInstitutionListSelect(true);
+    const whitelabelConfig = company.whitelabel;
+    getProjectsList(whitelabelConfig.id, page, 'APPROVED', undefined, undefined, []);
   };
 
   useEffect(
@@ -386,7 +408,7 @@ const AuctionAddForm = ({
         dateLimit: form.dateLimit,
         dateStart: form.dateStart,
         description: form.description,
-        esolidar_list: form.esolidar_list,
+        show_on_esolidar: form.show_on_esolidar,
         images: form.images,
         payment_description: form.payment_description,
         position: form.position,
@@ -513,8 +535,8 @@ const AuctionAddForm = ({
                               defaultMessage: 'Yes',
                             }),
                           }]}
-                          value={form.esolidar_list}
-                          field="esolidar_list"
+                          value={form.show_on_esolidar}
+                          field="show_on_esolidar"
                           onChange={handleChangeForm}
                           hiddenSelectText={true}
                         />
@@ -952,7 +974,7 @@ const AuctionAddForm = ({
                         selectCategoryText={intl.formatMessage({ id: 'select.category', defaultMessage: 'Select category' })}
                         error={errors.user_id}
                         search={institutionSearch}
-                        pagination={pagination}
+                        pagination={pagination.institutions}
                         isLoading={isLoadingInstitutionListSelect}
                         removeInstitutionSelected={handleChangeInstitution}
                       />
@@ -1000,6 +1022,18 @@ const AuctionAddForm = ({
                               {errors.projectIds}
                             </span>
                           )}
+                      </Row>
+                      <Row>
+                        <Col sm={12} className="text-center">
+                          <Pagination
+                            innerClass="pagination justify-content-center"
+                            activePage={pagination.projects.activePage}
+                            itemsCountPerPage={pagination.projects.itemsCountPerPage}
+                            totalItemsCount={pagination.projects.totalItemsCount}
+                            pageRangeDisplayed={5}
+                            onChange={handleProjectsPageChange}
+                          />
+                        </Col>
                       </Row>
                     </Col>
                   </Row>
@@ -1141,6 +1175,9 @@ AuctionAddForm.propTypes = {
     code: PropTypes.number,
     data: PropTypes.shape({
       data: PropTypes.array,
+      current_page: PropTypes.number,
+      per_page: PropTypes.number,
+      total: PropTypes.number,
     }),
   }),
   showBrands: PropTypes.bool,
