@@ -86,7 +86,9 @@
     border                            : 2px solid $successColor;
     color                             : #fff !important;
     background                        : $successColor;
-    border-radius                     : 4px;
+    border-radius                     : 100px;
+    padding-left                      : 30px;
+    padding-right                     : 30px;
     font-family                       : $fontFamily;
     font-size                         : 17px;
     -webkit-transition                : all .7s cubic-bezier(.115, .65, .215, 1.005);
