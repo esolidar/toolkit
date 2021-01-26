@@ -14,11 +14,13 @@ const SelectField = ({
   defaultValue,
   className,
   hiddenSelectText,
+  dataTestId,
+  optionTestId,
 }) => {
   const optionsList = (options) => {
     if (options) {
       return options.map((option) => (
-        <option value={option.id} key={option.id} disabled={option.disabled}>
+        <option data-testid={`${optionTestId}-${option.id}`} value={option.id} key={option.id} disabled={option.disabled}>
           {option.name || option.title}
         </option>
       ));
@@ -34,6 +36,7 @@ const SelectField = ({
           </label>
         )}
       <select
+        data-testid={dataTestId}
         name={field}
         className={`form-control ${className}`}
         value={value}
@@ -56,6 +59,8 @@ const SelectField = ({
 export default SelectField;
 
 SelectField.propTypes = {
+  dataTestId: PropTypes.string,
+  optionTestId: PropTypes.string,
   options: PropTypes.array,
   value: PropTypes.oneOfType([
     PropTypes.number,

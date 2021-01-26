@@ -17,13 +17,13 @@ const TextFieldGroup = ({
 }) => (
   <div
     className={
-        classnames('form-group', { 'has-error': error || message })
-      }
+      classnames('form-group', { 'has-error': error || message })
+    }
   >
     {label && (
-    <label htmlFor={field} className="control-label">
-      {label}
-    </label>
+      <label htmlFor={field} className="control-label">
+        {label}
+      </label>
     )}
 
     <div className="input-group">
@@ -38,7 +38,7 @@ const TextFieldGroup = ({
         disabled={disabled}
       />
       {groupText && (
-      <span className="input-group-addon">{groupText}</span>
+        <span className="input-group-addon">{groupText}</span>
       )}
     </div>
     {error && <span className="help-block">{error}</span>}
@@ -60,7 +60,10 @@ TextFieldGroup.propTypes = {
     PropTypes.string,
   ]),
   label: PropTypes.string,
-  error: PropTypes.string,
+  error: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
   type: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,

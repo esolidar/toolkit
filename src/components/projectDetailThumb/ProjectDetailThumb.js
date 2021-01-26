@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import Rating from 'react-rating';
 import SelectField from '../../elements/selectField/SelectField';
 import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../../elements/button/Button';
 
 const ProjectDetailThumb = ({
-  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl,
+  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl, showReview,
 }) => {
   const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
   const projectState = projectStatesMap.indexOf(project.status);
@@ -33,6 +36,26 @@ const ProjectDetailThumb = ({
             serverlessResizeImage={serverlessResizeImage}
           />
         </div>
+        {showReview && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage
+                id="project.review.average.rate"
+                defaultMessage="project.review.average.rate"
+              />
+            </h4>
+            {project.review_average ? (
+              <Rating
+                className="rating ml-1"
+                emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
+                fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                readonly={true}
+                initialRating={project.review_average}
+              />
+            )
+              : <p className="category-name">N/A</p>}
+          </div>
+        )}
         <div className="ods-thumb">
           <h4 style={{ color }}>
             <FormattedMessage
@@ -89,7 +112,7 @@ const ProjectDetailThumb = ({
               extraClass="info-full w-100"
               onClick={() => admin.changeStatus('REQUEST_INFO')}
               text={admin.requestInfoText}
-              icon={<FontAwesomeIcon icon="info-circle" className="mr-2" />}
+              icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />}
               disabled={showRequestInfoView}
             />
           )}
@@ -118,6 +141,11 @@ ProjectDetailThumb.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
+  showReview: PropTypes.bool,
+};
+
+ProjectDetailThumb.defaultProps = {
+  showReview: false,
 };
 
 export default injectIntl(ProjectDetailThumb);

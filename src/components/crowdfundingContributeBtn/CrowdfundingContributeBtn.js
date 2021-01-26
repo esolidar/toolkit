@@ -176,9 +176,9 @@ class CrowdfundingContributeBtn extends Component {
     } = this.state;
 
     return (
-      <Row>
-        {(campaign.status === 'approved' || campaign.status === 'completed') && (
-          <Col sm={7} className="donation-box">
+      <>
+        <Row className="mt-3">
+          <Col sm={12}>
             <span className="control-label">
               <FormattedMessage
                 id="crowdfunding.new.donation"
@@ -186,36 +186,45 @@ class CrowdfundingContributeBtn extends Component {
                 values={{ value: `${campaign.currency.symbol}${campaign.minimum_contribution}` }}
               />
             </span>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={12}>
             <span className="control-label-note">
               <FormattedMessage
                 id="crowdfunding.new.donation.note"
                 defaultMessage="Use only integer numbers"
               />
             </span>
-            <TextField
-              type="number"
-              id="inputDonation"
-              onChange={(e) => {
-                this.setState({
-                  value: e.target.value,
-                  errors: {},
-                });
-                ReactGA.event({
-                  category: 'button',
-                  action: 'click',
-                  label: 'change-contribute-value',
-                });
-              }}
-              onBlur={(e) => {
-                this.setState({
-                  value: `${Math.trunc(e.target.value)}.00`,
-                  errors: {},
-                });
-              }}
-              value={value}
-              disabled={countDownStatus !== 'running'}
-              placeholder={`${campaign.currency.symbol} 0,00`}
-            />
+          </Col>
+        </Row>
+        <Row className="mt-1">
+          {(campaign.status === 'approved' || campaign.status === 'completed') && (
+            <Col sm={7}>
+              <TextField
+                type="number"
+                id="inputDonation"
+                onChange={(e) => {
+                  this.setState({
+                    value: e.target.value,
+                    errors: {},
+                  });
+                  ReactGA.event({
+                    category: 'button',
+                    action: 'click',
+                    label: 'change-contribute-value',
+                  });
+                }}
+                onBlur={(e) => {
+                  this.setState({
+                    value: `${Math.trunc(e.target.value)}.00`,
+                    errors: {},
+                  });
+                }}
+                value={value}
+                disabled={countDownStatus !== 'running'}
+                placeholder={`${campaign.currency.symbol} 0,00`}
+              />
               {(value === '' || value < campaign.minimum_contribution) ? (
                 <div className="has-error">
                   <span className="help-block">
@@ -223,19 +232,21 @@ class CrowdfundingContributeBtn extends Component {
                   </span>
                 </div>
               ) : ''}
-          </Col>
-        )}
-        {(campaign.status === 'approved' || campaign.status === 'completed') && (
-          <Col sm={5} className="donation-box">
-            <Button
-              extraClass="success-full btn btn-submit"
-              onClick={this.checkoutContribution}
-              disabled={((countDownStatus !== 'running') || isLoadingButton)}
-              text={textBtnDonate}
-            />
-          </Col>
-        )}
-      </Row>
+            </Col>
+          )}
+          {(campaign.status === 'approved' || campaign.status === 'completed') && (
+            <Col sm={5}>
+              <Button
+                className="w-100"
+                extraClass="success-full btn btn-submit"
+                onClick={this.checkoutContribution}
+                disabled={((countDownStatus !== 'running') || isLoadingButton)}
+                text={textBtnDonate}
+              />
+            </Col>
+          )}
+        </Row>
+      </>
     );
   }
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Button = ({
   className,
+  dataTestId,
   disabled,
   extraClass,
   fullWidth,
@@ -43,6 +44,7 @@ const Button = ({
       case 'button':
         return (
           <button
+            data-testid={dataTestId}
             id={id}
             type="button"
             onClick={onClick}
@@ -57,6 +59,7 @@ const Button = ({
       case 'submit':
         return (
           <button
+            data-testid={dataTestId}
             id={id}
             type="submit"
             className={classes.join(' ')}
@@ -70,6 +73,7 @@ const Button = ({
       case 'link':
         return (
           <Link
+            data-testid={dataTestId}
             id={id}
             to={to}
             className={classes.join(' ')}
@@ -82,6 +86,7 @@ const Button = ({
       default:
         return (
           <a
+            data-testid={dataTestId}
             id={id}
             href={href}
             target={target || '_self'}

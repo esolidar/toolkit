@@ -258,6 +258,18 @@
         margin-left: -35px;
       }
     }
+
+    .comment-reply {
+      position  : absolute;
+      margin-top: 35px;
+      right     : 40px;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        position: relative;
+        margin-bottom: 18px;
+        right: 40px;
+      }
+    }
   }
 }
 
@@ -354,4 +366,379 @@ button.renderMoreBtn {
 .loadingReplies {
   margin-left  : 60px;
   margin-bottom: 10px;
+}
+
+.comments {
+  .no-results {
+    margin           : 50px 0;
+    // font-family   : $fontRoman;
+    font-weight      : 200;
+    font-size        : 15px;
+    // color         : $mainTextColor;
+    letter-spacing   : 0;
+    line-height      : 24px;
+  }
+
+  .create-comment {
+    margin: 20px 0;
+
+    .title {
+      font-family      : $fontHeavy;
+      font-size        : 12px;
+      // color         : @mainTextColor;
+      letter-spacing   : 0;
+      line-height      : 19px;
+      text-transform   : uppercase;
+    }
+
+    .textarea {
+      background-color: #FFFFFF;
+      box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+      border          : 1px solid #E7EBED;
+      border-radius   : 4px;
+      width           : 100%;
+      margin-top      : 20px;
+      padding         : 10px 15px;
+      min-height      : 75px;
+      display         : block;
+
+      .thumb {
+        .reply-as-company {
+          float: left;
+        }
+
+        .reply-as-company-dropdown {
+          border: none;
+
+          &:hover {
+            background: transparent;
+          }
+
+          &:focus {
+            background: transparent;
+          }
+        }
+
+        .dropdown-menu {
+          left            : -16px;
+          background-color: #FFFFFF;
+          box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+          border          : 1px solid #E7EAED;
+          border-radius   : 2px;
+          width           : 210px;
+          top             : 61px;
+
+          button {
+            border    : none;
+            background: transparent;
+
+            &:hover {
+              background: transparent;
+            }
+
+            &:focus {
+              background: transparent;
+            }
+
+            label {
+              padding-top: 8px;
+            }
+          }
+
+          &:before {
+            left: 22%;
+          }
+
+          &:after {
+            left: 22%;
+          }
+        }
+
+        .dropdown-toggle {
+          -webkit-box-shadow: none;
+          box-shadow        : none;
+
+          .caret {
+            margin-top: 15px;
+          }
+        }
+
+        img {
+          margin-right         : 15px;
+          margin-left          : 15px;
+          margin-top           : 7px;
+          float                : left;
+          width                : 40px;
+          height               : 40px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius   : 50%;
+          border-radius        : 50%;
+        }
+
+        @media (max-width: 425px) {
+          display: none;
+        }
+      }
+
+      textarea {
+        width         : 80%;
+        border        : none;
+        padding       : 15px 0 0 0;
+        outline       : none;
+        outline-offset: -2px;
+        min-height    : 45px;
+
+        @media (max-width: 425px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  label {
+    // font-family   : @fontRoman;
+    font-weight      : 200;
+    font-size        : 12px;
+    // color         : @mainTextColor;
+    letter-spacing   : 0;
+    line-height      : 24px;
+  }
+
+  .request-comment {
+    margin-bottom: 20px;
+    margin-left  : 30px;
+
+    .header {
+      img {
+        width        : 40px;
+        height       : 40px;
+        border-radius: 50%;
+        float        : left;
+        margin-right : 15px;
+      }
+
+      .company-name {
+        // font-family   : @fontHeavy;
+        font-size        : 15px;
+        // color         : @mainTextColor;
+        letter-spacing   : 0;
+        line-height      : 38px;
+        float            : left;
+        white-space      : nowrap;
+        overflow         : hidden;
+        text-overflow    : ellipsis;
+        width            : 70%;
+
+        span {
+          // font-family: @fontLight;
+          font-size: 12px;
+        }
+      }
+
+      .date {
+        float            : right;
+        // font-family   : @fontRoman;
+        font-size        : 12px;
+        color            : #455C75;
+        letter-spacing   : 0;
+        line-height      : 36px;
+      }
+
+      .options-reply {
+        float: right;
+
+        .options-dropdown {
+          border            : none;
+          float             : right;
+          margin-left       : 0;
+          padding           : 10px;
+          -webkit-box-shadow: none;
+          box-shadow        : none;
+          margin-right      : -30px;
+          margin-top        : 4px;
+
+          .caret {
+            display: none;
+          }
+
+          img {
+            width        : 10px;
+            height       : 8px;
+            border-radius: 0;
+            margin       : 0;
+          }
+
+          &:hover {
+            background: transparent;
+          }
+
+          &:focus {
+            background: transparent;
+          }
+        }
+
+        .dropdown-menu {
+          button {
+            background: transparent;
+            border    : none;
+            cursor    : pointer;
+          }
+        }
+      }
+    }
+
+    .content {
+      margin-left      : 20px;
+      padding-left     : 35px;
+      // border-left   : 1px solid @mischka;
+      // font-family   : @fontRoman;
+      font-size        : 15px;
+      // color         : @mainTextColor;
+      letter-spacing   : 0;
+      line-height      : 22px;
+    }
+
+    .content-reply {
+      margin-left    : 20px;
+      padding-left   : 35px;
+      // border-left : 1px solid @mischka;
+
+      .btn-add-comment-reply {
+        padding           : 0;
+        margin-top        : 5px;
+        background        : transparent;
+        border            : none;
+        // font-family    : @fontRoman;
+        font-size         : 15px;
+        // color          : @mainColor;
+        letter-spacing    : 0;
+        line-height       : 22px;
+        text-decoration   : underline;
+
+        img {
+          margin-right: 10px;
+        }
+      }
+
+      .add-reply {
+        .reply-as-company {
+          float     : left;
+          margin-top: 25px;
+
+          button {
+            border: none;
+
+            &:hover {
+              background: transparent;
+            }
+
+            &:focus {
+              background: transparent;
+            }
+
+            img {
+              width        : 25px;
+              height       : 25px;
+              border-radius: 50%;
+            }
+          }
+
+          .dropdown-toggle {
+            -webkit-box-shadow: none;
+            box-shadow        : none;
+
+            .caret {
+              margin-left: 3px;
+            }
+          }
+
+          .dropdown-menu {
+            left: 0;
+            top : 45px;
+
+            .dropdown-header {
+              button {
+                background: #fff;
+
+                img {
+                  margin-right: 10px;
+                }
+              }
+            }
+
+            &:after {
+              left: 23px;
+            }
+
+            &:before {
+              left: 23px;
+            }
+          }
+        }
+
+        .input {
+          background-color   : #FFFFFF;
+          box-shadow         : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+          // border          : 1px solid @porcelainDark;
+          border-radius      : 4px;
+          width              : 100%;
+          margin-top         : 20px;
+          // font-family     : @fontRoman;
+          font-size          : 15px;
+          // color           : @mainTextColor;
+          letter-spacing     : 0;
+          line-height        : 26px;
+          padding            : 10px 15px;
+          outline            : none;
+          outline-offset     : -2px;
+        }
+
+        textarea {
+          width: 87% !important;
+        }
+      }
+
+      .comment-replies {
+        .request-comment {
+          // border-top : 1px solid @porcelainDark;
+          margin     : 15px 0;
+          padding-top: 20px;
+
+          .content {
+            padding-left: 35px;
+            border-left : none;
+          }
+
+          .btn-add-comment-reply {
+            padding           : 0;
+            margin-top        : 5px;
+            background        : transparent;
+            border            : none;
+            // font-family    : @fontRoman;
+            font-size         : 15px;
+            // color          : @mainColor;
+            letter-spacing    : 0;
+            line-height       : 22px;
+            text-decoration   : underline;
+            margin-left       : 55px;
+
+            img {
+              margin-right: 10px;
+            }
+          }
+
+          .add-reply {
+            padding-left: 55px;
+          }
+        }
+
+        .readmore-box {
+          margin        : 15px 0;
+          // background : @porcelainMedium;
+          padding       : 15px 0;
+          margin-left   : -35px;
+        }
+      }
+    }
+  }
 }

@@ -3,20 +3,17 @@ import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import slugify from 'slugify';
+import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import filter from 'lodash/filter';
 import Button from '../../elements/button/Button';
+import { slugify } from '../../utils/index';
 
 const ProjectThumb = ({
   project, serverlessResizeImage, cols, lang, followers, showStatus, status, myProject, select, selectText, selectedIds, selectProject, selectedText, whitelabelUrl, intl,
 }) => {
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
-  const link = project.status === 'DRAFT' ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title, {
-    replacement: '-',
-    remove: /[?$*_+~.,()'"!\-:@]/g,
-    lower: true,
-  })}${myProject ? `?owner=${myProject}` : ''}`;
+  const link = project.status === 'DRAFT' ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${myProject ? `?owner=${myProject}` : ''}`;
 
   const clickThumb = () => {
     if (select) {
@@ -29,11 +26,7 @@ const ProjectThumb = ({
   };
 
   const editThumb = () => {
-    window.location.href = (project.status === 'DRAFT' || project.status === 'PENDING') ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title, {
-      replacement: '-',
-      remove: /[?$*_+~.,()'"!\-:@]/g,
-      lower: true,
-    })}${myProject ? `?owner=${myProject}` : ''}`;
+    window.location.href = (project.status === 'DRAFT' || project.status === 'PENDING') ? `/${lang}/user/projects/edit/${project.id}` : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${myProject ? `?owner=${myProject}` : ''}`;
   };
 
   const handleClickOpenTab = () => {
@@ -50,7 +43,7 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) && (
               <button type="button" className="edit-button hover" onClick={editThumb}>
-                <FontAwesomeIcon icon="pen" className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
+                <FontAwesomeIcon icon={faPen} className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
                 <FormattedMessage
                   id="project.edit"
                   defaultMessage="Edit project"
@@ -71,7 +64,7 @@ const ProjectThumb = ({
                 </Tooltip>
               )}
             >
-              <FontAwesomeIcon icon="external-link-alt" className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title={intl.formatMessage({ id: 'open.new.tab', defaultMessage: 'Open in new tab' })} />
+              <FontAwesomeIcon icon={faExternalLinkAlt} className="ml-2 hover" onClick={handleClickOpenTab} style={{ cursor: 'pointer' }} title={intl.formatMessage({ id: 'open.new.tab', defaultMessage: 'Open in new tab' })} />
             </OverlayTrigger>
           </div>
         )}

@@ -1,130 +1,185 @@
 .reviews {
-  .no-viviews {
-    padding       : 25px 15px;
-    font-size     : 15px;
-    color         : $mainTextColorDark;
-    letter-spacing: 0;
-    text-align    : center;
-  }
-
-  h3 {
-    font-size: 20px;
+  & .no-reviews {
+    font-size: 15px;
     color    : $mainTextColorDark;
-    padding  : 15px 0;
   }
 
-  h4 {
-    font-size : 16px;
-    color     : $mainTextColorDark;
-    padding   : 15px 0;
-    margin-top: 20px;
+  & .overall-rating {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: space-between;
+    padding        : 20px 30px !important;
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+    }
+
+    & .title {
+      @media (max-width: 425px) {
+        align-self   : flex-start;
+        margin-bottom: 15px;
+      }
+    }
+
+    & .info {
+      display       : flex;
+      flex-direction: column;
+
+      @media (max-width: 425px) {
+        margin-left: unset;
+      }
+
+      & .numbers {
+        font-size : 25px;
+        color     : $graySemiDark;
+        text-align: center;
+
+        & .average {
+          font-size: 35px;
+          color    : $mainTextColorDark;
+        }
+      }
+    }
   }
 
-  p {
-    font-size     : 15px;
-    color         : $mainTextColorDark;
-    letter-spacing: 0;
-    line-height   : 19px;
-  }
+  & .user-review {
+    padding: 30px !important;
 
-  .edit-review {
-    background     : transparent;
-    border         : none;
-    padding        : 0;
-    margin         : 0;
-    margin-left    : 10px;
-    color          : $mainColor;
-    text-decoration: underline;
-    font-size      : 13px;
-  }
+    & .title {
+      margin-bottom: 30px;
+    }
 
-  .accordion {
-    .card {
-      background-color: transparent;
-      border          : none;
-      border-top      : 1px solid $grayExtraLight;
-      border-bottom   : 1px solid $grayExtraLight;
-      border-radius   : 0;
-      margin-top      : -1px;
+    & .review {
+      & .header {
+        display        : flex;
+        align-items    : center;
+        justify-content: flex-start;
 
-      .card-header {
-        background-color: transparent;
-        border-bottom   : none;
-        border-radius   : 0;
-        font-size       : 15px;
-        color           : $mainTextColorDark;
-        letter-spacing  : 0;
-        cursor          : pointer;
-        height          : 60px;
-        padding         : 10px;
-
-        img {
+        & .img {
           width        : 40px;
           border-radius: 50%;
-          margin-right : 15px;
         }
 
-        .rating {
-          float       : right;
-          margin-right: 12px;
-          margin-top  : 8px;
 
-          img {
-            width       : 16px;
-            margin-right: 5px;
+        & .name {
+          margin-right: auto;
+          margin-left : 15px;
+          color       : $mainTextColorDark;
+        }
+
+        & .rating {
+
+          @media (max-width: 425px) {
+            display: inline-flex !important;
           }
         }
       }
 
-      .card-body {
-        padding-left  : 72px;
-        padding-top   : 0;
-        font-size     : 13px;
-        color         : $mainTextColorDark;
-        letter-spacing: 0;
+      & .body {
+        margin-top: 20px;
+
+        & .edit-button {
+          float: right;
+        }
+      }
+
+      & .form {
+        margin-top   : 20px;
+        border       : 1px solid $grayExtraLight;
+        border-radius: 2px;
+
+        & .form-control {
+          border       : none;
+          border-radius: 0;
+          height       : 120px;
+          resize       : none;
+
+          &:focus {
+            border       : none;
+            border-radius: 0;
+          }
+        }
+
+        & .rate {
+          display         : flex;
+          flex-direction  : row;
+          align-items     : center;
+          justify-content : space-between;
+          background-color: $grayWhite;
+          color           : $mainTextColorDark;
+          padding         : 10px;
+
+          @media (max-width: 425px) {
+            flex-direction: column;
+          }
+        }
+      }
+
+      & .actions {
+        display        : flex;
+        align-items    : center;
+        justify-content: flex-end;
+        margin-top     : 12px;
+
+        &>button:first-of-type {
+          margin-right: 8px;
+        }
+
+        @media (max-width: 425px) {
+          justify-content: center;
+        }
       }
     }
   }
 
-  .box {
-    padding: 0;
-  }
+  & .other-reviews {
+    padding: 30px !important;
 
-  .form-control {
-    border       : none;
-    border-radius: 0;
-    height       : 160px;
-    padding-left : 70px;
-    padding-top  : 20px;
-    resize       : none;
+    & .title {
+      margin-bottom: 30px;
+    }
 
-    &:focus {
-      border       : none;
-      border-radius: 0;
+    & .review {
+
+      &:not(:first-of-type) {
+        padding-top: 15px;
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $grayExtraLight;
+      }
+
+      & .header {
+        display        : flex;
+        align-items    : center;
+        justify-content: flex-start;
+        margin-bottom  : 20px;
+
+        & .img {
+          width        : 40px;
+          border-radius: 50%;
+        }
+
+
+        & .name {
+          margin-right: auto;
+          margin-left : 15px;
+          color       : $mainTextColorDark;
+        }
+      }
     }
   }
 
-  .my-user-thumb {
-    width        : 40px;
-    border-radius: 50%;
-    margin       : 15px;
-    position     : absolute;
-    z-index      : 99;
-  }
+  & .rating {
+    text-align: center;
 
-  .rate {
-    background    : $grayWhite;
-    width         : 100%;
-    padding       : 10px;
-    font-size     : 12px;
-    color         : $mainTextColorDark;
-    letter-spacing: 0;
-    line-height   : 19px;
-    margin        : 0;
-    display       : inline-block;
+    & .full {
+      color: $statusPendingColor;
+    }
 
-    .rating {
-      float: right;
+    & .empty {
+      color: $grayLight;
     }
   }
 }

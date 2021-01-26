@@ -1,8 +1,10 @@
 .CountdownBox {
-  display      : inline-block;
-  border-radius: 3px;
-  overflow     : hidden;
-  width        : 450px;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  border-radius  : 3px;
+  overflow       : hidden;
+  max-width      : 450px;
 
   @media(max-width: 425px) {
     width: 100%;
@@ -33,15 +35,16 @@
   }
 
   .Countdown-label {
-    width         : 33%;
-    display       : inline-block;
-    font-size     : 11px;
-    color         : #FFFFFF;
-    letter-spacing: 0;
-    height        : 70px;
-    line-height   : 50px;
-    text-transform: uppercase;
-    padding       : 10px;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 33%;
+    font-size      : 11px;
+    color          : #FFFFFF;
+    letter-spacing : 0;
+    height         : 70px;
+    text-transform : uppercase;
+    padding        : 10px;
 
     &.soon {
       background: #04b1cd;
@@ -58,22 +61,25 @@
     &.ended {
       background: #e54144;
     }
-
-    span {
-      display       : inline-block;
-      vertical-align: middle;
-      line-height   : normal;
-    }
   }
 
   .Countdown-box {
     width : 67%;
-    float : right;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
     height: 70px;
   }
 
+  @for $i from 1 through 5 {
+
+    span.Countdown-col:first-child:nth-last-child(#{$i}),
+    span.Countdown-col:first-child:nth-last-child(#{$i})~span.Countdown-col {
+      width: #{100% / $i}
+    }
+  }
+
   .Countdown-col {
-    width     : 25%;
     display   : inline-block;
     padding   : 0 5px;
     text-align: center;

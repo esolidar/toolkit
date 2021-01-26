@@ -3,6 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 
 const onClickFunc = jest.fn();
@@ -40,9 +41,8 @@ describe('Button component', () => {
   });
 
   it('renders Button icon prop', () => {
-    const component = shallow(<Button extraClass="danger" to="login" icon={<FontAwesomeIcon icon="info-circle" className="mr-2" />} />);
+    const component = shallow(<Button extraClass="danger" to="login" icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />} />);
     expect(component.find('FontAwesomeIcon').length).toBe(1);
-    expect(component.find('FontAwesomeIcon').props().icon).toBe('info-circle');
   });
 
   it('renders Button classes from rounded prop', () => {

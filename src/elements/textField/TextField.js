@@ -20,12 +20,14 @@ const TextField = ({
   help,
   required,
   className,
+  dataTestId,
+  inputRef,
 }) => (
   <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
     {label && (
-    <label htmlFor={id || field} className="control-label">
-      {label}
-    </label>
+      <label htmlFor={id || field} className="control-label">
+        {label}
+      </label>
     )}
     {help && (
       <p className="help">
@@ -33,6 +35,7 @@ const TextField = ({
       </p>
     )}
     <input
+      data-testid={dataTestId}
       autoComplete="off"
       onChange={onChange}
       onFocus={onFocus}
@@ -46,6 +49,7 @@ const TextField = ({
       maxLength={maxLength}
       disabled={disabled}
       className="form-control"
+      ref={inputRef}
     />
     {error && (<span className="help-block">{error}</span>)}
     {message && (<span className="help-block">{message}</span>)}
@@ -53,6 +57,7 @@ const TextField = ({
 );
 
 TextField.propTypes = {
+  dataTestId: PropTypes.string,
   field: PropTypes.string.isRequired,
   id: PropTypes.string,
   value: PropTypes.oneOfType([
@@ -79,6 +84,7 @@ TextField.propTypes = {
   help: PropTypes.string,
   required: PropTypes.bool,
   className: PropTypes.string,
+  inputRef: PropTypes.object,
 };
 
 export default TextField;

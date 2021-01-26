@@ -9,8 +9,9 @@ import { Countdown } from '@esolidar/toolkit';
 
 ``` jsx
 <Countdown
-  startDate="2020-06-10 00:00:00"
-  endDate="2020-07-10 00:00:00"
+  startDate="2021-01-05 14:24:00"
+  endDate="2021-01-05 14:25:00"
+  thumb={false}
 />
 
 ```
