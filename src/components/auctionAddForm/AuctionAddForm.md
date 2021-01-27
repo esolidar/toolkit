@@ -84,6 +84,7 @@ import { AuctionAddForm } from '@esolidar/toolkit';
       updated_at: "2019-10-28 17:05:13",
     }
   ]}
+  userBankTransfer={{}}
 />
 
 ```
