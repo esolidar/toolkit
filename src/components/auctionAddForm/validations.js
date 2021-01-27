@@ -1,9 +1,19 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import isEmpty from 'lodash/isEmpty';
+import { isEmpty as isEmptyObject } from '../../utils';
 
 export default function validateAuctionForm(data) {
   const errors = {};
+
+  if (isEmptyObject(data.userBankTransfer) && data.projectIds.length > 0) {
+    errors.bankAccount = (
+      <FormattedMessage
+        id="user.register.error.required"
+        defaultMessage="This field is required"
+      />
+    );
+  }
 
   if (data.images.length === 0) {
     errors.images = (

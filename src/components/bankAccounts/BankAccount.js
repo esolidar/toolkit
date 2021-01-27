@@ -15,21 +15,25 @@ import { isEmpty } from '../../utils';
 const BankAccount = ({
   intl,
   countryId,
-  bankTransfer,
+  userBankTransfer,
   color,
   postBankTransfer,
   userId,
-  getBankTransfer,
+  bankTransfer,
   updateLocalstorage,
+  saveBankAccount,
+  hideSaveButton,
+  bankAccountSubmitReset,
+  cols,
 }) => {
   const [errors, setErrors] = useState({});
-  const [bankAccounts, setBankAccounts] = useState(bankTransfer || {});
+  const [bankAccounts, setBankAccounts] = useState(userBankTransfer || {});
 
   useEffect(() => {
-    if (getBankTransfer && getBankTransfer.code === 200) {
+    if (bankTransfer && bankTransfer.code === 200) {
       updateLocalstorage(bankAccounts);
     }
-  }, [getBankTransfer]);
+  }, [bankTransfer]);
 
   const handdleChangeAccount = (e, i, countryId) => {
     const { name, value } = e.target;
@@ -103,6 +107,10 @@ const BankAccount = ({
     setErrors({});
     let isValid = true;
 
+    if (isEmpty(bankAccounts)) {
+      return false;
+    }
+
     Object.keys(bankAccounts).map((key) => {
       const value = bankAccounts[key];
       value.map((item, i) => {
@@ -138,11 +146,18 @@ const BankAccount = ({
     }
   };
 
+  useEffect(() => {
+    if (saveBankAccount) {
+      handleSubmit();
+      bankAccountSubmitReset();
+    }
+  }, [saveBankAccount]);
+
   const renderInternacionalAccounts = (accounts) => {
     if (!isEmpty(accounts) && !isEmpty(accounts[1] || [])) {
       return (
         accounts[1].map((account, i) => (
-          <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`international-accounts-${i}`}>
+          <Col sm={cols} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`international-accounts-${i}`}>
             <Row>
               <Col sm={12}>
                 <div className="box">
@@ -212,7 +227,7 @@ const BankAccount = ({
         case 150: // Brasil
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
+              <Col sm={cols} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -286,7 +301,7 @@ const BankAccount = ({
         case 208: // Portugal
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
+              <Col sm={cols} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -342,7 +357,7 @@ const BankAccount = ({
         case 231: // United Kingdom
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
+              <Col sm={cols} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -398,7 +413,7 @@ const BankAccount = ({
         default: // Rest of the world
           return (
             bankAccounts[countryId].map((account, i) => (
-              <Col sm={4} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
+              <Col sm={cols} key={i} className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'} data-testid={`national-accounts-${i}`}>
                 <div className="box">
                   <h4 style={{ color }}>
                     <FormattedMessage
@@ -471,7 +486,7 @@ const BankAccount = ({
         </Col>
         {renderAccounts(bankAccounts)}
         {(!isEmpty(bankAccounts[countryId] || [])) && (
-          <Col sm={4} className="text-center mb-5">
+          <Col sm={cols} className="text-center mb-5">
             <div className="box">
               <div className="add-account">
                 <Button extraClass="dark" onClick={handleAddAccount} text={intl.formatMessage({ id: 'bank.account.add', defaultMessage: 'Add account' })} dataTestId="add-bank-account" />
@@ -492,7 +507,7 @@ const BankAccount = ({
           </Col>
           {renderInternacionalAccounts(bankAccounts)}
           {(!isEmpty(bankAccounts[1] || [])) && (
-            <Col sm={4} className="text-right mb-5" data-testid="account-box">
+            <Col sm={cols} className="text-right mb-5" data-testid="account-box">
               <div className="box">
                 <div className="add-account">
                   <Button extraClass="dark" onClick={handleAddIntenationalAccount} text={intl.formatMessage({ id: 'bank.account.add.international', defaultMessage: 'Add international account' })} dataTestId="add-international-bank-account" />
@@ -502,14 +517,16 @@ const BankAccount = ({
           )}
         </Row>
       )}
-      <Row>
-        <Col sm={12}>
-          <hr />
-        </Col>
-        <Col sm={12} className="text-right" data-testid="submit-button">
-          <Button extraClass="success-full" onClick={handleSubmit} text={intl.formatMessage({ id: 'bank.account.save', defaultMessage: 'Save' })} />
-        </Col>
-      </Row>
+      {!hideSaveButton && (
+        <Row>
+          <Col sm={12}>
+            <hr />
+          </Col>
+          <Col sm={12} className="text-right" data-testid="submit-button">
+            <Button extraClass="success-full" onClick={handleSubmit} text={intl.formatMessage({ id: 'bank.account.save', defaultMessage: 'Save' })} />
+          </Col>
+        </Row>
+      )}
     </>
   );
 };
@@ -519,12 +536,20 @@ BankAccount.propTypes = {
     formatMessage: PropTypes.func,
   }),
   countryId: PropTypes.number.isRequired,
+  userBankTransfer: PropTypes.object,
   bankTransfer: PropTypes.object,
   color: PropTypes.string,
   postBankTransfer: PropTypes.func.isRequired,
   updateLocalstorage: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
-  getBankTransfer: PropTypes.object,
+  saveBankAccount: PropTypes.bool,
+  hideSaveButton: PropTypes.bool,
+  cols: PropTypes.number,
+  bankAccountSubmitReset: PropTypes.func,
+};
+
+BankAccount.defaultProps = {
+  cols: 4,
 };
 
 export default injectIntl(BankAccount);

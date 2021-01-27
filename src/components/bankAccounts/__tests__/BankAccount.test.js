@@ -20,7 +20,7 @@ const propsWithoutBankAccount = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  bankTransfer: null,
+  userBankTransfer: null,
 };
 
 const propsBankAccount = {
@@ -31,7 +31,7 @@ const propsBankAccount = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  bankTransfer: {
+  userBankTransfer: {
     1: [{
       iban: '123123123123',
       bic: '123123',

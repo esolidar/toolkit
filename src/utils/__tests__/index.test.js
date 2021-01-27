@@ -228,6 +228,8 @@ describe('test utils functions', () => {
     expect(isEmpty(objectNotEmpty)).toBe(false);
     expect(isEmpty(arrayEmpty)).toBe(true);
     expect(isEmpty(arrayNotEmpty)).toBe(false);
+    expect(isEmpty('asdasd')).toBe(false);
+    expect(isEmpty('')).toBe(true);
   });
 
   test('should have class blink and then remove class blink', async () => {
