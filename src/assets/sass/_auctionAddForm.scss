@@ -65,7 +65,7 @@
     border-top      : 1px solid $grayWhiteUltraLight;
     border-right    : 1px solid $grayWhiteUltraLight;
     border-radius   : 4px 4px 0 0;
-    padding         : 40px;
+    padding         : 40px 40px 0 40px;
   }
 
   .box-lr {
@@ -74,7 +74,7 @@
     border-left     : 1px solid $grayWhiteUltraLight;
     border-right    : 1px solid $grayWhiteUltraLight;
     border-radius   : 0;
-    padding         : 40px;
+    padding         : 0 40px 0 40px;
   }
 
   .box-lbr {
@@ -84,7 +84,7 @@
     border-bottom   : 1px solid $grayWhiteUltraLight;
     border-right    : 1px solid $grayWhiteUltraLight;
     border-radius   : 0 0 4px 4px;
-    padding         : 40px;
+    padding         : 0 40px 40px 40px;
   }
 
   .ReactTags__tags {
@@ -186,6 +186,16 @@
     font-size     : 14px;
     margin-top    : -20px;
     padding-bottom: 20px;
+  }
+
+  .loading-page {
+    position  : absolute;
+    z-index   : 9;
+    top       : 0;
+    left      : 0;
+    right     : 0;
+    bottom    : 0;
+    background: rgba(246, 249, 249, 0.4);
   }
 }
 

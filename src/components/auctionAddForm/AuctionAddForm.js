@@ -24,7 +24,6 @@ import ProjectThumb from '../projectThumb/ProjectThumb';
 import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField/SelectField';
 import BankAccount from '../bankAccounts/BankAccount';
-import CustomModal from '../../elements/confirmModal/ConfirmModal';
 import validateAuctionForm from './validations';
 import { isEmpty } from '../../utils';
 
@@ -67,11 +66,13 @@ const AuctionAddForm = ({
   auctionDetail,
   getAuctionDetail,
   esolidarList,
-  bankTransferData,
+  userBankTransfer,
+  putCompanyBankTransfer,
+  bankTransfer,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find((item) => item.name === 'whitelabel') || {};
-  const hasProjects = subscription.find((item) => item.name === 'projects') || {};
+  const hasProjects = !isEmpty(subscription.find((item) => item.name === 'projects') || {});
   const [form, setForm] = useState({
     title: '',
     bid_start: '',
@@ -113,6 +114,7 @@ const AuctionAddForm = ({
     },
   );
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(loadingPage || false);
   const [disabled, setDisabled] = useState(false);
   const [imagesCount, setImagesCount] = useState(0);
   const [isLoadingInstitutionListSelect, setIsLoadingInstitutionListSelect] = useState(true);
@@ -124,6 +126,7 @@ const AuctionAddForm = ({
   const [brandsList, setBrandsList] = useState([]);
   const [imagesList, setImagesList] = useState([]);
   const [cropModalStatus, setCropModalStatus] = useState(false);
+  const [saveBankAccount, setSaveBankAccount] = useState(false);
 
   useEffect(() => {
     if (auctionId) {
@@ -244,6 +247,11 @@ const AuctionAddForm = ({
       // debugger;
     }
   }, [addImages]);
+
+  useEffect(() => {
+    setSaveBankAccount(false);
+    setLoading(false);
+  }, [bankTransfer]);
 
   const handleChangeInstitutioncategory = (e) => {
     setIsLoadingInstitutionListSelect(true);
@@ -375,11 +383,17 @@ const AuctionAddForm = ({
     }
   };
 
+  const bankAccountSubmitReset = () => {
+    setSaveBankAccount(false);
+    setLoading(false);
+  };
+
   const isValid = () => {
     const data = form;
     data.showInstitutions = showInstitutions;
     data.showProjects = showProjects;
     data.showBrands = showBrands;
+    data.userBankTransfer = JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}');
 
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
@@ -387,7 +401,7 @@ const AuctionAddForm = ({
       setTimeout(() => {
         const firstError = document.getElementsByClassName('has-error');
         if (firstError[0]) {
-          firstError[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+          firstError[0].scrollIntoView({ behavior: 'smooth' });
         } else {
           document.getElementById('add-auction').scrollIntoView({ block: 'center', behavior: 'smooth' });
         }
@@ -397,8 +411,14 @@ const AuctionAddForm = ({
     return isValid;
   };
 
-  const onSubmit = () => {
+  const handleSubmit = () => {
+    if ((isEmpty(JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}')) && !isEmpty(form.projectIds))) {
+      setSaveBankAccount(true);
+      setLoading(true);
+    }
+
     if (isValid()) {
+      setLoading(true);
       const companyId = company.id;
       setDisabled(true);
       const data = {
@@ -435,9 +455,17 @@ const AuctionAddForm = ({
     }
   };
 
+  const updateLocalstorage = (bankTransfer) => {
+    const newLocalStorage = company;
+    newLocalStorage.bank_transfer = JSON.stringify(bankTransfer);
+    localStorage.setItem(userRole, JSON.stringify(newLocalStorage));
+    setLoading(false);
+    handleSubmit();
+  };
+
   return (
     <Container className="add-auction">
-      {loadingPage && (
+      {loading && (
         <div className="loading-page">
           <Loading />
         </div>
@@ -848,8 +876,6 @@ const AuctionAddForm = ({
                   </div>
                 </Row>
               </Col>
-            </Row>
-            <Row>
               <Col md={8} className="box-lr">
                 <Row>
                   <Col sm={12}>
@@ -951,9 +977,7 @@ const AuctionAddForm = ({
                   </div>
                 </Row>
               </Col>
-            </Row>
-            {showInstitutions && (
-              <Row>
+              {showInstitutions && (
                 <Col md={8} className="box-lr">
                   <Row>
                     <Col sm={12}>
@@ -984,10 +1008,8 @@ const AuctionAddForm = ({
                     </Col>
                   </Row>
                 </Col>
-              </Row>
-            )}
-            {(showProjects && hasProjects) && (
-              <Row>
+              )}
+              {(showProjects && hasProjects) && (
                 <Col md={8} className="box-lr">
                   <Row>
                     <Col sm={12}>
@@ -1041,74 +1063,81 @@ const AuctionAddForm = ({
                     </Col>
                   </Row>
                 </Col>
-              </Row>
-            )}
-          </Col>
-        </Row>
-        <Row>
-          <Col md={8} className="box-lbr text-center">
-            <Row>
-              {(isEmpty(hasWhitelabel)) && (
-                <Col sm={12} className="pb-5">
-                  <span className="subtext">
-                    <FormattedMessage
-                      id="auction.add.submit.text"
-                      defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
-                    />
-                  </span>
+              )}
+              {(isEmpty(userBankTransfer) && !isEmpty(form.projectIds)) && (
+                <Col md={8} className="box-lr">
+                  <BankAccount
+                    countryId={company.country_id}
+                    postBankTransfer={putCompanyBankTransfer}
+                    getBankTransfer={userBankTransfer}
+                    bankTransfer={bankTransfer}
+                    userBankTransfer={JSON.parse(company.bank_transfer || '{}')}
+                    userId={company.id}
+                    updateLocalstorage={updateLocalstorage}
+                    saveBankAccount={saveBankAccount}
+                    hideSaveButton={true}
+                    cols={6}
+                    bankAccountSubmitReset={bankAccountSubmitReset}
+                  />
+                  {errors.bankAccount
+                    && (
+                      <div className="has-error">
+                        <span
+                          className="help-block"
+                        >
+                          {errors.bankAccount}
+                        </span>
+                      </div>
+                    )}
                 </Col>
               )}
-              <Col sm={12}>
-                {action === null && (
-                  <Button
-                    dataTestId="btn-submit"
-                    extraClass="success-full btn-submit"
-                    onClick={onSubmit}
-                    text={intl.formatMessage({ id: 'auctions.add.submitAuction', defaultMessage: 'Submit auction' })}
-                    disabled={disabled}
-                  />
-                )}
-                {action === 'edit' && (
-                  <Button
-                    dataTestId="btn-submit"
-                    extraClass="success-full btn-submit"
-                    onClick={onSubmit}
-                    text={intl.formatMessage({ id: 'auctions.edit.submitAuction', defaultMessage: 'Update auction' })}
-                    disabled={disabled}
-                  />
-                )}
-                {action === 'clone' && (
-                  <Button
-                    dataTestId="btn-submit"
-                    extraClass="success-full btn-submit"
-                    onClick={onSubmit}
-                    text={intl.formatMessage({ id: 'auctions.clone.submitAuction', defaultMessage: 'Clone auction' })}
-                    disabled={disabled}
-                  />
-                )}
+              <Col md={8} className="box-lbr text-center">
+                <Row>
+                  {(isEmpty(hasWhitelabel)) && (
+                    <Col sm={12} className="pb-5">
+                      <span className="subtext">
+                        <FormattedMessage
+                          id="auction.add.submit.text"
+                          defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
+                        />
+                      </span>
+                    </Col>
+                  )}
+                  <Col sm={12} className="mt-5">
+                    {action === null && (
+                      <Button
+                        dataTestId="btn-submit"
+                        extraClass="success-full btn-submit"
+                        onClick={handleSubmit}
+                        text={intl.formatMessage({ id: 'auctions.add.submitAuction', defaultMessage: 'Submit auction' })}
+                        disabled={disabled}
+                      />
+                    )}
+                    {action === 'edit' && (
+                      <Button
+                        dataTestId="btn-submit"
+                        extraClass="success-full btn-submit"
+                        onClick={handleSubmit}
+                        text={intl.formatMessage({ id: 'auctions.edit.submitAuction', defaultMessage: 'Update auction' })}
+                        disabled={disabled}
+                      />
+                    )}
+                    {action === 'clone' && (
+                      <Button
+                        dataTestId="btn-submit"
+                        extraClass="success-full btn-submit"
+                        onClick={handleSubmit}
+                        text={intl.formatMessage({ id: 'auctions.clone.submitAuction', defaultMessage: 'Clone auction' })}
+                        disabled={disabled}
+                      />
+                    )}
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Col>
         </Row>
       </section>
-      {(isEmpty(bankTransferData) && !isEmpty(form.projectIds)) && (
-        <CustomModal
-          bodyChildren={(
-            <BankAccount
-              countryId={company.country_id}
-              postBankTransfer={props.putCompanyBankTransfer}
-              getBankTransfer={props.bankTransfer}
-              bankTransfer={JSON.parse(company.bank_transfer || '{}')}
-              userId={company.id}
-              updateLocalstorage={updateLocalstorage}
-            />
-          )}
-          onHide={() => { }}
-          show={false}
-          title="Title"
-          subtitle="subtitle"
-        />
-      )}
     </Container>
   );
 };
@@ -1216,7 +1245,9 @@ AuctionAddForm.propTypes = {
     code: PropTypes.number,
     data: PropTypes.object,
   }),
-  bankTransferData: PropTypes.object,
+  userBankTransfer: PropTypes.object,
+  bankTransfer: PropTypes.object,
+  putCompanyBankTransfer: PropTypes.func,
 };
 
 export default injectIntl(AuctionAddForm);
