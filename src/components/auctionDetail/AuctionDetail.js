@@ -7,7 +7,7 @@ import {
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
-import { getEmployeeName, isDefined } from '../../utils';
+import { getEmployeeName, isDefined, filterUnique } from '../../utils';
 import Button from '../../elements/button/Button';
 import NoMatch from '../noMatch/NoMatch';
 import Loading from '../loading/Loading';
@@ -395,7 +395,7 @@ const AuctionDetail = ({
 
   useEffect(() => {
     if (auctionBidList.code === 200) {
-      setListUsersBid([...listUsersBid, ...auctionBidList.data.data]);
+      setListUsersBid(filterUnique([...listUsersBid, ...auctionBidList.data.data], 'id'));
       setListBidTotal(auctionBidList.data.total);
       setPage(auctionBidList.data.current_page);
       setIsloadingContributes(false);
@@ -449,6 +449,7 @@ const AuctionDetail = ({
           },
           blink: true,
         };
+        setListBidTotal(listBidTotal + 1);
         setListUsersBid([newPusherData, ...listUsersBid]);
       }
     }
@@ -597,8 +598,7 @@ const AuctionDetail = ({
   };
 
   const showMoreContributes = () => {
-    requireLogin();
-    getAuctionBidList(auctionDetailInfo.id, page + 1, perPage);
+    getAuctionBidList(auctionDetailInfo.id, Math.floor((listUsersBid.length / perPage)) + 1, perPage);
     setIsloadingContributes(true);
   };
 
