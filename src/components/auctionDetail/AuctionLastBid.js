@@ -63,7 +63,7 @@ const AuctionLastBid = ({
                   <Col sm={12} className={error && 'has-error'}>
                     <TextField
                       dataTestId="bid-input"
-                      className="bid-input"
+                      className="bid-input mb-0"
                       type="number"
                       onChange={valueBidTextField}
                       error={error}
