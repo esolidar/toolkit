@@ -83,8 +83,8 @@ const ProjectDetailThumb = ({
         </div>
         {!project.cover && (
           <div className="owner">
-            <img src={project.user.thumbs.thumb} alt={project.user.name} />
-            {project.user.name}
+            <img src={project.as_company === 0 ? project.user.thumbs.thumb : project.whitelabel_config.company.thumbs.thumb} alt={project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name} />
+            {project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name}
           </div>
         )}
       </div>

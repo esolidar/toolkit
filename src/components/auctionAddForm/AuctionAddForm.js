@@ -127,6 +127,7 @@ const AuctionAddForm = ({
   const [imagesList, setImagesList] = useState([]);
   const [cropModalStatus, setCropModalStatus] = useState(false);
   const [saveBankAccount, setSaveBankAccount] = useState(false);
+  const [isMyProjet, setIsMyProject] = useState(false);
 
   useEffect(() => {
     if (auctionId) {
@@ -335,13 +336,15 @@ const AuctionAddForm = ({
     }
   };
 
-  const handleSelectProject = (id) => {
+  const handleSelectProject = (id, project) => {
     const { projectIds } = form;
     const isSelected = projectIds.filter((o) => o === id).length;
     let arrayProjects = projectIds;
     if (isSelected === 0) {
+      setIsMyProject(project.as_company === 1 && project.whitelabel_config.company_id === company.id);
       arrayProjects = [id];
     } else {
+      setIsMyProject(false);
       arrayProjects.splice(projectIds.findIndex((o) => o === id), 1);
     }
 
@@ -394,6 +397,8 @@ const AuctionAddForm = ({
     data.showProjects = showProjects;
     data.showBrands = showBrands;
     data.userBankTransfer = JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}');
+    data.country = company.country;
+    data.isMyProjet = isMyProjet;
 
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
@@ -412,7 +417,7 @@ const AuctionAddForm = ({
   };
 
   const handleSubmit = () => {
-    if ((isEmpty(JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}')) && !isEmpty(form.projectIds))) {
+    if (isMyProjet && (isEmpty(JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}')) && !isEmpty(form.projectIds))) {
       setSaveBankAccount(true);
       setLoading(true);
     }
@@ -1064,7 +1069,7 @@ const AuctionAddForm = ({
                   </Row>
                 </Col>
               )}
-              {(isEmpty(userBankTransfer) && !isEmpty(form.projectIds)) && (
+              {(isMyProjet && isEmpty((userBankTransfer[company.country] || []) || (userBankTransfer[1] || [])) && !isEmpty(form.projectIds)) && (
                 <Col md={8} className="box-lr">
                   <BankAccount
                     countryId={company.country_id}
@@ -1093,6 +1098,16 @@ const AuctionAddForm = ({
               )}
               <Col md={8} className="box-lbr text-center">
                 <Row>
+                  {(!isMyProjet && !isEmpty(form.projectIds)) && (
+                    <Col sm={12} className="pb-5">
+                      <span className="subtext">
+                        <FormattedMessage
+                          id="auction.add.project.member"
+                          defaultMessage="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam nulla, luctus vitae gravida eu, porta et sem."
+                        />
+                      </span>
+                    </Col>
+                  )}
                   {(isEmpty(hasWhitelabel)) && (
                     <Col sm={12} className="pb-5">
                       <span className="subtext">

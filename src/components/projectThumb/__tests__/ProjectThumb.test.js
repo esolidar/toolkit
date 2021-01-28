@@ -8,6 +8,18 @@ import ProjectThumb from '../ProjectThumb';
 const props = {
   project: {
     whitelabel_id: 1,
+    whitelabel_config: {
+      company: {
+        logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+        name: 'Webankor (eSolidar)',
+        thumbs: {
+          cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+          detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+          thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+        },
+      },
+      company_id: 1,
+    },
     category_id: 1,
     user_id: 1,
     user: {
@@ -41,6 +53,18 @@ const props = {
 
 const propsWithMoreOds = {
   project: {
+    whitelabel_config: {
+      company: {
+        logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+        name: 'Webankor (eSolidar)',
+        thumbs: {
+          cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+          detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+          thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+        },
+      },
+      company_id: 1,
+    },
     whitelabel_id: 1,
     category_id: 1,
     user_id: 1,
@@ -90,6 +114,19 @@ const propsWithMoreOds = {
 
 const propsPending = {
   project: {
+    as_company: 1,
+    whitelabel_config: {
+      company: {
+        logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+        name: 'Webankor (eSolidar)',
+        thumbs: {
+          cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+          detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+          thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+        },
+      },
+      company_id: 1,
+    },
     whitelabel_id: 1,
     category_id: 1,
     user_id: 1,
