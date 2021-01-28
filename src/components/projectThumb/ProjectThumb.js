@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
@@ -99,8 +101,8 @@ const ProjectThumb = ({
           <div className="description">{project.description}</div>
           {project.user && (
             <div className="owner">
-              <img src={project.as_company === 0 ? project.user.thumbs.thumb : project.whitelabel_config.company.thumbs.thumb} alt={project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name} />
-              {project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name}
+              <img src={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.thumbs.thumb : project.company.thumbs.thumb) : project.user.thumbs.thumb} alt={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name} />
+              {project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name}
             </div>
           )}
           {followers && (
@@ -131,6 +133,7 @@ ProjectThumb.propTypes = {
     whitelabel_config: PropTypes.shape({
       company: PropTypes.object,
     }),
+    company: PropTypes.object,
   }),
   serverlessResizeImage: PropTypes.string.isRequired,
   cols: PropTypes.number,
