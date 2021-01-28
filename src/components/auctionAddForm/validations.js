@@ -6,11 +6,11 @@ import { isEmpty as isEmptyObject } from '../../utils';
 export default function validateAuctionForm(data) {
   const errors = {};
 
-  if (isEmptyObject(data.userBankTransfer) && data.projectIds.length > 0) {
+  if (data.isMyProjet && (isEmptyObject((data.userBankTransfer[data.country] || []) || (data.userBankTransfer[data.country] || [])) && data.projectIds.length > 0)) {
     errors.bankAccount = (
       <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
+        id="user.register.error.bank.account"
+        defaultMessage="Please add one bank account"
       />
     );
   }

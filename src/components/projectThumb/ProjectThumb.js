@@ -17,7 +17,7 @@ const ProjectThumb = ({
 
   const clickThumb = () => {
     if (select) {
-      selectProject(project.id);
+      selectProject(project.id, project);
     } else if (whitelabelUrl) {
       window.open(`https://${whitelabelUrl}${link}`);
     } else {
@@ -99,8 +99,8 @@ const ProjectThumb = ({
           <div className="description">{project.description}</div>
           {project.user && (
             <div className="owner">
-              <img src={project.user.thumbs.thumb} alt={project.user.name} />
-              {project.user.name}
+              <img src={project.as_company === 0 ? project.user.thumbs.thumb : project.whitelabel_config.company.thumbs.thumb} alt={project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name} />
+              {project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name}
             </div>
           )}
           {followers && (
@@ -109,7 +109,7 @@ const ProjectThumb = ({
         </button>
         {select && (
           <div className="select-project">
-            <Button extraClass={isSelected === 1 ? 'info-full' : 'dark'} onClick={() => selectProject(project.id)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
+            <Button extraClass={isSelected === 1 ? 'info-full' : 'dark'} onClick={() => selectProject(project.id, project)} type="submit" text={isSelected === 1 ? selectedText : selectText} />
           </div>
         )}
       </div>
@@ -127,6 +127,10 @@ ProjectThumb.propTypes = {
     description: PropTypes.string,
     status: PropTypes.string.isRequired,
     images: PropTypes.array,
+    as_company: PropTypes.bool,
+    whitelabel_config: PropTypes.shape({
+      company: PropTypes.object,
+    }),
   }),
   serverlessResizeImage: PropTypes.string.isRequired,
   cols: PropTypes.number,
