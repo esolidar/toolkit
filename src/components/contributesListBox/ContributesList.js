@@ -10,6 +10,7 @@ const ContributesList = ({
   showMoreContributes,
   currency,
   env,
+  isAuction,
 }) => {
   const renderContributes = () => {
     if (contributes && contributes.length) {
@@ -25,10 +26,19 @@ const ContributesList = ({
     }
     return (
       <div className="no-contributions">
-        <FormattedMessage
-          id="crowdfunding.no-contributions"
-          defaultMessage="No bids"
-        />
+        {!isAuction && (
+          <FormattedMessage
+            id="crowdfunding.no-contributions"
+            defaultMessage="No contributions"
+          />
+        )}
+        {isAuction && (
+          <FormattedMessage
+            id="auctions.no-bids"
+            defaultMessage="No bids"
+          />
+        )}
+
       </div>
     );
   };
@@ -47,10 +57,10 @@ const ContributesList = ({
             )}
             {loadingContributes
               && (
-              <FormattedMessage
-                id="crowdfunding.loading-text"
-                defaultMessage="Loading ..."
-              />
+                <FormattedMessage
+                  id="crowdfunding.loading-text"
+                  defaultMessage="Loading ..."
+                />
               )}
           </button>
         </div>
@@ -70,4 +80,5 @@ ContributesList.propTypes = {
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
   }),
+  isAuction: PropTypes.bool,
 };

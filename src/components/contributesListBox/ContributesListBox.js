@@ -47,6 +47,7 @@ const ContributesListBox = ({
               showMoreContributes={showMoreContributes}
               currency={currency}
               env={env}
+              isAuction={isAuction}
             />
           )}
       </div>
