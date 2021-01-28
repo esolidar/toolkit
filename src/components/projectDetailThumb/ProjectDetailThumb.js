@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
@@ -83,8 +85,8 @@ const ProjectDetailThumb = ({
         </div>
         {!project.cover && (
           <div className="owner">
-            <img src={project.as_company === 0 ? project.user.thumbs.thumb : project.whitelabel_config.company.thumbs.thumb} alt={project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name} />
-            {project.as_company === 0 ? project.user.name : project.whitelabel_config.company.name}
+            <img src={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.thumbs.thumb : project.company.thumbs.thumb) : project.user.thumbs.thumb} alt={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name} />
+            {project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name}
           </div>
         )}
       </div>
