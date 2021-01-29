@@ -44,6 +44,11 @@ const propsBankAccount = {
       accountholder: '123123',
       banksortcode: '123123',
       accountnumber: '132123',
+    },
+    {
+      accountholder: '123123',
+      banksortcode: '123123',
+      accountnumber: '132123',
     }],
   },
 };
@@ -86,7 +91,7 @@ test('simulate add national bank account', async () => {
 test('simulate delete international bank account show modal', async () => {
   render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
   await waitFor(() => {
-    const btnDelete0 = screen.getByTestId('btn-delete-international-account-0');
+    const btnDelete0 = screen.getByTestId('btn-delete-international-account-1');
     const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');
     expect(btnDelete0).toBeInTheDocument();
 
@@ -99,7 +104,7 @@ test('simulate delete international bank account show modal', async () => {
 test('simulate delete natoinal bank account show modal', async () => {
   render(<IntlProvider locale="en"><BankAccount {...propsBankAccount} /></IntlProvider>);
   await waitFor(() => {
-    const btnDelete0 = screen.getByTestId('btn-delete-national-account-0');
+    const btnDelete0 = screen.getByTestId('btn-delete-national-account-1');
     const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');
     expect(btnDelete0).toBeInTheDocument();
 
