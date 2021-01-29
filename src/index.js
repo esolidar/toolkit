@@ -86,6 +86,7 @@ export {
   addUrlParam,
   getUrlParam,
   removeUrlParam,
+  removeAllUrlParams,
   filterUnique,
   convertToMyCurrency,
   getLocalStorageAuctionPrivateCode,

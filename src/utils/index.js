@@ -42,6 +42,8 @@ export const getUrlParam = (param) => {
   return urlParams.get(param);
 };
 
+export const removeAllUrlParams = (url) => url.substring(0, url.indexOf('?'));
+
 export const filterUnique = (array, key) => array.filter((v, i, a) => a.findIndex((t) => (t[key] === v[key])) === i);
 
 export const convertToMyCurrency = (value, currency) => {

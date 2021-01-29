@@ -8,6 +8,7 @@ import {
   addUrlParam,
   removeUrlParam,
   getUrlParam,
+  removeAllUrlParams,
   filterUnique,
   convertToMyCurrency,
   getLocalStorageAuctionPrivateCode,
@@ -249,5 +250,11 @@ describe('test utils functions', () => {
   test('should return slugify url', () => {
     const expectedString = '34-projecto-de-uma-organizacao';
     expect(slugify('34 projecto de uma organização ?*_+~./,()!:@')).toBe(expectedString);
+  });
+
+  test('should return url without params', () => {
+    const url = 'https//esolidar.com/teste?page=1';
+    const expectedUrl = 'https//esolidar.com/teste';
+    expect(removeAllUrlParams(url)).toBe(expectedUrl);
   });
 });
