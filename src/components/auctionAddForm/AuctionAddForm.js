@@ -474,7 +474,6 @@ const AuctionAddForm = ({
     newLocalStorage.bank_transfer = JSON.stringify(bankTransfer);
     localStorage.setItem(userRole, JSON.stringify(newLocalStorage));
     setLoading(false);
-    // handleSubmit();
   };
 
   return (
