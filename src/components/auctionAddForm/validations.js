@@ -1,16 +1,15 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import isEmpty from 'lodash/isEmpty';
-import { isEmpty as isEmptyObject } from '../../utils';
 
 export default function validateAuctionForm(data) {
   const errors = {};
 
-  if (data.isMyProjet && (isEmptyObject((data.userBankTransfer[data.country.id] || []) || (data.userBankTransfer[1] || [])) && data.projectIds.length > 0)) {
+  if (!data.isValidBankAccount && data.isMyProjet) {
     errors.bankAccount = (
       <FormattedMessage
         id="user.register.error.bank.account"
-        defaultMessage="Please add one bank account"
+        defaultMessage="Please add either a national or international bank account"
       />
     );
   }

@@ -128,6 +128,7 @@ const AuctionAddForm = ({
   const [cropModalStatus, setCropModalStatus] = useState(false);
   const [saveBankAccount, setSaveBankAccount] = useState(false);
   const [isMyProjet, setIsMyProject] = useState(false);
+  const [isValidBankAccount, setIsValidBankAccount] = useState(false);
 
   useEffect(() => {
     if (auctionId) {
@@ -386,6 +387,10 @@ const AuctionAddForm = ({
     }
   };
 
+  const checkIsValidBankAccount = (resp) => {
+    setIsValidBankAccount(resp);
+  };
+
   const bankAccountSubmitReset = () => {
     setSaveBankAccount(false);
     setLoading(false);
@@ -396,9 +401,8 @@ const AuctionAddForm = ({
     data.showInstitutions = showInstitutions;
     data.showProjects = showProjects;
     data.showBrands = showBrands;
-    data.userBankTransfer = JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}');
-    data.country = company.country;
     data.isMyProjet = isMyProjet;
+    data.isValidBankAccount = isValidBankAccount;
 
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
@@ -417,12 +421,13 @@ const AuctionAddForm = ({
   };
 
   const handleSubmit = () => {
-    if (isMyProjet && (isEmpty(JSON.parse(JSON.parse(localStorage[userRole] || '{}').bank_transfer || '{}')) && !isEmpty(form.projectIds))) {
+    if (isMyProjet && !isEmpty(form.projectIds)) {
       setSaveBankAccount(true);
       setLoading(true);
     }
+    if (!isValid()) return;
 
-    if (isValid()) {
+    if (isValidBankAccount && isMyProjet) {
       setLoading(true);
       const companyId = company.id;
       setDisabled(true);
@@ -460,12 +465,16 @@ const AuctionAddForm = ({
     }
   };
 
+  useEffect(() => {
+    if (isValidBankAccount) handleSubmit();
+  }, [isValidBankAccount]);
+
   const updateLocalstorage = (bankTransfer) => {
     const newLocalStorage = company;
     newLocalStorage.bank_transfer = JSON.stringify(bankTransfer);
     localStorage.setItem(userRole, JSON.stringify(newLocalStorage));
     setLoading(false);
-    handleSubmit();
+    // handleSubmit();
   };
 
   return (
@@ -1083,6 +1092,7 @@ const AuctionAddForm = ({
                     hideSaveButton={true}
                     cols={6}
                     bankAccountSubmitReset={bankAccountSubmitReset}
+                    checkIsValidBankAccount={checkIsValidBankAccount}
                   />
                   {errors.bankAccount
                     && (

@@ -129,7 +129,7 @@ ProjectThumb.propTypes = {
     description: PropTypes.string,
     status: PropTypes.string.isRequired,
     images: PropTypes.array,
-    as_company: PropTypes.bool,
+    as_company: PropTypes.number,
     whitelabel_config: PropTypes.shape({
       company: PropTypes.object,
     }),

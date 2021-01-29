@@ -25,6 +25,7 @@ const BankAccount = ({
   hideSaveButton,
   bankAccountSubmitReset,
   cols,
+  checkIsValidBankAccount,
 }) => {
   const [errors, setErrors] = useState({});
   const [bankAccounts, setBankAccounts] = useState(userBankTransfer || {});
@@ -133,6 +134,7 @@ const BankAccount = ({
         });
       });
     });
+    checkIsValidBankAccount(isValid);
     return isValid;
   };
 
@@ -167,18 +169,20 @@ const BankAccount = ({
                       defaultMessage="International account #{value}"
                       values={{ value: i + 1 }}
                     />
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteInternationalAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
-                      body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
-                      confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
-                      cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button type="button" className="edit-button" data-testid={`btn-delete-international-account-${i}`}>
-                        <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
-                      </button>
-                    </ConfirmModal>
+                    {(i !== 0) && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteInternationalAccount(i)}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
+                        confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
+                        cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+                        style={{ float: 'right', color: '#888' }}
+                      >
+                        <button type="button" className="edit-button" data-testid={`btn-delete-international-account-${i}`}>
+                          <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
+                        </button>
+                      </ConfirmModal>
+                    )}
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
@@ -235,18 +239,20 @@ const BankAccount = ({
                       defaultMessage="Account #{value}"
                       values={{ value: i + 1 }}
                     />
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
-                      body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
-                      confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
-                      cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
-                        <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
-                      </button>
-                    </ConfirmModal>
+                    {(i !== 0) && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
+                        confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
+                        cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+                        style={{ float: 'right', color: '#888' }}
+                      >
+                        <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
+                          <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
+                        </button>
+                      </ConfirmModal>
+                    )}
                   </h4>
                   <TextField
                     id={`bank_number[${i}]`}
@@ -309,18 +315,20 @@ const BankAccount = ({
                       defaultMessage="Account #{value}"
                       values={{ value: i + 1 }}
                     />
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
-                      body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
-                      confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
-                      cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
-                        <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
-                      </button>
-                    </ConfirmModal>
+                    {(i !== 0) && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
+                        confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
+                        cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+                        style={{ float: 'right', color: '#888' }}
+                      >
+                        <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
+                          <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
+                        </button>
+                      </ConfirmModal>
+                    )}
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
@@ -365,18 +373,20 @@ const BankAccount = ({
                       defaultMessage="Account #{value}"
                       values={{ value: i + 1 }}
                     />
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
-                      body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
-                      confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
-                      cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
-                        <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
-                      </button>
-                    </ConfirmModal>
+                    {(i !== 0) && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
+                        confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
+                        cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+                        style={{ float: 'right', color: '#888' }}
+                      >
+                        <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }} data-testid={`btn-delete-national-account-${i}`}>
+                          <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
+                        </button>
+                      </ConfirmModal>
+                    )}
                   </h4>
                   <TextField
                     id={`accountholder[${i}]`}
@@ -421,18 +431,20 @@ const BankAccount = ({
                       defaultMessage="Account #{value}"
                       values={{ value: i + 1 }}
                     />
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
-                      body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
-                      confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
-                      cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }}>
-                        <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
-                      </button>
-                    </ConfirmModal>
+                    {(i !== 0) && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title', defaultMessage: 'Delete account' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body', defaultMessage: 'Are you sure you want to delete this account?' })}
+                        confirmText={intl.formatMessage({ id: 'confirm', defaultMessage: 'Confirm' })}
+                        cancelText={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+                        style={{ float: 'right', color: '#888' }}
+                      >
+                        <button type="button" className="edit-button" style={{ float: 'right', color: '#888' }}>
+                          <FontAwesomeIcon icon={faTrash} className="mr-1" title={intl.formatMessage({ id: 'bank.account.delete', defaultMessage: 'Delete account' })} />
+                        </button>
+                      </ConfirmModal>
+                    )}
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
@@ -546,6 +558,7 @@ BankAccount.propTypes = {
   hideSaveButton: PropTypes.bool,
   cols: PropTypes.number,
   bankAccountSubmitReset: PropTypes.func,
+  checkIsValidBankAccount: PropTypes.func,
 };
 
 BankAccount.defaultProps = {
