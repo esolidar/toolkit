@@ -6,7 +6,7 @@ import { isEmpty as isEmptyObject } from '../../utils';
 export default function validateAuctionForm(data) {
   const errors = {};
 
-  if (data.isMyProjet && (isEmptyObject((data.userBankTransfer[data.country] || []) || (data.userBankTransfer[data.country] || [])) && data.projectIds.length > 0)) {
+  if (data.isMyProjet && (isEmptyObject((data.userBankTransfer[data.country.id] || []) || (data.userBankTransfer[1] || [])) && data.projectIds.length > 0)) {
     errors.bankAccount = (
       <FormattedMessage
         id="user.register.error.bank.account"
