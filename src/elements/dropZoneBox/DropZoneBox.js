@@ -38,6 +38,9 @@ const DropZoneBox = ({
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
 
+  const minWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
+  const minHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
+
   useEffect(() => {
     if (!cropModalStatus) {
       setCropperModal(cropModalStatus);
@@ -77,7 +80,7 @@ const DropZoneBox = ({
     {
       id: 'dimensions',
       message: intl.formatMessage({ id: 'document.files.modal.error.dimensions', defaultMessage: 'The image should be at least {width}px by {height}px.' }, {
-        width: hasCropper ? hasCropper.minWidth : 0, height: hasCropper ? hasCropper.minHeight : 0,
+        width: minWidth, height: minHeight,
       }),
     },
   ];
@@ -157,7 +160,7 @@ const DropZoneBox = ({
   };
 
   return (
-    <div>
+    <div className="dropzone-box">
       {(showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top') && (
         <ImagesPreview />
       )}
@@ -227,7 +230,7 @@ const DropZoneBox = ({
                 cropper.current.getCroppedCanvas().toBlob((blob) => {
                   const imageWidth = cropper.current.getCroppedCanvas().width;
                   const imageHeight = cropper.current.getCroppedCanvas().height;
-                  if (imageWidth > (hasCropper.minWidth || 0) && imageHeight > (hasCropper.minHeight || 0)) {
+                  if (imageWidth > minWidth && imageHeight > minHeight) {
                     handleSubmitCroppedImage(blob);
                     setDisableCroppedImage(true);
                   } else {
