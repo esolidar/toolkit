@@ -22,6 +22,7 @@ const CustomModal = ({
   subtitleClassName,
   title,
   titleClassName,
+  titleColor,
 }) => {
   const border = '1px solid #dee2e6';
 
@@ -60,6 +61,7 @@ const CustomModal = ({
           <span
             className={`mr-2 ${titleClassName}`}
             data-testid="title"
+            style={{ color: titleColor }}
           >
             {title}
           </span>
@@ -111,6 +113,7 @@ CustomModal.propTypes = {
   subtitleClassName: PropTypes.string,
   title: PropTypes.string.isRequired,
   titleClassName: PropTypes.string,
+  titleColor: PropTypes.string,
 };
 
 CustomModal.defaultProps = {
@@ -127,6 +130,7 @@ CustomModal.defaultProps = {
   subtitle: '',
   subtitleClassName: '',
   titleClassName: '',
+  titleColor: '#04C7E5',
 };
 
 export default CustomModal;
