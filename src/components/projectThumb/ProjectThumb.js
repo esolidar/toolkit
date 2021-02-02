@@ -43,7 +43,7 @@ const ProjectThumb = ({
       <div className="project-thumb">
         {showStatus && (
           <div className={`${project.status} status-bar`}>
-            {['DRAFT', 'PENDING'].includes(project.status) && (
+            {(['DRAFT', 'PENDING'].includes(project.status) && (project.user_id === JSON.parse(localStorage.user || '{}').id)) && (
               <button type="button" className="edit-button hover" onClick={editThumb}>
                 <FontAwesomeIcon icon={faPen} className="mr-1" title={intl.formatMessage({ id: 'project.edit.title', defaultMessage: 'Edit project' })} />
                 <FormattedMessage
@@ -75,7 +75,7 @@ const ProjectThumb = ({
             className="thumb"
             style={{
               backgroundImage: `url('${serverlessResizeImage}/${thumbImage}')`,
-              height: project.ods.length > 4 ? '190px' : '155px',
+              height: '160px',
             }}
           >
             <div className="content">
@@ -123,6 +123,7 @@ ProjectThumb.propTypes = {
   project: PropTypes.shape({
     id: PropTypes.number,
     user: PropTypes.object,
+    user_id: PropTypes.number,
     ods: PropTypes.array,
     cover: PropTypes.string,
     title: PropTypes.string.isRequired,

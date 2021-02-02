@@ -1,5 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* global expect */
+/* global beforeAll */
+/* global afterAll */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
@@ -158,6 +161,18 @@ const propsPending = {
   showStatus: true,
   status: 'Em revisão',
 };
+
+const user = {
+  id: 1,
+};
+
+beforeAll(() => {
+  localStorage.setItem('user', JSON.stringify(user));
+});
+
+afterAll(() => {
+  localStorage.clear();
+});
 
 describe('ProjectThumb component', () => {
   it('renders ProjectThumb correctly', () => {

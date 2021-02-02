@@ -134,9 +134,14 @@
       z-index : 2;
 
       .title {
-        color      : #fff;
-        font-weight: bold;
-        padding    : 15px;
+        color             : #fff;
+        font-weight       : bold;
+        padding           : 15px;
+        display           : -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow          : hidden;
+        height            : 85px;
       }
     }
 
