@@ -25,6 +25,7 @@ const ProjectFilters = ({
   categoryValue,
   statusValue,
   applyButtonLabel,
+  search,
 }) => {
   const [showFilters, setShowFilters] = useState(false);
   return (
@@ -43,6 +44,7 @@ const ProjectFilters = ({
             placeholder={searchLabelPlaceholder}
             defaultValue=""
             field="search"
+            value={search}
           />
         </Col>
 
@@ -138,6 +140,7 @@ ProjectFilters.propTypes = {
   categoryValue: PropTypes.string,
   statusValue: PropTypes.string,
   applyButtonLabel: PropTypes.string,
+  search: PropTypes.string,
 };
 
 export default ProjectFilters;
