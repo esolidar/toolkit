@@ -71,12 +71,12 @@ const ProjectFilters = ({
                 {odsLabel}
               </label>
             </Col>
-            {ods.map((o) => (
+            {ods.map((o, idx) => (
               <Col sm={6} key={o.ods_id}>
                 <CheckboxField
                   label={o.name}
                   error=""
-                  onChange={(x) => onSelectOds(x)}
+                  onChange={(x) => onSelectOds(x, idx)}
                   name={o.tag_name}
                   value={o.ods_id}
                   checked={o.checked}
