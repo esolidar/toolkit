@@ -30,6 +30,7 @@ const Giftcards = ({
   totalUsed,
   handlePageChangeUsed,
   loading,
+  searchTerm,
 }) => {
   const renderDate = (cell, row) => {
     if (row.giftcard_institution.length > 0) {
@@ -81,6 +82,7 @@ const Giftcards = ({
           onChange={onSearchTable}
           className="form-control"
           placeholder={InputPlaceholderText}
+          value={searchTerm}
         />
       </Col>
       <Col sm={12} className="giftcards-used-table mobile-nopadding">
@@ -173,4 +175,5 @@ Giftcards.propTypes = {
   amountText: PropTypes.string,
   dateText: PropTypes.string,
   loading: PropTypes.bool,
+  searchTerm: PropTypes.string,
 };
