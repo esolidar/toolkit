@@ -1060,10 +1060,10 @@ const AuctionDetail = ({
                 env={env}
                 primaryColor={primaryColor}
               />
-              {auctionDetailInfo.projects && (
+              {auctionDetailInfo.project && (
                 <Row>
                   <ProjectThumb
-                    project={auctionDetailInfo.projects}
+                    project={auctionDetailInfo.project}
                     serverlessResizeImage={env.cdn_uploads_url}
                     lang={localStorage.lang || 'pt'}
                     cols={12}
@@ -1072,6 +1072,18 @@ const AuctionDetail = ({
                   />
                 </Row>
               )}
+              {auctionDetailInfo.projects && auctionDetailInfo.projects.map((project) => (
+                <Row>
+                  <ProjectThumb
+                    project={project}
+                    serverlessResizeImage={env.cdn_uploads_url}
+                    lang={localStorage.lang || 'pt'}
+                    cols={12}
+                    showStatus={false}
+                    status=""
+                  />
+                </Row>
+              ))}
             </Col>
           </Row>
           {listAuctions && (
