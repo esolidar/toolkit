@@ -563,6 +563,7 @@ BankAccount.propTypes = {
 
 BankAccount.defaultProps = {
   cols: 4,
+  checkIsValidBankAccount: () => { },
 };
 
 export default injectIntl(BankAccount);
