@@ -26,8 +26,9 @@ const ProjectFilters = ({
   statusValue,
   applyButtonLabel,
   search,
+  showFiltersBox,
 }) => {
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(showFiltersBox);
   return (
     <div className="box project-filters">
       <Row>
@@ -141,6 +142,11 @@ ProjectFilters.propTypes = {
   statusValue: PropTypes.string,
   applyButtonLabel: PropTypes.string,
   search: PropTypes.string,
+  showFiltersBox: PropTypes.bool,
+};
+
+ProjectFilters.defaultProps = {
+  showFiltersBox: false,
 };
 
 export default ProjectFilters;
