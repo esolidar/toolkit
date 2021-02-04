@@ -1060,10 +1060,10 @@ const AuctionDetail = ({
                 env={env}
                 primaryColor={primaryColor}
               />
-              {auctionDetailInfo.projects && (
+              {auctionDetailInfo.project && (
                 <Row>
                   <ProjectThumb
-                    project={auctionDetailInfo.projects}
+                    project={auctionDetailInfo.project}
                     serverlessResizeImage={env.cdn_uploads_url}
                     lang={localStorage.lang || 'pt'}
                     cols={12}
