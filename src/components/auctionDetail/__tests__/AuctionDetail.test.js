@@ -292,6 +292,107 @@ const props = {
         s3_logo_key: 'brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
         s3_cover_key: 'brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
       },
+      project: {
+        id: 56,
+        whitelabel_id: 5,
+        category_id: 17,
+        as_company: 0,
+        description: 'Lorem ipsum dolor sit amet',
+        cover: null,
+        title: 'Projeto para ajudar a malta',
+        user_id: 51790,
+        review_average: 5,
+        whitelabel_config: {
+          id: 5,
+          company_id: 1,
+          company: {
+            id: 1,
+            name: 'Webankor (eSolidar)',
+            logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+            cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+            thumbs: {
+              detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+              thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+              cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+            },
+            s3_logo_key: 'companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+            s3_cover_key: 'companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+            country: null,
+            currency: null,
+          },
+        },
+        ods: [
+          {
+            id: 1,
+            ods_id: 1,
+            tag_name: 'ods-1',
+            status: true,
+            updated_at: '2020-02-05 17:26:34',
+            created_at: '2020-02-05 17:26:27',
+            laravel_through_key: 56,
+            name: '1-ods-1',
+          },
+          {
+            id: 8,
+            ods_id: 8,
+            tag_name: 'ods-8',
+            status: true,
+            updated_at: '2020-02-05 18:03:49',
+            created_at: '2020-02-05 18:03:49',
+            laravel_through_key: 56,
+            name: '8-ods-8',
+          },
+        ],
+        user: {
+          id: 51790,
+          institution_id: null,
+          firstName: 'António',
+          lastName: 'Joaquim',
+          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51790/1593441499.jpg?v=1593441500',
+          streamImage: 'amazons3',
+          language: {
+            id: 2,
+            name: 'pt',
+            translate: 'Português (PT)',
+            status: 1,
+            locale: 'pt_PT',
+            dateAdded: '2015-02-24 11:02:06',
+          },
+          currency: {
+            id: 1,
+            name: 'Euro',
+            small: 'EUR',
+            value: '1.203',
+            symbol: '€',
+            status: true,
+            lastUpdate: '2021-02-02 12:00:04',
+          },
+          thumbs: {
+            original: 'https://cdn.testesolidar.com/users/51790/1593441499.jpg?v=1593441500',
+            standard: 'https://cdn.testesolidar.com/users/51790/1593441499-STANDARD.jpg',
+            thumb: 'https://cdn.testesolidar.com/users/51790/1593441499-THUMB.jpg',
+          },
+          work_email: [],
+          name: 'António Joaquim',
+          s3_key: 'users/51790/1593441499.jpg?v=1593441500',
+          institution: null,
+          phones: [],
+        },
+        images: [
+          {
+            id: 167,
+            project_id: 56,
+            streamImage: 'amazons3',
+            image: 'whitelabel/5/projects/78756737-26a6-4976-b454-c5c679f1e1a8.jpg',
+            image_type: 'jpg',
+            image_size: 501701,
+            default: 1,
+            position: 1,
+            updated_at: '2020-07-30 08:42:05',
+            created_at: '2020-07-30 08:41:54',
+          },
+        ],
+      },
     },
   },
   auctionBidList: {
@@ -611,5 +712,14 @@ test('should exist 2 auction thumbs in auction list', async () => {
 
     const auctionThumb2 = screen.getByTestId('listAuction-2');
     expect(auctionThumb2).toBeInTheDocument();
+  });
+});
+
+test('should exist one project thumb', async () => {
+  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+
+  await waitFor(() => {
+    const project = screen.getByTestId('projectThumb');
+    expect(project).toBeInTheDocument();
   });
 });

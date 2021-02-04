@@ -1072,18 +1072,6 @@ const AuctionDetail = ({
                   />
                 </Row>
               )}
-              {auctionDetailInfo.projects && auctionDetailInfo.projects.map((project) => (
-                <Row>
-                  <ProjectThumb
-                    project={project}
-                    serverlessResizeImage={env.cdn_uploads_url}
-                    lang={localStorage.lang || 'pt'}
-                    cols={12}
-                    showStatus={false}
-                    status=""
-                  />
-                </Row>
-              ))}
             </Col>
           </Row>
           {listAuctions && (

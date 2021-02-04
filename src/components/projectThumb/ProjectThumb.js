@@ -40,7 +40,7 @@ const ProjectThumb = ({
 
   return (
     <Col xs={12} sm={6} md={6} lg={cols}>
-      <div className="project-thumb">
+      <div className="project-thumb" data-testid="projectThumb">
         {showStatus && (
           <div className={`${project.status} status-bar`}>
             {(['DRAFT', 'PENDING'].includes(project.status) && (project.user_id === JSON.parse(localStorage.user || '{}').id)) && (
