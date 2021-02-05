@@ -1117,7 +1117,7 @@ const AuctionAddForm = ({
                       <span className="subtext">
                         <FormattedMessage
                           id="auction.add.project.member"
-                          defaultMessage="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam nulla, luctus vitae gravida eu, porta et sem."
+                          defaultMessage="We will send an email to the person that created the project informing him that you have built an auction to help raise funds."
                         />
                       </span>
                     </Col>
