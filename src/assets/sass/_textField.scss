@@ -45,4 +45,8 @@
       background   : $dangerColor;
     }
   }
+
+  .required-field{
+    border-color:$dangerColor !important
+  }
 }

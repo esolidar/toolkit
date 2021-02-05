@@ -38,7 +38,7 @@ const TextFieldGroup = ({
         disabled={disabled}
       />
       {groupText && (
-        <span className="input-group-addon">{groupText}</span>
+        <span className={error ? 'input-group-addon required-field' : 'input-group-addon'}>{groupText}</span>
       )}
     </div>
     {error && <span className="help-block">{error}</span>}
