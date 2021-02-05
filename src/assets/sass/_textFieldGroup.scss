@@ -35,6 +35,15 @@ $inputBackgroundColor: #f5f5f5 !default;
   padding         : 0 10px;
   margin-left     : -2px;
   line-height     : 31px;
+  border-radius   : 0 3px 3px 0;
+}
+
+.input-group {
+  .required-field {
+    &.form-control {
+      border-right: 2px solid $borderColor !important;
+    }
+  }
 }
 
 .form-control-feedback {

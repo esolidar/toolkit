@@ -408,9 +408,10 @@ const AuctionAddForm = ({
     if (!isValid) {
       setErrors(errors);
       setTimeout(() => {
-        const firstError = document.getElementsByClassName('has-error');
+        const firstError = document.getElementsByClassName('required-field');
+
         if (firstError[0]) {
-          firstError[0].scrollIntoView({ behavior: 'smooth' });
+          firstError[0].focus();
         } else {
           document.getElementById('add-auction').scrollIntoView({ block: 'center', behavior: 'smooth' });
         }
@@ -778,6 +779,8 @@ const AuctionAddForm = ({
                       }}
                       deleteImageGallery={handleDeleteImage}
                       cropModalStatus={cropModalStatus}
+                      titleCropModal={intl.formatMessage({ id: 'auction.add.image' })}
+                      textSaveCropModal={intl.formatMessage({ id: 'auction.add.image.crop' })}
                     />
                     {errors.images
                       && (
@@ -1028,7 +1031,7 @@ const AuctionAddForm = ({
                     <Col sm={12}>
                       <h3 style={{ color: primaryColor, borderColor: primaryColor }} data-testid="select-projects">
                         <FormattedMessage
-                          id="crowdfunding.select.project"
+                          id="auction.select.one.project"
                           defaultMessage="Select one project"
                         />
                       </h3>
@@ -1052,14 +1055,16 @@ const AuctionAddForm = ({
                             selectedIds={form.projectIds}
                           />
                         ))}
-                        {errors.projectIds
-                          && (
-                            <span
-                              className="help-block d-block"
-                            >
-                              {errors.projectIds}
-                            </span>
-                          )}
+                        <Col sm={12} className={classnames('form-group', { 'has-error': errors.projectIds })}>
+                          {errors.projectIds
+                            && (
+                              <span
+                                className="help-block d-block"
+                              >
+                                {errors.projectIds}
+                              </span>
+                            )}
+                        </Col>
                       </Row>
                       <Row>
                         <Col sm={12} className="text-center">
@@ -1112,7 +1117,7 @@ const AuctionAddForm = ({
                       <span className="subtext">
                         <FormattedMessage
                           id="auction.add.project.member"
-                          defaultMessage="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam nulla, luctus vitae gravida eu, porta et sem."
+                          defaultMessage="We will send an email to the person that created the project informing him that you have built an auction to help raise funds."
                         />
                       </span>
                     </Col>

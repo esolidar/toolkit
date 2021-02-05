@@ -52,7 +52,7 @@ const TextareaField = ({
         name={field}
         maxLength={maxLength || ''}
         placeholder={placeholder}
-        className="form-control"
+        className={error ? 'form-control required-field' : 'form-control'}
       />
       {error && <span className="help-block">{error}</span>}
       {message && <span className="help-block">{message}</span>}

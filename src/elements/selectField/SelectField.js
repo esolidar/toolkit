@@ -38,7 +38,7 @@ const SelectField = ({
       <select
         data-testid={dataTestId}
         name={field}
-        className={`form-control ${className}`}
+        className={error ? `form-control ${className} required-field` : `form-control ${className}`}
         value={value}
         defaultValue={defaultValue}
         onChange={onChange}
