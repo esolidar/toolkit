@@ -74,4 +74,20 @@ describe('SelectField component', () => {
 
     expect(component.find('option').is('[disabled]')).toBe(true);
   });
+
+  it('renders SelectField with error class', () => {
+    const component = shallow(
+      <SelectField
+        options={[{ id: 1, name: 'lorem', disabled: true }]}
+        value=""
+        label="Select exemple"
+        field="example"
+        onChange={() => {}}
+        error="error"
+        hiddenSelectText={true}
+      />,
+    );
+
+    expect(component.find('.form-control').hasClass('required-field')).toEqual(true);
+  });
 });

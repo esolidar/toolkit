@@ -62,6 +62,7 @@ describe('TextFieldGroup component', () => {
       />,
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);
+    expect(component.find('.form-control').hasClass('required-field')).toEqual(true);
     expect(component.find('.form-group .help-block')).toHaveLength(1);
     expect(component.find('.form-group .help-block').text()).toEqual('error');
   });

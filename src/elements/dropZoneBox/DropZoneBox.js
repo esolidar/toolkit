@@ -31,6 +31,8 @@ const DropZoneBox = ({
   intl,
   hasCropper,
   cropModalStatus,
+  titleCropModal,
+  textSaveCropModal,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
@@ -243,7 +245,7 @@ const DropZoneBox = ({
                   }
                 }, 'image/jpeg', 0.7);
               }}
-              text={intl.formatMessage({ id: 'add.files', defaultMessage: 'Add File' })}
+              text={textSaveCropModal}
               disabled={disableCroppedImage}
             />
           )}
@@ -271,7 +273,7 @@ const DropZoneBox = ({
           onHide={toggleModalCropper}
           show={toggleModalCropper}
           size="md"
-          title={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+          title={titleCropModal}
         />
       )}
     </div>
@@ -310,6 +312,8 @@ DropZoneBox.propTypes = {
     formatMessage: PropTypes.func,
   }),
   cropModalStatus: PropTypes.bool,
+  titleCropModal: PropTypes.string,
+  textSaveCropModal: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {
@@ -325,5 +329,7 @@ DropZoneBox.defaultProps = {
   noDrag: false,
   imagesPreviewPosition: 'bottom',
   imagesList: [],
+  titleCropModal: 'Add Files',
+  textSaveCropModal: 'Add',
 };
 export default injectIntl(DropZoneBox);

@@ -34,7 +34,7 @@ const TextFieldGroup = ({
         type={type}
         name={field}
         placeholder={placeholder}
-        className="form-control"
+        className={error ? 'form-control required-field' : 'form-control'}
         disabled={disabled}
       />
       {groupText && (

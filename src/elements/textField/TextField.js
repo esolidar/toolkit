@@ -48,7 +48,7 @@ const TextField = ({
       placeholder={placeholder}
       maxLength={maxLength}
       disabled={disabled}
-      className="form-control"
+      className={error ? 'form-control required-field' : 'form-control'}
       ref={inputRef}
     />
     {error && (<span className="help-block">{error}</span>)}
