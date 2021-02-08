@@ -239,6 +239,7 @@ Countdown.propTypes = {
 Countdown.defaultProps = {
   thumb: false,
   dataTestId: 'count',
+  onExpiry: () => { },
 };
 
 export default Countdown;

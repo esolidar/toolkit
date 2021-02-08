@@ -11,6 +11,7 @@ const AuctionThumb = ({
   auction,
   primaryColor,
   env,
+  onExpiry,
 }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
   const auctionEndDate = moment(auction.dateLimit, 'YYYY-MM-DD HH:mm').toDate();
@@ -42,6 +43,7 @@ const AuctionThumb = ({
       </div>
       <div className="countdown-auction-pin">
         <CountdownThumb
+          onExpiry={onExpiry}
           startDate={auction.dateStart}
           endDate={auction.dateLimit}
           thumb={true}
@@ -155,6 +157,11 @@ AuctionThumb.propTypes = {
   }),
   primaryColor: PropTypes.string,
   env: PropTypes.object,
+  onExpiry: PropTypes.func,
+};
+
+AuctionThumb.defaultProps = {
+  onExpiry: () => { },
 };
 
 export default AuctionThumb;
