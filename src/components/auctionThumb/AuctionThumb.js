@@ -160,4 +160,8 @@ AuctionThumb.propTypes = {
   onExpiry: PropTypes.func,
 };
 
+AuctionThumb.defaultProps = {
+  onExpiry: () => { },
+};
+
 export default AuctionThumb;
