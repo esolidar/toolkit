@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-const NoMatch = ({ color, link, linkText }) => (
+const NoMatch = ({ color, errorMessage, link, linkText }) => (
   <>
     <div className="not-found-page mx-auto">
       <div className="text-center">
@@ -12,15 +12,12 @@ const NoMatch = ({ color, link, linkText }) => (
       </div>
       <div className="div-message">
         <div className="message-404" data-testid="message-404" style={{ color }}>
-          <FormattedMessage
-            id="error-404-message"
-            defaultMessage="Sorry, the page you are looking for could not be found!"
-          />
+          {errorMessage || <FormattedMessage id="error-404-message" />}
         </div>
       </div>
       <div className="div-link-homepage">
         <a className="link-homepage" data-testid="link-homepage" href={link || '/'}>
-          {linkText || <FormattedMessage id="back.to.homepage" defaultMessage="Back to homepage" />}
+          {linkText || <FormattedMessage id="back.to.homepage" />}
         </a>
       </div>
     </div>
@@ -29,6 +26,7 @@ const NoMatch = ({ color, link, linkText }) => (
 
 NoMatch.propTypes = {
   color: PropTypes.string,
+  errorMessage: PropTypes.string,
   link: PropTypes.string,
   linkText: PropTypes.string,
 };

@@ -842,11 +842,9 @@ const AuctionDetail = ({
         <Row className="not-found mt-5">
           <NoMatch
             color={primaryColor}
+            errorMessage={translateMessage({ id: 'auction.not.found' })}
             link="/auctions/list"
-            linkText={translateMessage({
-              id: 'back.to.auctions',
-              defaultMessage: 'Back to auctions',
-            })}
+            linkText={translateMessage({ id: 'back.to.auctions' })}
           />
         </Row>
       )}
@@ -1120,7 +1118,7 @@ const AuctionDetail = ({
                 primaryColor={primaryColor}
               />
               {auctionDetailInfo.project && (
-                <Row>
+                <Row className="mt-5">
                   <ProjectThumb
                     project={auctionDetailInfo.project}
                     serverlessResizeImage={env.cdn_uploads_url}
