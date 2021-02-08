@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 const NoMatch = ({
   color,
+  errorMessage,
   link,
   linkText,
 }) => (
@@ -24,10 +25,12 @@ const NoMatch = ({
           data-testid="message-404"
           style={{ color }}
         >
-          <FormattedMessage
-            id="error-404-message"
-            defaultMessage="Sorry, the page you are looking for could not be found!"
-          />
+          {errorMessage || (
+            <FormattedMessage
+              id="error-404-message"
+              defaultMessage="Sorry, the page you are looking for could not be found!"
+            />
+          )}
         </div>
       </div>
       <div className="div-link-homepage">
@@ -50,6 +53,7 @@ const NoMatch = ({
 
 NoMatch.propTypes = {
   color: PropTypes.string,
+  errorMessage: PropTypes.string,
   link: PropTypes.string,
   linkText: PropTypes.string,
 };
