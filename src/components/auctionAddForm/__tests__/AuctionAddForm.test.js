@@ -1,13 +1,6 @@
-/* global expect */
-/* global jest */
-/* global beforeAll */
-/* global afterAll */
-
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  render, waitFor, screen,
-} from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import AuctionAddForm from '../AuctionAddForm';
 
@@ -104,7 +97,11 @@ afterAll(() => {
 });
 
 test('simulate add auction form', async () => {
-  render(<IntlProvider locale="en"><AuctionAddForm {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionAddForm {...props} />
+    </IntlProvider>
+  );
   await waitFor(() => {
     const auctionInformation = screen.getByTestId('auction-information');
     const btnSubmit = screen.getByTestId('btn-submit');

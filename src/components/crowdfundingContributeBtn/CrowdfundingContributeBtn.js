@@ -35,8 +35,12 @@ class CrowdfundingContributeBtn extends Component {
     localStorage.setItem('order_currency', campaign.currency.small);
 
     // Check if campaign is soon, running, ended
-    const inputStartDate = new Date(moment.utc(campaign.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
-    const inputEndDate = new Date(moment.utc(campaign.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
+    const inputStartDate = new Date(
+      moment.utc(campaign.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss')
+    );
+    const inputEndDate = new Date(
+      moment.utc(campaign.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss')
+    );
 
     // Get today's date
     const { todaysDate } = this.state;
@@ -55,25 +59,25 @@ class CrowdfundingContributeBtn extends Component {
         countDownStatus: 'ended',
       });
     }
-  }
+  };
 
   componentWillUnmount = () => {
     localStorage.removeItem('order_currency');
-  }
+  };
 
-  onChange = (e) => {
+  onChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
-  onChangCheckBox = (e) => {
+  onChangCheckBox = e => {
     if (e.target.checked === true) {
       this.setState({ [e.target.name]: '1' });
     } else {
       this.setState({ [e.target.name]: '0' });
     }
-  }
+  };
 
   checkoutContribution = () => {
     const { value } = this.state;
@@ -137,19 +141,21 @@ class CrowdfundingContributeBtn extends Component {
           });
           localStorage.setItem('order', JSON.stringify(cart));
         } else {
-          cart.products = [{
-            currency: campaign.currency,
-            id: campaign.product_id,
-            campaign,
-            type: 'crowdfunding',
-            amount: Number(value),
-            quantity: 1,
-            extra: {
-              hidden: 0,
-              message: '',
-              checked: 1,
+          cart.products = [
+            {
+              currency: campaign.currency,
+              id: campaign.product_id,
+              campaign,
+              type: 'crowdfunding',
+              amount: Number(value),
+              quantity: 1,
+              extra: {
+                hidden: 0,
+                message: '',
+                checked: 1,
+              },
             },
-          }];
+          ];
           localStorage.setItem('order', JSON.stringify(cart));
         }
       } else {
@@ -163,17 +169,15 @@ class CrowdfundingContributeBtn extends Component {
       });
       window.location.href = '/checkout';
     }
-  }
+  };
 
-  updateState = (state) => {
+  updateState = state => {
     this.setState(state);
-  }
+  };
 
   render() {
     const { campaign, textBtnDonate } = this.props;
-    const {
-      isLoadingButton, errors, value, countDownStatus,
-    } = this.state;
+    const { isLoadingButton, errors, value, countDownStatus } = this.state;
 
     return (
       <>
@@ -204,7 +208,7 @@ class CrowdfundingContributeBtn extends Component {
               <TextField
                 type="number"
                 id="inputDonation"
-                onChange={(e) => {
+                onChange={e => {
                   this.setState({
                     value: e.target.value,
                     errors: {},
@@ -215,7 +219,7 @@ class CrowdfundingContributeBtn extends Component {
                     label: 'change-contribute-value',
                   });
                 }}
-                onBlur={(e) => {
+                onBlur={e => {
                   this.setState({
                     value: `${Math.trunc(e.target.value)}.00`,
                     errors: {},
@@ -225,13 +229,13 @@ class CrowdfundingContributeBtn extends Component {
                 disabled={countDownStatus !== 'running'}
                 placeholder={`${campaign.currency.symbol} 0,00`}
               />
-              {(value === '' || value < campaign.minimum_contribution) ? (
+              {value === '' || value < campaign.minimum_contribution ? (
                 <div className="has-error">
-                  <span className="help-block">
-                    {errors.value}
-                  </span>
+                  <span className="help-block">{errors.value}</span>
                 </div>
-              ) : ''}
+              ) : (
+                ''
+              )}
             </Col>
           )}
           {(campaign.status === 'approved' || campaign.status === 'completed') && (
@@ -240,7 +244,7 @@ class CrowdfundingContributeBtn extends Component {
                 className="w-100"
                 extraClass="success-full btn btn-submit"
                 onClick={this.checkoutContribution}
-                disabled={((countDownStatus !== 'running') || isLoadingButton)}
+                disabled={countDownStatus !== 'running' || isLoadingButton}
                 text={textBtnDonate}
               />
             </Col>

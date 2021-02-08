@@ -72,7 +72,7 @@ const ValidateTelephone = ({
     setCountryCode(selectedCountry.iso2);
   };
 
-  const onChangeCode = (e) => {
+  const onChangeCode = e => {
     setCode(e.target.value);
   };
 
@@ -87,21 +87,22 @@ const ValidateTelephone = ({
     mobileConfirmPost(userId, { code });
   };
 
+  let defaultCountry = 'gb';
+  if (localStorage.lang !== 'en') defaultCountry = 'pt';
+  else if (localStorage.lang === 'br') defaultCountry = 'br';
+
   return (
     <Col className="validate-telephone box mb-3">
       <Row>
         <Col className="title-add-contact">
-          <FormattedMessage
-            id="user.settings.title.addContact"
-            defaultMessage="Add Contact"
-          />
+          <FormattedMessage id="user.settings.title.addContact" defaultMessage="Add Contact" />
         </Col>
       </Row>
       <Row className="phone-box">
         <Col sm={8}>
           <ReactTelephoneInput
             // eslint-disable-next-line no-nested-ternary
-            defaultCountry={localStorage.lang !== 'en' ? 'pt' : (localStorage.lang === 'br' ? 'br' : 'gb')}
+            defaultCountry={defaultCountry}
             autoFormat={false}
             flagsImagePath="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/flags.png"
             initialValue={phone}
@@ -111,9 +112,7 @@ const ValidateTelephone = ({
           />
           {errors && (
             <div className="has-error">
-              <span
-                className="help-block"
-              >
+              <span className="help-block">
                 <FormattedMessage
                   id="user.settings.phone.errorNumber"
                   defaultMessage="Phone is not valid"
@@ -121,33 +120,28 @@ const ValidateTelephone = ({
               </span>
             </div>
           )}
-          {verified === 1
-            && <div className="phone-verified" data-testid="verified-number" />}
+          {verified === 1 && <div className="phone-verified" data-testid="verified-number" />}
         </Col>
-        {verified === 0
-          && (
-            <>
-              <div className="col-sm-4">
-                <button
-                  type="button"
-                  onClick={mobileValidate}
-                  disabled={isLoading}
-                  className="btn btn-validate-phone"
-                >
-                  <FormattedMessage
-                    id="user.settings.btn.validate.phone"
-                    defaultMessage="Validate"
-                  />
-                </button>
-              </div>
-              <div className="col-sm-12 sms-message">
-                <FormattedMessage
-                  id="user.settings.validate.phone.sms.message"
-                  defaultMessage="You will receive an SMS with the validation code"
-                />
-              </div>
-            </>
-          )}
+        {verified === 0 && (
+          <>
+            <div className="col-sm-4">
+              <button
+                type="button"
+                onClick={mobileValidate}
+                disabled={isLoading}
+                className="btn btn-validate-phone"
+              >
+                <FormattedMessage id="user.settings.btn.validate.phone" defaultMessage="Validate" />
+              </button>
+            </div>
+            <div className="col-sm-12 sms-message">
+              <FormattedMessage
+                id="user.settings.validate.phone.sms.message"
+                defaultMessage="You will receive an SMS with the validation code"
+              />
+            </div>
+          </>
+        )}
         <div className="col-sm-12 sms-message">
           <FormattedMessage
             id="user.settings.phone.message"
@@ -155,60 +149,50 @@ const ValidateTelephone = ({
             defaultMessage="You should validate your telephone number, so we can contact you when one of your items is sold or you win a charity auction. This information is also necessary to validate the identity of active users in auctions, purchases, and sales, as well as any irregular supervenient circumstance."
           />
         </div>
-        {showVerifyCode
-          && (
-            <Col sm={12}>
-              <div className="verify-box">
-                <Col sm={12}>
-                  <h3>
-                    <img
-                      alt="phone"
-                      src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-verification-phone-code.svg"
-                    />
-                    <FormattedMessage
-                      id="user.settings.validate.phone.insert.verification.code"
-                      defaultMessage="Insert your validation code"
-                    />
-                  </h3>
-                </Col>
-                <Col sm={12}>
-                  <input
-                    onChange={onChangeCode}
-                    onBlur={onChangeCode}
-                    value={code}
-                    type="text"
-                    name="code"
-                    maxLength="4"
-                    className="form-control"
+        {showVerifyCode && (
+          <Col sm={12}>
+            <div className="verify-box">
+              <Col sm={12}>
+                <h3>
+                  <img
+                    alt="phone"
+                    src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-verification-phone-code.svg"
                   />
-                  {errorCode && (
-                    <div className="has-error">
-                      <span
-                        className="help-block"
-                      >
-                        <FormattedMessage
-                          id="user.settings.phone.errorCode"
-                          defaultMessage="Code is not valid"
-                        />
-                      </span>
-                    </div>
-                  )}
-                </Col>
-                <Col sm={12}>
-                  <button
-                    type="button"
-                    onClick={mobileVerify}
-                    className="btn btn-verify-phone"
-                  >
-                    <FormattedMessage
-                      id="user.settings.verify.phone"
-                      defaultMessage="Verify"
-                    />
-                  </button>
-                </Col>
-              </div>
-            </Col>
-          )}
+                  <FormattedMessage
+                    id="user.settings.validate.phone.insert.verification.code"
+                    defaultMessage="Insert your validation code"
+                  />
+                </h3>
+              </Col>
+              <Col sm={12}>
+                <input
+                  onChange={onChangeCode}
+                  onBlur={onChangeCode}
+                  value={code}
+                  type="text"
+                  name="code"
+                  maxLength="4"
+                  className="form-control"
+                />
+                {errorCode && (
+                  <div className="has-error">
+                    <span className="help-block">
+                      <FormattedMessage
+                        id="user.settings.phone.errorCode"
+                        defaultMessage="Code is not valid"
+                      />
+                    </span>
+                  </div>
+                )}
+              </Col>
+              <Col sm={12}>
+                <button type="button" onClick={mobileVerify} className="btn btn-verify-phone">
+                  <FormattedMessage id="user.settings.verify.phone" defaultMessage="Verify" />
+                </button>
+              </Col>
+            </div>
+          </Col>
+        )}
       </Row>
     </Col>
   );

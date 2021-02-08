@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -55,12 +53,26 @@ const translations = {
 
 describe('FeaturesMenu page', () => {
   it('renders the FeaturesMenu component', () => {
-    const component = shallow(<FeaturesMenu project={project} location={location} translations={translations} features={features} />);
+    const component = shallow(
+      <FeaturesMenu
+        project={project}
+        location={location}
+        translations={translations}
+        features={features}
+      />
+    );
     expect(component).toHaveLength(1);
   });
 
   it('expect 4 items', () => {
-    const component = shallow(<FeaturesMenu project={project} location={location} translations={translations} features={features} />);
+    const component = shallow(
+      <FeaturesMenu
+        project={project}
+        location={location}
+        translations={translations}
+        features={features}
+      />
+    );
     expect(component.find('li').length).toBe(2);
   });
 });

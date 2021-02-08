@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import ButtonGroup from '../ButtonGroup';
@@ -7,12 +5,12 @@ import ButtonGroup from '../ButtonGroup';
 const buttonList = [
   {
     isActive: true,
-    onClick: () => { },
+    onClick: () => {},
     text: 'Activo',
   },
   {
     isActive: false,
-    onClick: () => { },
+    onClick: () => {},
     text: 'Inactivo',
   },
 ];

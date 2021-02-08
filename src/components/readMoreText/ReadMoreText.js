@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ReadMoreText = (props) => {
-  const {
-    text, charLimit, color, readMoreTextTranslation, readLessTextTranslation,
-  } = props;
-  const regex = /(<([^>]+)>)/ig;
+const ReadMoreText = props => {
+  const { text, charLimit, color, readMoreTextTranslation, readLessTextTranslation } = props;
+  const regex = /(<([^>]+)>)/gi;
   const result = text.replace(regex, '');
   const readMore = result.length > charLimit;
   const [showReadMoreButton, setShowReadMoreButton] = useState(true);
@@ -18,8 +16,7 @@ const ReadMoreText = (props) => {
           {showReadMoreButton && (
             <div>
               {result.substr(0, charLimit)}
-              ...
-              &nbsp;
+              ... &nbsp;
               <button
                 style={{
                   border: 'none',
@@ -63,9 +60,7 @@ const ReadMoreText = (props) => {
           )}
         </div>
       )}
-      {!readMore && (
-        <div dangerouslySetInnerHTML={{ __html: text }} />
-      )}
+      {!readMore && <div dangerouslySetInnerHTML={{ __html: text }} />}
     </div>
   );
 };

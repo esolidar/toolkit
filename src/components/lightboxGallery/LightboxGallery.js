@@ -14,8 +14,8 @@ class LightboxGallery extends Component {
     this.toggleModal = this.toggleModal.bind(this);
   }
 
-  toggleModal = (selectedIndex) => {
-    this.setState((state) => ({
+  toggleModal = selectedIndex => {
+    this.setState(state => ({
       modalIsOpen: !state.modalIsOpen,
       selectedIndex,
     }));
@@ -29,7 +29,7 @@ class LightboxGallery extends Component {
       return <div className="no-image" />;
     }
 
-    const fullpathImages = images.map((image) => ({
+    const fullpathImages = images.map(image => ({
       src: serverlessResizeImage ? `${serverlessResizeImage}/${image.image}` : image.image,
     }));
 
@@ -38,7 +38,11 @@ class LightboxGallery extends Component {
         {!thumbs && (
           <button type="button" onClick={() => this.toggleModal(0)} className="image-button">
             {serverlessResizeImage && (
-              <img src={`${serverlessResizeImage}/${images[0].image}?width=300`} alt="thumbnail" style={{ width: '100%' }} />
+              <img
+                src={`${serverlessResizeImage}/${images[0].image}?width=300`}
+                alt="thumbnail"
+                style={{ width: '100%' }}
+              />
             )}
             {!serverlessResizeImage && (
               <img src={images[0].image} alt="thumbnail" style={{ width: '100%' }} />
@@ -52,9 +56,7 @@ class LightboxGallery extends Component {
                 {serverlessResizeImage && (
                   <img src={`${serverlessResizeImage}/${image.image}?width=300`} alt="thumbnail" />
                 )}
-                {!serverlessResizeImage && (
-                  <img src={image.image} alt="thumbnail" />
-                )}
+                {!serverlessResizeImage && <img src={image.image} alt="thumbnail" />}
               </button>
             ))}
           </div>
@@ -62,10 +64,7 @@ class LightboxGallery extends Component {
         <ModalGateway>
           {modalIsOpen ? (
             <Modal onClose={this.toggleModal}>
-              <Carousel
-                currentIndex={selectedIndex}
-                views={fullpathImages}
-              />
+              <Carousel currentIndex={selectedIndex} views={fullpathImages} />
             </Modal>
           ) : null}
         </ModalGateway>

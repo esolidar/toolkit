@@ -14,31 +14,18 @@ const ContributesList = ({
 }) => {
   const renderContributes = () => {
     if (contributes && contributes.length) {
-      return contributes.map((contribute) => (
+      return contributes.map(contribute => (
         <div key={contribute.id}>
-          <ContributeRow
-            contribute={contribute}
-            currency={currency}
-            env={env}
-          />
+          <ContributeRow contribute={contribute} currency={currency} env={env} />
         </div>
       ));
     }
     return (
       <div className="no-contributions">
         {!isAuction && (
-          <FormattedMessage
-            id="crowdfunding.no-contributions"
-            defaultMessage="No contributions"
-          />
+          <FormattedMessage id="crowdfunding.no-contributions" defaultMessage="No contributions" />
         )}
-        {isAuction && (
-          <FormattedMessage
-            id="auctions.no-bids"
-            defaultMessage="No bids"
-          />
-        )}
-
+        {isAuction && <FormattedMessage id="auctions.no-bids" defaultMessage="No bids" />}
       </div>
     );
   };
@@ -46,22 +33,15 @@ const ContributesList = ({
   return (
     <div>
       {renderContributes()}
-      {(contributes && (contributesListTotal > contributes.length)) && (
+      {contributes && contributesListTotal > contributes.length && (
         <div className="text-center">
           <button className="see-more-contributors" type="button" onClick={showMoreContributes}>
             {!loadingContributes && (
-              <FormattedMessage
-                id="crowdfunding.more"
-                defaultMessage="See more"
-              />
+              <FormattedMessage id="crowdfunding.more" defaultMessage="See more" />
             )}
-            {loadingContributes
-              && (
-                <FormattedMessage
-                  id="crowdfunding.loading-text"
-                  defaultMessage="Loading ..."
-                />
-              )}
+            {loadingContributes && (
+              <FormattedMessage id="crowdfunding.loading-text" defaultMessage="Loading ..." />
+            )}
           </button>
         </div>
       )}

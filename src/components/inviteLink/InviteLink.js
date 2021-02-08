@@ -5,34 +5,30 @@ import { Row } from 'react-bootstrap';
 import Button from '../../elements/button/Button';
 
 const InviteLink = ({
-  inviteLinkText, inviteLink, copyLinkFunc, copied, CopyLinkText, CopiedLinkText,
+  inviteLinkText,
+  inviteLink,
+  copyLinkFunc,
+  copied,
+  CopyLinkText,
+  CopiedLinkText,
 }) => (
   <Row>
     <div className="col-sm-12">
       <div className="box">
-        <p>
-          {inviteLinkText}
-        </p>
+        <p>{inviteLinkText}</p>
         <Row>
           <div className="col-sm-9">
             <input
               type="text"
               className="form-control"
               value={inviteLink}
-              onFocus={(e) => e.target.select()}
+              onFocus={e => e.target.select()}
               readOnly={true}
             />
           </div>
           <div className="col-sm-3">
-            <CopyToClipboard
-              text={inviteLink}
-              onCopy={copyLinkFunc}
-            >
-              <Button
-                extraClass="dark"
-                href="#"
-                text={!copied ? CopyLinkText : CopiedLinkText}
-              />
+            <CopyToClipboard text={inviteLink} onCopy={copyLinkFunc}>
+              <Button extraClass="dark" href="#" text={!copied ? CopyLinkText : CopiedLinkText} />
             </CopyToClipboard>
           </div>
         </Row>

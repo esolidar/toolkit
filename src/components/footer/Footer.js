@@ -26,62 +26,42 @@ const Footer = ({
 }) => {
   const copyrightText = `©${new Date().getFullYear()} ${copyright}`;
 
-  const submenu = (items) => (
+  const submenu = items =>
     items.map((item, index) => (
       <li key={index}>
-        <a
-          href={item.url}
-          title={item.text}
-          target={item.target}
-        >
+        <a href={item.url} title={item.text} target={item.target}>
           {item.text}
         </a>
       </li>
-    ))
-  );
+    ));
 
-  const menu = (items) => (
+  const menu = items =>
     items.map((item, index) => {
       if (includes(item.lang, currentLang)) {
         return (
           <li key={index}>
             {item.url ? (
-              <a
-                href={item.url}
-                title={item.text}
-                target={item.target}
-              >
+              <a href={item.url} title={item.text} target={item.target}>
                 {item.text}
               </a>
             ) : (
-              <span title={item.text}>
-                {item.text}
-              </span>
+              <span title={item.text}>{item.text}</span>
             )}
-            {item.submenu && (
-              <ul>
-                {submenu(item.submenu)}
-              </ul>
-            )}
+            {item.submenu && <ul>{submenu(item.submenu)}</ul>}
           </li>
         );
       }
-    })
-  );
+    });
 
   return (
     <footer className="landing-footer">
       <Container>
         <Row>
           <Col xs={12} sm={6} md={6} lg={2}>
-            <ul>
-              {mainMenuFooter && menu(mainMenuFooter)}
-            </ul>
+            <ul>{mainMenuFooter && menu(mainMenuFooter)}</ul>
           </Col>
           <Col xs={12} sm={6} md={6} lg={3}>
-            <ul>
-              {secondMenuFooter && menu(secondMenuFooter)}
-            </ul>
+            <ul>{secondMenuFooter && menu(secondMenuFooter)}</ul>
           </Col>
           <Col xs={12} sm={12} md={6} lg={3}>
             <div id="newsletterID">
@@ -89,23 +69,15 @@ const Footer = ({
               <div id={newsletterID} />
             </div>
           </Col>
-          {
-            socialIcons && (
-              <Col xs={12} sm={12} md={6} lg={4} className="text-right no-padding-mobile">
-                <SocialNetworks
-                  icons={socialIcons}
-                  headingText={socialTitle}
-                />
-              </Col>
-            )
-          }
-
+          {socialIcons && (
+            <Col xs={12} sm={12} md={6} lg={4} className="text-right no-padding-mobile">
+              <SocialNetworks icons={socialIcons} headingText={socialTitle} />
+            </Col>
+          )}
         </Row>
         <Row className="bottom-footer">
           <Col xs={{ span: 12, order: 2 }} sm={{ span: 12, order: 2 }} md={{ span: 4, order: 0 }}>
-            <span>
-              {copyrightText}
-            </span>
+            <span>{copyrightText}</span>
             {addressText && (
               <span className="address">
                 <br />
@@ -114,26 +86,26 @@ const Footer = ({
             )}
           </Col>
           <Col xs={{ span: 12, order: 0 }} sm={{ span: 6, order: 0 }} md={{ span: 5, order: 1 }}>
-            <ul>
-              {bottomMenuFooter && menu(bottomMenuFooter)}
-            </ul>
+            <ul>{bottomMenuFooter && menu(bottomMenuFooter)}</ul>
           </Col>
-          <Col xs={{ span: 12, order: 1 }} sm={{ span: 6, order: 1 }} md={{ span: 3, order: 3 }} className="text-right">
+          <Col
+            xs={{ span: 12, order: 1 }}
+            sm={{ span: 6, order: 1 }}
+            md={{ span: 3, order: 3 }}
+            className="text-right"
+          >
             <ChangeLanguage
               languages={languages}
               onChangeLang={onChangeLang}
               currentLang={currentLang}
             />
-            {
-              showCurrency && (
-                <ChangeCurrency
-                  currentCurrency={currentCurrency}
-                  currencies={currencies}
-                  onChange={currencyChanged}
-                />
-              )
-            }
-
+            {showCurrency && (
+              <ChangeCurrency
+                currentCurrency={currentCurrency}
+                currencies={currencies}
+                onChange={currencyChanged}
+              />
+            )}
           </Col>
         </Row>
       </Container>
@@ -149,7 +121,7 @@ Footer.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       translate: PropTypes.string,
-    }),
+    })
   ).isRequired,
   onChangeLang: PropTypes.func.isRequired,
   currentLang: PropTypes.string.isRequired,
@@ -158,7 +130,7 @@ Footer.propTypes = {
     PropTypes.shape({
       class: PropTypes.string,
       url: PropTypes.string,
-    }),
+    })
   ),
   currentCurrency: PropTypes.object,
   currencies: PropTypes.arrayOf(
@@ -166,7 +138,7 @@ Footer.propTypes = {
       name: PropTypes.string,
       small: PropTypes.string,
       symbol: PropTypes.string,
-    }),
+    })
   ),
   currencyChanged: PropTypes.func,
   mainMenuFooter: PropTypes.arrayOf(
@@ -175,21 +147,21 @@ Footer.propTypes = {
       url: PropTypes.string,
       target: PropTypes.string,
       lang: PropTypes.array,
-    }),
+    })
   ),
   secondMenuFooter: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
       url: PropTypes.string,
       target: PropTypes.string,
-    }),
+    })
   ),
   bottomMenuFooter: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
       url: PropTypes.string,
       target: PropTypes.string,
-    }),
+    })
   ),
   newsletterID: PropTypes.string,
   newsletterTitle: PropTypes.string,

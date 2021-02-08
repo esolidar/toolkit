@@ -7,15 +7,21 @@ import Loading from '../loading/Loading';
 import Button from '../../elements/button/Button';
 import InvoicingData from './invoicing/InvoicingData';
 
-const Step2 = (props) => (
+const Step2 = props => (
   <div>
-    {props.state.isLoadingPayment && (<div className="loading-payment"><Loading message={props.translateMessage({ id: 'payment.loader.wait', defaultMessage: 'Please wait.' })} /></div>)}
+    {props.state.isLoadingPayment && (
+      <div className="loading-payment">
+        <Loading
+          message={props.translateMessage({
+            id: 'payment.loader.wait',
+            defaultMessage: 'Please wait.',
+          })}
+        />
+      </div>
+    )}
     <Col sm={12}>
       <h2>
-        <FormattedMessage
-          id="checkout.invoicing.title"
-          defaultMessage="Invoicing information"
-        />
+        <FormattedMessage id="checkout.invoicing.title" defaultMessage="Invoicing information" />
       </h2>
       <Row className="box">
         <InvoicingData

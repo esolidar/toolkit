@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import Step1 from '../Step1';
@@ -26,7 +24,8 @@ const state = {
           title: 'Phasellus rhoncus, justo vitae consectetur ultrices, nisi lorem gravida justo',
           title_en: null,
           tags: null,
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
           description_en: null,
           video: 'null',
           reward: 0,
@@ -107,31 +106,35 @@ const translateMessage = () => 'Some text';
 
 describe('Step1 component', () => {
   it('renders Step1 correctly', () => {
-    const component = shallow(<Step1
-      state={state}
-      translateMessage={translateMessage}
-      env={env}
-      nextStep={nextStep}
-      removeCartItem={removeCartItem}
-      onChangeMessage={onChangeMessage}
-      onAddToCheckout={onAddToCheckout}
-      onChangCheckBox={onChangCheckBox}
-    />);
+    const component = shallow(
+      <Step1
+        state={state}
+        translateMessage={translateMessage}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    );
     expect(component).toHaveLength(1);
     expect(component.find('CrowdfundingItem')).toHaveLength(1);
   });
 
   it('renders Step1 cart empty', () => {
-    const component = shallow(<Step1
-      state={stateCartEmpty}
-      translateMessage={translateMessage}
-      env={env}
-      nextStep={nextStep}
-      removeCartItem={removeCartItem}
-      onChangeMessage={onChangeMessage}
-      onAddToCheckout={onAddToCheckout}
-      onChangCheckBox={onChangCheckBox}
-    />);
+    const component = shallow(
+      <Step1
+        state={stateCartEmpty}
+        translateMessage={translateMessage}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    );
     expect(component).toHaveLength(1);
     expect(component.find('CrowdfundingItem')).toHaveLength(0);
     expect(component.find('.no-items')).toHaveLength(1);

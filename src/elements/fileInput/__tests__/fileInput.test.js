@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React, { useState as useStateMock } from 'react';
 import { shallow } from 'enzyme';
 import FileInput from '../FileInput';
@@ -15,7 +13,7 @@ describe('FileInput component', () => {
   const setState = jest.fn();
 
   beforeEach(() => {
-    useStateMock.mockImplementation((init) => [init, setState]);
+    useStateMock.mockImplementation(init => [init, setState]);
   });
 
   afterEach(() => {
@@ -35,9 +33,9 @@ describe('FileInput component', () => {
         disabled=""
         placeholder=""
         value=""
-        handleChange={() => { }}
+        handleChange={() => {}}
         styleLogo="background-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/brand-logo.jpg')"
-      />,
+      />
     );
     expect(wrapper.find('.company-thumb-logo')).toHaveLength(1);
   });
@@ -50,9 +48,9 @@ describe('FileInput component', () => {
         disabled=""
         placeholder=""
         value=""
-        handleChange={() => { }}
+        handleChange={() => {}}
         styleLogo="background-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/brand-logo.jpg')"
-      />,
+      />
     );
     expect(wrapper.find('.company-thumb-cover')).toHaveLength(1);
   });
@@ -65,9 +63,9 @@ describe('FileInput component', () => {
         disabled=""
         placeholder=""
         value=""
-        handleChange={() => { }}
+        handleChange={() => {}}
         styleLogo=""
-      />,
+      />
     );
     expect(wrapper.find('.company-thumb-cover')).toHaveLength(1);
   });
@@ -80,9 +78,9 @@ describe('FileInput component', () => {
         disabled="disabled"
         placeholder=""
         value=""
-        handleChange={() => { }}
+        handleChange={() => {}}
         styleLogo=""
-      />,
+      />
     );
     expect(wrapper.find('.input-image').at(1).is('[disabled]')).toBe(true);
   });
@@ -102,7 +100,7 @@ describe('FileInput component', () => {
         placeholder=""
         onChange={changed}
         styleLogo=""
-      />,
+      />
     );
     wrapper.find('input[name="logo_image"]').props().onChange(event);
     expect(setState).toHaveBeenCalledTimes(1);
@@ -123,7 +121,7 @@ describe('FileInput component', () => {
         placeholder=""
         onChange={changed}
         styleLogo=""
-      />,
+      />
     );
     wrapper.find('input[name="logo_image"]').props().onChange(event);
     expect(setState).toHaveBeenCalledWith('teste.jpg');

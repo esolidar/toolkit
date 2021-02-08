@@ -1,13 +1,6 @@
-/* global expect */
-/* global jest */
-/* global beforeAll */
-/* global afterAll */
-
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  render, waitFor, screen, fireEvent,
-} from '@testing-library/react';
+import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import AuctionDetailRigth from '../AuctionDetailRigth';
@@ -38,8 +31,10 @@ const propsAuctionDetailRigth = {
     description_en: 'Description test',
     shipping_description: 'Os portes de envio serão à responsabilidade do vencedor.',
     shipping_description_en: 'Please note postage is not included as part of the final bid.',
-    payment_description: 'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
-    payment_description_en: 'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
+    payment_description:
+      'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
+    payment_description_en:
+      'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
     last_bid: {
       id: 1241,
       auction_id: 299,
@@ -83,7 +78,6 @@ const propsAuctionDetailRigth = {
             department: null,
             user: null,
           },
-
         ],
         name: 'Joel F. Calheiros',
         s3_key: 'users/9/1606232953.jpg',
@@ -108,7 +102,8 @@ const propsAuctionDetailRigth = {
         id: 200,
         auction_id: 299,
         streamImage: 'amazons3',
-        image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+        image_name:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -118,10 +113,13 @@ const propsAuctionDetailRigth = {
         lastUpdated: '2020-03-10 11:24:57',
         dateAdded: '2019-09-16 10:51:01',
         thumbs: {
-          standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-          detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+          standard:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+          detail:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
           pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-          thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+          thumb:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
         },
         s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
       },
@@ -129,7 +127,8 @@ const propsAuctionDetailRigth = {
         id: 200,
         auction_id: 299,
         streamImage: 'amazons3',
-        image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+        image_name:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -139,10 +138,13 @@ const propsAuctionDetailRigth = {
         lastUpdated: '2020-03-10 11:24:57',
         dateAdded: '2019-09-16 10:51:01',
         thumbs: {
-          standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-          detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+          standard:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+          detail:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
           pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-          thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+          thumb:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
         },
         s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
       },
@@ -251,17 +253,21 @@ const propsAuctionDetailRigth = {
       institution: {
         id: 30,
         name: 'Helpo',
-        image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+        image:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
         thumbs: {
-          detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-          thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+          detail:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
+          thumb:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
         },
         s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         s3_cover_key: null,
-        description: 'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
+        description:
+          'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
       },
       phones: [],
     },
@@ -269,16 +275,22 @@ const propsAuctionDetailRigth = {
       id: 3,
       name: 'A marca do Rocha',
       username: 'Rocha',
-      logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
-      cover: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+      logo:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+      cover:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
       logo_thumbs: {
-        standard: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
-        detail: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
+        standard:
+          'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
+        detail:
+          'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
         thumb: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png',
       },
       cover_thumbs: {
-        standard: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
-        detail: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
+        standard:
+          'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
+        detail:
+          'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
       },
       s3_logo_key: 'brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
       s3_cover_key: 'brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
@@ -321,8 +333,10 @@ const propsAuctionDetailRigthWithoutErrors = {
     description_en: 'Description test',
     shipping_description: 'Os portes de envio serão à responsabilidade do vencedor.',
     shipping_description_en: 'Please note postage is not included as part of the final bid.',
-    payment_description: 'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
-    payment_description_en: 'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
+    payment_description:
+      'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
+    payment_description_en:
+      'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
     last_bid: {
       id: 1241,
       auction_id: 299,
@@ -366,7 +380,6 @@ const propsAuctionDetailRigthWithoutErrors = {
             department: null,
             user: null,
           },
-
         ],
         name: 'Joel F. Calheiros',
         s3_key: 'users/9/1606232953.jpg',
@@ -391,7 +404,8 @@ const propsAuctionDetailRigthWithoutErrors = {
         id: 200,
         auction_id: 299,
         streamImage: 'amazons3',
-        image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+        image_name:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -401,10 +415,13 @@ const propsAuctionDetailRigthWithoutErrors = {
         lastUpdated: '2020-03-10 11:24:57',
         dateAdded: '2019-09-16 10:51:01',
         thumbs: {
-          standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-          detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+          standard:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+          detail:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
           pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-          thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+          thumb:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
         },
         s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
       },
@@ -412,7 +429,8 @@ const propsAuctionDetailRigthWithoutErrors = {
         id: 200,
         auction_id: 299,
         streamImage: 'amazons3',
-        image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+        image_name:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -422,10 +440,13 @@ const propsAuctionDetailRigthWithoutErrors = {
         lastUpdated: '2020-03-10 11:24:57',
         dateAdded: '2019-09-16 10:51:01',
         thumbs: {
-          standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-          detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+          standard:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+          detail:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
           pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-          thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+          thumb:
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
         },
         s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
       },
@@ -534,17 +555,21 @@ const propsAuctionDetailRigthWithoutErrors = {
       institution: {
         id: 30,
         name: 'Helpo',
-        image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+        image:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
         thumbs: {
-          detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-          thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+          detail:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
+          thumb:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
         },
         s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         s3_cover_key: null,
-        description: 'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
+        description:
+          'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
       },
       phones: [],
     },
@@ -552,16 +577,22 @@ const propsAuctionDetailRigthWithoutErrors = {
       id: 3,
       name: 'A marca do Rocha',
       username: 'Rocha',
-      logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
-      cover: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+      logo:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+      cover:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
       logo_thumbs: {
-        standard: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
-        detail: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
+        standard:
+          'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
+        detail:
+          'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
         thumb: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png',
       },
       cover_thumbs: {
-        standard: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
-        detail: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
+        standard:
+          'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
+        detail:
+          'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
       },
       s3_logo_key: 'brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
       s3_cover_key: 'brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
@@ -595,17 +626,21 @@ const propsAuctionEnded = {
       institution: {
         id: 30,
         name: 'Helpo',
-        image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+        image:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
         thumbs: {
-          detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-          thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+          detail:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
+          thumb:
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
         },
         s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         s3_cover_key: null,
-        description: 'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
+        description:
+          'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
       },
       phones: [],
     },
@@ -642,7 +677,11 @@ afterAll(() => {
 });
 
 test('should exist title of auction', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigth} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titleAuction = screen.getByTestId('auction-title');
@@ -652,7 +691,11 @@ test('should exist title of auction', async () => {
 });
 
 test('should exist section new bid and insert value equal or higher last bid and not open Modal', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigth} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -667,7 +710,11 @@ test('should exist section new bid and insert value equal or higher last bid and
 });
 
 test('Insert value equal or higher last bid and open Modal', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigthWithoutErrors} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigthWithoutErrors} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -681,7 +728,11 @@ test('Insert value equal or higher last bid and open Modal', async () => {
 });
 
 test('Insert value higher bid max interval ', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigth} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -695,7 +746,11 @@ test('Insert value higher bid max interval ', async () => {
 });
 
 test('simulate auction ended', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionEnded} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionEnded} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titleEnded = screen.getByTestId('label-ended');
@@ -708,7 +763,11 @@ test('simulate auction ended', async () => {
 });
 
 test('should exist section supported with thumb and name', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigth} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const supported = screen.getByTestId('supported-section');
@@ -716,12 +775,19 @@ test('should exist section supported with thumb and name', async () => {
     expect(supported).toHaveTextContent('A marca do Rocha will benefit Helpo with this auction.');
     const thumbImage = screen.getByAltText('thumb');
     expect(thumbImage).toBeInTheDocument();
-    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
+    expect(thumbImage).toHaveAttribute(
+      'src',
+      'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg'
+    );
   });
 });
 
 test('should exist value last bid', async () => {
-  render(<IntlProvider locale="en"><AuctionDetailRigth {...propsAuctionDetailRigth} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetailRigth {...propsAuctionDetailRigth} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titleLastBid = screen.getByTestId('title-last-bid');

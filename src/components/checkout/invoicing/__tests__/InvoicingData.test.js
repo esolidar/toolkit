@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import InvoicingData from '../InvoicingData';
@@ -19,12 +17,14 @@ const translateMessage = () => 'Some text';
 
 describe('InvoicingData component', () => {
   it('renders InvoicingData correctly', () => {
-    const component = shallow(<InvoicingData
-      state={state}
-      translateMessage={translateMessage}
-      onChange={onChange}
-      onChangCheckBoxInvoicing={onChangCheckBoxInvoicing}
-    />);
+    const component = shallow(
+      <InvoicingData
+        state={state}
+        translateMessage={translateMessage}
+        onChange={onChange}
+        onChangCheckBoxInvoicing={onChangCheckBoxInvoicing}
+      />
+    );
     expect(component).toHaveLength(1);
   });
 });

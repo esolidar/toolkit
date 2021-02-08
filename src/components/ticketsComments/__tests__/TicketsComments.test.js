@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import TicketsComments from '../TicketsComments';
@@ -62,7 +62,7 @@ const props = {
   activePage: 1,
   per_page: 10,
   total: 12,
-  handlePageChange: () => { },
+  handlePageChange: () => {},
 };
 
 describe('TicketsComments component', () => {

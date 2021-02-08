@@ -34,8 +34,12 @@ class CrowdfundingPrivateThumb extends Component {
       });
 
       // Check if campaign is soon, running, ended
-      const inputStartDate = new Date(moment.utc(thumb.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
-      const inputEndDate = new Date(moment.utc(thumb.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss'));
+      const inputStartDate = new Date(
+        moment.utc(thumb.start_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss')
+      );
+      const inputEndDate = new Date(
+        moment.utc(thumb.end_date).tz(moment.tz.guess()).format('YYYY/MM/DD HH:mm:ss')
+      );
       const { translations } = this.props;
 
       // call setHours to take the time out of the comparison
@@ -48,19 +52,25 @@ class CrowdfundingPrivateThumb extends Component {
       } else if (Date.parse(inputStartDate) >= Math.floor(Date.now())) {
         this.setState({
           status: 'soon',
-          date: `${inputStartDate.getDate()}-${Number(inputStartDate.getMonth() + 1)}-${inputStartDate.getFullYear()}`,
+          date: `${inputStartDate.getDate()}-${Number(
+            inputStartDate.getMonth() + 1
+          )}-${inputStartDate.getFullYear()}`,
           labelStatus: translations.startsIn,
         });
       } else if (Math.floor(Date.now()) < Date.parse(inputEndDate)) {
         this.setState({
           status: 'running',
-          date: `${inputEndDate.getDate()}-${Number(inputEndDate.getMonth() + 1)}-${inputEndDate.getFullYear()}`,
+          date: `${inputEndDate.getDate()}-${Number(
+            inputEndDate.getMonth() + 1
+          )}-${inputEndDate.getFullYear()}`,
           labelStatus: translations.endsIn,
         });
       } else {
         this.setState({
           status: 'ended',
-          date: `${inputEndDate.getDate()}-${Number(inputEndDate.getMonth() + 1)}-${inputEndDate.getFullYear()}`,
+          date: `${inputEndDate.getDate()}-${Number(
+            inputEndDate.getMonth() + 1
+          )}-${inputEndDate.getFullYear()}`,
           labelStatus: translations.endedIn,
         });
       }
@@ -69,14 +79,10 @@ class CrowdfundingPrivateThumb extends Component {
 
   render() {
     const { translations, convertedValue } = this.props;
-    const {
-      isLoading, thumb, status, date, labelStatus, boxSize,
-    } = this.state;
+    const { isLoading, thumb, status, date, labelStatus, boxSize } = this.state;
 
     if (isLoading) {
-      return (
-        <Loading />
-      );
+      return <Loading />;
     }
 
     const campaignTitle = () => {
@@ -97,26 +103,24 @@ class CrowdfundingPrivateThumb extends Component {
           className="bg-image"
           style={{
             // eslint-disable-next-line max-len
-            backgroundImage: thumb.images.length > 0 ? `url('${thumb.images[0].image}?width=${boxSize.width}&height=${boxSize.height}')` : 'url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/no-image.jpg")',
+            backgroundImage:
+              thumb.images.length > 0
+                ? `url('${thumb.images[0].image}?width=${boxSize.width}&height=${boxSize.height}')`
+                : 'url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/no-image.jpg")',
           }}
           ref={this.thumbBox}
         >
           <div className="date">
             <div className={`_date ${status}`}>
               <div className="label-text">{labelStatus}</div>
-              <div className="date-text">
-                {date}
-              </div>
+              <div className="date-text">{date}</div>
             </div>
           </div>
         </div>
         <div className="title">
           <div className="col-sm-12">
             {thumb.institution && (
-              <img
-                src={thumb.institution.thumbs.thumb}
-                alt={campaignTitle()}
-              />
+              <img src={thumb.institution.thumbs.thumb} alt={campaignTitle()} />
             )}
             {campaignTitle()}
           </div>
@@ -156,8 +160,5 @@ export default CrowdfundingPrivateThumb;
 CrowdfundingPrivateThumb.propTypes = {
   thumb: PropTypes.object,
   translations: PropTypes.object,
-  convertedValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
+  convertedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };

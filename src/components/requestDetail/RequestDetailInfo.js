@@ -6,10 +6,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
   <div className="request-detail">
     <div className="box col-sm-12">
       <h3>
-        <FormattedMessage
-          id="request.detail.project.about"
-          defaultMessage="About the request"
-        />
+        <FormattedMessage id="request.detail.project.about" defaultMessage="About the request" />
       </h3>
       <h4>
         <FormattedMessage
@@ -45,10 +42,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
       )}
       {request.goals && (
         <h4>
-          <FormattedMessage
-            id="request.detail.project.goals"
-            defaultMessage="Goals"
-          />
+          <FormattedMessage id="request.detail.project.goals" defaultMessage="Goals" />
         </h4>
       )}
       {request.goals && (
@@ -62,18 +56,12 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
         </p>
       )}
       <h4>
-        <FormattedMessage
-          id="request.detail.project.requirements"
-          defaultMessage="Requirements"
-        />
+        <FormattedMessage id="request.detail.project.requirements" defaultMessage="Requirements" />
       </h4>
       <p>{request.requirements}</p>
       <hr className="separator-blue" />
       <h3>
-        <FormattedMessage
-          id="request.detail.project.needs"
-          defaultMessage="This request needs"
-        />
+        <FormattedMessage id="request.detail.project.needs" defaultMessage="This request needs" />
       </h3>
       {request.volunteering === 1 && (
         <div>
@@ -94,7 +82,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
                 defaultMessage="{value, number} {value, plural, one {hour} other {hours}}"
                 values={{ value: request.volunteering_duration }}
               />
-                  &nbsp;
+              &nbsp;
               {volunteeringType !== null && volunteeringType}
             </li>
             <li>
@@ -127,10 +115,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
               alt="Donation"
               src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-request-donation-blue.png"
             />
-            <FormattedMessage
-              id="request.detail.project.donations"
-              defaultMessage="Donations"
-            />
+            <FormattedMessage id="request.detail.project.donations" defaultMessage="Donations" />
           </h4>
           <ul className="arrow-list">
             <li>
@@ -162,10 +147,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
               alt="Goods"
               src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-request-goods-blue.png"
             />
-            <FormattedMessage
-              id="request.detail.project.goods"
-              defaultMessage="Goods"
-            />
+            <FormattedMessage id="request.detail.project.goods" defaultMessage="Goods" />
           </h4>
           <ul className="arrow-list">
             <li>
@@ -183,9 +165,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
           </ul>
         </div>
       )}
-      {request.partners && (
-        <hr className="separator-blue" />
-      )}
+      {request.partners && <hr className="separator-blue" />}
       {request.partners && (
         <h3>
           <FormattedMessage
@@ -194,12 +174,8 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
           />
         </h3>
       )}
-      <p>
-        {request.partners}
-      </p>
-      {request.other_platforms && (
-        <hr className="separator-blue" />
-      )}
+      <p>{request.partners}</p>
+      {request.other_platforms && <hr className="separator-blue" />}
       {request.other_platforms && (
         <h3>
           <FormattedMessage
@@ -216,9 +192,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
           />
         </h4>
       )}
-      <p>
-        {request.other_platforms}
-      </p>
+      <p>{request.other_platforms}</p>
     </div>
   </div>
 );

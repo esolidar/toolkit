@@ -28,7 +28,11 @@ module.exports = {
     {
       name: 'Components',
       components: 'src/components/**/*.js',
-      ignore: ['src/components/icon/Icon.js', 'src/components/draftEditor/draft/*', 'src/components/auctionAddForm/validations.js'],
+      ignore: [
+        'src/components/icon/Icon.js',
+        'src/components/draftEditor/draft/*',
+        'src/components/auctionAddForm/validations.js',
+      ],
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },
@@ -75,11 +79,7 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
-          ],
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

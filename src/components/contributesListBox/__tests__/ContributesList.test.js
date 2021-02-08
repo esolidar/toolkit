@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -103,24 +101,28 @@ describe('ContributesList', () => {
   });
 
   it('renders the ContributesList component', () => {
-    const component = shallow(<ContributesList
-      contributesListTotal={0}
-      contributes={[]}
-      loadingContributes={false}
-      showMoreContributes={props.showMoreContributes}
-      env={props.env}
-    />);
+    const component = shallow(
+      <ContributesList
+        contributesListTotal={0}
+        contributes={[]}
+        loadingContributes={false}
+        showMoreContributes={props.showMoreContributes}
+        env={props.env}
+      />
+    );
     expect(component.find('.no-contributions').length).toBe(1);
   });
 
   it('show link see more', () => {
-    const component = shallow(<ContributesList
-      contributesListTotal={10}
-      contributes={props.contributes}
-      loadingContributes={false}
-      showMoreContributes={props.showMoreContributes}
-      env={props.env}
-    />);
+    const component = shallow(
+      <ContributesList
+        contributesListTotal={10}
+        contributes={props.contributes}
+        loadingContributes={false}
+        showMoreContributes={props.showMoreContributes}
+        env={props.env}
+      />
+    );
     expect(component.find('.see-more-contributors').length).toBe(1);
   });
 });

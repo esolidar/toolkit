@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../elements/button/Button';
 
-const BoxInfo = ({
-  button, className, style, text,
-}) => (
+const BoxInfo = ({ button, className, style, text }) => (
   <div className={`box box-info ${className}`} style={style}>
-    <p className="text">
-      {text}
-    </p>
+    <p className="text">{text}</p>
     {button && (
       <div className="button">
         <Button

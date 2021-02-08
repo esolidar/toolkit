@@ -12,9 +12,7 @@ class StripeCreditCard extends Component {
   };
 
   componentDidUpdate(prevProps) {
-    const {
-      updateState, order,
-    } = this.props;
+    const { updateState, order } = this.props;
     const { stripe } = this.state;
 
     if (prevProps.order !== order) {
@@ -65,11 +63,13 @@ class StripeCreditCard extends Component {
               }
             })();
           } else {
-            const orderCart = localStorage.order ? JSON.parse(localStorage.order) : { products: [] };
+            const orderCart = localStorage.order
+              ? JSON.parse(localStorage.order)
+              : { products: [] };
             const ordersRemaining = [];
             const ordersPayed = [];
 
-            orderCart.products.map((campaign) => {
+            orderCart.products.map(campaign => {
               if (!campaign.extra.checked) {
                 ordersRemaining.push(campaign);
               } else {
@@ -110,9 +110,7 @@ class StripeCreditCard extends Component {
 
   submit = (stripe, elements) => {
     const cardElement = elements.getElement('cardNumber');
-    const {
-      updateState,
-    } = this.props;
+    const { updateState } = this.props;
 
     this.updateState({
       disableButton: true,
@@ -127,7 +125,9 @@ class StripeCreditCard extends Component {
           type: 'card',
           card: cardElement,
           billing_details: {
-            name: `${JSON.parse(localStorage.user).firstName} ${JSON.parse(localStorage.user).lastName}`,
+            name: `${JSON.parse(localStorage.user).firstName} ${
+              JSON.parse(localStorage.user).lastName
+            }`,
             email: JSON.parse(localStorage.user).email,
           },
         });
@@ -149,57 +149,16 @@ class StripeCreditCard extends Component {
     } else {
       this.setState({ disableButton: true });
     }
-  }
+  };
 
-  submitStripePayment = (data) => {
-    const {
-      state, postOrder, updateState,
-    } = this.props;
+  submitStripePayment = data => {
+    const { state, postOrder, updateState } = this.props;
 
-    const firstChecked = findIndex(state.order.products, (o) => o.extra.checked === 1);
-    const cartCurrency = firstChecked >= 0 ? state.order.products[firstChecked].currency.id : state.order.products[0].currency.id;
-
-    if (data) {
-      this.updateState({ isLoadingPayment: true });
-      updateState({ isLoadingPayment: true });
-      if (data.action === 'confirm') {
-        postOrder(data);
-      } else {
-        const stripeOrderPayment = {
-          method: 'stripe',
-          action: 'create',
-          currency_id: cartCurrency,
-          method_info: {
-            id: data.id,
-            card: data.card,
-            livemode: data.livemode,
-            object: data.object,
-          },
-          products: [],
-          receipt: state.receipt,
-          invoice: {
-            nif: state.nif,
-            invoice_address: state.invoice_address,
-          },
-        };
-
-        state.order.products.map((campaign) => {
-          if (campaign.extra.checked) {
-            stripeOrderPayment.products.push(campaign);
-          }
-        });
-        postOrder(stripeOrderPayment);
-      }
-    }
-  }
-
-  submitStripePayment = (data) => {
-    const {
-      state, postOrder, updateState,
-    } = this.props;
-
-    const firstChecked = findIndex(state.order.products, (o) => o.extra.checked === 1);
-    const cartCurrency = firstChecked >= 0 ? state.order.products[firstChecked].currency.id : state.order.products[0].currency.id;
+    const firstChecked = findIndex(state.order.products, o => o.extra.checked === 1);
+    const cartCurrency =
+      firstChecked >= 0
+        ? state.order.products[firstChecked].currency.id
+        : state.order.products[0].currency.id;
 
     if (data) {
       this.updateState({ isLoadingPayment: true });
@@ -225,7 +184,7 @@ class StripeCreditCard extends Component {
           },
         };
 
-        state.order.products.map((campaign) => {
+        state.order.products.map(campaign => {
           if (campaign.extra.checked) {
             stripeOrderPayment.products.push(campaign);
           }
@@ -233,11 +192,54 @@ class StripeCreditCard extends Component {
         postOrder(stripeOrderPayment);
       }
     }
-  }
+  };
 
-  updateState = (state) => {
+  submitStripePayment = data => {
+    const { state, postOrder, updateState } = this.props;
+
+    const firstChecked = findIndex(state.order.products, o => o.extra.checked === 1);
+    const cartCurrency =
+      firstChecked >= 0
+        ? state.order.products[firstChecked].currency.id
+        : state.order.products[0].currency.id;
+
+    if (data) {
+      this.updateState({ isLoadingPayment: true });
+      updateState({ isLoadingPayment: true });
+      if (data.action === 'confirm') {
+        postOrder(data);
+      } else {
+        const stripeOrderPayment = {
+          method: 'stripe',
+          action: 'create',
+          currency_id: cartCurrency,
+          method_info: {
+            id: data.id,
+            card: data.card,
+            livemode: data.livemode,
+            object: data.object,
+          },
+          products: [],
+          receipt: state.receipt,
+          invoice: {
+            nif: state.nif,
+            invoice_address: state.invoice_address,
+          },
+        };
+
+        state.order.products.map(campaign => {
+          if (campaign.extra.checked) {
+            stripeOrderPayment.products.push(campaign);
+          }
+        });
+        postOrder(stripeOrderPayment);
+      }
+    }
+  };
+
+  updateState = state => {
     this.setState(state);
-  }
+  };
 
   render() {
     const { currencyId, env } = this.props;

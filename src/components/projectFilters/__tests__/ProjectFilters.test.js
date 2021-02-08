@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import ProjectFilters from '../ProjectFilters';
@@ -8,10 +8,10 @@ const props = {
   color: 'red',
   searchTitleLabel: 'Pesquisar',
   searchLabelPlaceholder: 'Pesquisar por título',
-  onChangeInput: () => { },
+  onChangeInput: () => {},
   filtersTitleLabel: 'Filtros',
   odsLabel: 'ODS',
-  onSelectOds: () => { },
+  onSelectOds: () => {},
   categories: [
     {
       id: 1,

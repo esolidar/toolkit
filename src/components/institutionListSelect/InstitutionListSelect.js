@@ -30,7 +30,7 @@ const InstitutionListSelect = ({
   const renderCharities = () => {
     if (institutions) {
       if (institutions.length > 0) {
-        return institutions.map((charity) => {
+        return institutions.map(charity => {
           const divStyle = {
             backgroundImage: `url(${charity.image})`,
           };
@@ -61,21 +61,21 @@ const InstitutionListSelect = ({
                   <div className="npo-pin-thumb" style={divStyle} />
                   <div className="name">{charity.name}</div>
                   <div className="btn btn-select">
-                    {selectText || ('')}
-                    {(!selectText && (+user_id !== charity.user_id)) && (
-                      <FormattedMessage
-                        id="institutions.list.select"
-                        defaultMessage="Select"
-                      />
+                    {selectText || ''}
+                    {!selectText && +user_id !== charity.user_id && (
+                      <FormattedMessage id="institutions.list.select" defaultMessage="Select" />
                     )}
-                    {(!selectText && (+user_id === charity.user_id)) && (
-                      <FormattedMessage
-                        id="institutions.list.selected"
-                        defaultMessage="Selected"
-                      />
+                    {!selectText && +user_id === charity.user_id && (
+                      <FormattedMessage id="institutions.list.selected" defaultMessage="Selected" />
                     )}
-                    {(+user_id === charity.user_id && removeInstitutionSelected) && (
-                      <button onClick={removeInstitutionSelected} className="remove-selected" type="button">x</button>
+                    {+user_id === charity.user_id && removeInstitutionSelected && (
+                      <button
+                        onClick={removeInstitutionSelected}
+                        className="remove-selected"
+                        type="button"
+                      >
+                        x
+                      </button>
                     )}
                   </div>
                 </label>
@@ -152,10 +152,7 @@ InstitutionListSelect.propTypes = {
   selectText: PropTypes.string,
   NoResultsText: PropTypes.string.isRequired,
   selectCategoryText: PropTypes.string.isRequired,
-  error: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   search: PropTypes.string,
   placeholderSearch: PropTypes.string,
   institutionSelected: PropTypes.number,
@@ -165,10 +162,7 @@ InstitutionListSelect.propTypes = {
     totalItemsCount: PropTypes.number.isRequired,
   }),
   isLoading: PropTypes.bool,
-  user_id: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
 };
 

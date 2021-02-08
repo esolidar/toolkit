@@ -4,9 +4,16 @@ import { Row, Col } from 'react-bootstrap';
 import Button from '../../elements/button/Button';
 import CrowdfundingItem from './products/CrowdfundingItem';
 
-const Step1 = (props) => {
+const Step1 = props => {
   const {
-    env, translateMessage, state, nextStep, onChangeMessage, onChangCheckBox, removeCartItem, onAddToCheckout,
+    env,
+    translateMessage,
+    state,
+    nextStep,
+    onChangeMessage,
+    onChangCheckBox,
+    removeCartItem,
+    onAddToCheckout,
   } = props;
   const cartItems = state.order.products;
   const renderCartItems = () => {
@@ -15,7 +22,7 @@ const Step1 = (props) => {
         if (item.type === 'crowdfunding') {
           return (
             <div key={`${item.id}_${indx}`}>
-              {indx === 0 && (<h2>Crowdfunding</h2>)}
+              {indx === 0 && <h2>Crowdfunding</h2>}
               <div>
                 <CrowdfundingItem
                   item={item}
@@ -68,10 +75,7 @@ const Step1 = (props) => {
         <Row>
           <Col sm={12} className="text-center">
             <div className="box">
-              <a
-                className="btn-next-step"
-                href="/"
-              >
+              <a className="btn-next-step" href="/">
                 {translateMessage({
                   id: 'crowdfunding.donation.checkout.goHome',
                   defaultMessage: 'Go home',

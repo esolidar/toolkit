@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -14,28 +12,19 @@ describe('CrowdfundingProgressBar', () => {
   });
 
   it('Progress bar with values', () => {
-    const wrapper = shallow(<CrowdfundingProgressBar
-      contributesSum={60}
-      goal={10000}
-    />);
+    const wrapper = shallow(<CrowdfundingProgressBar contributesSum={60} goal={10000} />);
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
   });
 
   it('Progress bar without values', () => {
-    const wrapper = shallow(<CrowdfundingProgressBar
-      contributesSum={0}
-      goal={0}
-    />);
+    const wrapper = shallow(<CrowdfundingProgressBar contributesSum={0} goal={0} />);
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);
   });
 
   it('% Progress bar', () => {
-    const wrapper = shallow(<CrowdfundingProgressBar
-      contributesSum={50}
-      goal={100}
-    />);
+    const wrapper = shallow(<CrowdfundingProgressBar contributesSum={50} goal={100} />);
     expect(wrapper.find('.progress-goal-bar').props().style.width).toEqual('50%');
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.progress-goal-bar')).toHaveLength(1);

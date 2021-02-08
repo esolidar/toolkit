@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 
 const Loading = ({ loadingClass, message, curtain }) => (
   <div className={classnames(loadingClass, { curtain })}>
-    {isIE
-      ? (<div className="ie-loader" />) : (
-        <div className="Loading">
-          <div className="loader" />
-          <div className="loader-message">{message}</div>
-        </div>
-      )}
+    {isIE ? (
+      <div className="ie-loader" />
+    ) : (
+      <div className="Loading">
+        <div className="loader" />
+        <div className="loader-message">{message}</div>
+      </div>
+    )}
   </div>
 );
 

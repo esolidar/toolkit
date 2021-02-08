@@ -30,46 +30,34 @@ const createOptions = () => ({
 });
 
 const StripeCheckoutFormSca = ({
-  errors, handleChange, submit, stripe, elements, disableButton, btnText,
+  errors,
+  handleChange,
+  submit,
+  stripe,
+  elements,
+  disableButton,
+  btnText,
 }) => {
-  const text = () => (btnText || <FormattedMessage id="checkout.payment.pay" defaultMessage="Pay" />);
+  const text = () => btnText || <FormattedMessage id="checkout.payment.pay" defaultMessage="Pay" />;
 
   return (
     <Row className="checkout">
       <Col sm={12}>
         <label className={!isEmpty(errors) ? 'error' : ''}>
-          <FormattedMessage
-            id="checkout.payment.cardnumber"
-            defaultMessage="Card number"
-          />
-          <CardNumberElement
-            {...createOptions()}
-            onChange={handleChange}
-          />
+          <FormattedMessage id="checkout.payment.cardnumber" defaultMessage="Card number" />
+          <CardNumberElement {...createOptions()} onChange={handleChange} />
         </label>
       </Col>
       <Col sm={6}>
         <label className={!isEmpty(errors) ? 'error' : ''}>
-          <FormattedMessage
-            id="checkout.payment.expiration"
-            defaultMessage="Expiration date"
-          />
-          <CardExpiryElement
-            {...createOptions()}
-            onChange={handleChange}
-          />
+          <FormattedMessage id="checkout.payment.expiration" defaultMessage="Expiration date" />
+          <CardExpiryElement {...createOptions()} onChange={handleChange} />
         </label>
       </Col>
       <Col sm={6}>
         <label className={!isEmpty(errors) ? 'error' : ''}>
-          <FormattedMessage
-            id="checkout.payment.cvc"
-            defaultMessage="CVC"
-          />
-          <CardCVCElement
-            {...createOptions()}
-            onChange={handleChange}
-          />
+          <FormattedMessage id="checkout.payment.cvc" defaultMessage="CVC" />
+          <CardCVCElement {...createOptions()} onChange={handleChange} />
         </label>
       </Col>
       <Col sm={12} className="text-right">

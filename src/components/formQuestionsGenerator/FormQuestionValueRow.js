@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FormQuestionValueRow = ({
-  question, onChange, NotAtAllText, AbsolutelyText,
-}) => {
+const FormQuestionValueRow = ({ question, onChange, NotAtAllText, AbsolutelyText }) => {
   const questionInputRadioValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const listInputRadioValueOptions = questionInputRadioValues.map((value) => (
+  const listInputRadioValueOptions = questionInputRadioValues.map(value => (
     <label
       key={value}
       className="button-label"
@@ -26,13 +24,9 @@ const FormQuestionValueRow = ({
 
   return (
     <div className="com-sm-12">
-      <div className="survey-value-label-1">
-        {NotAtAllText}
-      </div>
+      <div className="survey-value-label-1">{NotAtAllText}</div>
       {listInputRadioValueOptions}
-      <div className="survey-value-label-2">
-        {AbsolutelyText}
-      </div>
+      <div className="survey-value-label-2">{AbsolutelyText}</div>
     </div>
   );
 };

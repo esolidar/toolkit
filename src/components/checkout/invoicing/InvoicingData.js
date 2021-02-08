@@ -7,10 +7,8 @@ import { Row, Col } from 'react-bootstrap';
 import TextareaField from '../../../elements/textareaField/TextareaField';
 import TextField from '../../../elements/textField/TextField';
 
-const InvoicingData = (props) => {
-  const {
-    errors, receipt, nif, invoice_address, agree,
-  } = props.state;
+const InvoicingData = props => {
+  const { errors, receipt, nif, invoice_address, agree } = props.state;
 
   return (
     <Row className="cart-item-invoice">
@@ -47,7 +45,10 @@ const InvoicingData = (props) => {
       </Col>
       <Col sm={12}>
         <TextareaField
-          label={props.translateMessage({ id: 'checkout.invoice_address', defaultMessage: 'Invoicing address' })}
+          label={props.translateMessage({
+            id: 'checkout.invoice_address',
+            defaultMessage: 'Invoicing address',
+          })}
           onChange={props.onChange}
           error={errors.invoice_address}
           value={invoice_address}
@@ -80,12 +81,11 @@ const InvoicingData = (props) => {
               />
               <div className="checkbox" />
             </label>
-            {errors.agree
-              && (
-                <div className="has-error">
-                  <span className="help-block">{errors.agree}</span>
-                </div>
-              )}
+            {errors.agree && (
+              <div className="has-error">
+                <span className="help-block">{errors.agree}</span>
+              </div>
+            )}
           </div>
         </div>
       </Col>

@@ -2,15 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon/Icon';
 
-const SocialNetworks = ({
-  icons, headingText,
-}) => {
+const SocialNetworks = ({ icons, headingText }) => {
   const listIcons = icons.map((icon, index) => (
-    <a
-      key={index}
-      href={icon.url}
-      target="blank"
-    >
+    <a key={index} href={icon.url} target="blank">
       <Icon iconClass={icon.class} />
     </a>
   ));
@@ -18,9 +12,7 @@ const SocialNetworks = ({
   return (
     <div className="socialNetworks">
       {headingText ? <h5>{headingText}</h5> : ''}
-      <div className="list-icon">
-        {listIcons}
-      </div>
+      <div className="list-icon">{listIcons}</div>
     </div>
   );
 };
