@@ -5,9 +5,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Slider from 'react-slick';
 
-const SliderImagesLanding = ({
-  autoPlay, className, imgList, imgWidth, title,
-}) => {
+const SliderImagesLanding = ({ autoPlay, className, imgList, imgWidth, title }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -30,7 +28,7 @@ const SliderImagesLanding = ({
         <Row className="slider">
           <Col xs={{ span: 12 }} sm={{ span: 12 }} md={{ span: 8, offset: 2 }}>
             <Slider {...settings}>
-              {imgList.map((img) => (
+              {imgList.map(img => (
                 <div key={img.id}>
                   <a href={img.url} target="_blank" rel="noopener noreferrer">
                     <img

@@ -1,4 +1,3 @@
-/* global expect */
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -16,7 +15,8 @@ const propsDefault = {
 const props = {
   title: 'Description',
   // eslint-disable-next-line max-len
-  description: 'Sed lacinia vehicula lorem mollis varius. Aliquam non tincidunt nibh. Suspendisse sapien est, auctor vel libero ut, pretium suscipit nisl. Pellentesque ut enim in dui aliquet aliquam ac sed nibh. Fusce nibh augue, dictum et turpis in, sollicitudin ornare est. Maecenas tincidunt ipsum et feugiat fermentum. Vestibulum sed aliquet ante. Nunc rhoncus, lectus nec venenatis vestibulum, nibh magna sodales nunc, eleifend luctus nisi magna eu magna. Cras mauris dolor, aliquet at laoreet sed, condimentum et mauris. Praesent lacinia purus vitae risus feugiat lobortis. Maecenas quis nulla varius, posuere lacus non, hendrerit metus. Cras euismod justo ac eros sollicitudin, id imperdiet risus sodales.',
+  description:
+    'Sed lacinia vehicula lorem mollis varius. Aliquam non tincidunt nibh. Suspendisse sapien est, auctor vel libero ut, pretium suscipit nisl. Pellentesque ut enim in dui aliquet aliquam ac sed nibh. Fusce nibh augue, dictum et turpis in, sollicitudin ornare est. Maecenas tincidunt ipsum et feugiat fermentum. Vestibulum sed aliquet ante. Nunc rhoncus, lectus nec venenatis vestibulum, nibh magna sodales nunc, eleifend luctus nisi magna eu magna. Cras mauris dolor, aliquet at laoreet sed, condimentum et mauris. Praesent lacinia purus vitae risus feugiat lobortis. Maecenas quis nulla varius, posuere lacus non, hendrerit metus. Cras euismod justo ac eros sollicitudin, id imperdiet risus sodales.',
   showmoreDesc: true,
   showMoreDescButton: true,
 };

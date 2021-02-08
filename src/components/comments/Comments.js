@@ -10,11 +10,28 @@ import CommentContent from './CommentContent';
 import { getEmployeeName, isDefined } from '../../utils';
 
 const Comments = ({
-  comments, deleteComment, deleteReply, env, user, requireLogin, onSubmitResponse, onChange, reply, translateMessage, laodingPostReply, loadMore, totalComments, loadingMoreComments, loadMoreComments, thumb,
+  comments,
+  deleteComment,
+  deleteReply,
+  env,
+  user,
+  requireLogin,
+  onSubmitResponse,
+  onChange,
+  reply,
+  translateMessage,
+  laodingPostReply,
+  loadMore,
+  totalComments,
+  loadingMoreComments,
+  loadMoreComments,
+  thumb,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
   const [isShowResponsive, setIsShowResponsive] = useState(false);
-  const [backgroundImageStyle, setBackgroundImageStyle] = useState(`url(${env}/frontend/assets/send-comment.png)`);
+  const [backgroundImageStyle, setBackgroundImageStyle] = useState(
+    `url(${env}/frontend/assets/send-comment.png)`
+  );
 
   useEffect(() => {
     if (window.innerWidth < 1025) {
@@ -32,7 +49,7 @@ const Comments = ({
     }
   }, [laodingPostReply, isShowResponsive]);
 
-  const showTextAreaClick = (comment) => {
+  const showTextAreaClick = comment => {
     const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
     if (!isLoggedIn) {
       requireLogin();
@@ -53,9 +70,9 @@ const Comments = ({
     }
   };
 
-  const renderCommentReplyes = (replies) => {
+  const renderCommentReplyes = replies => {
     if (replies) {
-      return replies.map((reply) => {
+      return replies.map(reply => {
         let newThumb;
         let newName;
         if (reply.company && !reply.user) {
@@ -76,7 +93,15 @@ const Comments = ({
 
         return (
           <div key={reply.id} className="request-comment">
-            <CommentHeader comment={reply} user={user} deleteComment={() => (deleteReply ? deleteReply(reply.id, reply.comment_id) : deleteComment(reply.id))} newThumb={newThumb} newName={newName} />
+            <CommentHeader
+              comment={reply}
+              user={user}
+              deleteComment={() =>
+                deleteReply ? deleteReply(reply.id, reply.comment_id) : deleteComment(reply.id)
+              }
+              newThumb={newThumb}
+              newName={newName}
+            />
             <CommentContent comment={reply} />
           </div>
         );
@@ -86,7 +111,7 @@ const Comments = ({
 
   const renderComments = () => {
     if (comments.length > 0) {
-      return comments.map((comment) => {
+      return comments.map(comment => {
         let newThumb;
         let newName;
         if (comment.company && !comment.user) {
@@ -102,65 +127,74 @@ const Comments = ({
           newName = comment.user.institution.sigla;
         } else {
           newThumb = comment.user.thumbs.thumb;
-          newName = comment.company ? getEmployeeName(comment.company.id, comment.user) : comment.user.name;
+          newName = comment.company
+            ? getEmployeeName(comment.company.id, comment.user)
+            : comment.user.name;
         }
 
         return (
           <div key={comment.id} className="request-comment">
-            <CommentHeader comment={comment} user={user} deleteComment={() => deleteComment(comment.id)} newThumb={newThumb} newName={newName} />
+            <CommentHeader
+              comment={comment}
+              user={user}
+              deleteComment={() => deleteComment(comment.id)}
+              newThumb={newThumb}
+              newName={newName}
+            />
             <CommentContent comment={comment} />
             <div className="content-reply">
-              <button type="button" className="btn-add-comment-reply" onClick={() => showTextAreaClick(comment)}>
-                <img
-                  alt="comment"
-                  src={`${env}/frontend/icons/ic-comment.svg`}
-                />
-                <FormattedMessage
-                  id="crowdfunding.comments.reply"
-                  defaultMessage="Reply"
-                />
+              <button
+                type="button"
+                className="btn-add-comment-reply"
+                onClick={() => showTextAreaClick(comment)}
+              >
+                <img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />
+                <FormattedMessage id="crowdfunding.comments.reply" defaultMessage="Reply" />
               </button>
-              {(showTextArea === comment.id)
-                && (
-                  <form onSubmit={onSubmitResponse} method="post">
-                    <div className="add-reply">
-                      <img
-                        src={thumb}
-                        alt="thumb"
-                      />
-                      <textarea
-                        className="input"
-                        style={{ backgroundImage: backgroundImageStyle, backgroundSize: laodingPostReply ? '16px' : '48px' }}
-                        name="reply"
-                        id={`textarea-${comment.id}`}
-                        onChange={onChange}
-                        onKeyDown={(e) => addMessage(e, comment.id, false)}
-                        value={reply}
-                        disabled={laodingPostReply}
-                        placeholder={translateMessage({ id: 'commentHere', defaultMessage: 'Comment here…' })}
-                      />
-                      <FontAwesomeIcon icon={faPaperPlane} className="mr-1 d-lg-none comment-reply" onClick={(e) => addMessage(e, comment.id, true)} />
-                    </div>
-                  </form>
-                )}
+              {showTextArea === comment.id && (
+                <form onSubmit={onSubmitResponse} method="post">
+                  <div className="add-reply">
+                    <img src={thumb} alt="thumb" />
+                    <textarea
+                      className="input"
+                      style={{
+                        backgroundImage: backgroundImageStyle,
+                        backgroundSize: laodingPostReply ? '16px' : '48px',
+                      }}
+                      name="reply"
+                      id={`textarea-${comment.id}`}
+                      onChange={onChange}
+                      onKeyDown={e => addMessage(e, comment.id, false)}
+                      value={reply}
+                      disabled={laodingPostReply}
+                      placeholder={translateMessage({
+                        id: 'commentHere',
+                        defaultMessage: 'Comment here…',
+                      })}
+                    />
+                    <FontAwesomeIcon
+                      icon={faPaperPlane}
+                      className="mr-1 d-lg-none comment-reply"
+                      onClick={e => addMessage(e, comment.id, true)}
+                    />
+                  </div>
+                </form>
+              )}
               {comment.totalReplies > 0 && (
                 <div className="comment-replies">
                   {renderCommentReplyes(comment.replies)}
                   {comment.totalReplies - comment.replies.length > 0 && (
                     <div className="readmore-box text-center">
-                      <button type="button" className="btn btn-read-more-comments" onClick={() => loadMore(comment.id, comment.page)}>
-                        {laodingPostReply
-                          && (
-                            <FormattedMessage
-                              id="loading"
-                              defaultMessage="Loading ..."
-                            />
-                          )}
+                      <button
+                        type="button"
+                        className="btn btn-read-more-comments"
+                        onClick={() => loadMore(comment.id, comment.page)}
+                      >
+                        {laodingPostReply && (
+                          <FormattedMessage id="loading" defaultMessage="Loading ..." />
+                        )}
                         {!laodingPostReply && (
-                          <FormattedMessage
-                            id="readmore"
-                            defaultMessage="Read more"
-                          />
+                          <FormattedMessage id="readmore" defaultMessage="Read more" />
                         )}
                       </button>
                     </div>
@@ -175,10 +209,7 @@ const Comments = ({
 
     return (
       <div className="text-center no-results">
-        <FormattedMessage
-          id="crowdfunding.no-comments"
-          defaultMessage="No comments"
-        />
+        <FormattedMessage id="crowdfunding.no-comments" defaultMessage="No comments" />
       </div>
     );
   };
@@ -194,20 +225,18 @@ const Comments = ({
             disabled={loadingMoreComments}
             onClick={loadMoreComments}
           >
-            {loadingMoreComments
-              && (
-                <FormattedMessage
-                  id="charityneeds.request.comments.loading"
-                  defaultMessage="Loading ..."
-                />
-              )}
-            {!loadingMoreComments
-              && (
-                <FormattedMessage
-                  id="charityneeds.request.comments.readmore"
-                  defaultMessage="Read more"
-                />
-              )}
+            {loadingMoreComments && (
+              <FormattedMessage
+                id="charityneeds.request.comments.loading"
+                defaultMessage="Loading ..."
+              />
+            )}
+            {!loadingMoreComments && (
+              <FormattedMessage
+                id="charityneeds.request.comments.readmore"
+                defaultMessage="Read more"
+              />
+            )}
           </button>
         </div>
       )}

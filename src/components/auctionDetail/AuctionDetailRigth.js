@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  injectIntl, FormattedMessage, FormattedNumber,
-} from 'react-intl';
+import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { convertToMyCurrency } from '../../utils/index';
 import Button from '../../elements/button/Button';
@@ -38,7 +36,9 @@ const AuctionDetailRigth = ({
     supported.image = auction.brand.logo_thumbs.thumb;
   } else if (auction.project) {
     supported.title = auction.project.title;
-    supported.image = auction.project.images ? `${env.cdn_uploads_url}/${auction.project.images[0].image}` : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+    supported.image = auction.project.images
+      ? `${env.cdn_uploads_url}/${auction.project.images[0].image}`
+      : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
   } else {
     supported = null;
   }
@@ -56,24 +56,27 @@ const AuctionDetailRigth = ({
           </Row>
           <Row className="mt-5">
             <Col>
-              <p className="control-label title-last-bid mb-2" id={`last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
+              <p
+                className="control-label title-last-bid mb-2"
+                id={`last-bid-label-${auction.id}`}
+                data-testid="title-last-bid"
+                style={{ color: primaryColor }}
+              >
                 {auction.last_bid ? (
-                  <FormattedMessage
-                    id="auction.detail.lastbid"
-                    defaultMessage="Last Bid"
-                  />
-                )
-                  : (
-                    <FormattedMessage
-                      id="auction.detail.startbid"
-                      defaultMessage="Start Bid"
-                    />
-                  )}
+                  <FormattedMessage id="auction.detail.lastbid" defaultMessage="Last Bid" />
+                ) : (
+                  <FormattedMessage id="auction.detail.startbid" defaultMessage="Start Bid" />
+                )}
               </p>
             </Col>
           </Row>
           <Row>
-            <Col sm={12} className="txt-price-t" id={`last-bid-value-${auction.id}`} data-testid="value-last-bid">
+            <Col
+              sm={12}
+              className="txt-price-t"
+              id={`last-bid-value-${auction.id}`}
+              data-testid="value-last-bid"
+            >
               <FormattedNumber
                 value={valueBid}
                 style="currency"
@@ -85,20 +88,14 @@ const AuctionDetailRigth = ({
             <Row>
               <Col sm={12} className="txt-bid-aprox">
                 {convertToMyCurrency(valueBid, auction.currency)}
-                <FormattedMessage
-                  id="auction.detail.bidApprox"
-                  defaultMessage=" approx."
-                />
+                <FormattedMessage id="auction.detail.bidApprox" defaultMessage=" approx." />
               </Col>
             </Row>
           )}
-          {(!isEnded && !isCommingSoon) && (
+          {!isEnded && !isCommingSoon && (
             <Row>
               <Col sm={12} className="auction-content-label" style={{ color: primaryColor }}>
-                <FormattedMessage
-                  id="auction.detail.newBid"
-                  defaultMessage="New Bid"
-                />
+                <FormattedMessage id="auction.detail.newBid" defaultMessage="New Bid" />
               </Col>
               <Col sm={6} className={error && 'has-error'}>
                 <TextField
@@ -110,15 +107,13 @@ const AuctionDetailRigth = ({
                   onChange={valueBidTextField}
                   error={error}
                   value={inputBidValue}
-                  placeholder={
-                    intl.formatMessage(
-                      {
-                        id: 'auction.textfield.minValue',
-                        defaultMessage: 'Min. Value: {value}',
-                      },
-                      { value: minValue },
-                    )
-                  }
+                  placeholder={intl.formatMessage(
+                    {
+                      id: 'auction.textfield.minValue',
+                      defaultMessage: 'Min. Value: {value}',
+                    },
+                    { value: minValue }
+                  )}
                   inputRef={inputRef}
                 />
               </Col>
@@ -131,11 +126,7 @@ const AuctionDetailRigth = ({
                 />
               </Col>
               <Col sm={12} className="subscribe-auction mt-5">
-                <button
-                  type="button"
-                  className="btn btn-link "
-                  onClick={showModalSubscribe}
-                >
+                <button type="button" className="btn btn-link " onClick={showModalSubscribe}>
                   <FormattedMessage
                     id="auction.detail.subscribeAuction"
                     defaultMessage="Subscribe the auction."
@@ -147,11 +138,13 @@ const AuctionDetailRigth = ({
           {isEnded && (
             <>
               <Row>
-                <Col sm={12} className="auction-content-label" data-testid="label-ended" style={{ color: primaryColor }}>
-                  <FormattedMessage
-                    id="auction.detail.ended"
-                    defaultMessage="Ended"
-                  />
+                <Col
+                  sm={12}
+                  className="auction-content-label"
+                  data-testid="label-ended"
+                  style={{ color: primaryColor }}
+                >
+                  <FormattedMessage id="auction.detail.ended" defaultMessage="Ended" />
                 </Col>
               </Row>
               <Row>
@@ -168,10 +161,7 @@ const AuctionDetailRigth = ({
             <>
               <Row>
                 <Col sm={12} className="auction-content-label" data-testid="label-ended">
-                  <FormattedMessage
-                    id="auction.detail.commingSoon"
-                    defaultMessage="Comming Soon"
-                  />
+                  <FormattedMessage id="auction.detail.commingSoon" defaultMessage="Comming Soon" />
                 </Col>
               </Row>
               <Row>
@@ -188,21 +178,24 @@ const AuctionDetailRigth = ({
             <Col sm={12} className="auction-box" data-testid="supported-section">
               <div>
                 <img className="npo-thumb" src={supported.image} alt="thumb" />
-                {(auction.brand && auction.recipient) && (
+                {auction.brand && auction.recipient && (
                   <FormattedMessage
                     id="auction.detail.brandSupport"
                     defaultMessage="{brandName} will benefit {instituionName} with this auction."
-                    values={{ brandName: auction.brand.name, instituionName: auction.recipient.institution.name }}
+                    values={{
+                      brandName: auction.brand.name,
+                      instituionName: auction.recipient.institution.name,
+                    }}
                   />
                 )}
-                {(auction.brand && !auction.recipient) && (
+                {auction.brand && !auction.recipient && (
                   <FormattedMessage
                     id="auction.detail.proceedsSupport"
                     defaultMessage="Proceeds support {brandName}"
                     values={{ brandName: auction.brand.name }}
                   />
                 )}
-                {(!auction.brand && auction.recipient) && (
+                {!auction.brand && auction.recipient && (
                   <FormattedMessage
                     id="auction.detail.institutionSupport"
                     defaultMessage="Proceeds support {instituionName}"
@@ -236,10 +229,7 @@ AuctionDetailRigth.propTypes = {
   intl: PropTypes.shape({
     formatMessage: PropTypes.func,
   }),
-  inputBidValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  inputBidValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueBidTextField: PropTypes.func,
   primaryColor: PropTypes.string,
   env: PropTypes.object,

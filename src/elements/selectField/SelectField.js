@@ -17,10 +17,15 @@ const SelectField = ({
   dataTestId,
   optionTestId,
 }) => {
-  const optionsList = (options) => {
+  const optionsList = options => {
     if (options) {
       return options.map((option, i) => (
-        <option data-testid={`${optionTestId}-${option.id}`} value={option.id} key={option.id || i} disabled={option.disabled}>
+        <option
+          data-testid={`${optionTestId}-${option.id}`}
+          value={option.id}
+          key={option.id || i}
+          disabled={option.disabled}
+        >
           {option.name || option.title}
         </option>
       ));
@@ -29,12 +34,11 @@ const SelectField = ({
 
   return (
     <div className={classnames('form-group', { 'has-error': error })}>
-      {label
-        && (
-          <label htmlFor={field} className="control-label">
-            {label}
-          </label>
-        )}
+      {label && (
+        <label htmlFor={field} className="control-label">
+          {label}
+        </label>
+      )}
       <select
         data-testid={dataTestId}
         name={field}
@@ -44,11 +48,7 @@ const SelectField = ({
         onChange={onChange}
         disabled={disabled}
       >
-        {!hiddenSelectText && (
-          <option value="">
-            {selectText}
-          </option>
-        )}
+        {!hiddenSelectText && <option value="">{selectText}</option>}
         {optionsList(options)}
       </select>
       {error && <span className="help-block">{error}</span>}
@@ -62,18 +62,9 @@ SelectField.propTypes = {
   dataTestId: PropTypes.string,
   optionTestId: PropTypes.string,
   options: PropTypes.array,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   label: PropTypes.string,
   onChange: PropTypes.func,
   field: PropTypes.string,

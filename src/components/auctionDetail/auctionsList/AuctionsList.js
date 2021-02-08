@@ -5,13 +5,7 @@ import Button from '../../../elements/button/Button';
 import { slugify } from '../../../utils/index';
 import AuctionThumb from '../../auctionThumb/AuctionThumb';
 
-const AuctionsList = ({
-  title,
-  listAuctions,
-  buttonTitle,
-  primaryColor,
-  env,
-}) => (
+const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =>
   listAuctions && (
     <>
       <Row className="other-auctions">
@@ -24,10 +18,12 @@ const AuctionsList = ({
       <Row>
         <Col lg={10} className="offset-lg-1">
           <Row>
-            {listAuctions.map((auction) => (
+            {listAuctions.map(auction => (
               <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
                 <a
-                  href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(auction.title)}`}
+                  href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(
+                    auction.title
+                  )}`}
                   title={auction.title}
                 >
                   <AuctionThumb
@@ -54,8 +50,7 @@ const AuctionsList = ({
         </Col>
       </Row>
     </>
-  )
-);
+  );
 
 AuctionsList.propTypes = {
   title: PropTypes.string,

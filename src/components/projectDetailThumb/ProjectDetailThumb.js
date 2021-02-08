@@ -12,12 +12,20 @@ import LightboxGallery from '../lightboxGallery/LightboxGallery';
 import Button from '../../elements/button/Button';
 
 const ProjectDetailThumb = ({
-  project, status, lang, serverlessResizeImage, color, admin, showRequestInfoView, intl, showReview,
+  project,
+  status,
+  lang,
+  serverlessResizeImage,
+  color,
+  admin,
+  showRequestInfoView,
+  intl,
+  showReview,
 }) => {
   const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
   const projectState = projectStatesMap.indexOf(project.status);
 
-  const handleChangeState = (e) => {
+  const handleChangeState = e => {
     const { value } = e.target;
     admin.changeStatus(projectStatesMap[+value]);
   };
@@ -26,17 +34,10 @@ const ProjectDetailThumb = ({
     <div className="project-detail">
       <div className="project-thumb">
         <div className={`${project.status} status-bar`}>
-          <div className="status">
-            {status}
-          </div>
+          <div className="status">{status}</div>
         </div>
-        <div
-          className="image"
-        >
-          <LightboxGallery
-            images={project.images}
-            serverlessResizeImage={serverlessResizeImage}
-          />
+        <div className="image">
+          <LightboxGallery images={project.images} serverlessResizeImage={serverlessResizeImage} />
         </div>
         {showReview && (
           <div className="ods-thumb">
@@ -54,27 +55,22 @@ const ProjectDetailThumb = ({
                 readonly={true}
                 initialRating={project.review_average}
               />
-            )
-              : <p className="category-name">N/A</p>}
+            ) : (
+              <p className="category-name">N/A</p>
+            )}
           </div>
         )}
         <div className="ods-thumb">
           <h4 style={{ color }}>
-            <FormattedMessage
-              id="category"
-              defaultMessage="Category"
-            />
+            <FormattedMessage id="category" defaultMessage="Category" />
           </h4>
           <p className="category-name">{project.project_category.name}</p>
         </div>
         <div className="ods-thumb">
           <h4 style={{ color }}>
-            <FormattedMessage
-              id="ods"
-              defaultMessage="ODS"
-            />
+            <FormattedMessage id="ods" defaultMessage="ODS" />
           </h4>
-          {project.ods.map((item) => (
+          {project.ods.map(item => (
             <img
               key={item.id}
               className="ods"
@@ -85,8 +81,27 @@ const ProjectDetailThumb = ({
         </div>
         {!project.cover && (
           <div className="owner">
-            <img src={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.thumbs.thumb : project.company.thumbs.thumb) : project.user.thumbs.thumb} alt={project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name} />
-            {project.as_company === 1 ? (project.whitelabel_config ? project.whitelabel_config.company.name : project.company.name) : project.user.name}
+            <img
+              src={
+                project.as_company === 1
+                  ? project.whitelabel_config
+                    ? project.whitelabel_config.company.thumbs.thumb
+                    : project.company.thumbs.thumb
+                  : project.user.thumbs.thumb
+              }
+              alt={
+                project.as_company === 1
+                  ? project.whitelabel_config
+                    ? project.whitelabel_config.company.name
+                    : project.company.name
+                  : project.user.name
+              }
+            />
+            {project.as_company === 1
+              ? project.whitelabel_config
+                ? project.whitelabel_config.company.name
+                : project.company.name
+              : project.user.name}
           </div>
         )}
       </div>
@@ -102,7 +117,10 @@ const ProjectDetailThumb = ({
               { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
             ]}
             value={projectState}
-            label={intl.formatMessage({ id: 'project.change.status.title', defaultMessage: 'Change project status' })}
+            label={intl.formatMessage({
+              id: 'project.change.status.title',
+              defaultMessage: 'Change project status',
+            })}
             field="changeState"
             onChange={handleChangeState}
             hiddenSelectText={true}

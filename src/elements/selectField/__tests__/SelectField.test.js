@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
 import SelectField from '../SelectField';
@@ -22,7 +20,7 @@ describe('SelectField component', () => {
         onChange={() => {}}
         selectText="Exemplo"
         error="error"
-      />,
+      />
     );
     expect(component.find('.control-label')).toHaveLength(1);
     expect(component.find('.control-label').text()).toEqual('Select exemple');
@@ -39,7 +37,7 @@ describe('SelectField component', () => {
         field="example"
         onChange={() => {}}
         error="error"
-      />,
+      />
     );
     expect(component.find('option')).toHaveLength(2);
   });
@@ -54,7 +52,7 @@ describe('SelectField component', () => {
         onChange={() => {}}
         error="error"
         hiddenSelectText={true}
-      />,
+      />
     );
     expect(component.find('option')).toHaveLength(1);
   });
@@ -69,7 +67,7 @@ describe('SelectField component', () => {
         onChange={() => {}}
         error="error"
         hiddenSelectText={true}
-      />,
+      />
     );
 
     expect(component.find('option').is('[disabled]')).toBe(true);
@@ -85,7 +83,7 @@ describe('SelectField component', () => {
         onChange={() => {}}
         error="error"
         hiddenSelectText={true}
-      />,
+      />
     );
 
     expect(component.find('.form-control').hasClass('required-field')).toEqual(true);

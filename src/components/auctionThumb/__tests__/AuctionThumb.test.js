@@ -1,6 +1,3 @@
-/* global expect */
-/* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
@@ -28,7 +25,8 @@ const propsAuction = {
     {
       id: 200,
       thumbs: {
-        detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+        detail:
+          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
       },
       s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
     },
@@ -76,13 +74,16 @@ const propsAuction = {
     institution: {
       id: 30,
       name: 'Helpo',
-      image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+      image:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
       currency: {
         id: 2,
       },
       thumbs: {
-        detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-        thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+        detail:
+          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
+        thumb:
+          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
       },
       s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
       s3_cover_key: null,
@@ -93,42 +94,33 @@ const propsAuction = {
 
 describe('AuctionThumb', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper).toHaveLength(1);
   });
 
   it('should exist background image', () => {
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
+    expect(wrapper.find('.auction-photo').props().style.backgroundImage).toEqual(
+      'url(https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg)'
     );
-    expect(wrapper.find('.auction-photo').props().style.backgroundImage).toEqual('url(https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg)');
   });
 
   it('should exist countdown', () => {
     const wrapper = shallow(
-      <CountdownThumb
-        startDate={propsAuction.dateStart}
-        endDate={propsAuction.dateLimit}
-      />,
+      <CountdownThumb startDate={propsAuction.dateStart} endDate={propsAuction.dateLimit} />
     );
     expect(wrapper).toHaveLength(1);
   });
 
   it('should appear title in english', () => {
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find('.text').text()).toEqual(propsAuction.title_en);
   });
 
   it('should appear title in portuguese', () => {
     propsAuction.title_en = '';
 
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find('.text').text()).toEqual(propsAuction.title);
   });
 
@@ -138,9 +130,7 @@ describe('AuctionThumb', () => {
     propsAuction.dateStart = '2019-02-08 07:00:00';
     propsAuction.dateLimit = '2020-07-20 16:00:00';
 
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedNumber).prop('currency')).toEqual(propsAuction.currency.small);
     expect(wrapper.find(FormattedNumber).prop('value')).toEqual(propsAuction.last_bid_value.value);
     expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
@@ -153,9 +143,7 @@ describe('AuctionThumb', () => {
     propsAuction.dateLimit = '2020-07-20 16:00:00';
     propsAuction.last_bid_value = null;
 
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedNumber).prop('currency')).toEqual(propsAuction.currency.small);
     expect(wrapper.find(FormattedNumber).prop('value')).toEqual(propsAuction.bid_start);
     expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
@@ -167,9 +155,7 @@ describe('AuctionThumb', () => {
     propsAuction.dateStart = '2019-02-08 07:00:00';
     propsAuction.dateLimit = '2019-07-20 16:00:00';
 
-    const wrapper = shallow(
-      <AuctionThumb auction={propsAuction} />,
-    );
+    const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Raised');
   });
 });

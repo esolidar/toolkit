@@ -17,7 +17,13 @@ const CommentPost = ({
   <Col id={`post-${postId}`} sm={12} className="no-padding">
     <div className="comment-post-no-border d-block">
       <div className="comment-post-projects">
-        <form onSubmit={(e) => { e.preventDefault(); onSubmit(postId); }} method="post">
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            onSubmit(postId);
+          }}
+          method="post"
+        >
           <Col sm={12} className="pt-3">
             <TextareaField
               id={`text-reply-${postId}`}
@@ -29,14 +35,14 @@ const CommentPost = ({
               error={errors[`reply-${postId}`]}
               required={true}
             />
-            <button type="submit" className="btn-esolidar btn-success-full float-right" disabled={disabled}>
-              <FormattedMessage
-                id="projects.comments.send"
-                defaultMessage="Send"
-              />
+            <button
+              type="submit"
+              className="btn-esolidar btn-success-full float-right"
+              disabled={disabled}
+            >
+              <FormattedMessage id="projects.comments.send" defaultMessage="Send" />
             </button>
-            {errors.text
-                && <span className="error">{errors.text}</span>}
+            {errors.text && <span className="error">{errors.text}</span>}
           </Col>
         </form>
       </div>

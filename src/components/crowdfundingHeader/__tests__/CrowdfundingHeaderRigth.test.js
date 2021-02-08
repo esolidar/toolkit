@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -61,12 +59,15 @@ const propsCampaign = {
   company: {
     id: 1,
     name: 'Webankor (eSolidar)',
-    logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+    logo:
+      'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
     country_id: 150,
     currency_id: 1,
     thumbs: {
-      detail: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-DETAIL.png',
-      thumb: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-THUMB.png',
+      detail:
+        'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-DETAIL.png',
+      thumb:
+        'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-THUMB.png',
       cover_image: 'https://static.testesolidar.com/frontend/assets/no-image.png',
     },
     s3_logo_key: 'companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
@@ -112,7 +113,8 @@ const propsCampaign = {
     {
       id: 56,
       crowdfunding_id: 44,
-      image: 'crowdfundings/html-color-codes-color-tutorials-hero-00e10b1f-aa0efdbd-ca28-4489-b3d6-d082cfedd5da.jpg',
+      image:
+        'crowdfundings/html-color-codes-color-tutorials-hero-00e10b1f-aa0efdbd-ca28-4489-b3d6-d082cfedd5da.jpg',
     },
   ],
   currency: {
@@ -153,8 +155,12 @@ describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
-      </IntlProvider>,
+        <CrowdfundingHeaderRigth
+          campaignTitle={() => 'title test'}
+          campaign={propsCampaign}
+          env={propsEnv}
+        />
+      </IntlProvider>
     );
     // console.log(wrapper.debug());
     expect(wrapper).toHaveLength(1);
@@ -163,8 +169,12 @@ describe('CrowdfundingHeader', () => {
   it('should exist a title', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
-      </IntlProvider>,
+        <CrowdfundingHeaderRigth
+          campaignTitle={() => 'title test'}
+          campaign={propsCampaign}
+          env={propsEnv}
+        />
+      </IntlProvider>
     );
     const title = <h2 className="title-campaign">title test</h2>;
     expect(wrapper.contains(title)).toEqual(true);
@@ -173,8 +183,12 @@ describe('CrowdfundingHeader', () => {
   it('should value of crowdfunding is €60.00', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
-      </IntlProvider>,
+        <CrowdfundingHeaderRigth
+          campaignTitle={() => 'title test'}
+          campaign={propsCampaign}
+          env={propsEnv}
+        />
+      </IntlProvider>
     );
     expect(wrapper.find('.raised-text.col-5').text()).toEqual('€60.00');
   });
@@ -182,8 +196,12 @@ describe('CrowdfundingHeader', () => {
   it('should value of crowdfunding is €10,000.00', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
-      </IntlProvider>,
+        <CrowdfundingHeaderRigth
+          campaignTitle={() => 'title test'}
+          campaign={propsCampaign}
+          env={propsEnv}
+        />
+      </IntlProvider>
     );
     expect(wrapper.find('.goal-span').at(1).text()).toEqual('€10,000.00');
   });
@@ -191,8 +209,12 @@ describe('CrowdfundingHeader', () => {
   it('should exist a number of donations', () => {
     const wrapper = mount(
       <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth campaignTitle={() => 'title test'} campaign={propsCampaign} env={propsEnv} />
-      </IntlProvider>,
+        <CrowdfundingHeaderRigth
+          campaignTitle={() => 'title test'}
+          campaign={propsCampaign}
+          env={propsEnv}
+        />
+      </IntlProvider>
     );
     expect(wrapper.find('.total-donations-value.col-sm-12').text()).toEqual('2');
   });

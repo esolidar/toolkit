@@ -2,12 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CheckboxField = ({
-  value, name, onChange, checked, label, error, disabled, id, dataTestId,
+  value,
+  name,
+  onChange,
+  checked,
+  label,
+  error,
+  disabled,
+  id,
+  dataTestId,
 }) => (
   <div className="checkbox-inline">
-    <div
-      className="form-group"
-    >
+    <div className="form-group">
       <label htmlFor={name}>
         <input
           data-testid={dataTestId}
@@ -33,9 +39,7 @@ CheckboxField.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  label: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.node,
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   error: PropTypes.string,
   disabled: PropTypes.bool,
   id: PropTypes.string,

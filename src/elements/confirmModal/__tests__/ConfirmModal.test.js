@@ -1,22 +1,21 @@
-/* global expect */
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  render, waitFor, screen,
-} from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ConfirmModal from '../ConfirmModal';
 
 test('renders children button properly', async () => {
   render(
     <ConfirmModal
-      onConfirm={() => { }}
+      onConfirm={() => {}}
       body="Are you sure?"
       confirmText="Confirm"
       title="Confirmation"
     >
-      <button type="button" className="btn" data-testid="button">Action</button>
-    </ConfirmModal>,
+      <button type="button" className="btn" data-testid="button">
+        Action
+      </button>
+    </ConfirmModal>
   );
   await waitFor(() => {
     const button = screen.getByTestId('button');
@@ -27,12 +26,12 @@ test('renders children button properly', async () => {
 test('renders without children button properly', async () => {
   render(
     <ConfirmModal
-      onConfirm={() => { }}
+      onConfirm={() => {}}
       body="Are you sure?"
       confirmText="Confirm"
       title="Confirmation"
       buttonText="button-without-children"
-    />,
+    />
   );
 
   await waitFor(() => {
@@ -45,13 +44,15 @@ test('renders without children button properly', async () => {
 test('simulate click on button', async () => {
   render(
     <ConfirmModal
-      onConfirm={() => { }}
+      onConfirm={() => {}}
       body="Are you sure?"
       confirmText="Confirm"
       title="Confirmation"
     >
-      <button type="button" className="btn" data-testid="button">Action</button>
-    </ConfirmModal>,
+      <button type="button" className="btn" data-testid="button">
+        Action
+      </button>
+    </ConfirmModal>
   );
   await waitFor(() => {
     const btn = screen.getByTestId('button');

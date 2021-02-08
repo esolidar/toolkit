@@ -33,9 +33,7 @@ const ProjectFilters = ({
     <div className="box project-filters">
       <Row>
         <Col sm={12}>
-          <h3>
-            {searchTitleLabel}
-          </h3>
+          <h3>{searchTitleLabel}</h3>
         </Col>
         <Col sm={12}>
           <TextField
@@ -79,7 +77,7 @@ const ProjectFilters = ({
                 <CheckboxField
                   label={o.name}
                   error=""
-                  onChange={(x) => onSelectOds(x, idx)}
+                  onChange={x => onSelectOds(x, idx)}
                   name={o.tag_name}
                   value={o.ods_id}
                   checked={o.checked}
@@ -110,11 +108,7 @@ const ProjectFilters = ({
               />
             </Col>
             <Col sm={12} className="text-right">
-              <Button
-                extraClass="success-full"
-                onClick={applyFilter}
-                text={applyButtonLabel}
-              />
+              <Button extraClass="success-full" onClick={applyFilter} text={applyButtonLabel} />
             </Col>
           </Row>
         </div>

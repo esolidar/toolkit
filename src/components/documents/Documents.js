@@ -29,7 +29,7 @@ const Documents = ({
   closeModal,
   colSm,
 }) => {
-  const formatBytes = (bytes) => {
+  const formatBytes = bytes => {
     const kb = 1024;
     const ndx = Math.floor(Math.log(bytes) / Math.log(kb));
     const fileSizeTypes = ['bytes', 'Kb', 'Mb', 'Gb', 'Tb', 'pb', 'eb', 'zb', 'yb'];
@@ -39,13 +39,11 @@ const Documents = ({
 
   const renderDocuments = () => {
     if (isLoadingSearch) {
-      return (
-        <Loading />
-      );
+      return <Loading />;
     }
 
     if (documents.length > 0) {
-      return documents.map((document) => {
+      return documents.map(document => {
         const fileUserOwner = document.user_id ? document.user_id : 0;
         const userId = localStorage.user ? JSON.parse(localStorage.user).id : '';
         let icon;
@@ -68,22 +66,22 @@ const Documents = ({
 
         return (
           <div className="document-row" key={document.id}>
-            {document.title ? (
-              <h3>{document.title}</h3>
-            ) : (
-              <h3>{decodeURI(document.name)}</h3>
-            )}
-            {document.summary && (
-              <p>{document.summary}</p>
-            )}
+            {document.title ? <h3>{document.title}</h3> : <h3>{decodeURI(document.name)}</h3>}
+            {document.summary && <p>{document.summary}</p>}
             <Icon iconClass={icon} />
             &nbsp;
-            <a href={document.file} className="download-file" rel="noopener noreferrer" target="_blank" title={document.title}>
+            <a
+              href={document.file}
+              className="download-file"
+              rel="noopener noreferrer"
+              target="_blank"
+              title={document.title}
+            >
               {downloadText}
               &nbsp;
               {formatBytes(document.file_size)}
             </a>
-            {(openModalDelete && (fileUserOwner === userId)) && (
+            {openModalDelete && fileUserOwner === userId && (
               <button
                 type="button"
                 className="deleteButton"
@@ -96,23 +94,15 @@ const Documents = ({
         );
       });
     }
-    return (
-      <div className="noResult-div">
-        {noResultsText}
-      </div>
-    );
+    return <div className="noResult-div">{noResultsText}</div>;
   };
 
   return (
     <Col sm={colSm || 9} className="documents">
       {headerTitleText && (
         <div className="box">
-          <h3>
-            {headerTitleText}
-          </h3>
-          <p>
-            {headerSubtitleText}
-          </p>
+          <h3>{headerTitleText}</h3>
+          <p>{headerSubtitleText}</p>
         </div>
       )}
       <TextField
@@ -163,15 +153,8 @@ const Documents = ({
                 </p>
               </div>
               <div className="col-sm-12 text-right">
-                <button
-                  className="btn btn-submit"
-                  type="button"
-                  onClick={deleteDocument}
-                >
-                  <FormattedMessage
-                    id="company.department.yes"
-                    defaultMessage="Yes"
-                  />
+                <button className="btn btn-submit" type="button" onClick={deleteDocument}>
+                  <FormattedMessage id="company.department.yes" defaultMessage="Yes" />
                 </button>
               </div>
             </div>

@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const FaqItem = ({
-  env, id, faqId, changeId, type, title, cardBody,
-}) => {
+const FaqItem = ({ env, id, faqId, changeId, type, title, cardBody }) => {
   const [isOpen, setIsOpen] = useState(faqId.toString() === id);
-  const handleClick = (id) => {
+  const handleClick = id => {
     setIsOpen(!isOpen);
     changeId(type, id);
   };
@@ -15,9 +13,17 @@ const FaqItem = ({
   return (
     <div className="accordion-wrapper">
       <div className="panel">
-        <div className={`accordion-title ${isOpen ? 'open' : ''}`} onClick={() => handleClick(faqId)} aria-hidden="true">
+        <div
+          className={`accordion-title ${isOpen ? 'open' : ''}`}
+          onClick={() => handleClick(faqId)}
+          aria-hidden="true"
+        >
           {title}
-          <img src={`${env.cdn_static_url}/frontend/icons/ic-arrow-down-blue.svg`} className="arrow" alt="Arrow" />
+          <img
+            src={`${env.cdn_static_url}/frontend/icons/ic-arrow-down-blue.svg`}
+            className="arrow"
+            alt="Arrow"
+          />
           <div className="dot-line" />
         </div>
         <div className={`accordion-item ${isOpen ? '' : 'collapsed'}`}>

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
@@ -17,8 +17,10 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -29,7 +31,8 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
       ],
       images: [
@@ -66,8 +69,10 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -78,7 +83,8 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -96,17 +102,20 @@ describe('ProjectDetailInfo component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -131,8 +140,11 @@ describe('ProjectDetailInfo component', () => {
     const component = shallow(
       <IntlProvider locale="en">
         <ProjectDetailInfo project={project} />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
     expect(component.find('Question').length).toBe(project.form.length);
   });
@@ -148,8 +160,10 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -198,7 +212,7 @@ describe('ProjectDetailInfo component', () => {
     const component = mount(
       <IntlProvider locale="en">
         <ProjectDetailInfo project={project} />
-      </IntlProvider>,
+      </IntlProvider>
     );
     expect(component.find('PrivateIcon').length).toBe(1);
   });
@@ -214,8 +228,10 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -256,7 +272,7 @@ describe('ProjectDetailInfo component', () => {
     const component = mount(
       <IntlProvider locale="en">
         <ProjectDetailInfo project={project} showRequestInfoView={true} />
-      </IntlProvider>,
+      </IntlProvider>
     );
     expect(component.find('CheckboxField').length).toBe(1);
   });
@@ -272,8 +288,10 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -315,7 +333,7 @@ describe('ProjectDetailInfo component', () => {
     const component = mount(
       <IntlProvider locale="en">
         <ProjectDetailInfo project={project} showRequestInfoView={true} />
-      </IntlProvider>,
+      </IntlProvider>
     );
     expect(component.find('TextareaField').length).toBe(1);
   });

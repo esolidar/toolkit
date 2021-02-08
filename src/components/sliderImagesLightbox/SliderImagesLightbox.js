@@ -7,26 +7,14 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
-const SliderNextArrow = (props) => {
+const SliderNextArrow = props => {
   const { onClick } = props;
-  return (
-    <button
-      type="button"
-      className="next-arrow"
-      onClick={onClick}
-    />
-  );
+  return <button type="button" className="next-arrow" onClick={onClick} />;
 };
 
-const SliderPrevArrow = (props) => {
+const SliderPrevArrow = props => {
   const { onClick } = props;
-  return (
-    <button
-      type="button"
-      className="prev-arrow"
-      onClick={onClick}
-    />
-  );
+  return <button type="button" className="prev-arrow" onClick={onClick} />;
 };
 
 class SliderImagesLightbox extends Component {
@@ -47,17 +35,19 @@ class SliderImagesLightbox extends Component {
     const { images, video, env } = this.props;
     let imagesData = [];
     if (video) {
-      const video = [{
-        id: 0,
-        image: `${env.cdn_static_url}/frontend/assets/video.png`,
-        video: this.props.video,
-        thumbs: {
-          standard: `${env.cdn_static_url}/frontend/assets/video.png`,
-          detail: `${env.cdn_static_url}/frontend/assets/video.png`,
-          pin: `${env.cdn_static_url}/frontend/assets/video.png`,
-          thumb: `${env.cdn_static_url}/frontend/assets/video.png`,
+      const video = [
+        {
+          id: 0,
+          image: `${env.cdn_static_url}/frontend/assets/video.png`,
+          video: this.props.video,
+          thumbs: {
+            standard: `${env.cdn_static_url}/frontend/assets/video.png`,
+            detail: `${env.cdn_static_url}/frontend/assets/video.png`,
+            pin: `${env.cdn_static_url}/frontend/assets/video.png`,
+            thumb: `${env.cdn_static_url}/frontend/assets/video.png`,
+          },
         },
-      }];
+      ];
       imagesData = video.concat(images);
 
       this.updateState({
@@ -71,7 +61,7 @@ class SliderImagesLightbox extends Component {
   }
 
   toggleModal = () => {
-    this.setState((state) => ({ lightboxIsOpen: !state.lightboxIsOpen }));
+    this.setState(state => ({ lightboxIsOpen: !state.lightboxIsOpen }));
   };
 
   openLightbox() {
@@ -144,11 +134,19 @@ class SliderImagesLightbox extends Component {
           key={image.id}
           className="open-lightbox"
         >
-          <img src={`${image.thumbs ? image.thumbs.detail : `${env.serverlessResizeImage}/${image.image}?width=550&height=470`}`} style={{ width: '100%' }} alt={image.image} />
+          <img
+            src={`${
+              image.thumbs
+                ? image.thumbs.detail
+                : `${env.serverlessResizeImage}/${image.image}?width=550&height=470`
+            }`}
+            style={{ width: '100%' }}
+            alt={image.image}
+          />
         </button>
       );
     });
-  }
+  };
 
   render() {
     const { images, lightboxIsOpen } = this.state;
@@ -156,7 +154,18 @@ class SliderImagesLightbox extends Component {
     const imagesOnly = this.props.images;
     const settings = {
       customPaging(i) {
-        return <a><img alt="thumb" src={`${images[i].thumbs ? images[i].thumbs.thumb : `${env.serverlessResizeImage}/${images[i].image}?width=50&height=50`}`} /></a>;
+        return (
+          <a>
+            <img
+              alt="thumb"
+              src={`${
+                images[i].thumbs
+                  ? images[i].thumbs.thumb
+                  : `${env.serverlessResizeImage}/${images[i].image}?width=50&height=50`
+              }`}
+            />
+          </a>
+        );
       },
       dots: true,
       dotsClass: 'slick-dots slick-thumb',
@@ -173,15 +182,15 @@ class SliderImagesLightbox extends Component {
 
     for (let i = 0; i < len; i += 1) {
       arrayImages.push({
-        src: imagesOnly[i].thumbs ? imagesOnly[i].thumbs.standard : `${env.serverlessResizeImage}/${imagesOnly[i].image}`,
+        src: imagesOnly[i].thumbs
+          ? imagesOnly[i].thumbs.standard
+          : `${env.serverlessResizeImage}/${imagesOnly[i].image}`,
       });
     }
 
     return (
       <div>
-        <Slider {...settings}>
-          {this.renderImages()}
-        </Slider>
+        <Slider {...settings}>{this.renderImages()}</Slider>
         <ModalGateway>
           {lightboxIsOpen ? (
             <Modal onClose={this.toggleModal}>

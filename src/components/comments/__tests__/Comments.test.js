@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import Comments from '../Comments';
@@ -17,14 +17,17 @@ const props = {
       user: {
         institution: {
           id: 106,
-          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
+          image:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
           name: 'Associação Um Milhão Contra a Pobreza e Exclusão Social em Portugal',
           s3_cover_key: null,
           s3_image_key: 'institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
           sigla: 'CD',
           thumbs: {
-            detail: 'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-DETAIL.jpeg',
-            thumb: 'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-THUMB.jpeg',
+            detail:
+              'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-DETAIL.jpeg',
+            thumb:
+              'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b-THUMB.jpeg',
           },
         },
       },
@@ -89,18 +92,18 @@ const props = {
   ],
   env: '',
   user: {},
-  deleteComment: () => { },
-  getEmployeeName: () => { },
+  deleteComment: () => {},
+  getEmployeeName: () => {},
   reply: '',
-  requireLogin: () => { },
-  onSubmitResponse: () => { },
+  requireLogin: () => {},
+  onSubmitResponse: () => {},
   laodingPostReply: false,
-  loadMore: () => { },
-  onChange: () => { },
-  translateMessage: () => { },
+  loadMore: () => {},
+  onChange: () => {},
+  translateMessage: () => {},
   totalComments: 3,
   loadingMoreComments: false,
-  loadMoreComments: () => { },
+  loadMoreComments: () => {},
   thumb: 'image.png',
 };
 

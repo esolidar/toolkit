@@ -44,38 +44,30 @@ const Giftcards = ({
     }
     return (
       <div className="error" style={{ textAlign: 'center' }}>
-        <FormattedMessage
-          id="giftcard.expired"
-          defaultMessage="Expired"
-        />
+        <FormattedMessage id="giftcard.expired" defaultMessage="Expired" />
       </div>
     );
   };
 
   return (
     <Row>
-      {giftCardsList.length > 0
-        && (
-          <Col sm={12} className="text-center mobile-nopadding">
-            <Pagination
-              prevPageText={<div className="prev-page" />}
-              nextPageText={<div className="next-page" />}
-              activePage={giftCardsListActivePage}
-              itemsCountPerPage={Number(giftCardsListPerPage)}
-              totalItemsCount={giftCardsListTotal}
-              pageRangeDisplayed={5}
-              onChange={giftCardsListHandlePageChange}
-            />
-          </Col>
-        )}
+      {giftCardsList.length > 0 && (
+        <Col sm={12} className="text-center mobile-nopadding">
+          <Pagination
+            prevPageText={<div className="prev-page" />}
+            nextPageText={<div className="next-page" />}
+            activePage={giftCardsListActivePage}
+            itemsCountPerPage={Number(giftCardsListPerPage)}
+            totalItemsCount={giftCardsListTotal}
+            pageRangeDisplayed={5}
+            onChange={giftCardsListHandlePageChange}
+          />
+        </Col>
+      )}
 
       <Col sm={12} className="mobile-nopadding">
-        <h3>
-          {usedExpiredText}
-        </h3>
-        <p>
-          {usedTitleText}
-        </p>
+        <h3>{usedExpiredText}</h3>
+        <p>{usedTitleText}</p>
       </Col>
       <Col sm={12} className="giftcards-used-table padding-bottom30 mobile-nopadding">
         <input
@@ -99,38 +91,17 @@ const Giftcards = ({
           data={giftCardsListUsed}
           remote={true}
         >
-          <TableHeaderColumn
-            dataField="id"
-            isKey={true}
-            hidden
-          />
-          <TableHeaderColumn
-            dataSort
-            dataField="name"
-          >
+          <TableHeaderColumn dataField="id" isKey={true} hidden />
+          <TableHeaderColumn dataSort dataField="name">
             {giftcardTableTitleText}
           </TableHeaderColumn>
-          <TableHeaderColumn
-            dataSort
-            dataField="institution_name"
-            dataFormat={renderCause}
-          >
+          <TableHeaderColumn dataSort dataField="institution_name" dataFormat={renderCause}>
             {causeText}
           </TableHeaderColumn>
-          <TableHeaderColumn
-            dataField="amount"
-            dataSort
-            dataFormat={rendeAmount}
-            width="130"
-          >
+          <TableHeaderColumn dataField="amount" dataSort dataFormat={rendeAmount} width="130">
             {amountText}
           </TableHeaderColumn>
-          <TableHeaderColumn
-            dataField="date"
-            dataFormat={renderDate}
-            dataSort
-            width="130"
-          >
+          <TableHeaderColumn dataField="date" dataFormat={renderDate} dataSort width="130">
             {dateText}
           </TableHeaderColumn>
         </BootstrapTable>

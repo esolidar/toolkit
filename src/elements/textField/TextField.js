@@ -23,17 +23,15 @@ const TextField = ({
   dataTestId,
   inputRef,
 }) => (
-  <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
+  <div
+    className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
+  >
     {label && (
       <label htmlFor={id || field} className="control-label">
         {label}
       </label>
     )}
-    {help && (
-      <p className="help">
-        {help}
-      </p>
-    )}
+    {help && <p className="help">{help}</p>}
     <input
       data-testid={dataTestId}
       autoComplete="off"
@@ -51,8 +49,8 @@ const TextField = ({
       className={error ? 'form-control required-field' : 'form-control'}
       ref={inputRef}
     />
-    {error && (<span className="help-block">{error}</span>)}
-    {message && (<span className="help-block">{message}</span>)}
+    {error && <span className="help-block">{error}</span>}
+    {message && <span className="help-block">{message}</span>}
   </div>
 );
 
@@ -60,21 +58,12 @@ TextField.propTypes = {
   dataTestId: PropTypes.string,
   field: PropTypes.string.isRequired,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,

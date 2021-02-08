@@ -7,7 +7,7 @@ export const getEmployeeName = (companyId, user) => {
   if (user && user.work_email) {
     const workEmails = user.work_email;
     if (companyId && workEmails.length > 0) {
-      const workEmail = find(workEmails, (employee) => employee.company_id === companyId);
+      const workEmail = find(workEmails, employee => employee.company_id === companyId);
       return workEmail && workEmail.name ? workEmail.name : `${user.firstName} ${user.lastName}`;
     }
     return `${user.firstName} ${user.lastName}`;
@@ -15,13 +15,13 @@ export const getEmployeeName = (companyId, user) => {
   return '--';
 };
 
-export const isDefined = (v) => v !== undefined && v !== null;
+export const isDefined = v => v !== undefined && v !== null;
 
-export const clone = (v) => JSON.parse(JSON.stringify(v));
+export const clone = v => JSON.parse(JSON.stringify(v));
 
-export const firstElemOf = (array) => array[0];
+export const firstElemOf = array => array[0];
 
-export const lastElemOf = (array) => array[array.length - 1];
+export const lastElemOf = array => array[array.length - 1];
 
 export const addUrlParam = (param, value) => {
   const url = new URL(window.location.href);
@@ -29,80 +29,82 @@ export const addUrlParam = (param, value) => {
   window.history.pushState({ path: url.href }, '', url.href);
 };
 
-export const removeUrlParam = (param) => {
+export const removeUrlParam = param => {
   const url = new URL(window.location.href);
   url.searchParams.delete(param);
   window.history.pushState({ path: url.href }, '', url.href);
 };
 
-export const getUrlParam = (param) => {
+export const getUrlParam = param => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
   return urlParams.get(param);
 };
 
-export const removeAllUrlParams = (url) => url.substring(0, url.indexOf('?'));
+export const removeAllUrlParams = url => url.substring(0, url.indexOf('?'));
 
-export const filterUnique = (array, key) => array.filter((v, i, a) => a.findIndex((t) => (t[key] === v[key])) === i);
+export const filterUnique = (array, key) =>
+  array.filter((v, i, a) => a.findIndex(t => t[key] === v[key]) === i);
 
 export const convertToMyCurrency = (value, currency) => {
   let convertedValue = value;
-  const myCurrency = localStorage.user && JSON.parse(localStorage.user).currency !== 'null' ? JSON.parse(localStorage.user).currency : currency;
+  const myCurrency =
+    localStorage.user && JSON.parse(localStorage.user).currency !== 'null'
+      ? JSON.parse(localStorage.user).currency
+      : currency;
 
   if (myCurrency.id !== currency.id) {
     convertedValue = (value * currency.value) / myCurrency.value;
   }
 
-  return (
-    <FormattedNumber
-      value={convertedValue}
-      style="currency"
-      currency={myCurrency.small}
-    />
-  );
+  return <FormattedNumber value={convertedValue} style="currency" currency={myCurrency.small} />;
 };
 
-export const getLocalStorageAuctionPrivateCode = (auctionId) => {
+export const getLocalStorageAuctionPrivateCode = auctionId => {
   if (localStorage.privateCode) {
     const hasAuctionCode = JSON.parse(localStorage.privateCode);
-    const auctionCode = hasAuctionCode.find((item) => +item.id === +auctionId);
+    const auctionCode = hasAuctionCode.find(item => +item.id === +auctionId);
     return auctionCode ? auctionCode.code : null;
   }
   return null;
 };
 
 export const isCompanyAdmin = (companyId, user) => {
-  const isAdmin = findIndex(user.work_email, (o) => o.company_id === companyId && (o.role === 'admin' || o.role === 'owner'));
+  const isAdmin = findIndex(
+    user.work_email,
+    o => o.company_id === companyId && (o.role === 'admin' || o.role === 'owner')
+  );
   return isAdmin >= 0;
 };
 
-export const isValidURL = (str) => {
-  const pattern = new RegExp('^(https?:\\/\\/)?' // protocol
-    + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' // domain name
-    + '((\\d{1,3}\\.){3}\\d{1,3}))' // OR ip (v4) address
-    + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' // port and path
-    + '(\\?[;&a-z\\d%_.~+=-]*)?' // query string
-    + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+export const isValidURL = str => {
+  const pattern = new RegExp(
+    '^(https?:\\/\\/)?' + // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+      '(\\#[-a-z\\d_]*)?$',
+    'i'
+  ); // fragment locator
   return !!pattern.test(str);
 };
 
-export const isEmpty = (obj) => Object.keys(obj).length === 0;
+export const isEmpty = obj => Object.keys(obj).length === 0;
 
 export const blinkElement = (elmId, className) => {
   const element = document.getElementById(elmId);
   if (!isDefined(element)) return;
   element.classList.add(className);
-  setTimeout(
-    () => {
-      element.classList.remove(className);
-    },
-    3000,
-  );
+  setTimeout(() => {
+    element.classList.remove(className);
+  }, 3000);
 };
 
-export const slugify = (v) => slg(v, {
-  replacement: '-',
-  remove: /[?$*_+~./,()'"!\-:@]/g,
-  lower: true,
-});
+export const slugify = v =>
+  slg(v, {
+    replacement: '-',
+    remove: /[?$*_+~./,()'"!\-:@]/g,
+    lower: true,
+  });

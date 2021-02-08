@@ -1,11 +1,6 @@
-/* global expect */
-/* global beforeAll */
-
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  render, screen, fireEvent,
-} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import ValidateTelephone from '../ValidateTelephone';
 
@@ -30,8 +25,7 @@ const propsWithoutValidatePhone = {
       },
     },
   },
-  confirmPhone: {
-  },
+  confirmPhone: {},
 };
 
 const user = {
@@ -50,13 +44,21 @@ beforeAll(() => {
 });
 
 test('should render component ValidateTelephone and verify if exist input', () => {
-  render(<IntlProvider locale="en"><ValidateTelephone {...propsWithoutValidatePhone} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <ValidateTelephone {...propsWithoutValidatePhone} />
+    </IntlProvider>
+  );
 
   expect(screen.getByPlaceholderText('+1 (702) 123-4567')).toBeInTheDocument();
 });
 
 test('Should exist Validate button, insert phone number and appear box confirm code', () => {
-  render(<IntlProvider locale="en"><ValidateTelephone {...propsWithoutValidatePhone} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <ValidateTelephone {...propsWithoutValidatePhone} />
+    </IntlProvider>
+  );
 
   const searchInput = screen.getByText(/Verify/i);
   expect(screen.getByText(/Verify/i)).toBeInTheDocument();

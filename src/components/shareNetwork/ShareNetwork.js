@@ -21,41 +21,20 @@ import {
   EmailIcon,
 } from 'react-share';
 
-const ShareNetwork = ({
-  title,
-  image,
-  description,
-}) => (
+const ShareNetwork = ({ title, image, description }) => (
   <>
     <Row>
       <Col sm={12} className="share-label text-center mb-3 mt-3">
-        <FormattedMessage
-          id="share"
-          defaultMessage="SHARE"
-        />
+        <FormattedMessage id="share" defaultMessage="SHARE" />
       </Col>
     </Row>
     <Row>
       <Col sm={12} className="content-wrapper text-center" data-testid="btn-share">
-        <FacebookShareButton
-          url={window.location.href}
-          quote={title}
-          className="share-icon mb-3"
-        >
-          <FacebookIcon
-            size={32}
-            round
-          />
+        <FacebookShareButton url={window.location.href} quote={title} className="share-icon mb-3">
+          <FacebookIcon size={32} round />
         </FacebookShareButton>
-        <TwitterShareButton
-          url={window.location.href}
-          title={title}
-          className="share-icon mb-3"
-        >
-          <TwitterIcon
-            size={32}
-            round
-          />
+        <TwitterShareButton url={window.location.href} title={title} className="share-icon mb-3">
+          <TwitterIcon size={32} round />
         </TwitterShareButton>
         <WhatsappShareButton
           url={window.location.href}
@@ -63,16 +42,9 @@ const ShareNetwork = ({
           separator=": "
           className="share-icon mb-3"
         >
-          <WhatsappIcon
-            size={32}
-            round
-          />
+          <WhatsappIcon size={32} round />
         </WhatsappShareButton>
-        <TelegramShareButton
-          url={window.location.href}
-          title={title}
-          className="share-icon mb-3"
-        >
+        <TelegramShareButton url={window.location.href} title={title} className="share-icon mb-3">
           <TelegramIcon size={32} round />
         </TelegramShareButton>
         <LinkedinShareButton
@@ -82,10 +54,7 @@ const ShareNetwork = ({
           windowHeight={600}
           className="share-icon mb-3"
         >
-          <LinkedinIcon
-            size={32}
-            round
-          />
+          <LinkedinIcon size={32} round />
         </LinkedinShareButton>
         <PinterestShareButton
           url={String(window.location)}
@@ -94,10 +63,7 @@ const ShareNetwork = ({
           windowHeight={730}
           className="share-icon mb-3"
         >
-          <PinterestIcon
-            size={32}
-            round
-          />
+          <PinterestIcon size={32} round />
         </PinterestShareButton>
         <RedditShareButton
           url={window.location.href}
@@ -106,10 +72,7 @@ const ShareNetwork = ({
           windowHeight={460}
           className="share-icon mb-3"
         >
-          <RedditIcon
-            size={32}
-            round
-          />
+          <RedditIcon size={32} round />
         </RedditShareButton>
         <EmailShareButton
           url={window.location.href}
@@ -117,10 +80,7 @@ const ShareNetwork = ({
           body={`${description}\n\n${window.location.href}`}
           className="share-icon mb-3"
         >
-          <EmailIcon
-            size={32}
-            round
-          />
+          <EmailIcon size={32} round />
         </EmailShareButton>
       </Col>
     </Row>

@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from '../../elements/button/Button';
 
-const CookiesMessage = ({
-  message, btnText, btnClick,
-}) => (
+const CookiesMessage = ({ message, btnText, btnClick }) => (
   <div className="cookiesMessage">
     <Container fluid>
       <Row>

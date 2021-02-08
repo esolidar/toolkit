@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import CrowdfundingItem from '../CrowdfundingItem';
@@ -23,7 +21,8 @@ const item = {
     title: 'Phasellus rhoncus, justo vitae consectetur ultrices, nisi lorem gravida justo',
     title_en: null,
     tags: null,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
     description_en: null,
     video: 'null',
     reward: 0,
@@ -105,7 +104,8 @@ const itemNoInstitution = {
     title: 'Phasellus rhoncus, justo vitae consectetur ultrices, nisi lorem gravida justo',
     title_en: null,
     tags: null,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id velit sit amet nisi fringilla fringilla sed convallis tortor. Maecenas commodo vestibulum ligula ut facilisis.',
     description_en: null,
     video: 'null',
     reward: 0,
@@ -178,32 +178,36 @@ const translateMessage = () => 'Some text';
 
 describe('CrowdfundingItem component', () => {
   it('renders CrowdfundingItem correctly', () => {
-    const component = shallow(<CrowdfundingItem
-      item={item}
-      translateMessage={translateMessage}
-      env={env}
-      nextStep={nextStep}
-      removeCartItem={removeCartItem}
-      onChangeMessage={onChangeMessage}
-      onAddToCheckout={onAddToCheckout}
-      onChangCheckBox={onChangCheckBox}
-    />);
+    const component = shallow(
+      <CrowdfundingItem
+        item={item}
+        translateMessage={translateMessage}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    );
     expect(component).toHaveLength(1);
     expect(component.find('TextareaField')).toHaveLength(1);
     expect(component.find('.checkout-supports')).toHaveLength(1);
   });
 
   it('renders CrowdfundingItem correctly without institution', () => {
-    const component = shallow(<CrowdfundingItem
-      item={itemNoInstitution}
-      translateMessage={translateMessage}
-      env={env}
-      nextStep={nextStep}
-      removeCartItem={removeCartItem}
-      onChangeMessage={onChangeMessage}
-      onAddToCheckout={onAddToCheckout}
-      onChangCheckBox={onChangCheckBox}
-    />);
+    const component = shallow(
+      <CrowdfundingItem
+        item={itemNoInstitution}
+        translateMessage={translateMessage}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    );
     expect(component).toHaveLength(1);
     expect(component.find('.checkout-supports')).toHaveLength(0);
   });

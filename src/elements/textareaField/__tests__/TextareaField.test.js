@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
 import TextareaField from '../TextareaField';
@@ -24,7 +22,7 @@ describe('TextareaField component', () => {
         value="Textarea"
         message="Mensagem"
         maxLength={100}
-      />,
+      />
     );
     expect(component.find('.control-label')).toHaveLength(1);
     expect(component.find('.control-label').text()).toEqual('Lorem');
@@ -43,7 +41,7 @@ describe('TextareaField component', () => {
         value={100}
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('textarea').props().value).toEqual(100);
   });
@@ -55,7 +53,7 @@ describe('TextareaField component', () => {
         error="error"
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);
     expect(component.find('.form-control').hasClass('required-field')).toEqual(true);
@@ -70,7 +68,7 @@ describe('TextareaField component', () => {
         message="Message"
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group .help-block')).toHaveLength(1);
@@ -84,7 +82,7 @@ describe('TextareaField component', () => {
         onChange={changed}
         checkUserExists={changed}
         disabled={true}
-      />,
+      />
     );
     expect(component.find('.form-group textarea').props().disabled).toBe(true);
   });

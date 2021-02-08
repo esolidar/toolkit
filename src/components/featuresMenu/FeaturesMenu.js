@@ -3,13 +3,8 @@ import PropTypes from 'prop-types';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import _ from 'lodash';
 
-const FeaturesMenu = (props) => {
-  const {
-    location,
-    translations,
-    features,
-    project,
-  } = props;
+const FeaturesMenu = props => {
+  const { location, translations, features, project } = props;
 
   const user = localStorage.user ? JSON.parse(localStorage.user) : '';
   const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
@@ -21,7 +16,7 @@ const FeaturesMenu = (props) => {
   const menuItem = () => {
     const items = [];
 
-    features.map((feature) => {
+    features.map(feature => {
       switch (feature.name) {
         case 'feed':
           switch (project) {
@@ -121,7 +116,7 @@ const FeaturesMenu = (props) => {
         case 'manage-members':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, (o) => o.pageRoute === '/community')) break;
+              if (_.find(items, o => o.pageRoute === '/community')) break;
               items.push({
                 position: 3,
                 pageRoute: '/community',
@@ -358,7 +353,7 @@ const FeaturesMenu = (props) => {
         case 'crowdfunding-public':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, (o) => o.pageRoute === '/crowdfunding')) break;
+              if (_.find(items, o => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -370,7 +365,7 @@ const FeaturesMenu = (props) => {
               break;
 
             case 'esolidar':
-              if (_.find(items, (o) => o.pageRoute === '/user/campaigns')) break;
+              if (_.find(items, o => o.pageRoute === '/user/campaigns')) break;
               items.push({
                 position: 8,
                 pageRoute: '/user/campaigns',
@@ -382,7 +377,7 @@ const FeaturesMenu = (props) => {
               break;
 
             case 'whitelabel':
-              if (_.find(items, (o) => o.pageRoute === '/crowdfunding')) break;
+              if (_.find(items, o => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -549,7 +544,7 @@ const FeaturesMenu = (props) => {
         case 'survey':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, (o) => o.pageRoute === '/impact-analytics')) {
+              if (_.find(items, o => o.pageRoute === '/impact-analytics')) {
                 items.push({
                   position: 12,
                   pageRoute: '/impact-analytics',
@@ -608,23 +603,25 @@ const FeaturesMenu = (props) => {
       }
     });
 
-    return _.sortBy(items, ['position']).map((item) => {
+    return _.sortBy(items, ['position']).map(item => {
       if (item.showItem) {
         if (item.hide !== 1) {
           return (
-            <li key={item.position} className={(location === item.pageRoute || (item.pageRoute !== '/' && location.includes(item.pageRoute))) ? 'active' : ''}>
-              <a
-                href={`${item.pageRoute}`}
-              >
+            <li
+              key={item.position}
+              className={
+                location === item.pageRoute ||
+                (item.pageRoute !== '/' && location.includes(item.pageRoute))
+                  ? 'active'
+                  : ''
+              }
+            >
+              <a href={`${item.pageRoute}`}>
                 {localStorage.fixedBar ? (
                   <OverlayTrigger
                     key={item.position}
                     placement="right"
-                    overlay={(
-                      <Tooltip id={item.position}>
-                        {item.itemText}
-                      </Tooltip>
-                    )}
+                    overlay={<Tooltip id={item.position}>{item.itemText}</Tooltip>}
                   >
                     <i className={item.iconItem} />
                   </OverlayTrigger>
@@ -642,9 +639,7 @@ const FeaturesMenu = (props) => {
 
   return (
     <section className="sidebar">
-      <ul className="sidebar-menu">
-        {menuItem()}
-      </ul>
+      <ul className="sidebar-menu">{menuItem()}</ul>
     </section>
   );
 };

@@ -5,10 +5,8 @@ import isEmpty from 'lodash/isEmpty';
 import ProjectDetailInfo from '../projectDetailInfo/ProjectDetailInfo';
 import ProjectDetailThumb from '../projectDetailThumb/ProjectDetailThumb';
 
-const ProjectDetail = ({
-  project, color, status, lang, serverlessResizeImage, admin,
-}) => {
-  if (isEmpty(project) || !project) return (<div />);
+const ProjectDetail = ({ project, color, status, lang, serverlessResizeImage, admin }) => {
+  if (isEmpty(project) || !project) return <div />;
 
   return (
     <Row className="project-detail">

@@ -14,19 +14,33 @@ import { slugify } from '../../utils/index';
 import Loading from '../loading/Loading';
 
 const ProjectAddForm = ({
-  color, form, errors, ods, newImages, onSelectOds, lang, uploadImagesLabel, onDrop, deleteImageGallery, deleteErrorImageGallery, hideDropZone, categories, dragAndDropMessage, onChange, onChangeCheckbox, onChangeRadiobox,
+  color,
+  form,
+  errors,
+  ods,
+  newImages,
+  onSelectOds,
+  lang,
+  uploadImagesLabel,
+  onDrop,
+  deleteImageGallery,
+  deleteErrorImageGallery,
+  hideDropZone,
+  categories,
+  dragAndDropMessage,
+  onChange,
+  onChangeCheckbox,
+  onChangeRadiobox,
 }) => {
-  const renderFiles = () => (
+  const renderFiles = () =>
     newImages.map((image, i) => (
       <div key={i} className="thumb">
-        {image.loading && (
-          <Loading />
-        )}
+        {image.loading && <Loading />}
         {image.error && (
           <button
             type="button"
             className="btn-delete-error-image"
-            onClick={(e) => deleteErrorImageGallery(e, image)}
+            onClick={e => deleteErrorImageGallery(e, image)}
           >
             <img
               className="image-error"
@@ -35,23 +49,26 @@ const ProjectAddForm = ({
             />
           </button>
         )}
-        <img src={image.thumbs.thumb} alt="Thumb" className={(image.loading || image.error) ? 'image-thumb-loading' : 'image-thumb'} />
-        {(!image.loading && !image.error) && (
+        <img
+          src={image.thumbs.thumb}
+          alt="Thumb"
+          className={image.loading || image.error ? 'image-thumb-loading' : 'image-thumb'}
+        />
+        {!image.loading && !image.error && (
           <button
             type="button"
             className="btn-delete-image"
-            onClick={(e) => deleteImageGallery(e, image)}
+            onClick={e => deleteImageGallery(e, image)}
           >
             x
           </button>
         )}
       </div>
-    ))
-  );
+    ));
 
   return (
     <div className="add-project">
-      {form.map((field) => {
+      {form.map(field => {
         switch (field.type) {
           case 'title':
             return (
@@ -61,11 +78,7 @@ const ProjectAddForm = ({
             );
 
           case 'paragraph':
-            return (
-              <p key={field.id}>
-                {field.name}
-              </p>
-            );
+            return <p key={field.id}>{field.name}</p>;
 
           case 'input':
             return (
@@ -109,17 +122,12 @@ const ProjectAddForm = ({
 
           case 'ods':
             return (
-              <Row
-                key={field.id}
-                className="ods"
-              >
+              <Row key={field.id} className="ods">
                 <Col sm={12}>
-                  <span className="control-label">
-                    ODS
-                  </span>
+                  <span className="control-label">ODS</span>
                 </Col>
                 <Col sm={12}>
-                  {ods.map((o) => (
+                  {ods.map(o => (
                     <CheckboxImage
                       key={o.ods_id}
                       label={o.tag_name}
@@ -134,12 +142,13 @@ const ProjectAddForm = ({
                     <div
                       className="has-error"
                       style={{
-                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                        width: '100%',
+                        display: 'inline-block',
+                        marginBottom: '15px',
+                        marginTop: '-15px',
                       }}
                     >
-                      <div className="help-block">
-                        {errors[field.id]}
-                      </div>
+                      <div className="help-block">{errors[field.id]}</div>
                     </div>
                   )}
                 </Col>
@@ -157,20 +166,12 @@ const ProjectAddForm = ({
                 <Col sm={12}>
                   <div className="box-images">
                     {!hideDropZone && (
-                      <Dropzone
-                        onDrop={onDrop}
-                        disableClick={true}
-                        accept="image/jpeg, image/png"
-                      >
+                      <Dropzone onDrop={onDrop} disableClick={true} accept="image/jpeg, image/png">
                         {({ getRootProps, getInputProps }) => (
                           <section>
                             <div {...getRootProps()}>
                               <input {...getInputProps()} />
-                              {(newImages.length === 0) && (
-                                <p>
-                                  {dragAndDropMessage}
-                                </p>
-                              )}
+                              {newImages.length === 0 && <p>{dragAndDropMessage}</p>}
                               {renderFiles()}
                             </div>
                           </section>
@@ -182,12 +183,13 @@ const ProjectAddForm = ({
                     <div
                       className="has-error"
                       style={{
-                        width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                        width: '100%',
+                        display: 'inline-block',
+                        marginBottom: '15px',
+                        marginTop: '-15px',
                       }}
                     >
-                      <div className="help-block">
-                        {errors[field.id]}
-                      </div>
+                      <div className="help-block">{errors[field.id]}</div>
                     </div>
                   )}
                 </Col>
@@ -201,15 +203,13 @@ const ProjectAddForm = ({
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
                   </label>
-                  <p className="help">
-                    {field.help}
-                  </p>
+                  <p className="help">{field.help}</p>
                   <div className="checkbox">
                     {field.options.map((option, i) => (
                       <CheckboxField
                         key={i}
                         label={option}
-                        onChange={(e) => onChangeCheckbox(e, field.id)}
+                        onChange={e => onChangeCheckbox(e, field.id)}
                         name={`${slugify(option)}-${i}-${field.id}`}
                         id={`${slugify(option)}-${i}-${field.id}`}
                         value={option}
@@ -220,12 +220,13 @@ const ProjectAddForm = ({
                       <div
                         className="has-error"
                         style={{
-                          width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                          width: '100%',
+                          display: 'inline-block',
+                          marginBottom: '15px',
+                          marginTop: '-15px',
                         }}
                       >
-                        <div className="help-block">
-                          {errors[field.id]}
-                        </div>
+                        <div className="help-block">{errors[field.id]}</div>
                       </div>
                     )}
                   </div>
@@ -240,15 +241,13 @@ const ProjectAddForm = ({
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
                   </label>
-                  <p className="help">
-                    {field.help}
-                  </p>
+                  <p className="help">{field.help}</p>
                   <div className="checkbox">
                     {field.options.map((option, i) => (
                       <RadioField
                         key={i}
                         label={option}
-                        onChange={(e) => onChangeRadiobox(e, field.id)}
+                        onChange={e => onChangeRadiobox(e, field.id)}
                         name={`${slugify(option, {
                           replacement: '-',
                           remove: /[?$*_+~.,()'"!\-:@]/g,
@@ -267,12 +266,13 @@ const ProjectAddForm = ({
                       <div
                         className="has-error"
                         style={{
-                          width: '100%', display: 'inline-block', marginBottom: '15px', marginTop: '-15px',
+                          width: '100%',
+                          display: 'inline-block',
+                          marginBottom: '15px',
+                          marginTop: '-15px',
                         }}
                       >
-                        <div className="help-block">
-                          {errors[field.id]}
-                        </div>
+                        <div className="help-block">{errors[field.id]}</div>
                       </div>
                     )}
                   </div>
@@ -281,11 +281,7 @@ const ProjectAddForm = ({
             );
 
           default:
-            return (
-              <div key={field.id}>
-                {field.type}
-              </div>
-            );
+            return <div key={field.id}>{field.type}</div>;
         }
       })}
     </div>

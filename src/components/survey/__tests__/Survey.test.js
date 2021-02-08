@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import Survey from '../Survey';
@@ -7,7 +7,8 @@ import Survey from '../Survey';
 const props = {
   status: 'A',
   formTitleText: 'Your Opinion Counts.',
-  formSummaryText: "To your company provide you the best experience possible, we'd like your help with this very brief, 30 second survey.",
+  formSummaryText:
+    "To your company provide you the best experience possible, we'd like your help with this very brief, 30 second survey.",
   onSubmit: () => {},
   locale: 'pt',
   QuestionsGeneratorState: {},

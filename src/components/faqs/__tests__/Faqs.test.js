@@ -1,6 +1,3 @@
-/* global expect */
-/* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -41,10 +38,13 @@ const faqs = [
   {
     id: 2,
     type: 'charities',
-    title_pt: 'Que tipo de organizações sem fins lucrativos estão registadas ou se podem registar na eSolidar?',
-    description_pt: 'A eSolidar garante a conformidade de todas as organizações sem fins lucrativos.',
+    title_pt:
+      'Que tipo de organizações sem fins lucrativos estão registadas ou se podem registar na eSolidar?',
+    description_pt:
+      'A eSolidar garante a conformidade de todas as organizações sem fins lucrativos.',
     title_en: 'Which charities are on the site?',
-    description_en: 'Charities must be registered with the government and have a mission that is not tied to hate, extremism or violence in any way. Signup is free and we welcome all charities who meet these criteria to join.',
+    description_en:
+      'Charities must be registered with the government and have a mission that is not tied to hate, extremism or violence in any way. Signup is free and we welcome all charities who meet these criteria to join.',
     title_br: null,
     description_br: null,
     position: 1,
@@ -56,23 +56,63 @@ const faqs = [
 
 describe('Faqs page', () => {
   it('renders the Faqs component', () => {
-    const component = shallow(<Faqs lang="pt" tabs={tabs} faqs={faqs} type="general" changeType={jest.fn()} changeId={() => {}} isLoading={false} />);
+    const component = shallow(
+      <Faqs
+        lang="pt"
+        tabs={tabs}
+        faqs={faqs}
+        type="general"
+        changeType={jest.fn()}
+        changeId={() => {}}
+        isLoading={false}
+      />
+    );
     expect(component).toHaveLength(1);
   });
 
   it('render FaqsTabs and FaqsItems component', () => {
-    const component = shallow(<Faqs lang="pt" tabs={tabs} faqs={faqs} type="general" changeType={jest.fn()} changeId={() => {}} isLoading={false} />);
+    const component = shallow(
+      <Faqs
+        lang="pt"
+        tabs={tabs}
+        faqs={faqs}
+        type="general"
+        changeType={jest.fn()}
+        changeId={() => {}}
+        isLoading={false}
+      />
+    );
     expect(component.find('FaqTabs').length).toBe(1);
     expect(component.find('FaqItem').length).toBe(1);
   });
 
   it('test faq loading', () => {
-    const component = shallow(<Faqs lang="pt" tabs={tabs} faqs={faqs} type="general" changeType={jest.fn()} changeId={() => {}} isLoading={true} />);
+    const component = shallow(
+      <Faqs
+        lang="pt"
+        tabs={tabs}
+        faqs={faqs}
+        type="general"
+        changeType={jest.fn()}
+        changeId={() => {}}
+        isLoading={true}
+      />
+    );
     expect(component.find('Loading').length).toBe(1);
   });
 
   it('test faq with empty array faqs', () => {
-    const component = shallow(<Faqs lang="pt" tabs={tabs} faqs={[]} type="general" changeType={jest.fn()} changeId={() => {}} isLoading={false} />);
+    const component = shallow(
+      <Faqs
+        lang="pt"
+        tabs={tabs}
+        faqs={[]}
+        type="general"
+        changeType={jest.fn()}
+        changeId={() => {}}
+        isLoading={false}
+      />
+    );
     expect(component.find('FormattedMessage').length).toBe(1);
   });
 });

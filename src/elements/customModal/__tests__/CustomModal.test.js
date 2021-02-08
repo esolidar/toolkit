@@ -1,4 +1,3 @@
-/* global expect */
 import React from 'react';
 import { shallow } from 'enzyme';
 import CustomModal from '../CustomModal';
@@ -49,7 +48,7 @@ describe('CustomModal component', () => {
   });
 
   it('renders closeButton if prop "onHide" is defined', () => {
-    const component = shallow(<CustomModal {...props} onHide={() => { }} />);
+    const component = shallow(<CustomModal {...props} onHide={() => {}} />);
     expect(component.find('[data-testid="header"]').props().closeButton).toEqual(true);
   });
 });

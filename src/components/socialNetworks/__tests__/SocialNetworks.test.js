@@ -1,4 +1,3 @@
-/* global expect */
 import React from 'react';
 import { shallow } from 'enzyme';
 import SocialNetworks from '../SocialNetworks';
@@ -12,32 +11,17 @@ const propIcons = [
 
 describe('SocialNetworks component', () => {
   it('renders SocialNetworks correctly', () => {
-    const component = shallow(
-      <SocialNetworks
-        icons={propIcons}
-        headingText="Follow us"
-      />,
-    );
+    const component = shallow(<SocialNetworks icons={propIcons} headingText="Follow us" />);
     expect(component).toHaveLength(1);
   });
 
   it('renders SocialNetworks and check if Icon exists', () => {
-    const component = shallow(
-      <SocialNetworks
-        icons={propIcons}
-        headingText="Follow us"
-      />,
-    );
+    const component = shallow(<SocialNetworks icons={propIcons} headingText="Follow us" />);
     expect(component.find('Icon')).toHaveLength(4);
   });
 
   it('renders SocialNetworks and check title', () => {
-    const component = shallow(
-      <SocialNetworks
-        icons={propIcons}
-        headingText="Follow us"
-      />,
-    );
+    const component = shallow(<SocialNetworks icons={propIcons} headingText="Follow us" />);
     expect(component.find('h5')).toHaveLength(1);
   });
 

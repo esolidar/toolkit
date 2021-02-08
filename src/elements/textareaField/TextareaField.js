@@ -32,17 +32,20 @@ const TextareaField = ({
   }
 
   return (
-    <div className={classnames('form-group', { 'has-error': error || message }, { required }, className)}>
+    <div
+      className={classnames(
+        'form-group',
+        { 'has-error': error || message },
+        { required },
+        className
+      )}
+    >
       {label && (
         <label htmlFor={field} className="control-label">
           {label}
         </label>
       )}
-      {help && (
-        <p className="help">
-          {help}
-        </p>
-      )}
+      {help && <p className="help">{help}</p>}
       <textarea
         id={id || field}
         disabled={disabled}
@@ -65,19 +68,10 @@ TextareaField.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
   label: PropTypes.string,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   placeholder: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   message: PropTypes.string,
   maxLength: PropTypes.number,
   disabled: PropTypes.bool,

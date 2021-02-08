@@ -29,24 +29,36 @@ const NotificationsMobile = ({
               className="btn-markAsRead"
             >
               <div
-                className={(notification.read_at === null) ? 'notification-row-box unread' : 'notification-row-box'}
+                className={
+                  notification.read_at === null
+                    ? 'notification-row-box unread'
+                    : 'notification-row-box'
+                }
               >
                 <div className="notification-thumb">
-                  <img alt="Thumb" src={notification.photo.thumb ? notification.photo.thumb : 'https://static.esolidar.com/frontend/assets/no-image.png'} />
+                  <img
+                    alt="Thumb"
+                    src={
+                      notification.photo.thumb
+                        ? notification.photo.thumb
+                        : 'https://static.esolidar.com/frontend/assets/no-image.png'
+                    }
+                  />
                 </div>
                 <div>
                   <span className="notification-row-text">
                     <div dangerouslySetInnerHTML={{ __html: notification.text }} />
                   </span>
                   <span className="notification-row-date">
-                    <Moment fromNow ago>{notification.created_at}</Moment>
+                    <Moment fromNow ago>
+                      {notification.created_at}
+                    </Moment>
                   </span>
-                  {(notification.read_at === null)
-                    && <div className="notification-bullet" />}
+                  {notification.read_at === null && <div className="notification-bullet" />}
                 </div>
               </div>
             </a>
-          </li>,
+          </li>
         );
       }
     });
@@ -56,34 +68,24 @@ const NotificationsMobile = ({
     <div className="notification-box-page">
       <div className="inline-block">
         <div className="notification-header">
-          <span className="notification-header-title">
-            {notificationsHeadTitle}
-          </span>
+          <span className="notification-header-title">{notificationsHeadTitle}</span>
           <span className="notification-header-mark-read">
-            <button
-              type="button"
-              onClick={markAllAsReadFunc}
-            >
+            <button type="button" onClick={markAllAsReadFunc}>
               {markAllAsReadTitle}
             </button>
           </span>
         </div>
-        <ul
-          className="notification-list"
-          style={{ overflow: 'auto' }}
-          onScroll={handleScrollFunc}
-        >
-          {!notifications
-            && (
-              <div className="notification-loader">
-                <Loading />
-              </div>
-            )}
+        <ul className="notification-list" style={{ overflow: 'auto' }} onScroll={handleScrollFunc}>
+          {!notifications && (
+            <div className="notification-loader">
+              <Loading />
+            </div>
+          )}
           <InfiniteScroll
             pageStart={0}
             loadMore={loadMoreFunc}
             hasMore={hasMoreToLoad}
-            loader={(
+            loader={
               <div key={0} className="text-center">
                 <img
                   alt="Loading"
@@ -91,7 +93,7 @@ const NotificationsMobile = ({
                   style={{ height: '18px', margin: '5px' }}
                 />
               </div>
-            )}
+            }
             useWindow={false}
             threshold={25}
           >

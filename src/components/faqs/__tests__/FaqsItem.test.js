@@ -1,6 +1,3 @@
-/* global expect */
-/* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -31,10 +28,13 @@ const items = [
   {
     id: 2,
     type: 'charities',
-    title_pt: 'Que tipo de organizações sem fins lucrativos estão registadas ou se podem registar na eSolidar?',
-    description_pt: 'A eSolidar garante a conformidade de todas as organizações sem fins lucrativos.',
+    title_pt:
+      'Que tipo de organizações sem fins lucrativos estão registadas ou se podem registar na eSolidar?',
+    description_pt:
+      'A eSolidar garante a conformidade de todas as organizações sem fins lucrativos.',
     title_en: 'Which charities are on the site?',
-    description_en: 'Charities must be registered with the government and have a mission that is not tied to hate, extremism or violence in any way. Signup is free and we welcome all charities who meet these criteria to join.',
+    description_en:
+      'Charities must be registered with the government and have a mission that is not tied to hate, extremism or violence in any way. Signup is free and we welcome all charities who meet these criteria to join.',
     title_br: 'teste',
     description_br: 'teste',
     position: 1,
@@ -54,7 +54,7 @@ describe('FaqItem', () => {
         changeId={changeId}
         title={items[1].title_pt}
         cardBody={items[1].description_pt}
-      />,
+      />
     );
     expect(component).toHaveLength(1);
   });
@@ -68,7 +68,7 @@ describe('FaqItem', () => {
         changeId={changeId}
         title={items[1].title_pt}
         cardBody={items[1].description_pt}
-      />,
+      />
     );
     expect(component.find('div.accordion-title').length).toBe(1);
     expect(component.find('div.accordion-item').length).toBe(1);
@@ -83,7 +83,7 @@ describe('FaqItem', () => {
         changeId={changeId}
         title={items[1].title_pt}
         cardBody={items[1].description_pt}
-      />,
+      />
     );
     component.find('div.accordion-title').first().simulate('click');
     expect(changeId.mock.calls.length).toEqual(1);
@@ -99,7 +99,7 @@ describe('FaqItem', () => {
         changeId={changeId}
         title={items[1].title_pt}
         cardBody={items[1].description_pt}
-      />,
+      />
     );
     component.find('div.accordion-title').first().simulate('click');
     expect(changeId.mock.calls.length).toEqual(2);
