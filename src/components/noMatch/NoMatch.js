@@ -28,7 +28,6 @@ const NoMatch = ({
           {errorMessage || (
             <FormattedMessage
               id="error-404-message"
-              defaultMessage="Sorry, the page you are looking for could not be found!"
             />
           )}
         </div>
@@ -42,7 +41,6 @@ const NoMatch = ({
           {linkText || (
             <FormattedMessage
               id="back.to.homepage"
-              defaultMessage="Back to homepage"
             />
           )}
         </a>

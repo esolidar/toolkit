@@ -30,20 +30,3 @@ test('should loading component, exist text 404 and link go back homepage ', () =
   expect(linkHomePage).toBeInTheDocument();
   expect(linkHomePage).toHaveAttribute('href', '/project/list');
 });
-
-test('should loading component, exist text 404 and link go back homepage ', () => {
-  render(<NoMatch />);
-
-  const titleError = screen.getByTestId('error-404');
-  expect(titleError).toBeInTheDocument();
-  expect(titleError).toHaveTextContent('404');
-
-  const messageError = screen.getByTestId('message-404');
-  expect(messageError).toBeInTheDocument();
-
-  expect(messageError).toHaveTextContent('Sorry, the page you are looking for could not be found!');
-
-  const linkHomePage = screen.getByTestId('link-homepage');
-  expect(linkHomePage).toBeInTheDocument();
-  expect(linkHomePage).toHaveAttribute('href', '/');
-});
