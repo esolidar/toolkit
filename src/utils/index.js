@@ -2,6 +2,7 @@ import React from 'react';
 import slg from 'slugify';
 import { FormattedNumber } from 'react-intl';
 import { findIndex, find } from 'lodash';
+import XLSX from 'xlsx';
 
 export const getEmployeeName = (companyId, user) => {
   if (user && user.work_email) {
@@ -108,3 +109,25 @@ export const slugify = v =>
     remove: /[?$*_+~./,()'"!\-:@]/g,
     lower: true,
   });
+
+export const downloadExcel = (translateMessage, data, columns, fileName) => {
+  const listFilterColumns = data.map(item => {
+    const obj = {};
+    columns.forEach(col => {
+      if (col.type === 'bool') {
+        obj[col.text] =
+          item[col.apiFieldName] === 1
+            ? translateMessage({ id: 'yes' })
+            : translateMessage({ id: 'no' });
+      } else {
+        obj[col.text] = item[col.apiFieldName];
+      }
+    });
+    return obj;
+  });
+
+  const ws = XLSX.utils.json_to_sheet([...listFilterColumns]);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'List');
+  XLSX.writeFile(wb, `${fileName}.xlsx`);
+};
