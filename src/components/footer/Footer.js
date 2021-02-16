@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { includes } from 'lodash';
 import { Container, Row, Col } from 'react-bootstrap';
 import SocialNetworks from '../socialNetworks/SocialNetworks';
 import ChangeLanguage from '../changeLanguage/ChangeLanguage';
@@ -37,7 +36,7 @@ const Footer = ({
 
   const menu = items =>
     items.map((item, index) => {
-      if (includes(item.lang, currentLang)) {
+      if (item.lang.includes(currentLang)) {
         return (
           <li key={index}>
             {item.url ? (

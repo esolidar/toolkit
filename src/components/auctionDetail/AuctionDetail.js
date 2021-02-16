@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
-import { isEmpty, forEach, findIndex } from 'lodash';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
@@ -26,6 +25,7 @@ import ContributesListBox from '../contributesListBox/ContributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone/ConvertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox/SliderImagesLightbox';
 import ValidateTelephone from '../validateTelephone/ValidateTelephone';
+import isEmpty from '../../utils/isEmpty';
 
 const AuctionDetail = ({
   auctionId,
@@ -364,7 +364,7 @@ const AuctionDetail = ({
         setTotalComments(totalComments + 1);
         setLoadingNewComment(false);
       } else {
-        const arrayIndx = findIndex(comments, o => o.id === auctionUserComment.data.comment_id);
+        const arrayIndx = comments.findIndex(o => o.id === auctionUserComment.data.comment_id);
         const repliesArray = comments[arrayIndx].replies || [];
         comments[arrayIndx].replies = [...auctionUserComment.data, ...repliesArray];
         comments[arrayIndx].totalReplies = comments[arrayIndx].replies.length;
@@ -394,7 +394,7 @@ const AuctionDetail = ({
       const { data, total } = auctionUserCommentsResponse.data;
 
       if (data.length > 0) {
-        const arrayIndx = findIndex(commentsArray, o => o.id === data[0].comment_id);
+        const arrayIndx = commentsArray.findIndex(o => o.id === data[0].comment_id);
         commentsArray[arrayIndx].replies = data;
         commentsArray[arrayIndx].totalReplies = total;
         setComments(commentsArray);
@@ -772,7 +772,7 @@ const AuctionDetail = ({
         setTotalComments(currentComments.totalReplies);
         break;
       } else if (currentComments[i].replies) {
-        forEach(currentComments[i].replies, (reply, indx) => {
+        currentComments[i].replies.forEach((reply, indx) => {
           if (reply) {
             if (reply.id === deleteComment) {
               currentComments[i].replies.splice(indx, 1);

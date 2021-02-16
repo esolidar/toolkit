@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from '../../utils/isEmpty';
 
 export default function validateAuctionForm(data) {
   const errors = {};

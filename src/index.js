@@ -77,26 +77,28 @@ export { default as SelectPerPage } from './elements/selectPerPage/SelectPerPage
 export { default as ConfirmModal } from './elements/confirmModal/ConfirmModal';
 
 // Utils
-export {
-  getEmployeeName,
-  isDefined,
-  clone,
-  firstElemOf,
-  lastElemOf,
-  addUrlParam,
-  getUrlParam,
-  removeUrlParam,
-  removeAllUrlParams,
-  filterUnique,
-  convertToMyCurrency,
-  getLocalStorageAuctionPrivateCode,
-  isCompanyAdmin,
-  blinkElement,
-  isEmpty,
-  isValidURL,
-  slugify,
-  downloadExcel,
-} from './utils';
+export { default as addUrlParam } from './utils/addUrlParam';
+export { default as blinkElement } from './utils/blinkElement';
+export { default as clone } from './utils/clone';
+export { default as convertToMyCurrency } from './utils/convertToMyCurrency';
+export { default as debounce } from './utils/debounce';
+export { default as downloadExcel } from './utils/downloadExcel';
+export { default as filterUnique } from './utils/filterUnique';
+export { default as firstElemOf } from './utils/firstElemOf';
+export { default as getEmployeeName } from './utils/getEmployeeName';
+export { default as getLocalStorageAuctionPrivateCode } from './utils/getLocalStorageAuctionPrivateCode';
+export { default as getUrlParam } from './utils/getUrlParam';
+export { default as isArray } from './utils/isArray';
+export { default as isCompanyAdmin } from './utils/isCompanyAdmin';
+export { default as isDefined } from './utils/isDefined';
+export { default as isEmpty } from './utils/isEmpty';
+export { default as isObject } from './utils/isObject';
+export { default as isValidURL } from './utils/isValidURL';
+export { default as lastElemOf } from './utils/lastElemOf';
+export { default as removeAllUrlParams } from './utils/removeAllUrlParams';
+export { default as removeUrlParam } from './utils/removeUrlParam';
+export { default as slugify } from './utils/slugify';
+export { default as sortBy } from './utils/sortBy';
 
 // Hooks
 export { default as useDebounce } from './hooks/useDebounce';

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { findIndex } from 'lodash';
 import { NotificationManager } from 'react-notifications';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import StripeCheckoutFormSca from './StripeCheckoutFormSca';
@@ -154,7 +153,7 @@ class StripeCreditCard extends Component {
   submitStripePayment = data => {
     const { state, postOrder, updateState } = this.props;
 
-    const firstChecked = findIndex(state.order.products, o => o.extra.checked === 1);
+    const firstChecked = state.order.products.findIndex(o => o.extra.checked === 1);
     const cartCurrency =
       firstChecked >= 0
         ? state.order.products[firstChecked].currency.id
@@ -197,7 +196,7 @@ class StripeCreditCard extends Component {
   submitStripePayment = data => {
     const { state, postOrder, updateState } = this.props;
 
-    const firstChecked = findIndex(state.order.products, o => o.extra.checked === 1);
+    const firstChecked = state.order.products.findIndex(o => o.extra.checked === 1);
     const cartCurrency =
       firstChecked >= 0
         ? state.order.products[firstChecked].currency.id
