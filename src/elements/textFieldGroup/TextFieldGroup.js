@@ -25,7 +25,7 @@ const TextFieldGroup = ({
     <div className="input-group">
       <input
         onChange={onChange}
-        value={value}
+        value={value || ''}
         defaultValue={defaultValue}
         type={type}
         name={field}

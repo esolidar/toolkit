@@ -95,6 +95,7 @@ export {
   isEmpty,
   isValidURL,
   slugify,
+  downloadExcel,
 } from './utils';
 
 // Hooks
