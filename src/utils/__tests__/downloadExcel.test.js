@@ -1,8 +1,7 @@
-import XLSX from 'xlsx';
-import fs from 'fs';
 import { downloadExcel } from '../index';
 
 const fileName = 'downloadExcel';
+const isDownloadFile = false;
 const translateMessage = ({ id }) => (id === 'yes' ? 1 : 0);
 const columns = [
   {
@@ -76,10 +75,10 @@ const institutions = [
   {
     id: 1057,
     owner_name: 'Rocha',
-    owner_email: 'amsrocha@outlook.com',
-    owner_phone: '351919552199',
+    owner_email: 'rocha@esolidar.com',
+    owner_phone: '351918888888',
     name: 'Charity Rocha',
-    email: 'amsrocha2@gmail.com',
+    email: 'rocha2@esolidar.com',
     phone: '351919552199',
     nif: null,
     dateAdded: '2020-10-28 11:49:28',
@@ -90,29 +89,15 @@ const institutions = [
   },
 ];
 
-beforeAll(() => {
-  downloadExcel(translateMessage, institutions, columns, fileName);
-
-  fs.createReadStream(`./${fileName}.xlsx`).pipe(
-    fs.createWriteStream(`./src/utils/__tests__/${fileName}.xlsx`)
-  );
-
-  fs.unlinkSync(`./${fileName}.xlsx`);
-});
-
-describe('Download Excel', () => {
-  it('should download file', done => {
-    const testArray = () => {
-      const workbook = XLSX.readFile(`./src/utils/__tests__/${fileName}.xlsx`);
-      const fileData = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {
-        raw: true,
-      });
-      Object.keys(fileData[0]).forEach(item => {
-        expect(fileData[0][item]).toBe(institutions[0][item]);
-      });
-      done();
-    };
-
-    setTimeout(testArray, 500);
+describe('Excel data values ', () => {
+  it('Comparison of values ​​sent and received', () => {
+    const fileData = downloadExcel(
+      translateMessage,
+      institutions,
+      columns,
+      fileName,
+      isDownloadFile
+    );
+    expect(fileData).toEqual(institutions);
   });
 });
