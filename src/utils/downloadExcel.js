@@ -1,6 +1,6 @@
 import XLSX from 'xlsx';
 
-const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile) => {
+const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile = true) => {
   const listFilterColumns = data.map(item => {
     const obj = {};
     columns.forEach(col => {
