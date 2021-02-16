@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from '../../utils/isEmpty';
 import ProjectDetailInfo from '../projectDetailInfo/ProjectDetailInfo';
 import ProjectDetailThumb from '../projectDetailThumb/ProjectDetailThumb';
 

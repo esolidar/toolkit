@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { NotificationManager } from 'react-notifications';
-import { isEmpty } from 'lodash';
 import StripeCheckoutFormSca from '../stripe/StripeCheckoutFormSca';
 import { filterUnique } from '../../utils';
 import Loading from '../loading/Loading';
 import RadioField from '../../elements/radioField/RadioField';
+import isEmpty from '../../utils/isEmpty';
 
 const CreditCardList = ({
   getStripeCreditCardlist,

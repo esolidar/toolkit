@@ -19,3 +19,4 @@ export { default as lastElemOf } from './lastElemOf';
 export { default as removeAllUrlParams } from './removeAllUrlParams';
 export { default as removeUrlParam } from './removeUrlParam';
 export { default as slugify } from './slugify';
+export { default as sortBy } from './sortBy';

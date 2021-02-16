@@ -1,7 +1,7 @@
-const getLocalStorageAuctionPrivateCode = (auctionId) => {
+const getLocalStorageAuctionPrivateCode = auctionId => {
   if (localStorage.privateCode) {
     const hasAuctionCode = JSON.parse(localStorage.privateCode);
-    const auctionCode = hasAuctionCode.find((item) => +item.id === +auctionId);
+    const auctionCode = hasAuctionCode.find(item => +item.id === +auctionId);
     return auctionCode ? auctionCode.code : null;
   }
   return null;

@@ -98,6 +98,7 @@ export { default as lastElemOf } from './utils/lastElemOf';
 export { default as removeAllUrlParams } from './utils/removeAllUrlParams';
 export { default as removeUrlParam } from './utils/removeUrlParam';
 export { default as slugify } from './utils/slugify';
+export { default as sortBy } from './utils/sortBy';
 
 // Hooks
 export { default as useDebounce } from './hooks/useDebounce';
