@@ -8,7 +8,12 @@ import TextareaField from '../../elements/textareaField/TextareaField';
 import Button from '../../elements/button/Button';
 
 const RequestDetailThumb = ({
-  request, translateMessage, onReviewRequest, onCloseRequest, errors, admin,
+  request,
+  translateMessage,
+  onReviewRequest,
+  onCloseRequest,
+  errors,
+  admin,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [allowEmployees, setAllowEmployees] = useState('1');
@@ -20,7 +25,7 @@ const RequestDetailThumb = ({
   let joinedStatus = 'join-request';
   let joinedStatusText = translateMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
 
-  const onChangCheckBox = (e) => {
+  const onChangCheckBox = e => {
     if (e.target.checked === true) {
       setAllowEmployees('1');
     } else {
@@ -44,15 +49,24 @@ const RequestDetailThumb = ({
       status = 'status-box status-pending';
       statusText = translateMessage({ id: 'statusPending', defaultMessage: 'Pending' });
       joinedStatus = 'joined-pending';
-      joinedStatusText = translateMessage({ id: 'joinedStatusTextPending', defaultMessage: 'Waiting approval' });
+      joinedStatusText = translateMessage({
+        id: 'joinedStatusTextPending',
+        defaultMessage: 'Waiting approval',
+      });
       break;
     case 'F':
       if (request.pivot) {
         if (request.pivot.review) {
           status = 'status-box status-reviewed';
-          statusText = translateMessage({ id: 'statusReviewed', defaultMessage: 'Completed and revised' });
+          statusText = translateMessage({
+            id: 'statusReviewed',
+            defaultMessage: 'Completed and revised',
+          });
           joinedStatus = 'joined-finished';
-          joinedStatusText = translateMessage({ id: 'statusReviewed', defaultMessage: 'Completed and revised' });
+          joinedStatusText = translateMessage({
+            id: 'statusReviewed',
+            defaultMessage: 'Completed and revised',
+          });
         } else {
           status = 'status-box status-ended';
           statusText = translateMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
@@ -81,10 +95,7 @@ const RequestDetailThumb = ({
     <div className={status}>
       <Row className="header">
         <Col xs={4} sm={4}>
-          <FormattedMessage
-            id="request.detail.box.status"
-            defaultMessage="Status"
-          />
+          <FormattedMessage id="request.detail.box.status" defaultMessage="Status" />
         </Col>
         <Col xs={8} sm={8} className="text-right">
           <span>
@@ -94,10 +105,7 @@ const RequestDetailThumb = ({
       </Row>
       <Row className="m-0 mt-3">
         <Col sm={12}>
-          <LightboxGallery
-            images={request.images.map(({ image }) => ({ image }))}
-            thumbs={false}
-          />
+          <LightboxGallery images={request.images.map(({ image }) => ({ image }))} thumbs={false} />
         </Col>
         <Col sm={12}>
           {statusPivot === 'A' && (
@@ -110,21 +118,27 @@ const RequestDetailThumb = ({
               />
             </div>
           )}
-          {(request.pivot && statusPivot === 'A') && (
+          {request.pivot && statusPivot === 'A' && (
             <div className="pt-3 text-center">
               <Button
                 extraClass="dark"
                 onClick={() => onCloseRequest}
-                text={translateMessage({ id: 'charityneeds.detail.btn.close.request', defaultMessage: 'Close request' })}
+                text={translateMessage({
+                  id: 'charityneeds.detail.btn.close.request',
+                  defaultMessage: 'Close request',
+                })}
               />
             </div>
           )}
-          {(request.pivot && statusPivot === 'F' && !request.pivot.review) && (
+          {request.pivot && statusPivot === 'F' && !request.pivot.review && (
             <div className="pt-3 text-center">
               <Button
                 extraClass="dark"
                 onClick={() => onReviewRequest}
-                text={translateMessage({ id: 'charityneeds.detail.btn.review', defaultMessage: 'Review' })}
+                text={translateMessage({
+                  id: 'charityneeds.detail.btn.review',
+                  defaultMessage: 'Review',
+                })}
               />
             </div>
           )}
@@ -141,11 +155,7 @@ const RequestDetailThumb = ({
                   day="2-digit"
                 />
                 <span> - </span>
-                <FormattedDate
-                  value={request.end_date.split(' ')[0]}
-                  month="short"
-                  day="2-digit"
-                />
+                <FormattedDate value={request.end_date.split(' ')[0]} month="short" day="2-digit" />
               </li>
             )}
             {request.local && (
@@ -163,7 +173,9 @@ const RequestDetailThumb = ({
                 src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-box-clock-timer.svg"
               />
               <span>
-                <Moment utc to={request.start_date} ago>{request.end_date}</Moment>
+                <Moment utc to={request.start_date} ago>
+                  {request.end_date}
+                </Moment>
               </span>
             </li>
             <li>
@@ -235,7 +247,7 @@ const RequestDetailThumb = ({
             <div className="col-sm-12">
               <TextareaField
                 label="Message"
-                onChange={(e) => setComment(e.target.value)}
+                onChange={e => setComment(e.target.value)}
                 error={errors.comment}
                 value={comment}
                 field="comment"
@@ -243,17 +255,13 @@ const RequestDetailThumb = ({
               />
             </div>
             <div className="col-sm-12 text-center buttons-box">
-
               <button
                 type="button"
                 className="btn btn-confirm-modal"
                 onClick={() => onImin()}
                 disabled={disabledButton}
               >
-                <FormattedMessage
-                  id="modal.request.imIn.confirm"
-                  defaultMessage="Confirm"
-                />
+                <FormattedMessage id="modal.request.imIn.confirm" defaultMessage="Confirm" />
               </button>
             </div>
           </Row>

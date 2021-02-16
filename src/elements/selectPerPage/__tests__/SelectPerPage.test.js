@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
 import SelectPerPage from '../SelectPerPage';
@@ -17,7 +15,9 @@ describe('SelectPerPage component', () => {
   });
 
   it('renders the correct number of options if prop is used', () => {
-    const component = shallow(<SelectPerPage onChange={changed} value={value} options={[10, 100]} />);
+    const component = shallow(
+      <SelectPerPage onChange={changed} value={value} options={[10, 100]} />
+    );
     expect(component.find('[data-testid="option"]').length).toBe(2);
   });
 });

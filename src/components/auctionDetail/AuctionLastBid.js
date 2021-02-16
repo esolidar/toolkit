@@ -22,28 +22,30 @@ const AuctionLastBid = ({
 
   return (
     <Col sm={12} lg={10} className="header-bids mx-lg-auto">
-      {(!isEnded && !isCommingSoon) && (
+      {!isEnded && !isCommingSoon && (
         <Row>
           <Col className="box box-top sticky-top mb-5">
             <Row className="d-flex justify-content-between">
               <div className="d-none d-sm-block">
                 <Col>
-                  <p className="control-label title-last-bid mb-3" id={`auction-last-bid-label-${auction.id}`} data-testid="title-last-bid" style={{ color: primaryColor }}>
+                  <p
+                    className="control-label title-last-bid mb-3"
+                    id={`auction-last-bid-label-${auction.id}`}
+                    data-testid="title-last-bid"
+                    style={{ color: primaryColor }}
+                  >
                     {auction.last_bid ? (
-                      <FormattedMessage
-                        id="auction.detail.lastbid"
-                        defaultMessage="Last Bid"
-                      />
-                    )
-                      : (
-                        <FormattedMessage
-                          id="auction.detail.startbid"
-                          defaultMessage="Start Bid"
-                        />
-                      )}
+                      <FormattedMessage id="auction.detail.lastbid" defaultMessage="Last Bid" />
+                    ) : (
+                      <FormattedMessage id="auction.detail.startbid" defaultMessage="Start Bid" />
+                    )}
                   </p>
                 </Col>
-                <Col className="txt-price-t" id={`auction-last-bid-value-${auction.id}`} data-testid="value-last-bid">
+                <Col
+                  className="txt-price-t"
+                  id={`auction-last-bid-value-${auction.id}`}
+                  data-testid="value-last-bid"
+                >
                   <FormattedNumber
                     value={lastBid}
                     style="currency"
@@ -54,11 +56,12 @@ const AuctionLastBid = ({
 
               <div className="d-flex">
                 <div>
-                  <Col className="auction-content-label text-top d-none d-sm-block" data-testid="new-bid" style={{ color: primaryColor }}>
-                    <FormattedMessage
-                      id="auction.detail.newBid"
-                      defaultMessage="New Bid"
-                    />
+                  <Col
+                    className="auction-content-label text-top d-none d-sm-block"
+                    data-testid="new-bid"
+                    style={{ color: primaryColor }}
+                  >
+                    <FormattedMessage id="auction.detail.newBid" defaultMessage="New Bid" />
                   </Col>
                   <Col sm={12} className={error && 'has-error'}>
                     <TextField
@@ -68,15 +71,13 @@ const AuctionLastBid = ({
                       onChange={valueBidTextField}
                       error={error}
                       value={inputBidValue}
-                      placeholder={
-                        intl.formatMessage(
-                          {
-                            id: 'auction.textfield.minValue',
-                            defaultMessage: 'Min. Value: {value}',
-                          },
-                          { value: minValue },
-                        )
-                      }
+                      placeholder={intl.formatMessage(
+                        {
+                          id: 'auction.textfield.minValue',
+                          defaultMessage: 'Min. Value: {value}',
+                        },
+                        { value: minValue }
+                      )}
                       field="forCompanies"
                     />
                   </Col>
@@ -117,10 +118,7 @@ AuctionLastBid.propTypes = {
     formatMessage: PropTypes.func,
   }),
   minValue: PropTypes.number,
-  inputBidValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  inputBidValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueBidTextField: PropTypes.func,
   primaryColor: PropTypes.string,
 };

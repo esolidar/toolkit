@@ -46,11 +46,17 @@ const CreditCardList = ({
       setShowCreditCardForm(false);
       setDisableButton(false);
     } else {
-      NotificationManager.error(translateMessage({
-        id: 'credit.card.error.message', defaultMessage: 'An error has occurred, please try again!',
-      }), translateMessage({
-        id: 'errror', defaultMessage: 'Error:',
-      }), 15000);
+      NotificationManager.error(
+        translateMessage({
+          id: 'credit.card.error.message',
+          defaultMessage: 'An error has occurred, please try again!',
+        }),
+        translateMessage({
+          id: 'errror',
+          defaultMessage: 'Error:',
+        }),
+        15000
+      );
       setDisableButton(false);
     }
   }, [stripeCreditCard]);
@@ -78,7 +84,7 @@ const CreditCardList = ({
     }
   };
 
-  const handdleSelect = (e) => {
+  const handdleSelect = e => {
     setIsRadioCc(e.target.value);
     selectedCard(e.target.value);
   };
@@ -99,55 +105,50 @@ const CreditCardList = ({
   return (
     <div className="stripe-checkout cards-list">
       <p className="font-weight-bold">
-        <FormattedMessage
-          id="creditcard.info.title"
-          defaultMessage="Credit card details"
-        />
+        <FormattedMessage id="creditcard.info.title" defaultMessage="Credit card details" />
       </p>
-      {isLoading && (
-        <Loading />
-      )}
+      {isLoading && <Loading />}
       {!isLoading && (
         <ul className="list-group list-group-flush">
           <>
             {newArray.length > 0 ? (
-              newArray.map((stripeCreditCard) => (
+              newArray.map(stripeCreditCard => (
                 <li key={stripeCreditCard.last4} className="list-group-item">
                   <RadioField
-                    label={!validDate(stripeCreditCard.exp_year, stripeCreditCard.exp_month) ? (
-                      <FormattedHTMLMessage
-                        id="creditcard.number"
-                        defaultMessage="Credit card number: xxxx xxxx xxxx {value} - Expires: {date}"
-                        values={{
-                          value: stripeCreditCard.last4, date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
-                        }}
-                      />
-                    ) : (
-                      <FormattedHTMLMessage
-                        id="creditcard.number.expired"
-                        defaultMessage="Credit card number: xxxx xxxx xxxx {value} - <span class='expired'>Expired: {date}</span>"
-                        values={{
-                          value: stripeCreditCard.last4, date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
-                        }}
-                      />
-                    )}
-                    onChange={(e) => handdleSelect(e)}
+                    label={
+                      !validDate(stripeCreditCard.exp_year, stripeCreditCard.exp_month) ? (
+                        <FormattedHTMLMessage
+                          id="creditcard.number"
+                          defaultMessage="Credit card number: xxxx xxxx xxxx {value} - Expires: {date}"
+                          values={{
+                            value: stripeCreditCard.last4,
+                            date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
+                          }}
+                        />
+                      ) : (
+                        <FormattedHTMLMessage
+                          id="creditcard.number.expired"
+                          defaultMessage="Credit card number: xxxx xxxx xxxx {value} - <span class='expired'>Expired: {date}</span>"
+                          values={{
+                            value: stripeCreditCard.last4,
+                            date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
+                          }}
+                        />
+                      )
+                    }
+                    onChange={e => handdleSelect(e)}
                     value={stripeCreditCard.last4}
                     checked={isRadioCc === stripeCreditCard.last4}
                     disabled={validDate(stripeCreditCard.exp_year, stripeCreditCard.exp_month)}
                   />
                 </li>
               ))
-            )
-              : (
-                <li className="list-group-item">
-                  <FormattedMessage
-                    id="creditcard.no.cards"
-                    defaultMessage="No credit card"
-                  />
-                </li>
-              )}
-            {(isErrorSelectCard && isRadioCc === null) && (
+            ) : (
+              <li className="list-group-item">
+                <FormattedMessage id="creditcard.no.cards" defaultMessage="No credit card" />
+              </li>
+            )}
+            {isErrorSelectCard && isRadioCc === null && (
               <span className="hasError text-danger">
                 <FormattedMessage
                   id="creditcard.notSelected"
@@ -164,10 +165,7 @@ const CreditCardList = ({
                   className="add-card"
                   onClick={() => setShowCreditCardForm(!showCreditCardForm)}
                 >
-                  <FormattedMessage
-                    id="creditcard.add.card"
-                    defaultMessage="Add new card"
-                  />
+                  <FormattedMessage id="creditcard.add.card" defaultMessage="Add new card" />
                 </button>
               </div>
             </li>

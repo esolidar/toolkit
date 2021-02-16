@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import FormQuestionsGenerator from '../FormQuestionsGenerator';
@@ -21,7 +21,7 @@ const props = {
       created_at: '2017-07-04 15:28:35',
     },
   ],
-  onChange: () => { },
+  onChange: () => {},
   errorFieldRequiredMessage: 'This field is required',
   NotAtAllText: 'Not at all',
   AbsolutelyText: 'Absolutely',

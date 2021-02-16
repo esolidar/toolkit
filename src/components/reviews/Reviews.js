@@ -31,12 +31,10 @@ const Reviews = ({
   const maxRate = '/5';
   const noImagePlaceholder = 'https://static.esolidar.com/frontend/assets/no-image.png';
 
-  const Average = () => (
+  const Average = () =>
     useMemo(() => (
       <div className="box overall-rating" data-testid="average-review">
-        <h3 className="title">
-          {texts.averageTitle}
-        </h3>
+        <h3 className="title">{texts.averageTitle}</h3>
         <div className="info">
           <div className="numbers">
             <span className="average">{averageRate}</span>
@@ -51,45 +49,48 @@ const Reviews = ({
           />
         </div>
       </div>
-    )));
+    ));
 
-  const OtherReviews = () => (
+  const OtherReviews = () =>
     useMemo(() => (
       <div className="box other-reviews">
-        <h3 className="title">
-          {texts.reviewTitle}
-        </h3>
+        <h3 className="title">{texts.reviewTitle}</h3>
         {!otherReviewsList.length && (
           <div className="no-reviews" data-testid="no-reviews">
             {texts.noReviews}
           </div>
         )}
-        {!!otherReviewsList.length && otherReviewsList.map((review) => (
-          <div key={review.id} className="review" data-testid="other-review">
-            <div className="header">
-              <img className="img" src={review.user.s3_key ? `${serverlessResizeImage}/${review.user.s3_key}?width=40` : noImagePlaceholder} alt={getEmployeeName(companyId, review.user)} />
-              <div className="name">
-                {getEmployeeName(companyId, review.user)}
+        {!!otherReviewsList.length &&
+          otherReviewsList.map(review => (
+            <div key={review.id} className="review" data-testid="other-review">
+              <div className="header">
+                <img
+                  className="img"
+                  src={
+                    review.user.s3_key
+                      ? `${serverlessResizeImage}/${review.user.s3_key}?width=40`
+                      : noImagePlaceholder
+                  }
+                  alt={getEmployeeName(companyId, review.user)}
+                />
+                <div className="name">{getEmployeeName(companyId, review.user)}</div>
+                <Rating
+                  className="rating"
+                  emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
+                  fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                  readonly={true}
+                  initialRating={review.rate || 0}
+                />
               </div>
-              <Rating
-                className="rating"
-                emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-                fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
-                readonly={true}
-                initialRating={review.rate || 0}
-              />
+              {!!review.review && (
+                <div className="body">
+                  <p>{review.review}</p>
+                </div>
+              )}
             </div>
-            {!!review.review && (
-              <div className="body">
-                <p>
-                  {review.review}
-                </p>
-              </div>
-            )}
-          </div>
-        ))}
+          ))}
       </div>
-    )));
+    ));
 
   return (
     <div className="reviews">
@@ -101,16 +102,20 @@ const Reviews = ({
         )}
         <Col md={12}>
           <div className="box user-review" data-testid="user-review">
-            <h3 className="title">
-              {texts.myReview}
-            </h3>
+            <h3 className="title">{texts.myReview}</h3>
             <div className="review">
               <div className="header">
-                <img className="img" src={myUser.s3_key ? `${serverlessResizeImage}/${myUser.s3_key}?width=40` : noImagePlaceholder} alt={getEmployeeName(companyId, myUser)} />
-                <div className="name">
-                  {getEmployeeName(companyId, myUser)}
-                </div>
-                {(!showEditReviewForm) && (
+                <img
+                  className="img"
+                  src={
+                    myUser.s3_key
+                      ? `${serverlessResizeImage}/${myUser.s3_key}?width=40`
+                      : noImagePlaceholder
+                  }
+                  alt={getEmployeeName(companyId, myUser)}
+                />
+                <div className="name">{getEmployeeName(companyId, myUser)}</div>
+                {!showEditReviewForm && (
                   <Rating
                     className="rating"
                     emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
@@ -120,19 +125,20 @@ const Reviews = ({
                   />
                 )}
               </div>
-              {(!showEditReviewForm) && (
+              {!showEditReviewForm && (
                 <>
                   <div className="body">
-                    {isDefined(userReview) && (
-                      <p>
-                        {userReview.review}
-                      </p>
-                    )}
-                    <Button extraClass="info" className="edit-button" onClick={onClickEdit} text={texts.editReviewButton} />
+                    {isDefined(userReview) && <p>{userReview.review}</p>}
+                    <Button
+                      extraClass="info"
+                      className="edit-button"
+                      onClick={onClickEdit}
+                      text={texts.editReviewButton}
+                    />
                   </div>
                 </>
               )}
-              {(showEditReviewForm) && (
+              {showEditReviewForm && (
                 <>
                   <div className="form" data-testid="edit-form">
                     <TextareaField
@@ -153,18 +159,28 @@ const Reviews = ({
                         emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
                         fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
                         initialRating={review.rate}
-                        onChange={(rate) => onChangeRate(rate)}
+                        onChange={rate => onChangeRate(rate)}
                       />
                     </div>
                   </div>
                   {isDefined(errors.rate) && (
-                    <div className="has-error" style={{ display: 'inline' }} data-testid="rate-error">
+                    <div
+                      className="has-error"
+                      style={{ display: 'inline' }}
+                      data-testid="rate-error"
+                    >
                       <span className="help-block">{errors.rate}</span>
                     </div>
                   )}
                   <div className="actions">
-                    {isDefined(userReview) && (<Button extraClass="dark" onClick={onClickCancel} text={texts.cancel} />)}
-                    <Button extraClass="success-full" onClick={submitReview} text={isDefined(userReview) ? texts.updateLabel : texts.saveLabel} />
+                    {isDefined(userReview) && (
+                      <Button extraClass="dark" onClick={onClickCancel} text={texts.cancel} />
+                    )}
+                    <Button
+                      extraClass="success-full"
+                      onClick={submitReview}
+                      text={isDefined(userReview) ? texts.updateLabel : texts.saveLabel}
+                    />
                   </div>
                 </>
               )}

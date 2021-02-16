@@ -25,31 +25,24 @@ const ContributesListBox = ({
               defaultMessage="Latest donations"
             />
           )}
-          {isAuction && (
-            <FormattedMessage
-              id="auction.last.bid"
-              defaultMessage="Last Bid"
-            />
-          )}
+          {isAuction && <FormattedMessage id="auction.last.bid" defaultMessage="Last Bid" />}
         </p>
-        {loadingContributesList
-          && (
-            <div className="loading-contributes-list">
-              <Loading />
-            </div>
-          )}
-        {!loadingContributesList
-          && (
-            <ContributesList
-              contributesListTotal={total}
-              contributes={contributesList}
-              loadingContributes={loadingContributes}
-              showMoreContributes={showMoreContributes}
-              currency={currency}
-              env={env}
-              isAuction={isAuction}
-            />
-          )}
+        {loadingContributesList && (
+          <div className="loading-contributes-list">
+            <Loading />
+          </div>
+        )}
+        {!loadingContributesList && (
+          <ContributesList
+            contributesListTotal={total}
+            contributes={contributesList}
+            loadingContributes={loadingContributes}
+            showMoreContributes={showMoreContributes}
+            currency={currency}
+            env={env}
+            isAuction={isAuction}
+          />
+        )}
       </div>
     </div>
   </div>

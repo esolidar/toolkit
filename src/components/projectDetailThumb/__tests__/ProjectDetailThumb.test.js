@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
@@ -17,8 +17,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -90,7 +92,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
       ],
       images: [
@@ -112,7 +115,13 @@ describe('ProjectDetailThumb component', () => {
         },
       ],
     };
-    const component = shallow(<ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" />);
+    const component = shallow(
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+      />
+    );
     expect(component).toHaveLength(1);
   });
 
@@ -127,8 +136,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [],
@@ -139,7 +150,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -157,17 +169,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -190,7 +205,13 @@ describe('ProjectDetailThumb component', () => {
       ],
     };
 
-    const component = shallow(<ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" />);
+    const component = shallow(
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+      />
+    );
     expect(component.find('.admin-buttons').length).toBe(0);
   });
 
@@ -205,8 +226,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -238,7 +261,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -256,17 +280,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -290,7 +317,7 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
@@ -299,9 +326,17 @@ describe('ProjectDetailThumb component', () => {
 
     const component = shallow(
       <IntlProvider locale="en">
-        <ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" admin={admin} />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+        <ProjectDetailThumb
+          project={project}
+          lang="pt"
+          serverlessResizeImage="https://image.testesolidar.com"
+          admin={admin}
+        />
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
 
     expect(component.find('SelectField').length).toBe(1);
@@ -319,8 +354,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -352,7 +389,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -370,17 +408,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -404,7 +445,7 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
@@ -413,9 +454,17 @@ describe('ProjectDetailThumb component', () => {
 
     const component = shallow(
       <IntlProvider locale="en">
-        <ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" admin={admin} />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+        <ProjectDetailThumb
+          project={project}
+          lang="pt"
+          serverlessResizeImage="https://image.testesolidar.com"
+          admin={admin}
+        />
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
 
     expect(component.find('Button').length).toBe(1);
@@ -433,8 +482,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -466,7 +517,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -484,17 +536,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -518,14 +573,21 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
       rejectText: 'rejectText',
     };
 
-    const component = shallow(<ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" admin={admin} />);
+    const component = shallow(
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+      />
+    );
     expect(component.find('Button').length).toBe(0);
   });
 
@@ -540,8 +602,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -573,7 +637,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -591,17 +656,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -625,7 +693,7 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
@@ -634,9 +702,17 @@ describe('ProjectDetailThumb component', () => {
 
     const component = shallow(
       <IntlProvider locale="en">
-        <ProjectDetailThumb project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" admin={admin} />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+        <ProjectDetailThumb
+          project={project}
+          lang="pt"
+          serverlessResizeImage="https://image.testesolidar.com"
+          admin={admin}
+        />
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
 
     expect(component.find('.ods').length).toBe(2);
@@ -653,8 +729,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -686,7 +764,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -704,17 +783,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -739,7 +821,7 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
@@ -756,8 +838,11 @@ describe('ProjectDetailThumb component', () => {
           showReview={true}
           reviewAverage={2}
         />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
 
     expect(component.find('RatingAPILayer').length).toBe(1);
@@ -774,8 +859,10 @@ describe('ProjectDetailThumb component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [
@@ -807,7 +894,8 @@ describe('ProjectDetailThumb component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
         {
           name: 'Qual o modelo de governança da sua Iniciativa?',
@@ -825,17 +913,20 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help:
+            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
-          reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
+          reply:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor.',
         },
       ],
       images: [
@@ -859,7 +950,7 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const admin = {
-      changeStatus: () => { },
+      changeStatus: () => {},
       inReviewText: 'inReviewText',
       aproveText: 'aproveText',
       completeText: 'completeText',
@@ -875,8 +966,11 @@ describe('ProjectDetailThumb component', () => {
           admin={admin}
           showReview={false}
         />
-      </IntlProvider>,
-    ).dive().dive().shallow()
+      </IntlProvider>
+    )
+      .dive()
+      .dive()
+      .shallow()
       .dive();
 
     expect(component.find('RatingAPILayer').length).toBe(0);

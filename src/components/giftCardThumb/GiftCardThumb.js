@@ -18,14 +18,8 @@ const GiftCardThumb = ({
     <Row className="gift-card-thumb">
       <Col sm={12} className="header unused" />
       <Col sm={6} className="date-label">
-        {giftCard.giftcard_institution.length === 0
-            && (
-              expireText
-            )}
-        {giftCard.giftcard_institution.length > 0
-            && (
-              usedAtText
-            )}
+        {giftCard.giftcard_institution.length === 0 && expireText}
+        {giftCard.giftcard_institution.length > 0 && usedAtText}
       </Col>
       <Col sm={6} className="date text-right">
         {giftCardExpireAt}
@@ -39,14 +33,8 @@ const GiftCardThumb = ({
             {usedText}
           </Col>
           <Col sm={6} className="text-right used">
-            {giftCard.giftcard_institution.length === 0
-                && (
-                  noText
-                )}
-            {giftCard.giftcard_institution.length > 0
-                && (
-                  yesText
-                )}
+            {giftCard.giftcard_institution.length === 0 && noText}
+            {giftCard.giftcard_institution.length > 0 && yesText}
           </Col>
           <Col sm={6} className="used-label">
             {amountText}

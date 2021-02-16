@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import SliderImagesLanding from '../SliderImagesLanding';
@@ -24,12 +24,14 @@ const props = {
     },
     {
       alt: 'Instituto CPFL',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/instituto_cpfl.png',
+      src:
+        'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/instituto_cpfl.png',
       url: 'https://www.institutocpfl.org.br',
     },
     {
       alt: 'Liga Portugal',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/liga_portugal.png',
+      src:
+        'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/liga_portugal.png',
       url: 'https://www.ligaportugal.pt/pt/homepage',
     },
     {

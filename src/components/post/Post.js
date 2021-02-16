@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Col, Dropdown, DropdownButton, Modal,
-} from 'react-bootstrap';
+import { Col, Dropdown, DropdownButton, Modal } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
@@ -34,9 +32,7 @@ class Post extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      commentUpdated, post,
-    } = this.props;
+    const { commentUpdated, post } = this.props;
 
     if (prevProps.commentUpdated !== commentUpdated) {
       if (Object.keys(commentUpdated).length > 0) {
@@ -44,7 +40,7 @@ class Post extends Component {
           showEditModal: false,
         });
         if (commentUpdated.parent_id) {
-          const index = findIndex(post.replies, (o) => o.id === commentUpdated.id);
+          const index = findIndex(post.replies, o => o.id === commentUpdated.id);
           if (index >= 0 && post.id === commentUpdated.parent_id) {
             const newReplies = post.replies;
             newReplies[index].text = commentUpdated.text;
@@ -88,33 +84,39 @@ class Post extends Component {
     const { readMoreComment, currentUser } = this.state;
     const { disabled } = this.props;
     if (comments.length > 0) {
-      return comments.map((comment) => (
+      return comments.map(comment => (
         <Col sm={12} className="no-padding" key={comment.id}>
           <div className="comment d-block" id={`comment-${comment.id}`}>
             <Col sm={12} className="header pt-3">
               <img alt="thumb" className="thumb" src={comment.user.thumbs.thumb} />
               <div className="user-post">{getEmployeeName(comment.company_id, comment.user)}</div>
               <div className="status">
-                <Moment utc fromNow ago>{comment.created_at}</Moment>
-                {(comment.user_id === currentUser.id)
-                  && (
-                    <div className="post-options-div">
-                      <Dropdown id="post-options" className="post-options post-options-dropdown">
-                        <DropdownButton alignRight className="post-options-dropdown" id="btn-toggle-edit" title="">
-                          <Dropdown.Header>
-                            <button
-                              type="button"
-                              onClick={() => this.toggleModalEdit(comment.id, comment.text)}
-                              disabled={disabled}
-                            >
-                              <FormattedMessage
-                                id="feed.options.edit-comment"
-                                defaultMessage="Edit comment"
-                              />
-                            </button>
-                          </Dropdown.Header>
+                <Moment utc fromNow ago>
+                  {comment.created_at}
+                </Moment>
+                {comment.user_id === currentUser.id && (
+                  <div className="post-options-div">
+                    <Dropdown id="post-options" className="post-options post-options-dropdown">
+                      <DropdownButton
+                        alignRight
+                        className="post-options-dropdown"
+                        id="btn-toggle-edit"
+                        title=""
+                      >
+                        <Dropdown.Header>
+                          <button
+                            type="button"
+                            onClick={() => this.toggleModalEdit(comment.id, comment.text)}
+                            disabled={disabled}
+                          >
+                            <FormattedMessage
+                              id="feed.options.edit-comment"
+                              defaultMessage="Edit comment"
+                            />
+                          </button>
+                        </Dropdown.Header>
 
-                          {/* (comment.user_id === user.id)
+                        {/* (comment.user_id === user.id)
                         && (
                           <Dropdown.Header>
                             <button
@@ -128,30 +130,25 @@ class Post extends Component {
                             </button>
                           </Dropdown.Header>
                         ) */}
-                        </DropdownButton>
-                      </Dropdown>
-                    </div>
-                  )}
+                      </DropdownButton>
+                    </Dropdown>
+                  </div>
+                )}
               </div>
             </Col>
-            <div
-              className="comments-box"
-            >
+            <div className="comments-box">
               <Col sm={12} className="comment-text">
                 <div className="comment-text-truncate">
                   <div className={`before-update before-update-${comment.id}`}>
                     <Truncate
                       lines={readMoreComment ? 0 : 3}
-                      ellipsis={(
+                      ellipsis={
                         <span>
                           <a href="#" className="readmore-link" onClick={this.toggleLines}>
-                            <FormattedMessage
-                              id="feed.post.readmore"
-                              defaultMessage="Read more"
-                            />
+                            <FormattedMessage id="feed.post.readmore" defaultMessage="Read more" />
                           </a>
                         </span>
-                      )}
+                      }
                     >
                       {comment.text.split('\n').map((item, index) => (
                         <span key={index}>
@@ -187,7 +184,12 @@ class Post extends Component {
     } = this.props;
 
     const {
-      currentUser, showDeleteModal, deleteCommenId, showEditModal, commentEditId, commentEditText,
+      currentUser,
+      showDeleteModal,
+      deleteCommenId,
+      showEditModal,
+      commentEditId,
+      commentEditText,
     } = this.state;
 
     return (
@@ -197,26 +199,31 @@ class Post extends Component {
             <img alt="Thumb" className="thumb" src={user.thumbs.thumb} />
             <div className="user-post">{getEmployeeName(post.company_id, post.user)}</div>
             <div className="status">
-              <Moment utc fromNow ago>{post.created_at}</Moment>
-              {(post.user_id === currentUser.id)
-                && (
-                  <div className="post-options-div">
-                    <Dropdown id="post-options" className="post-options post-options-dropdown">
-                      <DropdownButton alignRight className="post-options-dropdown" id="btn-toggle-edit-post" title="">
+              <Moment utc fromNow ago>
+                {post.created_at}
+              </Moment>
+              {post.user_id === currentUser.id && (
+                <div className="post-options-div">
+                  <Dropdown id="post-options" className="post-options post-options-dropdown">
+                    <DropdownButton
+                      alignRight
+                      className="post-options-dropdown"
+                      id="btn-toggle-edit-post"
+                      title=""
+                    >
+                      <Dropdown.Header>
+                        <button
+                          type="button"
+                          onClick={() => this.toggleModalEdit(post.id, post.text)}
+                        >
+                          <FormattedMessage
+                            id="projects.comments.edit"
+                            defaultMessage="Edit Comment"
+                          />
+                        </button>
+                      </Dropdown.Header>
 
-                        <Dropdown.Header>
-                          <button
-                            type="button"
-                            onClick={() => this.toggleModalEdit(post.id, post.text)}
-                          >
-                            <FormattedMessage
-                              id="projects.comments.edit"
-                              defaultMessage="Edit Comment"
-                            />
-                          </button>
-                        </Dropdown.Header>
-
-                        {/* (post.user_id === user.id)
+                      {/* (post.user_id === user.id)
                       && (
                         <Dropdown.Header>
                           <button
@@ -230,10 +237,10 @@ class Post extends Component {
                           </button>
                         </Dropdown.Header>
                       ) */}
-                      </DropdownButton>
-                    </Dropdown>
-                  </div>
-                )}
+                    </DropdownButton>
+                  </Dropdown>
+                </div>
+              )}
             </div>
           </div>
           <div className="post-item">
@@ -248,18 +255,12 @@ class Post extends Component {
           </div>
           <div className="loves-comments">
             <div className="comments-count hidden-xs">
-              <img
-                src="https://static.esolidar.com/frontend/icons/ic-comment.svg"
-                alt="Comments"
-              />
+              <img src="https://static.esolidar.com/frontend/icons/ic-comment.svg" alt="Comments" />
               <div className="text">
                 {post.replies && (
                   <span>
                     {post.total}
-                    <FormattedMessage
-                      id="feed.post.commentPlural"
-                      defaultMessage=" Comments"
-                    />
+                    <FormattedMessage id="feed.post.commentPlural" defaultMessage=" Comments" />
                   </span>
                 )}
               </div>
@@ -267,7 +268,7 @@ class Post extends Component {
           </div>
           {post.replies.length > 0 && (
             <div>
-              {(post.current_page !== post.last_page) && (
+              {post.current_page !== post.last_page && (
                 <div>
                   {!renderMoreRepliesLoading ? (
                     <button
@@ -305,19 +306,27 @@ class Post extends Component {
             disabled={disabled}
           />
         </div>
-        <Modal show={showEditModal} onHide={() => this.toggleModalEdit('', '')} className="md-delete">
+        <Modal
+          show={showEditModal}
+          onHide={() => this.toggleModalEdit('', '')}
+          className="md-delete"
+        >
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage
-                id="projects.comments.edit"
-                defaultMessage="Edit Comment"
-              />
+              <FormattedMessage id="projects.comments.edit" defaultMessage="Edit Comment" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="row">
               <div className="col-sm-12">
-                <form onSubmit={(e) => { e.preventDefault(); this.toggleModalEdit('', ''); editComment(commentEditId); }} method="post">
+                <form
+                  onSubmit={e => {
+                    e.preventDefault();
+                    this.toggleModalEdit('', '');
+                    editComment(commentEditId);
+                  }}
+                  method="post"
+                >
                   <Col sm={12}>
                     <TextareaField
                       id={`text-${commentEditId}`}
@@ -329,10 +338,7 @@ class Post extends Component {
                       required={true}
                     />
                     <button type="submit" className="btn-esolidar btn-success-full float-right">
-                      <FormattedMessage
-                        id="projects.comments.save"
-                        defaultMessage="Save"
-                      />
+                      <FormattedMessage id="projects.comments.save" defaultMessage="Save" />
                     </button>
                   </Col>
                 </form>
@@ -343,10 +349,7 @@ class Post extends Component {
         <Modal show={showDeleteModal} onHide={this.toggleModal} className="md-delete">
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage
-                id="projects.comment.delete"
-                defaultMessage="Delete Comment"
-              />
+              <FormattedMessage id="projects.comment.delete" defaultMessage="Delete Comment" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -365,10 +368,7 @@ class Post extends Component {
                   type="button"
                   onClick={deleteComment(deleteCommenId)}
                 >
-                  <FormattedMessage
-                    id="company.department.yes"
-                    defaultMessage="Yes"
-                  />
+                  <FormattedMessage id="company.department.yes" defaultMessage="Yes" />
                 </button>
               </div>
             </div>

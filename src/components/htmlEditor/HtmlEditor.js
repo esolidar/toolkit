@@ -3,16 +3,14 @@
 
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import {
-  EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML,
-} from 'draft-js';
+import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML } from 'draft-js';
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
 import { injectIntl } from 'react-intl';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const getInitialRawContent = (initialContent) => {
+const getInitialRawContent = initialContent => {
   const isContentHtmlString = typeof initialContent === 'string';
 
   if (isContentHtmlString) {
@@ -21,11 +19,12 @@ const getInitialRawContent = (initialContent) => {
     const blocksFromHTML = htmlToDraft(fixedHtml);
     const content = ContentState.createFromBlockArray(
       blocksFromHTML.contentBlocks,
-      blocksFromHTML.entityMap,
+      blocksFromHTML.entityMap
     );
 
     const rawContent = convertToRaw(content);
-    if (rawContent.blocks.length > numberOfElements && rawContent.blocks[0].text === '') rawContent.blocks.shift();
+    if (rawContent.blocks.length > numberOfElements && rawContent.blocks[0].text === '')
+      rawContent.blocks.shift();
     return rawContent;
   }
   return initialContent;
@@ -64,7 +63,7 @@ const HtmlEditor = ({
   const [editorState, setEditorState] = useState(
     initialContent
       ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
-      : EditorState.createEmpty(),
+      : EditorState.createEmpty()
   );
 
   useEffect(() => {
@@ -72,17 +71,17 @@ const HtmlEditor = ({
 
     if (muiStyle) {
       if (!newClassArray.includes(muiStyleClass)) newClassArray.push(muiStyleClass);
-    } else newClassArray = newClassArray.filter((item) => item !== muiStyleClass);
+    } else newClassArray = newClassArray.filter(item => item !== muiStyleClass);
 
     if (error) {
       if (!newClassArray.includes(errorClass)) newClassArray.push(errorClass);
-    } else newClassArray = newClassArray.filter((item) => item !== errorClass);
+    } else newClassArray = newClassArray.filter(item => item !== errorClass);
 
     setWrapperClassName(newClassArray);
   }, [muiStyle, error]);
 
-  const handleFileUpload = (file) => new Promise(
-    (resolve, reject) => {
+  const handleFileUpload = file =>
+    new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = async () => {
@@ -95,23 +94,32 @@ const HtmlEditor = ({
         const err = { data: { link: imageUrl } };
         reject(err);
       };
-    },
-  );
+    });
 
-  const handleEditorStateChange = (editorState) => {
+  const handleEditorStateChange = editorState => {
     if (onChange) onChange(convertToRaw(editorState.getCurrentContent()));
     setEditorState(editorState);
   };
 
   const handleOnFocus = () => {
-    if (!wrapperClassName.includes(focusClass)) setWrapperClassName([...wrapperClassName, focusClass]);
+    if (!wrapperClassName.includes(focusClass))
+      setWrapperClassName([...wrapperClassName, focusClass]);
   };
 
   const handleOnBlur = () => {
-    setWrapperClassName(wrapperClassName.filter((item) => item !== focusClass));
+    setWrapperClassName(wrapperClassName.filter(item => item !== focusClass));
   };
 
-  const options = ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'colorPicker', 'remove', 'history'];
+  const options = [
+    'inline',
+    'blockType',
+    'fontSize',
+    'list',
+    'textAlign',
+    'colorPicker',
+    'remove',
+    'history',
+  ];
   if (showAddImageBtn) options.push('image');
   if (showAddUrlBtn) options.push('link');
 
@@ -124,7 +132,7 @@ const HtmlEditor = ({
         value={columns}
         handleChange={changeColumns}
         testId="dropdown-btn"
-      />,
+      />
     );
   }
 
@@ -162,7 +170,11 @@ const HtmlEditor = ({
         onBlur={handleOnBlur}
         data-testid={dataTestId}
       />
-      {!!helperText && (<p aria-label="html-helper-text" className="helper-text__error">{helperText}</p>)}
+      {!!helperText && (
+        <p aria-label="html-helper-text" className="helper-text__error">
+          {helperText}
+        </p>
+      )}
     </>
   );
 };

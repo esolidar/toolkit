@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../icon/Icon';
 
-const ChangeLanguage = ({
-  currentLang, languages, onChangeLang,
-}) => {
-  const renderLanguages = languages.map((language) => (
+const ChangeLanguage = ({ currentLang, languages, onChangeLang }) => {
+  const renderLanguages = languages.map(language => (
     <span key={language.id}>
       <button
         type="button"
         onClick={() => onChangeLang(language.name)}
-        className={(currentLang === language.name ? 'active' : '')}
+        className={currentLang === language.name ? 'active' : ''}
       >
         {language.name}
       </button>
@@ -34,7 +32,7 @@ ChangeLanguage.propTypes = {
       id: PropTypes.number,
       name: PropTypes.string,
       translate: PropTypes.string,
-    }),
+    })
   ).isRequired,
   onChangeLang: PropTypes.func.isRequired,
 };

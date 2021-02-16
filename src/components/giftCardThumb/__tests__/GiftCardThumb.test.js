@@ -19,7 +19,12 @@ const props = {
     laravel_through_key: 'email@gmail.com',
     giftcard_institution: [],
     currency: {
-      id: 1, name: 'Euro', small: 'EUR', value: 1.091, symbol: '€', status: 1,
+      id: 1,
+      name: 'Euro',
+      small: 'EUR',
+      value: 1.091,
+      symbol: '€',
+      status: 1,
     },
   },
   giftCardClick: () => {},

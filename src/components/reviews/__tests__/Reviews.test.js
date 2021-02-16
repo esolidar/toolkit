@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { mount } from 'enzyme';
 import Reviews from '../Reviews';
@@ -14,8 +12,7 @@ const props = {
     id: 9,
     firstName: 'Joel',
     lastName: 'Calheiros',
-    image:
-      'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
+    image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
     streamImage: 'amazons3',
     language: {
       id: 2,
@@ -178,10 +175,8 @@ const props = {
           lastUpdate: '2020-05-22 12:55:58',
         },
         thumbs: {
-          original:
-            'https://static.testesolidar.com/frontend/assets/no-image.png',
-          standard:
-            'https://static.testesolidar.com/frontend/assets/no-image.png',
+          original: 'https://static.testesolidar.com/frontend/assets/no-image.png',
+          standard: 'https://static.testesolidar.com/frontend/assets/no-image.png',
           thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
         },
         work_email: [
@@ -255,10 +250,8 @@ const props = {
           lastUpdate: '2020-05-22 12:55:58',
         },
         thumbs: {
-          original:
-            'https://static.testesolidar.com/frontend/assets/no-image.png',
-          standard:
-            'https://static.testesolidar.com/frontend/assets/no-image.png',
+          original: 'https://static.testesolidar.com/frontend/assets/no-image.png',
+          standard: 'https://static.testesolidar.com/frontend/assets/no-image.png',
           thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
         },
         work_email: [
@@ -329,8 +322,7 @@ const props = {
       id: 9,
       firstName: 'Joel',
       lastName: 'Calheiros',
-      image:
-        'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
+      image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
       streamImage: 'amazons3',
       language: {
         id: 2,
@@ -351,8 +343,7 @@ const props = {
       },
       thumbs: {
         original: 'https://cdn.testesolidar.com/users/9/1590415243.jpg',
-        standard:
-          'https://cdn.testesolidar.com/users/9/1590415243-STANDARD.jpg',
+        standard: 'https://cdn.testesolidar.com/users/9/1590415243-STANDARD.jpg',
         thumb: 'https://cdn.testesolidar.com/users/9/1590415243-THUMB.jpg',
       },
       work_email: [
@@ -464,7 +455,9 @@ describe('Reviews component', () => {
     expect(component.find('[data-testid="user-review"]').length).toBe(1);
     expect(component.find('[data-testid="edit-form"]').length).toBe(0);
     expect(component.find('[data-testid="rate-error"]').length).toBe(0);
-    expect(component.find('[data-testid="other-review"]').length).toBe(props.otherReviewsList.length);
+    expect(component.find('[data-testid="other-review"]').length).toBe(
+      props.otherReviewsList.length
+    );
   });
 
   it('does not render average review box if there are no reviews', () => {

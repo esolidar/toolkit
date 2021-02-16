@@ -1,12 +1,8 @@
-/* global expect */
-/* global jest */
 import React, { createRef } from 'react';
 import Dropzone from 'react-dropzone';
 import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';
-import {
-  fireEvent, render, cleanup, act, waitFor,
-} from '@testing-library/react';
+import { fireEvent, render, cleanup, act, waitFor } from '@testing-library/react';
 import DropZoneBox from '../DropZoneBox';
 
 function createFile(name, size, type) {
@@ -23,7 +19,7 @@ function createDtWithFiles(files = []) {
   return {
     dataTransfer: {
       files,
-      items: files.map((file) => ({
+      items: files.map(file => ({
         kind: 'file',
         size: file.size,
         type: file.type,
@@ -64,7 +60,7 @@ async function flushPromises(rerender, ui) {
 
 const props = {
   maxSize: 5000000,
-  onSelect: () => { },
+  onSelect: () => {},
   errorMessages: [],
 };
 
@@ -81,7 +77,10 @@ describe('useDropzone() hook', () => {
 
   beforeEach(() => {
     files = [createFile('file1.pdf', 5000000, 'application/pdf')];
-    images = [createFile('cats.gif', 6000000, 'image/gif'), createFile('dogs.gif', 7000000, 'image/jpeg')];
+    images = [
+      createFile('cats.gif', 6000000, 'image/gif'),
+      createFile('dogs.gif', 7000000, 'image/jpeg'),
+    ];
   });
 
   afterEach(cleanup);
@@ -95,7 +94,7 @@ describe('useDropzone() hook', () => {
               <input {...getInputProps()} />
             </div>
           )}
-        </Dropzone>,
+        </Dropzone>
       );
       expect(container.innerHTML).toMatchSnapshot();
     });
@@ -109,7 +108,7 @@ describe('useDropzone() hook', () => {
               <input {...getInputProps()} />
             </div>
           )}
-        </Dropzone>,
+        </Dropzone>
       );
 
       const input = container.querySelector('input');
@@ -125,7 +124,7 @@ describe('useDropzone() hook', () => {
               <input {...getInputProps()} />
             </div>
           )}
-        </Dropzone>,
+        </Dropzone>
       );
 
       expect(container.querySelector('input')).toHaveAttribute('accept', 'image/jpeg');
@@ -137,7 +136,7 @@ describe('useDropzone() hook', () => {
               <input {...getInputProps()} />
             </div>
           )}
-        </Dropzone>,
+        </Dropzone>
       );
 
       expect(container.querySelector('input')).toHaveAttribute('accept', 'image/png');
@@ -152,7 +151,7 @@ describe('useDropzone() hook', () => {
             <input {...getInputProps()} />
           </div>
         )}
-      </Dropzone>,
+      </Dropzone>
     );
 
     expect(container.querySelector('input')).not.toHaveAttribute('multiple');
@@ -164,7 +163,7 @@ describe('useDropzone() hook', () => {
             <input {...getInputProps()} />
           </div>
         )}
-      </Dropzone>,
+      </Dropzone>
     );
 
     expect(container.querySelector('input')).toHaveAttribute('multiple');
@@ -178,7 +177,7 @@ describe('useDropzone() hook', () => {
             <input {...getInputProps()} />
           </div>
         )}
-      </Dropzone>,
+      </Dropzone>
     );
 
     const dragEvt = new Event('dragover', { bubbles: true });
@@ -200,7 +199,7 @@ describe('useDropzone() hook', () => {
             <input {...getInputProps()} />
           </div>
         )}
-      </Dropzone>,
+      </Dropzone>
     );
     const dropzone = container.querySelector('div');
 
@@ -224,7 +223,7 @@ describe('useDropzone() hook', () => {
             {isFileDialogActive && active}
           </div>
         )}
-      </Dropzone>,
+      </Dropzone>
     );
 
     const dropzone = container.querySelector('div');
@@ -290,26 +289,30 @@ describe('useDropzone() hook', () => {
     fireDrop(dropzone, createDtWithFiles(images));
     await flushPromises(rerender, ui);
 
-    expect(onDropSpy).toHaveBeenCalledWith([], [
-      {
-        file: images[0],
-        errors: [
-          {
-            code: 'file-too-large',
-            message: 'File is larger than 5000000 bytes',
-          },
-        ],
-      },
-      {
-        file: images[1],
-        errors: [
-          {
-            code: 'file-too-large',
-            message: 'File is larger than 5000000 bytes',
-          },
-        ],
-      },
-    ], expect.anything());
+    expect(onDropSpy).toHaveBeenCalledWith(
+      [],
+      [
+        {
+          file: images[0],
+          errors: [
+            {
+              code: 'file-too-large',
+              message: 'File is larger than 5000000 bytes',
+            },
+          ],
+        },
+        {
+          file: images[1],
+          errors: [
+            {
+              code: 'file-too-large',
+              message: 'File is larger than 5000000 bytes',
+            },
+          ],
+        },
+      ],
+      expect.anything()
+    );
   });
 
   test('onDropRejected callback is invoked if some files are rejected', async () => {
@@ -328,17 +331,20 @@ describe('useDropzone() hook', () => {
 
     fireDrop(dropzone, createDtWithFiles(files));
     await flushPromises(rerender, ui);
-    expect(onDropRejectedSpy).toHaveBeenCalledWith([
-      {
-        file: files[0],
-        errors: [
-          {
-            code: 'file-invalid-type',
-            message: 'File type must be image/*',
-          },
-        ],
-      },
-    ], expect.anything());
+    expect(onDropRejectedSpy).toHaveBeenCalledWith(
+      [
+        {
+          file: files[0],
+          errors: [
+            {
+              code: 'file-invalid-type',
+              message: 'File type must be image/*',
+            },
+          ],
+        },
+      ],
+      expect.anything()
+    );
     onDropRejectedSpy.mockClear();
 
     fireDrop(dropzone, createDtWithFiles(images));
@@ -348,16 +354,19 @@ describe('useDropzone() hook', () => {
 
     fireDrop(dropzone, createDtWithFiles([...files, ...images]));
     await flushPromises(rerender, ui);
-    expect(onDropRejectedSpy).toHaveBeenCalledWith([
-      {
-        file: files[0],
-        errors: [
-          {
-            code: 'file-invalid-type',
-            message: 'File type must be image/*',
-          },
-        ],
-      },
-    ], expect.anything());
+    expect(onDropRejectedSpy).toHaveBeenCalledWith(
+      [
+        {
+          file: files[0],
+          errors: [
+            {
+              code: 'file-invalid-type',
+              message: 'File type must be image/*',
+            },
+          ],
+        },
+      ],
+      expect.anything()
+    );
   });
 });

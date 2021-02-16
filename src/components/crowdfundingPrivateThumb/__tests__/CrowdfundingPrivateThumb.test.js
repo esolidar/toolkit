@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -43,8 +41,10 @@ const thumb = {
   ],
   institution: {
     thumbs: {
-      detail: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-DETAIL.jpeg',
-      thumb: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-THUMB.jpeg',
+      detail:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-DETAIL.jpeg',
+      thumb:
+        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-THUMB.jpeg',
     },
   },
   currency: {
@@ -75,39 +75,81 @@ const convertedValue = '12.00€';
 describe('FeaturesMenu page', () => {
   it('renders the FeaturesMenu component', () => {
     advanceTo(new Date(2020, 10, 10, 0, 0, 0));
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component).toHaveLength(1);
   });
 
   it('expect return 30-04-2020 in ending date', () => {
     advanceTo(new Date(2020, 10, 10, 0, 0, 0));
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component.find('.date-text').text()).toEqual('30-11-2020');
   });
 
   it('expect return running class', () => {
     advanceTo(new Date(2020, 10, 10, 0, 0, 0));
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component.find('.label-text').text()).toEqual('Ends in');
     expect(component.find('._date').hasClass('running')).toBe(true);
   });
 
   it('expect return soon class', () => {
     advanceTo(new Date(2020, 1, 1, 0, 0, 0));
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component.find('.label-text').text()).toEqual('Starts in');
     expect(component.find('._date').hasClass('soon')).toBe(true);
   });
 
   it('expect return ended class', () => {
     advanceTo(new Date(2022, 1, 1, 0, 0, 0));
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component.find('.label-text').text()).toEqual('Ended in');
     expect(component.find('._date').hasClass('ended')).toBe(true);
   });
 
   it('expect return raised value 12.00€', () => {
-    const component = shallow(<CrowdfundingPrivateThumb thumb={thumb} env={env} translations={translations} convertedValue={convertedValue} />);
+    const component = shallow(
+      <CrowdfundingPrivateThumb
+        thumb={thumb}
+        env={env}
+        translations={translations}
+        convertedValue={convertedValue}
+      />
+    );
     expect(component.find('.raised-value').text()).toEqual('12.00€');
   });
 });

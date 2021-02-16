@@ -2,6 +2,7 @@ export { default as addUrlParam } from './addUrlParam';
 export { default as blinkElement } from './blinkElement';
 export { default as clone } from './clone';
 export { default as convertToMyCurrency } from './convertToMyCurrency';
+export { default as downloadExcel } from './downloadExcel';
 export { default as debounce } from './debounce';
 export { default as filterUnique } from './filterUnique';
 export { default as firstElemOf } from './firstElemOf';

@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +24,8 @@ describe('Button component', () => {
 
   it('renders Button with prop href', () => {
     const component = shallow(<Button extraClass="danger" target="_blank" href="www.google.pt" />);
-    expect(component.props().href).toEqual('www.google.pt'); expect(component.props().href).toEqual('www.google.pt');
+    expect(component.props().href).toEqual('www.google.pt');
+    expect(component.props().href).toEqual('www.google.pt');
   });
 
   it('renders Button with prop link', () => {
@@ -41,7 +40,13 @@ describe('Button component', () => {
   });
 
   it('renders Button icon prop', () => {
-    const component = shallow(<Button extraClass="danger" to="login" icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />} />);
+    const component = shallow(
+      <Button
+        extraClass="danger"
+        to="login"
+        icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />}
+      />
+    );
     expect(component.find('FontAwesomeIcon').length).toBe(1);
   });
 

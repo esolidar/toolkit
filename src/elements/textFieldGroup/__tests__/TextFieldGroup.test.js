@@ -1,5 +1,3 @@
-/* global expect */
-/* global jest */
 import React from 'react';
 import { shallow } from 'enzyme';
 import TextFieldGroup from '../TextFieldGroup';
@@ -25,7 +23,7 @@ describe('TextFieldGroup component', () => {
         placeholder="Placeholder"
         type="number"
         value="Textarea"
-      />,
+      />
     );
     expect(component.find('.control-label')).toHaveLength(1);
     expect(component.find('.control-label').text()).toEqual('Lorem');
@@ -47,7 +45,7 @@ describe('TextFieldGroup component', () => {
         value={100}
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('input').props().value).toEqual(100);
   });
@@ -59,7 +57,7 @@ describe('TextFieldGroup component', () => {
         error="error"
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);
     expect(component.find('.form-control').hasClass('required-field')).toEqual(true);
@@ -74,7 +72,7 @@ describe('TextFieldGroup component', () => {
         message="Message"
         onChange={changed}
         checkUserExists={changed}
-      />,
+      />
     );
     expect(component.find('.form-group').hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group .help-block')).toHaveLength(1);
@@ -88,7 +86,7 @@ describe('TextFieldGroup component', () => {
         onChange={changed}
         checkUserExists={changed}
         disabled={true}
-      />,
+      />
     );
     expect(component.find('.form-group input').props().disabled).toBe(true);
   });

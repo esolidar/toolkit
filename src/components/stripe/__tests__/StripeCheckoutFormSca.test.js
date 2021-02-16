@@ -1,5 +1,3 @@
-/* global expect */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -12,7 +10,7 @@ const props = {
   loadingStripe: false,
   total: 100,
   currencyId: 1,
-  updateState: () => { },
+  updateState: () => {},
   order: {},
   env: {
     stripe: {
@@ -27,7 +25,7 @@ describe('StripeCheckoutFormSca component', () => {
     const component = shallow(
       <StripeProvider stripe={null}>
         <StripeCheckoutFormSca {...props} />
-      </StripeProvider>,
+      </StripeProvider>
     );
 
     expect(component).toHaveLength(1);

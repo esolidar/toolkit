@@ -15,11 +15,7 @@ const TextFieldGroup = ({
   groupText,
   disabled,
 }) => (
-  <div
-    className={
-      classnames('form-group', { 'has-error': error || message })
-    }
-  >
+  <div className={classnames('form-group', { 'has-error': error || message })}>
     {label && (
       <label htmlFor={field} className="control-label">
         {label}
@@ -29,7 +25,7 @@ const TextFieldGroup = ({
     <div className="input-group">
       <input
         onChange={onChange}
-        value={value}
+        value={value || ''}
         defaultValue={defaultValue}
         type={type}
         name={field}
@@ -38,7 +34,9 @@ const TextFieldGroup = ({
         disabled={disabled}
       />
       {groupText && (
-        <span className={error ? 'input-group-addon required-field' : 'input-group-addon'}>{groupText}</span>
+        <span className={error ? 'input-group-addon required-field' : 'input-group-addon'}>
+          {groupText}
+        </span>
       )}
     </div>
     {error && <span className="help-block">{error}</span>}
@@ -51,19 +49,10 @@ export default TextFieldGroup;
 TextFieldGroup.propTypes = {
   field: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   type: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,

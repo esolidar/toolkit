@@ -72,12 +72,7 @@ const Button = ({
 
       case 'link':
         return (
-          <Link
-            data-testid={dataTestId}
-            id={id}
-            to={to}
-            className={classes.join(' ')}
-          >
+          <Link data-testid={dataTestId} id={id} to={to} className={classes.join(' ')}>
             {icon}
             {text}
           </Link>
@@ -116,10 +111,7 @@ Button.propTypes = {
   rounded: PropTypes.bool,
   size: PropTypes.string,
   target: PropTypes.string,
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,
   type: PropTypes.string,
 };

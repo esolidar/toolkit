@@ -1,7 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
-/* global beforeAll */
-/* global jest */
 
 import React from 'react';
 import { configure, shallow } from 'enzyme';

@@ -1,4 +1,3 @@
-/* global expect */
 import React from 'react';
 import { shallow } from 'enzyme';
 import StatisticsBox from '../StatisticsBox';
@@ -11,13 +10,21 @@ const propFeatures = [
 
 const propFooter = [
   {
-    title: 'Raised', iconClass: 'icon-icon-manage-employees', statistics: '$279.47', subtitle: '0% growth last quarter',
+    title: 'Raised',
+    iconClass: 'icon-icon-manage-employees',
+    statistics: '$279.47',
+    subtitle: '0% growth last quarter',
   },
   {
-    title: 'Auctions', statistics: '4', subtitle: '0% growth last quarter',
+    title: 'Auctions',
+    statistics: '4',
+    subtitle: '0% growth last quarter',
   },
   {
-    title: 'Bids', iconClass: 'icon-ic-donations', statistics: '152', subtitle: '0% growth last quarter',
+    title: 'Bids',
+    iconClass: 'icon-ic-donations',
+    statistics: '152',
+    subtitle: '0% growth last quarter',
   },
 ];
 

@@ -1,6 +1,3 @@
-/* global expect */
-/* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -36,7 +33,7 @@ describe('FaqsTabs component', () => {
   });
 
   it('expect Tab Users active', () => {
-    const component = shallow(<FaqTabs tabs={tabs} type="users" changeType={() => { }} />);
+    const component = shallow(<FaqTabs tabs={tabs} type="users" changeType={() => {}} />);
     expect(component.find('.tab.active').length).toBe(1);
   });
 

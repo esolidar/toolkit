@@ -65,27 +65,16 @@ const CustomModal = ({
           >
             {title}
           </span>
-          <span
-            className={`font-weight-normal ${subtitleClassName}`}
-            data-testid="subtitle"
-          >
+          <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
             {subtitle}
           </span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body
-        className={bodyClassName}
-        style={bodyStyle}
-        data-testid="body"
-      >
+      <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
         {bodyChildren}
       </Modal.Body>
       {actionsChildren && (
-        <Modal.Footer
-          className={footerClassName}
-          style={footerStyle}
-          data-testid="footer"
-        >
+        <Modal.Footer className={footerClassName} style={footerStyle} data-testid="footer">
           {actionsChildren}
         </Modal.Footer>
       )}

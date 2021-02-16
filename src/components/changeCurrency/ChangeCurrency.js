@@ -31,7 +31,7 @@ ChangeCurrency.propTypes = {
       name: PropTypes.string,
       small: PropTypes.string,
       symbol: PropTypes.string,
-    }),
+    })
   ).isRequired,
 };
 

@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const FileInput = ({
-  name,
-  accept,
-  disabled,
-  placeholder,
-  onChange,
-  styleLogo,
-}) => {
+const FileInput = ({ name, accept, disabled, placeholder, onChange, styleLogo }) => {
   const [value, setValue] = useState('');
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     setValue(e.target.value.split(/(\\|\/)/g).pop());
 
     if (onChange) onChange(e);
@@ -34,17 +27,22 @@ const FileInput = ({
             disabled={disabled}
             accept={accept}
             style={{
-              position: 'absolute', top: 0, left: 0, opacity: 0, width: '100%', zIndex: 1,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              opacity: 0,
+              width: '100%',
+              zIndex: 1,
             }}
           />
 
           <input
             type="text"
             tabIndex="-1"
-            name={'this.props.name + \'_filename\''}
+            name={"this.props.name + '_filename'"}
             value={value}
             className="input-image"
-            onChange={() => { }}
+            onChange={() => {}}
             placeholder={placeholder}
             disabled={disabled}
             style={{ position: 'relative', zIndex: -1 }}

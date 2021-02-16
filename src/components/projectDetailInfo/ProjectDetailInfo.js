@@ -21,12 +21,12 @@ const ProjectDetailInfo = ({
   staticUrl,
   intl,
 }) => {
-  if (isEmpty(project) || !project) return (<div />);
+  if (isEmpty(project) || !project) return <div />;
 
   const { form, requestInfoErrors = [] } = project;
 
   const totalQuestions = form.length;
-  const selectedQuestions = form.filter((item) => item.selected === true).length;
+  const selectedQuestions = form.filter(item => item.selected === true).length;
 
   return (
     <div className="project-detail-info">
@@ -105,37 +105,47 @@ ProjectDetailInfo.propTypes = {
 };
 
 const Question = ({
-  question, index, color, showRequestInfoView, handleToggleFieldSelected, handleChangeFieldObs, ods, staticUrl, error, intl,
+  question,
+  index,
+  color,
+  showRequestInfoView,
+  handleToggleFieldSelected,
+  handleChangeFieldObs,
+  ods,
+  staticUrl,
+  error,
+  intl,
 }) => {
-  const {
-    type, name, selected, isPrivate, checked, obs, reply,
-  } = question;
+  const { type, name, selected, isPrivate, checked, obs, reply } = question;
 
   if (type === 'dropdown' || type === 'upload-images') return null;
 
-  const PrivateIcon = () => <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />;
+  const PrivateIcon = () => (
+    <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />
+  );
 
   const questionGroupClassName = ['question-group'];
-  if (showRequestInfoView && !['title', 'paragraph'].includes(type)) questionGroupClassName.push('in-review');
+  if (showRequestInfoView && !['title', 'paragraph'].includes(type))
+    questionGroupClassName.push('in-review');
   if (selected) questionGroupClassName.push('selected');
   if (selected && error) questionGroupClassName.push('error');
 
   return (
     <div className={questionGroupClassName.join(' ')} key={name}>
       <div className="answer">
-        {(type === 'title') && (
+        {type === 'title' && (
           <h4 style={{ color }}>
             {name}
             {isPrivate && <PrivateIcon />}
           </h4>
         )}
-        {(type === 'paragraph') && (
+        {type === 'paragraph' && (
           <p>
             {name}
             {isPrivate && <PrivateIcon />}
           </p>
         )}
-        {(type === 'checkbox') && (
+        {type === 'checkbox' && (
           <div>
             <h4 style={{ color }}>
               {name}
@@ -143,20 +153,16 @@ const Question = ({
             </h4>
             <ul>
               {checked.map((item, index) => (
-                <li key={index}>
-                  {item}
-                </li>
+                <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
         )}
-        {(type === 'ods') && showRequestInfoView && (
+        {type === 'ods' && showRequestInfoView && (
           <div>
-            <h4 style={{ color }}>
-              {name}
-            </h4>
+            <h4 style={{ color }}>{name}</h4>
             <div>
-              {ods.images.map((o) => (
+              {ods.images.map(o => (
                 <img
                   key={o.id}
                   src={`${staticUrl}/frontend/assets/ods/${ods.lang}/${o.tag_name}.png`}
@@ -167,22 +173,25 @@ const Question = ({
             </div>
           </div>
         )}
-        {((type !== 'title') && (type !== 'paragraph') && (type !== 'ods') && (type !== 'dropdown') && (type !== 'upload-images') && (reply)) && (
-          <div>
-            <h4 style={{ color }}>
-              {name}
-              {isPrivate && <PrivateIcon />}
-            </h4>
-            {reply.split('\n').map((item, index) => (
-              <p key={index}>
-                {item}
-              </p>
-            ))}
-          </div>
-        )}
+        {type !== 'title' &&
+          type !== 'paragraph' &&
+          type !== 'ods' &&
+          type !== 'dropdown' &&
+          type !== 'upload-images' &&
+          reply && (
+            <div>
+              <h4 style={{ color }}>
+                {name}
+                {isPrivate && <PrivateIcon />}
+              </h4>
+              {reply.split('\n').map((item, index) => (
+                <p key={index}>{item}</p>
+              ))}
+            </div>
+          )}
         {showRequestInfoView && !['title', 'paragraph'].includes(type) && (
           <CheckboxField
-            onChange={(e) => handleToggleFieldSelected(e, index)}
+            onChange={e => handleToggleFieldSelected(e, index)}
             name={`${name}-selected`}
             checked={selected}
           />
@@ -192,8 +201,11 @@ const Question = ({
         <TextareaField
           label={intl.formatMessage({ id: 'project.comments', defaultMessage: 'Comments' })}
           className="description"
-          placeholder={intl.formatMessage({ id: 'project.tickets.requestInfo.comments', defaultMessage: 'Write something...' })}
-          onChange={(e) => handleChangeFieldObs(e, index)}
+          placeholder={intl.formatMessage({
+            id: 'project.tickets.requestInfo.comments',
+            defaultMessage: 'Write something...',
+          })}
+          onChange={e => handleChangeFieldObs(e, index)}
           field={`${name}-description`}
           resize={true}
           value={obs}
@@ -201,10 +213,7 @@ const Question = ({
       )}
       {selected && error && (
         <p className="mt-1 text-danger">
-          <FormattedMessage
-            id="form.required"
-            defaultMessage="This field is required."
-          />
+          <FormattedMessage id="form.required" defaultMessage="This field is required." />
         </p>
       )}
     </div>

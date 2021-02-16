@@ -5,10 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 const CrowdfundingProgressBar = ({ contributesSum, goal }) => (
   <Col sm={12}>
     <Row className="goal">
-      <div
-        className="progress-goal-bar"
-        style={{ width: `${(contributesSum / goal) * 100}%` }}
-      />
+      <div className="progress-goal-bar" style={{ width: `${(contributesSum / goal) * 100}%` }} />
     </Row>
   </Col>
 );

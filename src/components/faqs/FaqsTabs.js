@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 
-const FaqTabs = ({
-  tabs,
-  type,
-  changeType,
-}) => (
+const FaqTabs = ({ tabs, type, changeType }) => (
   <div className="wrapper-tabs">
     <Row>
       {tabs.map((tab, index) => (

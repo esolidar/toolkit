@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Button as BootstrapButton } from 'react-bootstrap';
 import Button from '../button/Button';
 
-const ConfirmModal = (props) => {
+const ConfirmModal = props => {
   const border = '1px solid #dee2e6';
 
   const headerStyle = {
@@ -27,7 +27,7 @@ const ConfirmModal = (props) => {
     }
   };
 
-  const onClose = (event) => {
+  const onClose = event => {
     if (event) {
       event.stopPropagation();
     }
@@ -38,7 +38,7 @@ const ConfirmModal = (props) => {
     }
   };
 
-  const onConfirm = (event) => {
+  const onConfirm = event => {
     event.stopPropagation();
     setIsOpened(false);
     props.onConfirm();
@@ -65,29 +65,22 @@ const ConfirmModal = (props) => {
         data-testid="header"
       >
         <Modal.Title>
-          <span
-            className={`mr-2 ${props.titleClassName}`}
-            data-testid="title"
-          >
+          <span className={`mr-2 ${props.titleClassName}`} data-testid="title">
             {props.title}
           </span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body
-        className={props.bodyClassName}
-        style={bodyStyle}
-        data-testid="body"
-      >
+      <Modal.Body className={props.bodyClassName} style={bodyStyle} data-testid="body">
         {props.body}
-
       </Modal.Body>
-      <Modal.Footer
-        className={props.footerClassName}
-        style={footerStyle}
-        data-testid="footer"
-      >
+      <Modal.Footer className={props.footerClassName} style={footerStyle} data-testid="footer">
         {cancelButton}
-        <Button extraClass={props.confirmClass} onClick={onConfirm} text={props.confirmText} dataTestId="btn-confirm" />
+        <Button
+          extraClass={props.confirmClass}
+          onClick={onConfirm}
+          text={props.confirmText}
+          dataTestId="btn-confirm"
+        />
       </Modal.Footer>
     </Modal>
   );
@@ -101,7 +94,7 @@ const ConfirmModal = (props) => {
         style: props.style,
       },
       btn.props.children,
-      modal,
+      modal
     );
   } else {
     content = (

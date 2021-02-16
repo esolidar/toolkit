@@ -82,6 +82,7 @@ export { default as blinkElement } from './utils/blinkElement';
 export { default as clone } from './utils/clone';
 export { default as convertToMyCurrency } from './utils/convertToMyCurrency';
 export { default as debounce } from './utils/debounce';
+export { default as downloadExcel } from './utils/downloadExcel';
 export { default as filterUnique } from './utils/filterUnique';
 export { default as firstElemOf } from './utils/firstElemOf';
 export { default as getEmployeeName } from './utils/getEmployeeName';

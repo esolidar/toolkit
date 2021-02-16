@@ -1,6 +1,3 @@
-/* global expect */
-/* global jest */
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -63,12 +60,15 @@ const propsCampaign = {
   company: {
     id: 1,
     name: 'Webankor (eSolidar)',
-    logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+    logo:
+      'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
     country_id: 150,
     currency_id: 1,
     thumbs: {
-      detail: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-DETAIL.png',
-      thumb: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-THUMB.png',
+      detail:
+        'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-DETAIL.png',
+      thumb:
+        'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18-THUMB.png',
       cover_image: 'https://static.testesolidar.com/frontend/assets/no-image.png',
     },
     s3_logo_key: 'companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
@@ -114,7 +114,8 @@ const propsCampaign = {
     {
       id: 56,
       crowdfunding_id: 44,
-      image: 'crowdfundings/html-color-codes-color-tutorials-hero-00e10b1f-aa0efdbd-ca28-4489-b3d6-d082cfedd5da.jpg',
+      image:
+        'crowdfundings/html-color-codes-color-tutorials-hero-00e10b1f-aa0efdbd-ca28-4489-b3d6-d082cfedd5da.jpg',
     },
   ],
   currency: {
@@ -149,28 +150,18 @@ const propsCampaign = {
 
 describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn campaign={propsCampaign} />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper).toHaveLength(1);
   });
 
   it('should exist input donation', () => {
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn
-        campaign={propsCampaign}
-      />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper.find('TextField')).toHaveLength(1);
   });
 
   it('should input and button disable - soon', () => {
     advanceTo(new Date(2020, 1, 1, 0, 0, 0));
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn
-        campaign={propsCampaign}
-      />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper.state('countDownStatus')).toEqual('soon');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
     expect(wrapper.find('Button').prop('disabled')).toBe(true);
@@ -178,11 +169,7 @@ describe('CrowdfundingHeader', () => {
 
   it('should input and button disable - running', () => {
     advanceTo(new Date(2020, 7, 1, 0, 0, 0));
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn
-        campaign={propsCampaign}
-      />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper.state('countDownStatus')).toEqual('running');
     expect(wrapper.find('TextField').prop('disabled')).toBe(false);
     expect(wrapper.find('Button').prop('disabled')).toBe(false);
@@ -190,22 +177,14 @@ describe('CrowdfundingHeader', () => {
 
   it('should input and button disable - ended', () => {
     advanceTo(new Date(2021, 1, 1, 0, 0, 0));
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn
-        campaign={propsCampaign}
-      />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper.state('countDownStatus')).toEqual('ended');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
     expect(wrapper.find('Button').prop('disabled')).toBe(true);
   });
 
   it('should exist button donate', () => {
-    const wrapper = shallow(
-      <CrowdfundingContributeBtn
-        campaign={propsCampaign}
-      />,
-    );
+    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
     expect(wrapper.find('Button').length).toBe(1);
   });
 });

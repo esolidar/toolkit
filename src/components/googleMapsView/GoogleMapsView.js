@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  withScriptjs, withGoogleMap, GoogleMap, Marker,
-} from 'react-google-maps';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
 const GoogleMapsView = ({
   dataTestId,
@@ -15,13 +13,13 @@ const GoogleMapsView = ({
 }) => (
   <GoogleMap
     defaultZoom={defaultZoom}
-    defaultCenter={{ lat: +(latitude), lng: +(longitude) }}
-    center={{ lat: +(latitude), lng: +(longitude) }}
+    defaultCenter={{ lat: +latitude, lng: +longitude }}
+    center={{ lat: +latitude, lng: +longitude }}
     data-testid={dataTestId}
   >
     {isMarkerShown && (
       <Marker
-        position={{ lat: +(latitude), lng: +(longitude) }}
+        position={{ lat: +latitude, lng: +longitude }}
         onDragEnd={onClickMap}
         draggable={draggable}
       />

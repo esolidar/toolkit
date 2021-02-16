@@ -1,4 +1,3 @@
-/* global expect */
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import '@testing-library/jest-dom';
@@ -27,11 +26,25 @@ describe('test utils functions', () => {
       lastName: 'Santos',
       work_email: [
         {
-          company_id: 1, name: 'António Santos', role: 'admin', department: null, user: null,
-        }, {
-          company_id: 2, name: 'João Paulo', role: null, department: null, user: null,
-        }, {
-          company_id: 3, name: 'Manuel Silva', role: null, department: null, user: null,
+          company_id: 1,
+          name: 'António Santos',
+          role: 'admin',
+          department: null,
+          user: null,
+        },
+        {
+          company_id: 2,
+          name: 'João Paulo',
+          role: null,
+          department: null,
+          user: null,
+        },
+        {
+          company_id: 3,
+          name: 'Manuel Silva',
+          role: null,
+          department: null,
+          user: null,
         },
       ],
     };
@@ -66,24 +79,31 @@ describe('test utils functions', () => {
   });
 
   test('should return array without duplicate keys', () => {
-    const array = [{
-      id: 1,
-      name: 'Name1',
-    }, {
-      id: 2,
-      Name: 'Name2',
-    }, {
-      id: 1,
-      name: 'Name3',
-    }];
+    const array = [
+      {
+        id: 1,
+        name: 'Name1',
+      },
+      {
+        id: 2,
+        Name: 'Name2',
+      },
+      {
+        id: 1,
+        name: 'Name3',
+      },
+    ];
 
-    const expectArray = [{
-      id: 1,
-      name: 'Name1',
-    }, {
-      id: 2,
-      Name: 'Name2',
-    }];
+    const expectArray = [
+      {
+        id: 1,
+        name: 'Name1',
+      },
+      {
+        id: 2,
+        Name: 'Name2',
+      },
+    ];
 
     filterUnique(array, 'id');
     expect(filterUnique(array, 'id')).toEqual(expectArray);
@@ -100,25 +120,26 @@ describe('test utils functions', () => {
       lastUpdate: '2020-11-26 12:00:05',
     };
 
-    expect(convertToMyCurrency(100, currency)).toEqual(<FormattedNumber
-      value={100}
-      style="currency"
-      currency={currency.small}
-    />);
+    expect(convertToMyCurrency(100, currency)).toEqual(
+      <FormattedNumber value={100} style="currency" currency={currency.small} />
+    );
   });
 
   test('convertToMyCurrency should return value with my currency', () => {
-    localStorage.setItem('user', JSON.stringify({
-      currency: {
-        id: 2,
-        name: 'Dollar',
-        small: 'USD',
-        value: '1.00',
-        symbol: '$',
-        status: true,
-        lastUpdate: '2020-11-26 12:00:05',
-      },
-    }));
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        currency: {
+          id: 2,
+          name: 'Dollar',
+          small: 'USD',
+          value: '1.00',
+          symbol: '$',
+          status: true,
+          lastUpdate: '2020-11-26 12:00:05',
+        },
+      })
+    );
 
     const currency = {
       id: 1,
@@ -130,25 +151,26 @@ describe('test utils functions', () => {
       lastUpdate: '2020-11-26 12:00:05',
     };
 
-    expect(convertToMyCurrency(100, currency)).toEqual(<FormattedNumber
-      value={119}
-      style="currency"
-      currency="USD"
-    />);
+    expect(convertToMyCurrency(100, currency)).toEqual(
+      <FormattedNumber value={119} style="currency" currency="USD" />
+    );
   });
 
   test('convertToMyCurrency should return value with my currency equal to localstorage', () => {
-    localStorage.setItem('user', JSON.stringify({
-      currency: {
-        id: 2,
-        name: 'Dollar',
-        small: 'USD',
-        value: '1.00',
-        symbol: '$',
-        status: true,
-        lastUpdate: '2020-11-26 12:00:05',
-      },
-    }));
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        currency: {
+          id: 2,
+          name: 'Dollar',
+          small: 'USD',
+          value: '1.00',
+          symbol: '$',
+          status: true,
+          lastUpdate: '2020-11-26 12:00:05',
+        },
+      })
+    );
 
     const currency = {
       id: 1,
@@ -160,18 +182,21 @@ describe('test utils functions', () => {
       lastUpdate: '2020-11-26 12:00:05',
     };
 
-    expect(convertToMyCurrency(100, currency)).toEqual(<FormattedNumber
-      value={119}
-      style="currency"
-      currency="USD"
-    />);
+    expect(convertToMyCurrency(100, currency)).toEqual(
+      <FormattedNumber value={119} style="currency" currency="USD" />
+    );
   });
 
   test('getlocalstorage', () => {
-    localStorage.setItem('privateCode', JSON.stringify([{
-      id: 1,
-      code: 123456,
-    }]));
+    localStorage.setItem(
+      'privateCode',
+      JSON.stringify([
+        {
+          id: 1,
+          code: 123456,
+        },
+      ])
+    );
 
     expect(getLocalStorageAuctionPrivateCode(1)).toEqual(123456);
     expect(getLocalStorageAuctionPrivateCode(2)).toEqual(null);
@@ -184,11 +209,25 @@ describe('test utils functions', () => {
       lastName: 'Santos',
       work_email: [
         {
-          company_id: 1, name: 'António Santos', role: 'admin', department: null, user: null,
-        }, {
-          company_id: 2, name: 'João Paulo', role: 'owner', department: null, user: null,
-        }, {
-          company_id: 3, name: 'Manuel Silva', role: null, department: null, user: null,
+          company_id: 1,
+          name: 'António Santos',
+          role: 'admin',
+          department: null,
+          user: null,
+        },
+        {
+          company_id: 2,
+          name: 'João Paulo',
+          role: 'owner',
+          department: null,
+          user: null,
+        },
+        {
+          company_id: 3,
+          name: 'Manuel Silva',
+          role: null,
+          department: null,
+          user: null,
         },
       ],
     };
@@ -239,12 +278,9 @@ describe('test utils functions', () => {
     const wrapper = screen.getByTestId('text-id');
     expect(wrapper).toHaveClass('blink');
 
-    setTimeout(
-      () => {
-        expect(wrapper).not.toHaveClass('blink');
-      },
-      3000,
-    );
+    setTimeout(() => {
+      expect(wrapper).not.toHaveClass('blink');
+    }, 3000);
   });
 
   test('should return slugify url', () => {

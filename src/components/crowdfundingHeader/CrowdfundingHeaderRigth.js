@@ -20,15 +20,10 @@ const CrowdfundingHeaderRigth = ({
       <>
         <Row>
           <Col sm={12}>
-            <h2 className="title-campaign">
-              {campaignTitle()}
-            </h2>
+            <h2 className="title-campaign">{campaignTitle()}</h2>
           </Col>
         </Row>
-        <CrowdfundingProgressBar
-          contributesSum={campaign.contributes_sum}
-          goal={campaign.goal}
-        />
+        <CrowdfundingProgressBar contributesSum={campaign.contributes_sum} goal={campaign.goal} />
         <Row>
           <Col xs={5} className="raised-text">
             <FormattedNumber
@@ -39,10 +34,7 @@ const CrowdfundingHeaderRigth = ({
           </Col>
           <Col xs={7} className="goal-text text-right">
             <span className="goal-span">
-              <FormattedMessage
-                id="crowdfunding.goal"
-                defaultMessage="Goal"
-              />
+              <FormattedMessage id="crowdfunding.goal" defaultMessage="Goal" />
             </span>
             <span className="goal-span">
               <FormattedNumber

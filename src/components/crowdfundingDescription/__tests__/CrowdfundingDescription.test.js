@@ -1,16 +1,19 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import CrowdfundingDescription from '../CrowdfundingDescription';
 
 const props = {
   campaign: {
-    description: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
-    description_en: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com". Caso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    description:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    description_en:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com". Caso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
     reward: 1,
-    reward_description: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    reward_description:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
     projects: [
       {
         ods: [
@@ -46,10 +49,13 @@ const props = {
 
 const propsNoOds = {
   campaign: {
-    description: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
-    description_en: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com". Caso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    description:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    description_en:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com". Caso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
     reward: 1,
-    reward_description: 'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
+    reward_description:
+      'Se desejar a campanha de crowdfunding pode aparecer também no site da comunidade eSolidar.com, para tal basta colocar "Sim" no campo "Aparecer na eSolidar.com".\nCaso ative esta funcionalidade, a campanha ficará pendente para aprovação da equipa da eSolidar. Assim que a campanha seja aprovada irá receber uma notificação/email.',
     projects: [],
   },
   lang: 'pt',

@@ -23,22 +23,18 @@ class CrowdfundingDescription extends Component {
       showmoreDesc: true,
       showMoreDescButton: false,
     });
-  }
+  };
 
   showMoreRewardAction = () => {
     this.setState({
       showmoreReward: true,
       showMoreRewardButton: false,
     });
-  }
+  };
 
   render() {
-    const {
-      showmoreDesc, showmoreReward, showMoreDescButton, showMoreRewardButton,
-    } = this.state;
-    const {
-      campaign, env, lang, color, auction,
-    } = this.props;
+    const { showmoreDesc, showmoreReward, showMoreDescButton, showMoreRewardButton } = this.state;
+    const { campaign, env, lang, color, auction } = this.props;
 
     const objCampaignOrAuction = Object.keys(campaign).length > 0 ? campaign : auction;
 
@@ -55,7 +51,7 @@ class CrowdfundingDescription extends Component {
       return description;
     };
 
-    const auctionDescriptionLang = (type) => {
+    const auctionDescriptionLang = type => {
       let description;
 
       if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
@@ -68,7 +64,7 @@ class CrowdfundingDescription extends Component {
 
     return (
       <>
-        {(!!campaign && campaign.projects) && (
+        {!!campaign && campaign.projects && (
           <Row>
             {campaign.projects.length > 0 && (
               <Col md={12}>
@@ -79,7 +75,7 @@ class CrowdfundingDescription extends Component {
                   />
                 </div>
                 <div>
-                  {campaign.projects[0].ods.map((item) => (
+                  {campaign.projects[0].ods.map(item => (
                     <img
                       key={item.id}
                       src={`${env.cdn_static_url}/frontend/assets/ods/${lang}/ods-${item.id}.png`}
@@ -100,50 +96,49 @@ class CrowdfundingDescription extends Component {
           </Row>
         )}
         <Col md={12}>
-          <div className="description-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
-            <FormattedMessage
-              id="crowdfunding.description"
-              defaultMessage="Description"
-            />
+          <div
+            className="description-header"
+            style={{ color, borderColor: color, 'margin-top': '50px' }}
+          >
+            <FormattedMessage id="crowdfunding.description" defaultMessage="Description" />
           </div>
           <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
-            {campaignDescription().split('\n').map((item, index) => (
-              <span key={index}>
-                {item}
-                <br />
-              </span>
-            ))}
+            {campaignDescription()
+              .split('\n')
+              .map((item, index) => (
+                <span key={index}>
+                  {item}
+                  <br />
+                </span>
+              ))}
           </div>
           {showMoreDescButton && (
             <div className="d-block d-sm-none text-center">
               <button type="button" onClick={this.showMoreDescAction} className="readmore-button">
-                <FormattedMessage
-                  id="readmore"
-                  defaultMessage="Read more"
-                />
+                <FormattedMessage id="readmore" defaultMessage="Read more" />
               </button>
             </div>
           )}
-          {(auction && auctionDescriptionLang('shipping_description').length) && (
+          {auction && auctionDescriptionLang('shipping_description').length && (
             <>
-              <div className="shipping-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
-                <FormattedMessage
-                  id="auction.shipping"
-                  defaultMessage="Shipping"
-                />
+              <div
+                className="shipping-header"
+                style={{ color, borderColor: color, 'margin-top': '50px' }}
+              >
+                <FormattedMessage id="auction.shipping" defaultMessage="Shipping" />
               </div>
               <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
                 <span>{auctionDescriptionLang('shipping_description')}</span>
               </div>
             </>
           )}
-          {(auction && auctionDescriptionLang('payment_description').length) && (
+          {auction && auctionDescriptionLang('payment_description').length && (
             <>
-              <div className="payment-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
-                <FormattedMessage
-                  id="auction.payment"
-                  defaultMessage="Payment"
-                />
+              <div
+                className="payment-header"
+                style={{ color, borderColor: color, 'margin-top': '50px' }}
+              >
+                <FormattedMessage id="auction.payment" defaultMessage="Payment" />
               </div>
               <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
                 <span>{auctionDescriptionLang('payment_description')}</span>
@@ -153,13 +148,13 @@ class CrowdfundingDescription extends Component {
         </Col>
         <Row>
           <Col md={12}>
-            {(!!campaign && campaign.reward === 1) && (
+            {!!campaign && campaign.reward === 1 && (
               <div>
-                <div className="description-header" style={{ color, borderColor: color, 'margin-top': '50px' }}>
-                  <FormattedMessage
-                    id="crowdfunding.reward.text"
-                    defaultMessage="Reward"
-                  />
+                <div
+                  className="description-header"
+                  style={{ color, borderColor: color, 'margin-top': '50px' }}
+                >
+                  <FormattedMessage id="crowdfunding.reward.text" defaultMessage="Reward" />
                 </div>
                 <div className={`description-text ${showmoreReward ? 'description-show-all' : ''}`}>
                   {campaign.reward_description.split('\n').map((item, index) => (
@@ -171,11 +166,12 @@ class CrowdfundingDescription extends Component {
                 </div>
                 {showMoreRewardButton && (
                   <div className="d-block d-sm-none text-center">
-                    <button type="button" onClick={this.showMoreRewardAction} className="readmore-button">
-                      <FormattedMessage
-                        id="readmore"
-                        defaultMessage="Read more"
-                      />
+                    <button
+                      type="button"
+                      onClick={this.showMoreRewardAction}
+                      className="readmore-button"
+                    >
+                      <FormattedMessage id="readmore" defaultMessage="Read more" />
                     </button>
                   </div>
                 )}

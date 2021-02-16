@@ -1,13 +1,6 @@
-/* global expect */
-/* global jest */
-/* global beforeAll */
-/* global afterAll */
-
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-  render, waitFor, screen, fireEvent,
-} from '@testing-library/react';
+import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { advanceTo } from 'jest-date-mock';
 import { IntlProvider } from 'react-intl';
@@ -47,8 +40,10 @@ const props = {
       description_en: 'Description test',
       shipping_description: 'Os portes de envio serão à responsabilidade do vencedor.',
       shipping_description_en: 'Please note postage is not included as part of the final bid.',
-      payment_description: 'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
-      payment_description_en: 'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
+      payment_description:
+        'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.',
+      payment_description_en:
+        'The method of payment is bank transfer. At the end of the auction the winner shall be served notice by email of the bank details. The payment must be made within forty-eight hours.',
       last_bid: {
         id: 1241,
         auction_id: 299,
@@ -92,7 +87,6 @@ const props = {
               department: null,
               user: null,
             },
-
           ],
           name: 'Joel F. Calheiros',
           s3_key: 'users/9/1606232953.jpg',
@@ -117,7 +111,8 @@ const props = {
           id: 200,
           auction_id: 299,
           streamImage: 'amazons3',
-          image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          image_name:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
           image_type: 'image/jpeg',
           image_size: '140004',
           default: 1,
@@ -127,10 +122,14 @@ const props = {
           lastUpdated: '2020-03-10 11:24:57',
           dateAdded: '2019-09-16 10:51:01',
           thumbs: {
-            standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-            detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
-            pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-            thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+            standard:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+            detail:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+            pin:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
+            thumb:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
           },
           s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         },
@@ -138,7 +137,8 @@ const props = {
           id: 200,
           auction_id: 299,
           streamImage: 'amazons3',
-          image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          image_name:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
           image_type: 'image/jpeg',
           image_size: '140004',
           default: 1,
@@ -148,10 +148,14 @@ const props = {
           lastUpdated: '2020-03-10 11:24:57',
           dateAdded: '2019-09-16 10:51:01',
           thumbs: {
-            standard: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
-            detail: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
-            pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
-            thumb: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
+            standard:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
+            detail:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
+            pin:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
+            thumb:
+              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
           },
           s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         },
@@ -260,17 +264,21 @@ const props = {
         institution: {
           id: 30,
           name: 'Helpo',
-          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+          image:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
           currency: {
             id: 2,
           },
           thumbs: {
-            detail: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
-            thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+            detail:
+              'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-DETAIL.jpeg',
+            thumb:
+              'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
           },
           s3_image_key: 'institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
           s3_cover_key: null,
-          description: 'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
+          description:
+            'A Planeta Limpo Recicláveis é uma empresa em expansão, que trabalha no ramo de reciclagem desde de 2003 e atua especificamente.',
         },
         phones: [],
       },
@@ -278,16 +286,23 @@ const props = {
         id: 3,
         name: 'A marca da Cátia Catita',
         username: 'catita',
-        logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
-        cover: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+        logo:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+        cover:
+          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
         logo_thumbs: {
-          standard: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
-          detail: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
-          thumb: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png',
+          standard:
+            'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
+          detail:
+            'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-DETAIL.png',
+          thumb:
+            'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-THUMB.png',
         },
         cover_thumbs: {
-          standard: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
-          detail: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
+          standard:
+            'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-STANDARD.jpeg',
+          detail:
+            'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716-DETAIL.jpeg',
         },
         s3_logo_key: 'brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
         s3_cover_key: 'brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
@@ -308,12 +323,17 @@ const props = {
           company: {
             id: 1,
             name: 'Webankor (eSolidar)',
-            logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
-            cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+            logo:
+              'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+            cover_image:
+              'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             thumbs: {
-              detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
-              thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
-              cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+              detail:
+                'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+              thumb:
+                'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+              cover_image:
+                'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             },
             s3_logo_key: 'companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
             s3_cover_key: 'companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
@@ -348,7 +368,8 @@ const props = {
           institution_id: null,
           firstName: 'António',
           lastName: 'Joaquim',
-          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51790/1593441499.jpg?v=1593441500',
+          image:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51790/1593441499.jpg?v=1593441500',
           streamImage: 'amazons3',
           language: {
             id: 2,
@@ -410,7 +431,8 @@ const props = {
           recipient: {
             institution: {
               thumbs: {
-                thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+                thumb:
+                  'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
               },
             },
           },
@@ -426,7 +448,8 @@ const props = {
           recipient: {
             institution: {
               thumbs: {
-                thumb: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
+                thumb:
+                  'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg',
               },
             },
           },
@@ -567,12 +590,18 @@ afterAll(() => {
 });
 
 test('simulate private auction', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...propsAuctionPrivate} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...propsAuctionPrivate} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titlePrivate = screen.getByTestId('title-private');
     expect(titlePrivate).toBeInTheDocument();
-    expect(titlePrivate).toHaveTextContent('Insert the access code to display and bid on the auction');
+    expect(titlePrivate).toHaveTextContent(
+      'Insert the access code to display and bid on the auction'
+    );
     const inputCode = screen.getByTestId('input-private-code');
     expect(inputCode).toBeInTheDocument();
     fireEvent.change(inputCode, { target: { value: '123456' } });
@@ -585,7 +614,11 @@ test('simulate private auction', async () => {
 });
 
 test('should exist auction support', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
@@ -593,12 +626,19 @@ test('should exist auction support', async () => {
     expect(auctionSupport).toHaveTextContent('This auctions supports:');
     const thumbImage = screen.getByAltText('thumb-supported');
     expect(thumbImage).toBeInTheDocument();
-    expect(thumbImage).toHaveAttribute('src', 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg');
+    expect(thumbImage).toHaveAttribute(
+      'src',
+      'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe-THUMB.jpeg'
+    );
   });
 });
 
 test('should exist countdown with time', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   advanceTo(new Date(2020, 1, 12, 0, 0, 0));
 
@@ -617,7 +657,11 @@ test('should exist countdown with time', async () => {
 });
 
 test('should exist slide image', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const auctionSlide = screen.getByTestId('slide-image-multiple');
@@ -626,7 +670,11 @@ test('should exist slide image', async () => {
 });
 
 test('should open modal bid', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -640,7 +688,11 @@ test('should open modal bid', async () => {
 });
 
 test('should render component AuctionDetail and verify checkboxs', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     fireEvent.click(screen.getByText('Subscribe the auction.'));
@@ -652,7 +704,11 @@ test('should render component AuctionDetail and verify checkboxs', async () => {
 });
 
 test('should exist buttons share social media', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const shareAuction = screen.getByTestId('btn-share');
@@ -669,7 +725,11 @@ test('should exist buttons share social media', async () => {
 });
 
 test('should exist description, shipping and payment', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titleDescription = screen.getByTestId('description');
@@ -680,17 +740,25 @@ test('should exist description, shipping and payment', async () => {
     const titleShipping = screen.getByTestId('shipping');
     expect(titleShipping).toHaveTextContent('Some text');
     const shippingText = screen.getByTestId('shipping-text');
-    expect(shippingText).toHaveTextContent('Os portes de envio serão à responsabilidade do vencedor.');
+    expect(shippingText).toHaveTextContent(
+      'Os portes de envio serão à responsabilidade do vencedor.'
+    );
 
     const titlePayment = screen.getByTestId('payment');
     expect(titlePayment).toHaveTextContent('Some text');
     const paymentText = screen.getByTestId('payment-text');
-    expect(paymentText).toHaveTextContent('O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.');
+    expect(paymentText).toHaveTextContent(
+      'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.'
+    );
   });
 });
 
 test('should exist comment box', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const createComment = screen.getByTestId('create-comment');
@@ -699,7 +767,11 @@ test('should exist comment box', async () => {
 });
 
 test('should exist 2 auction thumbs in auction list', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const titleOtherAuctions = screen.getByTestId('title-other-auctions');
@@ -716,7 +788,11 @@ test('should exist 2 auction thumbs in auction list', async () => {
 });
 
 test('should exist one project thumb', async () => {
-  render(<IntlProvider locale="en"><AuctionDetail {...props} /></IntlProvider>);
+  render(
+    <IntlProvider locale="en">
+      <AuctionDetail {...props} />
+    </IntlProvider>
+  );
 
   await waitFor(() => {
     const project = screen.getByTestId('projectThumb');

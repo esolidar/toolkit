@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* global expect */
+
 import React from 'react';
 import { shallow } from 'enzyme';
 import ProjectDetail from '../ProjectDetail';
@@ -16,8 +16,10 @@ describe('ProjectDetail component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          standard:
+            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -28,7 +30,8 @@ describe('ProjectDetail component', () => {
       uuid: '123',
       form: [
         {
-          type: 'title', name: 'asdasd',
+          type: 'title',
+          name: 'asdasd',
         },
       ],
       images: [
@@ -50,7 +53,13 @@ describe('ProjectDetail component', () => {
         },
       ],
     };
-    const component = shallow(<ProjectDetail project={project} lang="pt" serverlessResizeImage="https://image.testesolidar.com" />);
+    const component = shallow(
+      <ProjectDetail
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+      />
+    );
     expect(component).toHaveLength(1);
   });
 });

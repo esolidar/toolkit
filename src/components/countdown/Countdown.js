@@ -31,20 +31,20 @@ class Countdown extends Component {
     this.stop();
   }
 
-  addLeadingZeros = (value) => {
+  addLeadingZeros = value => {
     let newValue = String(value);
     while (newValue.length < 2) {
       newValue = `0${newValue}`;
     }
     return newValue;
-  }
+  };
 
   calculateCountdown = () => {
-    const {
-      startDate, endDate, onStart, onExpiry,
-    } = this.props;
+    const { startDate, endDate, onStart, onExpiry } = this.props;
     const { isSoon, isRunning } = this.state;
-    const todaysDate = new Date(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
+    const todaysDate = new Date(
+      moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss')
+    );
     let countDate;
     // Create date from input value
     const inputStartDate = new Date(startDate.replace(/-/g, '/'));
@@ -81,14 +81,18 @@ class Countdown extends Component {
       countDate = endDate;
     }
 
-    const nowTimeStamp = Date.parse(moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss'));
+    const nowTimeStamp = Date.parse(
+      moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss')
+    );
 
     // const endDateTimeTimeStamp = Date.parse(new Date(countDate.replace(/-/g, "/")));
     const endDateTimeTimeStamp = Date.parse(moment(countDate));
     let diff = (endDateTimeTimeStamp - nowTimeStamp) / 1000;
 
     // clear countdown when date is reached
-    if (diff < 0) { return false; }
+    if (diff < 0) {
+      return false;
+    }
 
     const timeLeft = {
       years: 0,
@@ -100,15 +104,18 @@ class Countdown extends Component {
     };
 
     // calculate time difference between now and expected date
-    if (diff >= (365.25 * 86400)) { // 365.25 * 24 * 60 * 60
+    if (diff >= 365.25 * 86400) {
+      // 365.25 * 24 * 60 * 60
       timeLeft.years = Math.floor(diff / (365.25 * 86400));
       diff -= timeLeft.years * 365.25 * 86400;
     }
-    if (diff >= 86400) { // 24 * 60 * 60
+    if (diff >= 86400) {
+      // 24 * 60 * 60
       timeLeft.days = Math.floor(diff / 86400);
       diff -= timeLeft.days * 86400;
     }
-    if (diff >= 3600) { // 60 * 60
+    if (diff >= 3600) {
+      // 60 * 60
       timeLeft.hours = Math.floor(diff / 3600);
       diff -= timeLeft.hours * 3600;
     }
@@ -119,7 +126,7 @@ class Countdown extends Component {
 
     timeLeft.sec = diff;
     return timeLeft;
-  }
+  };
 
   stop() {
     clearInterval(this.interval);
@@ -135,57 +142,38 @@ class Countdown extends Component {
       return <div className="Countdown" />;
     }
 
-    if (status === 'running' && (countDown.days === 0 && countDown.hours < 8)) {
+    if (status === 'running' && countDown.days === 0 && countDown.hours < 8) {
       status = 'heightHoursLeft';
     }
 
     return (
       <div className="CountdownBox">
-        {status === 'heightHoursLeft'
-          && (
-            <div className={`Countdown-label ${status}`}>
-              <FormattedMessage
-                id="thumb.countdown.eightHoursLeft"
-                defaultMessage="Ending soon"
-              />
-            </div>
-          )}
-        {status === 'running'
-          && (
-            <div className={`Countdown-label ${status}`}>
-              <FormattedMessage
-                id="countdown.running"
-                defaultMessage="Running"
-              />
-            </div>
-          )}
-        {status === 'soon'
-          && (
-            <div className={`Countdown-label ${status}`}>
-              <FormattedMessage
-                id="countdown.startsin"
-                defaultMessage="Starts in"
-              />
-            </div>
-          )}
-        {status === 'ended'
-          && (
-            <div className={`Countdown-label ${status}`}>
-              <FormattedMessage
-                id="countdown.ended"
-                defaultMessage="Ended"
-              />
-            </div>
-          )}
+        {status === 'heightHoursLeft' && (
+          <div className={`Countdown-label ${status}`}>
+            <FormattedMessage id="thumb.countdown.eightHoursLeft" defaultMessage="Ending soon" />
+          </div>
+        )}
+        {status === 'running' && (
+          <div className={`Countdown-label ${status}`}>
+            <FormattedMessage id="countdown.running" defaultMessage="Running" />
+          </div>
+        )}
+        {status === 'soon' && (
+          <div className={`Countdown-label ${status}`}>
+            <FormattedMessage id="countdown.startsin" defaultMessage="Starts in" />
+          </div>
+        )}
+        {status === 'ended' && (
+          <div className={`Countdown-label ${status}`}>
+            <FormattedMessage id="countdown.ended" defaultMessage="Ended" />
+          </div>
+        )}
         <div className={`Countdown-box ${status}`}>
           {((countDown.days > 0 && thumb) || !thumb) && (
             <span className="Countdown-col">
               <span className="Countdown-col-element" datat-testid={`${dataTestId}-countdown-days`}>
                 <strong>{this.addLeadingZeros(countDown.days)}</strong>
-                <FormattedMessage
-                  id="countdown.day"
-                  defaultMessage="Day"
-                />
+                <FormattedMessage id="countdown.day" defaultMessage="Day" />
               </span>
             </span>
           )}
@@ -193,31 +181,25 @@ class Countdown extends Component {
           <span className="Countdown-col">
             <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-hour`}>
               <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-              <FormattedMessage
-                id="countdown.hours"
-                defaultMessage="HOUR"
-              />
+              <FormattedMessage id="countdown.hours" defaultMessage="HOUR" />
             </span>
           </span>
 
           <span className="Countdown-col">
             <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-min`}>
               <strong>{this.addLeadingZeros(countDown.min)}</strong>
-              <FormattedMessage
-                id="countdown.min"
-                defaultMessage="MIN"
-              />
+              <FormattedMessage id="countdown.min" defaultMessage="MIN" />
             </span>
           </span>
 
           {((countDown.days === 0 && thumb) || !thumb) && (
             <span className="Countdown-col">
-              <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-seconds`}>
+              <span
+                className="Countdown-col-element"
+                data-testid={`${dataTestId}-countdown-seconds`}
+              >
                 <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-                <FormattedMessage
-                  id="countdown.sec"
-                  defaultMessage="SEC"
-                />
+                <FormattedMessage id="countdown.sec" defaultMessage="SEC" />
               </span>
             </span>
           )}
@@ -239,6 +221,7 @@ Countdown.propTypes = {
 Countdown.defaultProps = {
   thumb: false,
   dataTestId: 'count',
+  onExpiry: () => {},
 };
 
 export default Countdown;

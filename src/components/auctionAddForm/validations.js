@@ -25,64 +25,43 @@ export default function validateAuctionForm(data) {
 
   if (isEmpty(data.title)) {
     errors.title = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.bid_start)) {
     errors.bid_start = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.bid_interval)) {
     errors.bid_interval = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.bid_max_interval)) {
     errors.bid_max_interval = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.dateLimit)) {
     errors.dateLimit = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.dateStart)) {
     errors.dateStart = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
   if (isEmpty(data.description)) {
     errors.description = (
-      <FormattedMessage
-        id="user.register.error.required"
-        defaultMessage="This field is required"
-      />
+      <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
