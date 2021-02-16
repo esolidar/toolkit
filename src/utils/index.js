@@ -110,7 +110,7 @@ export const slugify = v =>
     lower: true,
   });
 
-export const downloadExcel = (translateMessage, data, columns, fileName) => {
+export const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile) => {
   const listFilterColumns = data.map(item => {
     const obj = {};
     columns.forEach(col => {
@@ -126,8 +126,12 @@ export const downloadExcel = (translateMessage, data, columns, fileName) => {
     return obj;
   });
 
-  const ws = XLSX.utils.json_to_sheet([...listFilterColumns]);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'List');
-  XLSX.writeFile(wb, `${fileName}.xlsx`);
+  if (isDownloadFile) {
+    const ws = XLSX.utils.json_to_sheet([...listFilterColumns]);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'List');
+    XLSX.writeFile(wb, `${fileName}.xlsx`);
+  } else {
+    return [...listFilterColumns];
+  }
 };
