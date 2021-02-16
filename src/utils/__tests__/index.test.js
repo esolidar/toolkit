@@ -16,6 +16,8 @@ import {
   isEmpty,
   blinkElement,
   slugify,
+  isObject,
+  isArray,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -292,5 +294,23 @@ describe('test utils functions', () => {
     const url = 'https//esolidar.com/teste?page=1';
     const expectedUrl = 'https//esolidar.com/teste';
     expect(removeAllUrlParams(url)).toBe(expectedUrl);
+  });
+
+  test('isObject function', () => {
+    const obj = {};
+    expect(isObject(obj)).toBe(true);
+    const array = [];
+    expect(isObject(array)).toBe(false);
+    const nullVar = null;
+    expect(isObject(nullVar)).toBe(false);
+  });
+
+  test('isArray function', () => {
+    const array = [];
+    expect(isArray(array)).toBe(true);
+    const obj = {};
+    expect(isArray(obj)).toBe(false);
+    const nullVar = null;
+    expect(isArray(nullVar)).toBe(false);
   });
 });
