@@ -202,6 +202,7 @@ const DropZoneBox = ({
 
   const handleSubmitCroppedImage = blob => {
     onSelect([blob]);
+    toggleModalCropper();
   };
 
   return (
