@@ -8,23 +8,23 @@
   }
 
   .thumb-box {
-    width: 100%;
-    display: inline-block;
+    width     : 100%;
+    display   : inline-block;
     text-align: center;
-    margin: 0 !important;
+    margin    : 0 !important;
 
     .thumb {
-      width: 240px !important;
-      height: 240px !important;
-      min-width: 150px;
-      min-height: 150px;
-      background-size: cover;
+      width              : 240px !important;
+      height             : 240px !important;
+      min-width          : 150px;
+      min-height         : 150px;
+      background-size    : cover;
       background-position: 50% 50%;
-      border-radius: 50%;
-      margin: 0 auto;
+      border-radius      : 50%;
+      margin             : 0 auto;
 
       @media (max-width: 1024px) {
-        width: 150px !important;
+        width : 150px !important;
         height: 150px !important;
       }
     }
