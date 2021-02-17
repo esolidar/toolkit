@@ -33,6 +33,7 @@ const DropZoneBox = ({
   cropModalStatus,
   titleCropModal,
   textSaveCropModal,
+  modalClassName,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
@@ -118,6 +119,7 @@ const DropZoneBox = ({
   ];
 
   const toggleModalCropper = () => {
+    setDisableCroppedImage(false);
     setCropperModal(false);
   };
 
@@ -202,6 +204,7 @@ const DropZoneBox = ({
 
   const handleSubmitCroppedImage = blob => {
     onSelect([blob]);
+    toggleModalCropper();
   };
 
   return (
@@ -295,8 +298,8 @@ const DropZoneBox = ({
                     const imageWidth = cropper.current.getCroppedCanvas().width;
                     const imageHeight = cropper.current.getCroppedCanvas().height;
                     if (imageWidth > minWidth && imageHeight > minHeight) {
-                      handleSubmitCroppedImage(blob);
                       setDisableCroppedImage(true);
+                      handleSubmitCroppedImage(blob);
                     } else {
                       const errors = [];
                       errors.push({
@@ -343,6 +346,7 @@ const DropZoneBox = ({
           show={toggleModalCropper}
           size="md"
           title={titleCropModal}
+          dialogClassName={modalClassName}
         />
       )}
     </div>
@@ -350,7 +354,7 @@ const DropZoneBox = ({
 };
 DropZoneBox.propTypes = {
   accept: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   className: PropTypes.string,
   disabled: PropTypes.bool,
   showDropArea: PropTypes.bool,
@@ -380,6 +384,7 @@ DropZoneBox.propTypes = {
   cropModalStatus: PropTypes.bool,
   titleCropModal: PropTypes.string,
   textSaveCropModal: PropTypes.string,
+  modalClassName: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {
