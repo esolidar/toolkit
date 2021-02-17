@@ -9,11 +9,10 @@ const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, 
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
 
-    const image = file;
     const thumb = type === 'blob' ? URL.createObjectURL(file[0]) : file[0].preview;
 
     onDrop({
-      image,
+      image: file,
       thumb,
     });
   };
