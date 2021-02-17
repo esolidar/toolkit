@@ -2,7 +2,7 @@ import isArray from './isArray';
 import isDefined from './isDefined';
 
 const getLocalStorage = (key, defaultValue = {}) => {
-  let type = 'undefined';
+  let type;
 
   try {
     type = isArray(JSON.parse(localStorage[key])) ? 'array' : 'object';
@@ -18,11 +18,8 @@ const getLocalStorage = (key, defaultValue = {}) => {
     case 'string':
       return localStorage[key];
 
-    case 'undefined':
-      return defaultValue;
-
     default:
-      break;
+      return defaultValue;
   }
 };
 
