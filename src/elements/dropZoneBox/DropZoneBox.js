@@ -33,6 +33,7 @@ const DropZoneBox = ({
   cropModalStatus,
   titleCropModal,
   textSaveCropModal,
+  modalClassName,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
@@ -344,6 +345,7 @@ const DropZoneBox = ({
           show={toggleModalCropper}
           size="md"
           title={titleCropModal}
+          dialogClassName={modalClassName}
         />
       )}
     </div>
@@ -351,7 +353,7 @@ const DropZoneBox = ({
 };
 DropZoneBox.propTypes = {
   accept: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   className: PropTypes.string,
   disabled: PropTypes.bool,
   showDropArea: PropTypes.bool,
@@ -381,6 +383,7 @@ DropZoneBox.propTypes = {
   cropModalStatus: PropTypes.bool,
   titleCropModal: PropTypes.string,
   textSaveCropModal: PropTypes.string,
+  modalClassName: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {

@@ -60,6 +60,7 @@ export { default as GoogleMapsView } from './components/googleMapsView/GoogleMap
 export { default as AuctionAddForm } from './components/auctionAddForm/AuctionAddForm';
 export { default as NoMatch } from './components/noMatch/NoMatch';
 export { default as BankAccount } from './components/bankAccounts/BankAccount';
+export { default as UserSettingsAboutYou } from './components/userSettingsAboutYou/UserSettingsAboutYou';
 
 // Elements
 export { default as Button } from './elements/button/Button';
