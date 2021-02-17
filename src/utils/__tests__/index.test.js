@@ -327,7 +327,7 @@ describe('test utils functions', () => {
     expect(getLocalStorage('token')).toEqual(token);
     expect(getLocalStorage('user')).toEqual(user);
     expect(getLocalStorage('subscription')).toEqual(subscription);
-    expect(getLocalStorage('undefined')).toEqual({});
-    expect(getLocalStorage('undefined', '')).toEqual('');
+    expect(getLocalStorage('nonExistingKey')).toEqual({});
+    expect(getLocalStorage('nonExistingKey', '')).toEqual('');
   });
 });
