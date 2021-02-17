@@ -59,7 +59,7 @@ const ProjectThumb = ({
     win.focus();
   };
 
-  const isSelected = selectedIds?.filter(o => o === project.id).length;
+  const isSelected = (selectedIds || []).filter(o => o === project.id).length;
 
   return (
     <Col xs={12} sm={6} md={6} lg={cols}>

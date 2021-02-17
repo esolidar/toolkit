@@ -9,7 +9,7 @@ import FaqsItem from './FaqsItem';
 const Faqs = ({ lang, tabs, faqs, type, changeType, changeId, id, isLoading, env }) => {
   let faqsFilterLang = [];
   const title = `title_${lang}`;
-  faqsFilterLang = faqs.filter(faq => faq[title] !== null);
+  faqsFilterLang = (faqs || []).filter(faq => faq[title] !== null);
 
   return (
     <div className="faqs mb-5">
