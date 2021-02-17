@@ -1,13 +1,13 @@
 #### Import
 
 ```html
-import { UserSettingsAboutYou } from '@esolidar/toolkit';
+import { ChangeProfileUserImage } from '@esolidar/toolkit';
 ```
 
 #### Example
 
 ```jsx
-<UserSettingsAboutYou
+<ChangeProfileUserImage
   translateMessage={() => 'Some text'}
   color={{
     primaryColor: '#ddd',

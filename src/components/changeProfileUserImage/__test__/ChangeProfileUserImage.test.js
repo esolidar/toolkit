@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import UserSettingsAboutYou from '../UserSettingsAboutYou';
+import ChangeProfileUserImage from '../ChangeProfileUserImage';
 
 const fx = jest.fn();
 const props = {
@@ -31,33 +31,33 @@ const propsWithoutImage = {
   },
 };
 
-describe('UserSettingsAboutYou component', () => {
-  it('renders "UserSettingsAboutYou" correctly', () => {
-    const component = shallow(<UserSettingsAboutYou {...props} />);
+describe('ChangeProfileUserImage component', () => {
+  it('renders "ChangeProfileUserImage" correctly', () => {
+    const component = shallow(<ChangeProfileUserImage {...props} />);
 
-    expect(component.find('[data-testid="title-settings-about-you"]').length).toBe(1);
-    expect(component.find('[data-testid="thumb-settings-about-you"]').length).toBe(1);
+    expect(component.find('[data-testid="title-change-profile-user-image"]').length).toBe(1);
+    expect(component.find('[data-testid="thumb-change-profile-user-image"]').length).toBe(1);
   });
 
   it('should exist title', () => {
     render(
       <IntlProvider locale="en">
-        <UserSettingsAboutYou {...props} />
+        <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );
 
-    const title = screen.getByTestId('title-settings-about-you');
+    const title = screen.getByTestId('title-change-profile-user-image');
     expect(title).toHaveTextContent('About you');
   });
 
   it('should exist image', () => {
     render(
       <IntlProvider locale="en">
-        <UserSettingsAboutYou {...props} />
+        <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );
 
-    const image = screen.getByTestId('thumb-settings-about-you');
+    const image = screen.getByTestId('thumb-change-profile-user-image');
     expect(image).toBeInTheDocument();
     expect(image).toHaveStyle(
       'background-image: url(https://cdn.testesolidar.com/users/51792/1613562326.jpg?v=1613562326?no-cache=485);'
@@ -67,11 +67,11 @@ describe('UserSettingsAboutYou component', () => {
   it('should appear no image', () => {
     render(
       <IntlProvider locale="en">
-        <UserSettingsAboutYou {...propsWithoutImage} />
+        <ChangeProfileUserImage {...propsWithoutImage} />
       </IntlProvider>
     );
 
-    const image = screen.getByTestId('thumb-settings-about-you');
+    const image = screen.getByTestId('thumb-change-profile-user-image');
     expect(image).toBeInTheDocument();
     expect(image).toHaveStyle(
       'background-image: url(https://static.testesolidar.com/frontend/assets/no-image.png);'
@@ -81,11 +81,11 @@ describe('UserSettingsAboutYou component', () => {
   it('should exist button', () => {
     render(
       <IntlProvider locale="en">
-        <UserSettingsAboutYou {...props} />
+        <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );
 
-    const button = screen.getByTestId('button-user-settings-about-you');
+    const button = screen.getByTestId('button-change-profile-user-image');
     expect(button).toBeInTheDocument();
   });
 });

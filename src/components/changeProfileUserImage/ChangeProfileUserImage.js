@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Button from '../../elements/button/Button';
 import DropZoneBox from '../../elements/dropZoneBox/DropZoneBox';
 
-const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, env }) => {
+const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop, env }) => {
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
 
@@ -18,8 +18,8 @@ const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, 
   };
 
   return (
-    <div className="user-settings-about-you">
-      <h4 style={{ color: color.primaryColor }} data-testid="title-settings-about-you">
+    <div className="change-profile-user-image">
+      <h4 style={{ color: color.primaryColor }} data-testid="title-change-profile-user-image">
         <FormattedMessage id="user.settings.regional" defaultMessage="About you" />
       </h4>
       <div className="box">
@@ -31,7 +31,7 @@ const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, 
           <div className="thumb-box">
             <div
               className="thumb"
-              data-testid="thumb-settings-about-you"
+              data-testid="thumb-change-profile-user-image"
               style={{ backgroundImage: `url(${thumb})` }}
             />
           </div>
@@ -51,13 +51,13 @@ const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, 
             minWidth: 200,
             minHeight: 200,
           }}
-          modalClassName="userSettingsAboutYou"
+          modalClassName="change-profile-user-image"
         >
           <Button
             extraClass="dark"
             type="file"
             text={translateMessage({ id: 'user.settings.choose.file' })}
-            dataTestId="button-user-settings-about-you"
+            dataTestId="button-change-profile-user-image"
           />
         </DropZoneBox>
       </div>
@@ -65,7 +65,7 @@ const UserSettingsAboutYou = ({ translateMessage, color, thumb, errors, onDrop, 
   );
 };
 
-UserSettingsAboutYou.propTypes = {
+ChangeProfileUserImage.propTypes = {
   translateMessage: PropTypes.func,
   color: PropTypes.object,
   thumb: PropTypes.string,
@@ -74,11 +74,11 @@ UserSettingsAboutYou.propTypes = {
   env: PropTypes.object,
 };
 
-UserSettingsAboutYou.defaultProps = {
+ChangeProfileUserImage.defaultProps = {
   color: {
     primaryColor: '#ddd',
   },
   thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
 };
 
-export default UserSettingsAboutYou;
+export default ChangeProfileUserImage;
