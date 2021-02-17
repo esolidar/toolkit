@@ -75,7 +75,9 @@ UserSettingsAboutYou.propTypes = {
 };
 
 UserSettingsAboutYou.defaultProps = {
-  color: '#ddd',
+  color: {
+    primaryColor: '#ddd',
+  },
   thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
 };
 
