@@ -7,6 +7,7 @@ export { default as debounce } from './debounce';
 export { default as filterUnique } from './filterUnique';
 export { default as firstElemOf } from './firstElemOf';
 export { default as getEmployeeName } from './getEmployeeName';
+export { default as getLocalStorage } from './getLocalStorage';
 export { default as getLocalStorageAuctionPrivateCode } from './getLocalStorageAuctionPrivateCode';
 export { default as getUrlParam } from './getUrlParam';
 export { default as isArray } from './isArray';
