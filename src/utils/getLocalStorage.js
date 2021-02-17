@@ -3,20 +3,25 @@ import isDefined from './isDefined';
 
 const getLocalStorage = (key, defaultValue = {}) => {
   let type;
+  const item = localStorage.getItem(key);
 
-  try {
-    type = isArray(JSON.parse(localStorage[key])) ? 'array' : 'object';
-  } catch (err) {
-    if (isDefined(localStorage[key])) type = 'string';
+  if (!isDefined(item)) {
+    type = 'undefined';
+  } else {
+    try {
+      type = isArray(JSON.parse(item)) ? 'array' : 'object';
+    } catch (err) {
+      if (isDefined(item)) type = 'string';
+    }
   }
 
   switch (type) {
     case 'object':
     case 'array':
-      return JSON.parse(localStorage[key]);
+      return JSON.parse(item);
 
     case 'string':
-      return localStorage[key];
+      return item;
 
     default:
       return defaultValue;
