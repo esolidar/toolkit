@@ -69,7 +69,7 @@ ChangeProfileUserImage.propTypes = {
   translateMessage: PropTypes.func,
   color: PropTypes.object,
   thumb: PropTypes.string,
-  errors: PropTypes.string,
+  errors: PropTypes.object,
   onDrop: PropTypes.func,
   env: PropTypes.object,
 };
