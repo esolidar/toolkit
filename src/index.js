@@ -86,6 +86,7 @@ export { default as downloadExcel } from './utils/downloadExcel';
 export { default as filterUnique } from './utils/filterUnique';
 export { default as firstElemOf } from './utils/firstElemOf';
 export { default as getEmployeeName } from './utils/getEmployeeName';
+export { default as getLocalStorage } from './utils/getLocalStorage';
 export { default as getLocalStorageAuctionPrivateCode } from './utils/getLocalStorageAuctionPrivateCode';
 export { default as getUrlParam } from './utils/getUrlParam';
 export { default as isArray } from './utils/isArray';
