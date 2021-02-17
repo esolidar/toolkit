@@ -119,6 +119,7 @@ const DropZoneBox = ({
   ];
 
   const toggleModalCropper = () => {
+    setDisableCroppedImage(false);
     setCropperModal(false);
   };
 
@@ -297,8 +298,8 @@ const DropZoneBox = ({
                     const imageWidth = cropper.current.getCroppedCanvas().width;
                     const imageHeight = cropper.current.getCroppedCanvas().height;
                     if (imageWidth > minWidth && imageHeight > minHeight) {
-                      handleSubmitCroppedImage(blob);
                       setDisableCroppedImage(true);
+                      handleSubmitCroppedImage(blob);
                     } else {
                       const errors = [];
                       errors.push({
