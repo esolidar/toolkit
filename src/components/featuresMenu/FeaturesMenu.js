@@ -10,7 +10,7 @@ const FeaturesMenu = props => {
   const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
   let userWorkEmail = 0;
   if (companyId) {
-    userWorkEmail = user.work_email.find(item => item.company_id === companyId) ? 1 : 0;
+    userWorkEmail = user.work_email?.find(item => item.company_id === companyId) ? 1 : 0;
   }
 
   const menuItem = () => {
