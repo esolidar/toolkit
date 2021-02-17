@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import _ from 'lodash';
+import sortBy from '../../utils/sortBy';
 
 const FeaturesMenu = props => {
   const { location, translations, features, project } = props;
@@ -10,7 +10,7 @@ const FeaturesMenu = props => {
   const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
   let userWorkEmail = 0;
   if (companyId) {
-    userWorkEmail = _.find(user.work_email, ['company_id', companyId]) ? 1 : 0;
+    userWorkEmail = user.work_email?.find(item => item.company_id === companyId) ? 1 : 0;
   }
 
   const menuItem = () => {
@@ -116,7 +116,7 @@ const FeaturesMenu = props => {
         case 'manage-members':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, o => o.pageRoute === '/community')) break;
+              if (items.find(o => o.pageRoute === '/community')) break;
               items.push({
                 position: 3,
                 pageRoute: '/community',
@@ -353,7 +353,7 @@ const FeaturesMenu = props => {
         case 'crowdfunding-public':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, o => o.pageRoute === '/crowdfunding')) break;
+              if (items.find(o => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -365,7 +365,7 @@ const FeaturesMenu = props => {
               break;
 
             case 'esolidar':
-              if (_.find(items, o => o.pageRoute === '/user/campaigns')) break;
+              if (items.find(o => o.pageRoute === '/user/campaigns')) break;
               items.push({
                 position: 8,
                 pageRoute: '/user/campaigns',
@@ -377,7 +377,7 @@ const FeaturesMenu = props => {
               break;
 
             case 'whitelabel':
-              if (_.find(items, o => o.pageRoute === '/crowdfunding')) break;
+              if (items.find(o => o.pageRoute === '/crowdfunding')) break;
               items.push({
                 position: 8,
                 pageRoute: '/crowdfunding',
@@ -544,7 +544,7 @@ const FeaturesMenu = props => {
         case 'survey':
           switch (project) {
             case 'business-frontend':
-              if (_.find(items, o => o.pageRoute === '/impact-analytics')) {
+              if (items.find(o => o.pageRoute === '/impact-analytics')) {
                 items.push({
                   position: 12,
                   pageRoute: '/impact-analytics',
@@ -603,7 +603,7 @@ const FeaturesMenu = props => {
       }
     });
 
-    return _.sortBy(items, ['position']).map(item => {
+    return sortBy(items, 'position').map(item => {
       if (item.showItem) {
         if (item.hide !== 1) {
           return (

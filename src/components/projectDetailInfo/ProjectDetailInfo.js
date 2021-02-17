@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button/Button';
 import CheckboxField from '../../elements/checkboxField/CheckboxField';
 import TextareaField from '../../elements/textareaField/TextareaField';

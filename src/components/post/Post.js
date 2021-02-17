@@ -5,7 +5,6 @@ import { Col, Dropdown, DropdownButton, Modal } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
-import { findIndex } from 'lodash';
 import CommentPost from '../commentPost/CommentPost';
 import { getEmployeeName } from '../../utils';
 import TextareaField from '../../elements/textareaField/TextareaField';
@@ -40,7 +39,7 @@ class Post extends Component {
           showEditModal: false,
         });
         if (commentUpdated.parent_id) {
-          const index = findIndex(post.replies, o => o.id === commentUpdated.id);
+          const index = post.replies.findIndex(o => o.id === commentUpdated.id);
           if (index >= 0 && post.id === commentUpdated.parent_id) {
             const newReplies = post.replies;
             newReplies[index].text = commentUpdated.text;

@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
-import { includes } from 'lodash';
 import TextField from '../../elements/textField/TextField';
 import TextareaField from '../../elements/textareaField/TextareaField';
 import SelectField from '../../elements/selectField/SelectField';
@@ -213,7 +212,7 @@ const ProjectAddForm = ({
                         name={`${slugify(option)}-${i}-${field.id}`}
                         id={`${slugify(option)}-${i}-${field.id}`}
                         value={option}
-                        checked={includes(field.checked, option)}
+                        checked={field.checked.includes(option)}
                       />
                     ))}
                     {errors[field.id] && (

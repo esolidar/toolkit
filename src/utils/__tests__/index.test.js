@@ -16,6 +16,9 @@ import {
   isEmpty,
   blinkElement,
   slugify,
+  isObject,
+  isArray,
+  getLocalStorage,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -187,7 +190,7 @@ describe('test utils functions', () => {
     );
   });
 
-  test('getlocalstorage', () => {
+  test('getLocalStorageAuctionPrivateCode', () => {
     localStorage.setItem(
       'privateCode',
       JSON.stringify([
@@ -292,5 +295,39 @@ describe('test utils functions', () => {
     const url = 'https//esolidar.com/teste?page=1';
     const expectedUrl = 'https//esolidar.com/teste';
     expect(removeAllUrlParams(url)).toBe(expectedUrl);
+  });
+
+  test('isObject function', () => {
+    const obj = {};
+    expect(isObject(obj)).toBe(true);
+    const array = [];
+    expect(isObject(array)).toBe(false);
+    const nullVar = null;
+    expect(isObject(nullVar)).toBe(false);
+  });
+
+  test('isArray function', () => {
+    const array = [];
+    expect(isArray(array)).toBe(true);
+    const obj = {};
+    expect(isArray(obj)).toBe(false);
+    const nullVar = null;
+    expect(isArray(nullVar)).toBe(false);
+  });
+
+  test('getLocalStorage function', () => {
+    const token = 'exemplo de token';
+    const user = { nome: 'Nome do user' };
+    const subscription = ['subscription'];
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('subscription', JSON.stringify(subscription));
+
+    expect(getLocalStorage('token')).toEqual(token);
+    expect(getLocalStorage('user')).toEqual(user);
+    expect(getLocalStorage('subscription')).toEqual(subscription);
+    expect(getLocalStorage('nonExistingKey')).toEqual({});
+    expect(getLocalStorage('nonExistingKey', '')).toEqual('');
   });
 });

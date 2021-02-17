@@ -6,7 +6,6 @@ import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import filter from 'lodash/filter';
 import Button from '../../elements/button/Button';
 import { slugify } from '../../utils/index';
 
@@ -60,7 +59,7 @@ const ProjectThumb = ({
     win.focus();
   };
 
-  const isSelected = filter(selectedIds, o => o === project.id).length;
+  const isSelected = (selectedIds || []).filter(o => o === project.id).length;
 
   return (
     <Col xs={12} sm={6} md={6} lg={cols}>

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Col, Row } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
-import { filter } from 'lodash';
 import Loading from '../loading/Loading';
 import FaqsTabs from './FaqsTabs';
 import FaqsItem from './FaqsItem';
@@ -10,7 +9,7 @@ import FaqsItem from './FaqsItem';
 const Faqs = ({ lang, tabs, faqs, type, changeType, changeId, id, isLoading, env }) => {
   let faqsFilterLang = [];
   const title = `title_${lang}`;
-  faqsFilterLang = filter(faqs, faq => faq[title] !== null);
+  faqsFilterLang = (faqs || []).filter(faq => faq[title] !== null);
 
   return (
     <div className="faqs mb-5">
