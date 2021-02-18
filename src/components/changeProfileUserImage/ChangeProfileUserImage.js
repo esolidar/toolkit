@@ -52,6 +52,8 @@ const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop
             minHeight: 200,
           }}
           modalClassName="change-profile-user-image"
+          titleCropModal={translateMessage({ id: 'modal.crop.title' })}
+          textSaveCropModal={translateMessage({ id: 'modal.crop.button.save' })}
         >
           <Button
             extraClass="dark"
