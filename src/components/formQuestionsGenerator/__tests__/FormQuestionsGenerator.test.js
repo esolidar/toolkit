@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import FormQuestionsGenerator from '../FormQuestionsGenerator';
+import FormQuestionsGenerator from '../index';
 
 const props = {
   locale: 'pt',

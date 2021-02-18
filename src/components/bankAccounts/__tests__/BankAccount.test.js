@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
-import BankAccount from '../BankAccount';
+import BankAccount from '../index';
 
 const fx = jest.fn();
 

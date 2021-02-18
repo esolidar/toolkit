@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Reviews from '../Reviews';
+import Reviews from '../index';
 
 const onChange = jest.fn();
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { convertToMyCurrency } from '../../utils/index';
-import Button from '../../elements/button/Button';
-import TextField from '../../elements/textField/TextField';
+import Button from '../../elements/button';
+import TextField from '../../elements/textField';
 
 const AuctionDetailRigth = ({
   auctionTitle,

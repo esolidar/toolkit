@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SelectPerPage from '../SelectPerPage';
+import SelectPerPage from '../index';
 
 const changed = jest.fn();
 const value = 10;

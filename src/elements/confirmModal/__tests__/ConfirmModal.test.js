@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ConfirmModal from '../ConfirmModal';
+import ConfirmModal from '../index';
 
 test('renders children button properly', async () => {
   render(

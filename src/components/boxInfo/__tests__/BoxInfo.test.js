@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import BoxInfo from '../BoxInfo';
+import BoxInfo from '../index';
 
 describe('BoxInfo component', () => {
   it('renders BoxInfo correctly', () => {

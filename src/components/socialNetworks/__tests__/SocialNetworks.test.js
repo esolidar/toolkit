@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SocialNetworks from '../SocialNetworks';
+import SocialNetworks from '../index';
 
 const propIcons = [
   { class: 'icon-facebook1', url: 'https://www.facebook.com/esolidar' },

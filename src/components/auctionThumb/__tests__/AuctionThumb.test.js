@@ -3,8 +3,8 @@ import { configure, shallow } from 'enzyme';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 import { advanceTo } from 'jest-date-mock';
-import AuctionThumb from '../AuctionThumb';
-import CountdownThumb from '../../countdown/Countdown';
+import AuctionThumb from '../index';
+import CountdownThumb from '../../countdown';
 
 jest.useFakeTimers();
 

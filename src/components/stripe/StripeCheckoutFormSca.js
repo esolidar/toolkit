@@ -10,7 +10,7 @@ import {
   injectStripe,
 } from 'react-stripe-elements';
 import isEmpty from '../../utils/isEmpty';
-import Button from '../../elements/button/Button';
+import Button from '../../elements/button';
 
 const createOptions = () => ({
   style: {

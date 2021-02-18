@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { IntlProvider } from 'react-intl';
-import CrowdfundingHeaderRigth from '../CrowdfundingHeaderRigth';
+import CrowdfundingHeaderRigth from '../index';
 
 configure({ adapter: new Adapter() });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import Button from '../../elements/button/Button';
+import Button from '../../elements/button';
 
 const AuctionSupport = ({ auction, translateMessage }) => {
   const supported = auction.recipient ? auction.recipient : auction.user;

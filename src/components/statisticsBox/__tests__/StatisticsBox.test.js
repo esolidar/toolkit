@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import StatisticsBox from '../StatisticsBox';
+import StatisticsBox from '../index';
 
 const propFeatures = [
   { title: 'Raised', statistics: '$279.47', subtitle: '0% growth last quarter' },

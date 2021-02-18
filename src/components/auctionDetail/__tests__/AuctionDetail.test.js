@@ -4,7 +4,7 @@ import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { advanceTo } from 'jest-date-mock';
 import { IntlProvider } from 'react-intl';
-import AuctionDetail from '../AuctionDetail';
+import AuctionDetail from '../index';
 
 const fx = jest.fn();
 const props = {

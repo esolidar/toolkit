@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CheckboxImage from '../CheckboxImage';
+import CheckboxImage from '../index';
 
 const changed = jest.fn();
 

@@ -4,7 +4,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { advanceTo } from 'jest-date-mock';
-import Countdown from '../Countdown';
+import Countdown from '../index';
 
 jest.useFakeTimers();
 

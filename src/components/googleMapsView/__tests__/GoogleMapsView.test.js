@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GoogleMapsView from '../GoogleMapsView';
+import GoogleMapsView from '../index';
 
 const props = {
   latitude: '41.6918275',

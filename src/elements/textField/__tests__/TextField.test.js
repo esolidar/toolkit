@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import TextField from '../TextField';
+import TextField from '../index';
 
 const changed = jest.fn();
 

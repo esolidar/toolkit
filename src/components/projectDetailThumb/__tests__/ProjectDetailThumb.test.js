@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
-import ProjectDetailThumb from '../ProjectDetailThumb';
+import ProjectDetailThumb from '../index';
 
 describe('ProjectDetailThumb component', () => {
   it('renders ProjectDetailThumb correctly', () => {

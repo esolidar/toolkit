@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChangeLanguage from '../ChangeLanguage';
+import ChangeLanguage from '../index';
 
 const propLanguages = [
   { id: 0, name: 'pt', translate: 'Português (PT)' },

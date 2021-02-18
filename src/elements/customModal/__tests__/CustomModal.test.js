@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CustomModal from '../CustomModal';
+import CustomModal from '../index';
 
 const props = {
   bodyChildren: <p>bodyChildren</p>,

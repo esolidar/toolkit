@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Giftcards from '../Giftcards';
+import Giftcards from '../index';
 
 const props = {
   giftCardsList: [

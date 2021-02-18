@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import InviteLink from '../InviteLink';
+import InviteLink from '../index';
 
 describe('InviteLink component', () => {
   it('renders InviteLink correctly', () => {

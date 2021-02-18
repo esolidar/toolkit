@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProjectDetail from '../ProjectDetail';
+import ProjectDetail from '../index';
 
 describe('ProjectDetail component', () => {
   it('renders ProjectDetail correctly', () => {

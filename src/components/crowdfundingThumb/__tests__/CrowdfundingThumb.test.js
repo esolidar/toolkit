@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { advanceTo } from 'jest-date-mock';
-import CrowdfundingThumb from '../CrowdfundingThumb';
+import CrowdfundingThumb from '../index';
 
 jest.useFakeTimers();
 configure({ adapter: new Adapter() });

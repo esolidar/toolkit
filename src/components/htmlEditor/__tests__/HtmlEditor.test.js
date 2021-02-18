@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import HtmlEditor from '../HtmlEditor';
+import HtmlEditor from '../index';
 import '@testing-library/jest-dom';
 
 test('HtmlEditor contains mui class if prop is true', async () => {

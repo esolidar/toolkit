@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Documents from '../Documents';
+import Documents from '../index';
 
 const props = {
   isLoadingSearch: false,

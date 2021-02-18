@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Survey from '../Survey';
+import Survey from '../index';
 
 const props = {
   status: 'A',

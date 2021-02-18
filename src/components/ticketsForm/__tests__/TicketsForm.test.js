@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
-import TicketsForm from '../TicketsForm';
+import TicketsForm from '../index';
 
 const props = {
   onSubmit: () => {},

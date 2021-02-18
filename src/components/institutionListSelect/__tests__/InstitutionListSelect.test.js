@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import InstitutionListSelect from '../InstitutionListSelect';
+import InstitutionListSelect from '../index';
 
 const props = {
   institutions: [],

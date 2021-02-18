@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NotificationsBell from '../NotificationsBell';
+import NotificationsBell from '../index';
 
 describe('NotificationsBell component', () => {
   it('renders NotificationsBell correctly', () => {

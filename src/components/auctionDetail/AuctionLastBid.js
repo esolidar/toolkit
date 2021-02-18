@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
-import Button from '../../elements/button/Button';
-import TextField from '../../elements/textField/TextField';
+import Button from '../../elements/button';
+import TextField from '../../elements/textField';
 
 const AuctionLastBid = ({
   auction,

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProjectFilters from '../ProjectFilters';
+import ProjectFilters from '../index';
 
 const props = {
   color: 'red',
