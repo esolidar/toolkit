@@ -19,7 +19,10 @@ const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop
 
   return (
     <div className="change-profile-user-image">
-      <h4 style={{ color: color.primaryColor }} data-testid="title-change-profile-user-image">
+      <h4
+        style={{ color: color ? color.primaryColor : '' }}
+        data-testid="title-change-profile-user-image"
+      >
         <FormattedMessage id="user.settings.regional" defaultMessage="About you" />
       </h4>
       <div className="box">
@@ -77,9 +80,6 @@ ChangeProfileUserImage.propTypes = {
 };
 
 ChangeProfileUserImage.defaultProps = {
-  color: {
-    primaryColor: '#ddd',
-  },
   thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
 };
 

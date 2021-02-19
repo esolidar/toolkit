@@ -293,29 +293,25 @@ const DropZoneBox = ({
             <Button
               extraClass="success-full"
               onClick={() => {
-                cropper.current.getCroppedCanvas().toBlob(
-                  blob => {
-                    const imageWidth = cropper.current.getCroppedCanvas().width;
-                    const imageHeight = cropper.current.getCroppedCanvas().height;
-                    if (imageWidth > minWidth && imageHeight > minHeight) {
-                      setDisableCroppedImage(true);
-                      handleSubmitCroppedImage(blob);
-                    } else {
-                      const errors = [];
-                      errors.push({
-                        name: '',
-                        errors: [
-                          `${
-                            errorMessages.find(messageObj => messageObj.id === 'dimensions').message
-                          }`,
-                        ],
-                      });
-                      setErrorList(errors);
-                    }
-                  },
-                  'image/jpeg',
-                  0.7
-                );
+                cropper.current.getCroppedCanvas().toBlob(blob => {
+                  const imageWidth = cropper.current.getCroppedCanvas().width;
+                  const imageHeight = cropper.current.getCroppedCanvas().height;
+                  if (imageWidth > minWidth && imageHeight > minHeight) {
+                    setDisableCroppedImage(true);
+                    handleSubmitCroppedImage(blob);
+                  } else {
+                    const errors = [];
+                    errors.push({
+                      name: '',
+                      errors: [
+                        `${
+                          errorMessages.find(messageObj => messageObj.id === 'dimensions').message
+                        }`,
+                      ],
+                    });
+                    setErrorList(errors);
+                  }
+                });
               }}
               text={textSaveCropModal}
               disabled={disableCroppedImage}
