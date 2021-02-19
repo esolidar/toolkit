@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-localstorage-mock';
-import Footer from '../Footer';
+import Footer from '../index';
 
 const changed = jest.fn();
 const propIcons = [

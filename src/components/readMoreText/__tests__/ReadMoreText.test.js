@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ReadMoreText from '../ReadMoreText';
+import ReadMoreText from '../index';
 
 describe('ReadMoreText component', () => {
   it('renders ReadMoreText correctly', () => {

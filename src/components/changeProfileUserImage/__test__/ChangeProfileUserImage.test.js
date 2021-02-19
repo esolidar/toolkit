@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import ChangeProfileUserImage from '../ChangeProfileUserImage';
+import ChangeProfileUserImage from '../index';
 
 const fx = jest.fn();
 const props = {

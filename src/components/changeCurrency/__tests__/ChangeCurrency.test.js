@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ChangeCurrency from '../ChangeCurrency';
+import ChangeCurrency from '../index';
 
 const changed = jest.fn();
 const propCurrentCurrency = {

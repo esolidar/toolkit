@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import HeartSeparator from '../HeartSeparator';
+import HeartSeparator from '../index';
 
 describe('HeartSeparator component', () => {
   it('renders HeartSeparator correctly', () => {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import CookiesMessage from '../CookiesMessage';
+import CookiesMessage from '../index';
 
 const onClickFunc = jest.fn();
 const propMsg =

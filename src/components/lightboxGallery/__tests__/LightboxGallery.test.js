@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import LightboxGallery from '../LightboxGallery';
+import LightboxGallery from '../index';
 
 const props = {
   images: [

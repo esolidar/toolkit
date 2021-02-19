@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CreditCardList from '../CreditCardList';
+import CreditCardList from '../index';
 
 const props = {
   getStripeCreditCardlist: jest.fn(),

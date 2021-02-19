@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import SliderImagesLanding from '../SliderImagesLanding';
+import SliderImagesLanding from '../index';
 
 const props = {
   autoPlay: true,

@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
-import ProjectThumb from '../ProjectThumb';
+import ProjectThumb from '../index';
 
 const props = {
   project: {

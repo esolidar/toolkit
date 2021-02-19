@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import CrowdfundingDescription from '../CrowdfundingDescription';
+import CrowdfundingDescription from '../index';
 
 const props = {
   campaign: {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
-import TextareaField from '../../../elements/textareaField/TextareaField';
+import TextareaField from '../../../elements/textareaField';
 
 const CrowdfundingItem = props => {
   const { translateMessage, env, item } = props;

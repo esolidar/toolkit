@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProjectAddForm from '../ProjectAddForm';
+import ProjectAddForm from '../index';
 
 const props = {
   form: [

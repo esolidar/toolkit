@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
-import ProjectDetailInfo from '../ProjectDetailInfo';
+import ProjectDetailInfo from '../index';
 
 describe('ProjectDetailInfo component', () => {
   it('renders ProjectDetailInfo correctly', () => {

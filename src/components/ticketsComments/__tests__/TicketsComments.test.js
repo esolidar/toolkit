@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import TicketsComments from '../TicketsComments';
+import TicketsComments from '../index';
 
 const props = {
   ticketComments: [

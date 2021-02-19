@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
-import TextareaField from '../../../elements/textareaField/TextareaField';
-import TextField from '../../../elements/textField/TextField';
+import TextareaField from '../../../elements/textareaField';
+import TextField from '../../../elements/textField';
 
 const InvoicingData = props => {
   const { errors, receipt, nif, invoice_address, agree } = props.state;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RadioField from '../RadioField';
+import RadioField from '../index';
 
 const changed = jest.fn();
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import CommentPost from '../CommentPost';
+import CommentPost from '../index';
 
 const props = {
   postId: 1,

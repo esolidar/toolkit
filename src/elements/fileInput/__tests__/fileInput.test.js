@@ -1,6 +1,6 @@
 import React, { useState as useStateMock } from 'react';
 import { shallow } from 'enzyme';
-import FileInput from '../FileInput';
+import FileInput from '../index';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),

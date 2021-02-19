@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import ConvertToMyTimezone from '../ConvertToMyTimezone';
+import ConvertToMyTimezone from '../index';
 
 describe('ConvertToMyTimezone component', () => {
   it('renders ConvertToMyTimezone correctly', () => {

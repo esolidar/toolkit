@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';
 import { fireEvent, render, cleanup, act, waitFor } from '@testing-library/react';
-import DropZoneBox from '../DropZoneBox';
+import DropZoneBox from '../index';
 
 function createFile(name, size, type) {
   const file = new File([], name, { type });
