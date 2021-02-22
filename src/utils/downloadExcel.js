@@ -9,6 +9,8 @@ const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile
           item[col.apiFieldName] === 1
             ? translateMessage({ id: 'yes' })
             : translateMessage({ id: 'no' });
+      } else if (col.type === 'flag') {
+        obj[col.text] = translateMessage({ id: `country.id.${item[col.apiFieldName]}` });
       } else {
         obj[col.text] = item[col.apiFieldName];
       }
