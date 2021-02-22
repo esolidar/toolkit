@@ -10,29 +10,7 @@ const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile
             ? translateMessage({ id: 'yes' })
             : translateMessage({ id: 'no' });
       } else if (col.type === 'flag') {
-        switch (item[col.apiFieldName]) {
-          case 208:
-            obj[col.text] = translateMessage({ id: 'country.portugal' });
-            break;
-          case 150:
-            obj[col.text] = translateMessage({ id: 'country.brazil' });
-            break;
-          case 231:
-            obj[col.text] = translateMessage({ id: 'country.unitedKingdom' });
-            break;
-          case 232:
-            obj[col.text] = translateMessage({ id: 'country.unitedStates' });
-            break;
-          case 140:
-            obj[col.text] = translateMessage({ id: 'country.argentina' });
-            break;
-          case 141:
-            obj[col.text] = translateMessage({ id: 'country.algeria' });
-            break;
-          default:
-            obj[col.text] = '';
-            break;
-        }
+        obj[col.text] = translateMessage({ id: `country.id.${item[col.apiFieldName]}` });
       } else {
         obj[col.text] = item[col.apiFieldName];
       }
