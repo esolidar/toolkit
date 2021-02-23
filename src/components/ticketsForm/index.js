@@ -310,7 +310,7 @@ const TicketsForm = ({
                         })}
                         onChange={onChange}
                         field="text"
-                        defaultValue={editTicket.text}
+                        value={editTicket.text}
                         message=""
                         required={true}
                       />
