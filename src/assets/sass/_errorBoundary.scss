@@ -1,0 +1,23 @@
+.boundary {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e7eaed;
+  border-radius: 4px;
+  padding: 25px;
+  background: #fff;
+
+  h3 {
+    text-align: center;
+
+    .icon {
+      img {
+        width: 114px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+}

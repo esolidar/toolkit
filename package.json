@@ -107,6 +107,7 @@
     "@fortawesome/react-fontawesome": "^0.1.12",
     "@pedroguia/react-draft-wysiwyg": "^1.14.8",
     "@react-mock/state": "^0.1.8",
+    "@sentry/browser": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.7.0",

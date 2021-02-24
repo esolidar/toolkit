@@ -61,6 +61,7 @@ export { default as AuctionAddForm } from './components/auctionAddForm';
 export { default as NoMatch } from './components/noMatch';
 export { default as BankAccount } from './components/bankAccounts';
 export { default as ChangeProfileUserImage } from './components/changeProfileUserImage';
+export { default as ErrorBoundary } from './components/errorBoundary';
 
 // Elements
 export { default as Button } from './elements/button';
