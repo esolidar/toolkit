@@ -196,7 +196,34 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (auctionDetail && auctionDetail.code === 200) {
       const { data } = auctionDetail;
-      setForm(prevState => ({ ...prevState, data }));
+      // setForm(prevState => ({ ...prevState, data }));
+      debugger;
+      setForm(prevState => ({
+        ...prevState,
+        title: data.title,
+        description: data.description,
+        bid_interval: data.bid_interval,
+        bid_max_interval: data.bid_max_interval,
+        tax: data.tax,
+        acquisition_value: data.acquisition_value,
+        status: data.status,
+        private: data.private,
+        private_code: data.private_code,
+        shipping_description: data.shipping_description,
+        payment_description: data.payment_description,
+        images: data.images,
+        video: data.video,
+        startDate: data.startDate && JSON.parse(data.startDate),
+        endDate: data.endDate && JSON.parse(data.endDate),
+        tags: data.tags,
+        tagsObj: data.tagsObj && data.tagsObj.split(','),
+        tagsArray: data.tagsArray && data.tagsArray.split(','),
+        projectIds: data.projectIds || '',
+        user_id: data.user_id,
+        timezone: data.timezone,
+        currency_id: data.currency_id,
+        position: data.position,
+      }));
     }
   }, [auctionDetail]);
 
