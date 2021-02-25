@@ -1,79 +1,74 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import * as Sentry from '@sentry/browser';
-import Button from '../../elements/button';
 
+const LOAD_LIMIT = 1;
 class ErrorBoundary extends Component {
   state = {
-    hasError: true,
-    error: true,
+    hasError: this.props.showError,
+    countReload: +localStorage.getItem('countReload') || 0,
+    reload: true,
+    forceReload: false,
   };
 
   componentDidCatch(error, info) {
+    if (this.state.countReload < LOAD_LIMIT && this.state.reload) {
+      localStorage.setItem('countReload', this.state.countReload + 1);
+      window.location.reload();
+    }
+
+    if (this.state.countReload >= LOAD_LIMIT) {
+      localStorage.removeItem('countReload');
+      this.updateState({ reload: false, countReload: 0 });
+    }
+
+    Sentry.showReportDialog({ eventId: this.state.eventId });
+
     Sentry.withScope(scope => {
       scope.setExtras(info);
       const eventId = Sentry.captureException(error);
       this.setState({ eventId });
     });
 
-    this.setState({
-      hasError: true,
-      error,
-    });
+    this.setState({ hasError: true, forceReload: false });
   }
 
-  render() {
-    const { hasError, error } = this.state;
-    let email = '';
+  handleReloadPage = () => {
+    localStorage.setItem('countReload', 2);
+    this.updateState({ reload: false, forceReload: true, hasError: false });
+  };
 
-    switch (localStorage.lang) {
-      case 'pt':
-        email = 'ajuda@esolidar.com';
-        break;
-      case 'br':
-        email = 'meajuda@esolidar.com';
-        break;
-      case 'en':
-        email = 'help@esolidar.com';
-        break;
-      default:
-        email = 'help@esolidar.com';
-        break;
-    }
+  updateState = state => {
+    this.setState(state);
+  };
+
+  render() {
+    const { hasError } = this.state;
+    const { className, color } = this.props;
 
     if (hasError) {
       return (
-        <div className={`boundary ${this.props.cssClass}`}>
-          <h3 style={{ color: this.props.color.primaryColor }}>
+        <div className={`boundary ${className}`}>
+          <h3>
             <div className="icon">
-              <img
-                src={`${this.props.env.cdn_static_url}/whitelabel-frontend/assets/disconnected-400.png`}
-                alt="Warning"
-              />
+              <p>⚠️</p>
             </div>
-            <FormattedMessage id="error.boundary" defaultMessage="Something went wrong." />
+            <FormattedMessage id="error.boundary" />
           </h3>
-          {this.props.showDesc && (
-            <div>
-              {error && (
-                <p style={{ color: this.props.color.primaryColor }}>
-                  <Button
-                    extraClass="danger"
-                    onClick={() => Sentry.showReportDialog({ eventId: this.state.eventId })}
-                  >
-                    <FormattedMessage
-                      id="error.boundary.message"
-                      defaultMessage="If the problem persists, please contact us {email}"
-                      values={{
-                        email: <a href={`mailto:${email}`}>{email}</a>,
-                      }}
-                    />
-                  </Button>
-                </p>
-              )}
-            </div>
-          )}
+          <div>
+            <p>
+              <a
+                className="retry-link"
+                onClick={this.handleReloadPage}
+                style={{ color: color.primaryColor }}
+              >
+                <FormattedMessage id="error.boundary.retry" />
+              </a>
+            </p>
+          </div>
         </div>
       );
     }
@@ -83,15 +78,17 @@ class ErrorBoundary extends Component {
 
 ErrorBoundary.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  cssClass: PropTypes.string,
-  showDesc: PropTypes.bool,
+  className: PropTypes.string,
   color: PropTypes.object,
-  env: PropTypes.object,
+  showError: PropTypes.bool,
 };
 
 ErrorBoundary.defaultProps = {
-  cssClass: '',
-  showDesc: true,
+  className: '',
+  showError: false,
+  color: {
+    primaryColor: '#5AC3E1',
+  },
 };
 
 export default ErrorBoundary;

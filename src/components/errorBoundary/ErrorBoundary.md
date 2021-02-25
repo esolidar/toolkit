@@ -9,13 +9,11 @@ import { ErrorBoundary } from '@esolidar/toolkit';
 
 ``` jsx
 <ErrorBoundary 
-  cssClass=""
+  className=""
   color={{
-    primaryColor: "05c6e5"
+    primaryColor: "#5AC3E1"
   }}
-  env={{
-    cdn_static_url: 'https://static.esolidar.com',
-  }}
+  showError
 />
 
 ```

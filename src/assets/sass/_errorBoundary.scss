@@ -6,6 +6,7 @@
   background: #fff;
 
   h3 {
+    font-size: 19px;
     text-align: center;
 
     .icon {
@@ -13,6 +14,18 @@
         width: 114px;
         border-radius: 50%;
         margin-bottom: 20px;
+      }
+    }
+  }
+
+  .retry-link {
+    font-size: 16px;
+
+    span {
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
   }
