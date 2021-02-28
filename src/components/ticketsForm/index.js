@@ -58,8 +58,11 @@ const TicketsForm = ({
   disabledTypeSelect,
   disabledStatusSelect,
   crowdfundingDefault,
+  institutionDefault,
   loadOptionsCrowdfunding,
+  loadOptionsInstitution,
   updateValueCrowdfunding,
+  updateValueInstitution,
   errorMessages,
   maxSize,
 }) => {
@@ -240,7 +243,41 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {assignedDefault && (
+                    {featureDefault && featureDefault === '16' && (
+                      <Col sm={12}>
+                        <div className="form-group">
+                          <label className="control-label">
+                            {intl.formatMessage({
+                              id: 'tickets.institution',
+                              defaultMessage: 'Institution',
+                            })}
+                          </label>
+                          <AsyncPaginate
+                            isClearable
+                            value={institutionDefault}
+                            cacheOptions
+                            placeholder={intl.formatMessage({
+                              id: 'tickets.search.byIdOrTitle',
+                              defaultMessage: 'Search by title ou ID...',
+                            })}
+                            additional={defaultAdditional}
+                            loadOptions={loadOptionsInstitution}
+                            onChange={updateValueInstitution}
+                          />
+                          {errors.related_feature_id && (
+                            <div className="has-error">
+                              <span className="help-block">
+                                {intl.formatMessage({
+                                  id: 'form.required',
+                                  defaultMessage: 'This field is required.',
+                                })}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </Col>
+                    )}
+                    {assignedDefault && featureDefault !== '16' && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -552,8 +589,11 @@ TicketsForm.propTypes = {
   disabledTypeSelect: PropTypes.bool,
   disabledStatusSelect: PropTypes.bool,
   crowdfundingDefault: PropTypes.object,
+  institutionDefault: PropTypes.object,
   loadOptionsCrowdfunding: PropTypes.func,
+  loadOptionsInstitution: PropTypes.func,
   updateValueCrowdfunding: PropTypes.func,
+  updateValueInstitution: PropTypes.func,
   errorMessages: PropTypes.array,
   maxSize: PropTypes.number,
 };
