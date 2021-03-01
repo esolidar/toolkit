@@ -58,6 +58,8 @@ const AuctionAddForm = ({
   addImages,
   postAuction,
   addAuction,
+  putAuction,
+  updatedAuction,
   postAuctionDeleteImage,
   returnUrl,
   userRole,
@@ -69,11 +71,13 @@ const AuctionAddForm = ({
   userBankTransfer,
   putCompanyBankTransfer,
   bankTransfer,
+  translateMessage,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find(item => item.name === 'whitelabel') || {};
   const hasProjects = !isEmpty(subscription.find(item => item.name === 'projects') || {});
   const [form, setForm] = useState({
+    show_on_esolidar: !hasProjects ? 'opened' : '',
     title: '',
     bid_start: '',
     description: '',
@@ -196,7 +200,73 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (auctionDetail && auctionDetail.code === 200) {
       const { data } = auctionDetail;
-      setForm(prevState => ({ ...prevState, data }));
+      const imagesListArray = [];
+      const imagesArray = [];
+
+      data.images.map(image => {
+        imagesListArray.push({
+          id: image.id,
+          image: image.image_name,
+        });
+        imagesArray.push(image.id);
+      });
+
+      setImagesList(imagesListArray);
+
+      const tagsArray = data.tags ? data.tags.split(',') : [];
+      const formTagsObj = [];
+      const formTagsArray = [];
+
+      tagsArray.map((tag, idx) => {
+        formTagsObj.push({
+          id: idx + 1,
+          text: tag,
+        });
+        formTagsArray.push(tag);
+      });
+
+      setIsMyProject(
+        data.project
+          ? data.project.as_company === 1 &&
+              data.project.whitelabel_config.company_id === company.id
+          : false
+      );
+
+      setForm(prevState => ({
+        ...prevState,
+        show_on_esolidar: data.show_on_esolidar,
+        title: data.title,
+        description: data.description,
+        bid_interval: data.bid_interval.toString(),
+        bid_max_interval: data.bid_max_interval.toString(),
+        bid_start: data.bid_start.toString(),
+        brand_id: data.brand_id,
+        tax: data.tax,
+        acquisition_value: data.acquisition_value,
+        status: data.status,
+        private: data.private,
+        private_code: data.private_code,
+        shipping_description: data.shipping_description,
+        payment_description: data.payment_description,
+        images: imagesArray,
+        video: data.video,
+        startDate: new Date(
+          moment.utc(data.dateStart).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss')
+        ),
+        dateStart: moment.utc(data.dateStart).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss'),
+        endDate: new Date(
+          moment.utc(data.dateLimit).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss')
+        ),
+        dateLimit: moment.utc(data.dateLimit).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss'),
+        tags: data.tags,
+        tagsObj: formTagsObj,
+        tagsArray: formTagsArray,
+        projectIds: data.project_id ? [data.project_id] : [],
+        user_id: data.user_id,
+        timezone: data.timezone,
+        currency_id: data.currency_id,
+        position: data.position,
+      }));
     }
   }, [auctionDetail]);
 
@@ -241,6 +311,31 @@ const AuctionAddForm = ({
     }
   }, [addAuction]);
 
+  // update Auction
+  useEffect(() => {
+    if (updatedAuction && updatedAuction.code === 200) {
+      NotificationManager.success(
+        intl.formatMessage({
+          id: 'success.auction.create',
+          defaultMessage:
+            'Your auction was successfully edited. Our team will validate it and contact you soon.',
+        }),
+        intl.formatMessage({
+          id: 'success',
+          defaultMessage: 'Success:',
+        }),
+        15000
+      );
+      setDisabled(false);
+
+      if (returnUrl) {
+        window.location.href = returnUrl;
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }, [updatedAuction]);
+
   // Images list
   useEffect(() => {
     if (addImages && addImages.code === 200) {
@@ -257,7 +352,13 @@ const AuctionAddForm = ({
       setForm(prevState => ({ ...prevState, images }));
       setCropModalStatus(false);
     } else if (addImages && addImages.status === 400) {
-      // debugger;
+      setErrors(prevState => ({
+        ...prevState,
+        images: translateMessage({
+          id: 'auction.add.error.image',
+          defaultMessage: 'There was an error sending the image',
+        }),
+      }));
     }
   }, [addImages]);
 
@@ -303,12 +404,6 @@ const AuctionAddForm = ({
     setForm(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleTagBlur = () => {
-    const { tagsArray } = form;
-    form.tags = tagsArray.join();
-    setForm(form);
-  };
-
   const handleDelete = i => {
     form.tagsObj.splice(i, 1);
     form.tagsArray.splice(i, 1);
@@ -317,13 +412,15 @@ const AuctionAddForm = ({
 
   const handleAddition = tag => {
     const { tagsObj } = form;
-    if (tag !== '') {
+    const existTag = !!tagsObj.find(tagObj => tagObj.text === tag);
+
+    if (tag !== '' && !existTag) {
       tagsObj.push({
         id: tagsObj.length + 1,
         text: tag,
       });
       form.tagsArray.push(tag);
-      setForm(form);
+      setForm(prevState => ({ ...prevState, tags: form.tagsArray.join(',') }));
     }
   };
 
@@ -432,7 +529,6 @@ const AuctionAddForm = ({
         }
       }, 0);
     }
-
     return isValid;
   };
 
@@ -443,40 +539,42 @@ const AuctionAddForm = ({
     }
     if (!isValid()) return;
 
-    if (isValidBankAccount && isMyProjet) {
-      setLoading(true);
-      const companyId = company.id;
-      setDisabled(true);
-      const data = {
-        acquisition_value: form.acquisition_value,
-        bid_interval: form.bid_interval,
-        bid_max_interval: form.bid_max_interval,
-        bid_start: form.bid_start,
-        brand_id: form.brand_id,
-        currency_id: form.currency_id,
-        dateLimit: form.dateLimit,
-        dateStart: form.dateStart,
-        description: form.description,
-        show_on_esolidar: form.show_on_esolidar,
-        images: form.images,
-        payment_description: form.payment_description,
-        position: form.position,
-        private: form.private,
-        private_code: form.private_code,
-        shipping_description: form.shipping_description,
-        status: form.status,
-        tags: form.tags,
-        tax: form.tax,
-        timezone: form.timezone,
-        title: form.title,
-        user_id: form.user_id || null,
-        video: form.video,
-      };
+    setLoading(true);
+    const companyId = company.id;
+    setDisabled(true);
+    const data = {
+      acquisition_value: form.acquisition_value,
+      bid_interval: form.bid_interval,
+      bid_max_interval: form.bid_max_interval,
+      bid_start: form.bid_start,
+      brand_id: form.brand_id,
+      currency_id: form.currency_id,
+      dateLimit: form.dateLimit,
+      dateStart: form.dateStart,
+      description: form.description,
+      show_on_esolidar: form.show_on_esolidar,
+      images: form.images,
+      payment_description: form.payment_description,
+      position: form.position,
+      private: form.private,
+      private_code: form.private_code,
+      shipping_description: form.shipping_description,
+      status: form.status,
+      tags: form.tags,
+      tax: form.tax,
+      timezone: form.timezone,
+      title: form.title,
+      user_id: form.user_id || null,
+      video: form.video,
+    };
 
-      if (!isEmpty(form.projectIds)) {
-        data.project_id = form.projectIds.join();
-      }
+    if (!isEmpty(form.projectIds)) {
+      data.project_id = form.projectIds.join();
+    }
 
+    if (auctionId) {
+      putAuction(data, companyId, auctionId);
+    } else {
       postAuction(data, companyId);
     }
   };
@@ -506,7 +604,7 @@ const AuctionAddForm = ({
           </h1>
         )}
         {action === 'edit' && (
-          <h1 style={{ color: primaryColor }}>
+          <h1 style={{ color: primaryColor }} data-testId="auction-edit-title">
             <FormattedMessage id="auctions.edit.title" defaultMessage="Edit Auction" />
           </h1>
         )}
@@ -683,7 +781,7 @@ const AuctionAddForm = ({
                       </label>
                       <ReactTags
                         tags={form.tagsObj}
-                        handleInputBlur={handleTagBlur}
+                        handleInputBlur={handleAddition}
                         delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
                         handleDelete={handleDelete}
                         placeholder="Tags"
@@ -1053,6 +1151,7 @@ const AuctionAddForm = ({
                         pagination={pagination.institutions}
                         isLoading={isLoadingInstitutionListSelect}
                         removeInstitutionSelected={handleChangeInstitution}
+                        translateMessage={translateMessage}
                       />
                     </Col>
                   </Row>
@@ -1072,56 +1171,63 @@ const AuctionAddForm = ({
                         />
                       </h3>
                     </Col>
-                    <Col
-                      sm={12}
-                      className={classnames('form-group', { 'has-error': errors.projectIds })}
-                    >
-                      <Row>
-                        {projectsListData.map(project => (
-                          <ProjectThumb
-                            key={project.id}
-                            project={project}
-                            serverlessResizeImage="https://image.testesolidar.com"
-                            lang={localStorage.lang}
-                            cols={6}
-                            showStatus={false}
-                            myProject={true}
-                            select={true}
-                            selectProject={handleSelectProject}
-                            selectText={intl.formatMessage({
-                              id: 'select',
-                              defaultMessage: 'Select',
-                            })}
-                            selectedText={intl.formatMessage({
-                              id: 'selected',
-                              defaultMessage: 'Selected',
-                            })}
-                            isSelected={true}
-                            selectedIds={form.projectIds}
-                          />
-                        ))}
-                        <Col
-                          sm={12}
-                          className={classnames('form-group', { 'has-error': errors.projectIds })}
-                        >
-                          {errors.projectIds && (
-                            <span className="help-block d-block">{errors.projectIds}</span>
-                          )}
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col sm={12} className="text-center">
-                          <Pagination
-                            innerClass="pagination justify-content-center"
-                            activePage={pagination.projects.activePage}
-                            itemsCountPerPage={pagination.projects.itemsCountPerPage}
-                            totalItemsCount={pagination.projects.totalItemsCount}
-                            pageRangeDisplayed={5}
-                            onChange={handleProjectsPageChange}
-                          />
-                        </Col>
-                      </Row>
-                    </Col>
+                    {projectsListData.length > 0 && (
+                      <Col
+                        sm={12}
+                        className={classnames('form-group', { 'has-error': errors.projectIds })}
+                      >
+                        <Row>
+                          {projectsListData.map(project => (
+                            <ProjectThumb
+                              key={project.id}
+                              project={project}
+                              serverlessResizeImage="https://image.testesolidar.com"
+                              lang={localStorage.lang}
+                              cols={6}
+                              showStatus={false}
+                              myProject={true}
+                              select={true}
+                              selectProject={handleSelectProject}
+                              selectText={intl.formatMessage({
+                                id: 'select',
+                                defaultMessage: 'Select',
+                              })}
+                              selectedText={intl.formatMessage({
+                                id: 'selected',
+                                defaultMessage: 'Selected',
+                              })}
+                              isSelected={true}
+                              selectedIds={form.projectIds}
+                            />
+                          ))}
+                          <Col
+                            sm={12}
+                            className={classnames('form-group', { 'has-error': errors.projectIds })}
+                          >
+                            {errors.projectIds && (
+                              <span className="help-block d-block">{errors.projectIds}</span>
+                            )}
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col sm={12} className="text-center">
+                            <Pagination
+                              innerClass="pagination justify-content-center"
+                              activePage={pagination.projects.activePage}
+                              itemsCountPerPage={pagination.projects.itemsCountPerPage}
+                              totalItemsCount={pagination.projects.totalItemsCount}
+                              pageRangeDisplayed={5}
+                              onChange={handleProjectsPageChange}
+                            />
+                          </Col>
+                        </Row>
+                      </Col>
+                    )}
+                    {projectsListData.length === 0 && (
+                      <Col sm={12} className="text-center">
+                        <FormattedMessage id="auction.no.project" />
+                      </Col>
+                    )}
                   </Row>
                 </Col>
               )}
@@ -1192,7 +1298,7 @@ const AuctionAddForm = ({
                         onClick={handleSubmit}
                         text={intl.formatMessage({
                           id: 'auctions.edit.submitAuction',
-                          defaultMessage: 'Update auction',
+                          defaultMessage: 'Edit auction',
                         })}
                         disabled={disabled}
                       />
@@ -1319,6 +1425,8 @@ AuctionAddForm.propTypes = {
   subscription: PropTypes.array,
   auctionId: PropTypes.string,
   getAuctionDetail: PropTypes.func,
+  putAuction: PropTypes.func,
+  updatedAuction: PropTypes.object,
   auctionDetail: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.object,
@@ -1326,6 +1434,7 @@ AuctionAddForm.propTypes = {
   userBankTransfer: PropTypes.object,
   bankTransfer: PropTypes.object,
   putCompanyBankTransfer: PropTypes.func,
+  translateMessage: PropTypes.func.isRequired,
 };
 
 export default injectIntl(AuctionAddForm);
