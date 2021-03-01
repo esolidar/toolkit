@@ -354,7 +354,10 @@ const AuctionAddForm = ({
     } else if (addImages && addImages.status === 400) {
       setErrors(prevState => ({
         ...prevState,
-        images: translateMessage({ id: 'auction.add.error.image' }),
+        images: translateMessage({
+          id: 'auction.add.error.image',
+          defaultMessage: 'There was an error sending the image',
+        }),
       }));
     }
   }, [addImages]);

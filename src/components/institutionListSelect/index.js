@@ -99,7 +99,7 @@ const InstitutionListSelect = ({
     <Row className="institutions-list">
       <Col md={12}>
         <SelectField
-          label={translateMessage({ id: 'institutions.categories' })}
+          label={translateMessage({ id: 'institutions.categories', defaultMessage: 'Categories' })}
           onChange={onChangeInstitutionCategory}
           idLabel="selectCategory"
           field="institution_category"
