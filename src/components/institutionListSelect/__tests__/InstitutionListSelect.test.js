@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
+import '@testing-library/jest-dom';
 import InstitutionListSelect from '../index';
 
 const props = {
@@ -19,6 +20,7 @@ const props = {
   selectText: '',
   NoResultsText: '',
   pagination: {},
+  translateMessage: jest.fn(),
 };
 
 describe('InstitutionListSelect component', () => {

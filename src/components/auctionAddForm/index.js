@@ -58,6 +58,8 @@ const AuctionAddForm = ({
   addImages,
   postAuction,
   addAuction,
+  updateAuction,
+  updatedAuction,
   postAuctionDeleteImage,
   returnUrl,
   userRole,
@@ -75,6 +77,7 @@ const AuctionAddForm = ({
   const hasWhitelabel = subscription.find(item => item.name === 'whitelabel') || {};
   const hasProjects = !isEmpty(subscription.find(item => item.name === 'projects') || {});
   const [form, setForm] = useState({
+    show_on_esolidar: !hasProjects ? 'opened' : '',
     title: '',
     bid_start: '',
     description: '',
@@ -205,12 +208,12 @@ const AuctionAddForm = ({
           id: image.id,
           image: image.image_name,
         });
-        imagesArray.push(data.images.id);
+        imagesArray.push(image.id);
       });
 
       setImagesList(imagesListArray);
 
-      const tagsArray = data.tags.split(',');
+      const tagsArray = data.tags ? data.tags.split(',') : [];
       const formTagsObj = [];
       const formTagsArray = [];
 
@@ -308,6 +311,31 @@ const AuctionAddForm = ({
     }
   }, [addAuction]);
 
+  // update Auction
+  useEffect(() => {
+    if (updatedAuction && updatedAuction.code === 200) {
+      NotificationManager.success(
+        intl.formatMessage({
+          id: 'success.auction.create',
+          defaultMessage:
+            'Your auction was successfully edited. Our team will validate it and contact you soon.',
+        }),
+        intl.formatMessage({
+          id: 'success',
+          defaultMessage: 'Success:',
+        }),
+        15000
+      );
+      setDisabled(false);
+
+      if (returnUrl) {
+        window.location.href = returnUrl;
+      } else {
+        window.location.href = '/';
+      }
+    }
+  }, [updatedAuction]);
+
   // Images list
   useEffect(() => {
     if (addImages && addImages.code === 200) {
@@ -373,12 +401,6 @@ const AuctionAddForm = ({
     setForm(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleTagBlur = () => {
-    const { tagsObj } = form;
-    form.tags = tagsObj.join();
-    setForm(form);
-  };
-
   const handleDelete = i => {
     form.tagsObj.splice(i, 1);
     form.tagsArray.splice(i, 1);
@@ -387,13 +409,15 @@ const AuctionAddForm = ({
 
   const handleAddition = tag => {
     const { tagsObj } = form;
-    if (tag !== '') {
+    const existTag = !!tagsObj.find(tagObj => tagObj.text === tag);
+
+    if (tag !== '' && !existTag) {
       tagsObj.push({
         id: tagsObj.length + 1,
         text: tag,
       });
       form.tagsArray.push(tag);
-      setForm(form);
+      setForm(prevState => ({ ...prevState, tags: form.tagsArray.join(',') }));
     }
   };
 
@@ -545,7 +569,11 @@ const AuctionAddForm = ({
       data.project_id = form.projectIds.join();
     }
 
-    postAuction(data, companyId);
+    if (auctionId) {
+      updateAuction(data, companyId, auctionId);
+    } else {
+      postAuction(data, companyId);
+    }
   };
 
   useEffect(() => {
@@ -750,7 +778,7 @@ const AuctionAddForm = ({
                       </label>
                       <ReactTags
                         tags={form.tagsObj}
-                        handleInputBlur={handleTagBlur}
+                        handleInputBlur={handleAddition}
                         delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
                         handleDelete={handleDelete}
                         placeholder="Tags"
@@ -1120,6 +1148,7 @@ const AuctionAddForm = ({
                         pagination={pagination.institutions}
                         isLoading={isLoadingInstitutionListSelect}
                         removeInstitutionSelected={handleChangeInstitution}
+                        translateMessage={translateMessage}
                       />
                     </Col>
                   </Row>
@@ -1193,10 +1222,7 @@ const AuctionAddForm = ({
                     )}
                     {projectsListData.length === 0 && (
                       <Col sm={12} className="text-center">
-                        <FormattedMessage
-                          id="auction.no.project"
-                          defaultMessage="There are no projects in your company"
-                        />
+                        <FormattedMessage id="auction.no.project" />
                       </Col>
                     )}
                   </Row>
@@ -1269,7 +1295,6 @@ const AuctionAddForm = ({
                         onClick={handleSubmit}
                         text={intl.formatMessage({
                           id: 'auctions.edit.submitAuction',
-                          defaultMessage: 'Update auction',
                         })}
                         disabled={disabled}
                       />
@@ -1396,6 +1421,8 @@ AuctionAddForm.propTypes = {
   subscription: PropTypes.array,
   auctionId: PropTypes.string,
   getAuctionDetail: PropTypes.func,
+  updateAuction: PropTypes.func,
+  updatedAuction: PropTypes.object,
   auctionDetail: PropTypes.shape({
     code: PropTypes.number,
     data: PropTypes.object,

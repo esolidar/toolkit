@@ -96,7 +96,7 @@ export default function validateAuctionForm(data) {
   }
 
   if (data.showInstitutions && !data.showProjects) {
-    if (isEmpty(data.user_id)) {
+    if (isEmpty(data.user_id.toString())) {
       errors.user_id = (
         <FormattedMessage
           id="user.register.error.required"
@@ -107,7 +107,7 @@ export default function validateAuctionForm(data) {
   }
 
   if (data.showInstitutions && data.showProjects) {
-    if (isEmpty(data.user_id) && data.projectIds.length === 0) {
+    if (!+data.user_id && data.projectIds.length === 0) {
       errors.user_id = (
         <FormattedMessage
           id="user.register.error.required"
@@ -121,7 +121,7 @@ export default function validateAuctionForm(data) {
         />
       );
     }
-    if (!isEmpty(data.user_id) && data.projectIds.length > 0) {
+    if (!!+data.user_id && data.projectIds.length > 0) {
       errors.user_id = (
         <FormattedMessage
           id="user.register.error.select.only.one"
