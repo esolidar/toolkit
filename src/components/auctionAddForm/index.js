@@ -58,7 +58,7 @@ const AuctionAddForm = ({
   addImages,
   postAuction,
   addAuction,
-  updateAuction,
+  putAuction,
   updatedAuction,
   postAuctionDeleteImage,
   returnUrl,
@@ -570,7 +570,7 @@ const AuctionAddForm = ({
     }
 
     if (auctionId) {
-      updateAuction(data, companyId, auctionId);
+      putAuction(data, companyId, auctionId);
     } else {
       postAuction(data, companyId);
     }
@@ -601,7 +601,7 @@ const AuctionAddForm = ({
           </h1>
         )}
         {action === 'edit' && (
-          <h1 style={{ color: primaryColor }}>
+          <h1 style={{ color: primaryColor }} data-testId="auction-edit-title">
             <FormattedMessage id="auctions.edit.title" defaultMessage="Edit Auction" />
           </h1>
         )}
@@ -1295,6 +1295,7 @@ const AuctionAddForm = ({
                         onClick={handleSubmit}
                         text={intl.formatMessage({
                           id: 'auctions.edit.submitAuction',
+                          defaultMessage: 'Edit auction',
                         })}
                         disabled={disabled}
                       />
@@ -1421,7 +1422,7 @@ AuctionAddForm.propTypes = {
   subscription: PropTypes.array,
   auctionId: PropTypes.string,
   getAuctionDetail: PropTypes.func,
-  updateAuction: PropTypes.func,
+  putAuction: PropTypes.func,
   updatedAuction: PropTypes.object,
   auctionDetail: PropTypes.shape({
     code: PropTypes.number,
