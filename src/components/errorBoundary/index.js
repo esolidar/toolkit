@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 
-const LOAD_LIMIT = 1;
+const LOAD_LIMIT = 0;
 class ErrorBoundary extends Component {
   state = {
     hasError: this.props.showError,
@@ -20,7 +20,7 @@ class ErrorBoundary extends Component {
       window.location.reload();
     }
 
-    if (this.state.countReload >= LOAD_LIMIT) {
+    if (this.state.countReload > LOAD_LIMIT) {
       localStorage.removeItem('countReload');
       this.updateState({ reload: false, countReload: 0 });
     }
@@ -52,11 +52,14 @@ class ErrorBoundary extends Component {
     if (hasError) {
       return (
         <div className={`boundary ${className}`}>
-          <h3>
+          <h3 data-testid="errorBoundary-title">
             <div className="icon">
-              <p>⚠️</p>
+              <p data-testid="errorBoundary-emoji">⚠️</p>
             </div>
-            <FormattedMessage id="error.boundary" />
+            <FormattedMessage
+              id="error.boundary"
+              defaultMessage="There was an error during loading"
+            />
           </h3>
           <div>
             <p>
@@ -64,8 +67,9 @@ class ErrorBoundary extends Component {
                 className="retry-link"
                 onClick={this.handleReloadPage}
                 style={{ color: color.primaryColor }}
+                data-testid="errorBoundary-link"
               >
-                <FormattedMessage id="error.boundary.retry" />
+                <FormattedMessage id="error.boundary.retry" defaultMessage="Retry" />
               </a>
             </p>
           </div>
