@@ -604,7 +604,7 @@ const AuctionAddForm = ({
           </h1>
         )}
         {action === 'edit' && (
-          <h1 style={{ color: primaryColor }} data-testId="auction-edit-title">
+          <h1 style={{ color: primaryColor }} data-testid="auction-edit-title">
             <FormattedMessage id="auctions.edit.title" defaultMessage="Edit Auction" />
           </h1>
         )}
