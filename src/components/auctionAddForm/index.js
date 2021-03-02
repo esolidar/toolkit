@@ -555,13 +555,13 @@ const AuctionAddForm = ({
       private_code: form.private_code,
       shipping_description: form.shipping_description,
       status: form.status,
-      tags: form.tagsArray.length ? form.tagsArray.flatMap(tag => tag.text).join(',') : '',
+      tags: form.tagsArray.length ? form.tagsArray.flatMap(tag => tag.text).join(',') : null,
       tax: form.tax,
       timezone: form.timezone,
       title: form.title,
       user_id: form.user_id || null,
       video: form.video,
-      projectIds: form.projectIds || null,
+      project_id: form.projectIds.length ? form.projectIds : null,
     };
 
     if (!isEmpty(form.projectIds)) {
@@ -600,7 +600,7 @@ const AuctionAddForm = ({
           </h1>
         )}
         {action === 'edit' && (
-          <h1 style={{ color: primaryColor }} data-testId="auction-edit-title">
+          <h1 style={{ color: primaryColor }} data-testid="auction-edit-title">
             <FormattedMessage id="auctions.edit.title" defaultMessage="Edit Auction" />
           </h1>
         )}
