@@ -95,7 +95,6 @@ const AuctionAddForm = ({
     startDate: '',
     endDate: '',
     tags: '',
-    tagsObj: [],
     tagsArray: [],
     projectIds: [],
     user_id: '',
@@ -213,16 +212,12 @@ const AuctionAddForm = ({
 
       setImagesList(imagesListArray);
 
-      const tagsArray = data.tags ? data.tags.split(',') : [];
-      const formTagsObj = [];
-      const formTagsArray = [];
-
-      tagsArray.map((tag, idx) => {
-        formTagsObj.push({
-          id: idx + 1,
+      const tags = data.tags ? data.tags.split(',') : [];
+      const tagsArray = tags.map((tag, idx) => {
+        return {
+          id: idx,
           text: tag,
-        });
-        formTagsArray.push(tag);
+        };
       });
 
       setIsMyProject(
@@ -259,8 +254,7 @@ const AuctionAddForm = ({
         ),
         dateLimit: moment.utc(data.dateLimit).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss'),
         tags: data.tags,
-        tagsObj: formTagsObj,
-        tagsArray: formTagsArray,
+        tagsArray,
         projectIds: data.project_id ? [data.project_id] : [],
         user_id: data.user_id,
         timezone: data.timezone,
@@ -405,23 +399,20 @@ const AuctionAddForm = ({
   };
 
   const handleDelete = i => {
-    form.tagsObj.splice(i, 1);
-    form.tagsArray.splice(i, 1);
-    setForm(form);
+    const { tagsArray } = form;
+    tagsArray.splice(i, 1);
+    setForm({ ...form, tagsArray });
   };
 
   const handleAddition = tag => {
-    const { tagsObj } = form;
-    const existTag = !!tagsObj.find(tagObj => tagObj.text === tag);
+    const { tagsArray } = form;
+    if (tagsArray.some(tagObj => tagObj.text === tag) || tag === '') return;
 
-    if (tag !== '' && !existTag) {
-      tagsObj.push({
-        id: tagsObj.length + 1,
-        text: tag,
-      });
-      form.tagsArray.push(tag);
-      setForm(prevState => ({ ...prevState, tags: form.tagsArray.join(',') }));
-    }
+    tagsArray.push({
+      id: tagsArray.length + 1,
+      text: tag,
+    });
+    setForm({ ...form, tagsArray });
   };
 
   const handleChangeStart = date => {
@@ -514,6 +505,8 @@ const AuctionAddForm = ({
     data.isMyProjet = isMyProjet;
     data.isValidBankAccount = isValidBankAccount;
 
+    if (isMyProjet && !isValidBankAccount) return false;
+
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
       setErrors(errors);
@@ -537,11 +530,13 @@ const AuctionAddForm = ({
       setSaveBankAccount(true);
       setLoading(true);
     }
+
     if (!isValid()) return;
 
     setLoading(true);
     const companyId = company.id;
     setDisabled(true);
+
     const data = {
       acquisition_value: form.acquisition_value,
       bid_interval: form.bid_interval,
@@ -560,12 +555,13 @@ const AuctionAddForm = ({
       private_code: form.private_code,
       shipping_description: form.shipping_description,
       status: form.status,
-      tags: form.tags,
+      tags: form.tagsArray.length ? form.tagsArray.flatMap(tag => tag.text).join(',') : '',
       tax: form.tax,
       timezone: form.timezone,
       title: form.title,
       user_id: form.user_id || null,
       video: form.video,
+      projectIds: form.projectIds || null,
     };
 
     if (!isEmpty(form.projectIds)) {
@@ -780,7 +776,7 @@ const AuctionAddForm = ({
                         <FormattedMessage id="auctionKeywords" defaultMessage="Keywords" />
                       </label>
                       <ReactTags
-                        tags={form.tagsObj}
+                        tags={form.tagsArray}
                         handleInputBlur={handleAddition}
                         delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
                         handleDelete={handleDelete}
