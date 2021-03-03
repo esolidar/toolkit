@@ -283,7 +283,7 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {assignedDefault && featureDefault !== '16' && (
+                    {assignedDefault && featureDefault !== mapFeatures.tickets && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
