@@ -26,6 +26,7 @@ const InstitutionListSelect = ({
   isLoading,
   user_id,
   removeInstitutionSelected,
+  translateMessage,
 }) => {
   const renderCharities = () => {
     if (institutions) {
@@ -98,7 +99,7 @@ const InstitutionListSelect = ({
     <Row className="institutions-list">
       <Col md={12}>
         <SelectField
-          label="CATEGORIES"
+          label={translateMessage({ id: 'institutions.categories', defaultMessage: 'Categories' })}
           onChange={onChangeInstitutionCategory}
           idLabel="selectCategory"
           field="institution_category"
@@ -164,6 +165,7 @@ InstitutionListSelect.propTypes = {
   isLoading: PropTypes.bool,
   user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
+  translateMessage: PropTypes.func,
 };
 
 export default InstitutionListSelect;
