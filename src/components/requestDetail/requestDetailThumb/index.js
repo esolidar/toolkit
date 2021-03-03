@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 import LightboxGallery from '../../lightboxGallery';
 import TextareaField from '../../../elements/textareaField';
 import Button from '../../../elements/button';
+import cdnStaticUrl from '../../../constants/env';
 
 const RequestDetailThumb = ({
   request,
@@ -145,10 +146,7 @@ const RequestDetailThumb = ({
           <ul className="pt-3 pb-3">
             {request.end_date && (
               <li>
-                <img
-                  alt="Calendar"
-                  src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-box-calendar.svg"
-                />
+                <img alt="Calendar" src={`${cdnStaticUrl}/frontend/icons/ic-box-calendar.svg`} />
                 <FormattedDate
                   value={request.start_date.split(' ')[0]}
                   month="short"
@@ -160,18 +158,12 @@ const RequestDetailThumb = ({
             )}
             {request.local && (
               <li>
-                <img
-                  alt="location"
-                  src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-location.svg"
-                />
+                <img alt="location" src={`${cdnStaticUrl}/frontend/icons/ic-location.svg`} />
                 <span>{request.local}</span>
               </li>
             )}
             <li>
-              <img
-                alt="timer"
-                src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-box-clock-timer.svg"
-              />
+              <img alt="timer" src={`${cdnStaticUrl}/frontend/icons/ic-box-clock-timer.svg`} />
               <span>
                 <Moment utc to={request.start_date} ago>
                   {request.end_date}
@@ -181,7 +173,7 @@ const RequestDetailThumb = ({
             <li>
               <img
                 alt="companies"
-                src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-box-companies-joined.svg"
+                src={`${cdnStaticUrl}/frontend/icons/ic-box-companies-joined.svg`}
               />
               <FormattedMessage
                 id="request.detail.companies.joined"
@@ -193,7 +185,7 @@ const RequestDetailThumb = ({
               <li>
                 <img
                   alt="donations"
-                  src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-box-wallet-donation.svg"
+                  src={`${cdnStaticUrl}/frontend/icons/ic-box-wallet-donation.svg`}
                 />
                 <FormattedNumber
                   value={request.donation_value}

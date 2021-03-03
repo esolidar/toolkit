@@ -2,6 +2,7 @@
 
 ``` html
 import { TextareaField } from '@esolidar/toolkit';
+import envConstant from '../../shared/constants/env';
 ```
 
 #### Example
@@ -9,7 +10,7 @@ import { TextareaField } from '@esolidar/toolkit';
 ``` jsx
 <CheckboxImage 
   label="Lorem Ipsum" 
-  img="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/pt/ods-1.png"
+  img={`${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`}
   onChange={()=>console.log('test')}
   field="Textarea_name"
   value="Textarea"

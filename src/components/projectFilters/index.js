@@ -5,6 +5,7 @@ import TextField from '../../elements/textField';
 import CheckboxField from '../../elements/checkboxField';
 import SelectField from '../../elements/selectField';
 import Button from '../../elements/button';
+import cdnStaticUrl from '../../constants/env';
 
 const ProjectFilters = ({
   searchTitleLabel,
@@ -56,10 +57,7 @@ const ProjectFilters = ({
           >
             <h4>
               {filtersTitleLabel}
-              <img
-                alt="Open"
-                src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/caret.png"
-              />
+              <img alt="Open" src={`${cdnStaticUrl}/frontend/icons/caret.png`} />
             </h4>
           </button>
         </Col>

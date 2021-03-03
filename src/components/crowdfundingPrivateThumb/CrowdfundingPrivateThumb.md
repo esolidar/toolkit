@@ -30,17 +30,17 @@ import { CrowdfundingPrivateThumb } from '@esolidar/toolkit';
       crowdfunding_id: 44,
       default: 1,
       id: 156,
-      image: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723.jpeg",
+      image: "https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723.jpeg",
       image_size: "171610",
       image_type: "image/jpeg",
       position: 0,
       streamImage: "amazons3",
       thumb: 0,
       thumbs: {
-        detail: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-DETAIL.jpeg",
-        pin: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-PIN.jpeg",
-        standard: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-STANDARD.jpeg",
-        thumb: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-THUMB.jpeg",
+        detail: "https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-DETAIL.jpeg",
+        pin: "https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-PIN.jpeg",
+        standard: "https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-STANDARD.jpeg",
+        thumb: "https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-THUMB.jpeg",
         }
     }
   ],

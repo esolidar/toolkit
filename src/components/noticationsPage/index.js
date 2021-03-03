@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
+import cdnStaticUrl from '../../constants/env';
 
 const NotificationsMobile = ({
   notificationsHeadTitle,
@@ -89,7 +90,7 @@ const NotificationsMobile = ({
               <div key={0} className="text-center">
                 <img
                   alt="Loading"
-                  src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/loader.svg"
+                  src={`${cdnStaticUrl}/frontend/assets/loader.svg`}
                   style={{ height: '18px', margin: '5px' }}
                 />
               </div>

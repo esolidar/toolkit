@@ -34,7 +34,7 @@
       top       : 9px;
       width     : 24px;
       height    : 24px;
-      background: url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-verified.svg") 50% 50% no-repeat;
+      background: url('#{$cdn_static_url}/frontend/icons/ic-verified.svg') 50% 50% no-repeat;
     }
 
     .sms-message {

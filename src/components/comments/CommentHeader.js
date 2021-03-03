@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
+import cdnStaticUrl from '../../constants/env';
 
 const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => (
   <div className="header">
@@ -11,10 +12,7 @@ const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => (
     {user && user.id === comment.user_id && (
       <Dropdown id="options-reply" className="options-reply options-dropdown">
         <Dropdown.Toggle className="options-dropdown">
-          <img
-            alt="Open"
-            src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/caret.png"
-          />
+          <img alt="Open" src={`${cdnStaticUrl}/frontend/icons/caret.png`} />
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Header>

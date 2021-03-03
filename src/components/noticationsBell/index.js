@@ -4,6 +4,7 @@ import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
+import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
 
 const NotificationsBell = ({
   notificationsHeadTitle,
@@ -44,7 +45,7 @@ const NotificationsBell = ({
                     src={
                       notification.photo.thumb
                         ? notification.photo.thumb
-                        : 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png'
+                        : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
                     }
                   />
                 </div>
@@ -77,7 +78,7 @@ const NotificationsBell = ({
             </div>
           )}
           <img
-            src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-notification-bell.svg"
+            src={`${cdnStaticUrl}/frontend/icons/ic-notification-bell.svg`}
             className="notification-image"
             alt="Notifications"
           />
@@ -109,7 +110,7 @@ const NotificationsBell = ({
                 <div key={0} className="text-center">
                   <img
                     alt="Loading"
-                    src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/loader.svg"
+                    src={`${cdnStaticUrl}/frontend/assets/loader.svg`}
                     style={{ height: '18px', margin: '5px' }}
                   />
                 </div>

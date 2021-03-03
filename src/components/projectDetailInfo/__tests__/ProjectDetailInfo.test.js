@@ -17,10 +17,8 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -69,10 +67,8 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -160,10 +156,8 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -228,10 +222,8 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],
@@ -288,10 +280,8 @@ describe('ProjectDetailInfo component', () => {
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
-          standard:
-            'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
+          standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
       ods: [1, 4, 6, 9, 11, 12, 17],

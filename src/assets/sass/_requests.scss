@@ -48,7 +48,7 @@
     padding: 0;
 
     li {
-      list-style-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-arrow-right.svg');
+      list-style-image: url('#{$cdn_static_url}/frontend/icons/ic-arrow-right.svg');
       font-size       : 15px;
       color           : $mainTextColorDark;
       letter-spacing  : 0;

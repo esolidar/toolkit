@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
+import cdnStaticUrl from '../../constants/env';
 
 const ValidateTelephone = ({
   phone,
@@ -104,7 +105,7 @@ const ValidateTelephone = ({
             // eslint-disable-next-line no-nested-ternary
             defaultCountry={defaultCountry}
             autoFormat={false}
-            flagsImagePath="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/flags.png"
+            flagsImagePath={`${cdnStaticUrl}/frontend/assets/flags.png`}
             initialValue={phone}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
@@ -156,7 +157,7 @@ const ValidateTelephone = ({
                 <h3>
                   <img
                     alt="phone"
-                    src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-verification-phone-code.svg"
+                    src={`${cdnStaticUrl}/frontend/icons/ic-verification-phone-code.svg`}
                   />
                   <FormattedMessage
                     id="user.settings.validate.phone.insert.verification.code"

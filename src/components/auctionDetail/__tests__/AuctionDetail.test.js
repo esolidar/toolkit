@@ -56,7 +56,7 @@ const props = {
           institution_id: null,
           firstName: 'Joel F.',
           lastName: 'Calheiros',
-          image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+          image: 'https://static.esolidar.com/users/9/1606232953.jpg',
           currency: {
             id: 1,
             name: 'Euro',
@@ -112,7 +112,7 @@ const props = {
           auction_id: 299,
           streamImage: 'amazons3',
           image_name:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
           image_type: 'image/jpeg',
           image_size: '140004',
           default: 1,
@@ -138,7 +138,7 @@ const props = {
           auction_id: 299,
           streamImage: 'amazons3',
           image_name:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+            'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
           image_type: 'image/jpeg',
           image_size: '140004',
           default: 1,
@@ -182,7 +182,7 @@ const props = {
           institution_id: null,
           firstName: 'Joel F.',
           lastName: 'Calheiros',
-          image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+          image: 'https://static.esolidar.com/users/9/1606232953.jpg',
           currency: {
             id: 1,
             name: 'Euro',
@@ -265,7 +265,7 @@ const props = {
           id: 30,
           name: 'Helpo',
           image:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+            'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
           currency: {
             id: 2,
           },
@@ -286,10 +286,9 @@ const props = {
         id: 3,
         name: 'A marca da Cátia Catita',
         username: 'catita',
-        logo:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+        logo: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
         cover:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+          'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
         logo_thumbs: {
           standard:
             'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
@@ -323,8 +322,7 @@ const props = {
           company: {
             id: 1,
             name: 'Webankor (eSolidar)',
-            logo:
-              'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+            logo: 'https://static.esolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
             cover_image:
               'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             thumbs: {
@@ -368,8 +366,7 @@ const props = {
           institution_id: null,
           firstName: 'António',
           lastName: 'Joaquim',
-          image:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51790/1593441499.jpg?v=1593441500',
+          image: 'https://cdn.testesolidar.com/users/51790/1593441499.jpg?v=1593441500',
           streamImage: 'amazons3',
           language: {
             id: 2,

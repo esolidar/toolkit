@@ -50,7 +50,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
           institution_id: null,
           firstName: 'Miguel',
           lastName: 'Rocha',
-          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+          image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
           currency: {
             id: 1,
             name: 'Euro',
@@ -94,7 +94,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
       images: [
         {
           id: 193,
-          image_name: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/a5ecae84-050b-4945-abdd-13c77dd9e301.jpeg',
+          image_name: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301.jpeg',
           thumbs: {
             standard: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-STANDARD.jpeg',
             detail: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-DETAIL.jpeg',
@@ -119,7 +119,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
         institution: {
           id: 51,
           name: 'Fundo Brasileiro para a Biodiversidade',
-          image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
+          image: 'https://static.esolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
           currency: {
             id: 1,
           },
@@ -145,7 +145,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
           company: {
             id: 1,
             name: 'Webankor (eSolidar)',
-            logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
+            logo: 'https://static.esolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
             cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             thumbs: {
               detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
@@ -185,7 +185,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
           institution_id: null,
           firstName: 'António',
           lastName: 'Joaquim',
-          image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51790/1593441499.jpg?v=1593441500',
+          image: 'https://cdn.testesolidar.com/users/51790/1593441499.jpg?v=1593441500',
           streamImage: 'amazons3',
           language: {
             id: 2,

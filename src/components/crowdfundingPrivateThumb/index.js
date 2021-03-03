@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';
 import Loading from '../loading';
+import cdnStaticUrl from '../../constants/env';
 
 class CrowdfundingPrivateThumb extends Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class CrowdfundingPrivateThumb extends Component {
             backgroundImage:
               thumb.images.length > 0
                 ? `url('${thumb.images[0].image}?width=${boxSize.width}&height=${boxSize.height}')`
-                : 'url("https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/no-image.jpg")',
+                : `url({'${cdnStaticUrl}/frontend/assets/no-image.jpg')`,
           }}
           ref={this.thumbBox}
         >

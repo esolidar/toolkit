@@ -12,7 +12,7 @@ const props = {
     id: 9,
     firstName: 'Joel',
     lastName: 'Calheiros',
-    image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
+    image: 'https://static.esolidar.com/users/9/1590415243.jpg',
     streamImage: 'amazons3',
     language: {
       id: 2,
@@ -322,7 +322,7 @@ const props = {
       id: 9,
       firstName: 'Joel',
       lastName: 'Calheiros',
-      image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1590415243.jpg',
+      image: 'https://static.esolidar.com/users/9/1590415243.jpg',
       streamImage: 'amazons3',
       language: {
         id: 2,

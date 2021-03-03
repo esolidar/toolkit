@@ -460,7 +460,7 @@
         border-left : none;
         width       : 10px;
         height      : 10px;
-        background  : url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/caret.png) 50% 50% no-repeat;
+        background  : url('#{$cdn_static_url}/frontend/icons/caret.png') 50% 50% no-repeat;
       }
     }
 

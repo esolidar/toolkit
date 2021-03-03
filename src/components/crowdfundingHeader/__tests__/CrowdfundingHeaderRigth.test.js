@@ -59,8 +59,7 @@ const propsCampaign = {
   company: {
     id: 1,
     name: 'Webankor (eSolidar)',
-    logo:
-      'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+    logo: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
     country_id: 150,
     currency_id: 1,
     thumbs: {

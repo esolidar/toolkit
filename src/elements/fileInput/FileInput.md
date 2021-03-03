@@ -2,6 +2,8 @@
 
 ``` html
 import { FileInput } from '@esolidar/toolkit';
+import cdnStaticUrl from '../../constants/env';
+
 ```
 
 #### Example
@@ -13,7 +15,7 @@ import { FileInput } from '@esolidar/toolkit';
   disabled=""
   placeholder=""
   onChange={() => {}}
-  styleLogo={{backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/brand-logo.jpg')`}}
+  styleLogo={{backgroundImage: `url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}}
 />
 
 <FileInput 
@@ -23,6 +25,6 @@ import { FileInput } from '@esolidar/toolkit';
   disabled=""
   placeholder=""
   onChange={() => {}}
-  styleLogo={{backgroundImage: `url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/standard-brand.jpg')`}}
+  styleLogo={{backgroundImage: `url(${cdnStaticUrl}/frontend/assets/standard-brand.jpg)`}}
 />
 ```
