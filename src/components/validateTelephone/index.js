@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ValidateTelephone = ({
   phone,

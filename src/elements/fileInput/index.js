@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const FileInput = ({ name, accept, disabled, placeholder, onChange, styleLogo }) => {
   const [value, setValue] = useState('');

@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 import LightboxGallery from '../../lightboxGallery';
 import TextareaField from '../../../elements/textareaField';
 import Button from '../../../elements/button';
-import cdnStaticUrl from '../../../constants/env';
+import { cdnStaticUrl } from '../../../constants/env';
 
 const RequestDetailThumb = ({
   request,

@@ -11,7 +11,7 @@ import CheckboxField from '../../elements/checkboxField';
 import RadioField from '../../elements/radioField';
 import { slugify } from '../../utils/index';
 import Loading from '../loading';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectAddForm = ({
   color,

@@ -1,7 +1,7 @@
 import React, { useState as useStateMock } from 'react';
 import { shallow } from 'enzyme';
 import FileInput from '../index';
-import cdnStaticUrl from '../../../constants/env';
+import { cdnStaticUrl } from '../../../constants/env';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),

@@ -5,7 +5,7 @@ import TextField from '../../elements/textField';
 import CheckboxField from '../../elements/checkboxField';
 import SelectField from '../../elements/selectField';
 import Button from '../../elements/button';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectFilters = ({
   searchTitleLabel,

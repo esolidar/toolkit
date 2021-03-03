@@ -3,7 +3,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import SliderImagesLanding from '../index';
-import cdnStaticUrl from '../../../constants/env';
+import { cdnStaticUrl } from '../../../constants/env';
 
 const props = {
   autoPlay: true,

@@ -2,8 +2,6 @@
 
 ``` html
 import { FileInput } from '@esolidar/toolkit';
-import cdnStaticUrl from '../../constants/env';
-
 ```
 
 #### Example
@@ -15,7 +13,7 @@ import cdnStaticUrl from '../../constants/env';
   disabled=""
   placeholder=""
   onChange={() => {}}
-  styleLogo={{backgroundImage: `url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}}
+  styleLogo={{backgroundImage: 'url(https://static.esolidar.com/frontend/assets/brand-logo.jpg)'}}
 />
 
 <FileInput 

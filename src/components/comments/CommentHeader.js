@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => (
   <div className="header">

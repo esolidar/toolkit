@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';
 import Loading from '../loading';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 class CrowdfundingPrivateThumb extends Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const NotificationsMobile = ({
   notificationsHeadTitle,

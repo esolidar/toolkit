@@ -10,7 +10,7 @@ import Rating from 'react-rating';
 import SelectField from '../../elements/selectField';
 import LightboxGallery from '../lightboxGallery';
 import Button from '../../elements/button';
-import cdnStaticUrl from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectDetailThumb = ({
   project,
