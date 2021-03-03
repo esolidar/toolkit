@@ -13,6 +13,12 @@ import Button from '../../elements/button';
 import Loading from '../loading';
 import CustomModal from '../../elements/customModal';
 
+const mapFeatures = {
+  auctions: '2',
+  crowdfunding: '4',
+  tickets: '16',
+};
+
 const TicketsForm = ({
   errors,
   onSubmit,
@@ -58,8 +64,11 @@ const TicketsForm = ({
   disabledTypeSelect,
   disabledStatusSelect,
   crowdfundingDefault,
+  institutionDefault,
   loadOptionsCrowdfunding,
+  loadOptionsInstitution,
   updateValueCrowdfunding,
+  updateValueInstitution,
   errorMessages,
   maxSize,
 }) => {
@@ -172,7 +181,7 @@ const TicketsForm = ({
                         />
                       </Col>
                     )}
-                    {featureDefault && featureDefault === '2' && (
+                    {featureDefault && featureDefault === mapFeatures.auctions && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -206,7 +215,7 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {featureDefault && featureDefault === '4' && (
+                    {featureDefault && featureDefault === mapFeatures.crowdfunding && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -240,7 +249,41 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {assignedDefault && (
+                    {featureDefault && featureDefault === mapFeatures.tickets && (
+                      <Col sm={12}>
+                        <div className="form-group">
+                          <label className="control-label">
+                            {intl.formatMessage({
+                              id: 'tickets.institution',
+                              defaultMessage: 'Institution',
+                            })}
+                          </label>
+                          <AsyncPaginate
+                            isClearable
+                            value={institutionDefault}
+                            cacheOptions
+                            placeholder={intl.formatMessage({
+                              id: 'tickets.search.byIdOrTitle',
+                              defaultMessage: 'Search by title ou ID...',
+                            })}
+                            additional={defaultAdditional}
+                            loadOptions={loadOptionsInstitution}
+                            onChange={updateValueInstitution}
+                          />
+                          {errors.related_feature_id && (
+                            <div className="has-error">
+                              <span className="help-block">
+                                {intl.formatMessage({
+                                  id: 'form.required',
+                                  defaultMessage: 'This field is required.',
+                                })}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </Col>
+                    )}
+                    {assignedDefault && featureDefault !== mapFeatures.tickets && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -552,8 +595,11 @@ TicketsForm.propTypes = {
   disabledTypeSelect: PropTypes.bool,
   disabledStatusSelect: PropTypes.bool,
   crowdfundingDefault: PropTypes.object,
+  institutionDefault: PropTypes.object,
   loadOptionsCrowdfunding: PropTypes.func,
+  loadOptionsInstitution: PropTypes.func,
   updateValueCrowdfunding: PropTypes.func,
+  updateValueInstitution: PropTypes.func,
   errorMessages: PropTypes.array,
   maxSize: PropTypes.number,
 };
