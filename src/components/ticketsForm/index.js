@@ -13,6 +13,12 @@ import Button from '../../elements/button';
 import Loading from '../loading';
 import CustomModal from '../../elements/customModal';
 
+const mapFeatures = {
+  auctions: '2',
+  crowdfunding: '4',
+  tickets: '16',
+};
+
 const TicketsForm = ({
   errors,
   onSubmit,
@@ -175,7 +181,7 @@ const TicketsForm = ({
                         />
                       </Col>
                     )}
-                    {featureDefault && featureDefault === '2' && (
+                    {featureDefault && featureDefault === mapFeatures.auctions && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -209,7 +215,7 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {featureDefault && featureDefault === '4' && (
+                    {featureDefault && featureDefault === mapFeatures.crowdfunding && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
@@ -243,7 +249,7 @@ const TicketsForm = ({
                         </div>
                       </Col>
                     )}
-                    {featureDefault && featureDefault === '16' && (
+                    {featureDefault && featureDefault === mapFeatures.tickets && (
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
