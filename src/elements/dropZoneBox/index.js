@@ -308,7 +308,7 @@ const DropZoneBox = ({
                     });
                     setErrorList(errors);
                   }
-                });
+                }, 'image/jpeg');
               }}
               text={textSaveCropModal}
               disabled={disableCroppedImage}
