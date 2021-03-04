@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.36.8",
+  "version": "1.36.9",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",

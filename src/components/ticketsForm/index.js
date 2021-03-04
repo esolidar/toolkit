@@ -71,6 +71,7 @@ const TicketsForm = ({
   updateValueInstitution,
   errorMessages,
   maxSize,
+  updloadFileIsLoading,
 }) => {
   const renderUploadedFiles = files => {
     if (files.length > 0) {
@@ -445,6 +446,7 @@ const TicketsForm = ({
                     field="text"
                     message=""
                     required={true}
+                    value={editTicket.text}
                   />
                 </Col>
                 {uploadedFiles.length > 0 && (
@@ -505,7 +507,12 @@ const TicketsForm = ({
         }
         bodyChildren={
           <>
-            <DropZoneBox onSelect={onDrop} errorMessages={errorMessages} maxSize={maxSize} />
+            <DropZoneBox
+              onSelect={onDrop}
+              errorMessages={errorMessages}
+              maxSize={maxSize}
+              isLoading={updloadFileIsLoading}
+            />
             <h5>
               {intl.formatMessage({
                 id: 'document.files.modal.fileList',
@@ -535,7 +542,12 @@ const TicketsForm = ({
       />
       <CustomModal
         bodyChildren={
-          <DropZoneBox onSelect={onDrop} errorMessages={errorMessages} maxSize={maxSize} />
+          <DropZoneBox
+            onSelect={onDrop}
+            errorMessages={errorMessages}
+            maxSize={maxSize}
+            isLoading={updloadFileIsLoading}
+          />
         }
         dividerTop={true}
         onHide={toggleModalSimpleFiles}
@@ -602,6 +614,7 @@ TicketsForm.propTypes = {
   updateValueInstitution: PropTypes.func,
   errorMessages: PropTypes.array,
   maxSize: PropTypes.number,
+  updloadFileIsLoading: PropTypes.bool,
 };
 
 export default injectIntl(TicketsForm);

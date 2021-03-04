@@ -34,8 +34,8 @@ const DropZoneBox = ({
   titleCropModal,
   textSaveCropModal,
   modalClassName,
+  isLoading,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
@@ -133,7 +133,6 @@ const DropZoneBox = ({
     noDrag,
     noKeyboard,
     getFilesFromEvent: async e => {
-      setIsLoading(true);
       setErrorList([]);
       const files = [];
       const fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
@@ -145,9 +144,7 @@ const DropZoneBox = ({
       await wait(1000);
       return files;
     },
-    onDrop: () => {
-      setIsLoading(false);
-    },
+    onDrop: () => {},
     onDropAccepted: async acceptedFiles => {
       if (hasCropper && hasCropper.showCropper) {
         const reader = new FileReader();
@@ -216,9 +213,9 @@ const DropZoneBox = ({
       {showDropArea && (
         <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}`}>
           <input {...getInputProps()} />
-          {isLoading && <Loading />}
-          {!isLoading && (
-            <div>
+          <div>
+            {isLoading && <Loading />}
+            {!isLoading && (
               <p>
                 <strong>
                   <FormattedMessage
@@ -242,21 +239,21 @@ const DropZoneBox = ({
                   />
                 </small>
               </p>
-              {errorList.length > 0 && (
-                <div className="text-left error-files">
-                  <div className="error">
-                    <FormattedMessage
-                      id="document.files.modal.error.files"
-                      defaultMessage="The following file(s) contain error(s):"
-                    />
-                  </div>
-                  {errorList.map((file, idx) => (
-                    <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                      ', '
-                    )}.`}</div>
-                  ))}
-                </div>
-              )}
+            )}
+          </div>
+          {errorList.length > 0 && (
+            <div className="text-left error-files">
+              <div className="error">
+                <FormattedMessage
+                  id="document.files.modal.error.files"
+                  defaultMessage="The following file(s) contain error(s):"
+                />
+              </div>
+              {errorList.map((file, idx) => (
+                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
+                  ', '
+                )}.`}</div>
+              ))}
             </div>
           )}
         </div>
@@ -381,6 +378,7 @@ DropZoneBox.propTypes = {
   titleCropModal: PropTypes.string,
   textSaveCropModal: PropTypes.string,
   modalClassName: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {
@@ -399,5 +397,6 @@ DropZoneBox.defaultProps = {
   imagesList: [],
   titleCropModal: 'Add Files',
   textSaveCropModal: 'Add',
+  isLoading: false,
 };
 export default injectIntl(DropZoneBox);
