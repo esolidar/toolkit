@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { cdnStaticUrl } from '../../../constants/env';
 
 const RequestDetailInfo = ({ request, volunteeringType }) => (
   <div className="request-detail">
@@ -68,7 +69,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
           <h4>
             <img
               alt="Volunteering"
-              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-request-volunteering-blue.svg"
+              src={`${cdnStaticUrl}/frontend/icons/ic-request-volunteering-blue.svg`}
             />
             <FormattedMessage
               id="request.detail.project.volunteering"
@@ -113,7 +114,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
           <h4>
             <img
               alt="Donation"
-              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-request-donation-blue.png"
+              src={`${cdnStaticUrl}/frontend/icons/ic-request-donation-blue.png`}
             />
             <FormattedMessage id="request.detail.project.donations" defaultMessage="Donations" />
           </h4>
@@ -143,10 +144,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
       {request.goods === 1 && (
         <div>
           <h4>
-            <img
-              alt="Goods"
-              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-request-goods-blue.png"
-            />
+            <img alt="Goods" src={`${cdnStaticUrl}/frontend/icons/ic-request-goods-blue.png`} />
             <FormattedMessage id="request.detail.project.goods" defaultMessage="Goods" />
           </h4>
           <ul className="arrow-list">

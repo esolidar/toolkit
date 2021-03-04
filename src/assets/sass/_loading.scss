@@ -4,7 +4,7 @@
   right     : 0;
   bottom    : 0;
   left      : 0;
-  background: url($cdn_static_url + '/frontend/assets/ie-loader.gif') 50% 50% no-repeat;
+  background: url('#{$cdn_static_url}/frontend/assets/ie-loader.gif') 50% 50% no-repeat;
 }
 
 .Loading {

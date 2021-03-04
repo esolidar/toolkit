@@ -59,8 +59,7 @@ const request = {
       id: 250,
       request_id: 160,
       streamImage: 'amazons3',
-      image:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/requests/d6c12714-8294-4f2a-99bf-7e68b2b3c6e5.jpg',
+      image: 'https://cdn.testesolidar.com/requests/d6c12714-8294-4f2a-99bf-7e68b2b3c6e5.jpg',
       image_type: 'image/jpeg',
       image_size: '237882',
       position: 0,
@@ -80,8 +79,7 @@ const request = {
       id: 251,
       request_id: 160,
       streamImage: 'amazons3',
-      image:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/requests/fbe1e289-817f-4471-8da9-b76a8e22d13d.jpeg',
+      image: 'https://cdn.testesolidar.com/requests/fbe1e289-817f-4471-8da9-b76a8e22d13d.jpeg',
       image_type: 'image/jpeg',
       image_size: '119133',
       position: 1,
@@ -101,8 +99,7 @@ const request = {
       id: 252,
       request_id: 160,
       streamImage: 'amazons3',
-      image:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/requests/853362ac-4c49-4ec5-bdcc-f31ae96db10b.jpg',
+      image: 'https://cdn.testesolidar.com/requests/853362ac-4c49-4ec5-bdcc-f31ae96db10b.jpg',
       image_type: 'image/jpeg',
       image_size: '140150',
       position: 2,
@@ -153,10 +150,9 @@ const request = {
     ukaccountnumber: null,
     ukaccountholder: null,
     streamImage: 'amazons3',
-    image:
-      'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
+    image: 'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
     cover_image:
-      'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/cover/a596fde6-b74e-4d62-b856-27ca94902da2.jpeg',
+      'https://cdn.testesolidar.com/institutions/cover/a596fde6-b74e-4d62-b856-27ca94902da2.jpeg',
     thumb: 0,
     country: 150,
     language: 2,

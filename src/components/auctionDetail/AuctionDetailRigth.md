@@ -17,7 +17,7 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
       institution: {
         id: 51,
         name: 'Fundo Brasileiro para a Biodiversidade',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
+        image: 'https://static.esolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
         currency: {
           id: 1,
         },

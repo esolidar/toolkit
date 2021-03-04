@@ -58,7 +58,7 @@ import { AuctionsList } from '@esolidar/toolkit';
         institution_id: null,
         firstName: 'Miguel',
         lastName: 'Rocha',
-        image: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+        image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
         currency: {
           id: 1,
           name: 'Euro',
@@ -105,7 +105,7 @@ import { AuctionsList } from '@esolidar/toolkit';
         id: 380,
         auction_id: 334,
         streamImage: 'amazons3',
-        image_name: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8.png',
+        image_name: 'https://static.esolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8.png',
         image_type: 'image/png',
         image_size: '1239276',
         default: 0,
@@ -164,7 +164,7 @@ import { AuctionsList } from '@esolidar/toolkit';
       institution: {
         id: 1056,
         name: 'Associação planeta limpo',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/institutions/5f74882c-7c70-47cb-a40a-000eac120002.jpg',
+        image: 'https://static.esolidar.com/institutions/5f74882c-7c70-47cb-a40a-000eac120002.jpg',
         currency: {
           id: 1,
         },
@@ -181,8 +181,8 @@ import { AuctionsList } from '@esolidar/toolkit';
       id: 145,
       name: 'teste',
       username: 'teste123',
-      logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/brands/752394c7-2dd7-480c-b250-49464438dfae.jpeg',
-      cover: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/brands/cover/ca1a4b23-db7e-4ad5-b57a-461dbd341953.jpeg',
+      logo: 'https://static.esolidar.com/brands/752394c7-2dd7-480c-b250-49464438dfae.jpeg',
+      cover: 'https://static.esolidar.com/brands/cover/ca1a4b23-db7e-4ad5-b57a-461dbd341953.jpeg',
       logo_thumbs: {
         standard: 'https://cdn.testesolidar.com/brands/752394c7-2dd7-480c-b250-49464438dfae-STANDARD.jpeg',
         detail: 'https://cdn.testesolidar.com/brands/752394c7-2dd7-480c-b250-49464438dfae-DETAIL.jpeg',

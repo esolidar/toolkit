@@ -74,8 +74,7 @@ const propsAuction = {
     institution: {
       id: 30,
       name: 'Helpo',
-      image:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+      image: 'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
       currency: {
         id: 2,
       },

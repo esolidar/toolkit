@@ -18,7 +18,7 @@ const props = {
         institution: {
           id: 106,
           image:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
+            'https://cdn.testesolidar.com/institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',
           name: 'Associação Um Milhão Contra a Pobreza e Exclusão Social em Portugal',
           s3_cover_key: null,
           s3_image_key: 'institutions/8ae29557-7b9c-4af8-9ea9-3f5637a5b46b.jpeg',

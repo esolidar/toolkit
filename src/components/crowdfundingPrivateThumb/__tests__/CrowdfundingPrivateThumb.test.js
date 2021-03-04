@@ -42,9 +42,9 @@ const thumb = {
   institution: {
     thumbs: {
       detail:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-DETAIL.jpeg',
+        'https://cdn.testesolidar.com/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-DETAIL.jpeg',
       thumb:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-THUMB.jpeg',
+        'https://cdn.testesolidar.com/institutions/952d21fa-61ef-48f4-87cd-37e12ad23ae1-THUMB.jpeg',
     },
   },
   currency: {

@@ -6,7 +6,7 @@ import CrowdfundingPaymentMethod from '../index';
 configure({ adapter: new Adapter() });
 
 const propsEnv = {
-  cdn_static_url: 'https://static.esolidar.com',
+  cdnStaticUrl: 'https://static.esolidar.com',
 };
 
 describe('CrowdfundingHeader', () => {
@@ -17,7 +17,7 @@ describe('CrowdfundingHeader', () => {
 
   it('renders image utrust', () => {
     const wrapper = shallow(
-      <CrowdfundingPaymentMethod utrust={1} cdnStaticUrl={propsEnv.cdn_static_url} />
+      <CrowdfundingPaymentMethod utrust={1} cdnStaticUrl={propsEnv.cdnStaticUrl} />
     );
     expect(wrapper.find('img').prop('src')).toEqual(
       'https://static.esolidar.com/frontend/icons/ic-pm-utrust.png'
@@ -26,7 +26,7 @@ describe('CrowdfundingHeader', () => {
 
   it('renders image utrust', () => {
     const wrapper = shallow(
-      <CrowdfundingPaymentMethod paypal={0} cdnStaticUrl={propsEnv.cdn_static_url} />
+      <CrowdfundingPaymentMethod paypal={0} cdnStaticUrl={propsEnv.cdnStaticUrl} />
     );
     expect(wrapper.find('img')).toHaveLength(0);
   });

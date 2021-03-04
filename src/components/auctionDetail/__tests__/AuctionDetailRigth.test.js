@@ -47,7 +47,7 @@ const propsAuctionDetailRigth = {
         institution_id: null,
         firstName: 'Joel F.',
         lastName: 'Calheiros',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+        image: 'https://static.esolidar.com/users/9/1606232953.jpg',
         currency: {
           id: 1,
           name: 'Euro',
@@ -103,7 +103,7 @@ const propsAuctionDetailRigth = {
         auction_id: 299,
         streamImage: 'amazons3',
         image_name:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -128,7 +128,7 @@ const propsAuctionDetailRigth = {
         auction_id: 299,
         streamImage: 'amazons3',
         image_name:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -171,7 +171,7 @@ const propsAuctionDetailRigth = {
         institution_id: null,
         firstName: 'Joel F.',
         lastName: 'Calheiros',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+        image: 'https://static.esolidar.com/users/9/1606232953.jpg',
         currency: {
           id: 1,
           name: 'Euro',
@@ -254,7 +254,7 @@ const propsAuctionDetailRigth = {
         id: 30,
         name: 'Helpo',
         image:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
@@ -275,10 +275,8 @@ const propsAuctionDetailRigth = {
       id: 3,
       name: 'A marca do Rocha',
       username: 'Rocha',
-      logo:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
-      cover:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+      logo: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+      cover: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
       logo_thumbs: {
         standard:
           'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
@@ -349,7 +347,7 @@ const propsAuctionDetailRigthWithoutErrors = {
         institution_id: null,
         firstName: 'Joel F.',
         lastName: 'Calheiros',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+        image: 'https://static.esolidar.com/users/9/1606232953.jpg',
         currency: {
           id: 1,
           name: 'Euro',
@@ -405,7 +403,7 @@ const propsAuctionDetailRigthWithoutErrors = {
         auction_id: 299,
         streamImage: 'amazons3',
         image_name:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -430,7 +428,7 @@ const propsAuctionDetailRigthWithoutErrors = {
         auction_id: 299,
         streamImage: 'amazons3',
         image_name:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
+          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
         image_type: 'image/jpeg',
         image_size: '140004',
         default: 1,
@@ -473,7 +471,7 @@ const propsAuctionDetailRigthWithoutErrors = {
         institution_id: null,
         firstName: 'Joel F.',
         lastName: 'Calheiros',
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg',
+        image: 'https://static.esolidar.com/users/9/1606232953.jpg',
         currency: {
           id: 1,
           name: 'Euro',
@@ -556,7 +554,7 @@ const propsAuctionDetailRigthWithoutErrors = {
         id: 30,
         name: 'Helpo',
         image:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
@@ -577,10 +575,8 @@ const propsAuctionDetailRigthWithoutErrors = {
       id: 3,
       name: 'A marca do Rocha',
       username: 'Rocha',
-      logo:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
-      cover:
-        'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
+      logo: 'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d.png',
+      cover: 'https://cdn.testesolidar.com/brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
       logo_thumbs: {
         standard:
           'https://cdn.testesolidar.com/brands/cb3cc713-eca6-4b84-a16d-e40a64d20b5d-STANDARD.png',
@@ -627,7 +623,7 @@ const propsAuctionEnded = {
         id: 30,
         name: 'Helpo',
         image:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
+          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
         currency: {
           id: 2,
         },
