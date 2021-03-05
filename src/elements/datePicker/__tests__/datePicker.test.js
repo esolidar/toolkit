@@ -1,15 +1,7 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import { advanceTo } from 'jest-date-mock';
 import DatePicker from '../index';
-
-configure({ adapter: new Adapter() });
-
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useState: jest.fn(),
-}));
 
 const changed = jest.fn();
 
