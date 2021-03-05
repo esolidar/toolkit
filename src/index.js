@@ -77,6 +77,7 @@ export { default as DropZoneBox } from './elements/dropZoneBox';
 export { default as CustomModal } from './elements/customModal';
 export { default as SelectPerPage } from './elements/selectPerPage';
 export { default as ConfirmModal } from './elements/confirmModal';
+export { default as DatePicker } from './elements/datePicker';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
