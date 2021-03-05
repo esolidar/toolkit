@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DatePick from 'react-datepicker';
+import DatePick, { registerLocale } from 'react-datepicker';
+import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
+import br from 'date-fns/locale/pt-BR';
+
+registerLocale('pt', pt);
+registerLocale('en', en);
+registerLocale('br', br);
 
 const DatePicker = ({
   locale,
@@ -33,7 +40,7 @@ const DatePicker = ({
 };
 
 DatePicker.propTypes = {
-  locale: PropTypes.string.isRequired,
+  locale: PropTypes.oneOf(['pt', 'en', 'br']).isRequired,
   selected: PropTypes.instanceOf(Date),
   selectsStart: PropTypes.bool,
   startDate: PropTypes.instanceOf(Date),
@@ -43,7 +50,15 @@ DatePicker.propTypes = {
   className: PropTypes.string,
   placeholderText: PropTypes.string,
   timeCaption: PropTypes.string,
-  dateFormat: PropTypes.string.isRequired,
+  dateFormat: PropTypes.string,
+};
+
+DatePicker.defaultProps = {
+  selectsStart: true,
+  showTimeSelect: true,
+  placeholderText: 'dd-mm-yyyy',
+  timeCaption: 'hour',
+  dateFormat: 'd-MM-yyyy h:mm aa',
 };
 
 export default DatePicker;
