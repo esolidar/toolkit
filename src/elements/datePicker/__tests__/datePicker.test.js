@@ -30,5 +30,14 @@ describe('DatePicker component', () => {
 
     const wrapper = shallow(<DatePicker {...props} />);
     expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.control-label').length).toBe(1);
+  });
+
+  it('renders DatePicker with error', () => {
+    advanceTo(new Date(2021, 1, 3, 0, 0, 0));
+
+    const wrapper = shallow(<DatePicker {...props} errors="required field" />);
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.error-block').length).toBe(1);
   });
 });

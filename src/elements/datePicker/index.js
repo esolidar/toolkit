@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import DatePick, { registerLocale } from 'react-datepicker';
 import pt from 'date-fns/locale/pt';
 import en from 'date-fns/locale/en-US';
@@ -10,6 +12,7 @@ registerLocale('en', en);
 registerLocale('br', br);
 
 const DatePicker = ({
+  label,
   locale,
   selected,
   selectsStart,
@@ -21,23 +24,33 @@ const DatePicker = ({
   placeholderText,
   timeCaption,
   dateFormat,
+  errors,
 }) => (
-  <DatePick
-    locale={locale}
-    selected={selected}
-    selectsStart={selectsStart}
-    startDate={startDate}
-    endDate={endDate}
-    showTimeSelect={showTimeSelect}
-    onChange={onChange}
-    className={className}
-    placeholderText={placeholderText}
-    timeCaption={timeCaption}
-    dateFormat={dateFormat}
-  />
+  <div
+    className={classnames('form-group', {
+      'has-error': !!errors,
+    })}
+  >
+    <label className="control-label">{label}</label>
+    <DatePick
+      locale={locale}
+      selected={selected}
+      selectsStart={selectsStart}
+      startDate={startDate}
+      endDate={endDate}
+      showTimeSelect={showTimeSelect}
+      onChange={onChange}
+      className={className}
+      placeholderText={placeholderText}
+      timeCaption={timeCaption}
+      dateFormat={dateFormat}
+    />
+    {!!errors && <span className="error-block">{errors}</span>}
+  </div>
 );
 
 DatePicker.propTypes = {
+  label: PropTypes.string,
   locale: PropTypes.oneOf(['pt', 'en', 'br']).isRequired,
   selected: PropTypes.instanceOf(Date),
   selectsStart: PropTypes.bool,
@@ -49,6 +62,7 @@ DatePicker.propTypes = {
   placeholderText: PropTypes.string,
   timeCaption: PropTypes.string,
   dateFormat: PropTypes.string,
+  errors: PropTypes.object,
 };
 
 DatePicker.defaultProps = {
