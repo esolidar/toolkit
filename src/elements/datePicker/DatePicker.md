@@ -16,6 +16,6 @@ import { DatePicker } from '@esolidar/toolkit';
   endDate={new Date('2021-03-06T10:20:30Z')}
   onChange={() => {}}
   className="form-control"
-  errors={{}}
+  errors=''
 />
 ```

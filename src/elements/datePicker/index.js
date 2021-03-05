@@ -62,7 +62,7 @@ DatePicker.propTypes = {
   placeholderText: PropTypes.string,
   timeCaption: PropTypes.string,
   dateFormat: PropTypes.string,
-  errors: PropTypes.object,
+  errors: PropTypes.string,
 };
 
 DatePicker.defaultProps = {
