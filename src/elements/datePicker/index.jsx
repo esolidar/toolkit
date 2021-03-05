@@ -21,23 +21,21 @@ const DatePicker = ({
   placeholderText,
   timeCaption,
   dateFormat,
-}) => {
-  return (
-    <DatePick
-      locale={locale}
-      selected={selected}
-      selectsStart={selectsStart}
-      startDate={startDate}
-      endDate={endDate}
-      showTimeSelect={showTimeSelect}
-      onChange={onChange}
-      className={className}
-      placeholderText={placeholderText}
-      timeCaption={timeCaption}
-      dateFormat={dateFormat}
-    />
-  );
-};
+}) => (
+  <DatePick
+    locale={locale}
+    selected={selected}
+    selectsStart={selectsStart}
+    startDate={startDate}
+    endDate={endDate}
+    showTimeSelect={showTimeSelect}
+    onChange={onChange}
+    className={className}
+    placeholderText={placeholderText}
+    timeCaption={timeCaption}
+    dateFormat={dateFormat}
+  />
+);
 
 DatePicker.propTypes = {
   locale: PropTypes.oneOf(['pt', 'en', 'br']).isRequired,
