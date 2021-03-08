@@ -30,6 +30,19 @@ describe('DatePicker component', () => {
 
     const wrapper = shallow(<DatePicker {...props} />);
     expect(wrapper).toHaveLength(1);
+  });
+
+  it('renders DatePicker without label', () => {
+    advanceTo(new Date(2021, 1, 3, 0, 0, 0));
+
+    const wrapper = shallow(<DatePicker {...props} />);
+    expect(wrapper.find('.control-label').length).toBe(0);
+  });
+
+  it('renders DatePicker with label', () => {
+    advanceTo(new Date(2021, 1, 3, 0, 0, 0));
+
+    const wrapper = shallow(<DatePicker {...props} label="Start Date" />);
     expect(wrapper.find('.control-label').length).toBe(1);
   });
 

@@ -9,7 +9,7 @@ import { DatePicker } from '@esolidar/toolkit';
 ``` jsx
 <DatePicker
   classnames={() => {}}
-  labelText="Data Inicio"
+  label="Start Date"
   locale="en"
   selected={new Date('2021-03-05T10:20:30Z')}
   startDate={new Date('2021-03-05T10:20:30Z')}

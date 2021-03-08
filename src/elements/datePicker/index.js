@@ -31,7 +31,7 @@ const DatePicker = ({
       'has-error': !!errors,
     })}
   >
-    <label className="control-label">{label}</label>
+    {!!label && <label className="control-label">{label}</label>}
     <DatePick
       locale={locale}
       selected={selected}
