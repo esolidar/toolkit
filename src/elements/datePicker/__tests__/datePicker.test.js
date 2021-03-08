@@ -14,7 +14,7 @@ const props = {
   showTimeSelect: true,
   onChange: changed,
   className: 'form-control',
-  placeholderText: 'dd-mm-yyyy',
+  placeholderText: 'DD-MM-YYYY',
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
 };

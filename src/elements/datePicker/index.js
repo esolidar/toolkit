@@ -68,7 +68,7 @@ DatePicker.propTypes = {
 DatePicker.defaultProps = {
   selectsStart: true,
   showTimeSelect: true,
-  placeholderText: 'dd-mm-yyyy',
+  placeholderText: 'DD-MM-YYYY',
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
 };
