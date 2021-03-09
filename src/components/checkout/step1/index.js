@@ -19,7 +19,6 @@ const Step1 = props => {
 
   // if (cartItems.length === 0) return <div />;
 
-  console.log(' state.order', state.order.products);
   const renderCartItems = () => {
     if (cartItems.length > 0) {
       return cartItems.map((item, indx) => {
