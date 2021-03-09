@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot?qi9fe1');
-  src: url('../fonts/icomoon.eot?qi9fe1#iefix') format('embedded-opentype'),
+  src        : url('../fonts/icomoon.eot?qi9fe1');
+  src        : url('../fonts/icomoon.eot?qi9fe1#iefix') format('embedded-opentype'),
     url('../fonts/icomoon.ttf?qi9fe1') format('truetype'),
     url('../fonts/icomoon.woff?qi9fe1') format('woff'),
     url('../fonts/icomoon.svg?qi9fe1#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  font-weight : normal;
+  font-style  : normal;
   font-display: block;
 }
 
@@ -50,7 +50,7 @@
 @import 'pagination';
 @import 'survey';
 @import 'documents';
-@import 'feed';
+// @import 'feed';
 @import 'comments';
 @import 'sliderImagesLanding';
 @import 'sliderImagesLightbox';

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import sortBy from '../../utils/sortBy';
 
-const FeaturesMenu = props => {
-  const { location, translations, features, project } = props;
+const FeaturesMenu = ({ location, translations, features, project }) => {
+  const [user, setUser] = useState({});
+  const [companyId, setCompanyId] = useState(null);
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('user') || '{}'));
+    setCompanyId(JSON.parse(localStorage.getItem('config') || '{}').company_id);
+  }, []);
 
-  const user = localStorage.user ? JSON.parse(localStorage.user) : '';
-  const companyId = localStorage.config ? JSON.parse(localStorage.config).company_id : '';
   let userWorkEmail = 0;
+
   if (companyId) {
     userWorkEmail = user.work_email?.find(item => item.company_id === companyId) ? 1 : 0;
   }
@@ -81,7 +85,9 @@ const FeaturesMenu = props => {
             case 'esolidar':
               items.push({
                 position: 2,
-                pageRoute: `/search/auctions/?company=${JSON.parse(localStorage.company).id}`,
+                pageRoute: `/search/auctions/?company=${
+                  typeof window !== 'undefined' ? JSON.parse(localStorage.company).id : ''
+                }`,
                 showItem: true,
                 iconItem: 'icon auction',
                 itemText: translations.auctions,
@@ -617,7 +623,7 @@ const FeaturesMenu = props => {
               }
             >
               <a href={`${item.pageRoute}`}>
-                {localStorage.fixedBar ? (
+                {(typeof window !== 'undefined' ? localStorage.getItem('fixedBar') : false) ? (
                   <OverlayTrigger
                     key={item.position}
                     placement="right"
