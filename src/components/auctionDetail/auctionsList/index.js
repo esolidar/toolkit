@@ -44,7 +44,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
             dataTestId="see-all-auctions"
             className="see-all-auctions"
             extraClass="info"
-            href="/auction/list"
+            href="/auctions/list"
             text={buttonTitle}
           />
         </Col>
