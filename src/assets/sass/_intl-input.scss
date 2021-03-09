@@ -1100,7 +1100,7 @@ $border_left_color_1: #cacaca;
         position  : relative;
         top       : 3px;
         left      : 30px;
-        background: url(https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/caret.png) no-repeat 50% 50%;
+        background: url('#{$cdn_static_url}/frontend/icons/caret.png') no-repeat 50% 50%;
         height    : 7px;
         width     : 10px;
       }

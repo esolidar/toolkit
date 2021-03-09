@@ -61,6 +61,7 @@ export { default as AuctionAddForm } from './components/auctionAddForm';
 export { default as NoMatch } from './components/noMatch';
 export { default as BankAccount } from './components/bankAccounts';
 export { default as ChangeProfileUserImage } from './components/changeProfileUserImage';
+export { default as ErrorBoundary } from './components/errorBoundary';
 
 // Elements
 export { default as Button } from './elements/button';
@@ -76,6 +77,7 @@ export { default as DropZoneBox } from './elements/dropZoneBox';
 export { default as CustomModal } from './elements/customModal';
 export { default as SelectPerPage } from './elements/selectPerPage';
 export { default as ConfirmModal } from './elements/confirmModal';
+export { default as DatePicker } from './elements/datePicker';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';

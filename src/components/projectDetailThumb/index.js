@@ -10,6 +10,7 @@ import Rating from 'react-rating';
 import SelectField from '../../elements/selectField';
 import LightboxGallery from '../lightboxGallery';
 import Button from '../../elements/button';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectDetailThumb = ({
   project,
@@ -74,7 +75,7 @@ const ProjectDetailThumb = ({
             <img
               key={item.id}
               className="ods"
-              src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${item.tag_name}.png`}
+              src={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${item.tag_name}.png`}
               alt={item.tag_name}
             />
           ))}

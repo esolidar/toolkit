@@ -72,8 +72,7 @@ const jsonData = {
         company: {
           id: 1,
           name: 'Webankor (eSolidar)',
-          logo:
-            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+          logo: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
           country_id: 150,
           currency_id: 1,
           thumbs: {
@@ -194,8 +193,7 @@ const jsonData = {
               auth_facebook: 0,
               auth_email: 1,
               streamImage: 'amazons3',
-              image:
-                'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+              image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
               summary: 'Front End Developer',
               nif: 'null',
               receipt: 0,
@@ -335,8 +333,7 @@ const jsonData = {
               auth_facebook: 0,
               auth_email: 1,
               streamImage: 'amazons3',
-              image:
-                'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+              image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
               summary: 'Front End Developer',
               nif: 'null',
               receipt: 0,
@@ -613,7 +610,7 @@ describe('StripeCreditCard component', () => {
               id: 1,
               name: 'Webankor (eSolidar)',
               logo:
-                'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+                'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
               country_id: 150,
               currency_id: 1,
               thumbs: {
@@ -734,8 +731,7 @@ describe('StripeCreditCard component', () => {
                   auth_facebook: 0,
                   auth_email: 1,
                   streamImage: 'amazons3',
-                  image:
-                    'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+                  image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
                   summary: 'Front End Developer',
                   nif: 'null',
                   receipt: 0,
@@ -876,8 +872,7 @@ describe('StripeCreditCard component', () => {
                   auth_facebook: 0,
                   auth_email: 1,
                   streamImage: 'amazons3',
-                  image:
-                    'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+                  image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
                   summary: 'Front End Developer',
                   nif: 'null',
                   receipt: 0,
@@ -1064,7 +1059,7 @@ describe('StripeCreditCard component', () => {
               id: 1,
               name: 'Webankor (eSolidar)',
               logo:
-                'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+                'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
               country_id: 150,
               currency_id: 1,
               thumbs: {
@@ -1185,8 +1180,7 @@ describe('StripeCreditCard component', () => {
                   auth_facebook: 0,
                   auth_email: 1,
                   streamImage: 'amazons3',
-                  image:
-                    'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+                  image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
                   summary: 'Front End Developer',
                   nif: 'null',
                   receipt: 0,
@@ -1327,8 +1321,7 @@ describe('StripeCreditCard component', () => {
                   auth_facebook: 0,
                   auth_email: 1,
                   streamImage: 'amazons3',
-                  image:
-                    'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/users/51792/1601463876.jpg?v=1601463877',
+                  image: 'https://cdn.testesolidar.com/users/51792/1601463876.jpg?v=1601463877',
                   summary: 'Front End Developer',
                   nif: 'null',
                   receipt: 0,

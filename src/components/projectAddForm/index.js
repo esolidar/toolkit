@@ -11,6 +11,7 @@ import CheckboxField from '../../elements/checkboxField';
 import RadioField from '../../elements/radioField';
 import { slugify } from '../../utils/index';
 import Loading from '../loading';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectAddForm = ({
   color,
@@ -43,7 +44,7 @@ const ProjectAddForm = ({
           >
             <img
               className="image-error"
-              src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/ic-error.svg"
+              src={`${cdnStaticUrl}/frontend/icons/ic-error.svg`}
               alt="Error"
             />
           </button>
@@ -130,7 +131,7 @@ const ProjectAddForm = ({
                     <CheckboxImage
                       key={o.ods_id}
                       label={o.tag_name}
-                      img={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/${o.tag_name}.png`}
+                      img={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${o.tag_name}.png`}
                       onChange={onSelectOds}
                       value={o.ods_id}
                       error={errors[field.id]}

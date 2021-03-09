@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { cdnStaticUrl } from '../../constants/env';
 
 const FileInput = ({ name, accept, disabled, placeholder, onChange, styleLogo }) => {
   const [value, setValue] = useState('');
@@ -14,10 +15,7 @@ const FileInput = ({ name, accept, disabled, placeholder, onChange, styleLogo })
     <div className={name === 'logo_image' ? 'company-thumb-logo' : 'company-thumb-cover'}>
       <div style={styleLogo} className={name === 'logo_image' ? 'logo' : 'company-cover-image'} />
       <div className="input-company-logo">
-        <img
-          alt="Add"
-          src="https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/camera.svg"
-        />
+        <img alt="Add" src={`${cdnStaticUrl}/frontend/icons/camera.svg`} />
         <div style={{ position: 'relative' }}>
           <input
             type="file"

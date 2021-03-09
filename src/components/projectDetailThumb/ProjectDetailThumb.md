@@ -20,9 +20,9 @@ import { ProjectDetailThumb } from '@esolidar/toolkit';
         name: "Joel Calheiros",
         thumbs: {
           thumb:
-            "https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg",
+            "https://cdn.testesolidar.com/users/9/9-THUMB.jpg",
           standard:
-            "https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-STANDARD.jpg",
+            "https://cdn.testesolidar.com/users/9/9-STANDARD.jpg",
         },
       },
       ods: [

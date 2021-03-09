@@ -3,40 +3,39 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import SliderImagesLanding from '../index';
+import { cdnStaticUrl } from '../../../constants/env';
 
 const props = {
   autoPlay: true,
   imgList: [
     {
       alt: 'Delfim',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/delfim.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/delfim.png`,
       url: 'https://delfim.esolidar.com',
     },
     {
       alt: 'Happiness',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/happiness.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/happiness.png`,
       url: 'https://happiness.esolidar.com',
     },
     {
       alt: 'Human Power Hub',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/hph.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/hph.png`,
       url: 'https://www.humanpowerhub.org',
     },
     {
       alt: 'Instituto CPFL',
-      src:
-        'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/instituto_cpfl.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/instituto_cpfl.png`,
       url: 'https://www.institutocpfl.org.br',
     },
     {
       alt: 'Liga Portugal',
-      src:
-        'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/liga_portugal.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/liga_portugal.png`,
       url: 'https://www.ligaportugal.pt/pt/homepage',
     },
     {
       alt: 'Odontoprev',
-      src: 'https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/landing/odontoprev.png',
+      src: `${cdnStaticUrl}/frontend/assets/landing/odontoprev.png`,
       url: 'https://www.odontoprevonline.com.br',
     },
   ],

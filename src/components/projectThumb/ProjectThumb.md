@@ -15,7 +15,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
       as_company: 1,
       whitelabel_config: {
         company: {
-          logo: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg",
+          logo: "https://static.esolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg",
           name: "Webankor (eSolidar)",
           thumbs: {
             cover_image: "https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg",
@@ -36,7 +36,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
         },
       },
       ods: [
@@ -90,7 +90,7 @@ import { ProjectThumb } from '@esolidar/toolkit';
       user: {
         name: 'Joel Calheiros',
         thumbs: {
-          thumb: 'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/users/9/9-THUMB.jpg',
+          thumb: 'https://cdn.testesolidar.com/users/9/9-THUMB.jpg',
         },
       },
       ods: [

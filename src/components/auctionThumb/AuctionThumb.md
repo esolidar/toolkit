@@ -33,7 +33,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 institution_id: null,
                 firstName: "Joel F.",
                 lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
+                image: "https://static.esolidar.com/users/9/1606232953.jpg",
                 currency: {
                     id: 1,
                     name: "Euro",
@@ -89,7 +89,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 id: 200,
                 auction_id: 299,
                 streamImage: "amazons3",
-                image_name: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
+                image_name: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
                 image_type: "image/jpeg",
                 image_size: "140004",
                 default: 1,
@@ -128,7 +128,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 institution_id: null,
                 firstName: "Joel F.",
                 lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
+                image: "https://static.esolidar.com/users/9/1606232953.jpg",
                 currency: {
                     id: 1,
                     name: "Euro",
@@ -210,7 +210,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
             institution: {
                 id: 30,
                 name: "Helpo",
-                image: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
+                image: "https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
                 currency: {
                     id: 2
                 },
@@ -254,7 +254,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 institution_id: null,
                 firstName: "Joel F.",
                 lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
+                image: "https://static.esolidar.com/users/9/1606232953.jpg",
                 currency: {
                     id: 1,
                     name: "Euro",
@@ -310,7 +310,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 id: 200,
                 auction_id: 299,
                 streamImage: "amazons3",
-                image_name: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
+                image_name: "https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg",
                 image_type: "image/jpeg",
                 image_size: "140004",
                 default: 1,
@@ -349,7 +349,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                 institution_id: null,
                 firstName: "Joel F.",
                 lastName: "Calheiros",
-                image: "https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/9/1606232953.jpg",
+                image: "https://static.esolidar.com/users/9/1606232953.jpg",
                 currency: {
                     id: 1,
                     name: "Euro",
@@ -431,7 +431,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
             institution: {
                 id: 30,
                 name: "Helpo",
-                image: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
+                image: "https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg",
                 currency: {
                     id: 2
                 },

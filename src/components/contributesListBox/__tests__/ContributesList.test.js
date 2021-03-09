@@ -51,7 +51,7 @@ const props = {
       contributor: {
         firstName: 'Miguel',
         id: 1,
-        image: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/users/1/1602528294.jpg',
+        image: 'https://static.esolidar.com/users/1/1602528294.jpg',
         institution: null,
         institution_id: null,
         lastName: 'Vieira',

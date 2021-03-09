@@ -228,7 +228,7 @@
     .prev-arrow {
       width            : 40px;
       height           : 90px;
-      background       : #000 url($cdn_static_url + '/frontend/icons/ic-slide-left.svg') 50% 50% no-repeat;
+      background       : #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-left.svg') 50% 50% no-repeat;
       position         : absolute;
       display          : block;
       line-height      : 0;
@@ -254,7 +254,7 @@
     .next-arrow {
       width            : 40px;
       height           : 90px;
-      background       : #000 url($cdn_static_url + '/frontend/icons/ic-slide-right.svg') 50% 50% no-repeat;
+      background       : #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-right.svg') 50% 50% no-repeat;
       position         : absolute;
       display          : block;
       line-height      : 0;

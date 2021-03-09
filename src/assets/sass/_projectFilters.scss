@@ -7,7 +7,7 @@
   }
 
   input.form-control {
-    background  : #ffffff url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/icons/icon-search.svg') no-repeat 10px 50%;
+    background  : #ffffff url('#{$cdn_static_url}/frontend/icons/icon-search.svg') no-repeat 10px 50%;
     padding-left: 35px;
   }
 

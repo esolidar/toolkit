@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../elements/button';
 import { slugify } from '../../utils/index';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectThumb = ({
   project,
@@ -118,7 +119,7 @@ const ProjectThumb = ({
                 if (indx < 4) {
                   return (
                     <img
-                      src={`https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/ods/${lang}/ods-${item.id}.png`}
+                      src={`${cdnStaticUrl}/frontend/assets/ods/${lang}/ods-${item.id}.png`}
                       key={item.id}
                       className="ods"
                       alt={`ods-${item.id}`}

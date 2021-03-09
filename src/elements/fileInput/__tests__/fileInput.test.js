@@ -1,6 +1,7 @@
 import React, { useState as useStateMock } from 'react';
 import { shallow } from 'enzyme';
 import FileInput from '../index';
+import { cdnStaticUrl } from '../../../constants/env';
 
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
@@ -34,7 +35,7 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo="background-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/brand-logo.jpg')"
+        styleLogo={`background-image: url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}
       />
     );
     expect(wrapper.find('.company-thumb-logo')).toHaveLength(1);
@@ -49,7 +50,7 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo="background-image: url('https://s3-eu-west-1.amazonaws.com/esolidar.com/frontend/assets/brand-logo.jpg')"
+        styleLogo={`background-image: url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}
       />
     );
     expect(wrapper.find('.company-thumb-cover')).toHaveLength(1);
