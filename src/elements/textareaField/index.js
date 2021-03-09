@@ -21,14 +21,16 @@ const TextareaField = ({
   className,
 }) => {
   if (resize) {
-    setTimeout(() => {
-      const item = document.getElementById(id || field);
-      autosize(item);
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        const item = document.getElementById(id || field);
+        autosize(item);
 
-      const evt = document.createEvent('Event');
-      evt.initEvent('autosize:update', true, false);
-      item.dispatchEvent(evt);
-    }, 500);
+        const evt = document.createEvent('Event');
+        evt.initEvent('autosize:update', true, false);
+        item.dispatchEvent(evt);
+      }, 500);
+    }
   }
 
   return (

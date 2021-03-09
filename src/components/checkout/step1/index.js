@@ -16,6 +16,10 @@ const Step1 = props => {
     onAddToCheckout,
   } = props;
   const cartItems = state.order.products;
+
+  // if (cartItems.length === 0) return <div />;
+
+  console.log(' state.order', state.order.products);
   const renderCartItems = () => {
     if (cartItems.length > 0) {
       return cartItems.map((item, indx) => {

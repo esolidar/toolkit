@@ -18,7 +18,7 @@ ConvertToMyTimezone.propTypes = {
 
 ConvertToMyTimezone.defaultProps = {
   format: 'llll',
-  locale: navigator.language,
+  locale: typeof window !== 'undefined' ? navigator.language : 'en',
   timezone: moment.tz.guess(),
 };
 

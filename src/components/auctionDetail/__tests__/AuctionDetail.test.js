@@ -482,6 +482,14 @@ const props = {
     thumbs: {
       thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
     },
+    phones: [
+      {
+        code: '6121',
+        phone: '+351919552199',
+        user_id: 51792,
+        verified: 1,
+      },
+    ],
   },
   auctionSubscribeList: {
     code: 200,
@@ -549,6 +557,14 @@ const propsAuctionPrivate = {
     thumbs: {
       thumb: 'https://cdn.testesolidar.com/users/51792/1601463876-THUMB.jpg',
     },
+    phones: [
+      {
+        code: '6121',
+        phone: '+351919552199',
+        user_id: 51792,
+        verified: 1,
+      },
+    ],
   },
   auctionSubscribeList: {
     code: 200,
@@ -569,19 +585,7 @@ const propsAuctionPrivate = {
   },
 };
 
-const user = {
-  phones: [
-    {
-      code: '6121',
-      phone: '+351919552199',
-      user_id: 51792,
-      verified: 1,
-    },
-  ],
-};
-
 beforeAll(() => {
-  localStorage.setItem('user', JSON.stringify(user));
   localStorage.setItem('lang', 'pt');
 });
 

@@ -137,6 +137,6 @@ describe('Step1 component', () => {
     );
     expect(component).toHaveLength(1);
     expect(component.find('CrowdfundingItem')).toHaveLength(0);
-    expect(component.find('.no-items')).toHaveLength(1);
+    expect(component.find('.no-items').length).toBe(1);
   });
 });

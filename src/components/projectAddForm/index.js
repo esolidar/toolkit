@@ -212,7 +212,7 @@ const ProjectAddForm = ({
                         name={`${slugify(option)}-${i}-${field.id}`}
                         id={`${slugify(option)}-${i}-${field.id}`}
                         value={option}
-                        checked={field.checked.includes(option)}
+                        checked={field.checked?.includes(option)}
                       />
                     ))}
                     {errors[field.id] && (

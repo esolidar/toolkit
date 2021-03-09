@@ -137,9 +137,7 @@ const AuctionDetail = ({
 
   const [isEnded, setIsEnded] = useState(false);
   const [isCommingSoon, setIsCommingSoon] = useState(false);
-  const [hasNotifications, setHasNotifications] = useState(
-    localStorage.user ? JSON.parse(localStorage.user).notifications : 0
-  );
+  const [hasNotifications, setHasNotifications] = useState(user ? user.notifications : 0);
   const [value, setValue] = useState('');
 
   const [bid, setBid] = useState('');
@@ -171,8 +169,8 @@ const AuctionDetail = ({
     getAuctionDetail(auctionId);
 
     if (isLoggedIn) {
-      const { phones } = JSON.parse(localStorage.user);
-      setHasPhoneValidate(phones.some(phone => phone.verified === 1));
+      const { phones } = user;
+      setHasPhoneValidate((phones || []).some(phone => phone.verified === 1));
     }
   }, []);
 
@@ -843,7 +841,7 @@ const AuctionDetail = ({
           <NoMatch
             color={primaryColor}
             errorMessage={translateMessage({ id: 'auction.not.found' })}
-            link="/auctions/list"
+            link="/auction/list"
             linkText={translateMessage({ id: 'back.to.auctions' })}
           />
         </Row>
@@ -880,7 +878,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
-                    href="/auctions/list"
+                    href="/auction/list"
                     text={translateMessage({
                       id: 'auction.private.cancel',
                       defaultMessage: 'Cancel',
