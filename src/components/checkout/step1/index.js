@@ -17,7 +17,7 @@ const Step1 = props => {
   } = props;
   const cartItems = state.order.products;
 
-  // if (cartItems.length === 0) return <div />;
+  if (typeof window === 'undefined' && cartItems.length === 0) return <div />;
 
   const renderCartItems = () => {
     if (cartItems.length > 0) {
