@@ -52,10 +52,10 @@ class ErrorBoundary extends Component {
     if (hasError) {
       return (
         <div className={`boundary ${className}`}>
+          <div className="icon">
+            <p data-testid="errorBoundary-emoji">⚠️</p>
+          </div>
           <h3 data-testid="errorBoundary-title">
-            <div className="icon">
-              <p data-testid="errorBoundary-emoji">⚠️</p>
-            </div>
             <FormattedMessage
               id="error.boundary"
               defaultMessage="There was an error during loading"
