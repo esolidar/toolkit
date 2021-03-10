@@ -15,7 +15,7 @@ class ErrorBoundary extends Component {
   };
 
   componentDidCatch(error, info) {
-    if ((this.state.countReload < LOAD_LIMIT && this.state.reload) || this.state.forceReload) {
+    if (this.state.countReload < LOAD_LIMIT && this.state.reload) {
       localStorage.setItem('countReload', this.state.countReload + 1);
       window.location.reload();
     }
