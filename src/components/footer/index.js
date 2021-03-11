@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import SocialNetworks from '../socialNetworks';
 import ChangeLanguage from '../changeLanguage';
 import ChangeCurrency from '../changeCurrency';
+import ErrorBoundary from '../errorBoundary/index';
 
 const Footer = ({
   socialTitle,
@@ -70,7 +71,9 @@ const Footer = ({
           </Col>
           {socialIcons && (
             <Col xs={12} sm={12} md={6} lg={4} className="text-right no-padding-mobile">
-              <SocialNetworks icons={socialIcons} headingText={socialTitle} />
+              <ErrorBoundary>
+                <SocialNetworks icons={socialIcons} headingText={socialTitle} />
+              </ErrorBoundary>
             </Col>
           )}
         </Row>
@@ -93,17 +96,21 @@ const Footer = ({
             md={{ span: 3, order: 3 }}
             className="text-right"
           >
-            <ChangeLanguage
-              languages={languages}
-              onChangeLang={onChangeLang}
-              currentLang={currentLang}
-            />
-            {showCurrency && (
-              <ChangeCurrency
-                currentCurrency={currentCurrency}
-                currencies={currencies}
-                onChange={currencyChanged}
+            <ErrorBoundary>
+              <ChangeLanguage
+                languages={languages}
+                onChangeLang={onChangeLang}
+                currentLang={currentLang}
               />
+            </ErrorBoundary>
+            {showCurrency && (
+              <ErrorBoundary>
+                <ChangeCurrency
+                  currentCurrency={currentCurrency}
+                  currencies={currencies}
+                  onChange={currencyChanged}
+                />
+              </ErrorBoundary>
             )}
           </Col>
         </Row>
