@@ -143,9 +143,9 @@ const ProjectThumb = ({
                 src={
                   project.as_company === 1
                     ? project.whitelabel_config
-                      ? project.whitelabel_config.company.thumbs.thumb
-                      : project.company.thumbs.thumb
-                    : project.user.thumbs.thumb
+                      ? project.whitelabel_config.company?.thumbs.thumb
+                      : project.company?.thumbs.thumb
+                    : project.user?.thumbs.thumb
                 }
                 alt={
                   project.as_company === 1
