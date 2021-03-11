@@ -61,17 +61,15 @@ class ErrorBoundary extends Component {
               defaultMessage="There was an error during loading"
             />
           </h3>
-          <div>
-            <p>
-              <a
-                className="retry-link"
-                onClick={this.handleReloadPage}
-                style={{ color: color.primaryColor }}
-                data-testid="errorBoundary-link"
-              >
-                <FormattedMessage id="error.boundary.retry" defaultMessage="Retry" />
-              </a>
-            </p>
+          <div className="link">
+            <a
+              className="retry-link"
+              onClick={this.handleReloadPage}
+              style={{ color: color.primaryColor }}
+              data-testid="errorBoundary-link"
+            >
+              <FormattedMessage id="error.boundary.retry" defaultMessage="Retry" />
+            </a>
           </div>
         </div>
       );
