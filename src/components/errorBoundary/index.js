@@ -25,8 +25,6 @@ class ErrorBoundary extends Component {
       this.updateState({ reload: false, countReload: 0 });
     }
 
-    Sentry.showReportDialog({ eventId: this.state.eventId });
-
     Sentry.withScope(scope => {
       scope.setExtras(info);
       const eventId = Sentry.captureException(error);
