@@ -36,12 +36,12 @@ class CrowdfundingDescription extends Component {
     const { showmoreDesc, showmoreReward, showMoreDescButton, showMoreRewardButton } = this.state;
     const { campaign, env, lang, color, auction } = this.props;
 
+    const locale = typeof window !== 'undefined' ? localStorage.getItem('lang') : 'en';
     const objCampaignOrAuction = Object.keys(campaign).length > 0 ? campaign : auction;
 
     const campaignDescription = () => {
       let description;
-
-      if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
+      if (locale === 'pt' || locale === 'br') {
         description = objCampaignOrAuction.description;
       } else if (!objCampaignOrAuction.description_en) {
         description = objCampaignOrAuction.description;
@@ -54,7 +54,7 @@ class CrowdfundingDescription extends Component {
     const auctionDescriptionLang = type => {
       let description;
 
-      if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
+      if (locale === 'pt' || locale === 'br') {
         description = auction[type];
       } else {
         description = auction[`${type}_en`];
