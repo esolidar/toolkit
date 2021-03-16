@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import { removeAllButLast } from '../../utils/removeAllButLast';
+import TextField from '../textField';
 
-class FormatCurrency extends Component {
+class TextFieldCurrency extends Component {
   state = {
     value: this.props.value,
-    currency: this.props.currency,
+    prefix: this.props.prefix,
     formattedValue: this.props.intl.formatNumber(this.props.value, {
       style: 'currency',
-      currency: this.props.currency,
+      currency: this.props.prefix,
+      minimumFractionDigits: this.props.decimalScale,
     }),
   };
 
@@ -50,23 +52,24 @@ class FormatCurrency extends Component {
 
   onBlur = e => {
     const el = e.target;
-    const { value, currency } = this.state;
+    const { value, prefix } = this.state;
 
     el.value = this.props.intl.formatNumber(value, {
       style: 'currency',
-      currency,
+      currency: prefix,
+      minimumFractionDigits: this.props.decimalScale,
     });
 
     this.setState(
       {
-        value: value ? Number(value).toFixed(2) : '',
+        value,
         formattedValue: el.value,
       },
       () => {
         const valueObj = {
           formattedValue: this.state.formattedValue,
           value: this.state.value,
-          floatValue: parseFloat(this.state.value),
+          // floatValue: parseFloat(this.state.value),
         };
 
         this.props.onChange(valueObj);
@@ -76,28 +79,31 @@ class FormatCurrency extends Component {
 
   render() {
     const { value, formattedValue } = this.state;
-    const { placeholder, className, disabled, error, message } = this.props;
+    const { label, placeholder, className, disabled, error, message } = this.props;
 
     const inputProps = {
-      value: value ? formattedValue : '',
+      label,
       onChange: this.onChange,
       onFocus: this.onFocus,
       onBlur: this.onBlur,
       onKeyDown: this.onKeyDown,
+      error,
+      value: value ? formattedValue : '',
       placeholder,
       disabled,
       className,
-      error,
       message,
     };
 
-    return <input {...inputProps} />;
+    return <TextField {...inputProps} />;
   }
 }
 
-FormatCurrency.propTypes = {
+TextFieldCurrency.propTypes = {
+  label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  currency: PropTypes.string.isRequired,
+  prefix: PropTypes.string,
+  suffix: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
@@ -105,6 +111,12 @@ FormatCurrency.propTypes = {
   intl: intlShape,
   error: PropTypes.string,
   message: PropTypes.string,
+  decimalScale: PropTypes.number,
 };
 
-export default injectIntl(FormatCurrency);
+TextFieldCurrency.defaultProps = {
+  decimalScale: 0,
+  value: '',
+};
+
+export default injectIntl(TextFieldCurrency);

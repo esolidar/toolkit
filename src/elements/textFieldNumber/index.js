@@ -1,13 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { FormattedMessage } from 'react-intl';
 import NumberFormat from 'react-number-format';
-import FormatCurrency from '../formatCurrency';
+import TextField from '../textField';
 
-const TextFieldFormat = ({
-  field,
+const TextFieldNumber = ({
   value,
   label,
   error,
@@ -16,7 +13,6 @@ const TextFieldFormat = ({
   placeholder,
   message,
   disabled,
-  fieldTranslate,
   format,
   thousandSeparator,
   displayType,
@@ -33,29 +29,8 @@ const TextFieldFormat = ({
   renderText,
   classStyle,
 }) => {
-  if (prefix) {
-    return (
-      <FormatCurrency
-        currency={prefix}
-        placeholder={placeholder}
-        className={classStyle}
-        value={value}
-        disabled={disabled}
-        onChange={values => {
-          onChange(values);
-        }}
-        error={error}
-        message={message}
-      />
-    );
-  }
   return (
-    <div className={classnames('form-group', { 'has-error': error || message } || { disabled })}>
-      {label && (
-        <label className="control-label">
-          <FormattedMessage id={fieldTranslate || field} defaultMessage={label} />
-        </label>
-      )}
+    <TextField label={label} error={error} message={message} className={classStyle}>
       <NumberFormat
         value={value}
         displayType={displayType}
@@ -76,16 +51,13 @@ const TextFieldFormat = ({
         isAllowed={isAllowed}
         renderText={renderText}
         disabled={disabled}
-        className={classStyle}
+        className={error ? 'form-control required-field' : 'form-control'}
       />
-      {error && <span className="help-block">{error}</span>}
-      {message && <span className="help-block">{message}</span>}
-    </div>
+    </TextField>
   );
 };
 
-TextFieldFormat.propTypes = {
-  field: PropTypes.string,
+TextFieldNumber.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
   type: PropTypes.string,
@@ -94,7 +66,6 @@ TextFieldFormat.propTypes = {
   placeholder: PropTypes.string,
   message: PropTypes.string,
   disabled: PropTypes.bool,
-  fieldTranslate: PropTypes.string,
   format: PropTypes.string,
   thousandSeparator: PropTypes.bool,
   displayType: PropTypes.string,
@@ -112,9 +83,10 @@ TextFieldFormat.propTypes = {
   classStyle: PropTypes.string,
 };
 
-TextFieldFormat.defaultProps = {
+TextFieldNumber.defaultProps = {
   type: 'text',
-  classStyle: 'form-control',
+  thousandSeparator: false,
+  // classStyle: 'form-control',
 };
 
-export default TextFieldFormat;
+export default TextFieldNumber;

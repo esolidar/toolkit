@@ -22,6 +22,7 @@ const TextField = ({
   className,
   dataTestId,
   inputRef,
+  children,
 }) => (
   <div
     className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
@@ -32,23 +33,26 @@ const TextField = ({
       </label>
     )}
     {help && <p className="help">{help}</p>}
-    <input
-      data-testid={dataTestId}
-      autoComplete="off"
-      onChange={onChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      value={value}
-      defaultValue={defaultValue}
-      type={type}
-      name={field}
-      id={id || field}
-      placeholder={placeholder}
-      maxLength={maxLength}
-      disabled={disabled}
-      className={error ? 'form-control required-field' : 'form-control'}
-      ref={inputRef}
-    />
+    {!children && (
+      <input
+        data-testid={dataTestId}
+        autoComplete="off"
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        value={value}
+        defaultValue={defaultValue}
+        type={type}
+        name={field}
+        id={id || field}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        disabled={disabled}
+        className={error ? 'form-control required-field' : 'form-control'}
+        ref={inputRef}
+      />
+    )}
+    {children && children}
     {error && <span className="help-block">{error}</span>}
     {message && <span className="help-block">{message}</span>}
   </div>
@@ -74,6 +78,11 @@ TextField.propTypes = {
   required: PropTypes.bool,
   className: PropTypes.string,
   inputRef: PropTypes.object,
+  children: PropTypes.node,
+};
+
+TextField.defaultProps = {
+  children: null,
 };
 
 export default TextField;

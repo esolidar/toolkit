@@ -78,8 +78,8 @@ export { default as CustomModal } from './elements/customModal';
 export { default as SelectPerPage } from './elements/selectPerPage';
 export { default as ConfirmModal } from './elements/confirmModal';
 export { default as DatePicker } from './elements/datePicker';
-export { default as FormatCurrency } from './elements/formatCurrency';
-export { default as TextFieldFormat } from './elements/textFieldFormat';
+export { default as TextFieldCurrency } from './elements/textFieldCurrency';
+export { default as TextFieldNumber } from './elements/textFieldNumber';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
