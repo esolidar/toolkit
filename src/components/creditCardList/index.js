@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Elements, StripeProvider } from 'react-stripe-elements';
-import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { NotificationManager } from 'react-notifications';
 import StripeCheckoutFormSca from '../stripe/StripeCheckoutFormSca';
 import { filterUnique } from '../../utils';
@@ -117,7 +117,7 @@ const CreditCardList = ({
                   <RadioField
                     label={
                       !validDate(stripeCreditCard.exp_year, stripeCreditCard.exp_month) ? (
-                        <FormattedHTMLMessage
+                        <FormattedMessage
                           id="creditcard.number"
                           defaultMessage="Credit card number: xxxx xxxx xxxx {value} - Expires: {date}"
                           values={{
@@ -126,7 +126,7 @@ const CreditCardList = ({
                           }}
                         />
                       ) : (
-                        <FormattedHTMLMessage
+                        <FormattedMessage
                           id="creditcard.number.expired"
                           defaultMessage="Credit card number: xxxx xxxx xxxx {value} - <span class='expired'>Expired: {date}</span>"
                           values={{
