@@ -86,7 +86,6 @@ TextFieldNumber.propTypes = {
 TextFieldNumber.defaultProps = {
   type: 'text',
   thousandSeparator: false,
-  // classStyle: 'form-control',
 };
 
 export default TextFieldNumber;
