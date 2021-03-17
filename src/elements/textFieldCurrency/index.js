@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { removeAllButLast } from '../../utils/removeAllButLast';
 import TextField from '../textField';
 
@@ -11,7 +11,6 @@ class TextFieldCurrency extends Component {
     formattedValue: this.props.intl.formatNumber(this.props.value, {
       style: 'currency',
       currency: this.props.prefix,
-      minimumFractionDigits: this.props.decimalScale,
     }),
   };
 
@@ -57,19 +56,18 @@ class TextFieldCurrency extends Component {
     el.value = this.props.intl.formatNumber(value, {
       style: 'currency',
       currency: prefix,
-      minimumFractionDigits: this.props.decimalScale,
     });
 
     this.setState(
       {
-        value,
+        value: value ? Number(value).toFixed(2) : '',
         formattedValue: el.value,
       },
       () => {
         const valueObj = {
           formattedValue: this.state.formattedValue,
           value: this.state.value,
-          // floatValue: parseFloat(this.state.value),
+          floatValue: parseFloat(this.state.value),
         };
 
         this.props.onChange(valueObj);
@@ -102,13 +100,12 @@ class TextFieldCurrency extends Component {
 TextFieldCurrency.propTypes = {
   label: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  prefix: PropTypes.string,
-  suffix: PropTypes.string,
+  prefix: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
   onChange: PropTypes.func,
-  intl: intlShape,
+  intl: PropTypes.object,
   error: PropTypes.string,
   message: PropTypes.string,
   decimalScale: PropTypes.number,

@@ -1,6 +1,6 @@
 #### Import
 ``` html
-import { Number } from '@esolidar/toolkit';
+import { TextFieldNumber } from '@esolidar/toolkit';
 ```
 #### Example
 ``` jsx

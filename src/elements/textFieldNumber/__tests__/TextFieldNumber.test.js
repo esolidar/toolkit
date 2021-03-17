@@ -1,8 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import NumberFormat from 'react-number-format';
 import TextFieldNumber from '../index';
-import FormatCurrency from '../formatCurrency';
 
 const changed = jest.fn();
 
@@ -16,24 +14,18 @@ const props = {
 };
 
 describe('TextFieldNumber component', () => {
-  // it('renders TextFieldFormat correctly', () => {
-  //   const component = shallow(<TextFieldFormat {...props} />);
-  //   expect(component).toHaveLength(1);
-  // });
+  it('renders TextFieldNumber correctly', () => {
+    const component = shallow(<TextFieldNumber {...props} />);
 
-  it('renders TextFieldNumber without prefix', () => {
-    const component = shallow(<TextFieldFormat {...props} error="error" />);
-
-    expect(component.find('NumberFormat')).toHaveLength(1);
-    expect(component.find('.control-label')).toHaveLength(1);
-    expect(component.find('.help-block')).toHaveLength(1);
+    expect(component.find('TextField')).toHaveLength(1);
+    expect(component).toHaveLength(1);
   });
 
-  // it('renders TextFieldFormat with prefix', () => {
-  //   const component = shallow(<TextFieldFormat {...props} prefix="EUR" />);
+  it('renders TextFieldNumber with label and exist component NumberFormat', () => {
+    const component = shallow(<TextFieldNumber {...props} error="error" />).shallow();
 
-  //   expect(component.containsMatchingElement(<FormatCurrency />)).toEqual(true);
-  //   expect(component.find('.control-label')).toHaveLength(0);
-  //   expect(component.find('.help-block')).toHaveLength(0);
-  // });
+    expect(component.find('.control-label')).toHaveLength(1);
+    expect(component.find('.help-block')).toHaveLength(1);
+    expect(component.find('NumberFormat')).toHaveLength(1);
+  });
 });

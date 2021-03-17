@@ -7,13 +7,11 @@ import { TextFieldCurrency } from '@esolidar/toolkit';
 <TextFieldCurrency
   label="Title"
   prefix="EUR"
-  label="Lorem Ipsum " 
   type="text"
   onChange={() => {}}
   error='' 
   placeholder="€ 0,00" 
   defaultValue='defaultValue' 
-  field="forCompanies"
   disabled={false}
   className="teste"
 />

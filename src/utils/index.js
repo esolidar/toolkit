@@ -17,6 +17,7 @@ export { default as isEmpty } from './isEmpty';
 export { default as isObject } from './isObject';
 export { default as isValidURL } from './isValidURL';
 export { default as lastElemOf } from './lastElemOf';
+export { default as removeAllButLast } from './removeAllButLast';
 export { default as removeAllUrlParams } from './removeAllUrlParams';
 export { default as removeUrlParam } from './removeUrlParam';
 export { default as slugify } from './slugify';

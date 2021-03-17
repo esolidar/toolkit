@@ -60,7 +60,7 @@ const TextField = ({
 
 TextField.propTypes = {
   dataTestId: PropTypes.string,
-  field: PropTypes.string.isRequired,
+  field: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

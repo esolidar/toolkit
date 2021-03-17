@@ -101,6 +101,7 @@ export { default as isEmpty } from './utils/isEmpty';
 export { default as isObject } from './utils/isObject';
 export { default as isValidURL } from './utils/isValidURL';
 export { default as lastElemOf } from './utils/lastElemOf';
+export { default as removeAllButLast } from './utils/removeAllButLast';
 export { default as removeAllUrlParams } from './utils/removeAllUrlParams';
 export { default as removeUrlParam } from './utils/removeUrlParam';
 export { default as slugify } from './utils/slugify';

@@ -1,13 +1,68 @@
 import React from 'react';
 import { shallow, configure } from 'enzyme';
+import { IntlProvider } from 'react-intl';
 import Adapter from 'enzyme-adapter-react-16';
 import TextFieldCurrency from '../index';
 
 configure({ adapter: new Adapter() });
 
-describe('<TextFieldCurrency />', function () {
+const props = {
+  value: 1000,
+  label: 'Title',
+  type: 'text',
+  onChange: () => {},
+  error: '',
+  placeholder: '€ 0,00',
+  defaultValue: 'defaultValue',
+  field: 'forCompanies',
+  disabled: false,
+  className: 'teste',
+};
+
+describe('render TextFieldCurrency', function () {
   it('component renders', () => {
-    const wrapper = shallow(<TextFieldCurrency currency="EUR" value={1000} />);
+    const wrapper = shallow(
+      <IntlProvider locale="en">
+        <TextFieldCurrency {...props} prefix="EUR" />
+      </IntlProvider>
+    )
+      .shallow()
+      .shallow()
+      .shallow();
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('component verify states and return value EUR formatted', () => {
+    const wrapper = shallow(
+      <IntlProvider locale="en">
+        <TextFieldCurrency {...props} prefix="EUR" />
+      </IntlProvider>
+    )
+      .shallow()
+      .shallow()
+      .shallow()
+      .shallow();
+
+    expect(wrapper.state('value')).toEqual(1000);
+    expect(wrapper.state('prefix')).toEqual('EUR');
+    expect(wrapper.state('formattedValue')).toEqual('€1,000.00');
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('component verify states and return value USD formatted', () => {
+    const wrapper = shallow(
+      <IntlProvider locale="en">
+        <TextFieldCurrency {...props} prefix="USD" />
+      </IntlProvider>
+    )
+      .shallow()
+      .shallow()
+      .shallow()
+      .shallow();
+
+    expect(wrapper.state('value')).toEqual(1000);
+    expect(wrapper.state('prefix')).toEqual('USD');
+    expect(wrapper.state('formattedValue')).toEqual('$1,000.00');
     expect(wrapper).toHaveLength(1);
   });
 });
