@@ -10,7 +10,7 @@ const props = {
   value: 1000,
   thousandSeparator: true,
   decimalScale: 2,
-  placeholder: '€ 0,00',
+  placeholder: '0%',
 };
 
 describe('TextFieldNumber component', () => {

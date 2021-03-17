@@ -14,7 +14,6 @@ const props = {
   error: '',
   placeholder: '€ 0,00',
   defaultValue: 'defaultValue',
-  field: 'forCompanies',
   disabled: false,
   className: 'teste',
 };
