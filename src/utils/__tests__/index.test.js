@@ -19,6 +19,7 @@ import {
   isObject,
   isArray,
   getLocalStorage,
+  removeAllButLast,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -329,5 +330,14 @@ describe('test utils functions', () => {
     expect(getLocalStorage('subscription')).toEqual(subscription);
     expect(getLocalStorage('nonExistingKey')).toEqual({});
     expect(getLocalStorage('nonExistingKey', '')).toEqual('');
+  });
+
+  test('removeAllButLast function', () => {
+    const value = '1,000.01';
+    const token = '.';
+
+    expect(removeAllButLast(value.replace(/[^\d,.]/g, '').replace(',', '.'), token)).toEqual(
+      '1000.01'
+    );
   });
 });
