@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import Loading from '../loading';
 import Icon from '../icon';
 import TextField from '../../elements/textField';
+import Button from '../../elements/button';
 
 const Documents = ({
   isLoadingSearch,
@@ -152,10 +153,12 @@ const Documents = ({
                   />
                 </p>
               </div>
-              <div className="col-sm-12 text-right">
-                <button className="btn btn-submit" type="button" onClick={deleteDocument}>
-                  <FormattedMessage id="company.department.yes" defaultMessage="Yes" />
-                </button>
+              <div className="col-sm-12 text-center mt-3">
+                <Button
+                  extraClass="success-full"
+                  onClick={deleteDocument}
+                  text={<FormattedMessage id="yes" defaultMessage="Yes" />}
+                />
               </div>
             </div>
           </Modal.Body>
