@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons/faPen';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
 import Button from '../../elements/button';
-import { slugify } from '../../utils/index';
+import slugify from '../../utils/slugify';
 import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectThumb = ({
