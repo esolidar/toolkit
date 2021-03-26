@@ -47,13 +47,13 @@ export default function validateAuctionForm(data) {
     );
   }
 
-  if (isEmpty(data.dateLimit)) {
+  if (data.dateLimit === undefined) {
     errors.dateLimit = (
       <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );
   }
 
-  if (isEmpty(data.dateStart)) {
+  if (data.dateStart === undefined) {
     errors.dateStart = (
       <FormattedMessage id="user.register.error.required" defaultMessage="This field is required" />
     );

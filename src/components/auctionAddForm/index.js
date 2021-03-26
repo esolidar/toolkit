@@ -134,9 +134,10 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (auctionId) {
       getAuctionDetail(company.id, auctionId);
+    } else {
+      getInstitutions(pagination.institutions.activePage, institutionCategory, institutionSearch);
     }
     if (showInstitutions) {
-      getInstitutions(pagination.institutions.activePage, institutionCategory, institutionSearch);
       getInstitutionCategories();
     }
     if (showProjects && hasProjects) {
@@ -211,6 +212,9 @@ const AuctionAddForm = ({
       });
 
       setImagesList(imagesListArray);
+
+      setInstitutionSearch(data.institution.name);
+      getInstitutions(pagination.institutions.activePage, institutionCategory, data.name);
 
       const tags = data.tags ? data.tags.split(',') : [];
       const tagsArray = tags.map((tag, idx) => {
