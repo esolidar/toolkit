@@ -213,12 +213,10 @@ const AuctionAddForm = ({
 
       setImagesList(imagesListArray);
 
-      setInstitutionSearch(data.institution.name);
-      getInstitutions(
-        pagination.institutions.activePage,
-        institutionCategory,
-        data.institution.name
-      );
+      const institutionName = data.institution ? data.institution.name : '';
+
+      setInstitutionSearch(institutionName);
+      getInstitutions(pagination.institutions.activePage, institutionCategory, institutionName);
 
       const tags = data.tags ? data.tags.split(',') : [];
       const tagsArray = tags.map((tag, idx) => {
