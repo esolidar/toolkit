@@ -7,7 +7,7 @@ import Tooltip from 'rc-tooltip';
 import CountdownThumb from '../countdown';
 import { convertToMyCurrency } from '../../utils/index';
 
-const AuctionThumb = ({ auction, primaryColor, env, onExpiry }) => {
+const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
   const auctionEndDate = moment(auction.dateLimit, 'YYYY-MM-DD HH:mm').toDate();
 
@@ -25,7 +25,7 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry }) => {
   }
 
   let auctionTitle = '';
-  if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
+  if (lang === 'pt' || lang === 'br') {
     auctionTitle = auction.title;
   } else if (auction.title_en) {
     auctionTitle = auction.title_en;
@@ -177,10 +177,12 @@ AuctionThumb.propTypes = {
   primaryColor: PropTypes.string,
   env: PropTypes.object,
   onExpiry: PropTypes.func,
+  lang: PropTypes.string,
 };
 
 AuctionThumb.defaultProps = {
   onExpiry: () => {},
+  lang: 'en',
 };
 
 export default AuctionThumb;
