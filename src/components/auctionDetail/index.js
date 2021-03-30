@@ -841,7 +841,7 @@ const AuctionDetail = ({
           <NoMatch
             color={primaryColor}
             errorMessage={translateMessage({ id: 'auction.not.found' })}
-            link="/auctions/list"
+            link="/auction/list"
             linkText={translateMessage({ id: 'back.to.auctions' })}
           />
         </Row>
@@ -878,7 +878,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
-                    href="/auctions/list"
+                    href="/auction/list"
                     text={translateMessage({
                       id: 'auction.private.cancel',
                       defaultMessage: 'Cancel',
