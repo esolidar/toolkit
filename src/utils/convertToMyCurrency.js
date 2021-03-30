@@ -3,7 +3,7 @@ import { FormattedNumber } from 'react-intl';
 
 const convertToMyCurrency = (value, currency) => {
   let convertedValue = value;
-  const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : {};
+  const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
   const myCurrency = user && user.currency !== 'null' ? user.currency : currency;
 
   if (myCurrency.id !== currency.id) {
