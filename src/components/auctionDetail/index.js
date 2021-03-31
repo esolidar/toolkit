@@ -800,7 +800,7 @@ const AuctionDetail = ({
   };
 
   const valueBidTextField = e => {
-    setValue(e.target.value);
+    setValue(e.target.value.replace(/[^0-9]/gi, ''));
   };
 
   const handleMinValue = () => {
