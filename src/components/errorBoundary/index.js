@@ -9,7 +9,7 @@ const LOAD_LIMIT = 0;
 class ErrorBoundary extends Component {
   state = {
     hasError: this.props.showError,
-    countReload: +localStorage.getItem('countReload') || 0,
+    countReload: typeof window !== 'undefined' ? +localStorage.getItem('countReload') || 0 : '',
     reload: true,
     forceReload: false,
   };

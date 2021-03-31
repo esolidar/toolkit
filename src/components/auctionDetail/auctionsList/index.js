@@ -19,7 +19,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
         <Col lg={10} className="offset-lg-1">
           <Row>
             {listAuctions.map(auction => (
-              <Col key={auction.id} sm={6} md={6} lg={3} data-testid={`listAuction-${auction.id}`}>
+              <Col key={auction.id} sm={6} md={6} lg={4} data-testid={`listAuction-${auction.id}`}>
                 <a
                   href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(
                     auction.title
@@ -44,7 +44,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
             dataTestId="see-all-auctions"
             className="see-all-auctions"
             extraClass="info"
-            href="/auctions/list"
+            href="/auction/list"
             text={buttonTitle}
           />
         </Col>

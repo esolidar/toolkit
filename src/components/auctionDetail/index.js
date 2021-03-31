@@ -162,7 +162,6 @@ const AuctionDetail = ({
     setIsConfirmBid(false);
     setHasCardSelected(false);
     setLastFour('');
-    setValue('');
   };
 
   useEffect(() => {
@@ -215,7 +214,7 @@ const AuctionDetail = ({
     if (auctionList.code === 200) {
       const list = auctionList.data.data.filter(item => item.id !== +auctionId);
       const listActive = list.filter(item => new Date(item.dateLimit) > todaysDate);
-      listActive.length = 4;
+      if (listActive > 0) listActive.length = 3;
       setlistAuctions(listActive);
     }
   }, [auctionList]);
@@ -841,7 +840,7 @@ const AuctionDetail = ({
           <NoMatch
             color={primaryColor}
             errorMessage={translateMessage({ id: 'auction.not.found' })}
-            link="/auctions/list"
+            link="/auction/list"
             linkText={translateMessage({ id: 'back.to.auctions' })}
           />
         </Row>
@@ -878,7 +877,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
-                    href="/auctions/list"
+                    href="/auction/list"
                     text={translateMessage({
                       id: 'auction.private.cancel',
                       defaultMessage: 'Cancel',
@@ -1129,7 +1128,7 @@ const AuctionDetail = ({
               )}
             </Col>
           </Row>
-          {listAuctions && (
+          {listAuctions.length > 0 && (
             <AuctionsList
               title={translateMessage({
                 id: 'auction.detail.otherAuctions',
