@@ -67,7 +67,7 @@ const AuctionLastBid = ({
                     <TextField
                       dataTestId="bid-input"
                       className="bid-input mb-0"
-                      type="number"
+                      type="text"
                       onChange={valueBidTextField}
                       error={error}
                       value={inputBidValue}
