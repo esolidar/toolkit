@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
-import { getEmployeeName, isDefined, filterUnique } from '../../utils';
+import { getEmployeeName, isDefined, filterUnique, slugify } from '../../utils';
 import Button from '../../elements/button';
 import NoMatch from '../noMatch';
 import Loading from '../loading';
@@ -69,6 +69,8 @@ const AuctionDetail = ({
   updatedUser,
   showAlert,
   primaryColor,
+  domainUrl,
+  locale,
 }) => {
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
@@ -813,11 +815,19 @@ const AuctionDetail = ({
   if (accessAuction && auctionDetailInfo.recipient && auctionDetailInfo.recipient.institution) {
     supported.title = auctionDetailInfo.recipient.institution.name;
     supported.image = auctionDetailInfo.recipient.institution.thumbs.thumb;
+    supported.id = auctionDetailInfo.recipient.institution.id;
+    supported.link = `${domainUrl}${locale}/npo/detail/${supported.id}-${slugify(
+      auctionDetailInfo.recipient.institution.name
+    )}`;
   } else if (auctionDetailInfo.project) {
     supported.title = auctionDetailInfo.project.title;
     supported.image = auctionDetailInfo.project.images
       ? `${env.cdn_uploads_url}/${auctionDetailInfo.project.images[0].image}`
       : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+    supported.id = auctionDetailInfo.project.id;
+    supported.link = `/${locale}/projects/detail/${supported.id}-${slugify(
+      auctionDetailInfo.project.title
+    )}`;
   } else {
     supported = null;
   }
@@ -912,10 +922,17 @@ const AuctionDetail = ({
                         defaultMessage="This auctions supports:"
                       />
                     </div>
-                    <h1 className="text-center" style={{ color: primaryColor }}>
-                      <img src={supported.image} alt="thumb-supported" />
-                      {supported.title}
-                    </h1>
+                    <a
+                      className="auction-supported-link"
+                      href={supported.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <h1 className="text-center" style={{ color: primaryColor }}>
+                        <img src={supported.image} alt="thumb-supported" />
+                        {supported.title}
+                      </h1>
+                    </a>
                   </Col>
                 </Row>
               )}
@@ -1516,6 +1533,8 @@ AuctionDetail.propTypes = {
   updatedUser: PropTypes.object,
   showAlert: PropTypes.func,
   primaryColor: PropTypes.string,
+  domainUrl: PropTypes.string,
+  locale: PropTypes.string,
 };
 
 export default injectIntl(AuctionDetail);
