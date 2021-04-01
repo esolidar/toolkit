@@ -130,6 +130,7 @@ const AuctionAddForm = ({
   const [saveBankAccount, setSaveBankAccount] = useState(false);
   const [isMyProjet, setIsMyProject] = useState(false);
   const [isValidBankAccount, setIsValidBankAccount] = useState(false);
+  const [updloadFileIsLoading, SetUploadFileIsLoading] = useState(false);
 
   useEffect(() => {
     if (auctionId) {
@@ -339,6 +340,7 @@ const AuctionAddForm = ({
   // Images list
   useEffect(() => {
     if (addImages && addImages.code === 200) {
+      SetUploadFileIsLoading(false);
       const { image } = addImages.data.images[0];
       const data = imagesList;
       data.push({
@@ -352,6 +354,7 @@ const AuctionAddForm = ({
       setForm(prevState => ({ ...prevState, images }));
       setCropModalStatus(false);
     } else if (addImages && addImages.status === 400) {
+      SetUploadFileIsLoading(false);
       setErrors(prevState => ({
         ...prevState,
         images: translateMessage({
@@ -463,6 +466,7 @@ const AuctionAddForm = ({
     setImagesCount(imagesCount + files.length);
     const companyId = company.id;
     setCropModalStatus(true);
+    SetUploadFileIsLoading(true);
     files.map(file => {
       const data = {
         image: [file],
@@ -914,6 +918,7 @@ const AuctionAddForm = ({
                       cropModalStatus={cropModalStatus}
                       titleCropModal={intl.formatMessage({ id: 'auction.add.image' })}
                       textSaveCropModal={intl.formatMessage({ id: 'auction.add.image.crop' })}
+                      isLoading={updloadFileIsLoading}
                     />
                     {errors.images && <span className="help-block">{errors.images}</span>}
                   </div>
