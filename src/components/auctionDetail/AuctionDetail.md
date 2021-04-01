@@ -383,5 +383,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
   updatedUser={() => {}}
   showAlert={() => {}}
   primaryColor="#05c6e5"
+  domainUrl="https://esolidar.local:8081/"
+  locale="en"
 />
 ```
