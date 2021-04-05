@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Icon from '../icon';

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';

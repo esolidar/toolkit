@@ -1,5 +1,14 @@
 module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react'],
+  presets: [
+    '@babel/preset-env',
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
+      },
+    ],
+    '@babel/preset-typescript',
+  ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-object-rest-spread',
@@ -7,6 +16,11 @@ module.exports = {
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-proposal-private-methods',
-    '@babel/plugin-transform-react-jsx',
+    [
+      '@babel/plugin-transform-react-jsx',
+      {
+        runtime: 'automatic',
+      },
+    ],
   ],
 };

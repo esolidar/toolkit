@@ -1,6 +1,9 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import { configure, mount } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { IntlProvider } from 'react-intl';
 import Reviews from '../index';
+
+configure({ adapter: new Adapter() });
 
 const onChange = jest.fn();
 
@@ -466,7 +469,11 @@ describe('Reviews component', () => {
   });
 
   it('renders edit review form if "showEditReviewForm" is true', () => {
-    const component = mount(<Reviews {...props} showEditReviewForm={true} />);
+    const component = mount(
+      <IntlProvider locale="en">
+        <Reviews {...props} showEditReviewForm={true} />
+      </IntlProvider>
+    );
     expect(component.find('[data-testid="edit-form"]').length).toBe(1);
   });
   it('renders "no reviews" text if "otherReviewsList" is empty', () => {

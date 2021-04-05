@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

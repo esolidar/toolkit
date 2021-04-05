@@ -1,4 +1,3 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-localstorage-mock';
 import Footer from '../index';

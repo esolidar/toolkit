@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import { Row, Col, Card } from 'react-bootstrap';
 import { injectIntl } from 'react-intl';

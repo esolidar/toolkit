@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Modal, Row } from 'react-bootstrap';
 import { FormattedDate, FormattedMessage, FormattedNumber } from 'react-intl';

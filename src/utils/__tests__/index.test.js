@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';

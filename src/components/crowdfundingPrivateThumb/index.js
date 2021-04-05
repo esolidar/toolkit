@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { createRef, Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';
@@ -16,7 +16,7 @@ class CrowdfundingPrivateThumb extends Component {
       isLoading: true,
       boxSize: {},
     };
-    this.thumbBox = React.createRef();
+    this.thumbBox = createRef();
   }
 
   componentDidMount() {

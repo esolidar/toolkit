@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Col, Row } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';

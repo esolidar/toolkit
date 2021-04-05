@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+
 import { Row, Col, Card } from 'react-bootstrap';
 import { injectIntl } from 'react-intl';
 import Moment from 'react-moment';
