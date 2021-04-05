@@ -171,6 +171,7 @@ const Comments = ({
                         id: 'commentHere',
                         defaultMessage: 'Comment here…',
                       })}
+                      maxLength="500"
                     />
                     <FontAwesomeIcon
                       icon={faPaperPlane}
