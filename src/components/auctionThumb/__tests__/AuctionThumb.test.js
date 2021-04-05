@@ -1,7 +1,6 @@
-import React from 'react';
 import { configure, shallow } from 'enzyme';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { advanceTo } from 'jest-date-mock';
 import AuctionThumb from '../index';
 import CountdownThumb from '../../countdown';

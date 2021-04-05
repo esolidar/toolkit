@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';

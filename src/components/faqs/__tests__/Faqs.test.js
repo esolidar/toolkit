@@ -1,6 +1,5 @@
-import React from 'react';
 import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Faqs from '../index';
 
 configure({ adapter: new Adapter() });
@@ -113,6 +112,7 @@ describe('Faqs page', () => {
         isLoading={false}
       />
     );
-    expect(component.find('FormattedMessage').length).toBe(1);
+
+    expect(component.find('MemoizedFormattedMessage').length).toBe(1);
   });
 });

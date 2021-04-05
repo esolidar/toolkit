@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+
 import { Container, Row, Col } from 'react-bootstrap';
 import Slider from 'react-slick';
 

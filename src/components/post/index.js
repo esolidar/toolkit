@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Dropdown, DropdownButton, Modal } from 'react-bootstrap';
 import Moment from 'react-moment';

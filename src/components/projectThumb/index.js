@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';

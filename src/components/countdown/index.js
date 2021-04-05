@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { FormattedMessage } from 'react-intl';
