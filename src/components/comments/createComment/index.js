@@ -52,6 +52,7 @@ const CreateComment = props => {
             disabled={loadingNewComment}
             value={comment}
             placeholder={translateMessage({ id: 'commentHere', defaultMessage: 'Leave a comment' })}
+            maxLength="500"
           />
           <FontAwesomeIcon
             icon={faPaperPlane}

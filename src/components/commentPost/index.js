@@ -34,6 +34,7 @@ const CommentPost = ({
               onChange={textareaOnChange}
               error={errors[`reply-${postId}`]}
               required={true}
+              maxLength={500}
             />
             <button
               type="submit"
