@@ -1,11 +1,11 @@
 #### Import
-``` html
-import { NoMatch } from '@esolidar/toolkit';
+
+```js static
+import NoMatch from '@esolidar/toolkit/lib/components/noMatch';
 ```
+
 #### Example
-``` jsx
 
+```jsx
 <NoMatch color="#d1d1d1" />
-
 ```
-

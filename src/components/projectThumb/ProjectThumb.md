@@ -1,13 +1,12 @@
 #### Import
 
-``` html
-import { ProjectThumb } from '@esolidar/toolkit';
-
+```js static
+import ProjectThumb from '@esolidar/toolkit/lib/components/projectThumb';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <ProjectThumb
   project={
     {

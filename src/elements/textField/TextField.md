@@ -1,17 +1,19 @@
 #### Import
-``` html
-import { TextField } from '@esolidar/toolkit';
-```
-#### Example
-``` jsx
-<TextField 
-label="Lorem Ipsum " 
-type="text"
-onChange={() => {}}
-error='' 
-placeholder="" 
-defaultValue='defaultValue' 
-field="forCompanies"
-/>
+
+```js static
+import TextField from '@esolidar/toolkit/lib/elements/textField';
 ```
 
+#### Example
+
+```jsx
+<TextField
+  label="Lorem Ipsum "
+  type="text"
+  onChange={() => {}}
+  error=""
+  placeholder=""
+  defaultValue="defaultValue"
+  field="forCompanies"
+/>
+```

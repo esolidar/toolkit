@@ -1,24 +1,24 @@
 #### Import
 
-``` html
-import { AuctionLastBid } from '@esolidar/toolkit';
+```js static
+import AuctionLastBid from '@esolidar/toolkit/lib/components/auctionLastBid';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <AuctionLastBid
   auction={{
-        id: 279,
-        last_bid: {
-            id: 1606,
-            auction_id: 279,
-            value: 73,
-        },
-        currency: {
-            small: "EUR",
-        }
-      }}
+    id: 279,
+    last_bid: {
+      id: 1606,
+      auction_id: 279,
+      value: 73,
+    },
+    currency: {
+      small: 'EUR',
+    },
+  }}
   isEnded={false}
   isCommingSoon={false}
   handleClickBid={() => {}}

@@ -1,12 +1,12 @@
 #### Import
 
-``` html
-import { AuctionThumb } from '@esolidar/toolkit';
+```js static
+import AuctionThumb from '@esolidar/toolkit/lib/components/auctionThumb';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <div style={{float:'left'}}>
 <AuctionThumb
   auction={
@@ -64,7 +64,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                         department: null,
                         user: null
                     },
-                    
+
                 ],
                 name: "Joel F. Calheiros",
                 s3_key: "users/9/1606232953.jpg",
@@ -285,7 +285,7 @@ import { AuctionThumb } from '@esolidar/toolkit';
                         department: null,
                         user: null
                     },
-                    
+
                 ],
                 name: "Joel F. Calheiros",
                 s3_key: "users/9/1606232953.jpg",

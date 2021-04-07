@@ -1,14 +1,11 @@
 #### Import
 
-``` html
-import { CrowdfundingProgressBar } from '@esolidar/toolkit';
+```js static
+import CrowdfundingProgressBar from '@esolidar/toolkit/lib/components/crowdfundingProgressBar';
 ```
 
 #### Example
 
-``` jsx
-<CrowdfundingProgressBar
-  contributesSum={}
-  goal={}
-/>
+```jsx
+<CrowdfundingProgressBar contributesSum={6} goal={9} />
 ```

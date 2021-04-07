@@ -1,12 +1,12 @@
 #### Import
 
-``` html
-import { AuctionDetailRigth } from '@esolidar/toolkit';
+```js static
+import AuctionDetailRigth from '@esolidar/toolkit/lib/components/auctionDetailRigth';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <AuctionDetailRigth
   auctionTitle="Titulo"
   auction={{
@@ -22,8 +22,10 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
           id: 1,
         },
         thumbs: {
-          detail: 'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-DETAIL.JPG',
-          thumb: 'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-THUMB.JPG',
+          detail:
+            'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-DETAIL.JPG',
+          thumb:
+            'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-THUMB.JPG',
         },
         s3_image_key: 'institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
         s3_cover_key: null,
@@ -31,13 +33,13 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
       phones: [],
     },
     last_bid: {
-        id: 1606,
-        auction_id: 279,
-        value: 73,
+      id: 1606,
+      auction_id: 279,
+      value: 73,
     },
     currency: {
-        small: "EUR",
-    }
+      small: 'EUR',
+    },
   }}
   isEnded={false}
   isCommingSoon={false}
@@ -48,8 +50,8 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
   showModalSubscribe={() => {}}
   user={{
     currency: {
-      small: "EUR"
-    }
+      small: 'EUR',
+    },
   }}
   intl={{
     formatMessage: () => 'some text',
@@ -59,7 +61,7 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
   primaryColor="05c6e5"
   inputRef={{}}
   env={{
-    cdn_uploads_url: ''
+    cdn_uploads_url: '',
   }}
 />
 ```

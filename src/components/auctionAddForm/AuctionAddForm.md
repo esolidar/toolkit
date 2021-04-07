@@ -1,13 +1,12 @@
 #### Import
 
-``` html
-import { AuctionAddForm } from '@esolidar/toolkit';
-
+```js static
+import AuctionAddForm from '@esolidar/toolkit/lib/components/auctionAddForm';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <AuctionAddForm
   esolidarList={false}
   loadingPage={false}
@@ -17,7 +16,7 @@ import { AuctionAddForm } from '@esolidar/toolkit';
   }}
   timeZones={[]}
   getInstitutions={() => {}}
-    institutions={{
+  institutions={{
     code: 200,
     data: {
       institutions: {
@@ -26,13 +25,15 @@ import { AuctionAddForm } from '@esolidar/toolkit';
             user_id: 1124,
             id: 30,
             category_id: 1,
-            name: "Helpo",
-            sigla: "helpo",
+            name: 'Helpo',
+            sigla: 'helpo',
             accept_volunteer: 1,
             accept_donations: 1,
-            paypal_email: "donativos@esolidar.com",
-            image: "https://static.esolidar.com/institutions/5db984ee-51b4-43c3-b363-23eaac1f17c3.png",
-            cover_image: "https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg",
+            paypal_email: 'donativos@esolidar.com',
+            image:
+              'https://static.esolidar.com/institutions/5db984ee-51b4-43c3-b363-23eaac1f17c3.png',
+            cover_image:
+              'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
             country: 208,
             language: 2,
           },
@@ -40,19 +41,21 @@ import { AuctionAddForm } from '@esolidar/toolkit';
             user_id: 1125,
             id: 31,
             category_id: 1,
-            name: "Fundo Brasileiro para a Biodiversidade",
-            sigla: "AP Braga",
+            name: 'Fundo Brasileiro para a Biodiversidade',
+            sigla: 'AP Braga',
             accept_volunteer: 1,
             accept_donations: 1,
-            paypal_email: "donativos@esolidar.com",
-            image: "https://static.esolidar.com/institutions/5d00d812-c3a8-47c3-a66c-46bbac1f2e6d.jpg",
-            cover_image: "https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg",
+            paypal_email: 'donativos@esolidar.com',
+            image:
+              'https://static.esolidar.com/institutions/5d00d812-c3a8-47c3-a66c-46bbac1f2e6d.jpg',
+            cover_image:
+              'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
             country: 208,
             language: 2,
-          }
-        ]
-      }
-    }
+          },
+        ],
+      },
+    },
   }}
   showInstitutions={true}
   showProjects={false}
@@ -73,18 +76,17 @@ import { AuctionAddForm } from '@esolidar/toolkit';
   userRole="company"
   subscription={[
     {
-      created_at: "2019-10-25 10:08:39",
+      created_at: '2019-10-25 10:08:39',
       description: null,
       description_en: null,
       id: 7,
-      name: "whitelabel",
+      name: 'whitelabel',
       name_en: null,
-      pivot: {subscription_id: 1, feature_id: 7, hide: 0},
+      pivot: { subscription_id: 1, feature_id: 7, hide: 0 },
       status: true,
-      updated_at: "2019-10-28 17:05:13",
-    }
+      updated_at: '2019-10-28 17:05:13',
+    },
   ]}
   userBankTransfer={{}}
 />
-
 ```

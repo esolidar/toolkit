@@ -971,7 +971,7 @@ const AuctionDetail = ({
                         id="auction.detail.ends"
                         defaultMessage="This auction ends in: "
                       />
-                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="DD/MM/YYYY" />
+                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
                     </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"

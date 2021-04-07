@@ -1,14 +1,14 @@
 #### Import
 
-``` html
-import { SelectField } from '@esolidar/toolkit';
+```js static
+import SelectField from '@esolidar/toolkit/lib/elements/selectField';
 ```
 
 #### Example
 
-``` jsx
-<SelectField 
-  options={[{id: 1, name: 'lorem'}]}
+```jsx
+<SelectField
+  options={[{ id: 1, name: 'lorem' }]}
   value=""
   label="Select exemple"
   field="name"
@@ -16,4 +16,3 @@ import { SelectField } from '@esolidar/toolkit';
   selectText="Exemplo"
 />
 ```
-

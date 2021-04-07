@@ -1,13 +1,12 @@
 #### Import
 
-``` html
-import { CreateComment } from '@esolidar/toolkit';
-
+```js static
+import CreateComment from '@esolidar/toolkit/lib/components/createComment';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <CreateComment
   env="https://static.testesolidar.com"
   user={{

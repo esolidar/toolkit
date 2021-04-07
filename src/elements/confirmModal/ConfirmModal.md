@@ -1,16 +1,15 @@
 #### Import
 
-```html
-import { ConfirmModal } from '@esolidar/toolkit';
-
+```js static
+import ConfirmModal from '@esolidar/toolkit/lib/elements/confirmModal';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <ConfirmModal
   onConfirm={() => {
-  alert('Confirmed');
+    alert('Confirmed');
   }}
   body="Are you sure you want to delete this?"
   confirmText="Confirm Delete"
@@ -18,5 +17,4 @@ import { ConfirmModal } from '@esolidar/toolkit';
 >
   <button>Delete Stuff</button>
 </ConfirmModal>
-
 ```

@@ -1,899 +1,380 @@
 #### Import
 
-``` html
-import { Icon } from '@esolidar/toolkit';
+```js static
+import Icon from '@esolidar/toolkit/lib/components/icon';
 
-USE:
-
-<Icon iconClass="icon-camera" />
+USE: <Icon iconClass="icon-camera" />;
 ```
 
 #### List of Icons
 
-``` jsx
-
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-camera" />
-          <input type="text" readOnly value="icon-camera" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e900" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-cheveron-down" />
-          <input type="text" readOnly value="icon-cheveron-down" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e901" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-cheveron-left" />
-          <input type="text" readOnly value="icon-cheveron-left" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e902" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-cheveron-right" />
-          <input type="text" readOnly value="icon-cheveron-right" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e903" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-cheveron-up" />
-          <input type="text" readOnly value="icon-cheveron-up" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e904" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-close" />
-          <input type="text" readOnly value="icon-close" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e905" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-down-arrow" />
-          <input type="text" readOnly value="icon-down-arrow" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e906" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-facebook" />
-          <input type="text" readOnly value="icon-facebook" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e907" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-globe" />
-          <input type="text" readOnly value="icon-globe" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e908" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-google" />
-          <input type="text" readOnly value="icon-google" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-google-plus" />
-          <input type="text" readOnly value="icon-google-plus" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90b" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-google-plus3" />
-          <input type="text" readOnly value="icon-google-plus3" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90c" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-hamburger" />
-          <input type="text" readOnly value="icon-hamburger" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90d" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-headphones" />
-          <input type="text" readOnly value="icon-headphones" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90e" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-heart" />
-          <input type="text" readOnly value="icon-heart" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e90f" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-home" />
-          <input type="text" readOnly value="icon-home" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e910" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-httpslock" />
-          <input type="text" readOnly value="icon-httpslock" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e911" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-box-calendar-white" />
-          <input type="text" readOnly value="icon-ic-box-calendar-white" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e912" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-box-clock-timer-white" />
-          <input type="text" readOnly value="icon-ic-box-clock-timer-white" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e913" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-browser-chrome" />
-          <input type="text" readOnly value="icon-ic-browser-chrome" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e914" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-browser-opera" />
-          <input type="text" readOnly value="icon-ic-browser-opera" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e915" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-browser-safari" />
-          <input type="text" readOnly value="icon-ic-browser-safari" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e916" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-cause-white" />
-          <input type="text" readOnly value="icon-ic-cause-white" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e917" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-charities-benefited" />
-          <input type="text" readOnly value="icon-ic-charities-benefited" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e918" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-comment" />
-          <input type="text" readOnly value="icon-ic-comment" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e919" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-crowdfunding" />
-          <input type="text" readOnly value="icon-ic-crowdfunding" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-doc" />
-          <input type="text" readOnly value="icon-ic-doc" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91b" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-donations" />
-          <input type="text" readOnly value="icon-ic-donations" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91c" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-edit-request" />
-          <input type="text" readOnly value="icon-ic-edit-request" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91d" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-employees-involved" />
-          <input type="text" readOnly value="icon-ic-employees-involved" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91e" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-facebook" />
-          <input type="text" readOnly value="icon-ic-facebook" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e91f" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-feed" />
-          <input type="text" readOnly value="icon-ic-feed" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e920" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-file" />
-          <input type="text" readOnly value="icon-ic-file" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e921" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-file-upload" />
-          <input type="text" readOnly value="icon-ic-file-upload" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e922" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-go-back" />
-          <input type="text" readOnly value="icon-ic-go-back" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e923" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-goods" />
-          <input type="text" readOnly value="icon-ic-goods" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e924" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-hourglass-ended" />
-          <input type="text" readOnly value="icon-ic-hourglass-ended" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e925" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-hours" />
-          <input type="text" readOnly value="icon-ic-hours" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e926" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-instagram" />
-          <input type="text" readOnly value="icon-ic-instagram" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e928" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-location" />
-          <input type="text" readOnly value="icon-ic-location" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e929" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-auctions" />
-          <input type="text" readOnly value="icon-ic-menu-auctions" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-donations" />
-          <input type="text" readOnly value="icon-ic-menu-donations" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92b" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-manage-store" />
-          <input type="text" readOnly value="icon-ic-menu-manage-store" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92c" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-payments" />
-          <input type="text" readOnly value="icon-ic-menu-payments" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92d" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-requests-gray" />
-          <input type="text" readOnly value="icon-ic-menu-requests-gray" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92e" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-menu-store" />
-          <input type="text" readOnly value="icon-ic-menu-store" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e92f" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-notification-bell" />
-          <input type="text" readOnly value="icon-ic-notification-bell" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e930" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-delete" />
-          <input type="text" readOnly value="icon-icon-delete" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e931" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-faq" />
-          <input type="text" readOnly value="icon-icon-faq" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e932" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-feed" />
-          <input type="text" readOnly value="icon-icon-feed" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e933" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-giftcards" />
-          <input type="text" readOnly value="icon-icon-giftcards" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e934" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-growdfunding" />
-          <input type="text" readOnly value="icon-icon-growdfunding" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e935" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-ic-volunteering" />
-          <input type="text" readOnly value="icon-icon-ic-volunteering" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e936" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-manage-employees" />
-          <input type="text" readOnly value="icon-icon-manage-employees" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e937" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-payments" />
-          <input type="text" readOnly value="icon-icon-payments" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e938" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icons-manage-employees" />
-          <input type="text" readOnly value="icon-icons-manage-employees" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e939" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-statistics" />
-          <input type="text" readOnly value="icon-icon-statistics" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-icon-volunteering" />
-          <input type="text" readOnly value="icon-icon-volunteering" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93b" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-ppt" />
-          <input type="text" readOnly value="icon-ic-ppt" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93c" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-request-goods-gray" />
-          <input type="text" readOnly value="icon-ic-request-goods-gray" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93d" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-settings" />
-          <input type="text" readOnly value="icon-ic-settings" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93e" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-status-comments" />
-          <input type="text" readOnly value="icon-ic-status-comments" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e93f" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-status-volunteers" />
-          <input type="text" readOnly value="icon-ic-status-volunteers" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e940" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-survey" />
-          <input type="text" readOnly value="icon-ic-survey" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e941" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-txt" />
-          <input type="text" readOnly value="icon-ic-txt" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e942" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-up" />
-          <input type="text" readOnly value="icon-ic-up" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e943" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-verification-phone-code" />
-          <input type="text" readOnly value="icon-ic-verification-phone-code" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e944" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-view-request" />
-          <input type="text" readOnly value="icon-ic-view-request" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e945" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-volunteering" />
-          <input type="text" readOnly value="icon-ic-volunteering" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e946" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-website" />
-          <input type="text" readOnly value="icon-ic-website" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e947" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-ic-xls" />
-          <input type="text" readOnly value="icon-ic-xls" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e948" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-import-employees" />
-          <input type="text" readOnly value="icon-import-employees" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e949" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-instagram" />
-          <input type="text" readOnly value="icon-instagram" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-left-arrow" />
-          <input type="text" readOnly value="icon-left-arrow" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94b" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-linkedin2" />
-          <input type="text" readOnly value="icon-linkedin2" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94c" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-mail4" />
-          <input type="text" readOnly value="icon-mail4" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94d" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-menu-mobile" />
-          <input type="text" readOnly value="icon-menu-mobile" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94e" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-pdf" />
-          <input type="text" readOnly value="icon-pdf" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e94f" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-pinterest" />
-          <input type="text" readOnly value="icon-pinterest" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e950" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-right" />
-          <input type="text" readOnly value="icon-right" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e951" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-right-arrow" />
-          <input type="text" readOnly value="icon-right-arrow" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e952" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-star-full" />
-          <input type="text" readOnly value="icon-star-full" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e953" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-telegram" />
-          <input type="text" readOnly value="icon-telegram" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e954" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-twitter" />
-          <input type="text" readOnly value="icon-twitter" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e955" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-up-arrow" />
-          <input type="text" readOnly value="icon-up-arrow" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e956" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-vimeo" />
-          <input type="text" readOnly value="icon-vimeo" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e957" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph " style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-youtube" />
-          <input type="text" readOnly value="icon-youtube" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e958" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-
-  </div>
-  <div className="glyph" style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-image" />
-          <input type="text" readOnly value="icon-image" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e95a" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-  <div className="glyph" style={{display: 'inlineBlock', float: 'left', textAlign: 'center', padding: '15px', minWidth: '20%'}}>
-      <div className="clearfix bshadow0 pbs">
-          <Icon iconClass="icon-projects" />
-          <input type="text" readOnly value="icon-projects" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </div>
-      <fieldset className="fs0 size1of1 clearfix hidden-false">
-          <input type="text" readOnly value="e959" style={{borderColor: '#fff', borderStyle: 'solid', textAlign: 'center'}} />
-      </fieldset>
-  </div>
-
-<div style={{clear: 'both'}}></div>
-
+```jsx padded
+const icons = [
+  {
+    name: 'icon-camera',
+    font: 'e900',
+  },
+  {
+    name: 'icon-cheveron-down',
+    font: 'e901',
+  },
+  {
+    name: 'icon-cheveron-left',
+    font: 'e902',
+  },
+  {
+    name: 'icon-cheveron-right',
+    font: 'e903',
+  },
+  {
+    name: 'icon-cheveron-up',
+    font: 'e904',
+  },
+  {
+    name: 'icon-close',
+    font: 'e905',
+  },
+  {
+    name: 'icon-down-arrow',
+    font: 'e906',
+  },
+  {
+    name: 'icon-facebook',
+    font: 'e907',
+  },
+  {
+    name: 'icon-globe',
+    font: 'e908',
+  },
+  {
+    name: 'icon-google',
+    font: 'e90a',
+  },
+  {
+    name: 'icon-google-plus',
+    font: 'e90b',
+  },
+  {
+    name: 'icon-google-plus3',
+    font: 'e90c',
+  },
+  {
+    name: 'icon-hamburger',
+    font: 'e90d',
+  },
+  {
+    name: 'icon-headphones',
+    font: 'e90e',
+  },
+  {
+    name: 'icon-heart',
+    font: 'e90f',
+  },
+  {
+    name: 'icon-home',
+    font: 'e910',
+  },
+  {
+    name: 'icon-httpslock',
+    font: 'e911',
+  },
+  {
+    name: 'icon-ic-box-calendar-white',
+    font: 'e912',
+  },
+  {
+    name: 'icon-ic-box-clock-timer-white',
+    font: 'e913',
+  },
+  {
+    name: 'icon-ic-browser-chrome',
+    font: 'e914',
+  },
+  {
+    name: 'icon-ic-browser-opera',
+    font: 'e915',
+  },
+  {
+    name: 'icon-ic-browser-safari',
+    font: 'e916',
+  },
+  {
+    name: 'icon-ic-cause-white',
+    font: 'e917',
+  },
+  {
+    name: 'icon-ic-charities-benefited',
+    font: 'e918',
+  },
+  {
+    name: 'icon-ic-comment',
+    font: 'e919',
+  },
+  {
+    name: 'icon-ic-crowdfunding',
+    font: 'e91a',
+  },
+  {
+    name: 'icon-ic-doc',
+    font: 'e91b',
+  },
+  {
+    name: 'icon-ic-donations',
+    font: 'e91c',
+  },
+  {
+    name: 'icon-ic-edit-request',
+    font: 'e91d',
+  },
+  {
+    name: 'icon-ic-employees-involved',
+    font: 'e91e',
+  },
+  {
+    name: 'icon-ic-facebook',
+    font: 'e91f',
+  },
+  {
+    name: 'icon-ic-feed',
+    font: 'e920',
+  },
+  {
+    name: 'icon-ic-file',
+    font: 'e921',
+  },
+  {
+    name: 'icon-ic-file-upload',
+    font: 'e922',
+  },
+  {
+    name: 'icon-ic-go-back',
+    font: 'e923',
+  },
+  {
+    name: 'icon-ic-goods',
+    font: 'e924',
+  },
+  {
+    name: 'icon-ic-hourglass-ended',
+    font: 'e925',
+  },
+  {
+    name: 'icon-ic-hours',
+    font: 'e926',
+  },
+  {
+    name: 'icon-ic-instagram',
+    font: 'e928',
+  },
+  {
+    name: 'icon-ic-location',
+    font: 'e929',
+  },
+  {
+    name: 'icon-ic-menu-auctions',
+    font: 'e92a',
+  },
+  {
+    name: 'icon-ic-menu-donations',
+    font: 'e92b',
+  },
+  {
+    name: 'icon-ic-menu-manage-store',
+    font: 'e92c',
+  },
+  {
+    name: 'icon-ic-menu-payments',
+    font: 'e92d',
+  },
+  {
+    name: 'icon-ic-menu-requests-gray',
+    font: 'e92e',
+  },
+  {
+    name: 'icon-ic-menu-store',
+    font: 'e92f',
+  },
+  {
+    name: 'icon-ic-notification-bell',
+    font: 'e930',
+  },
+  {
+    name: 'icon-icon-delete',
+    font: 'e931',
+  },
+  {
+    name: 'icon-icon-faq',
+    font: 'e932',
+  },
+  {
+    name: 'icon-icon-feed',
+    font: 'e933',
+  },
+  {
+    name: 'icon-icon-giftcards',
+    font: 'e934',
+  },
+  {
+    name: 'icon-icon-growdfunding',
+    font: 'e935',
+  },
+  {
+    name: 'icon-icon-ic-volunteering',
+    font: 'e936',
+  },
+  {
+    name: 'icon-icon-manage-employees',
+    font: 'e937',
+  },
+  {
+    name: 'icon-icon-payments',
+    font: 'e938',
+  },
+  {
+    name: 'icon-icons-manage-employees',
+    font: 'e939',
+  },
+  {
+    name: 'icon-icon-statistics',
+    font: 'e93a',
+  },
+  {
+    name: 'icon-icon-volunteering',
+    font: 'e93b',
+  },
+  {
+    name: 'icon-ic-ppt',
+    font: 'e93c',
+  },
+  {
+    name: 'icon-ic-request-goods-gray',
+    font: 'e93d',
+  },
+  {
+    name: 'icon-ic-settings',
+    font: 'e93e',
+  },
+  {
+    name: 'icon-ic-status-comments',
+    font: 'e93f',
+  },
+  {
+    name: 'icon-ic-status-volunteers',
+    font: 'e940',
+  },
+  {
+    name: 'icon-ic-survey',
+    font: 'e941',
+  },
+  {
+    name: 'icon-ic-txt',
+    font: 'e942',
+  },
+  {
+    name: 'icon-ic-up',
+    font: 'e943',
+  },
+  {
+    name: 'icon-ic-verification-phone-code',
+    font: 'e944',
+  },
+  {
+    name: 'icon-ic-view-request',
+    font: 'e945',
+  },
+  {
+    name: 'icon-ic-volunteering',
+    font: 'e946',
+  },
+  {
+    name: 'icon-ic-website',
+    font: 'e947',
+  },
+  {
+    name: 'icon-ic-xls',
+    font: 'e948',
+  },
+  {
+    name: 'icon-import-employees',
+    font: 'e949',
+  },
+  {
+    name: 'icon-instagram',
+    font: 'e94a',
+  },
+  {
+    name: 'icon-left-arrow',
+    font: 'e94b',
+  },
+  {
+    name: 'icon-linkedin2',
+    font: 'e94c',
+  },
+  {
+    name: 'icon-mail4',
+    font: 'e94d',
+  },
+  {
+    name: 'icon-menu-mobile',
+    font: 'e94e',
+  },
+  {
+    name: 'icon-pdf',
+    font: 'e94f',
+  },
+  {
+    name: 'icon-pinterest',
+    font: 'e950',
+  },
+  {
+    name: 'icon-right',
+    font: 'e951',
+  },
+  {
+    name: 'icon-right-arrow',
+    font: 'e952',
+  },
+  {
+    name: 'icon-star-full',
+    font: 'e953',
+  },
+  {
+    name: 'icon-telegram',
+    font: 'e954',
+  },
+  {
+    name: 'icon-twitter',
+    font: 'e955',
+  },
+  {
+    name: 'icon-up-arrow',
+    font: 'e956',
+  },
+  {
+    name: 'icon-vimeo',
+    font: 'e957',
+  },
+  {
+    name: 'icon-youtube',
+    font: 'e958',
+  },
+  {
+    name: 'icon-image',
+    font: 'e95a',
+  },
+  {
+    name: 'icon-projects',
+    font: 'e959',
+  },
+];
+
+<div className="d-flex" style={{ flexFlow: 'wrap' }}>
+  {icons.map(icon => (
+    <div className="p-3 d-flex align-items-center flex-column" style={{ width: '20%' }}>
+      <Icon iconClass={icon.name} />
+      <div>{icon.name}</div>
+      <div>{icon.font}</div>
+    </div>
+  ))}
+</div>;
 ```
-

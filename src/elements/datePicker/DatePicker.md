@@ -1,12 +1,12 @@
 #### Import
 
-``` html
-import { DatePicker } from '@esolidar/toolkit';
+```js static
+import DatePicker from '@esolidar/toolkit/lib/elements/datePicker';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <DatePicker
   classnames={() => {}}
   label="Start Date"
@@ -16,6 +16,6 @@ import { DatePicker } from '@esolidar/toolkit';
   endDate={new Date('2021-03-06T10:20:30Z')}
   onChange={() => {}}
   className="form-control"
-  errors=''
+  errors=""
 />
 ```

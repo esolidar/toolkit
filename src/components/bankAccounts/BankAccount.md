@@ -1,15 +1,14 @@
 #### Import
 
-``` html
-import { BankAccount } from '@esolidar/toolkit';
-
+```js static
+import BankAccount from '@esolidar/toolkit/lib/components/bankAccount';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <BankAccount
-  intl={() => ('')}
+  intl={() => ''}
   countryId={208}
   color="green"
   postBankTransfer={() => {}}
@@ -17,5 +16,4 @@ import { BankAccount } from '@esolidar/toolkit';
   getBankTransfer={{}}
   bankTransfer={null}
 />
-
 ```
