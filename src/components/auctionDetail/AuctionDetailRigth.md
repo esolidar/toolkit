@@ -30,6 +30,16 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
       },
       phones: [],
     },
+    brand: {
+      id: 1,
+      logo: "https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e.png",
+      logo_thumbs: {
+        detail: "https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-DETAIL.png",
+        standard: "https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-STANDARD.png",
+        thumb: "https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-THUMB.png",
+      },
+      name: "Amazonia Live change777",
+    },
     last_bid: {
         id: 1606,
         auction_id: 279,
@@ -61,5 +71,7 @@ import { AuctionDetailRigth } from '@esolidar/toolkit';
   env={{
     cdn_uploads_url: ''
   }}
+  domainUrl="https://esolidar.local:8081/"
+  locale="en"
 />
 ```

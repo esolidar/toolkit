@@ -1020,6 +1020,8 @@ const AuctionDetail = ({
                       primaryColor={primaryColor}
                       env={env}
                       inputRef={inputRef}
+                      domainUrl={domainUrl}
+                      locale={locale}
                     />
                   </Row>
                 </Col>

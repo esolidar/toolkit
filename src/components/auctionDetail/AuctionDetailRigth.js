@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
-import { convertToMyCurrency } from '../../utils/index';
+import { convertToMyCurrency, slugify } from '../../utils/index';
 import Button from '../../elements/button';
 import TextField from '../../elements/textField';
 
@@ -22,6 +22,8 @@ const AuctionDetailRigth = ({
   primaryColor,
   inputRef,
   env,
+  domainUrl,
+  locale,
 }) => {
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
@@ -30,14 +32,22 @@ const AuctionDetailRigth = ({
   if (auction.recipient && auction.recipient.institution) {
     supported.title = auction.recipient.institution.name;
     supported.image = auction.recipient.institution.thumbs.thumb;
+    supported.id = auction.recipient.institution.id;
+    supported.link = `${domainUrl}${locale}/npo/detail/${supported.id}-${slugify(
+      auction.recipient.institution.name
+    )}`;
   } else if (auction.brand) {
     supported.title = auction.brand.name;
     supported.image = auction.brand.logo_thumbs.thumb;
+    supported.id = auction.brand.id;
+    supported.link = `${domainUrl}${locale}/${slugify(auction.brand.name)}`;
   } else if (auction.project) {
     supported.title = auction.project.title;
     supported.image = auction.project.images
       ? `${env.cdn_uploads_url}/${auction.project.images[0].image}`
       : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+    supported.id = auction.project.id;
+    supported.link = `/${locale}/projects/detail/${supported.id}-${slugify(auction.project.title)}`;
   } else {
     supported = null;
   }
@@ -176,31 +186,38 @@ const AuctionDetailRigth = ({
           {supported && (
             <Col sm={12} className="auction-box" data-testid="supported-section">
               <div>
-                <img className="npo-thumb" src={supported.image} alt="thumb" />
-                {auction.brand && auction.recipient && (
-                  <FormattedMessage
-                    id="auction.detail.brandSupport"
-                    defaultMessage="{brandName} will benefit {instituionName} with this auction."
-                    values={{
-                      brandName: auction.brand.name,
-                      instituionName: auction.recipient.institution.name,
-                    }}
-                  />
-                )}
-                {auction.brand && !auction.recipient && (
-                  <FormattedMessage
-                    id="auction.detail.proceedsSupport"
-                    defaultMessage="Proceeds support {brandName}"
-                    values={{ brandName: auction.brand.name }}
-                  />
-                )}
-                {!auction.brand && auction.recipient && (
-                  <FormattedMessage
-                    id="auction.detail.institutionSupport"
-                    defaultMessage="Proceeds support {instituionName}"
-                    values={{ instituionName: auction.recipient.institution.name }}
-                  />
-                )}
+                <a
+                  className="auction-box-link"
+                  href={supported.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img className="npo-thumb" src={supported.image} alt="thumb" />
+                  {auction.brand && auction.recipient && (
+                    <FormattedMessage
+                      id="auction.detail.brandSupport"
+                      defaultMessage="{brandName} will benefit {instituionName} with this auction."
+                      values={{
+                        brandName: auction.brand.name,
+                        instituionName: auction.recipient.institution.name,
+                      }}
+                    />
+                  )}
+                  {auction.brand && !auction.recipient && (
+                    <FormattedMessage
+                      id="auction.detail.proceedsSupport"
+                      defaultMessage="Proceeds support {brandName}"
+                      values={{ brandName: auction.brand.name }}
+                    />
+                  )}
+                  {!auction.brand && auction.recipient && (
+                    <FormattedMessage
+                      id="auction.detail.institutionSupport"
+                      defaultMessage="Proceeds support {instituionName}"
+                      values={{ instituionName: auction.recipient.institution.name }}
+                    />
+                  )}
+                </a>
               </div>
             </Col>
           )}
@@ -233,6 +250,8 @@ AuctionDetailRigth.propTypes = {
   primaryColor: PropTypes.string,
   env: PropTypes.object,
   inputRef: PropTypes.object,
+  domainUrl: PropTypes.string,
+  locale: PropTypes.string,
 };
 
 export default injectIntl(AuctionDetailRigth);

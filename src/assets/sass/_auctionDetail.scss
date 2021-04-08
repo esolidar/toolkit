@@ -366,6 +366,11 @@
     margin-bottom: 5px;
     display      : flex;
 
+    .auction-box-link {
+      text-decoration: none;
+      color: $statusDeclinedColor;
+    }
+
     .npo-thumb {
       background   : #f6f9f9;
       border       : 1px solid #e7eaed;
