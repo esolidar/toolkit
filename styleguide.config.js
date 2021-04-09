@@ -8,26 +8,20 @@ module.exports = {
   assetsDir: './styleguide/',
   sections: [
     {
-      name: 'Utils',
-      components: 'src/utils/index.js',
-      exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
-      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
-    },
-    {
       name: 'Icons',
-      components: 'src/components/icon/Icon.js',
-      exampleMode: 'hide', // 'hide' | 'collapse' | 'expand'
-      usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
+      components: 'src/components/icon/index.js',
+      exampleMode: 'collapse', // 'hide' | 'collapse' | 'expand'
+      usageMode: 'collapse', // 'hide' | 'collapse' | 'expand'
     },
     {
       name: 'Elements',
-      components: 'src/elements/**/*.js',
+      components: 'src/elements/**/*.{js,jsx,ts,tsx}',
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand', // 'hide' | 'collapse' | 'expand'
     },
     {
       name: 'Components',
-      components: 'src/components/**/*.js',
+      components: 'src/components/**/*.{js,jsx,ts,tsx}',
       ignore: [
         'src/components/icon/Icon.js',
         'src/components/draftEditor/draft/*',

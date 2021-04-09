@@ -1,7 +1,7 @@
 #### Import
 
-```html
-import { FeaturesMenu } from '@esolidar/toolkit';
+```js static
+import FeaturesMenu from '@esolidar/toolkit/lib/components/featuresMenu';
 ```
 
 #### Example

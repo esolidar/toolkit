@@ -1,8 +1,7 @@
 #### Import
 
-```html
-import { CustomModal } from '@esolidar/toolkit';
-
+```js static
+import CustomModal from '@esolidar/toolkit/lib/elements/customModal';
 ```
 
 #### Example
@@ -21,5 +20,4 @@ import { CustomModal } from '@esolidar/toolkit';
   title="Title"
   subtitle="subtitle"
 />
-
 ```

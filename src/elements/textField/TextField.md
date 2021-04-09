@@ -1,7 +1,7 @@
 #### Import
 
-```html
-import { TextField } from '@esolidar/toolkit';
+```js static
+import TextField from '@esolidar/toolkit/lib/elements/textField';
 ```
 
 #### Example

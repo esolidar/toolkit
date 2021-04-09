@@ -1,14 +1,14 @@
 #### Import
 
-``` html
-import { InvoicingData } from '@esolidar/toolkit';
-
+```js static
+import InvoicingData from '@esolidar/toolkit/lib/components/invoicingData';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <InvoicingData
+  translateMessage={() => {}}
   state={{
     errors: {},
     receipt: 1,
@@ -17,7 +17,6 @@ import { InvoicingData } from '@esolidar/toolkit';
     agree: 1,
   }}
   onChangCheckBoxInvoicing={() => {}}
-  onChange={()=>{}}
+  onChange={() => {}}
 />
-
 ```

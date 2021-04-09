@@ -645,11 +645,11 @@ test('should exist countdown with time', async () => {
   await waitFor(() => {
     const divCountDown = screen.getByTestId('div-countdown');
     expect(divCountDown).toBeInTheDocument();
-    const countdownHour = screen.getByTestId('auction-detail-countdown-hour');
+    const countdownHour = screen.getByTestId('auction-detail-countdown-hours');
     expect(countdownHour).toHaveTextContent('16HOUR');
     const countdownMin = screen.getByTestId('auction-detail-countdown-min');
     expect(countdownMin).toHaveTextContent('00MIN');
-    const countdownSec = screen.getByTestId('auction-detail-countdown-seconds');
+    const countdownSec = screen.getByTestId('auction-detail-countdown-sec');
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent(

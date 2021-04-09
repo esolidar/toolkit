@@ -1,12 +1,12 @@
 #### Import
 
-``` html
-import { AuctionDetail } from '@esolidar/toolkit';
+```js static
+import AuctionDetail from '@esolidar/toolkit/lib/components/auctionDetail';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <AuctionDetail
   auctionId="279"
   getAuctionDetail={() => {}}
@@ -18,7 +18,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
       project_id: null,
       title: 'Leilão teste NORMAL',
       title_en: 'd3d34d43',
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting",
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
       description_en: null,
       shipping_description: null,
       shipping_description_en: null,
@@ -87,19 +87,23 @@ import { AuctionDetail } from '@esolidar/toolkit';
               updatedDate: '2021-01-09 19:42:07',
               dateAdded: '2021-01-07 11:32:00',
             },
-           
           ],
         },
       },
       images: [
         {
           id: 193,
-          image_name: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301.jpeg',
+          image_name:
+            'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301.jpeg',
           thumbs: {
-            standard: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-STANDARD.jpeg',
-            detail: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-DETAIL.jpeg',
-            pin: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-PIN.jpeg',
-            thumb: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-THUMB.jpeg',
+            standard:
+              'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-STANDARD.jpeg',
+            detail:
+              'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-DETAIL.jpeg',
+            pin:
+              'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-PIN.jpeg',
+            thumb:
+              'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-THUMB.jpeg',
           },
         },
       ],
@@ -119,12 +123,14 @@ import { AuctionDetail } from '@esolidar/toolkit';
         institution: {
           id: 51,
           name: 'Fundo Brasileiro para a Biodiversidade',
-          image: 'https://static.esolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
+          image:
+            'https://static.esolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002.JPG',
           currency: {
             id: 1,
           },
           thumbs: {
-            thumb: 'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-THUMB.JPG',
+            thumb:
+              'https://cdn.testesolidar.com/institutions/5f746beb-5fd0-4ae3-9679-0011ac120002-THUMB.JPG',
           },
         },
         phones: [],
@@ -146,11 +152,15 @@ import { AuctionDetail } from '@esolidar/toolkit';
             id: 1,
             name: 'Webankor (eSolidar)',
             logo: 'https://static.esolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
-            cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+            cover_image:
+              'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             thumbs: {
-              detail: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
-              thumb: 'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
-              cover_image: 'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
+              detail:
+                'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-DETAIL.jpg',
+              thumb:
+                'https://cdn.testesolidar.com/companies/28eb9ced-4b5f-4503-8d82-486e292bb312-THUMB.jpg',
+              cover_image:
+                'https://cdn.testesolidar.com/companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
             },
             s3_logo_key: 'companies/28eb9ced-4b5f-4503-8d82-486e292bb312.jpg',
             s3_cover_key: 'companies/1/cover/3f91a5b1-8620-4cd5-aec7-f76a05454bf7.jpg',
@@ -231,12 +241,12 @@ import { AuctionDetail } from '@esolidar/toolkit';
         ],
       },
     },
-  }}  
+  }}
   postNewBid={() => {}}
   newBid={{
     code: 404,
   }}
-  getAuctionBidList= {() => {}}
+  getAuctionBidList={() => {}}
   auctionBidList={{
     code: 200,
     data: {
@@ -352,7 +362,7 @@ import { AuctionDetail } from '@esolidar/toolkit';
   env={{
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
-    cdn_uploads_url: 'https://cdn.testesolidar.com'
+    cdn_uploads_url: 'https://cdn.testesolidar.com',
   }}
   postAuctionUserComment={() => {}}
   auctionUserComment={[]}

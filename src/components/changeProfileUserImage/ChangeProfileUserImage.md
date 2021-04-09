@@ -1,7 +1,7 @@
 #### Import
 
-```html
-import { ChangeProfileUserImage } from '@esolidar/toolkit';
+```js static
+import ChangeProfileUserImage from '@esolidar/toolkit/lib/components/changeProfileUserImage';
 ```
 
 #### Example

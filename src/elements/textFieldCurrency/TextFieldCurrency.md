@@ -1,17 +1,20 @@
 #### Import
-``` html
-import { TextFieldCurrency } from '@esolidar/toolkit';
+
+```js static
+import TextFieldCurrency from '@esolidar/toolkit/lib/elements/textFieldCurrency';
 ```
+
 #### Example
-``` jsx
+
+```jsx
 <TextFieldCurrency
   label="Title"
   prefix="EUR"
   type="text"
   onChange={() => {}}
-  error='' 
-  placeholder="€ 0,00" 
-  defaultValue='defaultValue' 
+  error=""
+  placeholder="€ 0,00"
+  defaultValue="defaultValue"
   disabled={false}
   className="teste"
 />

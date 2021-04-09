@@ -1,14 +1,11 @@
 #### Import
 
-``` html
-import { HtmlEditor } from '@esolidar/toolkit';
-
+```js static
+import HtmlEditor from '@esolidar/toolkit/lib/components/htmlEditor';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <HtmlEditor initialContent="<p>Titulo</p>" />
-
 ```
-

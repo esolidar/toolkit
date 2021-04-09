@@ -1,20 +1,20 @@
 #### Import
 
-``` html
-import { ValidateTelephone } from '@esolidar/toolkit';
+```js static
+import ValidateTelephone from '@esolidar/toolkit/lib/components/validateTelephone';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <ValidateTelephone
   localStorage={{
-    lang: "pt",
+    lang: 'pt',
     user: {
-      id: "51792",
-    }
+      id: '51792',
+    },
   }}
-  mobileValidatePost={()=> {}}
+  mobileValidatePost={() => {}}
   validatePhone={{
     code: 200,
     data: {
@@ -29,7 +29,7 @@ import { ValidateTelephone } from '@esolidar/toolkit';
       },
     },
   }}
-  mobileConfirmPost={()=> {}}
+  mobileConfirmPost={() => {}}
   confirmPhone={{
     code: 200,
     data: {
@@ -48,5 +48,4 @@ import { ValidateTelephone } from '@esolidar/toolkit';
     },
   }}
 />
-
 ```

@@ -1,23 +1,22 @@
 #### Import
 
-``` html
-import { TextFieldGroup } from '@esolidar/toolkit';
+```js static
+import TextFieldGroup from '@esolidar/toolkit/lib/elements/textFieldGroup';
 ```
 
 #### Example
 
-``` jsx
-<TextFieldGroup 
+```jsx
+<TextFieldGroup
   type="type"
-  label="Lorem Ipsum" 
+  label="Lorem Ipsum"
   groupText="Group Text"
   error="error"
   placeholder="Placeholder"
-  onChange={()=>console.log('test')}
+  onChange={() => console.log('test')}
   field="textFieldGroup"
   defaultValue="defaultValue"
   message="Mensagem"
   disabled={true}
 />
 ```
-

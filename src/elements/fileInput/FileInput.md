@@ -1,13 +1,13 @@
 #### Import
 
-``` html
-import { FileInput } from '@esolidar/toolkit';
+```js static
+import FileInput from '@esolidar/toolkit/lib/elements/fileInput';
 ```
 
 #### Example
 
-``` jsx
-<FileInput 
+```jsx
+<FileInput
   name="logo_image"
   accept=".png,.jpg,.jpeg"
   disabled=""
@@ -16,7 +16,7 @@ import { FileInput } from '@esolidar/toolkit';
   styleLogo={{backgroundImage: 'url(https://static.esolidar.com/frontend/assets/brand-logo.jpg)'}}
 />
 
-<FileInput 
+<FileInput
   name="cover"
   accept=".png,.jpg,.jpeg"
   className="input-image"

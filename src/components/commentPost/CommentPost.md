@@ -1,54 +1,51 @@
 #### Import
 
-``` html
-import { CommentPost } from '@esolidar/toolkit';
-
+```js static
+import CommentPost from '@esolidar/toolkit/lib/components/commentPost';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <CommentPost
   postId={1}
-  showCreateComment={()=>{}}
-  onSubmit={()=>{}}
+  showCreateComment={() => {}}
+  onSubmit={() => {}}
   role="string"
   companyLogo="https://cdn.esolidar.com/companies/adcdcdd0-abb4-4379-be4a-453ddd4ac295-THUMB.png"
-  postAsCompany={()=>{}}
+  postAsCompany={() => {}}
   locale="pt"
-  postAsUser={()=>{}}
+  postAsUser={() => {}}
   textareaText="string"
   commentHereText="string"
-  textareaOnChange={()=>{}}
+  textareaOnChange={() => {}}
   errors={[]}
   disabled={false}
   user={{
     id: 153074,
     thumbs: {
-      original: "https://cdn.esolidar.com/users/153074/1588601339.jpg",
-      standard: "https://cdn.esolidar.com/users/153074/1588601339-STANDARD.jpg",
-      thumb: "https://cdn.esolidar.com/users/153074/1588601339-THUMB.jpg",
+      original: 'https://cdn.esolidar.com/users/153074/1588601339.jpg',
+      standard: 'https://cdn.esolidar.com/users/153074/1588601339-STANDARD.jpg',
+      thumb: 'https://cdn.esolidar.com/users/153074/1588601339-THUMB.jpg',
     },
     work_email: [
       {
         company_id: 1007,
         department: null,
-        name: "Patrícia Silva",
-        role: "admin",
+        name: 'Patrícia Silva',
+        role: 'admin',
         user: null,
       },
-    ]
+    ],
   }}
   company={{
     id: 1007,
     thumbs: {
-      cover_image: "https://cdn.esolidar.com/companies/1007/cover/2b48a9c1-f5f8-4a2a-9c10-4d02ddce451c.jpg",
-      detail: "https://cdn.esolidar.com/companies/adcdcdd0-abb4-4379-be4a-453ddd4ac295-DETAIL.png",
-      thumb: "https://cdn.esolidar.com/companies/adcdcdd0-abb4-4379-be4a-453ddd4ac295-THUMB.png",
-    }
+      cover_image:
+        'https://cdn.esolidar.com/companies/1007/cover/2b48a9c1-f5f8-4a2a-9c10-4d02ddce451c.jpg',
+      detail: 'https://cdn.esolidar.com/companies/adcdcdd0-abb4-4379-be4a-453ddd4ac295-DETAIL.png',
+      thumb: 'https://cdn.esolidar.com/companies/adcdcdd0-abb4-4379-be4a-453ddd4ac295-THUMB.png',
+    },
   }}
 />
 ```
-
-
-

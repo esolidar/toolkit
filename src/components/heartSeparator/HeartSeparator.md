@@ -1,13 +1,11 @@
 #### Import
 
-``` html
-import { HeartSeparator } from '@esolidar/toolkit';
-
+```js static
+import HeartSeparator from '@esolidar/toolkit/lib/components/heartSeparator';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <HeartSeparator />
-
 ```

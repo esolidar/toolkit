@@ -1,13 +1,12 @@
 #### Import
 
-``` html
-import { Step2 } from '@esolidar/toolkit';
-
+```js static
+import Step2 from '@esolidar/toolkit/lib/components/step2';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <Step2
   state={{
     isLoadingPayment: false,
@@ -18,8 +17,7 @@ import { Step2 } from '@esolidar/toolkit';
     agree: 1,
   }}
   onChangCheckBoxInvoicing={() => {}}
-  onChange={()=>{}}
+  onChange={() => {}}
   translateMessage={() => 'Some text'}
 />
-
 ```

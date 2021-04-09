@@ -1,7 +1,7 @@
 #### Import
 
-```html
-import { ButtonGroup } from '@esolidar/toolkit';
+```js static
+import ButtonGroup from '@esolidar/toolkit/lib/elements/buttonGroup';
 ```
 
 #### Example
@@ -12,12 +12,12 @@ import { ButtonGroup } from '@esolidar/toolkit';
     {
       isActive: true,
       onClick: () => {},
-      text: "Activos",
+      text: 'Activos',
     },
     {
       isActive: false,
       onClick: () => {},
-      text: "Inactivos",
+      text: 'Inactivos',
     },
   ]}
 />

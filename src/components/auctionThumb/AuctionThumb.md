@@ -1,12 +1,12 @@
 #### Import
 
-``` html
-import { AuctionThumb } from '@esolidar/toolkit';
+```js static
+import AuctionThumb from '@esolidar/toolkit/lib/components/auctionThumb';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <div style={{float:'left'}}>
 <AuctionThumb
   lang="pt"

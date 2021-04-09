@@ -1,10 +1,13 @@
 #### Import
-``` html
-import { TextFieldNumber } from '@esolidar/toolkit';
+
+```js static
+import TextFieldNumber from '@esolidar/toolkit/lib/elements/textFieldNumber';
 ```
+
 #### Example
-``` jsx
-<TextFieldNumber 
+
+```jsx
+<TextFieldNumber
   label="title"
   onChange={() => {}}
   error=""
@@ -15,4 +18,3 @@ import { TextFieldNumber } from '@esolidar/toolkit';
   placeholder="0%"
 />
 ```
-

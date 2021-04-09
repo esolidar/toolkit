@@ -1,19 +1,18 @@
 #### Import
 
-``` html
-import { TextareaField } from '@esolidar/toolkit';
+```js static
+import TextareaField from '@esolidar/toolkit/lib/elements/textareaField';
 import envConstant from '../../shared/constants/env';
 ```
 
 #### Example
 
-``` jsx
-<CheckboxImage 
-  label="Lorem Ipsum" 
+```jsx
+<CheckboxImage
+  label="Lorem Ipsum"
   img={`${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`}
-  onChange={()=>console.log('test')}
+  onChange={() => console.log('test')}
   field="Textarea_name"
   value="Textarea"
 />
 ```
-

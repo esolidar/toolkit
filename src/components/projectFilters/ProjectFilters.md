@@ -1,32 +1,31 @@
 #### Import
 
-``` html
-import { ProjectFilters } from '@esolidar/toolkit';
-
+```js static
+import ProjectFilters from '@esolidar/toolkit/lib/components/projectFilters';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <ProjectFilters
-  color='red'
-  searchTitleLabel='Pesquisar'
-  searchLabelPlaceholder='Pesquisar por título'
+  color="red"
+  searchTitleLabel="Pesquisar"
+  searchLabelPlaceholder="Pesquisar por título"
   onChangeInput={() => {}}
-  filtersTitleLabel='Filtros'
-  odsLabel='ODS'
+  filtersTitleLabel="Filtros"
+  odsLabel="ODS"
   onSelectOds={() => {}}
   categories={[
     {
       id: 1,
-      name: 'Categoria 1'
-    }
+      name: 'Categoria 1',
+    },
   ]}
   status={[
     {
       id: 1,
-      name: 'Pending'
-    }
+      name: 'Pending',
+    },
   ]}
   ods={[
     {
@@ -55,11 +54,10 @@ import { ProjectFilters } from '@esolidar/toolkit';
       status: 1,
       updated_at: '2020-01-23 10:14:03',
       created_at: '2020-01-23 10:14:03',
-    }
+    },
   ]}
-  categoriesLabel='Selecione a Categoria'
-  statusLabel='Selecione o Estado'
-  applyButtonLabel='Aplicar filtro'
+  categoriesLabel="Selecione a Categoria"
+  statusLabel="Selecione o Estado"
+  applyButtonLabel="Aplicar filtro"
 />
-
 ```

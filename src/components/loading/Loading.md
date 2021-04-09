@@ -1,11 +1,11 @@
 #### Import
-``` html
-import { Loading } from '@esolidar/toolkit';
+
+```js static
+import Loading from '@esolidar/toolkit/lib/components/loading';
 ```
+
 #### Example
-``` jsx
 
+```jsx
 <Loading loadingClass="" message="Lorem Ipsum" curtain={false} />
-
 ```
-

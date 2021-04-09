@@ -1,18 +1,18 @@
 #### Import
 
-``` html
-import { TextareaField } from '@esolidar/toolkit';
+```js static
+import TextareaField from '@esolidar/toolkit/lib/elements/textareaField';
 ```
 
 #### Example
 
-``` jsx
+```jsx
 <TextareaField
   id="textareaField-id"
-  label="Lorem Ipsum" 
+  label="Lorem Ipsum"
   error="error"
   placeholder="Placeholder"
-  onChange={()=>console.log('test')}
+  onChange={() => console.log('test')}
   field="Textarea_name"
   defaultValue="Textarea"
   message="Mensagem"
