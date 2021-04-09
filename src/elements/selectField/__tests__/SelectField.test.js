@@ -21,8 +21,7 @@ describe('SelectField component', () => {
         error="error"
       />
     );
-    expect(component.find('.control-label')).toHaveLength(1);
-    expect(component.find('.control-label').text()).toEqual('Select exemple');
+    expect(component.find('InputLabel')).toHaveLength(1);
     expect(component.find('option')).toHaveLength(2);
     expect(component.find('select').props().name).toEqual('example');
   });

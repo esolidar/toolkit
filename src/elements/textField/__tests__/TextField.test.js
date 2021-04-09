@@ -13,7 +13,7 @@ describe('TextField component', () => {
     const component = shallow(
       <TextField label="For Companies" field="businessEmail" onChange={changed} disabled={true} />
     );
-    expect(component.find('.control-label')).toHaveLength(1);
+    expect(component.find('InputLabel')).toHaveLength(1);
   });
 
   it('renders TextField with string error', () => {

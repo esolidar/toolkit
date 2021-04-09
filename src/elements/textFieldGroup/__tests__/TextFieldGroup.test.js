@@ -24,8 +24,7 @@ describe('TextFieldGroup component', () => {
         value="Textarea"
       />
     );
-    expect(component.find('.control-label')).toHaveLength(1);
-    expect(component.find('.control-label').text()).toEqual('Lorem');
+    expect(component.find('InputLabel')).toHaveLength(1);
     expect(component.find('.help-block')).toHaveLength(2);
     expect(component.find('.input-group-addon')).toHaveLength(1);
     expect(component.find('.input-group-addon').text()).toEqual('Group Text');
@@ -33,7 +32,6 @@ describe('TextFieldGroup component', () => {
     expect(component.find('input').props().placeholder).toEqual('Placeholder');
     expect(component.find('input').props().type).toEqual('number');
     expect(component.find('input').props().value).toEqual('Textarea');
-    expect(component.find('label').text()).toEqual('Lorem');
     expect(component.find('input').props().disabled).toBe(true);
   });
 

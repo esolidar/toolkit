@@ -24,6 +24,17 @@
     line-height   : 31px;
     border-bottom : 1px dashed $mainColor;
     margin-bottom : 30px;
+
+    &.title-help {
+      margin-bottom: 5px;
+    }
+  }
+
+  .institutions-list {
+    .no-results {
+      padding-top: 0;
+      color      : $mainTextColorDark;
+    }
   }
 
   .help-right-content {
@@ -89,7 +100,7 @@
 
   .ReactTags__tags {
     border  : 2px solid $grayLight;
-    padding : 15px;
+    padding : 5px;
     overflow: auto;
 
     div.ReactTags__tags {
@@ -144,7 +155,7 @@
       width        : 20px;
       height       : 20px;
       text-align   : center;
-      line-height  : 16px;
+      line-height  : 17px;
 
       &:hover {
         color     : #fff;
