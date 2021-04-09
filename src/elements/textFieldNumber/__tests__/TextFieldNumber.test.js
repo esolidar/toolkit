@@ -23,7 +23,6 @@ describe('TextFieldNumber component', () => {
   it('renders TextFieldNumber with label and exist component NumberFormat', () => {
     const component = shallow(<TextFieldNumber {...props} error="error" />).shallow();
 
-    expect(component.find('.control-label')).toHaveLength(1);
     expect(component.find('.help-block')).toHaveLength(1);
     expect(component.find('NumberFormat')).toHaveLength(1);
   });

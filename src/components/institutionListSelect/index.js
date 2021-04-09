@@ -99,7 +99,7 @@ const InstitutionListSelect = ({
     <Row className="institutions-list">
       <Col md={12}>
         <SelectField
-          label={translateMessage({ id: 'institutions.categories', defaultMessage: 'Categories' })}
+          label={translateMessage({ id: 'institution', defaultMessage: 'Institution' })}
           onChange={onChangeInstitutionCategory}
           idLabel="selectCategory"
           field="institution_category"
@@ -125,18 +125,20 @@ const InstitutionListSelect = ({
         <div className={classnames('col-sm-12', { 'has-error': error })}>
           {renderCharities()}
           {error && <span className="help-block">{error}</span>}
-          <Row>
-            <Col sm={12} className="text-center">
-              <Pagination
-                innerClass="pagination justify-content-center"
-                activePage={pagination.activePage}
-                itemsCountPerPage={pagination.itemsCountPerPage}
-                totalItemsCount={pagination.totalItemsCount}
-                pageRangeDisplayed={5}
-                onChange={handlePageChange}
-              />
-            </Col>
-          </Row>
+          {institutions.length > 0 && (
+            <Row>
+              <Col sm={12} className="text-center">
+                <Pagination
+                  innerClass="pagination justify-content-center"
+                  activePage={pagination.activePage}
+                  itemsCountPerPage={pagination.itemsCountPerPage}
+                  totalItemsCount={pagination.totalItemsCount}
+                  pageRangeDisplayed={5}
+                  onChange={handlePageChange}
+                />
+              </Col>
+            </Row>
+          )}
         </div>
       )}
     </Row>

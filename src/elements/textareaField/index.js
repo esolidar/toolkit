@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
+import InputLabel from '../inputLabel';
 
 const TextareaField = ({
   field,
@@ -18,6 +19,8 @@ const TextareaField = ({
   required,
   resize,
   className,
+  info,
+  showOptionalLabel,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -41,11 +44,7 @@ const TextareaField = ({
         className
       )}
     >
-      {label && (
-        <label htmlFor={field} className="control-label">
-          {label}
-        </label>
-      )}
+      {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
       {help && <p className="help">{help}</p>}
       <textarea
         id={id || field}
@@ -58,6 +57,7 @@ const TextareaField = ({
         placeholder={placeholder}
         className={error ? 'form-control required-field' : 'form-control'}
       />
+      {info && <span className="footer-label-info">{info}</span>}
       {error && <span className="help-block">{error}</span>}
       {message && <span className="help-block">{message}</span>}
     </div>
@@ -80,5 +80,12 @@ TextareaField.propTypes = {
   required: PropTypes.bool,
   resize: PropTypes.bool,
   className: PropTypes.string,
+  info: PropTypes.string,
+  showOptionalLabel: PropTypes.bool,
 };
+
+TextareaField.defaultProps = {
+  showOptionalLabel: false,
+};
+
 export default TextareaField;

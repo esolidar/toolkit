@@ -106,6 +106,14 @@ export default function validateAuctionForm(data) {
   }
 
   if (data.showInstitutions && data.showProjects) {
+    if (!data.beneficiary) {
+      errors.beneficiary = (
+        <FormattedMessage
+          id="user.register.error.required"
+          defaultMessage="This field is required"
+        />
+      );
+    }
     if (!+data.user_id && data.projectIds.length === 0) {
       errors.user_id = (
         <FormattedMessage
