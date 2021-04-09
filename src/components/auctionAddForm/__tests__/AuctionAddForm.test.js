@@ -177,12 +177,11 @@ test('simulate add auction form', async () => {
   await waitFor(() => {
     const auctionInformation = screen.getByTestId('auction-information');
     const btnSubmit = screen.getByTestId('btn-submit');
-    const selectProjects = screen.getByTestId('select-projects');
+    const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Auction information');
-    expect(btnSubmit).toHaveTextContent('Submit auction');
-    expect(selectProjects).toBeInTheDocument();
-    expect(selectProjects).toHaveTextContent('Select one project');
+    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
+    expect(btnSubmit).toHaveTextContent('auctions.add.submitAuction');
+    expect(btnCancel).toHaveTextContent('cancel');
   });
 });
 
@@ -195,13 +194,12 @@ test('simulate edit auction form', async () => {
   await waitFor(() => {
     const auctionTitle = screen.getByTestId('auction-edit-title');
     const auctionInformation = screen.getByTestId('auction-information');
-    const btnSubmit = screen.getByTestId('btn-submit');
-    const selectProjects = screen.getByTestId('select-projects');
+    const btnSubmit = screen.getByTestId('btn-submit-edit');
+    const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Auction information');
-    expect(btnSubmit).toHaveTextContent('Edit auction');
-    expect(selectProjects).toBeInTheDocument();
-    expect(selectProjects).toHaveTextContent('Select one project');
+    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
+    expect(btnSubmit).toHaveTextContent('auctions.edit.submitAuction');
+    expect(btnCancel).toHaveTextContent('cancel');
   });
 });

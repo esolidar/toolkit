@@ -965,13 +965,17 @@ const AuctionDetail = ({
                   )}
                 </Col>
                 <Col sm={12} className="text-center hidden-xs">
-                  <div className="end-date" data-testid="end-date-info">
-                    <div className="mb-2">
+                  <div className="end-date">
+                    <div className="mb-2" data-testid="end-date-info">
                       <FormattedMessage
                         id="auction.detail.ends"
-                        defaultMessage="This auction ends in: "
+                        defaultMessage="This auction ended in: "
                       />
-                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="LLLL" />
+                      <ConvertToMyTimezone
+                        date={auctionDetailInfo.dateLimit}
+                        locale={locale}
+                        format="LLLL"
+                      />
                     </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"
@@ -1020,6 +1024,8 @@ const AuctionDetail = ({
                       primaryColor={primaryColor}
                       env={env}
                       inputRef={inputRef}
+                      domainUrl={domainUrl}
+                      locale={locale}
                     />
                   </Row>
                 </Col>

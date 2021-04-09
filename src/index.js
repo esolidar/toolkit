@@ -80,6 +80,7 @@ export { default as ConfirmModal } from './elements/confirmModal';
 export { default as DatePicker } from './elements/datePicker';
 export { default as TextFieldCurrency } from './elements/textFieldCurrency';
 export { default as TextFieldNumber } from './elements/textFieldNumber';
+export { default as InputLabel } from './elements/inputLabel';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';

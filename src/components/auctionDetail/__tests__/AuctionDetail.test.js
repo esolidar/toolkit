@@ -653,7 +653,7 @@ test('should exist countdown with time', async () => {
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent(
-      'This auction ends in: Wednesday, December 30, 2020 4:00 PM'
+      'This auction ended in: Wednesday, December 30, 2020 4:00 PM'
     );
   });
 });

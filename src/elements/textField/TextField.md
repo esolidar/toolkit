@@ -15,5 +15,6 @@ import TextField from '@esolidar/toolkit/lib/elements/textField';
   placeholder=""
   defaultValue="defaultValue"
   field="forCompanies"
+  showOptionalLabel={true}
 />
 ```
