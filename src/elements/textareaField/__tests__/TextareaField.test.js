@@ -23,8 +23,7 @@ describe('TextareaField component', () => {
         maxLength={100}
       />
     );
-    expect(component.find('.control-label')).toHaveLength(1);
-    expect(component.find('.control-label').text()).toEqual('Lorem');
+    expect(component.find('InputLabel')).toHaveLength(1);
     expect(component.find('.help-block')).toHaveLength(2);
     expect(component.find('textarea').props().value).toEqual('Textarea');
     expect(component.find('textarea').props().name).toEqual('Textarea_name');

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import InputLabel from '../inputLabel';
 
 const TextFieldGroup = ({
   field,
@@ -13,14 +14,13 @@ const TextFieldGroup = ({
   message,
   groupText,
   disabled,
+  help,
+  info,
+  showOptionalLabel,
 }) => (
   <div className={classnames('form-group', { 'has-error': error || message })}>
-    {label && (
-      <label htmlFor={field} className="control-label">
-        {label}
-      </label>
-    )}
-
+    {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
+    {help && <p className="help">{help}</p>}
     <div className="input-group">
       <input
         onChange={onChange}
@@ -33,11 +33,16 @@ const TextFieldGroup = ({
         disabled={disabled}
       />
       {groupText && (
-        <span className={error ? 'input-group-addon required-field' : 'input-group-addon'}>
+        <span
+          className={`${error ? 'input-group-addon required-field' : 'input-group-addon'} ${
+            disabled ? 'disabled-group' : ''
+          }`}
+        >
           {groupText}
         </span>
       )}
     </div>
+    {info && <span className="footer-label-info">{info}</span>}
     {error && <span className="help-block">{error}</span>}
     {message && <span className="help-block">{message}</span>}
   </div>
@@ -47,6 +52,8 @@ export default TextFieldGroup;
 
 TextFieldGroup.propTypes = {
   field: PropTypes.string.isRequired,
+  help: PropTypes.string,
+  info: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -57,8 +64,10 @@ TextFieldGroup.propTypes = {
   placeholder: PropTypes.string,
   message: PropTypes.string,
   groupText: PropTypes.string,
+  showOptionalLabel: PropTypes.bool,
 };
 
 TextFieldGroup.defaultProps = {
   type: 'text',
+  showOptionalLabel: false,
 };
