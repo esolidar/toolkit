@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "test": "jest -u",
+    "test": "jest --coverage",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
     "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add . && git commit -m \"automated deployment\"  && git push",
@@ -41,7 +41,15 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 40,
+        "functions": 40,
+        "lines": 40,
+        "statements": 40
+      }
+    }
   },
   "author": "Patrícia Silva",
   "license": "MIT",
