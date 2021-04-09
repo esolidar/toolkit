@@ -202,6 +202,21 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (auctionDetail && auctionDetail.code === 200) {
       const { data } = auctionDetail;
+
+      if (data.status === 'A') {
+        NotificationManager.error(
+          intl.formatMessage({
+            id: 'auction.edit.forbidden',
+          }),
+          intl.formatMessage({
+            id: 'error',
+          }),
+          15000
+        );
+
+        window.location.href = '/auctions';
+      }
+
       const imagesListArray = [];
       const imagesArray = [];
 
@@ -510,6 +525,7 @@ const AuctionAddForm = ({
     data.showBrands = showBrands;
     data.isMyProjet = isMyProjet;
     data.isValidBankAccount = isValidBankAccount;
+    data.beneficiary = beneficiary;
 
     if (isMyProjet && !isValidBankAccount) return false;
 
@@ -617,7 +633,7 @@ const AuctionAddForm = ({
         )}
         {action === 'edit' && (
           <h1 style={{ color: primaryColor }} data-testid="auction-edit-title">
-            <FormattedMessage id="auctions.edit.title" />
+            <FormattedMessage id="Auctions.edit" />
           </h1>
         )}
         {action === 'clone' && (
@@ -1111,31 +1127,39 @@ const AuctionAddForm = ({
                       <FormattedMessage id="auction.beneficiary" />
                     </h3>
                   </Col>
-                  <Col sm={12} className="form-group">
-                    <span className="help mb-4">
-                      <FormattedMessage id="auction.beneficiary.help" />
-                    </span>
-                    <RadioField
-                      label={intl.formatMessage({
-                        id: 'auction.institution',
-                      })}
-                      onChange={handleChangeBeneficiary}
-                      name="auction_beneficiary_institution"
-                      value="institution"
-                      checked={beneficiary === 'institution'}
-                    />
-                    <RadioField
-                      label={intl.formatMessage({
-                        id: 'auction.project',
-                      })}
-                      onChange={handleChangeBeneficiary}
-                      name="auction_beneficiary_project"
-                      value="project"
-                      checked={beneficiary === 'project'}
-                    />
-                    {errors.beneficiary && <span className="help-block">{errors.beneficiary}</span>}
-                  </Col>
-                  {showInstitutions && beneficiary === 'institution' && (
+                  {showProjects && hasProjects && (
+                    <Col
+                      sm={12}
+                      className={classnames('form-group', { 'has-error': errors.beneficiary })}
+                    >
+                      <span className="help mb-4">
+                        <FormattedMessage id="auction.beneficiary.help" />
+                      </span>
+                      <RadioField
+                        label={intl.formatMessage({
+                          id: 'auction.institution',
+                        })}
+                        onChange={handleChangeBeneficiary}
+                        name="auction_beneficiary_institution"
+                        value="institution"
+                        checked={beneficiary === 'institution'}
+                      />
+                      <RadioField
+                        label={intl.formatMessage({
+                          id: 'auction.project',
+                        })}
+                        onChange={handleChangeBeneficiary}
+                        name="auction_beneficiary_project"
+                        value="project"
+                        checked={beneficiary === 'project'}
+                      />
+                      {errors.beneficiary && (
+                        <span className="help-block">{errors.beneficiary}</span>
+                      )}
+                    </Col>
+                  )}
+                  {((showInstitutions && beneficiary === 'institution') ||
+                    (!hasProjects && beneficiary === '')) && (
                     <Col sm={12}>
                       <InstitutionListSelect
                         user_id={form.user_id || ''}
@@ -1318,7 +1342,7 @@ const AuctionAddForm = ({
                       <Button
                         dataTestId="btn-submit"
                         extraClass="success-full btn-submit"
-                        onClick={() => handleSubmit('A')}
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={intl.formatMessage({
                           id: 'auctions.add.submitAuction',
                         })}
@@ -1329,7 +1353,7 @@ const AuctionAddForm = ({
                       <Button
                         dataTestId="btn-submit-edit"
                         extraClass="success-full btn-submit"
-                        onClick={() => handleSubmit('A')}
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={intl.formatMessage({
                           id: 'auctions.edit.submitAuction',
                         })}
@@ -1340,7 +1364,7 @@ const AuctionAddForm = ({
                       <Button
                         dataTestId="btn-submit-clone"
                         extraClass="success-full btn-submit"
-                        onClick={() => handleSubmit('A')}
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={intl.formatMessage({
                           id: 'auctions.clone.submitAuction',
                         })}

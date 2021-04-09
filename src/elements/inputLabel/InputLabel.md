@@ -1,6 +1,6 @@
 #### Import
 
-```html
+```js static
 import InputLabel from '@esolidar/toolkit/lib/elements';
 ```
 
