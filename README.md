@@ -18,7 +18,8 @@ Toolkit for building eSolidar Projects.
     <img src="https://img.shields.io/badge/peer%20dependencies-up%20to%20date-brightgreen" alt="peer dependencies">
     <img src="https://img.shields.io/badge/dev%20dependencies-up%20to%20date-brightgreen" alt="dev dependencies">
 </div>
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/19f01b53eab5464ca12ea34cfb8dbd3d)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=esolidar/toolkit&amp;utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/19f01b53eab5464ca12ea34cfb8dbd3d)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=esolidar/toolkit&utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/19f01b53eab5464ca12ea34cfb8dbd3d)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=esolidar/toolkit&utm_campaign=Badge_Coverage)
 
 ## Table of contents
