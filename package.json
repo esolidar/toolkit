@@ -41,15 +41,7 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 40,
-        "functions": 40,
-        "lines": 55,
-        "statements": 40
-      }
-    }
+    ]
   },
   "author": "Patrícia Silva",
   "license": "MIT",
