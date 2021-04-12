@@ -8,6 +8,23 @@ jobs:
     name: codacy-coverage-reporter
     steps:
       - uses: actions/checkout@master
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com
+          scope: '@esolidar'
+
+      - name: Install dependencies
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Run coverage tests
+        run: yarn test
+
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
