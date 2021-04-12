@@ -14,7 +14,7 @@ jobs:
         with:
           always-auth: true
           node-version: '12.x'
-          registry-url: https://registry.npmjs.org
+          registry-url: https://npm.pkg.github.com
           scope: '@esolidar'
 
       - name: Install dependencies
