@@ -1227,7 +1227,6 @@ const AuctionDetail = ({
                   <span> (</span>
                   <a
                     href="/user/settings"
-                    target="_blank"
                     title={translateMessage({
                       id: 'auction.modal.bid.chageEmail',
                       defaultMessage: 'change e-mail',
