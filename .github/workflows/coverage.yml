@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: run tests
-      - run: npm run test
+      - name: Run coverage tests
+        run: npm run test
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
