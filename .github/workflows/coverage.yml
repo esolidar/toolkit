@@ -9,8 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Install nodemodules
+        run: yarn
+
       - name: Run coverage tests
-        run: npm run test
+        run: yarn test
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
