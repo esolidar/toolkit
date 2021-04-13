@@ -89,51 +89,6 @@ const propsAuction = {
     phones: [],
   },
 };
-const propsProjectAuction = {
-  project: {
-    title: 'Project title',
-    images: [
-      {
-        image:
-          'https://cdn.testesolidar.com/institutions/511ca19c-c9a7-4d18-a735-d08e1906dbbe.jpeg',
-      },
-    ],
-  },
-  private: 0,
-  id: 299,
-  user_id: 1124,
-  cause_id: null,
-  currency_id: 1,
-  title: '0 - teste caracter especial 2019/2020',
-  title_en: 'test caracter special 2019/2020',
-  bid_start: 31,
-  dateStart: '2020-02-08 07:00:00',
-  dateLimit: '2020-07-20 16:00:00',
-  images: [
-    {
-      id: 200,
-      thumbs: {
-        detail:
-          'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
-      },
-      s3_key: 'products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2.jpg',
-    },
-  ],
-  currency: {
-    id: 1,
-    name: 'Euro',
-    small: 'EUR',
-    value: '1.19',
-    symbol: '€',
-    status: true,
-    lastUpdate: '2020-11-26 12:00:05',
-  },
-  last_bid_value: {
-    id: 1241,
-    auction_id: 299,
-    value: 31,
-  },
-};
 
 describe('AuctionThumb', () => {
   it('renders without crashing', () => {
@@ -200,20 +155,5 @@ describe('AuctionThumb', () => {
 
     const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Raised');
-  });
-
-  it('should raised auction', () => {
-    advanceTo(new Date(2020, 1, 1, 0, 0, 0));
-
-    propsAuction.dateStart = '2019-02-08 07:00:00';
-    propsAuction.dateLimit = '2019-07-20 16:00:00';
-
-    const wrapper = shallow(
-      <AuctionThumb
-        auction={propsProjectAuction}
-        env={{ cdn_uploads_url: 'https://cdn.testesolidar.com' }}
-      />
-    );
-    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
   });
 });
