@@ -2,7 +2,6 @@
 /node_modules
 /build
 /demo/dist
-/coverage
 /es
 /lib
 /umd
