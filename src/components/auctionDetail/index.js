@@ -24,8 +24,8 @@ import CheckboxField from '../../elements/checkboxField';
 import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
-import ValidateTelephone from '../validateTelephone';
 import isEmpty from '../../utils/isEmpty';
+import ValidateTelephone from '../validateTelephone';
 
 const AuctionDetail = ({
   auctionId,
@@ -1227,7 +1227,6 @@ const AuctionDetail = ({
                   <span> (</span>
                   <a
                     href="/user/settings"
-                    target="_blank"
                     title={translateMessage({
                       id: 'auction.modal.bid.chageEmail',
                       defaultMessage: 'change e-mail',
