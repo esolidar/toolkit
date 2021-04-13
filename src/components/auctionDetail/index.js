@@ -24,8 +24,8 @@ import CheckboxField from '../../elements/checkboxField';
 import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
-import ValidateTelephone from '../validateTelephone';
 import isEmpty from '../../utils/isEmpty';
+import ValidateTelephone from '../validateTelephone';
 
 const AuctionDetail = ({
   auctionId,
