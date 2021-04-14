@@ -1,20 +1,13 @@
 /* eslint-disable camelcase */
 
 import { Row, Col, Card } from 'react-bootstrap';
-import { injectIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 import Moment from 'react-moment';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Button from '../../elements/button';
 
-const TicketsComments = ({
-  ticketComments,
-  activePage,
-  total,
-  handlePageChange,
-  intl,
-  supportTag,
-}) => {
+const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, supportTag }) => {
   const renderFiles = files =>
     files.map((document, index) => (
       <div className="document-row" key={index}>
@@ -61,7 +54,7 @@ const TicketsComments = ({
                       {user.institution ? user.institution.sigla : user.name}
                       {supportTag && !user.institution && (
                         <span className="support">
-                          {intl.formatMessage({
+                          {useIntl().formatMessage({
                             id: 'tickets.supportTag',
                             defaultMessage: 'Support eSolidar',
                           })}
@@ -114,7 +107,7 @@ const TicketsComments = ({
             <Button
               extraClass="dark"
               onClick={() => handlePageChange(activePage)}
-              text={intl.formatMessage({ id: 'readmore', defaultMessage: 'Read more' })}
+              text={useIntl().formatMessage({ id: 'readmore', defaultMessage: 'Read more' })}
             />
           </div>
         )}
@@ -128,8 +121,7 @@ TicketsComments.propTypes = {
   activePage: PropTypes.number,
   total: PropTypes.number,
   handlePageChange: PropTypes.func.isRequired,
-  intl: PropTypes.object,
   supportTag: PropTypes.bool,
 };
 
-export default injectIntl(TicketsComments);
+export default TicketsComments;

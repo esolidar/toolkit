@@ -1,13 +1,13 @@
 /* eslint-disable prefer-destructuring */
 
 import PropTypes from 'prop-types';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import TextareaField from '../../../elements/textareaField';
 
 const CrowdfundingItem = props => {
-  const { translateMessage, env, item } = props;
+  const { env, item } = props;
   const campaignTitle = () => {
     let title;
     if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
@@ -65,7 +65,10 @@ const CrowdfundingItem = props => {
                 </BrowserView>
                 {item.campaign.institution && (
                   <div className="checkout-supports">
-                    {translateMessage({ id: 'checkout.suports', defaultMessage: 'Supports' })}
+                    {useIntl().formatMessage({
+                      id: 'checkout.suports',
+                      defaultMessage: 'Supports',
+                    })}
                     &nbsp;
                     <strong>{item.campaign.institution.name}</strong>
                   </div>
@@ -120,7 +123,7 @@ const CrowdfundingItem = props => {
         </Col>
         <Col xs={12}>
           <TextareaField
-            label={translateMessage({
+            label={useIntl().formatMessage({
               id: 'crowdfunding.message',
               defaultMessage: 'Leave a message',
             })}
@@ -141,7 +144,7 @@ CrowdfundingItem.propTypes = {
   item: PropTypes.object,
   removeCartItem: PropTypes.func,
   onChangCheckBox: PropTypes.func,
-  translateMessage: PropTypes.func.isRequired,
+
   env: PropTypes.object.isRequired,
 };
 

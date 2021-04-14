@@ -358,7 +358,6 @@ Default.args = {
     code: 404,
   },
   user: null,
-  translateMessage: () => 'Some text',
   requireLogin: () => false,
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',

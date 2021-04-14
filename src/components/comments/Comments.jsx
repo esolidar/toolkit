@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import CommentHeader from './CommentHeader';
@@ -19,7 +19,7 @@ const Comments = ({
   onSubmitResponse,
   onChange,
   reply,
-  translateMessage,
+
   laodingPostReply,
   loadMore,
   totalComments,
@@ -167,7 +167,7 @@ const Comments = ({
                       onKeyDown={e => addMessage(e, comment.id, false)}
                       value={reply}
                       disabled={laodingPostReply}
-                      placeholder={translateMessage({
+                      placeholder={useIntl().formatMessage({
                         id: 'commentHere',
                         defaultMessage: 'Comment here…',
                       })}
@@ -257,7 +257,7 @@ Comments.propTypes = {
   laodingPostReply: PropTypes.bool.isRequired,
   loadMore: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  translateMessage: PropTypes.func.isRequired,
+
   totalComments: PropTypes.number,
   loadingMoreComments: PropTypes.bool,
   loadMoreComments: PropTypes.func.isRequired,

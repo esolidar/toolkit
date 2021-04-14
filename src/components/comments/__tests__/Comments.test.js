@@ -99,7 +99,7 @@ const props = {
   laodingPostReply: false,
   loadMore: () => {},
   onChange: () => {},
-  translateMessage: () => {},
+
   totalComments: 3,
   loadingMoreComments: false,
   loadMoreComments: () => {},

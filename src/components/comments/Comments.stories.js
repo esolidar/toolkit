@@ -120,5 +120,5 @@ Default.args = {
     },
   ],
   replies: [],
-  translateMessage: () => 'Comment here…',
+  t: () => 'Comment here…',
 };

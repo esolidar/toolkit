@@ -3,9 +3,9 @@
 
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import { useIntl } from 'react-intl';
 import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML } from 'draft-js';
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
-import { injectIntl } from 'react-intl';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -51,7 +51,6 @@ const HtmlEditor = ({
   onChange,
   columns,
   changeColumns,
-  intl,
   error,
   muiStyle,
   helperText,
@@ -127,7 +126,7 @@ const HtmlEditor = ({
   if (showColumnsBtn) {
     toolbarCustomButtons.push(
       <Dropdown
-        title={intl.formatMessage({ id: 'columns', defaultMessage: 'Columns' })}
+        title={useIntl().formatMessage({ id: 'columns', defaultMessage: 'Columns' })}
         options={[1, 2, 3]}
         value={columns}
         handleChange={changeColumns}
@@ -189,9 +188,6 @@ HtmlEditor.propTypes = {
   error: PropTypes.bool,
   muiStyle: PropTypes.bool,
   helperText: PropTypes.string,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
   showColumnsBtn: PropTypes.bool,
   showAddImageBtn: PropTypes.bool,
   showAddUrlBtn: PropTypes.bool,
@@ -207,4 +203,4 @@ HtmlEditor.defaultProps = {
   showAddUrlBtn: true,
 };
 
-export default injectIntl(HtmlEditor);
+export default HtmlEditor;

@@ -13,7 +13,6 @@ const Template = args => (
 
 export const Default = Template.bind({});
 Default.args = {
-  translateMessage: () => 'some translated text',
   onReviewRequest: () => {},
   onCloseRequest: () => {},
   errors: {},

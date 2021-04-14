@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import { injectIntl, FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import Button from '../../elements/button';
 import TextField from '../../elements/textField';
 
@@ -10,8 +10,6 @@ const AuctionLastBid = ({
   isCommingSoon,
   handleClickBid,
   error,
-  translateMessage,
-  intl,
   minValue,
   inputBidValue,
   valueBidTextField,
@@ -70,7 +68,7 @@ const AuctionLastBid = ({
                       onChange={valueBidTextField}
                       error={error}
                       value={inputBidValue}
-                      placeholder={intl.formatMessage(
+                      placeholder={useIntl().formatMessage(
                         {
                           id: 'auction.textfield.minValue',
                           defaultMessage: 'Min. Value: {value}',
@@ -85,7 +83,10 @@ const AuctionLastBid = ({
                   <Button
                     dataTestId="button-bid"
                     extraClass="success-full mt-sm-4"
-                    text={translateMessage({ id: 'auction.button.bid', defaultMessage: 'Bid' })}
+                    text={useIntl().formatMessage({
+                      id: 'auction.button.bid',
+                      defaultMessage: 'Bid',
+                    })}
                     onClick={() => handleClickBid(inputBidValue)}
                   />
                 </Col>
@@ -112,14 +113,10 @@ AuctionLastBid.propTypes = {
   isCommingSoon: PropTypes.bool,
   handleClickBid: PropTypes.func,
   error: PropTypes.string,
-  translateMessage: PropTypes.func,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
   minValue: PropTypes.number,
   inputBidValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   valueBidTextField: PropTypes.func,
   primaryColor: PropTypes.string,
 };
 
-export default injectIntl(AuctionLastBid);
+export default AuctionLastBid;

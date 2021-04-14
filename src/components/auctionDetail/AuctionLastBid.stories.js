@@ -25,7 +25,6 @@ Default.args = {
   handleClickBid: () => {},
   isShowModal: () => {},
   error: '',
-  translateMessage: () => 'Some text',
   intl: {
     formatMessage: () => 'some text',
   },

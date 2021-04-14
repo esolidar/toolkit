@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
@@ -18,7 +18,6 @@ const ProjectDetailInfo = ({
   handleSubmitRequestInfo,
   lang,
   staticUrl,
-  intl,
 }) => {
   if (isEmpty(project) || !project) return <div />;
 
@@ -53,7 +52,6 @@ const ProjectDetailInfo = ({
                   ods={question.type === 'ods' ? { images: project.ods, lang } : null}
                   staticUrl={staticUrl}
                   error={requestInfoErrors.includes(index)}
-                  intl={intl}
                 />
               ))}
             </Col>
@@ -73,13 +71,13 @@ const ProjectDetailInfo = ({
             type="button"
             extraClass="dark mr-2"
             onClick={handleCancelRequestInfo}
-            text={intl.formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+            text={useIntl().formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
           />
           <Button
             type="button"
             extraClass="dark-full"
             onClick={handleSubmitRequestInfo}
-            text={intl.formatMessage({ id: 'submit', defaultMessage: 'Submit' })}
+            text={useIntl().formatMessage({ id: 'submit', defaultMessage: 'Submit' })}
             disabled={selectedQuestions === 0 || requestInfoErrors.length > 0}
           />
         </div>
@@ -98,9 +96,6 @@ ProjectDetailInfo.propTypes = {
   handleSubmitRequestInfo: PropTypes.func,
   lang: PropTypes.string.isRequired,
   staticUrl: PropTypes.string,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
 };
 
 const Question = ({
@@ -113,7 +108,6 @@ const Question = ({
   ods,
   staticUrl,
   error,
-  intl,
 }) => {
   const { type, name, selected, isPrivate, checked, obs, reply } = question;
 
@@ -198,9 +192,9 @@ const Question = ({
       </div>
       {selected && (
         <TextareaField
-          label={intl.formatMessage({ id: 'project.comments', defaultMessage: 'Comments' })}
+          label={useIntl().formatMessage({ id: 'project.comments', defaultMessage: 'Comments' })}
           className="description"
-          placeholder={intl.formatMessage({
+          placeholder={useIntl().formatMessage({
             id: 'project.tickets.requestInfo.comments',
             defaultMessage: 'Write something...',
           })}
@@ -240,9 +234,6 @@ Question.propTypes = {
   }),
   staticUrl: PropTypes.string,
   error: PropTypes.bool,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
 };
 
-export default injectIntl(ProjectDetailInfo);
+export default ProjectDetailInfo;

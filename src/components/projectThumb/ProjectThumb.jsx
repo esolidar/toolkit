@@ -3,7 +3,7 @@
 
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons/faPen';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
@@ -26,7 +26,6 @@ const ProjectThumb = ({
   selectProject,
   selectedText,
   whitelabelUrl,
-  intl,
 }) => {
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
@@ -74,7 +73,7 @@ const ProjectThumb = ({
                   <FontAwesomeIcon
                     icon={faPen}
                     className="mr-1"
-                    title={intl.formatMessage({
+                    title={useIntl().formatMessage({
                       id: 'project.edit.title',
                       defaultMessage: 'Edit project',
                     })}
@@ -96,7 +95,7 @@ const ProjectThumb = ({
                 className="ml-2 hover"
                 onClick={handleClickOpenTab}
                 style={{ cursor: 'pointer' }}
-                title={intl.formatMessage({
+                title={useIntl().formatMessage({
                   id: 'open.new.tab',
                   defaultMessage: 'Open in new tab',
                 })}
@@ -210,13 +209,10 @@ ProjectThumb.propTypes = {
   selectedIds: PropTypes.array,
   selectProject: PropTypes.func,
   whitelabelUrl: PropTypes.string,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
 };
 
 ProjectThumb.defaultProps = {
   cols: 4,
 };
 
-export default injectIntl(ProjectThumb);
+export default ProjectThumb;

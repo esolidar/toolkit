@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import TextareaField from '../../../elements/textareaField';
 import TextField from '../../../elements/textField';
@@ -35,7 +35,7 @@ const InvoicingData = props => {
       </Col>
       <Col sm={12}>
         <TextField
-          label={props.translateMessage({ id: 'user.nif', defaultMessage: 'VAT' })}
+          label={useIntl().formatMessage({ id: 'user.nif', defaultMessage: 'VAT' })}
           onChange={props.onChange}
           error={errors.nif}
           value={nif}
@@ -45,7 +45,7 @@ const InvoicingData = props => {
       </Col>
       <Col sm={12}>
         <TextareaField
-          label={props.translateMessage({
+          label={useIntl().formatMessage({
             id: 'checkout.invoice_address',
             defaultMessage: 'Invoicing address',
           })}
@@ -97,7 +97,6 @@ InvoicingData.propTypes = {
   onChange: PropTypes.func,
   onChangCheckBoxInvoicing: PropTypes.func,
   state: PropTypes.object,
-  translateMessage: PropTypes.func.isRequired,
 };
 
 export default InvoicingData;

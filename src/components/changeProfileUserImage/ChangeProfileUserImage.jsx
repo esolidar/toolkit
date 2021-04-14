@@ -1,10 +1,10 @@
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../../elements/button';
 import DropZoneBox from '../../elements/dropZoneBox';
 
-const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop, env }) => {
+const ChangeProfileUserImage = ({ color, thumb, errors, onDrop, env }) => {
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
     const thumb = type === 'blob' ? URL.createObjectURL(file[0]) : file[0].preview;
@@ -53,13 +53,13 @@ const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop
             minHeight: 200,
           }}
           modalClassName="change-profile-user-image"
-          titleCropModal={translateMessage({ id: 'modal.crop.title' })}
-          textSaveCropModal={translateMessage({ id: 'modal.crop.button.save' })}
+          titleCropModal={useIntl().formatMessage({ id: 'modal.crop.title' })}
+          textSaveCropModal={useIntl().formatMessage({ id: 'modal.crop.button.save' })}
         >
           <Button
             extraClass="dark"
             type="file"
-            text={translateMessage({ id: 'user.settings.choose.file' })}
+            text={useIntl().formatMessage({ id: 'user.settings.choose.file' })}
             dataTestId="button-change-profile-user-image"
           />
         </DropZoneBox>
@@ -69,7 +69,6 @@ const ChangeProfileUserImage = ({ translateMessage, color, thumb, errors, onDrop
 };
 
 ChangeProfileUserImage.propTypes = {
-  translateMessage: PropTypes.func,
   color: PropTypes.object,
   thumb: PropTypes.string,
   errors: PropTypes.object,
@@ -81,4 +80,4 @@ ChangeProfileUserImage.defaultProps = {
   thumb: 'https://static.testesolidar.com/frontend/assets/no-image.png',
 };
 
-export default injectIntl(ChangeProfileUserImage);
+export default ChangeProfileUserImage;

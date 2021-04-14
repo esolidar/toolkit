@@ -469,7 +469,6 @@ const props = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {
@@ -544,7 +543,6 @@ const propsAuctionPrivate = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col, Container } from 'react-bootstrap';
-import { FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
+import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
 import { getEmployeeName, isDefined, filterUnique, slugify } from '../../utils';
 import Button from '../../elements/button';
@@ -45,7 +45,6 @@ const AuctionDetail = ({
   getAuctionComment,
   auctionComments,
   user,
-  translateMessage,
   requireLogin,
   env,
   postAuctionUserComment,
@@ -63,7 +62,6 @@ const AuctionDetail = ({
   validatePhone,
   mobileConfirmPost,
   confirmPhone,
-  intl,
   pusherData,
   postUpdatedUser,
   updatedUser,
@@ -200,7 +198,7 @@ const AuctionDetail = ({
       setIsLoadingAuction(false);
       if (privateCode) {
         setErrorPrivateCode(
-          translateMessage({
+          useIntl().formatMessage({
             id: 'auction.detail.error.privateCode',
             defaultMessage: 'The code is wrong.',
           })
@@ -572,7 +570,7 @@ const AuctionDetail = ({
         value > auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval
       ) {
         setError(
-          intl.formatMessage(
+          useIntl().formatMessage(
             {
               id: 'auction.detail.error.startBidInvalid',
               defaultMessage: 'Put a numeric value between {bidStart} and {maxBid}',
@@ -594,7 +592,7 @@ const AuctionDetail = ({
         value < auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval
       ) {
         setError(
-          intl.formatMessage(
+          useIntl().formatMessage(
             {
               id: 'auction.detail.error.startBidInvalid',
               defaultMessage: 'Put a numeric value between {bidStart} and {maxBid}',
@@ -689,11 +687,11 @@ const AuctionDetail = ({
   };
 
   const textPrivacyandTerms = () => {
-    const initialText = translateMessage({
+    const initialText = useIntl().formatMessage({
       id: 'auctions.private.iagree',
       defaultMessage: 'I agree with eSolidar’s ',
     });
-    const privacyPolicy = translateMessage({
+    const privacyPolicy = useIntl().formatMessage({
       id: 'auctions.private.privacy',
       defaultMessage: 'Privacy policy',
     });
@@ -849,9 +847,9 @@ const AuctionDetail = ({
         <Row className="not-found mt-5">
           <NoMatch
             color={primaryColor}
-            errorMessage={translateMessage({ id: 'auction.not.found' })}
+            errorMessage={useIntl().formatMessage({ id: 'auction.not.found' })}
             link="/auction/list"
-            linkText={translateMessage({ id: 'back.to.auctions' })}
+            linkText={useIntl().formatMessage({ id: 'back.to.auctions' })}
           />
         </Row>
       )}
@@ -874,7 +872,7 @@ const AuctionDetail = ({
                 type="text"
                 onChange={handleChangePrivateCode}
                 error={errorPrivateCode}
-                placeholder={translateMessage({
+                placeholder={useIntl().formatMessage({
                   id: 'auction.private.insertCode',
                   defaultMessage: 'Insert the code',
                 })}
@@ -888,7 +886,7 @@ const AuctionDetail = ({
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
                     href="/auction/list"
-                    text={translateMessage({
+                    text={useIntl().formatMessage({
                       id: 'auction.private.cancel',
                       defaultMessage: 'Cancel',
                     })}
@@ -898,7 +896,7 @@ const AuctionDetail = ({
                     className="auction-private-cancel"
                     extraClass="success-full"
                     onClick={handleConfirmPrivateCode}
-                    text={translateMessage({
+                    text={useIntl().formatMessage({
                       id: 'auction.private.validate',
                       defaultMessage: 'Validate',
                     })}
@@ -1010,7 +1008,6 @@ const AuctionDetail = ({
                       auctionTitle={auctionTitle()}
                       auction={auctionDetailInfo}
                       handleClickBid={handleClickBid}
-                      translateMessage={translateMessage}
                       showModalSubscribe={modalShowSubscribe}
                       minValue={handleMinValue()}
                       error={error}
@@ -1048,7 +1045,6 @@ const AuctionDetail = ({
                   handleClickBid={handleClickBid}
                   isShowModal={modalShowSubscribe}
                   error={error}
-                  translateMessage={translateMessage}
                   minValue={handleMinValue()}
                   inputBidValue={value}
                   valueBidTextField={valueBidTextField}
@@ -1060,7 +1056,7 @@ const AuctionDetail = ({
               <DescriptionDetail
                 dataTestIdTitle="description"
                 dataTestIdDescription="description-text"
-                title={translateMessage({
+                title={useIntl().formatMessage({
                   id: 'auction.description',
                   defaultMessage: 'Description',
                 })}
@@ -1070,14 +1066,20 @@ const AuctionDetail = ({
               <DescriptionDetail
                 dataTestIdTitle="shipping"
                 dataTestIdDescription="shipping-text"
-                title={translateMessage({ id: 'auction.shipping', defaultMessage: 'Shipping' })}
+                title={useIntl().formatMessage({
+                  id: 'auction.shipping',
+                  defaultMessage: 'Shipping',
+                })}
                 description={auctionDescriptionLang('shipping_description')}
                 color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="payment"
                 dataTestIdDescription="payment-text"
-                title={translateMessage({ id: 'auction.payment', defaultMessage: 'Payment' })}
+                title={useIntl().formatMessage({
+                  id: 'auction.payment',
+                  defaultMessage: 'Payment',
+                })}
                 description={auctionDescriptionLang('payment_description')}
                 color={primaryColor}
               />
@@ -1092,7 +1094,6 @@ const AuctionDetail = ({
                   postAsUser={postAuctionUserComment}
                   postAsCompany={postAuctionCompanyComment}
                   loadingNewComment={loadingNewComment}
-                  translateMessage={translateMessage}
                   thumb={thumb}
                   env={env}
                 />
@@ -1112,7 +1113,6 @@ const AuctionDetail = ({
                   user={user || {}}
                   thumb={thumb}
                   env={env.cdn_static_url}
-                  translateMessage={translateMessage}
                   primaryColor={primaryColor}
                 />
               </div>
@@ -1121,7 +1121,10 @@ const AuctionDetail = ({
               <ContributesListBox
                 isAuction={true}
                 testeId="ContributesListBox"
-                title={translateMessage({ id: 'auction.last.bids', defaultMessage: 'Lat Bids' })}
+                title={useIntl().formatMessage({
+                  id: 'auction.last.bids',
+                  defaultMessage: 'Lat Bids',
+                })}
                 contributesList={listUsersBid}
                 loadingContributesList={isLoadingContributesList}
                 loadingContributes={isloadingContributes}
@@ -1147,12 +1150,12 @@ const AuctionDetail = ({
           </Row>
           {listAuctions.length > 0 && (
             <AuctionsList
-              title={translateMessage({
+              title={useIntl().formatMessage({
                 id: 'auction.detail.otherAuctions',
                 defaultMessage: 'Other Auctions',
               })}
               listAuctions={listAuctions}
-              buttonTitle={translateMessage({
+              buttonTitle={useIntl().formatMessage({
                 id: 'auction.detail.seeAll',
                 defaultMessage: 'See all auctions',
               })}
@@ -1169,7 +1172,7 @@ const AuctionDetail = ({
             dialogClassName="auction-modal-bid"
             onHide={() => handleCloseModalBid()}
             show={isShowModal}
-            title={translateMessage({
+            title={useIntl().formatMessage({
               id: 'auction.modal.bid.confirm',
               defaultMessage: 'Confirm bid',
             })}
@@ -1178,7 +1181,7 @@ const AuctionDetail = ({
                 <Button
                   extraClass="dark"
                   onClick={() => handleCloseModalBid()}
-                  text={translateMessage({
+                  text={useIntl().formatMessage({
                     id: 'auction.private.cancel',
                     defaultMessage: 'Cancel',
                   })}
@@ -1186,7 +1189,7 @@ const AuctionDetail = ({
                 <Button
                   extraClass="success-full"
                   onClick={() => handleConfirmBid(isAnonymous)}
-                  text={translateMessage({
+                  text={useIntl().formatMessage({
                     id: 'auction.private.confirm',
                     defaultMessage: 'Confirm',
                   })}
@@ -1212,7 +1215,7 @@ const AuctionDetail = ({
                   />
                 </p>
                 <div className="mb-3">
-                  {translateMessage({
+                  {useIntl().formatMessage({
                     id: 'auction.modal.bid.email',
                     defaultMessage: 'If you are the winner you will receive an email to: ',
                   })}
@@ -1222,12 +1225,12 @@ const AuctionDetail = ({
                   <a
                     href="/user/settings"
                     target="_blank"
-                    title={translateMessage({
+                    title={useIntl().formatMessage({
                       id: 'auction.modal.bid.chageEmail',
                       defaultMessage: 'change e-mail',
                     })}
                   >
-                    {translateMessage({
+                    {useIntl().formatMessage({
                       id: 'auction.modal.bid.chageEmail',
                       defaultMessage: 'change e-mail',
                     })}
@@ -1241,7 +1244,6 @@ const AuctionDetail = ({
                     stripeCreditCardList={stripeCreditCardList}
                     stripeCreditCard={stripeCreditCard}
                     showAddBtnCreditCard={true}
-                    translateMessage={translateMessage}
                     env={env.stripe}
                     isErrorSelectCard={isErrorSelectCard}
                     selectedCard={selectedCard}
@@ -1261,7 +1263,7 @@ const AuctionDetail = ({
                   <CheckboxField
                     dataTestId="checkbox-anonymous"
                     className="mb-2 checkbox-modal-bid"
-                    label={translateMessage({
+                    label={useIntl().formatMessage({
                       id: 'auction.modal.bid.anonymousBid',
                       defaultMessage: 'Anonymous bid',
                     })}
@@ -1272,7 +1274,7 @@ const AuctionDetail = ({
                 <div className="mb-2">
                   <CheckboxField
                     className="checkbox-modal-bid"
-                    label={translateMessage({
+                    label={useIntl().formatMessage({
                       id: 'auction.modal.bid.check1',
                       defaultMessage:
                         'eSolidar and the charity/cause for which it is intended the amount raised in this auction, we reserve the legal right to take legal action against any act that puts into question the normal operation of it.',
@@ -1293,7 +1295,7 @@ const AuctionDetail = ({
                   {hasNotifications === 0 && (
                     <CheckboxField
                       className="checkbox-modal-bid"
-                      label={translateMessage({
+                      label={useIntl().formatMessage({
                         id: 'auction.modal.bid.check3',
                         defaultMessage:
                           'To be able to bid you must first accept to receive our notifications. This will allow us to inform you whenever you win an auction.',
@@ -1339,7 +1341,7 @@ const AuctionDetail = ({
                 <Button
                   extraClass="dark"
                   onClick={() => handleCancelModalSubscribe()}
-                  text={translateMessage({
+                  text={useIntl().formatMessage({
                     id: 'auction.private.cancel',
                     defaultMessage: 'Cancel',
                   })}
@@ -1353,7 +1355,10 @@ const AuctionDetail = ({
                       isCheckedEmail24H
                     )
                   }
-                  text={translateMessage({ id: 'auction.private.save', defaultMessage: 'Save' })}
+                  text={useIntl().formatMessage({
+                    id: 'auction.private.save',
+                    defaultMessage: 'Save',
+                  })}
                 />
               </>
             }
@@ -1361,7 +1366,7 @@ const AuctionDetail = ({
               <div>
                 <CheckboxField
                   dataTestId="checkStart"
-                  label={translateMessage({
+                  label={useIntl().formatMessage({
                     id: 'auction.modal.subscribe.check1',
                     defaultMessage: 'Send me an email when the auction start.',
                   })}
@@ -1370,7 +1375,7 @@ const AuctionDetail = ({
                 />
                 <CheckboxField
                   dataTestId="checkEmailBid"
-                  label={translateMessage({
+                  label={useIntl().formatMessage({
                     id: 'auction.modal.subscribe.check2',
                     defaultMessage: 'Send me an email when someone makes the first bid.',
                   })}
@@ -1379,7 +1384,7 @@ const AuctionDetail = ({
                 />
                 <CheckboxField
                   dataTestId="checkEmail24"
-                  label={translateMessage({
+                  label={useIntl().formatMessage({
                     id: 'auction.modal.subscribe.check3',
                     defaultMessage: 'Send me an email 24 hours before the auction ends.',
                   })}
@@ -1390,7 +1395,7 @@ const AuctionDetail = ({
             }
             onHide={() => handleCancelModalSubscribe()}
             show={isShowModalSubscribe}
-            title={translateMessage({
+            title={useIntl().formatMessage({
               id: 'auction.detail.subscribeAuction',
               defaultMessage: 'Subscribe auction leilão',
             })}
@@ -1406,12 +1411,15 @@ const AuctionDetail = ({
               <Button
                 extraClass="dark"
                 onClick={() => setModalDelete({ ...modalDelete, isOpen: false })}
-                text={translateMessage({ id: 'auction.private.cancel', defaultMessage: 'Cancel' })}
+                text={useIntl().formatMessage({
+                  id: 'auction.private.cancel',
+                  defaultMessage: 'Cancel',
+                })}
               />
               <Button
                 extraClass="success-full"
                 onClick={() => handleDeleteComment(modalDelete.commentId)}
-                text={translateMessage({
+                text={useIntl().formatMessage({
                   id: 'auction.modal.comment.Confirm',
                   defaultMessage: 'Confirm',
                 })}
@@ -1426,7 +1434,7 @@ const AuctionDetail = ({
           }
           onHide={() => setModalDelete({ ...modalDelete, isOpen: false })}
           show={modalDelete.isOpen}
-          title={translateMessage({
+          title={useIntl().formatMessage({
             id: 'auction.modal.comment.title',
             defaultMessage: 'Delete comment',
           })}
@@ -1524,10 +1532,6 @@ AuctionDetail.propTypes = {
     cdn_uploads_url: PropTypes.string,
     stripe: PropTypes.object,
   }),
-  translateMessage: PropTypes.func,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
   pusherData: PropTypes.object,
   postUpdatedUser: PropTypes.func,
   updatedUser: PropTypes.object,
@@ -1537,4 +1541,4 @@ AuctionDetail.propTypes = {
   locale: PropTypes.string,
 };
 
-export default injectIntl(AuctionDetail);
+export default AuctionDetail;

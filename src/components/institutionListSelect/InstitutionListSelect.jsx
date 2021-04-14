@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import classnames from 'classnames';
@@ -26,7 +26,6 @@ const InstitutionListSelect = ({
   isLoading,
   user_id,
   removeInstitutionSelected,
-  translateMessage,
 }) => {
   const renderCharities = () => {
     if (institutions) {
@@ -99,7 +98,10 @@ const InstitutionListSelect = ({
     <Row className="institutions-list">
       <Col md={12}>
         <SelectField
-          label={translateMessage({ id: 'institutions.categories', defaultMessage: 'Categories' })}
+          label={useIntl().formatMessage({
+            id: 'institutions.categories',
+            defaultMessage: 'Categories',
+          })}
           onChange={onChangeInstitutionCategory}
           idLabel="selectCategory"
           field="institution_category"
@@ -165,7 +167,6 @@ InstitutionListSelect.propTypes = {
   isLoading: PropTypes.bool,
   user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
-  translateMessage: PropTypes.func,
 };
 
 export default InstitutionListSelect;

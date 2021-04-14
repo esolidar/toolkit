@@ -2,8 +2,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { Row, Col, Card } from 'react-bootstrap';
-import { injectIntl } from 'react-intl';
 import AsyncPaginate from 'react-select-async-paginate';
 import TextField from '../../elements/textField';
 import TextareaField from '../../elements/textareaField';
@@ -30,7 +30,6 @@ const TicketsForm = ({
   disabled,
   hideText,
   editTicket,
-  intl,
   showAddFilesButtton,
   showModalFiles,
   toggleModalFiles,
@@ -158,7 +157,7 @@ const TicketsForm = ({
                         value={featureDefault}
                         onChange={onChange}
                         field="feature_id"
-                        label={intl.formatMessage({
+                        label={useIntl().formatMessage({
                           id: 'tickets.feature',
                           defaultMessage: 'Feature',
                         })}
@@ -174,7 +173,10 @@ const TicketsForm = ({
                           defaultValue={typeDefault}
                           onChange={onChange}
                           field="type"
-                          label={intl.formatMessage({ id: 'tickets.type', defaultMessage: 'Type' })}
+                          label={useIntl().formatMessage({
+                            id: 'tickets.type',
+                            defaultMessage: 'Type',
+                          })}
                           options={types}
                           error={errors.type}
                           required={true}
@@ -186,7 +188,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
-                            {intl.formatMessage({
+                            {useIntl().formatMessage({
                               id: 'tickets.auctions',
                               defaultMessage: 'Auctions',
                             })}
@@ -195,7 +197,7 @@ const TicketsForm = ({
                             isClearable
                             defaultValue={auctionDefault}
                             cacheOptions
-                            placeholder={intl.formatMessage({
+                            placeholder={useIntl().formatMessage({
                               id: 'tickets.search.byIdOrTitle',
                               defaultMessage: 'Search by title ou ID...',
                             })}
@@ -206,7 +208,7 @@ const TicketsForm = ({
                           {errors.related_feature_id && (
                             <div className="has-error">
                               <span className="help-block">
-                                {intl.formatMessage({
+                                {useIntl().formatMessage({
                                   id: 'form.required',
                                   defaultMessage: 'This field is required.',
                                 })}
@@ -220,7 +222,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
-                            {intl.formatMessage({
+                            {useIntl().formatMessage({
                               id: 'tickets.crowdfunding',
                               defaultMessage: 'Crowdfunding',
                             })}
@@ -229,7 +231,7 @@ const TicketsForm = ({
                             isClearable
                             defaultValue={crowdfundingDefault}
                             cacheOptions
-                            placeholder={intl.formatMessage({
+                            placeholder={useIntl().formatMessage({
                               id: 'tickets.search.byIdOrTitle',
                               defaultMessage: 'Search by title ou ID...',
                             })}
@@ -240,7 +242,7 @@ const TicketsForm = ({
                           {errors.related_feature_id && (
                             <div className="has-error">
                               <span className="help-block">
-                                {intl.formatMessage({
+                                {useIntl().formatMessage({
                                   id: 'form.required',
                                   defaultMessage: 'This field is required.',
                                 })}
@@ -254,7 +256,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
-                            {intl.formatMessage({
+                            {useIntl().formatMessage({
                               id: 'tickets.institution',
                               defaultMessage: 'Institution',
                             })}
@@ -263,7 +265,7 @@ const TicketsForm = ({
                             isClearable
                             value={institutionDefault}
                             cacheOptions
-                            placeholder={intl.formatMessage({
+                            placeholder={useIntl().formatMessage({
                               id: 'tickets.search.byIdOrTitle',
                               defaultMessage: 'Search by title ou ID...',
                             })}
@@ -274,7 +276,7 @@ const TicketsForm = ({
                           {errors.related_feature_id && (
                             <div className="has-error">
                               <span className="help-block">
-                                {intl.formatMessage({
+                                {useIntl().formatMessage({
                                   id: 'form.required',
                                   defaultMessage: 'This field is required.',
                                 })}
@@ -288,7 +290,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
-                            {intl.formatMessage({
+                            {useIntl().formatMessage({
                               id: 'tickets.assigned',
                               defaultMessage: 'Assigned to',
                             })}
@@ -297,7 +299,7 @@ const TicketsForm = ({
                             isClearable={!disabledAssignedSelect}
                             defaultValue={assignedDefault}
                             cacheOptions
-                            placeholder={intl.formatMessage({
+                            placeholder={useIntl().formatMessage({
                               id: 'tickets.search',
                               defaultMessage: 'Search here...',
                             })}
@@ -309,7 +311,7 @@ const TicketsForm = ({
                           {errors.assignee_id && (
                             <div className="has-error">
                               <span className="help-block">
-                                {intl.formatMessage({
+                                {useIntl().formatMessage({
                                   id: 'form.required',
                                   defaultMessage: 'This field is required.',
                                 })}
@@ -323,14 +325,14 @@ const TicketsForm = ({
                 )}
                 <Col sm={12}>
                   <TextField
-                    label={intl.formatMessage({
+                    label={useIntl().formatMessage({
                       id: 'project.tickets.title',
                       defaultMessage: 'Title',
                     })}
                     type="text"
                     onChange={onChange}
                     error={errors.title}
-                    placeholder={intl.formatMessage({
+                    placeholder={useIntl().formatMessage({
                       id: 'project.tickets.titlePlaceholder',
                       defaultMessage: 'Title',
                     })}
@@ -343,12 +345,12 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <TextareaField
-                        label={intl.formatMessage({
+                        label={useIntl().formatMessage({
                           id: 'project.tickets.text',
                           defaultMessage: 'Description',
                         })}
                         error={errors.text}
-                        placeholder={intl.formatMessage({
+                        placeholder={useIntl().formatMessage({
                           id: 'project.tickets.textPlaceholder',
                           defaultMessage: 'Enter your issue here.',
                         })}
@@ -366,7 +368,7 @@ const TicketsForm = ({
                     defaultValue={statusDefault}
                     onChange={onChange}
                     field="status"
-                    label={intl.formatMessage({
+                    label={useIntl().formatMessage({
                       id: 'project.tickets.status',
                       defaultMessage: 'Status',
                     })}
@@ -381,7 +383,7 @@ const TicketsForm = ({
                     defaultValue={priorityDefault}
                     onChange={onChange}
                     field="priority"
-                    label={intl.formatMessage({
+                    label={useIntl().formatMessage({
                       id: 'project.tickets.priority',
                       defaultMessage: 'Priority',
                     })}
@@ -394,7 +396,7 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({
+                        {useIntl().formatMessage({
                           id: 'project.tickets.files',
                           defaultMessage: 'Files',
                         })}
@@ -408,7 +410,7 @@ const TicketsForm = ({
                     <Button
                       extraClass="dark-full float-left"
                       onClick={toggleModalFiles}
-                      text={intl.formatMessage({
+                      text={useIntl().formatMessage({
                         id: 'project.tickets.addFiles',
                         defaultMessage: 'Add Files',
                       })}
@@ -418,7 +420,7 @@ const TicketsForm = ({
                     extraClass="success-full ml-auto"
                     onClick={onSubmit}
                     disabled={disabled}
-                    text={intl.formatMessage({
+                    text={useIntl().formatMessage({
                       id: 'Company.department.save',
                       defaultMessage: 'Save',
                     })}
@@ -433,12 +435,12 @@ const TicketsForm = ({
               <Row>
                 <Col sm={12}>
                   <TextareaField
-                    label={intl.formatMessage({
+                    label={useIntl().formatMessage({
                       id: 'project.tickets.text',
                       defaultMessage: 'Description',
                     })}
                     error={errors.text}
-                    placeholder={intl.formatMessage({
+                    placeholder={useIntl().formatMessage({
                       id: 'project.tickets.textPlaceholder',
                       defaultMessage: 'Enter your issue here.',
                     })}
@@ -453,7 +455,7 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({
+                        {useIntl().formatMessage({
                           id: 'project.tickets.files',
                           defaultMessage: 'Files',
                         })}
@@ -466,7 +468,7 @@ const TicketsForm = ({
                   <Button
                     extraClass="dark-full mr-auto"
                     onClick={toggleModalFiles}
-                    text={intl.formatMessage({
+                    text={useIntl().formatMessage({
                       id: 'project.tickets.addFiles',
                       defaultMessage: 'Add Files',
                     })}
@@ -474,7 +476,7 @@ const TicketsForm = ({
                   <Button
                     extraClass="dark mr-2"
                     onClick={addComment}
-                    text={intl.formatMessage({
+                    text={useIntl().formatMessage({
                       id: 'Company.department.cancel',
                       defaultMessage: 'Cancel',
                     })}
@@ -482,7 +484,7 @@ const TicketsForm = ({
                   <Button
                     extraClass="success-full"
                     onClick={onSubmitComment}
-                    text={intl.formatMessage({
+                    text={useIntl().formatMessage({
                       id: 'Company.department.save',
                       defaultMessage: 'Save',
                     })}
@@ -499,7 +501,7 @@ const TicketsForm = ({
           <Button
             extraClass="success-full"
             onClick={toggleModalFiles}
-            text={intl.formatMessage({
+            text={useIntl().formatMessage({
               id: 'project.tickets.addFiles',
               defaultMessage: 'Add Files',
             })}
@@ -514,7 +516,7 @@ const TicketsForm = ({
               isLoading={updloadFileIsLoading}
             />
             <h5>
-              {intl.formatMessage({
+              {useIntl().formatMessage({
                 id: 'document.files.modal.fileList',
                 defaultMessage: 'File list',
               })}
@@ -523,7 +525,7 @@ const TicketsForm = ({
               type="text"
               className="mb-3"
               onChange={searchFiles}
-              placeholder={intl.formatMessage({
+              placeholder={useIntl().formatMessage({
                 id: 'project.tickets.searchFiles',
                 defaultMessage: 'Pesquisar por nome',
               })}
@@ -538,7 +540,10 @@ const TicketsForm = ({
         onHide={toggleModalFiles}
         show={showModalFiles}
         size="lg"
-        title={intl.formatMessage({ id: 'project.tickets.addFiles', defaultMessage: 'Add Files' })}
+        title={useIntl().formatMessage({
+          id: 'project.tickets.addFiles',
+          defaultMessage: 'Add Files',
+        })}
       />
       <CustomModal
         bodyChildren={
@@ -553,7 +558,7 @@ const TicketsForm = ({
         onHide={toggleModalSimpleFiles}
         size="lg"
         show={showModalSimpleFiles}
-        title={intl.formatMessage({
+        title={useIntl().formatMessage({
           id: 'tickets.modal.simpleFiles.title',
           defaultMessage: 'Add Attachment',
         })}
@@ -573,7 +578,6 @@ TicketsForm.propTypes = {
   disabled: PropTypes.bool,
   hideText: PropTypes.bool,
   editTicket: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  intl: PropTypes.object,
   showAddFilesButtton: PropTypes.bool,
   showModalFiles: PropTypes.bool,
   toggleModalFiles: PropTypes.func,
@@ -617,4 +621,4 @@ TicketsForm.propTypes = {
   updloadFileIsLoading: PropTypes.bool,
 };
 
-export default injectIntl(TicketsForm);
+export default TicketsForm;

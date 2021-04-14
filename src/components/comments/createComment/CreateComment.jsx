@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ const CreateComment = props => {
   const {
     comment,
     env,
-    translateMessage,
+
     onSubmitComment,
     loadingNewComment,
     onChange,
@@ -38,7 +38,7 @@ const CreateComment = props => {
             style={{
               backgroundImage: loadingNewComment
                 ? `url(${env}/frontend/assets/loader.svg)`
-                : translateMessage({
+                : useIntl().formatMessage({
                     id: 'commentHere.image',
                     defaultMessage: `url(${env}/frontend/assets/send-comment.png)`,
                   }),
@@ -50,7 +50,10 @@ const CreateComment = props => {
             onKeyDown={e => addMessage(e, false)}
             disabled={loadingNewComment}
             value={comment}
-            placeholder={translateMessage({ id: 'commentHere', defaultMessage: 'Leave a comment' })}
+            placeholder={useIntl().formatMessage({
+              id: 'commentHere',
+              defaultMessage: 'Leave a comment',
+            })}
             maxLength="500"
           />
           <FontAwesomeIcon
@@ -69,7 +72,7 @@ export default CreateComment;
 CreateComment.propTypes = {
   comment: PropTypes.array,
   env: PropTypes.object.isRequired,
-  translateMessage: PropTypes.func.isRequired,
+
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loadingNewComment: PropTypes.bool.isRequired,

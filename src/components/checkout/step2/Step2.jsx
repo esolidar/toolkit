@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Loading from '../../loading';
 import Button from '../../../elements/button';
 import InvoicingData from '../invoicing/InvoicingData';
@@ -12,7 +12,7 @@ const Step2 = props => (
     {props.state.isLoadingPayment && (
       <div className="loading-payment">
         <Loading
-          message={props.translateMessage({
+          message={useIntl().formatMessage({
             id: 'payment.loader.wait',
             defaultMessage: 'Please wait.',
           })}
@@ -29,7 +29,6 @@ const Step2 = props => (
           onChangCheckBox={props.onChangCheckBox}
           onChange={props.onChange}
           state={props.state}
-          translateMessage={props.translateMessage}
         />
       </Row>
       <Row className="box box-mobile-padding">
@@ -39,7 +38,7 @@ const Step2 = props => (
               <Button
                 extraClass="dark btn-prev-step"
                 onClick={() => props.nextStep(0)}
-                text={props.translateMessage({
+                text={useIntl().formatMessage({
                   id: 'crowdfunding.donation.checkout.prev',
                   defaultMessage: 'Prev',
                 })}
@@ -49,7 +48,7 @@ const Step2 = props => (
               <Button
                 extraClass="success-full btn-next-step"
                 onClick={() => props.nextStep(2)}
-                text={props.translateMessage({
+                text={useIntl().formatMessage({
                   id: 'crowdfunding.donation.checkout.next',
                   defaultMessage: 'Next',
                 })}
@@ -70,7 +69,6 @@ Step2.propTypes = {
   state: PropTypes.shape({
     isLoadingPayment: PropTypes.bool,
   }),
-  translateMessage: PropTypes.func.isRequired,
 };
 
 export default Step2;

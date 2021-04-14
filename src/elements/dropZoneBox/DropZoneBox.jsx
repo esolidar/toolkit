@@ -1,7 +1,7 @@
 import { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
 import CustomModal from '../customModal';
@@ -28,7 +28,6 @@ const DropZoneBox = ({
   env,
   imagesPreviewPosition,
   deleteImageGallery,
-  intl,
   hasCropper,
   cropModalStatus,
   titleCropModal,
@@ -84,28 +83,28 @@ const DropZoneBox = ({
   const errorMessages = [
     {
       id: 'extensionError',
-      message: intl.formatMessage({
+      message: useIntl().formatMessage({
         id: 'document.files.modal.error.extension',
         defaultMessage: 'extension not allowed ',
       }),
     },
     {
       id: 'maxSizeError',
-      message: intl.formatMessage({
+      message: useIntl().formatMessage({
         id: 'document.files.modal.error.filesSizeMax',
         defaultMessage: 'size larger than ',
       }),
     },
     {
       id: 'minSizeError',
-      message: intl.formatMessage({
+      message: useIntl().formatMessage({
         id: 'document.files.modal.error.filesSizeMin',
         defaultMessage: 'size less than ',
       }),
     },
     {
       id: 'dimensions',
-      message: intl.formatMessage(
+      message: useIntl().formatMessage(
         {
           id: 'document.files.modal.error.dimensions',
           defaultMessage: 'The image should be at least {width}px by {height}px.',
@@ -375,9 +374,6 @@ DropZoneBox.propTypes = {
   env: PropTypes.object,
   imagesPreviewPosition: PropTypes.oneOf(['top', 'bottom']),
   deleteImageGallery: PropTypes.func,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
   cropModalStatus: PropTypes.bool,
   titleCropModal: PropTypes.string,
   textSaveCropModal: PropTypes.string,
@@ -403,4 +399,4 @@ DropZoneBox.defaultProps = {
   textSaveCropModal: 'Add',
   isLoading: false,
 };
-export default injectIntl(DropZoneBox);
+export default DropZoneBox;

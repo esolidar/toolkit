@@ -104,5 +104,4 @@ Default.args = {
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',
   },
-  translateMessage: () => 'Some text',
 };

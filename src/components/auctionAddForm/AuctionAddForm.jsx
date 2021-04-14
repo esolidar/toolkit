@@ -25,7 +25,7 @@ import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField';
 import BankAccount from '../bankAccounts';
 import validateAuctionForm from './validations';
-import { isEmpty, translateMessage } from '../../utils';
+import { isEmpty } from '../../utils';
 
 registerLocale('pt', pt);
 registerLocale('en', en);
@@ -647,7 +647,7 @@ const AuctionAddForm = ({
                   <Row>
                     <Col sm={4}>
                       <SelectField
-                        label={translateMessage({
+                        label={useIntl().formatMessage({
                           id: 'auctions.status',
                           defaultMessage: 'Auction status',
                         })}
@@ -1160,7 +1160,6 @@ const AuctionAddForm = ({
                         pagination={pagination.institutions}
                         isLoading={isLoadingInstitutionListSelect}
                         removeInstitutionSelected={handleChangeInstitution}
-                        translateMessage={useIntl().formatMessage}
                       />
                     </Col>
                   </Row>

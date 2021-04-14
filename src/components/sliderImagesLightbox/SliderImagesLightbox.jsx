@@ -206,7 +206,6 @@ class SliderImagesLightbox extends Component {
 export default SliderImagesLightbox;
 
 SliderImagesLightbox.propTypes = {
-  intl: PropTypes.object,
   request: PropTypes.object,
   onClick: PropTypes.func,
   images: PropTypes.array,

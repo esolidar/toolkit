@@ -15,5 +15,4 @@ Default.args = {
   stripeCreditCard: {},
   showAddBtnCreditCard: true,
   // FIXME: env: env.stripe,
-  translateMessage: () => {},
 };

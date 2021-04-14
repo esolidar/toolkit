@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 
 import PropTypes from 'prop-types';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
@@ -20,7 +20,6 @@ const ProjectDetailThumb = ({
   color,
   admin,
   showRequestInfoView,
-  intl,
   showReview,
 }) => {
   const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
@@ -118,7 +117,7 @@ const ProjectDetailThumb = ({
               { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
             ]}
             value={projectState}
-            label={intl.formatMessage({
+            label={useIntl().formatMessage({
               id: 'project.change.status.title',
               defaultMessage: 'Change project status',
             })}
@@ -159,9 +158,6 @@ ProjectDetailThumb.propTypes = {
     rejectText: PropTypes.string,
   }),
   showRequestInfoView: PropTypes.bool,
-  intl: PropTypes.shape({
-    formatMessage: PropTypes.func,
-  }),
   showReview: PropTypes.bool,
 };
 
@@ -169,4 +165,4 @@ ProjectDetailThumb.defaultProps = {
   showReview: false,
 };
 
-export default injectIntl(ProjectDetailThumb);
+export default ProjectDetailThumb;

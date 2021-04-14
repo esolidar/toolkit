@@ -59,5 +59,4 @@ Default.args = {
     itemsCountPerPage: 6,
     totalItemsCount: 50,
   },
-  translateMessage: () => 'some text',
 };

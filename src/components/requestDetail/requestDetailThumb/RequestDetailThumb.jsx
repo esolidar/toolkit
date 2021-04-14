@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Modal, Row } from 'react-bootstrap';
-import { FormattedDate, FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedDate, FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import Moment from 'react-moment';
 import LightboxGallery from '../../lightboxGallery';
 import TextareaField from '../../../elements/textareaField';
@@ -10,7 +10,7 @@ import { cdnStaticUrl } from '../../../constants/env';
 
 const RequestDetailThumb = ({
   request,
-  translateMessage,
+
   onReviewRequest,
   onCloseRequest,
   errors,
@@ -24,7 +24,7 @@ const RequestDetailThumb = ({
   let status;
   let statusText;
   let joinedStatus = 'join-request';
-  let joinedStatusText = translateMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
+  let joinedStatusText = useIntl().formatMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
 
   const onChangCheckBox = e => {
     if (e.target.checked === true) {
@@ -42,15 +42,15 @@ const RequestDetailThumb = ({
   switch (statusPivot) {
     case 'A':
       status = 'status-box status-active';
-      statusText = translateMessage({ id: 'statusActive', defaultMessage: 'Active' });
+      statusText = useIntl().formatMessage({ id: 'statusActive', defaultMessage: 'Active' });
       joinedStatus = 'joined-active';
-      joinedStatusText = translateMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
+      joinedStatusText = useIntl().formatMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
       break;
     case 'P':
       status = 'status-box status-pending';
-      statusText = translateMessage({ id: 'statusPending', defaultMessage: 'Pending' });
+      statusText = useIntl().formatMessage({ id: 'statusPending', defaultMessage: 'Pending' });
       joinedStatus = 'joined-pending';
-      joinedStatusText = translateMessage({
+      joinedStatusText = useIntl().formatMessage({
         id: 'joinedStatusTextPending',
         defaultMessage: 'Waiting approval',
       });
@@ -59,33 +59,39 @@ const RequestDetailThumb = ({
       if (request.pivot) {
         if (request.pivot.review) {
           status = 'status-box status-reviewed';
-          statusText = translateMessage({
+          statusText = useIntl().formatMessage({
             id: 'statusReviewed',
             defaultMessage: 'Completed and revised',
           });
           joinedStatus = 'joined-finished';
-          joinedStatusText = translateMessage({
+          joinedStatusText = useIntl().formatMessage({
             id: 'statusReviewed',
             defaultMessage: 'Completed and revised',
           });
         } else {
           status = 'status-box status-ended';
-          statusText = translateMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+          statusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = translateMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+          joinedStatusText = useIntl().formatMessage({
+            id: 'statusEnded',
+            defaultMessage: 'Ended',
+          });
         }
       } else {
         status = 'status-box status-ended';
-        statusText = translateMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+        statusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
         joinedStatus = 'joined-finished';
-        joinedStatusText = translateMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+        joinedStatusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
       }
       break;
     case 'D':
       status = 'status-box status-deleted';
-      statusText = translateMessage({ id: 'statusDeclined', defaultMessage: 'Declined' });
+      statusText = useIntl().formatMessage({ id: 'statusDeclined', defaultMessage: 'Declined' });
       joinedStatus = 'joined-declined';
-      joinedStatusText = translateMessage({ id: 'statusDeleted', defaultMessage: 'Deleted' });
+      joinedStatusText = useIntl().formatMessage({
+        id: 'statusDeleted',
+        defaultMessage: 'Deleted',
+      });
       break;
     default:
       status = 'status-box';
@@ -124,7 +130,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onCloseRequest}
-                text={translateMessage({
+                text={useIntl().formatMessage({
                   id: 'charityneeds.detail.btn.close.request',
                   defaultMessage: 'Close request',
                 })}
@@ -136,7 +142,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onReviewRequest}
-                text={translateMessage({
+                text={useIntl().formatMessage({
                   id: 'charityneeds.detail.btn.review',
                   defaultMessage: 'Review',
                 })}
@@ -290,7 +296,7 @@ RequestDetailThumb.propTypes = {
     start_date: PropTypes.string,
     status: PropTypes.string,
   }),
-  translateMessage: PropTypes.func,
+
   errors: PropTypes.object,
   admin: PropTypes.bool,
 };

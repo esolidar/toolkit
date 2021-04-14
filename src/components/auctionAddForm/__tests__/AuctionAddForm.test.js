@@ -72,7 +72,6 @@ const props = {
   postAuctionDeleteImage: fx,
   userRole: 'company',
   userBankTransfer: {},
-  translateMessage: fx,
 };
 
 const propsEdit = {
@@ -144,7 +143,6 @@ const propsEdit = {
   userRole: 'company',
   userBankTransfer: {},
   getAuctionDetail: fx,
-  translateMessage: fx,
 };
 
 const JSONData = {

@@ -18,5 +18,4 @@ Default.args = {
   },
   onChangCheckBoxInvoicing: () => {},
   onChange: () => {},
-  translateMessage: () => 'some text',
 };

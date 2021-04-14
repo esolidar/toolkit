@@ -33,5 +33,4 @@ Default.args = {
       phones: [],
     },
   },
-  translateMessage: () => 'Some text',
 };

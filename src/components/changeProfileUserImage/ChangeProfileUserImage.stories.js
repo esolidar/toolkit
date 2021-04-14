@@ -9,7 +9,6 @@ const Template = args => <ChangeProfileUserImage {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  translateMessage: () => 'Some text',
   // color: {
   //   primaryColor: '#ddd',
   // },

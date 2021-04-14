@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Elements, StripeProvider } from 'react-stripe-elements';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { NotificationManager } from 'react-notifications';
 import StripeCheckoutFormSca from '../stripe/StripeCheckoutFormSca';
 import { filterUnique } from '../../utils';
@@ -17,7 +17,7 @@ const CreditCardList = ({
   showAddBtnCreditCard,
   selectedCard,
   env,
-  translateMessage,
+
   isErrorSelectCard,
 }) => {
   const [isRadioCc, setIsRadioCc] = useState(null);
@@ -47,11 +47,11 @@ const CreditCardList = ({
       setDisableButton(false);
     } else {
       NotificationManager.error(
-        translateMessage({
+        useIntl().formatMessage({
           id: 'credit.card.error.message',
           defaultMessage: 'An error has occurred, please try again!',
         }),
-        translateMessage({
+        useIntl().formatMessage({
           id: 'errror',
           defaultMessage: 'Error:',
         }),
@@ -182,7 +182,10 @@ const CreditCardList = ({
                   submit={submit}
                   errors={{}}
                   disableButton={disableButton}
-                  btnText={translateMessage({ id: 'creditcard.save', defaultMessage: 'Save' })}
+                  btnText={useIntl().formatMessage({
+                    id: 'creditcard.save',
+                    defaultMessage: 'Save',
+                  })}
                 />
               </div>
             </Elements>
@@ -212,7 +215,7 @@ CreditCardList.propTypes = {
     code: PropTypes.number,
     data: PropTypes.array,
   }),
-  translateMessage: PropTypes.func.isRequired,
+
   isErrorSelectCard: PropTypes.bool,
 };
 

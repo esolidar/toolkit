@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import Button from '../../../elements/button';
 import CrowdfundingItem from '../products/CrowdfundingItem';
@@ -6,7 +7,7 @@ import CrowdfundingItem from '../products/CrowdfundingItem';
 const Step1 = props => {
   const {
     env,
-    translateMessage,
+
     state,
     nextStep,
     onChangeMessage,
@@ -34,7 +35,6 @@ const Step1 = props => {
                   removeCartItem={removeCartItem}
                   onAddToCheckout={onAddToCheckout}
                   env={env}
-                  translateMessage={translateMessage}
                 />
               </div>
             </div>
@@ -45,7 +45,7 @@ const Step1 = props => {
     return (
       <div className="no-items">
         <h1>
-          {translateMessage({
+          {useIntl().formatMessage({
             id: 'checkout.noitems',
             defaultMessage: 'There are no items to checkout',
           })}
@@ -64,7 +64,7 @@ const Step1 = props => {
               <Button
                 extraClass="success-full next-step"
                 onClick={() => nextStep(1)}
-                text={translateMessage({
+                text={useIntl().formatMessage({
                   id: 'crowdfunding.donation.checkout.next',
                   defaultMessage: 'Next',
                 })}
@@ -78,7 +78,7 @@ const Step1 = props => {
           <Col sm={12} className="text-center">
             <div className="box">
               <a className="btn-next-step" href="/">
-                {translateMessage({
+                {useIntl().formatMessage({
                   id: 'crowdfunding.donation.checkout.goHome',
                   defaultMessage: 'Go home',
                 })}
@@ -100,7 +100,7 @@ Step1.propTypes = {
     errors: PropTypes.object,
   }),
   env: PropTypes.object.isRequired,
-  translateMessage: PropTypes.func.isRequired,
+
   onChangeMessage: PropTypes.func.isRequired,
   onChangCheckBox: PropTypes.func.isRequired,
   removeCartItem: PropTypes.func.isRequired,

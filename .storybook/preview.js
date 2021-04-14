@@ -8,16 +8,26 @@ import { addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { setIntlConfig, withIntl } from 'storybook-addon-intl';
 import { jsxDecorator } from 'storybook-addon-jsx';
+import { createIntl, createIntlCache, IntlProvider } from 'react-intl';
 
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE, MESSAGES } from '../src/constants/locales';
 import results from '../.jest-test-results.json';
 
-const getMessages = locale => MESSAGES[locale];
+// const cache = createIntlCache();
+
+// const intl = createIntl(
+//   {
+//     locales: Object.values(SUPPORTED_LOCALES),
+//     defaultLocale: DEFAULT_LOCALE,
+//     getMessages: locale => MESSAGES[locale],
+//   },
+//   cache
+// );
 
 setIntlConfig({
   locales: Object.values(SUPPORTED_LOCALES),
   defaultLocale: DEFAULT_LOCALE,
-  getMessages,
+  getMessages: locale => MESSAGES[locale],
 });
 
 addDecorator(withIntl);
@@ -42,3 +52,11 @@ export const parameters = {
     light: { ...themes.normal },
   },
 };
+
+export const decorators = [
+  Story => (
+    // <IntlProvider>
+    <Story />
+    // </IntlProvider>
+  ),
+];

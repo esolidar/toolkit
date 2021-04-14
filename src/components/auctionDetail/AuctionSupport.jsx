@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import Button from '../../elements/button';
 
-const AuctionSupport = ({ auction, translateMessage }) => {
+const AuctionSupport = ({ auction }) => {
   const supported = auction.recipient ? auction.recipient : auction.user;
 
   return (
@@ -27,7 +28,7 @@ const AuctionSupport = ({ auction, translateMessage }) => {
                 extraClass="info"
                 target="_blank"
                 href="#"
-                text={translateMessage({
+                text={useIntl().formatMessage({
                   id: 'auction.detail.supportCharity',
                   defaultMessage: 'Support this charity',
                 })}
@@ -59,7 +60,6 @@ AuctionSupport.propTypes = {
       }),
     }),
   }),
-  translateMessage: PropTypes.func,
 };
 
 export default AuctionSupport;

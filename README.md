@@ -20,7 +20,6 @@ Toolkit for building eSolidar Projects.
 <img src="https://img.shields.io/badge/dev%20dependencies-up%20to%20date-brightgreen" alt="dev dependencies">
 </div>
 
-
 ## Table of contents
 
 - [Quick start](#quick-start)
@@ -127,4 +126,3 @@ Code released under the MIT License.
 ## Roadmap
 
 - Use env constants everywhere in the project
-- Create translateMessage function and import it in every project

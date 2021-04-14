@@ -173,14 +173,12 @@ const nextStep = () => {};
 const env = {
   serverlessResizeImage: 'https://image.testesolidar.com',
 };
-const translateMessage = () => 'Some text';
 
 describe('CrowdfundingItem component', () => {
   it('renders CrowdfundingItem correctly', () => {
     const component = shallow(
       <CrowdfundingItem
         item={item}
-        translateMessage={translateMessage}
         env={env}
         nextStep={nextStep}
         removeCartItem={removeCartItem}
@@ -198,7 +196,6 @@ describe('CrowdfundingItem component', () => {
     const component = shallow(
       <CrowdfundingItem
         item={itemNoInstitution}
-        translateMessage={translateMessage}
         env={env}
         nextStep={nextStep}
         removeCartItem={removeCartItem}

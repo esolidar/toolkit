@@ -46,7 +46,6 @@ Default.args = {
   isCommingSoon: false,
   handleClickBid: () => {},
   error: '',
-  translateMessage: () => 'Some text',
   minValue: 10,
   showModalSubscribe: () => {},
   user: {
