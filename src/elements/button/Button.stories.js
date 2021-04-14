@@ -8,7 +8,6 @@ export default {
 const Template = args => <Button {...args} />;
 
 export const Primary = Template.bind({});
-
 Primary.args = {
   extraClass: 'info-full',
   target: '_blank',

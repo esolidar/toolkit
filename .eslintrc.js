@@ -5,3 +5,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
   },
 };
+
+// FIXME: errorBoundary, projectAddForm, validateTelephone
+// TODO: eliminar o fixme

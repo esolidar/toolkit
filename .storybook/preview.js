@@ -1,6 +1,34 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '!style-loader!css-loader!sass-loader!../src/assets/sass/main.scss';
 
+import '@storybook/addon-console';
+import 'storybook-addon-intl/register';
+import { themes } from '@storybook/theming';
+import { addDecorator } from '@storybook/react';
+import { withTests } from '@storybook/addon-jest';
+import { setIntlConfig, withIntl } from 'storybook-addon-intl';
+import { jsxDecorator } from 'storybook-addon-jsx';
+
+import { SUPPORTED_LOCALES, DEFAULT_LOCALE, MESSAGES } from '../src/constants/locales';
+import results from '../.jest-test-results.json';
+
+const getMessages = locale => MESSAGES[locale];
+
+setIntlConfig({
+  locales: Object.values(SUPPORTED_LOCALES),
+  defaultLocale: DEFAULT_LOCALE,
+  getMessages,
+});
+
+addDecorator(withIntl);
+addDecorator(jsxDecorator);
+
+addDecorator(
+  withTests({
+    results,
+  })
+);
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -8,5 +36,9 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  darkMode: {
+    dark: { ...themes.dark, appBg: '#1c1c1c' },
+    light: { ...themes.normal },
   },
 };
