@@ -39,7 +39,7 @@ const NotificationsMobile = ({
                   <img
                     alt="Thumb"
                     src={
-                      notification.photo.thumb
+                      notification.photo?.thumb
                         ? notification.photo.thumb
                         : 'https://static.esolidar.com/frontend/assets/no-image.png'
                     }
