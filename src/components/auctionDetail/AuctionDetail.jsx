@@ -874,7 +874,6 @@ const AuctionDetail = ({
                 error={errorPrivateCode}
                 placeholder={useIntl().formatMessage({
                   id: 'auction.private.insertCode',
-                  defaultMessage: 'Insert the code',
                 })}
               />
             </Row>

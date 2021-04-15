@@ -6,9 +6,6 @@ module.exports = {
   },
 };
 
-// tentar remover injectIntl do formatCurrency
 // tentar usar o useIntl no downloadExcel()
-// .dive
-// <intlprovider>
 // FIXME: errorBoundary, projectAddForm, validateTelephone
 // TODO: eliminar o fixme

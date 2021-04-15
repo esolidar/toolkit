@@ -1294,7 +1294,6 @@ const AuctionAddForm = ({
                         onClick={handleSubmit}
                         text={useIntl().formatMessage({
                           id: 'auctions.add.submitAuction',
-                          defaultMessage: 'Submit auction',
                         })}
                         disabled={disabled}
                       />

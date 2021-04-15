@@ -99,7 +99,7 @@ const InstitutionListSelect = ({
       <Col md={12}>
         <SelectField
           label={useIntl().formatMessage({
-            id: 'institutions.categories',
+            id: 'projects.categories',
             defaultMessage: 'Categories',
           })}
           onChange={onChangeInstitutionCategory}

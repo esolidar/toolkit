@@ -186,44 +186,18 @@ describe('ProjectThumb component', () => {
   });
 
   it('renders ProjectThumb ods with 2 images', () => {
-    const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectThumb {...props} />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+    const component = shallow(<ProjectThumb {...props} />);
     expect(component.find('.ods').length).toBe(2);
   });
 
   it('renders ProjectThumb ods with more images', () => {
-    const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectThumb {...propsWithMoreOds} />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
-
+    const component = shallow(<ProjectThumb {...propsWithMoreOds} />);
     expect(component.find('.ods').length).toBe(4);
     expect(component.find('.more-ods').length).toBe(1);
   });
 
   it('renders ProjectThumb edit button with PENDING stuts', () => {
-    const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectThumb {...propsPending} />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
-
+    const component = shallow(<ProjectThumb {...propsPending} />);
     expect(component.find('.edit-button').length).toBe(1);
   });
 });
