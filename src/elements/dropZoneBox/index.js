@@ -18,6 +18,7 @@ const DropZoneBox = ({
   showDropArea,
   maxSize,
   minSize,
+  maxFiles,
   multiple,
   noClick,
   noDrag,
@@ -129,6 +130,7 @@ const DropZoneBox = ({
     disabled,
     maxSize,
     minSize,
+    maxFiles,
     multiple,
     noClick,
     noDrag,
@@ -212,7 +214,10 @@ const DropZoneBox = ({
       )}
       {label && <span className="control-label">{label}</span>}
       {showDropArea && (
-        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}`}>
+        <div
+          {...getRootProps({ className: 'dropZone' })}
+          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
+        >
           <input {...getInputProps()} />
           <div>
             {isLoading && <Loading />}
@@ -221,7 +226,7 @@ const DropZoneBox = ({
                 <strong>
                   <FormattedMessage
                     id="document.files.modal.drop"
-                    defaultMessage="Drag and drop some files here, or click to select files"
+                    defaultMessage="Drag and drop or click to select a file"
                   />
                 </strong>
                 <br />
@@ -359,6 +364,7 @@ DropZoneBox.propTypes = {
   showDropArea: PropTypes.bool,
   maxSize: PropTypes.number,
   minSize: PropTypes.number,
+  maxFiles: PropTypes.number,
   multiple: PropTypes.bool,
   noClick: PropTypes.bool,
   noKeyboard: PropTypes.bool,
@@ -395,6 +401,7 @@ DropZoneBox.defaultProps = {
   showDropArea: true,
   maxSize: 5000000,
   minSize: 0,
+  maxFiles: 5,
   multiple: true,
   noClick: false,
   noKeyboard: true,
