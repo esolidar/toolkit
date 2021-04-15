@@ -794,6 +794,7 @@ const AuctionAddForm = ({
                       <FormattedMessage id="auctions.add.multimedia.help" />
                     </span>
                     <DropZoneBox
+                      disabled={imagesCount >= 5}
                       label={intl.formatMessage({
                         id: 'auction.images',
                       })}
