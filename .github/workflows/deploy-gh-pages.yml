@@ -1,8 +1,8 @@
-name: publish-github-package
+name: deploy-github-pages
 
 on:
   push:
-    branches: ['master']
+    branches: ['${GITHUB_REF#refs/heads/}']
 
 jobs:
   publish:
@@ -24,7 +24,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Publish package
-        run: yarn build:publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: lib
