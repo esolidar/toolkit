@@ -13,7 +13,7 @@ import AuctionLastBid from './AuctionLastBid';
 import Countdown from '../countdown';
 import CreateComment from '../comments/createComment';
 import AuctionDetailRigth from './AuctionDetailRigth';
-import AuctionsList from './auctionsList/AuctionsList';
+import AuctionsList from './auctionsList';
 import ProjectThumb from '../projectThumb';
 import ShareNetwork from '../shareNetwork';
 import TextField from '../../elements/textField';
@@ -24,8 +24,8 @@ import CheckboxField from '../../elements/checkboxField';
 import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
-import ValidateTelephone from '../validateTelephone';
 import isEmpty from '../../utils/isEmpty';
+import ValidateTelephone from '../validateTelephone';
 
 const AuctionDetail = ({
   auctionId,
@@ -874,6 +874,7 @@ const AuctionDetail = ({
                 error={errorPrivateCode}
                 placeholder={useIntl().formatMessage({
                   id: 'auction.private.insertCode',
+                  defaultMessage: 'Insert the code',
                 })}
               />
             </Row>
@@ -962,13 +963,17 @@ const AuctionDetail = ({
                   )}
                 </Col>
                 <Col sm={12} className="text-center hidden-xs">
-                  <div className="end-date" data-testid="end-date-info">
-                    <div className="mb-2">
+                  <div className="end-date">
+                    <div className="mb-2" data-testid="end-date-info">
                       <FormattedMessage
                         id="auction.detail.ends"
-                        defaultMessage="This auction ends in: "
+                        defaultMessage="This auction ended in: "
                       />
-                      <ConvertToMyTimezone date={auctionDetailInfo.dateLimit} format="DD/MM/YYYY" />
+                      <ConvertToMyTimezone
+                        date={auctionDetailInfo.dateLimit}
+                        locale={locale}
+                        format="LLLL"
+                      />
                     </div>
                     <FormattedMessage
                       id="auction.detail.infoBid"
@@ -1016,6 +1021,8 @@ const AuctionDetail = ({
                       primaryColor={primaryColor}
                       env={env}
                       inputRef={inputRef}
+                      domainUrl={domainUrl}
+                      locale={locale}
                     />
                   </Row>
                 </Col>
@@ -1223,7 +1230,6 @@ const AuctionDetail = ({
                   <span> (</span>
                   <a
                     href="/user/settings"
-                    target="_blank"
                     title={useIntl().formatMessage({
                       id: 'auction.modal.bid.chageEmail',
                       defaultMessage: 'change e-mail',

@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import InputLabel from '../inputLabel';
 
 const SelectField = ({
   options,
@@ -15,6 +16,9 @@ const SelectField = ({
   hiddenSelectText,
   dataTestId,
   optionTestId,
+  info,
+  help,
+  showOptionalLabel,
 }) => {
   const optionsList = options => {
     if (options) {
@@ -33,11 +37,8 @@ const SelectField = ({
 
   return (
     <div className={classnames('form-group', { 'has-error': error })}>
-      {label && (
-        <label htmlFor={field} className="control-label">
-          {label}
-        </label>
-      )}
+      {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
+      {help && <span className="label-help">{help}</span>}
       <select
         data-testid={dataTestId}
         name={field}
@@ -50,6 +51,7 @@ const SelectField = ({
         {!hiddenSelectText && <option value="">{selectText}</option>}
         {optionsList(options)}
       </select>
+      {info && <span className="footer-label-info">{info}</span>}
       {error && <span className="help-block">{error}</span>}
     </div>
   );
@@ -71,6 +73,9 @@ SelectField.propTypes = {
   selectText: PropTypes.string,
   className: PropTypes.string,
   hiddenSelectText: PropTypes.bool,
+  info: PropTypes.string,
+  help: PropTypes.string,
+  showOptionalLabel: PropTypes.bool,
 };
 
 SelectField.defaultProps = {

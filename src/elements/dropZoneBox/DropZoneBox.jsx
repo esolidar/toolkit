@@ -18,6 +18,7 @@ const DropZoneBox = ({
   showDropArea,
   maxSize,
   minSize,
+  maxFiles,
   multiple,
   noClick,
   noDrag,
@@ -34,6 +35,7 @@ const DropZoneBox = ({
   textSaveCropModal,
   modalClassName,
   isLoading,
+  label,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -127,6 +129,7 @@ const DropZoneBox = ({
     disabled,
     maxSize,
     minSize,
+    maxFiles,
     multiple,
     noClick,
     noDrag,
@@ -208,9 +211,12 @@ const DropZoneBox = ({
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-
+      {label && <span className="control-label">{label}</span>}
       {showDropArea && (
-        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}`}>
+        <div
+          {...getRootProps({ className: 'dropZone' })}
+          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
+        >
           <input {...getInputProps()} />
           <div>
             {isLoading && <Loading />}
@@ -219,7 +225,7 @@ const DropZoneBox = ({
                 <strong>
                   <FormattedMessage
                     id="document.files.modal.drop"
-                    defaultMessage="Drag and drop some files here, or click to select files"
+                    defaultMessage="Drag and drop or click to select a file"
                   />
                 </strong>
                 <br />
@@ -349,6 +355,7 @@ const DropZoneBox = ({
   );
 };
 DropZoneBox.propTypes = {
+  label: PropTypes.string,
   accept: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   className: PropTypes.string,
@@ -356,6 +363,7 @@ DropZoneBox.propTypes = {
   showDropArea: PropTypes.bool,
   maxSize: PropTypes.number,
   minSize: PropTypes.number,
+  maxFiles: PropTypes.number,
   multiple: PropTypes.bool,
   noClick: PropTypes.bool,
   noKeyboard: PropTypes.bool,
@@ -389,6 +397,7 @@ DropZoneBox.defaultProps = {
   showDropArea: true,
   maxSize: 5000000,
   minSize: 0,
+  maxFiles: 5,
   multiple: true,
   noClick: false,
   noKeyboard: true,

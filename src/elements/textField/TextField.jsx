@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import InputLabel from '../inputLabel';
 
 const TextField = ({
   field,
@@ -22,14 +23,14 @@ const TextField = ({
   dataTestId,
   inputRef,
   children,
+  info,
+  showOptionalLabel,
 }) => (
   <div
     className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
   >
     {label && (
-      <label htmlFor={id || field} className="control-label">
-        {label}
-      </label>
+      <InputLabel field={id || field} label={label} showOptionalLabel={showOptionalLabel} />
     )}
     {help && <p className="help">{help}</p>}
     {!children && (
@@ -52,6 +53,7 @@ const TextField = ({
       />
     )}
     {children && children}
+    {info && <span className="footer-label-info">{info}</span>}
     {error && <span className="help-block">{error}</span>}
     {message && <span className="help-block">{message}</span>}
   </div>
@@ -59,6 +61,7 @@ const TextField = ({
 
 TextField.propTypes = {
   dataTestId: PropTypes.string,
+  info: PropTypes.string,
   field: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -78,10 +81,12 @@ TextField.propTypes = {
   className: PropTypes.string,
   inputRef: PropTypes.object,
   children: PropTypes.node,
+  showOptionalLabel: PropTypes.bool,
 };
 
 TextField.defaultProps = {
   children: null,
+  showOptionalLabel: false,
 };
 
 export default TextField;

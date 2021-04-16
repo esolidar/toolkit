@@ -9,7 +9,6 @@ const Template = args => <BankAccount {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  intl: () => '',
   countryId: 208,
   color: 'green',
   postBankTransfer: () => {},

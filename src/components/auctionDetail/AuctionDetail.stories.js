@@ -385,9 +385,6 @@ Default.args = {
   confirmPhone: {
     code: 200,
   },
-  intl: {
-    formatMessage: () => 'some text',
-  },
   pusherData: null,
   postUpdatedUser: {},
   updatedUser: () => {},

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import Pagination from 'react-js-pagination';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { WithContext as ReactTags } from 'react-tag-input';
@@ -24,6 +24,8 @@ import ProjectThumb from '../projectThumb';
 import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField';
 import BankAccount from '../bankAccounts';
+import InputLabel from '../../elements/inputLabel';
+import RadioField from '../../elements/radioField';
 import validateAuctionForm from './validations';
 import { isEmpty } from '../../utils';
 
@@ -70,7 +72,6 @@ const AuctionAddForm = ({
   userBankTransfer,
   putCompanyBankTransfer,
   bankTransfer,
-  // useIntl().formatMessage,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find(item => item.name === 'whitelabel') || {};
@@ -117,11 +118,11 @@ const AuctionAddForm = ({
   const [loading, setLoading] = useState(loadingPage || false);
   const [disabled, setDisabled] = useState(false);
   const [imagesCount, setImagesCount] = useState(0);
-  const [isLoadingInstitutionListSelect, setIsLoadingInstitutionListSelect] = useState(true);
+  const [isLoadingInstitutionListSelect, setIsLoadingInstitutionListSelect] = useState(false);
   const [institutionsData, setInstitutionsData] = useState([]);
   const [institutionCategoriesData, setInstitutionCategoriesData] = useState([]);
   const [institutionCategory, setInstitutionCategory] = useState('');
-  const [institutionSearch, setInstitutionSearch] = useState('');
+  const [institutionSearch, setInstitutionSearch] = useState(null);
   const [projectsListData, setProjectsListData] = useState([]);
   const [brandsList, setBrandsList] = useState([]);
   const [imagesList, setImagesList] = useState([]);
@@ -130,12 +131,12 @@ const AuctionAddForm = ({
   const [isMyProjet, setIsMyProject] = useState(false);
   const [isValidBankAccount, setIsValidBankAccount] = useState(false);
   const [updloadFileIsLoading, SetUploadFileIsLoading] = useState(false);
+  const [beneficiary, setBeneficiary] = useState('');
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     if (auctionId) {
       getAuctionDetail(company.id, auctionId);
-    } else {
-      getInstitutions(pagination.institutions.activePage, institutionCategory, institutionSearch);
     }
     if (showInstitutions) {
       getInstitutionCategories();
@@ -200,6 +201,21 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (auctionDetail && auctionDetail.code === 200) {
       const { data } = auctionDetail;
+
+      if (data.status === 'A') {
+        NotificationManager.error(
+          useIntl().formatMessage({
+            id: 'auction.edit.forbidden',
+          }),
+          useIntl().formatMessage({
+            id: 'error',
+          }),
+          15000
+        );
+
+        window.location.href = '/auctions';
+      }
+
       const imagesListArray = [];
       const imagesArray = [];
 
@@ -267,6 +283,8 @@ const AuctionAddForm = ({
         currency_id: data.currency_id,
         position: data.position,
       }));
+
+      setBeneficiary(data.project_id ? 'project' : 'institution');
     }
   }, [auctionDetail]);
 
@@ -276,12 +294,9 @@ const AuctionAddForm = ({
       NotificationManager.success(
         useIntl().formatMessage({
           id: 'success.auction.create',
-          defaultMessage:
-            'Your auction was successfully created. Our team will validate it and contact you soon.',
         }),
         useIntl().formatMessage({
           id: 'success',
-          defaultMessage: 'Success:',
         }),
         15000
       );
@@ -298,11 +313,9 @@ const AuctionAddForm = ({
       NotificationManager.error(
         useIntl().formatMessage({
           id: 'error.auction.create',
-          defaultMessage: 'An error has occurred, please try again!',
         }),
         useIntl().formatMessage({
           id: 'error',
-          defaultMessage: 'Error:',
         }),
         15000
       );
@@ -317,12 +330,9 @@ const AuctionAddForm = ({
       NotificationManager.success(
         useIntl().formatMessage({
           id: 'success.auction.create',
-          defaultMessage:
-            'Your auction was successfully edited. Our team will validate it and contact you soon.',
         }),
         useIntl().formatMessage({
           id: 'success',
-          defaultMessage: 'Success:',
         }),
         15000
       );
@@ -358,7 +368,6 @@ const AuctionAddForm = ({
         ...prevState,
         images: useIntl().formatMessage({
           id: 'auction.add.error.image',
-          // defaultMessage: 'There was an error sending the image',
         }),
       }));
     }
@@ -387,13 +396,15 @@ const AuctionAddForm = ({
   };
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      getInstitutions(1, institutionCategory, institutionSearch);
-    }, 500);
+    if (institutionSearch !== null) {
+      const handler = setTimeout(() => {
+        getInstitutions(1, institutionCategory, institutionSearch);
+      }, 500);
 
-    return () => {
-      clearTimeout(handler);
-    };
+      return () => {
+        clearTimeout(handler);
+      };
+    }
   }, [institutionSearch]);
 
   const handleSearchInstitutions = e => {
@@ -513,6 +524,7 @@ const AuctionAddForm = ({
     data.showBrands = showBrands;
     data.isMyProjet = isMyProjet;
     data.isValidBankAccount = isValidBankAccount;
+    data.beneficiary = beneficiary;
 
     if (isMyProjet && !isValidBankAccount) return false;
 
@@ -534,7 +546,8 @@ const AuctionAddForm = ({
     return isValid;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = s => {
+    if (s) setStatus(s);
     if (isMyProjet && !isEmpty(form.projectIds)) {
       setSaveBankAccount(true);
       setLoading(true);
@@ -563,7 +576,7 @@ const AuctionAddForm = ({
       private: form.private,
       private_code: form.private_code,
       shipping_description: form.shipping_description,
-      status: form.status,
+      status: s || status,
       tags: form.tagsArray.length ? form.tagsArray.flatMap(tag => tag.text).join(',') : null,
       tax: form.tax,
       timezone: form.timezone,
@@ -584,6 +597,15 @@ const AuctionAddForm = ({
     }
   };
 
+  const handleChangeBeneficiary = e => {
+    setBeneficiary(e.target.value);
+    setForm(prevState => ({
+      ...prevState,
+      projectIds: [],
+      user_id: '',
+    }));
+  };
+
   useEffect(() => {
     if (isValidBankAccount) handleSubmit();
   }, [isValidBankAccount]);
@@ -596,7 +618,7 @@ const AuctionAddForm = ({
   };
 
   return (
-    <Container className="add-auction">
+    <div className="add-auction">
       {loading && (
         <div className="loading-page">
           <Loading />
@@ -605,24 +627,21 @@ const AuctionAddForm = ({
       <section className="content-header">
         {action === null && (
           <h1 style={{ color: primaryColor }}>
-            <FormattedMessage id="auctions.add.title" defaultMessage="Add Auction" />
+            <FormattedMessage id="auctions.add.title" />
           </h1>
         )}
         {action === 'edit' && (
           <h1 style={{ color: primaryColor }} data-testid="auction-edit-title">
-            <FormattedMessage id="auctions.edit.title" defaultMessage="Edit Auction" />
+            <FormattedMessage id="Auctions.edit" />
           </h1>
         )}
         {action === 'clone' && (
           <h1 style={{ color: primaryColor }}>
-            <FormattedMessage id="auctions.clone.title" defaultMessage="Clone Auction" />
+            <FormattedMessage id="auctions.clone.title" />
           </h1>
         )}
         <p className="subtitle">
-          <FormattedMessage
-            id="auction.add.subtitle"
-            defaultMessage="Charity auctions are an easy way to raise funds"
-          />
+          <FormattedMessage id="auction.add.subtitle" />
         </p>
       </section>
       <section className="content-form" id="add-auction">
@@ -636,81 +655,13 @@ const AuctionAddForm = ({
                       style={{ color: primaryColor, borderColor: primaryColor }}
                       data-testid="auction-information"
                     >
-                      <FormattedMessage
-                        id="auctions.add.formTitle"
-                        defaultMessage="Auction information"
-                      />
+                      <FormattedMessage id="auctions.add.form.title" />
                     </h3>
                   </Col>
-                </Row>
-                {!isEmpty(hasWhitelabel) && userRole === 'company' && (
-                  <Row>
-                    <Col sm={4}>
-                      <SelectField
-                        label={useIntl().formatMessage({
-                          id: 'auctions.status',
-                          defaultMessage: 'Auction status',
-                        })}
-                        options={[
-                          {
-                            id: 'P',
-                            name: useIntl().formatMessage({
-                              id: 'pending',
-                              defaultMessage: 'Pending',
-                            }),
-                          },
-                          {
-                            id: 'A',
-                            name: useIntl().formatMessage({
-                              id: 'active',
-                              defaultMessage: 'Active',
-                            }),
-                          },
-                        ]}
-                        value={form.status}
-                        field="status"
-                        onChange={handleChangeForm}
-                        hiddenSelectText={true}
-                      />
-                    </Col>
-                    {esolidarList && (
-                      <Col sm={4}>
-                        <SelectField
-                          label={useIntl().formatMessage({
-                            id: 'auctions.show.esolidar',
-                            defaultMessage: 'Show in eSoldiar.com',
-                          })}
-                          options={[
-                            {
-                              id: 'no',
-                              name: useIntl().formatMessage({
-                                id: 'no',
-                                defaultMessage: 'No',
-                              }),
-                            },
-                            {
-                              id: 'opened',
-                              name: useIntl().formatMessage({
-                                id: 'yes',
-                                defaultMessage: 'Yes',
-                              }),
-                            },
-                          ]}
-                          value={form.show_on_esolidar}
-                          field="show_on_esolidar"
-                          onChange={handleChangeForm}
-                          hiddenSelectText={true}
-                        />
-                      </Col>
-                    )}
-                  </Row>
-                )}
-                <Row>
                   <Col sm={12}>
                     <TextField
                       label={useIntl().formatMessage({
                         id: 'auctionTitle',
-                        defaultMessage: 'AUCTION TITLE',
                       })}
                       onChange={e => handleChangeForm(e)}
                       error={errors.title}
@@ -719,86 +670,13 @@ const AuctionAddForm = ({
                       fieldTranslate="auctionTitle"
                     />
                   </Col>
-                  <Col sm={3}>
-                    <TextFieldGroup
-                      label={useIntl().formatMessage({
-                        id: 'auctionStartBid',
-                        defaultMessage: 'STARTING BID',
-                      })}
-                      onChange={handleChangeForm}
-                      error={errors.bid_start}
-                      value={form.bid_start}
-                      field="bid_start"
-                      placeholder="0.00"
-                      type="number"
-                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
-                    />
-                  </Col>
-                  <Col sm={3}>
-                    <TextFieldGroup
-                      label={useIntl().formatMessage({
-                        id: 'auctionBidInterval',
-                        defaultMessage: 'BID INTERVAL',
-                      })}
-                      onChange={handleChangeForm}
-                      error={errors.bid_interval}
-                      value={form.bid_interval}
-                      field="bid_interval"
-                      placeholder="0.00"
-                      type="number"
-                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
-                    />
-                  </Col>
-                  <Col sm={3}>
-                    <TextFieldGroup
-                      label={useIntl().formatMessage({
-                        id: 'auctionBidMaxInterval',
-                        defaultMessage: 'MAX BID INTERVAL',
-                      })}
-                      onChange={handleChangeForm}
-                      error={errors.bid_max_interval}
-                      value={form.bid_max_interval}
-                      field="bid_max_interval"
-                      placeholder="0.00"
-                      type="number"
-                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
-                    />
-                  </Col>
-                  <Col sm={3}>
-                    <TextFieldGroup
-                      label={useIntl().formatMessage({
-                        id: 'auctionEsolidarTax',
-                        defaultMessage: 'ESOLIDAR TAX',
-                      })}
-                      onChange={() => {}}
-                      error={errors.tax}
-                      value={isEmpty(hasWhitelabel) ? form.tax : '0'}
-                      field="tax"
-                      type="number"
-                      groupText="%"
-                      disabled={true}
-                    />
-                  </Col>
-                  <Col sm={12}>
-                    <div className="form-group">
-                      <label className="control-label">
-                        <FormattedMessage id="auctionKeywords" defaultMessage="Keywords" />
-                      </label>
-                      <ReactTags
-                        tags={form.tagsArray}
-                        handleInputBlur={handleAddition}
-                        delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
-                        handleDelete={handleDelete}
-                        placeholder="Tags"
-                        handleAddition={handleAddition}
-                      />
-                    </div>
-                  </Col>
                   <Col sm={12}>
                     <TextareaField
                       label={useIntl().formatMessage({
                         id: 'auctionDescription',
-                        defaultMessage: 'AUCTION DESCRIPTION',
+                      })}
+                      help={useIntl().formatMessage({
+                        id: 'auction.description.info',
                       })}
                       onChange={handleChangeForm}
                       error={errors.description}
@@ -808,41 +686,74 @@ const AuctionAddForm = ({
                     />
                   </Col>
                   <Col sm={12}>
-                    <TextareaField
-                      label={useIntl().formatMessage({
-                        id: 'auctionDescriptionShipping',
-                        defaultMessage: 'SHIPMENT COSTS',
-                      })}
-                      onChange={handleChangeForm}
-                      error={errors.shipping_description}
-                      value={form.shipping_description}
-                      field="shipping_description"
-                      placeholder={useIntl().formatMessage({
-                        id: 'auctionShippingText',
-                        defaultMessage:
-                          'Information about the shipping costs of the prize to the winner.',
-                      })}
-                      resize={true}
-                    />
+                    <div className="form-group">
+                      <InputLabel
+                        label={useIntl().formatMessage({
+                          id: 'auction.tags',
+                        })}
+                        showOptionalLabel={true}
+                      />
+                      <p className="help">
+                        <FormattedMessage id="auction.tags.help" />
+                      </p>
+                      <ReactTags
+                        tags={form.tagsArray}
+                        handleInputBlur={handleAddition}
+                        delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
+                        handleDelete={handleDelete}
+                        placeholder={useIntl().formatMessage({
+                          id: 'auction.tags.placeholder',
+                        })}
+                        handleAddition={handleAddition}
+                      />
+                      <span className="footer-label-info">
+                        <FormattedMessage id="auction.tags.info" />
+                      </span>
+                    </div>
                   </Col>
-                  <Col sm={12}>
-                    <TextareaField
-                      label={useIntl().formatMessage({
-                        id: 'auctionDescriptionPayment',
-                        defaultMessage: 'PAYMENT',
-                      })}
-                      onChange={handleChangeForm}
-                      error={errors.payment_description}
-                      value={form.payment_description}
-                      field="payment_description"
-                      placeholder={useIntl().formatMessage({
-                        id: 'auctionPaymentText',
-                        defaultMessage:
-                          'Give instructions about how the winner will make the payment.',
-                      })}
-                      resize={true}
-                    />
-                  </Col>
+                  {showPrivate && (
+                    <Col sm={8}>
+                      <SelectField
+                        label={useIntl().formatMessage({
+                          id: 'auctions.add.type',
+                        })}
+                        info={useIntl().formatMessage({
+                          id: 'auctions.add.type.help',
+                        })}
+                        options={[
+                          {
+                            id: '0',
+                            name: useIntl().formatMessage({
+                              id: 'auctionPublic',
+                            }),
+                          },
+                          {
+                            id: '1',
+                            name: useIntl().formatMessage({
+                              id: 'auctionPrivate',
+                            }),
+                          },
+                        ]}
+                        value={form.private}
+                        field="private"
+                        onChange={handleChangeForm}
+                        hiddenSelectText={true}
+                      />
+                    </Col>
+                  )}
+                  {form.private === '1' && (
+                    <Col sm={4}>
+                      <TextField
+                        label={useIntl().formatMessage({
+                          id: 'acessCode',
+                        })}
+                        onChange={e => handleChangeForm(e)}
+                        error={errors.private_code}
+                        value={form.private_code}
+                        field="private_code"
+                      />
+                    </Col>
+                  )}
                 </Row>
               </Col>
               <Col md={4}>
@@ -850,54 +761,42 @@ const AuctionAddForm = ({
                   <div className="col-md-12">
                     <div className="help-right-content">
                       <h4 style={{ color: primaryColor, borderColor: primaryColor }}>
-                        <FormattedMessage id="auctions.add.help" defaultMessage="Help" />
+                        <FormattedMessage id="auctions.add.help" />
                       </h4>
-                      {!isEmpty(hasWhitelabel) && userRole === 'company' && (
-                        <>
-                          <div className="header">
-                            <FormattedMessage
-                              id="auctions.add.question0"
-                              defaultMessage="SHOW IN ESOLIDAR.COM"
-                            />
-                          </div>
-                          <div className="text mb-5">
-                            <FormattedMessage
-                              id="auctions.add.answer0"
-                              defaultMessage="The auction can also appear on the eSolidar.com community website. To do so choose the Yes option in the Show in eSolidar.com field. If you activate this feature, the auction will be pending approval by the eSolidar team. Once the auction is approved, you will receive a notification/email."
-                            />
-                          </div>
-                        </>
-                      )}
                       <div className="header">
-                        <FormattedMessage
-                          id="auctions.add.question1"
-                          defaultMessage="What is keywords?"
-                        />
+                        <FormattedMessage id="auctions.add.question1" />
                       </div>
                       <div className="text">
-                        <FormattedMessage
-                          id="auctions.add.answer1"
-                          defaultMessage="Include keywords that buyers would use to search for your item."
-                        />
+                        <FormattedMessage id="auctions.add.answer1" />
                       </div>
                     </div>
                   </div>
                 </Row>
               </Col>
+            </Row>
+            <Row>
               <Col md={8} className="box-lr">
                 <Row>
                   <Col sm={12}>
                     <h3
                       style={{ color: primaryColor, borderColor: primaryColor }}
                       data-testid="images"
+                      className="title-help"
                     >
-                      <FormattedMessage id="auctions.add.formImages" defaultMessage="Images" />
+                      <FormattedMessage id="auctions.add.multimedia" />
                     </h3>
                   </Col>
                   <div
                     className={classnames('col-sm-12 form-group', { 'has-error': errors.images })}
                   >
+                    <span className="help mb-4">
+                      <FormattedMessage id="auctions.add.multimedia.help" />
+                    </span>
                     <DropZoneBox
+                      disabled={imagesCount >= 5}
+                      label={useIntl().formatMessage({
+                        id: 'auction.images',
+                      })}
                       accept=".jpg, .jpeg, .png"
                       onSelect={handleSelectImage}
                       showImagesPreviews={true}
@@ -923,9 +822,12 @@ const AuctionAddForm = ({
                   </div>
                   <Col sm={12}>
                     <TextField
+                      showOptionalLabel={true}
                       label={useIntl().formatMessage({
-                        id: 'auctionVideo',
-                        defaultMessage: 'VIDEO (Only Youtube videos URL)',
+                        id: 'auction.video',
+                      })}
+                      placeholder={useIntl().formatMessage({
+                        id: 'auction.video.placeholder',
                       })}
                       onChange={handleChangeForm}
                       error={errors.video}
@@ -933,100 +835,143 @@ const AuctionAddForm = ({
                       field="video"
                     />
                   </Col>
-                  {showBrands && (
-                    <Col sm={12}>
-                      <h3
-                        style={{ color: primaryColor, borderColor: primaryColor }}
-                        data-testid="brands"
-                      >
-                        <FormattedMessage id="auctions.add.brand" defaultMessage="Brand" />
-                      </h3>
-                      <SelectField
-                        options={brandsList}
-                        value={form.brand_id}
-                        field="brand_id"
-                        error={errors.brand_id}
-                        onChange={handleChangeForm}
-                        selectText={useIntl().formatMessage({
-                          id: 'auctions.addBrand',
-                          defaultMessage: 'Select Brand',
-                        })}
-                      />
-                    </Col>
-                  )}
                 </Row>
-                {showPrivate && (
-                  <Row>
-                    <Col sm={12}>
-                      <h3
-                        style={{ color: primaryColor, borderColor: primaryColor }}
-                        data-testid="private"
-                      >
-                        <FormattedMessage id="auctions.add.private" defaultMessage="Private" />
-                      </h3>
-                    </Col>
-                    <Col sm={6}>
-                      <SelectField
-                        label={useIntl().formatMessage({ id: 'auctions.add.type' })}
-                        options={[
-                          {
-                            id: '0',
-                            name: useIntl().formatMessage({
-                              id: 'auctionPublic',
-                              defaultMessage: 'Public',
-                            }),
-                          },
-                          {
-                            id: '1',
-                            name: useIntl().formatMessage({
-                              id: 'auctionPrivate',
-                              defaultMessage: 'Private',
-                            }),
-                          },
-                        ]}
-                        value={form.private}
-                        field="private"
-                        onChange={handleChangeForm}
-                        hiddenSelectText={true}
-                      />
-                    </Col>
-                    {form.private === '1' && (
-                      <Col sm={6}>
-                        <TextField
-                          label={useIntl().formatMessage({
-                            id: 'acessCode',
-                            defaultMessage: 'Access code',
-                          })}
-                          onChange={e => handleChangeForm(e)}
-                          error={errors.private_code}
-                          value={form.private_code}
-                          field="private_code"
-                        />
-                      </Col>
-                    )}
-                  </Row>
-                )}
               </Col>
               <Col md={4}>
                 <Row className="row">
                   <div className="col-md-12">
                     <div className="help-right-content">
                       <div className="header">
-                        <FormattedMessage
-                          id="auctions.add.question2"
-                          defaultMessage="Add item photos"
-                        />
+                        <FormattedMessage id="auctions.add.question2" />
                       </div>
                       <div className="text">
-                        <FormattedMessage
-                          id="auctions.add.answer2"
-                          defaultMessage="Select one image each time. The maximum size is 5Mb"
-                        />
+                        <FormattedMessage id="auctions.add.answer2" />
                       </div>
                     </div>
                   </div>
                 </Row>
               </Col>
+            </Row>
+            <Row>
+              <Col md={8} className="box-lr">
+                <Row>
+                  <Col sm={12}>
+                    <h3
+                      style={{ color: primaryColor, borderColor: primaryColor }}
+                      data-testid="auction-pricing"
+                    >
+                      <FormattedMessage id="auctions.pricing.title" />
+                    </h3>
+                  </Col>
+                  <Col sm={6}>
+                    <TextFieldGroup
+                      label={useIntl().formatMessage({
+                        id: 'auction.start.bid',
+                      })}
+                      onChange={handleChangeForm}
+                      error={errors.bid_start}
+                      value={form.bid_start}
+                      field="bid_start"
+                      placeholder="0.00"
+                      type="number"
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
+                    />
+                  </Col>
+                  <Col sm={6}>
+                    <TextFieldGroup
+                      label={useIntl().formatMessage({
+                        id: 'auction.esolidar.tax',
+                      })}
+                      info={
+                        hasWhitelabel
+                          ? useIntl().formatMessage({ id: 'auction.esolidar.no.tax.info' })
+                          : useIntl().formatMessage(
+                              {
+                                id: 'auction.esolidar.tax.info',
+                              },
+                              { tax: form.tax }
+                            )
+                      }
+                      onChange={() => {}}
+                      error={errors.tax}
+                      value={isEmpty(hasWhitelabel) ? form.tax : '0'}
+                      field="tax"
+                      type="number"
+                      groupText="%"
+                      disabled={true}
+                    />
+                  </Col>
+                  <Col sm={6}>
+                    <TextFieldGroup
+                      label={useIntl().formatMessage({
+                        id: 'auctionBidInterval',
+                      })}
+                      onChange={handleChangeForm}
+                      error={errors.bid_interval}
+                      value={form.bid_interval}
+                      field="bid_interval"
+                      placeholder="0.00"
+                      type="number"
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
+                    />
+                  </Col>
+                  <Col sm={6}>
+                    <TextFieldGroup
+                      label={useIntl().formatMessage({
+                        id: 'auctionBidMaxInterval',
+                      })}
+                      onChange={handleChangeForm}
+                      error={errors.bid_max_interval}
+                      value={form.bid_max_interval}
+                      field="bid_max_interval"
+                      placeholder="0.00"
+                      type="number"
+                      groupText={!isEmpty(company) ? company.currency.symbol : '€'}
+                    />
+                  </Col>
+                  <Col sm={12}>
+                    <TextareaField
+                      showOptionalLabel={true}
+                      label={useIntl().formatMessage({
+                        id: 'auction.description.payment',
+                      })}
+                      help={useIntl().formatMessage({
+                        id: 'auction.description.payment.help',
+                      })}
+                      onChange={handleChangeForm}
+                      error={errors.payment_description}
+                      value={form.payment_description}
+                      field="payment_description"
+                      placeholder={useIntl().formatMessage({
+                        id: 'auction.description.payment.placeholder',
+                      })}
+                      resize={true}
+                    />
+                  </Col>
+                  <Col sm={12}>
+                    <TextareaField
+                      showOptionalLabel={true}
+                      label={useIntl().formatMessage({
+                        id: 'auction.description.shipping',
+                      })}
+                      help={useIntl().formatMessage({
+                        id: 'auction.description.shipping.help',
+                      })}
+                      onChange={handleChangeForm}
+                      error={errors.shipping_description}
+                      value={form.shipping_description}
+                      field="shipping_description"
+                      placeholder={useIntl().formatMessage({
+                        id: 'auction.description.shipping.placeholder',
+                      })}
+                      resize={true}
+                    />
+                  </Col>
+                </Row>
+              </Col>
+              <Col md={4} />
+            </Row>
+            <Row>
               <Col md={8} className="box-lr">
                 <Row>
                   <Col sm={12}>
@@ -1034,10 +979,7 @@ const AuctionAddForm = ({
                       style={{ color: primaryColor, borderColor: primaryColor }}
                       data-testid="select-dates"
                     >
-                      <FormattedMessage
-                        id="auctions.add.selectDates"
-                        defaultMessage="Select dates"
-                      />
+                      <FormattedMessage id="auctions.add.selectDates" />
                     </h3>
                   </Col>
                   <div className="col-md-12">
@@ -1047,10 +989,7 @@ const AuctionAddForm = ({
                           className={classnames('form-group', { 'has-error': errors.dateStart })}
                         >
                           <label className="control-label">
-                            <FormattedMessage
-                              id="auctions.add.startDate"
-                              defaultMessage="Start Date"
-                            />
+                            <FormattedMessage id="auctions.add.startDate" />
                           </label>
                           <DatePicker
                             locale={localStorage.lang === 'en' ? 'en' : 'pt'}
@@ -1063,12 +1002,8 @@ const AuctionAddForm = ({
                             className="form-control"
                             placeholderText={useIntl().formatMessage({
                               id: 'dd-mm-yyyy',
-                              defaultMessage: 'DD-MM-YYYY',
                             })}
-                            timeCaption={useIntl().formatMessage({
-                              id: 'hour',
-                              defaultMessage: 'Hour',
-                            })}
+                            timeCaption={useIntl().formatMessage({ id: 'hour' })}
                             dateFormat="d-MM-yyyy h:mm aa"
                           />
                           {errors.dateStart && (
@@ -1081,7 +1016,7 @@ const AuctionAddForm = ({
                           className={classnames('form-group', { 'has-error': errors.dateLimit })}
                         >
                           <label className="control-label">
-                            <FormattedMessage id="auctions.add.endDate" defaultMessage="End Date" />
+                            <FormattedMessage id="auctions.add.endDate" />
                           </label>
                           <DatePicker
                             locale={localStorage.lang === 'en' ? 'en' : 'pt'}
@@ -1092,13 +1027,9 @@ const AuctionAddForm = ({
                             onChange={handleChangeEnd}
                             showTimeSelect
                             className="form-control"
-                            timeCaption={useIntl().formatMessage({
-                              id: 'hour',
-                              defaultMessage: 'Hour',
-                            })}
+                            timeCaption={useIntl().formatMessage({ id: 'hour' })}
                             placeholderText={useIntl().formatMessage({
                               id: 'dd-mm-yyyy',
-                              defaultMessage: 'DD-MM-YYYY',
                             })}
                             dateFormat="d-MM-yyyy h:mm aa"
                           />
@@ -1111,7 +1042,6 @@ const AuctionAddForm = ({
                         <SelectField
                           label={useIntl().formatMessage({
                             id: 'auctions.timezone',
-                            defaultMessage: 'Time zone',
                           })}
                           options={timeZones}
                           value={form.timezone}
@@ -1124,36 +1054,129 @@ const AuctionAddForm = ({
                   </div>
                 </Row>
               </Col>
-              {showInstitutions && (
-                <Col md={8} className="box-lr">
-                  <Row>
+              <Col md={4} />
+            </Row>
+            <Row>
+              <Col md={8} className="box-lr">
+                <Row>
+                  {(showBrands || esolidarList) && (
                     <Col sm={12}>
                       <h3
                         style={{ color: primaryColor, borderColor: primaryColor }}
-                        data-testid="select-institution"
+                        data-testid="private"
                       >
-                        <FormattedMessage
-                          id="crowdfunding.select.institution"
-                          defaultMessage="Select one institution"
-                        />
+                        <FormattedMessage id="auctions.visibility.esolidar" />
                       </h3>
                     </Col>
+                  )}
+                  {showBrands && (
+                    <Col sm={8}>
+                      <SelectField
+                        label={useIntl().formatMessage({
+                          id: 'auction.brand',
+                        })}
+                        options={brandsList}
+                        value={form.brand_id}
+                        field="brand_id"
+                        error={errors.brand_id}
+                        onChange={handleChangeForm}
+                        selectText={useIntl().formatMessage({
+                          id: 'auctions.addBrand',
+                        })}
+                      />
+                    </Col>
+                  )}
+                  {esolidarList && (
+                    <Col sm={4}>
+                      <SelectField
+                        label={useIntl().formatMessage({
+                          id: 'auctions.show.esolidar',
+                        })}
+                        options={[
+                          {
+                            id: 'no',
+                            name: useIntl().formatMessage({
+                              id: 'no',
+                            }),
+                          },
+                          {
+                            id: 'opened',
+                            name: useIntl().formatMessage({
+                              id: 'yes',
+                            }),
+                          },
+                        ]}
+                        value={form.show_on_esolidar}
+                        field="show_on_esolidar"
+                        onChange={handleChangeForm}
+                        hiddenSelectText={true}
+                        info={useIntl().formatMessage({
+                          id: 'auctions.show.esolidar.info',
+                        })}
+                      />
+                    </Col>
+                  )}
+                </Row>
+                <Row>
+                  <Col sm={12}>
+                    <h3
+                      style={{ color: primaryColor, borderColor: primaryColor }}
+                      data-testid="select-institution"
+                      className="title-help"
+                    >
+                      <FormattedMessage id="auction.beneficiary" />
+                    </h3>
+                  </Col>
+                  {showProjects && hasProjects && (
+                    <Col
+                      sm={12}
+                      className={classnames('form-group', { 'has-error': errors.beneficiary })}
+                    >
+                      <span className="help mb-4">
+                        <FormattedMessage id="auction.beneficiary.help" />
+                      </span>
+                      <RadioField
+                        label={useIntl().formatMessage({
+                          id: 'auction.institution',
+                        })}
+                        onChange={handleChangeBeneficiary}
+                        name="auction_beneficiary_institution"
+                        value="institution"
+                        checked={beneficiary === 'institution'}
+                      />
+                      <RadioField
+                        label={useIntl().formatMessage({
+                          id: 'auction.project',
+                        })}
+                        onChange={handleChangeBeneficiary}
+                        name="auction_beneficiary_project"
+                        value="project"
+                        checked={beneficiary === 'project'}
+                      />
+                      {errors.beneficiary && (
+                        <span className="help-block">{errors.beneficiary}</span>
+                      )}
+                    </Col>
+                  )}
+                  {((showInstitutions && beneficiary === 'institution') ||
+                    (!hasProjects && beneficiary === '')) && (
                     <Col sm={12}>
                       <InstitutionListSelect
-                        user_id={form.user_id}
+                        user_id={form.user_id || ''}
                         institutions={institutionsData}
                         categories={institutionCategoriesData}
                         onChangeInstitutionCategory={handleChangeInstitutioncategory}
                         handlePageChange={handleInstitutionsPageChange}
                         onSearch={handleSearchInstitutions}
                         onChange={handleChangeInstitution}
+                        placeholderSearch={useIntl().formatMessage({
+                          id: 'auction.institution.search.placeholder',
+                        })}
                         NoResultsText={useIntl().formatMessage({
-                          id: 'no.results',
-                          defaultMessage: 'There are no results',
+                          id: 'auction.no.institution.results',
                         })}
                         selectCategoryText={useIntl().formatMessage({
                           id: 'select.category',
-                          defaultMessage: 'Select category',
                         })}
                         error={errors.user_id}
                         search={institutionSearch}
@@ -1162,83 +1185,93 @@ const AuctionAddForm = ({
                         removeInstitutionSelected={handleChangeInstitution}
                       />
                     </Col>
-                  </Row>
-                </Col>
-              )}
-              {showProjects && hasProjects && (
-                <Col md={8} className="box-lr">
-                  <Row>
-                    <Col sm={12}>
-                      <h3
-                        style={{ color: primaryColor, borderColor: primaryColor }}
-                        data-testid="select-projects"
-                      >
-                        <FormattedMessage
-                          id="auction.select.one.project"
-                          defaultMessage="Select one project"
-                        />
-                      </h3>
-                    </Col>
-                    {projectsListData.length > 0 && (
-                      <Col
-                        sm={12}
-                        className={classnames('form-group', { 'has-error': errors.projectIds })}
-                      >
-                        <Row>
-                          {projectsListData.map(project => (
-                            <ProjectThumb
-                              key={project.id}
-                              project={project}
-                              serverlessResizeImage="https://image.testesolidar.com"
-                              lang={localStorage.lang}
-                              cols={6}
-                              showStatus={false}
-                              myProject={true}
-                              select={true}
-                              selectProject={handleSelectProject}
-                              selectText={useIntl().formatMessage({
-                                id: 'select',
-                                defaultMessage: 'Select',
-                              })}
-                              selectedText={useIntl().formatMessage({
-                                id: 'selected',
-                                defaultMessage: 'Selected',
-                              })}
-                              isSelected={true}
-                              selectedIds={form.projectIds}
-                            />
-                          ))}
-                          <Col
-                            sm={12}
-                            className={classnames('form-group', { 'has-error': errors.projectIds })}
-                          >
-                            {errors.projectIds && (
-                              <span className="help-block d-block">{errors.projectIds}</span>
-                            )}
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col sm={12} className="text-center">
-                            <Pagination
-                              innerClass="pagination justify-content-center"
-                              activePage={pagination.projects.activePage}
-                              itemsCountPerPage={pagination.projects.itemsCountPerPage}
-                              totalItemsCount={pagination.projects.totalItemsCount}
-                              pageRangeDisplayed={5}
-                              onChange={handleProjectsPageChange}
-                            />
-                          </Col>
-                        </Row>
+                  )}
+                  {showProjects && beneficiary === 'project' && hasProjects && (
+                    <>
+                      <Col sm={12}>
+                        <label className="control-label">
+                          <FormattedMessage id="projects" />
+                        </label>
                       </Col>
-                    )}
-                    {projectsListData.length === 0 && (
-                      <Col sm={12} className="text-center">
-                        <FormattedMessage id="auction.no.project" />
-                      </Col>
-                    )}
+                      {projectsListData.length > 0 && (
+                        <Col
+                          sm={12}
+                          className={classnames('form-group', { 'has-error': errors.projectIds })}
+                        >
+                          <Row>
+                            {projectsListData.map(project => (
+                              <ProjectThumb
+                                key={project.id}
+                                project={project}
+                                serverlessResizeImage="https://image.testesolidar.com"
+                                lang={localStorage.lang}
+                                cols={6}
+                                showStatus={false}
+                                myProject={true}
+                                select={true}
+                                selectProject={handleSelectProject}
+                                selectText={useIntl().formatMessage({
+                                  id: 'select',
+                                })}
+                                selectedText={useIntl().formatMessage({
+                                  id: 'selected',
+                                })}
+                                isSelected={true}
+                                selectedIds={form.projectIds}
+                              />
+                            ))}
+                            <Col
+                              sm={12}
+                              className={classnames('form-group', {
+                                'has-error': errors.projectIds,
+                              })}
+                            >
+                              {errors.projectIds && (
+                                <span className="help-block d-block">{errors.projectIds}</span>
+                              )}
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col sm={12} className="text-center">
+                              <Pagination
+                                innerClass="pagination justify-content-center"
+                                activePage={pagination.projects.activePage}
+                                itemsCountPerPage={pagination.projects.itemsCountPerPage}
+                                totalItemsCount={pagination.projects.totalItemsCount}
+                                pageRangeDisplayed={5}
+                                onChange={handleProjectsPageChange}
+                              />
+                            </Col>
+                          </Row>
+                        </Col>
+                      )}
+                      {projectsListData.length === 0 && (
+                        <Col sm={12} className="text-center">
+                          <FormattedMessage id="auction.no.project" />
+                        </Col>
+                      )}
+                    </>
+                  )}
+                </Row>
+              </Col>
+              <Col md={4}>
+                {!isEmpty(hasWhitelabel) && userRole === 'company' && (
+                  <Row className="row">
+                    <div className="col-md-12">
+                      <div className="help-right-content">
+                        <div className="header">
+                          <FormattedMessage id="auctions.add.question0" />
+                        </div>
+                        <div className="text mb-5">
+                          <FormattedMessage id="auctions.add.answer0" />
+                        </div>
+                      </div>
+                    </div>
                   </Row>
-                </Col>
-              )}
+                )}
+              </Col>
+            </Row>
+            <Row>
               {isMyProjet &&
                 isEmpty(userBankTransfer[company.country] || [] || userBankTransfer[1] || []) &&
                 !isEmpty(form.projectIds) && (
@@ -1264,34 +1297,51 @@ const AuctionAddForm = ({
                     )}
                   </Col>
                 )}
-              <Col md={8} className="box-lbr text-center">
+              <Col md={8} className="box-lr text-center">
                 <Row>
                   {!isMyProjet && !isEmpty(form.projectIds) && (
-                    <Col sm={12} className="pb-5">
+                    <Col sm={12}>
                       <span className="subtext">
-                        <FormattedMessage
-                          id="auction.add.project.member"
-                          defaultMessage="We will send an email to the person that created the project informing him that you have built an auction to help raise funds."
-                        />
+                        <FormattedMessage id="auction.add.project.member" />
                       </span>
                     </Col>
                   )}
                   {isEmpty(hasWhitelabel) && (
-                    <Col sm={12} className="pb-5">
+                    <Col sm={12}>
                       <span className="subtext">
-                        <FormattedMessage
-                          id="auction.add.submit.text"
-                          defaultMessage="The auction will be submitted but will not be available until our team approve it. We will contact you soon."
-                        />
+                        <FormattedMessage id="auction.add.submit.text" />
                       </span>
                     </Col>
                   )}
-                  <Col sm={12} className="mt-5">
+                </Row>
+              </Col>
+              <Col md={8} className="box-lbr">
+                <Row>
+                  <Col sm={12} className="mt-5 text-center">
+                    <Button
+                      dataTestId="btn-cancel"
+                      extraClass="dark mr-3"
+                      href="/auctions"
+                      text={useIntl().formatMessage({
+                        id: 'cancel',
+                      })}
+                    />
+                    {!isEmpty(hasWhitelabel) && userRole === 'company' && (
+                      <Button
+                        dataTestId="btn-submit-draft"
+                        extraClass="info-full mr-3"
+                        onClick={() => handleSubmit('P')}
+                        text={useIntl().formatMessage({
+                          id: 'auctions.add.submit.draft',
+                        })}
+                        disabled={disabled}
+                      />
+                    )}
                     {action === null && (
                       <Button
                         dataTestId="btn-submit"
                         extraClass="success-full btn-submit"
-                        onClick={handleSubmit}
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={useIntl().formatMessage({
                           id: 'auctions.add.submitAuction',
                         })}
@@ -1300,24 +1350,21 @@ const AuctionAddForm = ({
                     )}
                     {action === 'edit' && (
                       <Button
-                        dataTestId="btn-submit"
+                        dataTestId="btn-submit-edit"
                         extraClass="success-full btn-submit"
-                        onClick={handleSubmit}
                         text={useIntl().formatMessage({
                           id: 'auctions.edit.submitAuction',
-                          defaultMessage: 'Edit auction',
                         })}
                         disabled={disabled}
                       />
                     )}
                     {action === 'clone' && (
                       <Button
-                        dataTestId="btn-submit"
+                        dataTestId="btn-submit-clone"
                         extraClass="success-full btn-submit"
-                        onClick={handleSubmit}
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={useIntl().formatMessage({
                           id: 'auctions.clone.submitAuction',
-                          defaultMessage: 'Clone auction',
                         })}
                         disabled={disabled}
                       />
@@ -1329,7 +1376,7 @@ const AuctionAddForm = ({
           </Col>
         </Row>
       </section>
-    </Container>
+    </div>
   );
 };
 

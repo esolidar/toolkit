@@ -1,14 +1,13 @@
 import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import AuctionAddForm from '../index';
+import AuctionAddForm from '../AuctionAddForm';
 
 const fx = jest.fn();
 
 const props = {
   loadingPage: false,
   action: null,
-  intl: fx,
   institutions: {},
   categories: [],
   showInstitutions: true,
@@ -78,7 +77,6 @@ const propsEdit = {
   auctionId: 287,
   loadingPage: false,
   action: 'edit',
-  intl: fx,
   institutions: {},
   categories: [],
   showInstitutions: true,
@@ -175,12 +173,11 @@ test('simulate add auction form', async () => {
   await waitFor(() => {
     const auctionInformation = screen.getByTestId('auction-information');
     const btnSubmit = screen.getByTestId('btn-submit');
-    const selectProjects = screen.getByTestId('select-projects');
+    const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Auction information');
+    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
     expect(btnSubmit).toHaveTextContent('Submit auction');
-    expect(selectProjects).toBeInTheDocument();
-    expect(selectProjects).toHaveTextContent('Select one project');
+    expect(btnCancel).toHaveTextContent('Cancel');
   });
 });
 
@@ -193,13 +190,12 @@ test('simulate edit auction form', async () => {
   await waitFor(() => {
     const auctionTitle = screen.getByTestId('auction-edit-title');
     const auctionInformation = screen.getByTestId('auction-information');
-    const btnSubmit = screen.getByTestId('btn-submit');
-    const selectProjects = screen.getByTestId('select-projects');
+    const btnSubmit = screen.getByTestId('btn-submit-edit');
+    const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Auction information');
+    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
     expect(btnSubmit).toHaveTextContent('Update auction');
-    expect(selectProjects).toBeInTheDocument();
-    expect(selectProjects).toHaveTextContent('Select one project');
+    expect(btnCancel).toHaveTextContent('Cancel');
   });
 });

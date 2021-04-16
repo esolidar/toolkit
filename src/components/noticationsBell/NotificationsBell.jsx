@@ -42,7 +42,7 @@ const NotificationsBell = ({
                   <img
                     alt="Thumb"
                     src={
-                      notification.photo.thumb
+                      notification.photo?.thumb
                         ? notification.photo.thumb
                         : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
                     }

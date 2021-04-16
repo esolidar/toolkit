@@ -20,7 +20,6 @@ Default.args = {
   disabled: false,
   hideText: false,
   editTicket: {},
-  intl: {},
   showAddFilesButtton: true,
   showModalFiles: false,
   showModalSimpleFiles: false,

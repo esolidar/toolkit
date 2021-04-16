@@ -53,9 +53,6 @@ Default.args = {
       small: 'EUR',
     },
   },
-  intl: {
-    formatMessage: () => 'some text',
-  },
   inputBidValue: 10,
   valueBidTextField: () => {},
   primaryColor: '05c6e5',

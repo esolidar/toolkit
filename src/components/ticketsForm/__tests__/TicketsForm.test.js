@@ -15,7 +15,6 @@ const props = {
   isLoading: false,
   hideText: false,
   editTicket: {},
-  intl: {},
   uploadedFiles: [],
   files: [],
 };

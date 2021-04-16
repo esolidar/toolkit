@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.38.14",
+  "version": "1.39.4",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
-    "test": "jest -u --maxWorkers=50% --json --outputFile=.jest-test-results.json",
+    "test": "jest --coverage -u --maxWorkers=50% --json --outputFile=.jest-test-results.json",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
     "build:publish": "npm run build && npm publish",
@@ -40,7 +40,12 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/jest.setup.js"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 53
+      }
+    }
   },
   "author": "Patrícia Silva",
   "license": "MIT",
@@ -67,7 +72,7 @@
     "react-copy-to-clipboard": "^5.0.2",
     "react-device-detect": "^1.11.14",
     "react-dom": "^17.0.2",
-    "react-dropzone": "^10.2.1",
+    "react-dropzone": "^11.3.2",
     "react-google-maps": "^9.4.5",
     "react-images": "^1.1.0-beta.3",
     "react-infinite-scroller": "^1.2.4",
@@ -123,6 +128,7 @@
     "classnames": "^2.2.6",
     "css-loader": "^3.4.0",
     "date-fns": "^2.16.1",
+    "date-fns-tz": "^1.1.3",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
     "draft-js-export-html": "^1.4.1",
@@ -161,7 +167,6 @@
     "react-datetime": "^3.0.4",
     "react-device-detect": "^1.11.14",
     "react-dom": "^17.0.2",
-    "react-dropzone": "^11.2.4",
     "react-facebook-login-component": "^0.9.2",
     "react-format-currency": "^0.1.2",
     "react-ga": "^3.2.0",
@@ -181,7 +186,7 @@
     "react-slick": "^0.26.1",
     "react-sticky-el": "^2.0.5",
     "react-stripe-elements": "^6.1.2",
-    "react-styleguidist": "^10.3.2",
+    "react-styleguidist": "^11.1.6",
     "react-switch": "^5.0.1",
     "react-tag-input": "^4.6.2",
     "react-tooltip": "^4.2.5",
@@ -194,7 +199,7 @@
     "storybook-addon-jsx": "^7.3.7",
     "storybook-dark-mode": "^1.0.7",
     "style-loader": "^1.1.2",
-    "terser-webpack-plugin": "^2.3.1",
+    "terser-webpack-plugin": "^5.1.1",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "xlsx": "^0.16.9"
@@ -207,6 +212,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.13.8",
+    "react-dropzone": "^11.3.2",
     "react-google-maps": "^9.4.5",
     "react-telephone-input": "^4.73.4"
   }

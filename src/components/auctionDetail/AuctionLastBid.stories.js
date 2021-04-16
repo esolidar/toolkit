@@ -25,9 +25,6 @@ Default.args = {
   handleClickBid: () => {},
   isShowModal: () => {},
   error: '',
-  intl: {
-    formatMessage: () => 'some text',
-  },
   minValue: 10,
   inputBidValue: 10,
   valueBidTextField: () => {},
