@@ -1,0 +1,30 @@
+name: publish-github-package
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: publish-package
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com
+          scope: '@esolidar'
+
+      - name: Install dependencies
+        run: yarn
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Run coverage tests
+        run: yarn build:publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
