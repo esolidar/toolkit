@@ -4,7 +4,6 @@
 /demo/dist
 /es
 /lib
-/coverage
 /umd
 npm-debug.log*
 *.iml
