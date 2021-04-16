@@ -1,11 +1,13 @@
-name: codacy-coverage-reporter
+name: publish-github-package
 
-on: [pull_request]
+on:
+  push:
+    branches: ['master']
 
 jobs:
-  codacy-coverage-reporter:
+  publish:
     runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
+    name: publish-package
     steps:
       - uses: actions/checkout@master
 
@@ -23,10 +25,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Run coverage tests
-        run: yarn test
-
-      # - name: Run codacy-coverage-reporter
-      #   uses: codacy/codacy-coverage-reporter-action@master
-      #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: coverage/clover.xml
+        run: yarn build:publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "1.39.4",
+  "version": "1.39.5",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "test": "jest --coverage -u",
+    "test": "jest --maxWorkers=50% --colors --coverage --coverageReporters='text-summary'",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "styleguide": "styleguidist server",
     "styleguide:build": "move-cli ./styleguide/.git ./src/.git && styleguidist build && move-cli ./src/.git ./styleguide/.git && cd ./styleguide && git checkout master && git add . && git commit -m \"automated deployment\"  && git push",
