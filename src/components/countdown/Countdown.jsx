@@ -56,7 +56,7 @@ class Countdown extends Component {
         status: 'soon',
         isSoon: true,
       });
-      countDate = startDate;
+      countDate = startDate.replace(/-/g, '/');
     } else if (todaysDate <= inputEndDate) {
       if (isSoon) onStart();
 
@@ -66,7 +66,7 @@ class Countdown extends Component {
         isRunning: true,
       });
 
-      countDate = endDate;
+      countDate = endDate.replace(/-/g, '/');
     } else {
       if (isRunning) onExpiry();
 
@@ -78,7 +78,7 @@ class Countdown extends Component {
         sec: 0,
         isRunning: false,
       });
-      countDate = endDate;
+      countDate = endDate.replace(/-/g, '/');
     }
 
     const nowTimeStamp = Date.parse(
