@@ -5,7 +5,3 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
   },
 };
-
-// tentar usar o useIntl no downloadExcel()
-// FIXME: errorBoundary, projectAddForm, validateTelephone
-// TODO: eliminar o fixme

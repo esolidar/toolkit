@@ -2,6 +2,7 @@ import { downloadExcel } from '../index';
 
 const fileName = 'downloadExcel';
 const isDownloadFile = false;
+const translateMessage = ({ id }) => (id === 'yes' ? 1 : 0);
 const columns = [
   {
     type: undefined,
@@ -90,7 +91,13 @@ const institutions = [
 
 describe('Excel data values ', () => {
   it('Comparison of values ​​sent and received', () => {
-    const fileData = downloadExcel(institutions, columns, fileName, isDownloadFile);
+    const fileData = downloadExcel(
+      translateMessage,
+      institutions,
+      columns,
+      fileName,
+      isDownloadFile
+    );
     expect(fileData).toEqual(institutions);
   });
 });

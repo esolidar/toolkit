@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import { shallow } from 'enzyme';
-import { IntlProvider } from 'react-intl';
 import TicketsForm from '../index';
 
 const props = {

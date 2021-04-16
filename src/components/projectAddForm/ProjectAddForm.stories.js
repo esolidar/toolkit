@@ -3,6 +3,13 @@ import ProjectAddForm from './ProjectAddForm';
 export default {
   title: 'Components/Projects/ProjectAddForm',
   component: ProjectAddForm,
+  argTypes: {
+    color: {
+      control: {
+        type: 'object',
+      },
+    },
+  },
 };
 
 const Template = args => <ProjectAddForm {...args} />;

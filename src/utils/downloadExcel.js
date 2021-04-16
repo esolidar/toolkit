@@ -1,16 +1,16 @@
 import XLSX from 'xlsx';
 
-const downloadExcel = (data, columns, fileName, isDownloadFile = true) => {
+const downloadExcel = (translateMessage, data, columns, fileName, isDownloadFile = true) => {
   const listFilterColumns = data.map(item => {
     const obj = {};
     columns.forEach(col => {
       if (col.type === 'bool') {
         obj[col.text] =
           item[col.apiFieldName] === 1
-            ? intl.formatMessage({ id: 'yes' })
-            : intl.formatMessage({ id: 'no' });
+            ? translateMessage({ id: 'yes' })
+            : translateMessage({ id: 'no' });
       } else if (col.type === 'flag') {
-        obj[col.text] = intl.formatMessage({ id: `country.id.${item[col.apiFieldName]}` });
+        obj[col.text] = translateMessage({ id: `country.id.${item[col.apiFieldName]}` });
       } else {
         obj[col.text] = item[col.apiFieldName];
       }

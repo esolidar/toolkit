@@ -52,7 +52,7 @@ const ValidateTelephone = ({
         user_id: confirmPhone.data.phone.user_id,
         verified: confirmPhone.data.phone.verified,
       });
-      localStorage.setItem('user', JSON.stringify(user));
+      window.localStorage.setItem('user', JSON.stringify(user));
     } else if (confirmPhone && confirmPhone.status === 400) {
       setCode('');
       setErrorCode(true);

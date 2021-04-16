@@ -3,7 +3,7 @@
 import { Row, Col, Card } from 'react-bootstrap';
 import { useIntl } from 'react-intl';
 import Moment from 'react-moment';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import PropTypes from 'prop-types';
 import Button from '../../elements/button';
 
@@ -77,7 +77,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
                     {comment.created_at}
                   </Moment>
                 </p>
-                {comment.text.split('\n').map((item, index) => (
+                {comment.text?.split('\n').map((item, index) => (
                   <span key={index}>
                     <p
                       dangerouslySetInnerHTML={createHtmlMarkup(

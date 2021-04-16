@@ -11,9 +11,7 @@ export const Default = Template.bind({});
 Default.args = {
   localStorage: {
     lang: 'pt',
-    user: {
-      id: '51792',
-    },
+    user: JSON.stringify({ id: '51792', phones: [] }),
   },
   mobileValidatePost: () => {},
   validatePhone: {

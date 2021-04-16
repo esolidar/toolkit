@@ -198,7 +198,7 @@ test('simulate edit auction form', async () => {
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
     expect(auctionInformation).toHaveTextContent('Auction information');
-    expect(btnSubmit).toHaveTextContent('Edit auction');
+    expect(btnSubmit).toHaveTextContent('Update auction');
     expect(selectProjects).toBeInTheDocument();
     expect(selectProjects).toHaveTextContent('Select one project');
   });
