@@ -1,0 +1,194 @@
+.auction-pin-box {
+  cursor       : pointer;
+  background   : #FFFFFF;
+  border       : 1px solid #E7EAED;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  width        : 100%;
+
+  span {
+    display: inline-block;
+  }
+
+  .auction-photo-box {
+    overflow: hidden;
+    height  : 200px;
+
+    @media(max-width: 425px) {
+      height: 200px !important;
+    }
+  }
+
+  .auction-photo {
+    overflow           : hidden;
+    height             : 275px;
+    position           : relative;
+    background-size    : cover;
+    background-position: 50% 50%;
+    background-repeat  : no-repeat;
+    @include animate();
+
+    @media(max-width: 425px) {
+      height: 200px;
+    }
+
+    img {
+      width     : 100%;
+      margin-top: -45px;
+
+      @media(min-width: 426px) and (max-width: 1024px) {
+        margin-top: 0;
+      }
+    }
+
+    .call-to-action {
+      position   : absolute;
+      top        : 115px;
+      left       : 15%;
+      right      : 15%;
+      bottom     : 115px;
+      opacity    : 0;
+      display    : flex;
+      align-items: center;
+      @include animate();
+
+      .btn-bid-now {
+        width: 100%;
+        // @include button(#fff, $mainColor, $mainColor);
+      }
+
+      @media(max-width: 425px) {
+        left : 10%;
+        right: 10%;
+      }
+    }
+  }
+
+  .countdown-auction-pin {
+    margin    : -35px 15px 0 15px;
+    z-index   : 9;
+    position  : relative;
+    text-align: center;
+  }
+
+  .highlightLast5SecEnd {
+    background: #FF7E20;
+  }
+
+  .description {
+    margin     : 0;
+    height     : 115px;
+    align-items: center;
+    display    : flex;
+
+    .text {
+      font-size         : 15px;
+      color             : #455C75;
+      line-height       : 22px;
+      display           : -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow          : hidden;
+
+      a {
+        font-size  : 15px;
+        color      : #455C75;
+        line-height: 22px;
+      }
+
+      text-align: left;
+      @include animate();
+    }
+
+    .npo-logo {
+      img {
+        border-radius: 50px;
+        overflow     : hidden;
+        border       : 1px solid #D0D6DD;
+      }
+    }
+  }
+
+  .last-bid {
+    padding    : 0;
+    border-top : 1px solid #E7EAED;
+    margin     : 0;
+    height     : 60px;
+    align-items: center;
+    display    : flex;
+
+    a {
+      width: 100%;
+    }
+
+    @media(max-width: 425px) {
+      padding: 0;
+    }
+
+    .last-bid-label {
+      font-weight   : bold;
+      font-size     : 11px;
+      color         : #05C6E5;
+      line-height   : 40px;
+      text-transform: uppercase;
+      white-space   : nowrap;
+    }
+
+    .last-bid-value {
+      font-size  : 21px;
+      color      : #05C6E5;
+      line-height: 43px;
+
+      @media(max-width: 425px) {
+        font-size: 24px;
+      }
+    }
+
+    @-webkit-keyframes blink {
+      0% {
+        color  : #000;
+        opacity: 1;
+      }
+
+      100% {
+        color: $successColor;
+      }
+    }
+
+    .blink {
+      -webkit-animation-name           : blink;
+      -webkit-animation-duration       : 3000ms;
+      -webkit-animation-iteration-count: 2;
+      -webkit-animation-timing-function: ease-in-out;
+      -webkit-animation-direction      : alternate-reverse;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+    .auction-photo {
+      -ms-transform    : scale(1.1, 1.1);
+      -webkit-transform: scale(1.1, 1.1);
+      transform        : scale(1.1, 1.1);
+    }
+  }
+
+  .countdown-ended {
+    font-size     : 30px;
+    color         : #fff;
+    line-height   : 43px;
+    margin        : 0;
+    width         : 100%;
+    text-align    : center;
+    padding-top   : 13px;
+    text-transform: uppercase;
+  }
+
+  .private {
+    color         : $warningColor;
+    font-weight   : bold;
+    font-size     : 12px;
+    text-transform: uppercase;
+  }
+}

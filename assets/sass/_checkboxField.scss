@@ -1,0 +1,56 @@
+.checkbox-inline {
+  position: relative;
+  padding : 0;
+
+  .form-group {
+    margin-bottom: 0;
+    color        : $inputLabelColor;
+
+    input[type=checkbox] {
+      position  : absolute;
+      visibility: hidden;
+    }
+
+    input[type=checkbox]:checked~.checkbox {
+      &:after {
+        content   : '';
+        position  : absolute;
+        left      : 0;
+        top       : 0;
+        width     : 16px;
+        height    : 16px;
+        background: url('#{$cdn_static_url}/frontend/assets/checkbox.svg') 0 -16px no-repeat;
+      }
+    }
+
+    label {
+      position    : relative;
+      padding-left: 25px;
+    }
+
+    .checkbox {
+      content   : '';
+      position  : absolute;
+      left      : 0;
+      top       : 1px;
+      width     : 16px;
+      height    : 16px;
+      background: url('#{$cdn_static_url}/frontend/assets/checkbox.svg') 0 0 no-repeat;
+    }
+
+    span {
+      position      : relative;
+      font-family   : $fontFamily;
+      font-size     : 15px;
+      color         : $inputLabelColor;
+      letter-spacing: 0;
+      line-height   : 26px;
+      padding-left  : 5px;
+      font-weight   : bold;
+    }
+  }
+
+  .help-block {
+    color: $dangerColor;
+  }
+}

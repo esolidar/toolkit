@@ -1,0 +1,67 @@
+/*
+  Font Face
+*/
+$fontFamily        : 'AvenirLT-Roman' !default;
+$fontLight         : 'AvenirLTStd-Light' !default;
+$fontHeavy         : 'AvenirLTStd-Heavy' !default;
+$mainTextColorLight: #738598 !default;
+$mainTextColorDark : #455C75 !default;
+
+
+/* Blue */
+$mainColor     : #04C7E5 !default;
+$mainColorLight: #b3EEF7 !default;
+$mainColorDark : #163352 !default;
+
+
+/* Grays */
+$grayDark            : #738598 !default;
+$graySemiDark        : #A2ADBA !default;
+$grayLight           : #D0D6DD !default;
+$grayExtraLight      : #E7EBED !default;
+$grayWhite           : #F6F9F9 !default;
+$grayWhiteLight      : #FBFCFC !default;
+$grayWhiteUltraLight : #E7EAED !default;
+
+/* Warnings */
+$infoColor   : #05c6e5 !default;
+$successColor: #34C77F !default;
+$warningColor: #FFBE00 !default;
+$dangerColor : #dc3545 !default;
+
+/* Status Colors*/
+$statusActiveColor  : #34C77F !default;
+$statusPendingColor : #FFBE00 !default;
+$statusEndedColor   : $mainColor !default;
+$statusRevieredColor: #fd4b51 !default;
+$statusDeletedColor : #fd4b51 !default;
+$statusDeclinedColor: #738598 !default;
+
+/* Forms */
+$inputLabelColor     : #455C75 !default;
+$borderColor         : #D0D6DD !default;
+$inputTextColor      : #455C75 !default;
+$inputBackgroundColor: #fff !default;
+$boxShadow           : inset 0 1px 1px rgba(0, 0, 0, .075) !default;
+$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075) 0 0 6px lighten($borderColor, 20%) !default;
+
+/* Btn Colors */
+$btnDark   : #455C75 !default;
+$btnInfo   : #05c6e5 !default;
+$btnSuccess: #34C77F !default;
+$btnWarning: #FFBE00 !default;
+$btnDanger : #dc3545 !default;
+$btnDangerColor: #ff494c !default;
+
+$inReview : #ff8100 !default;
+
+$endedColor  : #dc3545;
+$runningColor: #31BD79;
+$soonColor   : #04b1cd;
+$pendingColor: orange;
+$green       : #006400;
+
+// Dimensions
+$mobileWidth: 425px;
+
+$cdn_static_url: 'https://static.esolidar.com';

@@ -1,0 +1,222 @@
+.add-auction {
+  h1 {
+    margin        : 0;
+    font-size     : 36px;
+    color         : $mainColor;
+    letter-spacing: -0.5px;
+    line-height   : 50px;
+    margin-bottom : 10px;
+  }
+
+  .subtitle {
+    color         : $mainTextColorLight;
+    line-height   : 22px;
+    font-size     : 15px;
+    letter-spacing: 0;
+    margin-bottom : 0;
+    margin-bottom : 10px;
+  }
+
+  h3 {
+    font-size     : 20px;
+    color         : $mainColor;
+    letter-spacing: 0;
+    line-height   : 31px;
+    border-bottom : 1px dashed $mainColor;
+    margin-bottom : 30px;
+
+    &.title-help {
+      margin-bottom: 5px;
+    }
+  }
+
+  .institutions-list {
+    .no-results {
+      padding-top: 0;
+      color      : $mainTextColorDark;
+    }
+  }
+
+  .help-right-content {
+    h4 {
+      font-size     : 20px;
+      color         : $mainColor;
+      letter-spacing: 0;
+      line-height   : 31px;
+      border-bottom : 1px dashed $mainColor;
+      margin-bottom : 25px;
+      margin-top    : 40px;
+    }
+
+    .header {
+      font-size     : 11px;
+      color         : $inputLabelColor;
+      letter-spacing: 0;
+      line-height   : 19px;
+      text-transform: uppercase;
+      padding-bottom: 15px;
+      border-bottom : 1px dashed $graySemiDark;
+      margin-top    : 0;
+      padding-top   : 12px;
+    }
+
+    .text {
+      font-size     : 15px;
+      color         : $mainTextColorLight;
+      letter-spacing: 0;
+      line-height   : 22px;
+      margin-top    : 15px;
+    }
+  }
+
+  .box-ltr {
+    background-color: #FFFFFF;
+    box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    border-left     : 1px solid $grayWhiteUltraLight;
+    border-top      : 1px solid $grayWhiteUltraLight;
+    border-right    : 1px solid $grayWhiteUltraLight;
+    border-radius   : 4px 4px 0 0;
+    padding         : 40px 40px 0 40px;
+  }
+
+  .box-lr {
+    background-color: #FFFFFF;
+    box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    border-left     : 1px solid $grayWhiteUltraLight;
+    border-right    : 1px solid $grayWhiteUltraLight;
+    border-radius   : 0;
+    padding         : 0 40px 0 40px;
+  }
+
+  .box-lbr {
+    background-color: #FFFFFF;
+    box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    border-left     : 1px solid $grayWhiteUltraLight;
+    border-bottom   : 1px solid $grayWhiteUltraLight;
+    border-right    : 1px solid $grayWhiteUltraLight;
+    border-radius   : 0 0 4px 4px;
+    padding         : 0 40px 40px 40px;
+  }
+
+  .ReactTags__tags {
+    border  : 2px solid $grayLight;
+    padding : 5px;
+    overflow: auto;
+
+    div.ReactTags__tags {
+      position: relative;
+    }
+
+    div.ReactTags__tagInput {
+      width        : 100%;
+      border-radius: 2px;
+      display      : inline-block;
+    }
+
+    div.ReactTags__tagInput input,
+    div.ReactTags__tagInput input:focus {
+      height       : 31px;
+      margin       : 0;
+      font-size    : 15px;
+      width        : 100%;
+      border       : none;
+      outline-color: transparent;
+      outline-style: none;
+    }
+
+    div.ReactTags__selected {
+      width: 100%;
+      float: left;
+    }
+
+    div.ReactTags__selected span.ReactTags__tag {
+      border        : 2px solid $grayLight;
+      border-radius : 100px;
+      font-size     : 15px;
+      color         : $inputLabelColor;
+      letter-spacing: 0;
+      display       : inline-block;
+      padding       : 5px 16px;
+      margin        : 0 5px;
+      cursor        : move;
+      line-height   : 21px;
+      margin-bottom : 5px;
+    }
+
+    div.ReactTags__selected a.ReactTags__remove {
+      color        : $mainTextColorLight;
+      cursor       : pointer;
+      float        : left;
+      margin-left  : -10px;
+      margin-right : 10px;
+      font-size    : 21px;
+      background   : $grayWhite;
+      border-radius: 50%;
+      width        : 20px;
+      height       : 20px;
+      text-align   : center;
+      line-height  : 17px;
+
+      &:hover {
+        color     : #fff;
+        background: $mainColorDark;
+      }
+    }
+
+    div.ReactTags__suggestions {
+      position: absolute;
+    }
+
+    div.ReactTags__suggestions ul {
+      list-style-type: none;
+      box-shadow     : .05em .01em .5em rgba(0, 0, 0, .2);
+      background     : white;
+      width          : 200px;
+    }
+
+    div.ReactTags__suggestions li {
+      border-bottom: 1px solid #ddd;
+      padding      : 5px 10px;
+      margin       : 0;
+    }
+
+    div.ReactTags__suggestions li mark {
+      text-decoration: underline;
+      background     : none;
+      font-weight    : 600;
+    }
+
+    div.ReactTags__suggestions ul li.active {
+      background: #b7cfe0;
+      cursor    : pointer;
+    }
+  }
+
+  .subtext {
+    color         : $graySemiDark;
+    font-size     : 14px;
+    margin-top    : -20px;
+    padding-bottom: 20px;
+  }
+
+  .loading-page {
+    position  : absolute;
+    z-index   : 9;
+    top       : 0;
+    left      : 0;
+    right     : 0;
+    bottom    : 0;
+    background: rgba(246, 249, 249, 0.4);
+  }
+}
+
+
+.loading-cropper {
+  position  : absolute;
+  top       : 0;
+  left      : 0;
+  z-index   : 99;
+  right     : 0;
+  bottom    : 0;
+  background: rgba(255, 255, 255, 0.4);
+}

@@ -1,0 +1,33 @@
+.changeCurrency {
+  display: inline-block;
+
+  button {
+    color         : $mainColorLight;
+    padding-bottom: 0px;
+    padding-top   : 0px;
+    border-radius : 0px;
+
+    &.btn-footer {
+      color           : $mainColorLight;
+      background-color: transparent;
+      border-color    : transparent;
+    }
+
+    &.btn.focus,
+    &.btn:focus {
+      outline   : 0;
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: $mainColorDark;
+  }
+
+  .dropdown-menu.show {
+    max-height: 300px;
+    overflow-x: auto;
+  }
+
+}

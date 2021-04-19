@@ -1,0 +1,171 @@
+.landing-footer {
+  background    : $mainColorDark;
+  padding       : 30px 50px;
+  font-family   : $fontFamily;
+  font-size     : 15px;
+  color         : $mainColor;
+  letter-spacing: 0;
+
+  @media only screen and (max-width: 768px) {
+    position  : relative;
+    margin-top: 0px;
+    padding   : 30px 20px;
+
+    .text-right {
+      text-align: center !important;
+    }
+  }
+
+  .container {
+    @media (min-width: 1200px) {
+      max-width: 100%;
+    }
+
+    ul {
+      padding-inline-start: 0px;
+
+      li {
+        list-style: none;
+
+        &:first-child {
+          @media only screen and (max-width: 768px) {
+            padding-bottom: 0px;
+          }
+        }
+
+        a,
+        span {
+          font-family   : $fontFamily;
+          font-size     : 15px;
+          color         : $mainColorLight;
+          letter-spacing: 0;
+          padding       : 0 20px;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: #fff;
+          }
+
+          @media only screen and (max-width: 768px) {
+            padding-top   : 5px;
+            padding-bottom: 5px;
+            display       : inline-block;
+          }
+        }
+
+        ul {
+          padding-inline-start: 65px;
+
+          li {
+            list-style: circle;
+
+            a {
+              padding: 0;
+
+              @media only screen and (max-width: 768px) {
+                padding-top   : 5px;
+                padding-bottom: 5px;
+                display       : inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #newsletterID {
+      h5 {
+        font-family   : "AvenirLT-Roman";
+        font-size     : 21px;
+        letter-spacing: -0.5px;
+        line-height   : 33px;
+        display       : block;
+        margin-bottom : 15px;
+        text-align    : center;
+      }
+
+      .pipz-input {
+
+        background-color: transparent;
+        border-color    : $inputLabelColor !important;
+        border-radius   : 2px !important;
+        border-width    : 1px !important;
+      }
+
+      .pipz-input::placeholder {
+        color: $mainColorLight;
+      }
+
+      .pipz-button {
+        width: 65% !important;
+        color: $mainColorDark !important;
+      }
+
+      .pipz-icon {
+        display: none;
+      }
+    }
+
+    h5 {
+      @media (max-width: 990px) {
+        margin-top: 25px;
+      }
+    }
+
+    .socialNetworks {
+      text-align: right;
+      display   : inline-block;
+    }
+
+    .bottom-footer {
+      padding   : 0;
+      margin-top: 50px;
+
+      @media only screen and (max-width: 768px) {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      ul {
+        text-align: center;
+
+        li {
+          display: inline;
+
+          @media only screen and (max-width: 768px) {
+            display: block;
+          }
+
+          @media (max-width: 425px) {
+            padding   : 15px 0;
+            text-align: center;
+          }
+        }
+      }
+
+      .changeCurrency button.btn-footer {
+        border-left: 1px solid;
+        margin-left: 5px;
+        line-height: 15px;
+      }
+
+      .order-2 {
+        @media only screen and (max-width: 768px) {
+          margin-top: 25px;
+        }
+      }
+
+      .address {
+        font-size: 11px;
+      }
+    }
+  }
+
+  .no-padding-mobile {
+    @media only screen and (max-width: 768px) {
+      padding-left : 0;
+      padding-right: 0;
+    }
+  }
+}

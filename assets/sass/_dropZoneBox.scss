@@ -1,0 +1,81 @@
+.dropzone-box {
+  & .upload-file {
+    margin-bottom: 25px;
+
+    &>div:first-of-type {
+      text-align      : center;
+      padding         : 20px 25px;
+      margin          : 0;
+      background-color: #fafafa;
+      color           : #bdbdbd;
+      border-color    : #eeeeee;
+      border-style    : dashed;
+      transition      : all 0.2s ease;
+      display         : block !important;
+
+      &:focus {
+        outline: none !important;
+      }
+
+      p {
+        .error {
+          font-size: 12px;
+        }
+
+        &:hover {
+          border-color: #d9d9d9;
+          transition  : all 0.2s ease;
+        }
+      }
+
+      .Loading {
+        min-height: 122px;
+      }
+    }
+
+    & .rejected-files {
+      color    : $statusDeletedColor;
+      font-size: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.disabled {
+      &:hover {
+        cursor: no-drop;
+      }
+    }
+  }
+
+
+
+  .gallery-thumb {
+    position: relative;
+    width   : 64px !important;
+    height  : 64px !important;
+    margin  : 0 25px;
+
+    .no-image {
+      width        : 64px;
+      border       : 2px solid #d0d6dd;
+      border-radius: 3px;
+      background   : #fff;
+      padding      : 20px;
+      display      : inline-block;
+      margin       : 0 15px;
+    }
+
+    img {
+      position         : absolute;
+      left             : 50%;
+      top              : 50%;
+      height           : 100%;
+      width            : auto;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform    : translate(-50%, -50%);
+      transform        : translate(-50%, -50%);
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.socialNetworks {
+  text-align   : center;
+  margin-bottom: 50px;
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+
+  h5 {
+    font-family   : $fontFamily;
+    font-size     : 21px;
+    letter-spacing: -0.5px;
+    line-height   : 33px;
+    display       : block;
+    margin-bottom : 25px;
+    text-align    : center;
+  }
+
+  .list-icon {
+    display       : table;
+    border-spacing: 20px 5px;
+    margin        : auto;
+
+    @media only screen and (max-width: 1200px) {
+      border-spacing: 15px 5px;
+    }
+
+    a {
+      color          : $mainColorLight;
+      border         : 1px solid $inputLabelColor;
+      border-radius  : 50%;
+      text-decoration: none;
+      width          : 50px;
+      height         : 50px;
+      display        : table-cell;
+      vertical-align : middle;
+      text-align     : center;
+      position       : relative;
+      text-align     : center;
+
+      @media only screen and (max-width: 1200px) {
+        width    : 40px;
+        height   : 40px;
+        font-size: 12px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        width    : 40px;
+        height   : 40px;
+        font-size: 12px;
+      }
+
+      i {
+        position   : relative;
+        z-index    : 2;
+        line-height: 2;
+      }
+
+      &:after {
+        content      : "";
+        width        : 0;
+        height       : 0;
+        border-radius: 50%;
+        display      : block;
+        background   : #fff;
+        position     : absolute;
+        top          : 0;
+        bottom       : 0;
+        right        : 0;
+        left         : 0;
+        margin       : auto;
+
+        @include animate;
+      }
+
+      &:hover {
+        i {
+          color: $mainColorDark !important;
+        }
+
+        &:after {
+          width : 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+
+
+}

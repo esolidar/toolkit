@@ -1,0 +1,37 @@
+.boundary {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e7eaed;
+  border-radius: 4px;
+  padding: 25px;
+  background: #fff;
+
+  .icon {
+    p {
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+  }
+
+  h3 {
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .retry-link {
+    font-size: 16px;
+
+    span {
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+
+  p,
+  .link {
+    text-align: center;
+  }
+}
