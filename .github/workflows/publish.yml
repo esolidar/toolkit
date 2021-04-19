@@ -63,23 +63,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-<<<<<<< HEAD
       - name: build
         uses: actions/cache@v2
-=======
-      - uses: actions/cache@v2
->>>>>>> master
         id: restore-build
         with:
           path: ./*
           key: ${{ github.sha }}
 
-<<<<<<< HEAD
       - name: send
         uses: JamesIves/github-pages-deploy-action@4.1.1
-=======
-      - uses: JamesIves/github-pages-deploy-action@4.1.1
->>>>>>> master
         with:
           branch: gh-pages
           folder: storybook-static
