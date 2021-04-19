@@ -75,18 +75,6 @@ jobs:
           path: ./*
           key: ${{ github.sha }}
 
-  deploy:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: build
-        uses: actions/cache@v2
-        id: restore-storybook
-        with:
-          path: ./*
-          key: ${{ github.sha }}
-
       - name: send
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
@@ -96,6 +84,6 @@ jobs:
   allPass:
     name: Well done
     runs-on: ubuntu-latest
-    needs: [publish, deploy]
+    needs: [publish, build]
     steps:
       - run: exit 0
