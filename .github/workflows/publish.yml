@@ -56,6 +56,10 @@ jobs:
           path: ./*
           key: ${{ github.sha }}
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
       - run: yarn build-storybook
 
   deploy:
