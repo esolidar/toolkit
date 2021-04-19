@@ -7,7 +7,6 @@ import BankAccount from '../index';
 const fx = jest.fn();
 
 const propsWithoutBankAccount = {
-  intl: fx,
   countryId: 231,
   color: 'green',
   userId: 1,
@@ -18,7 +17,6 @@ const propsWithoutBankAccount = {
 };
 
 const propsBankAccount = {
-  intl: fx,
   countryId: 231,
   color: 'green',
   userId: 1,

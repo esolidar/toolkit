@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import { shallow } from 'enzyme';
-import { IntlProvider } from 'react-intl';
 import ProjectDetailThumb from '../index';
 
 describe('ProjectDetailThumb component', () => {
@@ -318,19 +317,13 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailThumb
-          project={project}
-          lang="pt"
-          serverlessResizeImage="https://image.testesolidar.com"
-          admin={admin}
-        />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+      />
+    );
 
     expect(component.find('SelectField').length).toBe(1);
     expect(component.find('SelectField').props().field).toBe('changeState');
@@ -444,19 +437,13 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailThumb
-          project={project}
-          lang="pt"
-          serverlessResizeImage="https://image.testesolidar.com"
-          admin={admin}
-        />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+      />
+    );
 
     expect(component.find('Button').length).toBe(1);
     expect(component.find('Button').props().id).toBe('request-info-btn');
@@ -688,19 +675,13 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailThumb
-          project={project}
-          lang="pt"
-          serverlessResizeImage="https://image.testesolidar.com"
-          admin={admin}
-        />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+      />
+    );
 
     expect(component.find('.ods').length).toBe(2);
   });
@@ -814,21 +795,15 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailThumb
-          project={project}
-          lang="pt"
-          serverlessResizeImage="https://image.testesolidar.com"
-          admin={admin}
-          showReview={true}
-          reviewAverage={2}
-        />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+        showReview={true}
+        reviewAverage={2}
+      />
+    );
 
     expect(component.find('RatingAPILayer').length).toBe(1);
   });
@@ -941,20 +916,14 @@ describe('ProjectDetailThumb component', () => {
     };
 
     const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailThumb
-          project={project}
-          lang="pt"
-          serverlessResizeImage="https://image.testesolidar.com"
-          admin={admin}
-          showReview={false}
-        />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+      <ProjectDetailThumb
+        project={project}
+        lang="pt"
+        serverlessResizeImage="https://image.testesolidar.com"
+        admin={admin}
+        showReview={false}
+      />
+    );
 
     expect(component.find('RatingAPILayer').length).toBe(0);
   });

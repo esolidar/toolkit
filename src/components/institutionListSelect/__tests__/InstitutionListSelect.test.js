@@ -4,8 +4,6 @@ import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';
 import InstitutionListSelect from '../index';
 
-const fx = jest.fn();
-
 const props = {
   institutions: [],
   onChangeInstitutionCategory: () => {},
@@ -21,7 +19,6 @@ const props = {
   selectText: '',
   NoResultsText: '',
   pagination: {},
-  translateMessage: fx,
 };
 
 describe('InstitutionListSelect component', () => {

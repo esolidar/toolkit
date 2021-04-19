@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('~@esolidar/toolkit/lib/assets/fonts/icomoon.eot?qi9fe1');
-  src:  url('~@esolidar/toolkit/lib/assets/fonts/icomoon.eot?qi9fe1#iefix') format('embedded-opentype'),
-    url('~@esolidar/toolkit/lib/assets/fonts/icomoon.ttf?qi9fe1') format('truetype'),
-    url('~@esolidar/toolkit/lib/assets/fonts/icomoon.woff?qi9fe1') format('woff'),
-    url('~@esolidar/toolkit/lib/assets/fonts/icomoon.svg?qi9fe1#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  src        : url('#{$cdn_static_url}/frontend/fonts/icomoon.eot');
+  src        : url('#{$cdn_static_url}/frontend/fonts/icomoon.eot') format('embedded-opentype'),
+  url('#{$cdn_static_url}/frontend/fonts/icomoon.ttf') format('truetype'),
+  url('#{$cdn_static_url}/frontend/fonts/icomoon.woff') format('woff'),
+  url('#{$cdn_static_url}/frontend/fonts/icomoon.svg') format('svg');
+  font-weight : normal;
+  font-style  : normal;
   font-display: block;
 }

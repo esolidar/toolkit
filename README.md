@@ -124,3 +124,7 @@ The eSolidar Toolkit documentation, included in this repo in the root directory 
 
 ©2020 eSolidar. All rights reversed.
 Code released under the MIT License.
+
+## Roadmap
+
+- Use env constants everywhere in the project

@@ -469,7 +469,6 @@ const props = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {
@@ -544,7 +543,6 @@ const propsAuctionPrivate = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {
@@ -735,19 +733,19 @@ test('should exist description, shipping and payment', async () => {
 
   await waitFor(() => {
     const titleDescription = screen.getByTestId('description');
-    expect(titleDescription).toHaveTextContent('Some text');
+    expect(titleDescription).toHaveTextContent('Description');
     const descriptionText = screen.getByTestId('description-text');
     expect(descriptionText).toHaveTextContent('Uma descrição teste');
 
     const titleShipping = screen.getByTestId('shipping');
-    expect(titleShipping).toHaveTextContent('Some text');
+    expect(titleShipping).toHaveTextContent('Shipping');
     const shippingText = screen.getByTestId('shipping-text');
     expect(shippingText).toHaveTextContent(
       'Os portes de envio serão à responsabilidade do vencedor.'
     );
 
     const titlePayment = screen.getByTestId('payment');
-    expect(titlePayment).toHaveTextContent('Some text');
+    expect(titlePayment).toHaveTextContent('Payment');
     const paymentText = screen.getByTestId('payment-text');
     expect(paymentText).toHaveTextContent(
       'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.'
