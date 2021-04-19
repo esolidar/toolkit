@@ -1,14 +1,15 @@
-#### Import
+import CommentHeader from './CommentHeader';
 
-```js static
-import CommentContent from '@esolidar/toolkit/lib/components/comments/CommentContent';
-```
+export default {
+  title: 'Components/Comments/CommentHeader',
+  component: CommentHeader,
+};
 
-#### Example
+const Template = args => <CommentHeader {...args} />;
 
-```jsx
-<CommentContent
-  comment={{
+export const Default = Template.bind({});
+Default.args = {
+  comment: {
     comment: 'teste 2',
     comment_id: null,
     company_id: null,
@@ -34,6 +35,9 @@ import CommentContent from '@esolidar/toolkit/lib/components/comments/CommentCon
       },
     },
     user_id: 1275,
-  }}
-/>
-```
+  },
+  deleteComment: () => {},
+  newName: 'Teste',
+  newThumb: null,
+  user: null,
+};
