@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1618909580352" clover="3.2.0">
-  <project timestamp="1618909580353" name="All files">
+<coverage generated="1618928423417" clover="3.2.0">
+  <project timestamp="1618928423426" name="All files">
     <metrics statements="2550" coveredstatements="1397" conditionals="2256" coveredconditionals="1131" methods="640" coveredmethods="301" elements="5446" coveredelements="2829" complexity="0" loc="2550" ncloc="2550" packages="89" files="209" classes="209"/>
     <package name="components.auctionAddForm">
       <metrics statements="285" coveredstatements="82" conditionals="276" coveredconditionals="87" methods="66" coveredmethods="15"/>
@@ -3254,11 +3254,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
+        <line num="28" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>

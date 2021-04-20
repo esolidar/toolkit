@@ -8,6 +8,9 @@ export default {
 const Template = args => <AuctionThumb {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['AuctionThumb.test.js'],
+};
 Default.args = {
   auction: {
     private: 0,

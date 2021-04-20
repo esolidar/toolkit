@@ -8,6 +8,9 @@ export default {
 const Template = args => <CrowdfundingPaymentMethod {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CrowdfundingPaymentMethod.test.js'],
+};
 Default.args = {
   utrust: 1,
   paypal: 1,

@@ -14,6 +14,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CrowdfundingHeaderRigth.test.js'],
+};
 Default.args = {
   campaignTitle: () => {
     return 'Teste Rocha';

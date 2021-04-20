@@ -8,6 +8,9 @@ export default {
 const Template = args => <ProjectDetailInfo {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectDetailInfo.test.js'],
+};
 Default.args = {
   showRequestInfoView: true,
   project: {

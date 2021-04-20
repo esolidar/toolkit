@@ -8,6 +8,9 @@ export default {
 const Template = args => <Step2 {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Step2.test.js'],
+};
 Default.args = {
   state: {
     isLoadingPayment: false,

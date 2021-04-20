@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Footer.test.js'],
+};
 Default.args = {
   newsletterTitle: 'Lorem Ipsum',
   socialTitle: 'Junte-se a nós',

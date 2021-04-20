@@ -8,6 +8,9 @@ export default {
 const Template = args => <CheckboxField {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CheckboxField.test.js'],
+};
 Default.args = {
   label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   error: 'error',

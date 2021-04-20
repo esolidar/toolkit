@@ -8,6 +8,9 @@ export default {
 const Template = args => <GoogleMapsView {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['GoogleMapsView.test.js'],
+};
 Default.args = {
   latitude: '41.6918275',
   longitude: '-8.8344101',

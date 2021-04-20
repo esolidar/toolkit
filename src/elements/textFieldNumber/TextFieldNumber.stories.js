@@ -8,6 +8,9 @@ export default {
 const Template = args => <TextFieldNumber {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TextFieldNumber.test.js'],
+};
 Default.args = {
   label: 'title',
   onChange: () => {},

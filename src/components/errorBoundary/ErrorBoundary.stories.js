@@ -15,6 +15,9 @@ export default {
 const Template = args => <ErrorBoundary {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ErrorBoundary.test.js'],
+};
 Default.args = {
   showError: true,
 };

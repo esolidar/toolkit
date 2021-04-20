@@ -8,6 +8,9 @@ export default {
 const Template = args => <SelectField {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['SelectField.test.js'],
+};
 Default.args = {
   options: [{ id: 1, name: 'lorem' }],
   value: '',

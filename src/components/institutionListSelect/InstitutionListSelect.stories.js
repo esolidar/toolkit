@@ -8,6 +8,9 @@ export default {
 const Template = args => <InstitutionListSelect {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['InstitutionListSelect.test.js'],
+};
 Default.args = {
   selectText: 'Selecionar',
   institutionSelected: 30,

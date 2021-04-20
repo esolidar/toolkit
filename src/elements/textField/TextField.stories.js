@@ -8,6 +8,9 @@ export default {
 const Template = args => <TextField {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TextField.test.js'],
+};
 Default.args = {
   label: 'Lorem Ipsum',
   type: 'text',

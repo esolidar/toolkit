@@ -8,6 +8,9 @@ export default {
 const Template = args => <TextFieldGroup {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TextFieldGroup.test.js'],
+};
 Default.args = {
   type: 'type',
   label: 'Lorem Ipsum',

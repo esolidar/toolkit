@@ -8,6 +8,9 @@ export default {
 const Template = args => <Reviews {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Reviews.test.js'],
+};
 Default.args = {
   averageRate: 3,
   companyId: 1,

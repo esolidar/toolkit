@@ -8,6 +8,9 @@ export default {
 const Template = args => <ProjectFilters {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectFilters.test.js'],
+};
 Default.args = {
   color: 'red',
   searchTitleLabel: 'Pesquisar',

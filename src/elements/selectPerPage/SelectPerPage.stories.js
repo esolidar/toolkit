@@ -8,6 +8,9 @@ export default {
 const Template = args => <SelectPerPage {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['SelectPerPage.test.js'],
+};
 Default.args = {
   onChange: () => {},
   value: 10,

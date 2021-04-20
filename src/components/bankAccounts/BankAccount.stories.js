@@ -8,6 +8,9 @@ export default {
 const Template = args => <BankAccount {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['BankAccount.test.js'],
+};
 Default.args = {
   countryId: 208,
   color: 'green',

@@ -8,6 +8,9 @@ export default {
 const Template = args => <CrowdfundingContributeBtn {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CrowdfundingContributeBtn.test.js'],
+};
 Default.args = {
   campaign: {
     id: 44,

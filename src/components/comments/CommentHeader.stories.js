@@ -8,6 +8,9 @@ export default {
 const Template = args => <CommentHeader {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CommentHeader.test.js'],
+};
 Default.args = {
   comment: {
     comment: 'teste 2',

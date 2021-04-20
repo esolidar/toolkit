@@ -8,6 +8,9 @@ export default {
 const Template = args => <DropZoneBox {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['DropZoneBox.test.js'],
+};
 Default.args = {
   accept: '.jpg, .jpeg, .png',
   onSelect: () => {},

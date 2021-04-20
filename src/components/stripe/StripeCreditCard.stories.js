@@ -8,6 +8,9 @@ export default {
 const Template = args => <StripeCreditCard {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['StripeCreditCard.test.js'],
+};
 Default.args = {
   submitStripePayment: () => {},
   loadingStripe: false,

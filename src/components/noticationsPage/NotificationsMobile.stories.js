@@ -8,6 +8,9 @@ export default {
 const Template = args => <NotificationsMobile {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['NotificationsMobile.test.js'],
+};
 Default.args = {
   notificationsHeadTitle: 'Notificações',
   totalNotifications: '20',
