@@ -3,6 +3,13 @@ import Countdown from './Countdown';
 export default {
   title: 'Components/Countdown',
   component: Countdown,
+  argTypes: {
+    startDate: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 };
 
 const Template = args => <Countdown {...args} />;

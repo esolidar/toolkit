@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
-    "test": "jest --coverage -u --maxWorkers=50% --colors --json --outputFile=.jest-test-results.json",
+    "test": "jest --coverage -u --maxWorkers=50% --colors --json --outputFile=.storybook/.jest-test-results.json",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
     "build:publish": "npm run build && npm publish",
