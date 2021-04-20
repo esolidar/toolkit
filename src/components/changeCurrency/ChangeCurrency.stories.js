@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ChangeCurrency.test.js'],
+};
 Default.args = {
   currentCurrency: {
     id: 1,

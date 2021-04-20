@@ -8,6 +8,9 @@ export default {
 const Template = args => <SocialNetworks {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['SocialNetworks.test.js'],
+};
 Default.args = {
   icons: [
     { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },

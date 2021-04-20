@@ -8,6 +8,9 @@ export default {
 const Template = args => <AuctionDetailRigth {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['AuctionDetailRigth.test.js'],
+};
 Default.args = {
   auctionTitle: 'Titulo',
   auction: {

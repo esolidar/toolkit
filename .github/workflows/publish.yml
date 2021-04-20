@@ -72,7 +72,7 @@ jobs:
 
       - uses: canastro/copy-file-action@master
         with:
-          source: '.storybook/.jest-test-results.json'
+          source: '.jest-test-results.json'
           target: 'storybook-static/.jest-test-results.json'
 
       - uses: actions/cache@v2

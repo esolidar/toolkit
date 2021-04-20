@@ -8,6 +8,9 @@ export default {
 const Template = args => <ContributesListBox {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ContributesListBox.test.js'],
+};
 Default.args = {
   contributesList: [
     {

@@ -8,6 +8,9 @@ export default {
 const Template = args => <FeaturesMenu {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['FeaturesMenu.test.js'],
+};
 Default.args = {
   project: 'whitelabel',
   location: '/',

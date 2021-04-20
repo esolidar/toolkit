@@ -8,6 +8,9 @@ export default {
 const Template = args => <Survey {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Survey.test.js'],
+};
 Default.args = {
   status: 'A',
   formTitleText: 'Your Opinion Counts.',

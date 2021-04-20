@@ -9,6 +9,9 @@ export default {
 const Template = args => <SliderImagesLanding {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['SliderImagesLanding.test.js'],
+};
 Default.args = {
   autoPlay: true,
   imgList: [

@@ -8,6 +8,9 @@ export default {
 const Template = args => <NotificationsBell {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['NotificationsBell.test.js'],
+};
 Default.args = {
   notificationsHeadTitle: 'Notificações',
   totalNotifications: '20',

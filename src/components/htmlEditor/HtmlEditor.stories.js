@@ -8,6 +8,9 @@ export default {
 const Template = args => <HtmlEditor {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['HtmlEditor.test.js'],
+};
 Default.args = {
   initialContent: '<p>Titulo</p>',
 };

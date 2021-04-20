@@ -8,6 +8,9 @@ export default {
 const Template = args => <SliderImagesLightbox {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['SliderImagesLightbox.test.js'],
+};
 Default.args = {
   video: 'https://www.youtube.com/watch?v=xF_QkfZI1mM',
   images: [

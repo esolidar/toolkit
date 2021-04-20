@@ -8,6 +8,9 @@ export default {
 const Template = args => <CrowdfundingThumb {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CrowdfundingThumb.test.js'],
+};
 Default.args = {
   thumb: {
     id: 34,

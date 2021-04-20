@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ConfirmModal.test.js'],
+};
 Default.args = {
   onConfirm: () => {
     alert('Confirmed');

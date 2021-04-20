@@ -8,6 +8,9 @@ export default {
 const Template = args => <TicketsForm {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TicketsForm.test.js'],
+};
 Default.args = {
   onSubmit: () => {},
   onChange: () => {},

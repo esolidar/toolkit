@@ -8,6 +8,9 @@ export default {
 const Template = args => <Documents {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Documents.test.js'],
+};
 Default.args = {
   isLoadingSearch: false,
   documents: [

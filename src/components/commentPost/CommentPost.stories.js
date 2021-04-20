@@ -8,6 +8,9 @@ export default {
 const Template = args => <CommentPost {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CommentPost.test.js'],
+};
 Default.args = {
   postId: 1,
   showCreateComment: () => {},

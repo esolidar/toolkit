@@ -8,6 +8,9 @@ export default {
 const Template = args => <ValidateTelephone {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ValidateTelephone.test.js'],
+};
 Default.args = {
   localStorage: {
     lang: 'pt',

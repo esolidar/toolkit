@@ -8,4 +8,7 @@ export default {
 const Template = args => <HeartSeparator {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['HeartSeparator.test.js'],
+};
 Default.args = {};

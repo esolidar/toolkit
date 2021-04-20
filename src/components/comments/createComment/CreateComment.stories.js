@@ -8,6 +8,9 @@ export default {
 const Template = args => <CreateComment {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CreateComment.test.js'],
+};
 Default.args = {
   env: 'https://static.testesolidar.com',
   user: {

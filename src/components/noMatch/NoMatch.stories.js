@@ -8,6 +8,9 @@ export default {
 const Template = args => <NoMatch {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['NoMatch.test.js'],
+};
 Default.args = {
   color: '#d1d1d1',
 };

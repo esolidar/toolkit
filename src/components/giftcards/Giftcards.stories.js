@@ -8,6 +8,9 @@ export default {
 const Template = args => <Giftcards {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Giftcards.test.js'],
+};
 Default.args = {
   giftCardsList: [
     {

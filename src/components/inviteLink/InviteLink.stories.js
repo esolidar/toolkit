@@ -8,6 +8,9 @@ export default {
 const Template = args => <InviteLink {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['InviteLink.test.js'],
+};
 Default.args = {
   inviteLinkText:
     'You can invite your members to participate in your company members by sharing this link with them. Remember that who joins through this link will be associated to your company as an member.',

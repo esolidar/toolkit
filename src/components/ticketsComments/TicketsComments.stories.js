@@ -8,6 +8,9 @@ export default {
 const Template = args => <TicketsComments {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TicketsComments.test.js'],
+};
 Default.args = {
   ticketComments: [
     {

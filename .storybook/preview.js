@@ -10,7 +10,7 @@ import { setIntlConfig, withIntl } from 'storybook-addon-intl';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE, MESSAGES } from '../src/constants/locales';
-import results from './.jest-test-results.json';
+import results from '../.jest-test-results.json';
 
 setIntlConfig({
   locales: Object.values(SUPPORTED_LOCALES),

@@ -8,6 +8,9 @@ export default {
 const Template = args => <StatisticsBox {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['StatisticsBox.test.js'],
+};
 Default.args = {
   features: [
     { title: 'Raised', statistics: '$279.47', subtitle: '0% growth last quarter' },
