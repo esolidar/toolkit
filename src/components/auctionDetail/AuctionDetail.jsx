@@ -690,6 +690,7 @@ const AuctionDetail = ({
     const privacyPolicy = useIntl().formatMessage({
       id: 'auctions.private.privacy',
     });
+    // TODO: Uncomment when there is content on the terms and conditions page
     // const textAnd = useIntl().formatMessage({
     //   id: 'and',
     // });
