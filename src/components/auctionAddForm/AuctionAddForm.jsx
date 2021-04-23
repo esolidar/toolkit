@@ -7,11 +7,8 @@ import Pagination from 'react-js-pagination';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { WithContext as ReactTags } from 'react-tag-input';
 import classnames from 'classnames';
-import DatePicker, { registerLocale } from 'react-datepicker';
 import { NotificationManager } from 'react-notifications';
 import Datetime from 'react-datetime';
-import pt from 'date-fns/locale/pt';
-import en from 'date-fns/locale/en-US';
 import moment from 'moment-timezone';
 import Loading from '../loading';
 import TextField from '../../elements/textField';
@@ -19,6 +16,7 @@ import TextareaField from '../../elements/textareaField';
 import TextFieldGroup from '../../elements/textFieldGroup';
 import DropZoneBox from '../../elements/dropZoneBox';
 import Button from '../../elements/button';
+import DatePicker from '../../elements/datePicker';
 import InstitutionListSelect from '../institutionListSelect';
 import ProjectThumb from '../projectThumb';
 import '../../assets/sass/_react-datepicker.scss';
@@ -28,9 +26,6 @@ import InputLabel from '../../elements/inputLabel';
 import RadioField from '../../elements/radioField';
 import validateAuctionForm from './validations';
 import { isEmpty } from '../../utils';
-
-registerLocale('pt', pt);
-registerLocale('en', en);
 
 /**
  * Auction add form.
@@ -440,6 +435,9 @@ const AuctionAddForm = ({
     if (!endDate || endDate > date) {
       setForm(prevState => ({ ...prevState, startDate: date }));
       setForm(prevState => ({ ...prevState, dateStart: newDate }));
+    } else if (endDate < date) {
+      setForm(prevState => ({ ...prevState, startDate: date }));
+      setForm(prevState => ({ ...prevState, endDate: '' }));
     }
   };
 
@@ -985,58 +983,48 @@ const AuctionAddForm = ({
                   <div className="col-md-12">
                     <Row>
                       <Col sm={4}>
-                        <div
-                          className={classnames('form-group', { 'has-error': errors.dateStart })}
-                        >
-                          <label className="control-label">
-                            <FormattedMessage id="auctions.add.startDate" />
-                          </label>
-                          <DatePicker
-                            locale={localStorage.lang === 'en' ? 'en' : 'pt'}
-                            selected={form.startDate}
-                            selectsStart
-                            startDate={form.startDate}
-                            endDate={form.endDate}
-                            showTimeSelect
-                            onChange={handleChangeStart}
-                            className="form-control"
-                            placeholderText={useIntl().formatMessage({
-                              id: 'dd-mm-yyyy',
-                            })}
-                            timeCaption={useIntl().formatMessage({ id: 'hour' })}
-                            dateFormat="d-MM-yyyy h:mm aa"
-                          />
-                          {errors.dateStart && (
-                            <span className="help-block d-block">{errors.dateStart}</span>
-                          )}
-                        </div>
+                        <DatePicker
+                          label={useIntl().formatMessage({
+                            id: 'auctions.add.startDate',
+                          })}
+                          locale={localStorage.lang === 'en' ? 'en' : 'pt'}
+                          selected={form.startDate}
+                          selectsStart
+                          startDate={form.startDate}
+                          endDate={form.endDate}
+                          showTimeSelect
+                          onChange={handleChangeStart}
+                          className="form-control"
+                          placeholderText={useIntl().formatMessage({
+                            id: 'dd-mm-yyyy',
+                          })}
+                          timeCaption={useIntl().formatMessage({ id: 'hour' })}
+                          dateFormat="d-MM-yyyy h:mm aa"
+                          minDate={new Date()}
+                          errors={errors.dateStart}
+                        />
                       </Col>
                       <Col sm={4}>
-                        <div
-                          className={classnames('form-group', { 'has-error': errors.dateLimit })}
-                        >
-                          <label className="control-label">
-                            <FormattedMessage id="auctions.add.endDate" />
-                          </label>
-                          <DatePicker
-                            locale={localStorage.lang === 'en' ? 'en' : 'pt'}
-                            selected={form.endDate}
-                            selectsStart
-                            startDate={form.startDate}
-                            endDate={form.endDate}
-                            onChange={handleChangeEnd}
-                            showTimeSelect
-                            className="form-control"
-                            timeCaption={useIntl().formatMessage({ id: 'hour' })}
-                            placeholderText={useIntl().formatMessage({
-                              id: 'dd-mm-yyyy',
-                            })}
-                            dateFormat="d-MM-yyyy h:mm aa"
-                          />
-                          {errors.dateLimit && (
-                            <span className="help-block d-block">{errors.dateLimit}</span>
-                          )}
-                        </div>
+                        <DatePicker
+                          label={useIntl().formatMessage({
+                            id: 'auctions.add.endDate',
+                          })}
+                          locale={localStorage.lang === 'en' ? 'en' : 'pt'}
+                          selected={form.endDate}
+                          selectsStart
+                          startDate={form.startDate}
+                          endDate={form.endDate}
+                          onChange={handleChangeEnd}
+                          showTimeSelect
+                          className="form-control"
+                          timeCaption={useIntl().formatMessage({ id: 'hour' })}
+                          placeholderText={useIntl().formatMessage({
+                            id: 'dd-mm-yyyy',
+                          })}
+                          dateFormat="d-MM-yyyy h:mm aa"
+                          minDate={form.startDate}
+                          errors={errors.dateLimit}
+                        />
                       </Col>
                       <Col sm={4}>
                         <SelectField
