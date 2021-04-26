@@ -96,6 +96,24 @@ test('simulate add national bank account', async () => {
   });
 });
 
+test('simulate add national bank account without data', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsWithoutBankAccount} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const nationalAccounts = screen.getByTestId('national-accounts-0');
+    expect(nationalAccounts).toBeInTheDocument();
+
+    userEvent.click(btnAddAccount);
+    const secondNationalAccounts = screen.queryByText('BANK ACCOUNT #2');
+    expect(secondNationalAccounts).not.toBeInTheDocument();
+  });
+});
+
 test('simulate delete international bank account show modal', async () => {
   render(
     <IntlProvider locale="en">
