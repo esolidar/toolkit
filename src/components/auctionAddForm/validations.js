@@ -5,7 +5,7 @@ export default function validateAuctionForm(data) {
   const errors = {};
   const urlRegex = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
 
-  if (!urlRegex.test(data.video)) {
+  if (!isEmpty(data.video) && !urlRegex.test(data.video)) {
     errors.video = <FormattedMessage id="user.register.error.video" />;
   }
 

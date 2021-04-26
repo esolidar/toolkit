@@ -339,13 +339,14 @@ const BankAccount = ({
                   id={`bank_number[${i}]`}
                   label={useIntl().formatMessage({
                     id: 'bank.account.field',
-                    defaultMessage: 'Account',
+                    defaultMessage: 'Account Number',
                   })}
                   type="text"
                   onChange={e => handdleChangeAccount(e, i, countryId)}
                   error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
                   value={account.bank_number}
                   field="bank_number"
+                  dataTestId="bankNumber"
                 />
                 <TextField
                   id={`beneficiary[${i}]`}
@@ -358,6 +359,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
                   value={account.beneficiary}
                   field="beneficiary"
+                  dataTestId="beneficiary"
                 />
                 <TextField
                   id={`cnpj[${i}]`}
@@ -370,6 +372,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
                   value={account.cnpj}
                   field="cnpj"
+                  dataTestId="cnpj"
                 />
                 <TextField
                   id={`bank_branch[${i}]`}
@@ -382,6 +385,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bank_branch`]}
                   value={account.bank_branch}
                   field="bank_branch"
+                  dataTestId="bank_branch"
                 />
                 <TextField
                   id={`bank_checking_account[${i}]`}
@@ -394,6 +398,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bank_checking_account`]}
                   value={account.bank_checking_account}
                   field="bank_checking_account"
+                  dataTestId="bank_checking_account"
                 />
               </div>
             </Col>
@@ -461,6 +466,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-iban`]}
                   value={account.iban}
                   field="iban"
+                  dataTestId="iban"
                 />
                 <TextField
                   id={`nib[${i}]`}
@@ -470,6 +476,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-nib`]}
                   value={account.nib}
                   field="nib"
+                  dataTestId="nib"
                 />
                 <TextField
                   id={`bic[${i}]`}
@@ -479,6 +486,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bic`]}
                   value={account.bic}
                   field="bic"
+                  dataTestId="bic"
                 />
               </div>
             </Col>

@@ -49,6 +49,44 @@ const propsBankAccount = {
   },
 };
 
+const propsBankAccountBrasil = {
+  countryId: 150,
+  color: 'green',
+  userId: 1,
+  postBankTransfer: fx,
+  updateLocalstorage: fx,
+  getBankTransfer: {},
+  userBankTransfer: {
+    150: [
+      {
+        bank_number: 'BR0247549256137997157867275P7',
+        beneficiary: 'José Lima',
+        cnpj: '123456789',
+        bank_branch: 'Banco Popular',
+        bank_checking_account: 'Banco',
+      },
+    ],
+  },
+};
+
+const propsBankAccountNational = {
+  countryId: 208,
+  color: 'green',
+  userId: 1,
+  postBankTransfer: fx,
+  updateLocalstorage: fx,
+  getBankTransfer: {},
+  userBankTransfer: {
+    208: [
+      {
+        iban: 'PT50003506517935719611839',
+        nib: 'PT50003506517935719611839',
+        bic: 'CGDI',
+      },
+    ],
+  },
+};
+
 test('simulate bank account', async () => {
   render(
     <IntlProvider locale="en">
@@ -69,6 +107,46 @@ test('simulate bank account', async () => {
     expect(submitButton).toBeInTheDocument();
     expect(noInternationalAccounts).toBeInTheDocument();
     expect(noNationalAccounts).toBeInTheDocument();
+  });
+});
+
+test('Verify fields Brasil bank account', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsBankAccountBrasil} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const bankNumber = screen.getByTestId('bankNumber');
+    expect(bankNumber).toBeInTheDocument();
+    const beneficiary = screen.getByTestId('beneficiary');
+    expect(beneficiary).toBeInTheDocument();
+    const cnpj = screen.getByTestId('cnpj');
+    expect(cnpj).toBeInTheDocument();
+    const bankBranch = screen.getByTestId('bank_branch');
+    expect(bankBranch).toBeInTheDocument();
+    const bankCheckingAccount = screen.getByTestId('bank_checking_account');
+    expect(bankCheckingAccount).toBeInTheDocument();
+  });
+});
+
+test('Verify fields National bank account', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsBankAccountNational} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const iban = screen.getByTestId('iban');
+    expect(iban).toBeInTheDocument();
+    const nib = screen.getByTestId('nib');
+    expect(nib).toBeInTheDocument();
+    const bic = screen.getByTestId('bic');
+    expect(bic).toBeInTheDocument();
   });
 });
 
