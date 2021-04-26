@@ -20,6 +20,11 @@ const CrowdfundingItem = props => {
     return title;
   };
 
+  const campaignImage =
+    item.campaign.images.length > 0
+      ? item.campaign.images[0].image
+      : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
+
   return (
     <div className="cart-item box">
       <Row>
@@ -31,7 +36,13 @@ const CrowdfundingItem = props => {
                   <div>
                     {item.campaign.images.length > 0 && (
                       <img
-                        src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=95&height=95`}
+                        className="js-image-thumb-browser"
+                        src={
+                          campaignImage.startsWith('https')
+                            ? campaignImage
+                            : `${env.serverlessResizeImage}/${campaignImage}?width=95&height=95`
+                        }
+                        style={{ height: 95 }}
                         alt={campaignTitle()}
                       />
                     )}
@@ -41,7 +52,11 @@ const CrowdfundingItem = props => {
                   <div>
                     {item.campaign.images.length > 0 && (
                       <img
-                        src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=400`}
+                        src={
+                          campaignImage.startsWith('https')
+                            ? campaignImage
+                            : `${env.serverlessResizeImage}/${campaignImage}?width=400`
+                        }
                         alt={campaignTitle()}
                         style={{ width: '90%' }}
                       />
@@ -50,11 +65,7 @@ const CrowdfundingItem = props => {
                 </MobileView>
                 <div>
                   {item.campaign.images.length === 0 && (
-                    <img
-                      src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
-                      style={{ width: 95 }}
-                      alt={campaignTitle()}
-                    />
+                    <img src={campaignImage} style={{ width: 95 }} alt={campaignTitle()} />
                   )}
                 </div>
                 <h3>{campaignTitle()}</h3>
@@ -75,7 +86,7 @@ const CrowdfundingItem = props => {
                 )}
                 <input
                   type="checkbox"
-                  name="hidden"
+                  name="checked"
                   id="addCart"
                   value={item.checked}
                   onChange={e => props.onAddToCheckout(e, props.indx)}
@@ -89,7 +100,7 @@ const CrowdfundingItem = props => {
         <Col sm={2} xs={8} className="price">
           <FormattedNumber style="currency" currency={item.currency.small} value={item.amount} />
         </Col>
-        <Col sm={2} xs={4} className="price text-center">
+        <Col sm={2} xs={4} className="text-center">
           <button
             type="button"
             className="btn-remove-item"
