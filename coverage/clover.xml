@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619458667142" clover="3.2.0">
-  <project timestamp="1619458667143" name="All files">
-    <metrics statements="2557" coveredstatements="1429" conditionals="2273" coveredconditionals="1159" methods="642" coveredmethods="312" elements="5472" coveredelements="2900" complexity="0" loc="2557" ncloc="2557" packages="89" files="209" classes="209"/>
+<coverage generated="1619459188827" clover="3.2.0">
+  <project timestamp="1619459188827" name="All files">
+    <metrics statements="2558" coveredstatements="1430" conditionals="2279" coveredconditionals="1164" methods="642" coveredmethods="312" elements="5479" coveredelements="2906" complexity="0" loc="2558" ncloc="2558" packages="89" files="209" classes="209"/>
     <package name="components.auctionAddForm">
       <metrics statements="289" coveredstatements="80" conditionals="278" coveredconditionals="85" methods="68" coveredmethods="15"/>
       <file name="AuctionAddForm.jsx" path="D:\projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -992,24 +992,25 @@
       </file>
     </package>
     <package name="components.checkout.products">
-      <metrics statements="15" coveredstatements="9" conditionals="14" coveredconditionals="11" methods="6" coveredmethods="2"/>
+      <metrics statements="16" coveredstatements="10" conditionals="20" coveredconditionals="16" methods="6" coveredmethods="2"/>
       <file name="CrowdfundingItem.jsx" path="D:\projects\toolkit\src\components\checkout\products\CrowdfundingItem.jsx">
-        <metrics statements="15" coveredstatements="9" conditionals="14" coveredconditionals="11" methods="6" coveredmethods="2"/>
+        <metrics statements="16" coveredstatements="10" conditionals="20" coveredconditionals="16" methods="6" coveredmethods="2"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="13" count="21" type="cond" truecount="3" falsecount="1"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="15" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="16" count="6" type="stmt"/>
+        <line num="15" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="21" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="20" count="6" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="96" count="0" type="stmt"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="140" count="2" type="stmt"/>
+        <line num="20" count="21" type="stmt"/>
+        <line num="24" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="151" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.checkout.step1">
@@ -3261,11 +3262,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>
