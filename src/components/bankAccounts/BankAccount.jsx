@@ -26,6 +26,7 @@ const BankAccount = ({
 }) => {
   const [errors, setErrors] = useState({});
   const [bankAccounts, setBankAccounts] = useState(userBankTransfer || {});
+  const [isAddAccount, setIsAddAccount] = useState(false);
 
   useEffect(() => {
     if (bankTransfer && bankTransfer.code === 200) {
@@ -33,23 +34,7 @@ const BankAccount = ({
     }
   }, [bankTransfer]);
 
-  const handdleChangeAccount = (e, i, countryId) => {
-    const { name, value } = e.target;
-    const form = { ...bankAccounts };
-    form[countryId][i][name] = value;
-    setBankAccounts(form);
-  };
-
-  const handleAddIntenationalAccount = () => {
-    const newAccounts = bankAccounts[1] || [];
-    newAccounts.push({
-      iban: '',
-      bic: '',
-    });
-    setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
-  };
-
-  const handleAddAccount = () => {
+  useEffect(() => {
     const newAccounts = bankAccounts[countryId] || [];
     let account = {};
     switch (countryId) {
@@ -85,8 +70,28 @@ const BankAccount = ({
           bic: '',
         };
     }
-    newAccounts.push(account);
-    setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
+
+    if (isAddAccount) {
+      newAccounts.push(account);
+      setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
+      setIsAddAccount(false);
+    }
+  }, [isAddAccount]);
+
+  const handdleChangeAccount = (e, i, countryId) => {
+    const { name, value } = e.target;
+    const form = { ...bankAccounts };
+    form[countryId][i][name] = value;
+    setBankAccounts(form);
+  };
+
+  const handleAddIntenationalAccount = () => {
+    const newAccounts = bankAccounts[1] || [];
+    newAccounts.push({
+      iban: '',
+      bic: '',
+    });
+    setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
   };
 
   const handleDeleteInternationalAccount = i => {
@@ -145,6 +150,11 @@ const BankAccount = ({
     });
     checkIsValidBankAccount(isValid);
     return isValid;
+  };
+
+  const handleAddAccount = () => {
+    if (isValid()) setIsAddAccount(true);
+    if (isEmpty(bankAccounts)) setIsAddAccount(true);
   };
 
   const handleSubmit = () => {
