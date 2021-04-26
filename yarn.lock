@@ -2455,10 +2455,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.0.78":
-  version "0.0.78"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.0.78/0b8c2a4f5a77efedb3b37c854ef965686f86bec291615d86d0f1699f88ccefcf#8a27fc3c56dffd83d1eb42b398b3263b49d8729b"
-  integrity sha512-w/hVHYWEmtLWEgQEPqkT8UbOk/+OBPGvx5dEUAfoc5/CO5kHz77cuMRrmae4OKV9vOIxfqw2lPjR7Z5XqNiEPQ==
+"@esolidar/i18n@^0.0.80":
+  version "0.0.80"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.0.80/0df11d9ff2cadab878c19817e36bd0298f2e3ed51fd98b11e4c83b8641d0a43b#63517b7649cb806807b202f06571bb1ab25763c1"
+  integrity sha512-31/oOUlBv+QtaQ5+Lf7SK/GADYPlOSTV6CG5CF0kZPCLYe31upnyLfkuAZLuGG43RWcp2CNlogyiP6U0DNF7zw==
 
 "@formatjs/ecma402-abstract@1.6.4":
   version "1.6.4"
