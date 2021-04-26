@@ -20,7 +20,10 @@ const CrowdfundingItem = props => {
     return title;
   };
 
-  const campaignImage = item.campaign.images[0].image;
+  const campaignImage =
+    item.campaign.images.length > 0
+      ? item.campaign.images[0].image
+      : `${env.cdn_static_url}/frontend/assets/no-image.jpg`;
 
   return (
     <div className="cart-item box">
@@ -62,11 +65,7 @@ const CrowdfundingItem = props => {
                 </MobileView>
                 <div>
                   {item.campaign.images.length === 0 && (
-                    <img
-                      src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
-                      style={{ width: 95 }}
-                      alt={campaignTitle()}
-                    />
+                    <img src={campaignImage} style={{ width: 95 }} alt={campaignTitle()} />
                   )}
                 </div>
                 <h3>{campaignTitle()}</h3>
