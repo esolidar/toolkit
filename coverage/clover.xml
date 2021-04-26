@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619437271782" clover="3.2.0">
-  <project timestamp="1619437271782" name="All files">
-    <metrics statements="2561" coveredstatements="1425" conditionals="2266" coveredconditionals="1149" methods="643" coveredmethods="310" elements="5470" coveredelements="2884" complexity="0" loc="2561" ncloc="2561" packages="89" files="209" classes="209"/>
+<coverage generated="1619442687143" clover="3.2.0">
+  <project timestamp="1619442687144" name="All files">
+    <metrics statements="2561" coveredstatements="1425" conditionals="2268" coveredconditionals="1150" methods="643" coveredmethods="310" elements="5472" coveredelements="2885" complexity="0" loc="2561" ncloc="2561" packages="89" files="209" classes="209"/>
     <package name="components.auctionAddForm">
       <metrics statements="289" coveredstatements="80" conditionals="276" coveredconditionals="85" methods="68" coveredmethods="15"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -995,9 +995,9 @@
       </file>
     </package>
     <package name="components.checkout.products">
-      <metrics statements="16" coveredstatements="10" conditionals="18" coveredconditionals="15" methods="6" coveredmethods="2"/>
+      <metrics statements="16" coveredstatements="10" conditionals="20" coveredconditionals="16" methods="6" coveredmethods="2"/>
       <file name="CrowdfundingItem.jsx" path="C:\Projects\toolkit\src\components\checkout\products\CrowdfundingItem.jsx">
-        <metrics statements="16" coveredstatements="10" conditionals="18" coveredconditionals="15" methods="6" coveredmethods="2"/>
+        <metrics statements="16" coveredstatements="10" conditionals="20" coveredconditionals="16" methods="6" coveredmethods="2"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="7" type="stmt"/>
         <line num="11" count="7" type="stmt"/>
@@ -1007,13 +1007,13 @@
         <line num="16" count="21" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="20" count="21" type="stmt"/>
-        <line num="23" count="7" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="108" count="0" type="stmt"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="142" count="0" type="stmt"/>
-        <line num="152" count="2" type="stmt"/>
+        <line num="24" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="7" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="151" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.checkout.step1">
@@ -3265,11 +3265,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
+        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>
