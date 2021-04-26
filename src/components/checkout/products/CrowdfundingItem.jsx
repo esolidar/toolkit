@@ -20,6 +20,8 @@ const CrowdfundingItem = props => {
     return title;
   };
 
+  const campaignImage = item.campaign.images[0].image;
+
   return (
     <div className="cart-item box">
       <Row>
@@ -31,7 +33,13 @@ const CrowdfundingItem = props => {
                   <div>
                     {item.campaign.images.length > 0 && (
                       <img
-                        src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=95&height=95`}
+                        className="js-image-thumb-browser"
+                        src={
+                          campaignImage.startsWith('https')
+                            ? campaignImage
+                            : `${env.serverlessResizeImage}/${campaignImage}?width=95&height=95`
+                        }
+                        style={{ height: 95 }}
                         alt={campaignTitle()}
                       />
                     )}
@@ -41,7 +49,11 @@ const CrowdfundingItem = props => {
                   <div>
                     {item.campaign.images.length > 0 && (
                       <img
-                        src={`${env.serverlessResizeImage}/${item.campaign.images[0].image}?width=400`}
+                        src={
+                          campaignImage.startsWith('https')
+                            ? campaignImage
+                            : `${env.serverlessResizeImage}/${campaignImage}?width=400`
+                        }
                         alt={campaignTitle()}
                         style={{ width: '90%' }}
                       />
