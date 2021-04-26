@@ -87,7 +87,7 @@ const CrowdfundingItem = props => {
                 )}
                 <input
                   type="checkbox"
-                  name="hidden"
+                  name="checked"
                   id="addCart"
                   value={item.checked}
                   onChange={e => props.onAddToCheckout(e, props.indx)}
@@ -101,7 +101,7 @@ const CrowdfundingItem = props => {
         <Col sm={2} xs={8} className="price">
           <FormattedNumber style="currency" currency={item.currency.small} value={item.amount} />
         </Col>
-        <Col sm={2} xs={4} className="price text-center">
+        <Col sm={2} xs={4} className="text-center">
           <button
             type="button"
             className="btn-remove-item"
