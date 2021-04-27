@@ -4,10 +4,11 @@ import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
 import BankAccount from '../index';
 import {
-  userInternationalBankTransfer,
-  userNationalBankTransfer,
-  userBrasilBankTransfer,
-} from '../../../../__mocks__/userBankTransfer';
+  internationalBankAccount,
+  nationalBankAccount,
+  brBankAccount,
+  ukBankTransfer,
+} from '../../../../__mocks__/bankAccount';
 
 const fx = jest.fn();
 
@@ -28,27 +29,27 @@ const propsBankAccount = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: userInternationalBankTransfer,
+  userBankTransfer: { ...internationalBankAccount, ...ukBankTransfer },
 };
 
-const propsBankAccountBrasil = {
+const propsBrBankAccount = {
   countryId: 150,
   color: 'green',
   userId: 1,
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: userBrasilBankTransfer,
+  userBankTransfer: brBankAccount,
 };
 
-const propsBankAccountNational = {
+const propsNationalBankAccount = {
   countryId: 208,
   color: 'green',
   userId: 1,
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: userNationalBankTransfer,
+  userBankTransfer: nationalBankAccount,
 };
 
 test('simulate bank account', async () => {
@@ -77,7 +78,7 @@ test('simulate bank account', async () => {
 test('Verify fields Brasil bank account', async () => {
   render(
     <IntlProvider locale="en">
-      <BankAccount {...propsBankAccountBrasil} />
+      <BankAccount {...propsBrBankAccount} />
     </IntlProvider>
   );
   await waitFor(() => {
@@ -99,7 +100,7 @@ test('Verify fields Brasil bank account', async () => {
 test('Verify fields National bank account', async () => {
   render(
     <IntlProvider locale="en">
-      <BankAccount {...propsBankAccountNational} />
+      <BankAccount {...propsNationalBankAccount} />
     </IntlProvider>
   );
   await waitFor(() => {
