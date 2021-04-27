@@ -61,11 +61,10 @@ const BankAccount = ({
     }
 
     Object.keys(bankAccounts).map(key => {
-      if (
-        (typeAccount === 'national' && key !== '1') ||
-        (typeAccount === 'international' && key === '1') ||
-        !typeAccount
-      ) {
+      const isNational = typeAccount === 'national' && key !== '1';
+      const isInternational = typeAccount === 'international' && key === '1';
+
+      if (isNational || isInternational || !typeAccount) {
         const value = bankAccounts[key];
         value.map((item, i) => {
           Object.keys(item).map(formKey => {

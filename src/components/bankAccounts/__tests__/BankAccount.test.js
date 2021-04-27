@@ -3,6 +3,11 @@ import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
 import BankAccount from '../index';
+import {
+  userInternationalBankTransfer,
+  userNationalBankTransfer,
+  userBrasilBankTransfer,
+} from '../../../../__mocks__/userBankTransfer';
 
 const fx = jest.fn();
 
@@ -23,30 +28,7 @@ const propsBankAccount = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: {
-    1: [
-      {
-        iban: '123123123123',
-        bic: '123123',
-      },
-      {
-        iban: '123123123123',
-        bic: '123123',
-      },
-    ],
-    231: [
-      {
-        accountholder: '123123',
-        banksortcode: '123123',
-        accountnumber: '132123',
-      },
-      {
-        accountholder: '123123',
-        banksortcode: '123123',
-        accountnumber: '132123',
-      },
-    ],
-  },
+  userBankTransfer: userInternationalBankTransfer,
 };
 
 const propsBankAccountBrasil = {
@@ -56,17 +38,7 @@ const propsBankAccountBrasil = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: {
-    150: [
-      {
-        bank_number: 'BR0247549256137997157867275P7',
-        beneficiary: 'José Lima',
-        cnpj: '123456789',
-        bank_branch: 'Banco Popular',
-        bank_checking_account: 'Banco',
-      },
-    ],
-  },
+  userBankTransfer: userBrasilBankTransfer,
 };
 
 const propsBankAccountNational = {
@@ -76,15 +48,7 @@ const propsBankAccountNational = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: {
-    208: [
-      {
-        iban: 'PT50003506517935719611839',
-        nib: 'PT50003506517935719611839',
-        bic: 'CGDI',
-      },
-    ],
-  },
+  userBankTransfer: userNationalBankTransfer,
 };
 
 test('simulate bank account', async () => {
