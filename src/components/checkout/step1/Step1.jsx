@@ -22,7 +22,7 @@ const Step1 = props => {
   const renderCartItems = () => {
     if (cartItems.length > 0) {
       return cartItems.map((item, indx) => {
-        if (item.type === 'crowdfunding') {
+        if (item.type === 'crowdfunding' || item.type === 'campaign') {
           return (
             <div key={`${item.id}_${indx}`}>
               {indx === 0 && <h2>Crowdfunding</h2>}
