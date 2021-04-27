@@ -9,18 +9,6 @@ export const internationalBankAccount = {
       bic: '123123',
     },
   ],
-  231: [
-    {
-      accountholder: '123123',
-      banksortcode: '123123',
-      accountnumber: '132123',
-    },
-    {
-      accountholder: '123123',
-      banksortcode: '123123',
-      accountnumber: '132123',
-    },
-  ],
 };
 
 export const nationalBankAccount = {
