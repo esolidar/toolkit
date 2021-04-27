@@ -1,6 +1,7 @@
 import { FormattedNumber } from 'react-intl';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
+import { youtubeUrl, iban } from '../../constants/regex';
 import {
   getEmployeeName,
   addUrlParam,
@@ -19,6 +20,7 @@ import {
   isArray,
   getLocalStorage,
   removeAllButLast,
+  isValidRegex,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -338,5 +340,13 @@ describe('test utils functions', () => {
     expect(removeAllButLast(value.replace(/[^\d,.]/g, '').replace(',', '.'), token)).toEqual(
       '1000.01'
     );
+  });
+
+  test('verify regex', () => {
+    const url = 'https://www.youtube.com/watch?v=6WUT6MMW048&t=91s&ab_channel=eSolidar';
+    const ibanNumber = 'PT37003506511652559496484';
+
+    expect(isValidRegex(youtubeUrl, url)).toEqual(true);
+    expect(isValidRegex(iban, ibanNumber)).toEqual(true);
   });
 });

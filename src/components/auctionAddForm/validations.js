@@ -1,11 +1,14 @@
 import { FormattedMessage } from 'react-intl';
 import isEmpty from '../../utils/isEmpty';
+import isValidRegex from '../../utils/regex';
+import { youtubeUrl } from '../../constants/regex';
 
 export default function validateAuctionForm(data) {
   const errors = {};
-  const urlRegex = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
+  // const urlRegex = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
 
-  if (!isEmpty(data.video) && !urlRegex.test(data.video)) {
+  // if (!isEmpty(data.video) && !urlYoutubeRegex.test(data.video)) {
+  if (!isEmpty(data.video) && !isValidRegex(youtubeUrl, data.video)) {
     errors.video = <FormattedMessage id="user.register.error.video" />;
   }
 
