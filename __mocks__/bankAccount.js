@@ -33,7 +33,7 @@ export const brBankAccount = {
   ],
 };
 
-export const ukBankTransfer = {
+export const ukBankAccount = {
   231: [
     {
       accountholder: '123123',

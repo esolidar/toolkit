@@ -7,7 +7,7 @@ import {
   internationalBankAccount,
   nationalBankAccount,
   brBankAccount,
-  ukBankTransfer,
+  ukBankAccount,
 } from '../../../../__mocks__/bankAccount';
 
 const fx = jest.fn();
@@ -29,7 +29,7 @@ const propsBankAccount = {
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: { ...internationalBankAccount, ...ukBankTransfer },
+  userBankTransfer: { ...internationalBankAccount, ...ukBankAccount },
 };
 
 const propsBrBankAccount = {
