@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619442687143" clover="3.2.0">
-  <project timestamp="1619442687144" name="All files">
-    <metrics statements="2561" coveredstatements="1425" conditionals="2268" coveredconditionals="1150" methods="643" coveredmethods="310" elements="5472" coveredelements="2885" complexity="0" loc="2561" ncloc="2561" packages="89" files="209" classes="209"/>
+<coverage generated="1619543939953" clover="3.2.0">
+  <project timestamp="1619543939954" name="All files">
+    <metrics statements="2561" coveredstatements="1425" conditionals="2270" coveredconditionals="1151" methods="643" coveredmethods="310" elements="5474" coveredelements="2886" complexity="0" loc="2561" ncloc="2561" packages="89" files="209" classes="209"/>
     <package name="components.auctionAddForm">
       <metrics statements="289" coveredstatements="80" conditionals="276" coveredconditionals="85" methods="68" coveredmethods="15"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -1017,9 +1017,9 @@
       </file>
     </package>
     <package name="components.checkout.step1">
-      <metrics statements="13" coveredstatements="12" conditionals="14" coveredconditionals="11" methods="4" coveredmethods="3"/>
+      <metrics statements="13" coveredstatements="12" conditionals="16" coveredconditionals="12" methods="4" coveredmethods="3"/>
       <file name="Step1.jsx" path="C:\Projects\toolkit\src\components\checkout\step1\Step1.jsx">
-        <metrics statements="13" coveredstatements="12" conditionals="14" coveredconditionals="11" methods="4" coveredmethods="3"/>
+        <metrics statements="13" coveredstatements="12" conditionals="16" coveredconditionals="12" methods="4" coveredmethods="3"/>
         <line num="7" count="1" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
@@ -1027,7 +1027,7 @@
         <line num="22" count="2" type="stmt"/>
         <line num="23" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="1" type="cond" truecount="2" falsecount="2"/>
         <line num="26" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
@@ -3265,11 +3265,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="6" type="stmt"/>
-        <line num="31" count="6" type="stmt"/>
-        <line num="32" count="6" type="stmt"/>
-        <line num="33" count="6" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>
