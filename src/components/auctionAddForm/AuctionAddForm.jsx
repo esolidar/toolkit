@@ -1332,6 +1332,7 @@ const AuctionAddForm = ({
                         onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={useIntl().formatMessage({
                           id: 'auctions.add.submitAuction',
+                          defaultMessage: 'Submit auction',
                         })}
                         disabled={disabled}
                       />
