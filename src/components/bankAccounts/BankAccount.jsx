@@ -645,21 +645,6 @@ const BankAccount = ({
                       values={{ value: i + 1 }}
                     />
                     {isEmptyFieldsRestWorldAccount && i > 0 && (
-                      // <button
-                      //   type="button"
-                      //   className="edit-button"
-                      //   style={{ float: 'right', color: '#888' }}
-                      //   data-testid={`btn-delete-national-account-${i}`}
-                      //   onClick={() => handleDeleteAccount(i)}
-                      // >
-                      //   <FontAwesomeIcon
-                      //     icon={faTrash}
-                      //     className="mr-1"
-                      //     title={useIntl().formatMessage({
-                      //       id: 'bank.account.delete',
-                      //     })}
-                      //   />
-                      // </button>
                       <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
                     )}
                     {!isEmptyFieldsRestWorldAccount && i > 0 && (

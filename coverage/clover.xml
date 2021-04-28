@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619625912058" clover="3.2.0">
-  <project timestamp="1619625912059" name="All files">
+<coverage generated="1619626146369" clover="3.2.0">
+  <project timestamp="1619626146369" name="All files">
     <metrics statements="2571" coveredstatements="1442" conditionals="2318" coveredconditionals="1188" methods="645" coveredmethods="314" elements="5534" coveredelements="2944" complexity="0" loc="2571" ncloc="2571" packages="89" files="211" classes="211"/>
     <package name="components.auctionAddForm">
       <metrics statements="288" coveredstatements="80" conditionals="278" coveredconditionals="85" methods="68" coveredmethods="15"/>
@@ -919,14 +919,14 @@
         <line num="630" count="0" type="stmt"/>
         <line num="631" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="633" count="0" type="stmt"/>
-        <line num="667" count="0" type="stmt"/>
-        <line num="702" count="0" type="stmt"/>
-        <line num="713" count="0" type="stmt"/>
-        <line num="724" count="2" type="stmt"/>
-        <line num="747" count="13" type="stmt"/>
+        <line num="652" count="0" type="stmt"/>
+        <line num="687" count="0" type="stmt"/>
+        <line num="698" count="0" type="stmt"/>
+        <line num="709" count="2" type="stmt"/>
+        <line num="732" count="13" type="stmt"/>
+        <line num="807" count="2" type="stmt"/>
         <line num="822" count="2" type="stmt"/>
-        <line num="837" count="2" type="stmt"/>
-        <line num="842" count="2" type="stmt"/>
+        <line num="827" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\components\bankAccounts\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3277,11 +3277,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>
