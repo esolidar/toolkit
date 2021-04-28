@@ -26,7 +26,6 @@ const BankAccount = ({
 }) => {
   const [errors, setErrors] = useState({});
   const [bankAccounts, setBankAccounts] = useState(userBankTransfer || {});
-  const [isAddAccount, setIsAddAccount] = useState(false);
 
   useEffect(() => {
     if (bankTransfer && bankTransfer.code === 200) {
@@ -34,7 +33,80 @@ const BankAccount = ({
     }
   }, [bankTransfer]);
 
-  useEffect(() => {
+  const handdleChangeAccount = (e, i, countryId) => {
+    const { name, value } = e.target;
+    const form = { ...bankAccounts };
+    form[countryId][i][name] = value;
+    setBankAccounts(form);
+  };
+
+  const handleDeleteInternationalAccount = i => {
+    const newAccounts = bankAccounts[1];
+    newAccounts.splice(i, 1);
+    setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
+  };
+
+  const handleDeleteAccount = i => {
+    const newAccounts = bankAccounts[countryId];
+    newAccounts.splice(i, 1);
+    setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
+  };
+
+  const isValid = typeAccount => {
+    setErrors({});
+    let isValid = true;
+
+    if (isEmpty(bankAccounts)) {
+      return false;
+    }
+
+    Object.keys(bankAccounts).map(key => {
+      const isNational = typeAccount === 'national' && key !== '1';
+      const isInternational = typeAccount === 'international' && key === '1';
+
+      if (isNational || isInternational || !typeAccount) {
+        const value = bankAccounts[key];
+        value.map((item, i) => {
+          Object.keys(item).map(formKey => {
+            const formValue = item[formKey];
+
+            if (formKey === 'iban' && !IBAN.isValid(formValue)) {
+              setErrors(prevState => ({
+                ...prevState,
+                [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
+                  id: 'iban.invalid',
+                  defaultMessage: 'This IBAN is invalid',
+                }),
+              }));
+              isValid = false;
+            }
+
+            if (formKey === 'iban' && IBAN.isValid(formValue)) {
+              setErrors(prevState => ({
+                ...prevState,
+                [`account-${key}-indx-${i}-field-iban`]: '',
+              }));
+            }
+
+            if (formValue === '') {
+              setErrors(prevState => ({
+                ...prevState,
+                [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
+                  id: 'required',
+                  defaultMessage: 'This field is required',
+                }),
+              }));
+              isValid = false;
+            }
+          });
+        });
+      }
+    });
+    checkIsValidBankAccount(isValid);
+    return isValid;
+  };
+
+  const handleAddAccount = () => {
     const newAccounts = bankAccounts[countryId] || [];
     let account = {};
     switch (countryId) {
@@ -71,90 +143,21 @@ const BankAccount = ({
         };
     }
 
-    if (isAddAccount) {
+    if (isEmpty(newAccounts) || isValid('national')) {
       newAccounts.push(account);
       setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
-      setIsAddAccount(false);
     }
-  }, [isAddAccount]);
-
-  const handdleChangeAccount = (e, i, countryId) => {
-    const { name, value } = e.target;
-    const form = { ...bankAccounts };
-    form[countryId][i][name] = value;
-    setBankAccounts(form);
   };
 
   const handleAddIntenationalAccount = () => {
     const newAccounts = bankAccounts[1] || [];
-    newAccounts.push({
-      iban: '',
-      bic: '',
-    });
-    setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
-  };
-
-  const handleDeleteInternationalAccount = i => {
-    const newAccounts = bankAccounts[1];
-    newAccounts.splice(i, 1);
-    setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
-  };
-
-  const handleDeleteAccount = i => {
-    const newAccounts = bankAccounts[countryId];
-    newAccounts.splice(i, 1);
-    setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
-  };
-
-  const isValid = () => {
-    setErrors({});
-    let isValid = true;
-
-    if (isEmpty(bankAccounts)) {
-      return false;
-    }
-
-    Object.keys(bankAccounts).map(key => {
-      const value = bankAccounts[key];
-      value.map((item, i) => {
-        Object.keys(item).map(formKey => {
-          const formValue = item[formKey];
-
-          if (formKey === 'iban' && !IBAN.isValid(formValue)) {
-            setErrors(prevState => ({
-              ...prevState,
-              [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
-                id: 'iban.invalid',
-                defaultMessage: 'This IBAN is invalid',
-              }),
-            }));
-            isValid = false;
-          }
-
-          if (formKey === 'iban' && IBAN.isValid(formValue)) {
-            setErrors(prevState => ({ ...prevState, [`account-${key}-indx-${i}-field-iban`]: '' }));
-          }
-
-          if (formValue === '') {
-            setErrors(prevState => ({
-              ...prevState,
-              [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
-                id: 'required',
-                defaultMessage: 'This field is required',
-              }),
-            }));
-            isValid = false;
-          }
-        });
+    if (isEmpty(newAccounts) || isValid('international')) {
+      newAccounts.push({
+        iban: '',
+        bic: '',
       });
-    });
-    checkIsValidBankAccount(isValid);
-    return isValid;
-  };
-
-  const handleAddAccount = () => {
-    if (isValid()) setIsAddAccount(true);
-    if (isEmpty(bankAccounts)) setIsAddAccount(true);
+      setBankAccounts(prevState => ({ ...prevState, 1: newAccounts }));
+    }
   };
 
   const handleSubmit = () => {
@@ -339,13 +342,14 @@ const BankAccount = ({
                   id={`bank_number[${i}]`}
                   label={useIntl().formatMessage({
                     id: 'bank.account.field',
-                    defaultMessage: 'Account',
+                    defaultMessage: 'Account Number',
                   })}
                   type="text"
                   onChange={e => handdleChangeAccount(e, i, countryId)}
                   error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
                   value={account.bank_number}
                   field="bank_number"
+                  dataTestId="bankNumber"
                 />
                 <TextField
                   id={`beneficiary[${i}]`}
@@ -358,6 +362,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
                   value={account.beneficiary}
                   field="beneficiary"
+                  dataTestId="beneficiary"
                 />
                 <TextField
                   id={`cnpj[${i}]`}
@@ -370,6 +375,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
                   value={account.cnpj}
                   field="cnpj"
+                  dataTestId="cnpj"
                 />
                 <TextField
                   id={`bank_branch[${i}]`}
@@ -382,6 +388,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bank_branch`]}
                   value={account.bank_branch}
                   field="bank_branch"
+                  dataTestId="bank_branch"
                 />
                 <TextField
                   id={`bank_checking_account[${i}]`}
@@ -394,6 +401,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bank_checking_account`]}
                   value={account.bank_checking_account}
                   field="bank_checking_account"
+                  dataTestId="bank_checking_account"
                 />
               </div>
             </Col>
@@ -461,6 +469,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-iban`]}
                   value={account.iban}
                   field="iban"
+                  dataTestId="iban"
                 />
                 <TextField
                   id={`nib[${i}]`}
@@ -470,6 +479,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-nib`]}
                   value={account.nib}
                   field="nib"
+                  dataTestId="nib"
                 />
                 <TextField
                   id={`bic[${i}]`}
@@ -479,6 +489,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-bic`]}
                   value={account.bic}
                   field="bic"
+                  dataTestId="bic"
                 />
               </div>
             </Col>
@@ -549,6 +560,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-accountholder`]}
                   value={account.accountholder}
                   field="accountholder"
+                  dataTestId="accountholder"
                 />
                 <TextField
                   id={`banksortcode[${i}]`}
@@ -561,6 +573,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-banksortcode`]}
                   value={account.banksortcode}
                   field="banksortcode"
+                  dataTestId="banksortcode"
                 />
                 <TextField
                   id={`accountnumber[${i}]`}
@@ -573,6 +586,7 @@ const BankAccount = ({
                   error={errors[`account-${countryId}-indx-${i}-field-accountnumber`]}
                   value={account.accountnumber}
                   field="accountnumber"
+                  dataTestId="accountnumber"
                 />
               </div>
             </Col>
