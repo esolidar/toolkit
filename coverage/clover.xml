@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1619625682110" clover="3.2.0">
-  <project timestamp="1619625682110" name="All files">
+<coverage generated="1619625912058" clover="3.2.0">
+  <project timestamp="1619625912059" name="All files">
     <metrics statements="2571" coveredstatements="1442" conditionals="2318" coveredconditionals="1188" methods="645" coveredmethods="314" elements="5534" coveredelements="2944" complexity="0" loc="2571" ncloc="2571" packages="89" files="211" classes="211"/>
     <package name="components.auctionAddForm">
       <metrics statements="288" coveredstatements="80" conditionals="278" coveredconditionals="85" methods="68" coveredmethods="15"/>
@@ -250,8 +250,8 @@
         <line num="1191" count="0" type="stmt"/>
         <line num="1321" count="0" type="stmt"/>
         <line num="1332" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="1354" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="1372" count="1" type="stmt"/>
+        <line num="1353" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="1371" count="1" type="stmt"/>
       </file>
       <file name="validations.js" path="D:\projects\toolkit\src\components\auctionAddForm\validations.js">
         <metrics statements="42" coveredstatements="0" conditionals="56" coveredconditionals="0" methods="1" coveredmethods="0"/>
