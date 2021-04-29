@@ -8,6 +8,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
 import { getEmployeeName, isDefined } from '../../utils';
+import Button from '../../elements/button';
 
 const Comments = ({
   comments,
@@ -19,7 +20,6 @@ const Comments = ({
   onSubmitResponse,
   onChange,
   reply,
-
   laodingPostReply,
   loadMore,
   totalComments,
@@ -219,26 +219,18 @@ const Comments = ({
     <div>
       {renderComments()}
       {comments.length < totalComments && (
-        <div className="col-sm-12 text-center">
-          <button
-            type="button"
-            className="btn btn-read-more-comments"
+        <div className="mx-auto col-sm-4">
+          <Button
+            className="btn-read-more-comments"
+            extraClass="info"
             disabled={loadingMoreComments}
             onClick={loadMoreComments}
-          >
-            {loadingMoreComments && (
-              <FormattedMessage
-                id="charityneeds.request.comments.loading"
-                defaultMessage="Loading ..."
-              />
-            )}
-            {!loadingMoreComments && (
-              <FormattedMessage
-                id="charityneeds.request.comments.readmore"
-                defaultMessage="Read more"
-              />
-            )}
-          </button>
+            text={
+              loadingMoreComments
+                ? useIntl().formatMessage({ id: 'loading' })
+                : useIntl().formatMessage({ id: 'readmore' })
+            }
+          />
         </div>
       )}
     </div>

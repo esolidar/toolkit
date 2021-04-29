@@ -144,7 +144,7 @@ const AuctionDetail = ({
 
   const inputRef = useRef(null);
 
-  const perPage = 5;
+  const perPage = 4;
 
   const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
 
@@ -220,8 +220,10 @@ const AuctionDetail = ({
 
   useEffect(() => {
     if (auctionComments.code === 200) {
-      const { data } = auctionComments.data;
-      setComments(data);
+      const { data, total } = auctionComments.data;
+      setComments([...comments, ...data]);
+      setTotalComments(total);
+      setLoadingMoreComments(false);
 
       data.forEach(comment => {
         getAuctionUserCommentResponse(auctionId, comment.id);
@@ -793,6 +795,7 @@ const AuctionDetail = ({
   const loadMoreComments = () => {
     setLoadingMoreComments(true);
     getAuctionComment(auctionId, page + 1, perPage);
+    setPage(page + 1);
   };
 
   const selectedCard = card => {
