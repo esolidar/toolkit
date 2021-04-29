@@ -113,6 +113,43 @@ Default.args = {
           lastUpdate: '2020-10-15 12:00:26',
         },
       },
+      brands: [
+        {
+          company_id: 1,
+          cover:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/cover/6bbc6c69-9562-49a0-a01a-c5ccd921666e.jpeg',
+          cover_thumbs: {
+            detail:
+              'https://cdn.testesolidar.com/brands/cover/6bbc6c69-9562-49a0-a01a-c5ccd921666e-DETAIL.jpeg',
+            standard:
+              'https://cdn.testesolidar.com/brands/cover/6bbc6c69-9562-49a0-a01a-c5ccd921666e-STANDARD.jpeg',
+          },
+          dateAdded: '2017-09-06 11:03:40',
+          description:
+            'O Rock in Rio assumiu o compromisso de plantar 1 milhão de árvores em áreas desmatadas na região do Xingu. Com a ajuda de parceiros e do público, chegamos a quase 4 milhões de árvores e iniciamos o plantio. ↵↵Os artistas do festival entraram no ritmo também e, com a sua ajuda, podemos fazer esse número crescer ainda mais. Faça a sua parte, participe para concorrer a prêmios incríveis, convide os amigos, compartilhe, divulgue, espalhe a notícia e doe. Pode ter certeza de que sua doação vai se transformar em sementes e encontrar terreno fértil para fazer a diferença por um mundo melhor.1237',
+          description_en:
+            'Duis quis nibh ipsum. Etiam vestibulum mauris quis iaculis tincidunt. Proin cursus, sapien eu pellentesque lacinia, diam nulla imperdiet ligula, sed convallis nisi erat quis lectus.1237',
+          id: 1,
+          lastUpdate: '2020-11-06 15:25:12',
+          logo:
+            'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e.png',
+          logo_thumbs: {
+            detail:
+              'https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-DETAIL.png',
+            standard:
+              'https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-STANDARD.png',
+            thumb:
+              'https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-THUMB.png',
+          },
+          name: 'Amazonia Live change777',
+          s3_cover_key: 'brands/cover/6bbc6c69-9562-49a0-a01a-c5ccd921666e.jpeg',
+          s3_logo_key: 'brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e.png',
+          share_buttons: 1,
+          status: 'A',
+          streamimage: 'amazons3',
+          username: 'teste13',
+        },
+      ],
       currency: {
         id: 1,
         name: 'Euro',

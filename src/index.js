@@ -62,6 +62,7 @@ export { default as NoMatch } from './components/noMatch';
 export { default as BankAccount } from './components/bankAccounts';
 export { default as ChangeProfileUserImage } from './components/changeProfileUserImage';
 export { default as ErrorBoundary } from './components/errorBoundary';
+export { default as supportedSection } from './components/supportedSection';
 
 // Elements
 export { default as Button } from './elements/button';
