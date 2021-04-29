@@ -10,6 +10,23 @@ import ConfirmModal from '../../elements/confirmModal';
 import Button from '../../elements/button';
 import { isEmpty } from '../../utils';
 
+const DeleteButton = ({ handleDeleteClick, idx }) => (
+  <button
+    type="button"
+    className="edit-button"
+    style={{ float: 'right', color: '#888' }}
+    onClick={() => handleDeleteClick(idx)}
+  >
+    <FontAwesomeIcon
+      icon={faTrash}
+      className="mr-1"
+      title={useIntl().formatMessage({
+        id: 'bank.account.delete',
+      })}
+    />
+  </button>
+);
+
 const BankAccount = ({
   countryId,
   userBankTransfer,
@@ -56,7 +73,7 @@ const BankAccount = ({
     setErrors({});
     let isValid = true;
 
-    if (isEmpty(bankAccounts)) {
+    if (isEmpty(bankAccounts) || typeAccount === undefined) {
       return false;
     }
 
@@ -149,7 +166,7 @@ const BankAccount = ({
     }
   };
 
-  const handleAddIntenationalAccount = () => {
+  const handleAddInternationalAccount = () => {
     const newAccounts = bankAccounts[1] || [];
     if (isEmpty(newAccounts) || isValid('international')) {
       newAccounts.push({
@@ -179,83 +196,92 @@ const BankAccount = ({
 
   const renderInternacionalAccounts = accounts => {
     if (!isEmpty(accounts) && !isEmpty(accounts[1] || [])) {
-      return accounts[1].map((account, i) => (
-        <Col
-          sm={cols}
-          key={i}
-          className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
-          data-testid={`international-accounts-${i}`}
-        >
-          <Row>
-            <Col sm={12}>
-              <div className="box">
-                <h4 style={{ color }}>
-                  <FormattedMessage
-                    id="bank.account.international.value"
-                    defaultMessage="International account #{value}"
-                    values={{ value: i + 1 }}
-                  />
-                  {i !== 0 && (
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteInternationalAccount(i)}
-                      title={useIntl().formatMessage({
-                        id: 'bank.account.delete.title',
-                        defaultMessage: 'Delete account',
-                      })}
-                      body={useIntl().formatMessage({
-                        id: 'bank.account.delete.body',
-                        defaultMessage: 'Are you sure you want to delete this account?',
-                      })}
-                      confirmText={useIntl().formatMessage({
-                        id: 'confirm',
-                        defaultMessage: 'Confirm',
-                      })}
-                      cancelText={useIntl().formatMessage({
-                        id: 'cancel',
-                        defaultMessage: 'Cancel',
-                      })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button
-                        type="button"
-                        className="edit-button"
-                        data-testid={`btn-delete-international-account-${i}`}
+      return accounts[1].map((account, i) => {
+        const isEmptyFieldsInternationalAccount = account.iban === '' && account.bic === '';
+
+        return (
+          <Col
+            sm={cols}
+            key={i}
+            className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
+            data-testid={`international-accounts-${i}`}
+          >
+            <Row>
+              <Col sm={12}>
+                <div className="box">
+                  <h4 style={{ color }}>
+                    <FormattedMessage
+                      id="bank.account.international.value"
+                      defaultMessage="International account #{value}"
+                      values={{ value: i + 1 }}
+                    />
+                    {isEmptyFieldsInternationalAccount && (
+                      <DeleteButton
+                        handleDeleteClick={handleDeleteInternationalAccount}
+                        dataTestId={`btn-delete-national-account-${i}`}
+                        idx={i}
+                      />
+                    )}
+                    {!isEmptyFieldsInternationalAccount && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteInternationalAccount(i)}
+                        title={useIntl().formatMessage({
+                          id: 'bank.account.delete.title',
+                        })}
+                        body={useIntl().formatMessage({
+                          id: 'bank.account.delete.body',
+                        })}
+                        confirmText={useIntl().formatMessage({
+                          id: 'delete',
+                        })}
+                        cancelText={useIntl().formatMessage({
+                          id: 'cancel',
+                        })}
+                        style={{ float: 'right', color: '#888' }}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="mr-1"
-                          title={useIntl().formatMessage({
-                            id: 'bank.account.delete',
-                            defaultMessage: 'Delete account',
-                          })}
-                        />
-                      </button>
-                    </ConfirmModal>
-                  )}
-                </h4>
-                <TextField
-                  id={`iban[${i}]`}
-                  label={useIntl().formatMessage({ id: 'iban', defaultMessage: 'IBAN' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, 1)}
-                  error={errors[`account-1-indx-${i}-field-iban`]}
-                  value={account.iban}
-                  field="iban"
-                />
-                <TextField
-                  id={`bic[${i}]`}
-                  label={useIntl().formatMessage({ id: 'bic.swift', defaultMessage: 'BIC/SWIFT' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, 1)}
-                  error={errors[`account-1-indx-${i}-field-bic`]}
-                  value={account.bic}
-                  field="bic"
-                />
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      ));
+                        <button
+                          type="button"
+                          className="edit-button"
+                          style={{ float: 'right', color: '#888' }}
+                          data-testid={`btn-delete-international-account-${i}`}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="mr-1"
+                            title={useIntl().formatMessage({
+                              id: 'bank.account.delete',
+                            })}
+                          />
+                        </button>
+                      </ConfirmModal>
+                    )}
+                  </h4>
+                  <TextField
+                    id={`iban[${i}]`}
+                    label={useIntl().formatMessage({ id: 'iban' })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, 1)}
+                    error={errors[`account-1-indx-${i}-field-iban`]}
+                    value={account.iban}
+                    field="iban"
+                  />
+                  <TextField
+                    id={`bic[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bic.swift',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, 1)}
+                    error={errors[`account-1-indx-${i}-field-bic`]}
+                    value={account.bic}
+                    field="bic"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        );
+      });
     }
 
     return (
@@ -269,7 +295,7 @@ const BankAccount = ({
           <br />
           <Button
             extraClass="dark"
-            onClick={handleAddIntenationalAccount}
+            onClick={handleAddInternationalAccount}
             text={useIntl().formatMessage({
               id: 'bank.account.add.international',
               defaultMessage: 'Add international account',
@@ -285,388 +311,399 @@ const BankAccount = ({
     if (!isEmpty(accounts) && !isEmpty(accounts[countryId] || [])) {
       switch (countryId) {
         case 150: // Brasil
-          return bankAccounts[countryId].map((account, i) => (
-            <Col
-              sm={cols}
-              key={i}
-              className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
-              data-testid={`national-accounts-${i}`}
-            >
-              <div className="box">
-                <h4 style={{ color }}>
-                  <FormattedMessage
-                    id="bank.account"
-                    defaultMessage="Account #{value}"
-                    values={{ value: i + 1 }}
-                  />
-                  {i !== 0 && (
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={useIntl().formatMessage({
-                        id: 'bank.account.delete.title',
-                        defaultMessage: 'Delete account',
-                      })}
-                      body={useIntl().formatMessage({
-                        id: 'bank.account.delete.body',
-                        defaultMessage: 'Are you sure you want to delete this account?',
-                      })}
-                      confirmText={useIntl().formatMessage({
-                        id: 'confirm',
-                        defaultMessage: 'Confirm',
-                      })}
-                      cancelText={useIntl().formatMessage({
-                        id: 'cancel',
-                        defaultMessage: 'Cancel',
-                      })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button
-                        type="button"
-                        className="edit-button"
+          return bankAccounts[countryId].map((account, i) => {
+            const isEmptyFieldsBrasilAccount =
+              account.bank_number === '' &&
+              account.beneficiary === '' &&
+              account.cnpj === '' &&
+              account.bank_branch === '' &&
+              account.bank_checking_account === '';
+            return (
+              <Col
+                sm={cols}
+                key={i}
+                className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
+                data-testid={`national-accounts-${i}`}
+              >
+                <div className="box">
+                  <h4 style={{ color }}>
+                    <FormattedMessage
+                      id="bank.account"
+                      defaultMessage="Account #{value}"
+                      values={{ value: i + 1 }}
+                    />
+                    {isEmptyFieldsBrasilAccount && i > 0 && (
+                      <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
+                    )}
+                    {!isEmptyFieldsBrasilAccount && i > 0 && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={useIntl().formatMessage({
+                          id: 'bank.account.delete.title',
+                        })}
+                        body={useIntl().formatMessage({
+                          id: 'bank.account.delete.body',
+                        })}
+                        confirmText={useIntl().formatMessage({
+                          id: 'delete',
+                        })}
+                        cancelText={useIntl().formatMessage({
+                          id: 'cancel',
+                        })}
                         style={{ float: 'right', color: '#888' }}
-                        data-testid={`btn-delete-national-account-${i}`}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="mr-1"
-                          title={useIntl().formatMessage({
-                            id: 'bank.account.delete',
-                            defaultMessage: 'Delete account',
-                          })}
-                        />
-                      </button>
-                    </ConfirmModal>
-                  )}
-                </h4>
-                <TextField
-                  id={`bank_number[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'bank.account.field',
-                    defaultMessage: 'Account Number',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
-                  value={account.bank_number}
-                  field="bank_number"
-                  dataTestId="bankNumber"
-                />
-                <TextField
-                  id={`beneficiary[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'bank.account.beneficiary',
-                    defaultMessage: 'Account holder',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
-                  value={account.beneficiary}
-                  field="beneficiary"
-                  dataTestId="beneficiary"
-                />
-                <TextField
-                  id={`cnpj[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'bank.account.cnpj',
-                    defaultMessage: 'VAT',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
-                  value={account.cnpj}
-                  field="cnpj"
-                  dataTestId="cnpj"
-                />
-                <TextField
-                  id={`bank_branch[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'bank.account.bank_branch',
-                    defaultMessage: 'Bank branch',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-bank_branch`]}
-                  value={account.bank_branch}
-                  field="bank_branch"
-                  dataTestId="bank_branch"
-                />
-                <TextField
-                  id={`bank_checking_account[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'bank.account.bank_checking_account',
-                    defaultMessage: 'Current bank account',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-bank_checking_account`]}
-                  value={account.bank_checking_account}
-                  field="bank_checking_account"
-                  dataTestId="bank_checking_account"
-                />
-              </div>
-            </Col>
-          ));
+                        <button
+                          type="button"
+                          className="edit-button"
+                          style={{ float: 'right', color: '#888' }}
+                          data-testid={`btn-delete-national-account-${i}`}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="mr-1"
+                            title={useIntl().formatMessage({
+                              id: 'bank.account.delete',
+                              defaultMessage: 'Delete account',
+                            })}
+                          />
+                        </button>
+                      </ConfirmModal>
+                    )}
+                  </h4>
+                  <TextField
+                    id={`bank_number[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bank.account.field',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
+                    value={account.bank_number}
+                    field="bank_number"
+                    dataTestId="bankNumber"
+                  />
+                  <TextField
+                    id={`beneficiary[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bank.account.beneficiary',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
+                    value={account.beneficiary}
+                    field="beneficiary"
+                    dataTestId="beneficiary"
+                  />
+                  <TextField
+                    id={`cnpj[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bank.account.cnpj',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
+                    value={account.cnpj}
+                    field="cnpj"
+                    dataTestId="cnpj"
+                  />
+                  <TextField
+                    id={`bank_branch[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bank.account.bank_branch',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-bank_branch`]}
+                    value={account.bank_branch}
+                    field="bank_branch"
+                    dataTestId="bank_branch"
+                  />
+                  <TextField
+                    id={`bank_checking_account[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bank.account.bank_checking_account',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-bank_checking_account`]}
+                    value={account.bank_checking_account}
+                    field="bank_checking_account"
+                    dataTestId="bank_checking_account"
+                  />
+                </div>
+              </Col>
+            );
+          });
 
         case 208: // Portugal
-          return bankAccounts[countryId].map((account, i) => (
-            <Col
-              sm={cols}
-              key={i}
-              className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
-              data-testid={`national-accounts-${i}`}
-            >
-              <div className="box">
-                <h4 style={{ color }}>
-                  <FormattedMessage
-                    id="bank.account"
-                    defaultMessage="Account #{value}"
-                    values={{ value: i + 1 }}
-                  />
-                  {i !== 0 && (
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={useIntl().formatMessage({
-                        id: 'bank.account.delete.title',
-                        defaultMessage: 'Delete account',
-                      })}
-                      body={useIntl().formatMessage({
-                        id: 'bank.account.delete.body',
-                        defaultMessage: 'Are you sure you want to delete this account?',
-                      })}
-                      confirmText={useIntl().formatMessage({
-                        id: 'confirm',
-                        defaultMessage: 'Confirm',
-                      })}
-                      cancelText={useIntl().formatMessage({
-                        id: 'cancel',
-                        defaultMessage: 'Cancel',
-                      })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button
-                        type="button"
-                        className="edit-button"
+          return bankAccounts[countryId].map((account, i) => {
+            const isEmptyFieldsPortugalAccount =
+              account.iban === '' && account.nib === '' && account.bic === '';
+            return (
+              <Col
+                sm={cols}
+                key={i}
+                className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
+                data-testid={`national-accounts-${i}`}
+              >
+                <div className="box">
+                  <h4 style={{ color }}>
+                    <FormattedMessage
+                      id="bank.account"
+                      defaultMessage="Account #{value}"
+                      values={{ value: i + 1 }}
+                    />
+                    {isEmptyFieldsPortugalAccount && i > 0 && (
+                      <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
+                    )}
+                    {!isEmptyFieldsPortugalAccount && i > 0 && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={useIntl().formatMessage({
+                          id: 'bank.account.delete.title',
+                        })}
+                        body={useIntl().formatMessage({
+                          id: 'bank.account.delete.body',
+                        })}
+                        confirmText={useIntl().formatMessage({
+                          id: 'delete',
+                        })}
+                        cancelText={useIntl().formatMessage({
+                          id: 'cancel',
+                        })}
                         style={{ float: 'right', color: '#888' }}
-                        data-testid={`btn-delete-national-account-${i}`}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="mr-1"
-                          title={useIntl().formatMessage({
-                            id: 'bank.account.delete',
-                            defaultMessage: 'Delete account',
-                          })}
-                        />
-                      </button>
-                    </ConfirmModal>
-                  )}
-                </h4>
-                <TextField
-                  id={`iban[${i}]`}
-                  label={useIntl().formatMessage({ id: 'iban', defaultMessage: 'IBAN' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-iban`]}
-                  value={account.iban}
-                  field="iban"
-                  dataTestId="iban"
-                />
-                <TextField
-                  id={`nib[${i}]`}
-                  label={useIntl().formatMessage({ id: 'nib', defaultMessage: 'NIB' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-nib`]}
-                  value={account.nib}
-                  field="nib"
-                  dataTestId="nib"
-                />
-                <TextField
-                  id={`bic[${i}]`}
-                  label={useIntl().formatMessage({ id: 'bic.swift', defaultMessage: 'BIC/SWIFT' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-bic`]}
-                  value={account.bic}
-                  field="bic"
-                  dataTestId="bic"
-                />
-              </div>
-            </Col>
-          ));
+                        <button
+                          type="button"
+                          className="edit-button"
+                          style={{ float: 'right', color: '#888' }}
+                          data-testid={`btn-delete-national-account-${i}`}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="mr-1"
+                            title={useIntl().formatMessage({
+                              id: 'bank.account.delete',
+                            })}
+                          />
+                        </button>
+                      </ConfirmModal>
+                    )}
+                  </h4>
+                  <TextField
+                    id={`iban[${i}]`}
+                    label={useIntl().formatMessage({ id: 'iban' })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-iban`]}
+                    value={account.iban}
+                    field="iban"
+                    dataTestId="iban"
+                  />
+                  <TextField
+                    id={`nib[${i}]`}
+                    label={useIntl().formatMessage({ id: 'nib' })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-nib`]}
+                    value={account.nib}
+                    field="nib"
+                    dataTestId="nib"
+                  />
+                  <TextField
+                    id={`bic[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bic.swift',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-bic`]}
+                    value={account.bic}
+                    field="bic"
+                    dataTestId="bic"
+                  />
+                </div>
+              </Col>
+            );
+          });
 
         case 231: // United Kingdom
-          return bankAccounts[countryId].map((account, i) => (
-            <Col
-              sm={cols}
-              key={i}
-              className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
-              data-testid={`national-accounts-${i}`}
-            >
-              <div className="box">
-                <h4 style={{ color }}>
-                  <FormattedMessage
-                    id="bank.account"
-                    defaultMessage="Account #{value}"
-                    values={{ value: i + 1 }}
-                  />
-                  {i !== 0 && (
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={useIntl().formatMessage({
-                        id: 'bank.account.delete.title',
-                        defaultMessage: 'Delete account',
-                      })}
-                      body={useIntl().formatMessage({
-                        id: 'bank.account.delete.body',
-                        defaultMessage: 'Are you sure you want to delete this account?',
-                      })}
-                      confirmText={useIntl().formatMessage({
-                        id: 'confirm',
-                        defaultMessage: 'Confirm',
-                      })}
-                      cancelText={useIntl().formatMessage({
-                        id: 'cancel',
-                        defaultMessage: 'Cancel',
-                      })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button
-                        type="button"
-                        className="edit-button"
+          return bankAccounts[countryId].map((account, i) => {
+            const isEmptyFieldsUkAccount =
+              account.accountholder === '' &&
+              account.banksortcode === '' &&
+              account.accountnumber === '';
+            return (
+              <Col
+                sm={cols}
+                key={i}
+                className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
+                data-testid={`national-accounts-${i}`}
+              >
+                <div className="box">
+                  <h4 style={{ color }}>
+                    <FormattedMessage
+                      id="bank.account"
+                      defaultMessage="Account #{value}"
+                      values={{ value: i + 1 }}
+                    />
+                    {isEmptyFieldsUkAccount && i > 0 && (
+                      <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
+                    )}
+                    {!isEmptyFieldsUkAccount && i > 0 && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={useIntl().formatMessage({
+                          id: 'bank.account.delete.title',
+                        })}
+                        body={useIntl().formatMessage({
+                          id: 'bank.account.delete.body',
+                        })}
+                        confirmText={useIntl().formatMessage({
+                          id: 'delete',
+                        })}
+                        cancelText={useIntl().formatMessage({
+                          id: 'cancel',
+                        })}
                         style={{ float: 'right', color: '#888' }}
-                        data-testid={`btn-delete-national-account-${i}`}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="mr-1"
-                          title={useIntl().formatMessage({
-                            id: 'bank.account.delete',
-                            defaultMessage: 'Delete account',
-                          })}
-                        />
-                      </button>
-                    </ConfirmModal>
-                  )}
-                </h4>
-                <TextField
-                  id={`accountholder[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'accountholder',
-                    defaultMessage: 'Account holder',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-accountholder`]}
-                  value={account.accountholder}
-                  field="accountholder"
-                  dataTestId="accountholder"
-                />
-                <TextField
-                  id={`banksortcode[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'banksortcode',
-                    defaultMessage: 'Bank sort code',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-banksortcode`]}
-                  value={account.banksortcode}
-                  field="banksortcode"
-                  dataTestId="banksortcode"
-                />
-                <TextField
-                  id={`accountnumber[${i}]`}
-                  label={useIntl().formatMessage({
-                    id: 'accountnumber',
-                    defaultMessage: 'Account number',
-                  })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-accountnumber`]}
-                  value={account.accountnumber}
-                  field="accountnumber"
-                  dataTestId="accountnumber"
-                />
-              </div>
-            </Col>
-          ));
+                        <button
+                          type="button"
+                          className="edit-button"
+                          style={{ float: 'right', color: '#888' }}
+                          data-testid={`btn-delete-national-account-${i}`}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="mr-1"
+                            title={useIntl().formatMessage({
+                              id: 'bank.account.delete',
+                            })}
+                          />
+                        </button>
+                      </ConfirmModal>
+                    )}
+                  </h4>
+                  <TextField
+                    id={`accountholder[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'accountholder',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-accountholder`]}
+                    value={account.accountholder}
+                    field="accountholder"
+                    dataTestId="accountholder"
+                  />
+                  <TextField
+                    id={`banksortcode[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'banksortcode',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-banksortcode`]}
+                    value={account.banksortcode}
+                    field="banksortcode"
+                    dataTestId="banksortcode"
+                  />
+                  <TextField
+                    id={`accountnumber[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'accountnumber',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-accountnumber`]}
+                    value={account.accountnumber}
+                    field="accountnumber"
+                    dataTestId="accountnumber"
+                  />
+                </div>
+              </Col>
+            );
+          });
 
         default:
           // Rest of the world
-          return bankAccounts[countryId].map((account, i) => (
-            <Col
-              sm={cols}
-              key={i}
-              className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
-              data-testid={`national-accounts-${i}`}
-            >
-              <div className="box">
-                <h4 style={{ color }}>
-                  <FormattedMessage
-                    id="bank.account"
-                    defaultMessage="Account #{value}"
-                    values={{ value: i + 1 }}
-                  />
-                  {i !== 0 && (
-                    <ConfirmModal
-                      onConfirm={() => handleDeleteAccount(i)}
-                      title={useIntl().formatMessage({
-                        id: 'bank.account.delete.title',
-                        defaultMessage: 'Delete account',
-                      })}
-                      body={useIntl().formatMessage({
-                        id: 'bank.account.delete.body',
-                        defaultMessage: 'Are you sure you want to delete this account?',
-                      })}
-                      confirmText={useIntl().formatMessage({
-                        id: 'confirm',
-                        defaultMessage: 'Confirm',
-                      })}
-                      cancelText={useIntl().formatMessage({
-                        id: 'cancel',
-                        defaultMessage: 'Cancel',
-                      })}
-                      style={{ float: 'right', color: '#888' }}
-                    >
-                      <button
-                        type="button"
-                        className="edit-button"
+          return bankAccounts[countryId].map((account, i) => {
+            const isEmptyFieldsRestWorldAccount = account.iban === '' && account.bic === '';
+
+            return (
+              <Col
+                sm={cols}
+                key={i}
+                className={errors[`account[${i}]`] ? 'has-error mb-5' : 'mb-5'}
+                data-testid={`national-accounts-${i}`}
+              >
+                <div className="box">
+                  <h4 style={{ color }}>
+                    <FormattedMessage
+                      id="bank.account"
+                      defaultMessage="Account #{value}"
+                      values={{ value: i + 1 }}
+                    />
+                    {isEmptyFieldsRestWorldAccount && i > 0 && (
+                      <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
+                    )}
+                    {!isEmptyFieldsRestWorldAccount && i > 0 && (
+                      <ConfirmModal
+                        onConfirm={() => handleDeleteAccount(i)}
+                        title={useIntl().formatMessage({
+                          id: 'bank.account.delete.title',
+                        })}
+                        body={useIntl().formatMessage({
+                          id: 'bank.account.delete.body',
+                        })}
+                        confirmText={useIntl().formatMessage({
+                          id: 'delete',
+                        })}
+                        cancelText={useIntl().formatMessage({
+                          id: 'cancel',
+                        })}
                         style={{ float: 'right', color: '#888' }}
                       >
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          className="mr-1"
-                          title={useIntl().formatMessage({
-                            id: 'bank.account.delete',
-                            defaultMessage: 'Delete account',
-                          })}
-                        />
-                      </button>
-                    </ConfirmModal>
-                  )}
-                </h4>
-                <TextField
-                  id={`iban[${i}]`}
-                  label={useIntl().formatMessage({ id: 'iban', defaultMessage: 'IBAN' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-iban`]}
-                  value={account.iban}
-                  field="iban"
-                />
-                <TextField
-                  id={`bic[${i}]`}
-                  label={useIntl().formatMessage({ id: 'bic.swift', defaultMessage: 'BIC/SWIFT' })}
-                  type="text"
-                  onChange={e => handdleChangeAccount(e, i, countryId)}
-                  error={errors[`account-${countryId}-indx-${i}-field-bic`]}
-                  value={account.bic}
-                  field="bic"
-                />
-              </div>
-            </Col>
-          ));
+                        <button
+                          type="button"
+                          className="edit-button"
+                          style={{ float: 'right', color: '#888' }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="mr-1"
+                            title={useIntl().formatMessage({
+                              id: 'bank.account.delete',
+                            })}
+                          />
+                        </button>
+                      </ConfirmModal>
+                    )}
+                  </h4>
+                  <TextField
+                    id={`iban[${i}]`}
+                    label={useIntl().formatMessage({ id: 'iban' })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-iban`]}
+                    value={account.iban}
+                    field="iban"
+                  />
+                  <TextField
+                    id={`bic[${i}]`}
+                    label={useIntl().formatMessage({
+                      id: 'bic.swift',
+                    })}
+                    type="text"
+                    onChange={e => handdleChangeAccount(e, i, countryId)}
+                    error={errors[`account-${countryId}-indx-${i}-field-bic`]}
+                    value={account.bic}
+                    field="bic"
+                  />
+                </div>
+              </Col>
+            );
+          });
       }
     }
     return (
@@ -736,7 +773,7 @@ const BankAccount = ({
                 <div className="add-account">
                   <Button
                     extraClass="dark"
-                    onClick={handleAddIntenationalAccount}
+                    onClick={handleAddInternationalAccount}
                     text={useIntl().formatMessage({
                       id: 'bank.account.add.international',
                       defaultMessage: 'Add international account',
@@ -780,6 +817,11 @@ BankAccount.propTypes = {
   cols: PropTypes.number,
   bankAccountSubmitReset: PropTypes.func,
   checkIsValidBankAccount: PropTypes.func,
+};
+
+DeleteButton.propTypes = {
+  handleDeleteClick: PropTypes.func,
+  idx: PropTypes.number,
 };
 
 BankAccount.defaultProps = {

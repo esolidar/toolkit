@@ -49,7 +49,7 @@ const DatePicker = ({
       minDate={minDate}
       maxDate={maxDate}
     />
-    {!!errors && <span className="error-block">{errors}</span>}
+    {!!errors && <span className="help-block">{errors}</span>}
   </div>
 );
 
