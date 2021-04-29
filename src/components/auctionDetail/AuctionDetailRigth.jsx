@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import { convertToMyCurrency, slugify } from '../../utils/index';
 import Button from '../../elements/button';
 import TextField from '../../elements/textField';
+import SupportedSection from '../supportedSection';
 
 const AuctionDetailRigth = ({
   auctionTitle,
@@ -49,6 +50,38 @@ const AuctionDetailRigth = ({
   } else {
     supported = null;
   }
+
+  let supportedSectionText = null;
+
+  if (!!auction.brand && !!auction.recipient)
+    supportedSectionText = (
+      <FormattedMessage
+        id="auction.detail.brandSupport"
+        defaultMessage="{brandName} will benefit {instituionName} with this auction."
+        values={{
+          brandName: auction.brand.name,
+          instituionName: auction.recipient.institution.name,
+        }}
+      />
+    );
+
+  if (!!auction.brand && !auction.recipient)
+    supportedSectionText = (
+      <FormattedMessage
+        id="auction.detail.proceedsSupport"
+        defaultMessage="Proceeds support {brandName}"
+        values={{ brandName: auction.brand.name }}
+      />
+    );
+
+  if (!auction.brand && !!auction.recipient)
+    supportedSectionText = (
+      <FormattedMessage
+        id="auction.detail.institutionSupport"
+        defaultMessage="Proceeds support {instituionName}"
+        values={{ instituionName: auction.recipient.institution.name }}
+      />
+    );
 
   return (
     <>
@@ -185,42 +218,11 @@ const AuctionDetailRigth = ({
             </>
           )}
           {supported && (
-            <Col sm={12} className="auction-box" data-testid="supported-section">
-              <div>
-                <a
-                  className="auction-box-link"
-                  href={supported.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img className="npo-thumb" src={supported.image} alt="thumb" />
-                  {auction.brand && auction.recipient && (
-                    <FormattedMessage
-                      id="auction.detail.brandSupport"
-                      defaultMessage="{brandName} will benefit {instituionName} with this auction."
-                      values={{
-                        brandName: auction.brand.name,
-                        instituionName: auction.recipient.institution.name,
-                      }}
-                    />
-                  )}
-                  {auction.brand && !auction.recipient && (
-                    <FormattedMessage
-                      id="auction.detail.proceedsSupport"
-                      defaultMessage="Proceeds support {brandName}"
-                      values={{ brandName: auction.brand.name }}
-                    />
-                  )}
-                  {!auction.brand && auction.recipient && (
-                    <FormattedMessage
-                      id="auction.detail.institutionSupport"
-                      defaultMessage="Proceeds support {instituionName}"
-                      values={{ instituionName: auction.recipient.institution.name }}
-                    />
-                  )}
-                </a>
-              </div>
-            </Col>
+            <SupportedSection
+              href={supported.link}
+              imgSrc={supported.image}
+              text={supportedSectionText}
+            />
           )}
         </div>
       </Col>
