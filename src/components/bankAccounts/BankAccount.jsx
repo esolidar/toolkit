@@ -73,7 +73,7 @@ const BankAccount = ({
     setErrors({});
     let isValid = true;
 
-    if (isEmpty(bankAccounts) || typeAccount === undefined) {
+    if (isEmpty(bankAccounts)) {
       return false;
     }
 
