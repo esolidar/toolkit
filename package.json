@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "eSolidar toolkit",
   "main": "lib/index",
   "module": "es/index",
@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "test": "jest --coverage -u --maxWorkers=50% --colors --json --outputFile=.jest-test-results.json || true",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
-    "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.md",
+    "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.stories.js",
     "build:publish": "npm run build && npm publish",
     "build-storybook": "build-storybook",
     "clean": "nwb clean-module && nwb clean-demo",
