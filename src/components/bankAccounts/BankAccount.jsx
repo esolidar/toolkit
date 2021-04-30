@@ -79,7 +79,7 @@ const BankAccount = ({
 
     Object.keys(bankAccounts).map(key => {
       const isNational = typeAccount === 'national' && key !== '1';
-      const isRestOfWorld = typeAccount === 'national' && key === '1';
+      const isRestOfWorld = typeAccount === 'restOfWorld' && key === '1';
       const isInternational = typeAccount === 'international' && key === '1';
 
       if (isNational || isRestOfWorld || isInternational || !typeAccount) {
@@ -125,6 +125,7 @@ const BankAccount = ({
   };
 
   const handleAddAccount = () => {
+    console.log('countryId', countryId);
     const newAccounts = bankAccounts[countryId] || [];
     let account = {};
     switch (countryId) {
@@ -161,13 +162,17 @@ const BankAccount = ({
         };
     }
 
-    if (isEmpty(newAccounts) || isValid('national')) {
+    let typeAccount = 'national';
+    if (countryId === 1) typeAccount = 'restOfWorld';
+
+    if (isEmpty(newAccounts) || isValid(typeAccount)) {
       newAccounts.push(account);
       setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
     }
   };
 
   const handleAddInternationalAccount = () => {
+    console.log('countryId', countryId);
     const newAccounts = bankAccounts[1] || [];
     if (isEmpty(newAccounts) || isValid('international')) {
       newAccounts.push({
