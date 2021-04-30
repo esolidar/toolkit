@@ -70,6 +70,7 @@ const AuctionDetail = ({
   domainUrl,
   locale,
 }) => {
+  const intl = useIntl();
   // Modals
   const [isShowModal, setIsShowModal] = useState(false);
   const [isShowModalSubscribe, setIsShowModalSubscribe] = useState(false);
@@ -571,7 +572,7 @@ const AuctionDetail = ({
         value > auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval
       ) {
         setError(
-          useIntl().formatMessage(
+          intl.formatMessage(
             {
               id: 'auction.detail.error.startBidInvalid',
             },
@@ -592,7 +593,7 @@ const AuctionDetail = ({
         value < auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval
       ) {
         setError(
-          useIntl().formatMessage(
+          intl.formatMessage(
             {
               id: 'auction.detail.error.startBidInvalid',
             },
