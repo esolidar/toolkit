@@ -73,15 +73,16 @@ const BankAccount = ({
     setErrors({});
     let isValid = true;
 
-    if (isEmpty(bankAccounts) || typeAccount === undefined) {
+    if (isEmpty(bankAccounts)) {
       return false;
     }
 
     Object.keys(bankAccounts).map(key => {
       const isNational = typeAccount === 'national' && key !== '1';
+      const isRestOfWorld = typeAccount === 'restOfWorld' && key === '1';
       const isInternational = typeAccount === 'international' && key === '1';
 
-      if (isNational || isInternational || !typeAccount) {
+      if (isNational || isRestOfWorld || isInternational || !typeAccount) {
         const value = bankAccounts[key];
         value.map((item, i) => {
           Object.keys(item).map(formKey => {
@@ -160,7 +161,10 @@ const BankAccount = ({
         };
     }
 
-    if (isEmpty(newAccounts) || isValid('national')) {
+    let typeAccount = 'national';
+    if (countryId === 1) typeAccount = 'restOfWorld';
+
+    if (isEmpty(newAccounts) || isValid(typeAccount)) {
       newAccounts.push(account);
       setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
     }
