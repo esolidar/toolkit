@@ -125,7 +125,6 @@ const BankAccount = ({
   };
 
   const handleAddAccount = () => {
-    console.log('countryId', countryId);
     const newAccounts = bankAccounts[countryId] || [];
     let account = {};
     switch (countryId) {
@@ -172,7 +171,6 @@ const BankAccount = ({
   };
 
   const handleAddInternationalAccount = () => {
-    console.log('countryId', countryId);
     const newAccounts = bankAccounts[1] || [];
     if (isEmpty(newAccounts) || isValid('international')) {
       newAccounts.push({
