@@ -36,6 +36,7 @@ const DropZoneBox = ({
   modalClassName,
   isLoading,
   label,
+  hasError,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -59,7 +60,7 @@ const DropZoneBox = ({
   const ImagesPreview = () => (
     <div className="d-flex">
       {imagesList.map((file, idx) => (
-        <div key={file.id} className="gallery-thumb mr-3">
+        <div key={file.id} className="gallery-thumb mt-3 mb-2 mr-3">
           {file.image.includes('http') ? (
             <img src={`${file.image}?width=64&height=64`} alt="thumb" />
           ) : (
@@ -211,14 +212,18 @@ const DropZoneBox = ({
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-      {label && <span className="control-label">{label}</span>}
+      {label && (
+        <label htmlFor="dropzone" className="control-label">
+          {label}
+        </label>
+      )}
       {showDropArea && (
         <div
           {...getRootProps({ className: 'dropZone' })}
           className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
         >
-          <input {...getInputProps()} />
-          <div>
+          <input name="dropzone" {...getInputProps()} />
+          <div className={hasError ? 'required-field' : ''}>
             {isLoading && <Loading />}
             {!isLoading && (
               <p>
@@ -265,7 +270,7 @@ const DropZoneBox = ({
       )}
       {!showDropArea && (
         <span onClick={open} onKeyPress={() => {}} className={className}>
-          <input {...getInputProps()} />
+          <input name="dropzone" {...getInputProps()} />
           {children}
           {errorList.length > 0 && (
             <div className="text-left error-files">
@@ -387,6 +392,7 @@ DropZoneBox.propTypes = {
   textSaveCropModal: PropTypes.string,
   modalClassName: PropTypes.string,
   isLoading: PropTypes.bool,
+  hasError: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {
