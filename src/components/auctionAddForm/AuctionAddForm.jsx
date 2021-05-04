@@ -67,6 +67,7 @@ const AuctionAddForm = ({
   userBankTransfer,
   putCompanyBankTransfer,
   bankTransfer,
+  deleteImages,
 }) => {
   const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find(item => item.name === 'whitelabel') || {};
@@ -128,6 +129,9 @@ const AuctionAddForm = ({
   const [updloadFileIsLoading, SetUploadFileIsLoading] = useState(false);
   const [beneficiary, setBeneficiary] = useState('');
   const [status, setStatus] = useState('');
+  const [deletedImage, setDeletedImage] = useState(null);
+
+  const intl = useIntl();
 
   useEffect(() => {
     if (auctionId) {
@@ -287,10 +291,10 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (addAuction && addAuction.code === 200) {
       NotificationManager.success(
-        useIntl().formatMessage({
+        intl.formatMessage({
           id: 'success.auction.create',
         }),
-        useIntl().formatMessage({
+        intl.formatMessage({
           id: 'success',
         }),
         15000
@@ -372,6 +376,16 @@ const AuctionAddForm = ({
     setSaveBankAccount(false);
     setLoading(false);
   }, [bankTransfer]);
+
+  useEffect(() => {
+    if (deleteImages?.code === 200) {
+      const { images } = form;
+      const { deleted: isDeleted } = deleteImages.data.images;
+
+      if (isDeleted)
+        setForm({ ...form, images: images.filter(imageId => imageId !== +deletedImage) });
+    }
+  }, [deleteImages]);
 
   const handleChangeInstitutioncategory = e => {
     setIsLoadingInstitutionListSelect(true);
@@ -487,13 +501,15 @@ const AuctionAddForm = ({
   };
 
   const handleDeleteImage = (e, idx) => {
-    const companyId = company.id;
-    postAuctionDeleteImage(companyId, e.target.dataset.imageId);
+    const { id: companyId } = company;
+    const { imageId } = e.target.dataset;
+    postAuctionDeleteImage(companyId, imageId);
 
     imagesList.splice(idx, 1);
 
     setImagesList(imagesList);
     setImagesCount(imagesCount - 1);
+    setDeletedImage(imageId);
   };
 
   const handleChangeInstitution = e => {
@@ -530,15 +546,9 @@ const AuctionAddForm = ({
     if (!isValid) {
       setErrors(errors);
       setTimeout(() => {
-        const firstError = document.getElementsByClassName('required-field');
-
-        if (firstError[0]) {
-          firstError[0].focus();
-        } else {
-          document
-            .getElementById('add-auction')
-            .scrollIntoView({ block: 'center', behavior: 'smooth' });
-        }
+        const errorList = document.getElementsByClassName('help-block');
+        const elm = errorList[0];
+        elm.scrollIntoView({ block: 'center' });
       }, 0);
     }
     return isValid;
@@ -815,6 +825,7 @@ const AuctionAddForm = ({
                       titleCropModal={useIntl().formatMessage({ id: 'auction.add.image' })}
                       textSaveCropModal={useIntl().formatMessage({ id: 'auction.add.image.crop' })}
                       isLoading={updloadFileIsLoading}
+                      hasError={!isEmpty(errors) && !!errors.images}
                     />
                     {errors.images && <span className="help-block">{errors.images}</span>}
                   </div>
@@ -1473,6 +1484,12 @@ AuctionAddForm.propTypes = {
   userBankTransfer: PropTypes.object,
   bankTransfer: PropTypes.object,
   putCompanyBankTransfer: PropTypes.func,
+  deleteImages: PropTypes.shape({
+    code: PropTypes.number,
+    data: PropTypes.shape({
+      images: PropTypes.array,
+    }),
+  }),
 };
 
 export default AuctionAddForm;
