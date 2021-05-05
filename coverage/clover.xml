@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620209660024" clover="3.2.0">
-  <project timestamp="1620209660024" name="All files">
+<coverage generated="1620229160193" clover="3.2.0">
+  <project timestamp="1620229160194" name="All files">
     <metrics statements="2598" coveredstatements="1459" conditionals="2334" coveredconditionals="1196" methods="648" coveredmethods="315" elements="5580" coveredelements="2970" complexity="0" loc="2598" ncloc="2598" packages="90" files="213" classes="213"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="84" conditionals="282" coveredconditionals="87" methods="70" coveredmethods="16"/>
