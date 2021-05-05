@@ -222,7 +222,7 @@ const DropZoneBox = ({
           {...getRootProps({ className: 'dropZone' })}
           className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
         >
-          <input name="dropzone" {...getInputProps()} />
+          <input name="dropzone" {...getInputProps()} disabled={isLoading} />
           <div className={hasError ? 'required-field' : ''}>
             {isLoading && <Loading />}
             {!isLoading && (
@@ -270,7 +270,7 @@ const DropZoneBox = ({
       )}
       {!showDropArea && (
         <span onClick={open} onKeyPress={() => {}} className={className}>
-          <input name="dropzone" {...getInputProps()} />
+          <input name="dropzone" {...getInputProps()} disabled={isLoading} />
           {children}
           {errorList.length > 0 && (
             <div className="text-left error-files">
