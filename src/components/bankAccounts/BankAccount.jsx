@@ -69,7 +69,7 @@ const BankAccount = ({
     setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
   };
 
-  const isValid = typeAccount => {
+  const isValid = (typeAccount, isButtonAddAccount = false) => {
     setErrors({});
     let isValid = true;
 
@@ -120,7 +120,7 @@ const BankAccount = ({
         });
       }
     });
-    checkIsValidBankAccount(isValid);
+    if (!isButtonAddAccount) checkIsValidBankAccount(isValid);
     return isValid;
   };
 
@@ -164,7 +164,7 @@ const BankAccount = ({
     let typeAccount = 'national';
     if (countryId === 1) typeAccount = 'restOfWorld';
 
-    if (isEmpty(newAccounts) || isValid(typeAccount)) {
+    if (isEmpty(newAccounts) || isValid(typeAccount, true)) {
       newAccounts.push(account);
       setBankAccounts(prevState => ({ ...prevState, [countryId]: newAccounts }));
     }
@@ -172,7 +172,7 @@ const BankAccount = ({
 
   const handleAddInternationalAccount = () => {
     const newAccounts = bankAccounts[1] || [];
-    if (isEmpty(newAccounts) || isValid('international')) {
+    if (isEmpty(newAccounts) || isValid('international', true)) {
       newAccounts.push({
         iban: '',
         bic: '',

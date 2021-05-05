@@ -540,8 +540,6 @@ const AuctionAddForm = ({
     data.isValidBankAccount = isValidBankAccount;
     data.beneficiary = beneficiary;
 
-    if (isMyProjet && !isValidBankAccount) return false;
-
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
       setErrors(errors);
@@ -550,7 +548,11 @@ const AuctionAddForm = ({
         const elm = errorList[0];
         elm.scrollIntoView({ block: 'center' });
       }, 0);
+      return false;
     }
+
+    if (isMyProjet && !isValidBankAccount) return false;
+
     return isValid;
   };
 

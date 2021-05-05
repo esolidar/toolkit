@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620061938368" clover="3.2.0">
-  <project timestamp="1620061938369" name="All files">
-    <metrics statements="2597" coveredstatements="1459" conditionals="2331" coveredconditionals="1195" methods="648" coveredmethods="316" elements="5576" coveredelements="2970" complexity="0" loc="2597" ncloc="2597" packages="90" files="213" classes="213"/>
+<coverage generated="1620207539238" clover="3.2.0">
+  <project timestamp="1620207539238" name="All files">
+    <metrics statements="2598" coveredstatements="1459" conditionals="2334" coveredconditionals="1196" methods="648" coveredmethods="315" elements="5580" coveredelements="2970" complexity="0" loc="2598" ncloc="2598" packages="90" files="213" classes="213"/>
     <package name="components.auctionAddForm">
-      <metrics statements="297" coveredstatements="84" conditionals="282" coveredconditionals="87" methods="70" coveredmethods="16"/>
+      <metrics statements="298" coveredstatements="84" conditionals="282" coveredconditionals="87" methods="70" coveredmethods="16"/>
       <file name="AuctionAddForm.jsx" path="D:\projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
-        <metrics statements="255" coveredstatements="84" conditionals="226" coveredconditionals="87" methods="69" coveredmethods="16"/>
+        <metrics statements="256" coveredstatements="84" conditionals="226" coveredconditionals="87" methods="69" coveredmethods="16"/>
         <line num="36" count="1" type="stmt"/>
         <line num="72" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="73" count="2" type="cond" truecount="1" falsecount="1"/>
@@ -218,49 +218,50 @@
         <line num="539" count="0" type="stmt"/>
         <line num="540" count="0" type="stmt"/>
         <line num="541" count="0" type="stmt"/>
-        <line num="543" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="543" count="0" type="stmt"/>
+        <line num="544" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="545" count="0" type="stmt"/>
-        <line num="546" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="546" count="0" type="stmt"/>
         <line num="547" count="0" type="stmt"/>
         <line num="548" count="0" type="stmt"/>
         <line num="549" count="0" type="stmt"/>
-        <line num="550" count="0" type="stmt"/>
         <line num="551" count="0" type="stmt"/>
-        <line num="554" count="0" type="stmt"/>
-        <line num="557" count="2" type="stmt"/>
-        <line num="558" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="559" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="560" count="0" type="stmt"/>
-        <line num="561" count="0" type="stmt"/>
-        <line num="564" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="566" count="0" type="stmt"/>
-        <line num="567" count="0" type="stmt"/>
+        <line num="554" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="556" count="0" type="stmt"/>
+        <line num="559" count="2" type="stmt"/>
+        <line num="560" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="561" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="562" count="0" type="stmt"/>
+        <line num="563" count="0" type="stmt"/>
+        <line num="566" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="568" count="0" type="stmt"/>
+        <line num="569" count="0" type="stmt"/>
         <line num="570" count="0" type="stmt"/>
-        <line num="588" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="597" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="598" count="0" type="stmt"/>
-        <line num="601" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="602" count="0" type="stmt"/>
+        <line num="572" count="0" type="stmt"/>
+        <line num="590" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="599" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="600" count="0" type="stmt"/>
+        <line num="603" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="604" count="0" type="stmt"/>
-        <line num="608" count="2" type="stmt"/>
-        <line num="609" count="0" type="stmt"/>
-        <line num="610" count="0" type="stmt"/>
-        <line num="617" count="2" type="stmt"/>
-        <line num="618" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="621" count="2" type="stmt"/>
-        <line num="622" count="0" type="stmt"/>
-        <line num="623" count="0" type="stmt"/>
+        <line num="606" count="0" type="stmt"/>
+        <line num="610" count="2" type="stmt"/>
+        <line num="611" count="0" type="stmt"/>
+        <line num="612" count="0" type="stmt"/>
+        <line num="619" count="2" type="stmt"/>
+        <line num="620" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="623" count="2" type="stmt"/>
         <line num="624" count="0" type="stmt"/>
         <line num="625" count="0" type="stmt"/>
-        <line num="628" count="2" type="stmt"/>
-        <line num="674" count="0" type="stmt"/>
-        <line num="758" count="0" type="stmt"/>
-        <line num="1202" count="0" type="stmt"/>
-        <line num="1332" count="0" type="stmt"/>
-        <line num="1343" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="1364" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="1382" count="1" type="stmt"/>
+        <line num="626" count="0" type="stmt"/>
+        <line num="627" count="0" type="stmt"/>
+        <line num="630" count="2" type="stmt"/>
+        <line num="676" count="0" type="stmt"/>
+        <line num="760" count="0" type="stmt"/>
+        <line num="1204" count="0" type="stmt"/>
+        <line num="1334" count="0" type="stmt"/>
+        <line num="1345" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="1366" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="1384" count="1" type="stmt"/>
       </file>
       <file name="validations.js" path="D:\projects\toolkit\src\components\auctionAddForm\validations.js">
         <metrics statements="42" coveredstatements="0" conditionals="56" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -825,9 +826,9 @@
       </file>
     </package>
     <package name="components.bankAccounts">
-      <metrics statements="122" coveredstatements="74" conditionals="134" coveredconditionals="88" methods="50" coveredmethods="19"/>
+      <metrics statements="122" coveredstatements="74" conditionals="137" coveredconditionals="89" methods="50" coveredmethods="18"/>
       <file name="BankAccount.jsx" path="D:\projects\toolkit\src\components\bankAccounts\BankAccount.jsx">
-        <metrics statements="122" coveredstatements="74" conditionals="134" coveredconditionals="88" methods="50" coveredmethods="19"/>
+        <metrics statements="122" coveredstatements="74" conditionals="137" coveredconditionals="89" methods="50" coveredmethods="18"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
@@ -850,7 +851,7 @@
         <line num="67" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
         <line num="69" count="0" type="stmt"/>
-        <line num="72" count="13" type="stmt"/>
+        <line num="72" count="13" type="cond" truecount="0" falsecount="1"/>
         <line num="73" count="4" type="stmt"/>
         <line num="74" count="4" type="stmt"/>
         <line num="76" count="4" type="cond" truecount="1" falsecount="1"/>
@@ -872,7 +873,7 @@
         <line num="109" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="110" count="6" type="stmt"/>
         <line num="117" count="6" type="stmt"/>
-        <line num="123" count="4" type="stmt"/>
+        <line num="123" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="124" count="4" type="stmt"/>
         <line num="127" count="13" type="stmt"/>
         <line num="128" count="5" type="cond" truecount="2" falsecount="0"/>
