@@ -1246,8 +1246,8 @@ const AuctionAddForm = ({
                             <FormattedMessage id="auction.no.project" />
                           </Col>
                         )}
-                        {errors.beneficiary && (
-                          <span className="help-block">{errors.beneficiary}</span>
+                        {errors.projectIds && (
+                          <span className="help-block">{errors.projectIds}</span>
                         )}
                       </Col>
                     </>
