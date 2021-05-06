@@ -540,6 +540,8 @@ const AuctionAddForm = ({
     data.isValidBankAccount = isValidBankAccount;
     data.beneficiary = beneficiary;
 
+    if (isMyProjet && !isValidBankAccount) return false;
+
     const { errors, isValid } = validateAuctionForm(data);
     if (!isValid) {
       setErrors(errors);
@@ -550,8 +552,6 @@ const AuctionAddForm = ({
       }, 0);
       return false;
     }
-
-    if (isMyProjet && !isValidBankAccount) return false;
 
     return isValid;
   };
@@ -1154,9 +1154,6 @@ const AuctionAddForm = ({
                         value="project"
                         checked={beneficiary === 'project'}
                       />
-                      {errors.beneficiary && (
-                        <span className="help-block">{errors.beneficiary}</span>
-                      )}
                     </Col>
                   )}
                   {((showInstitutions && beneficiary === 'institution') ||
@@ -1194,64 +1191,71 @@ const AuctionAddForm = ({
                           <FormattedMessage id="projects" />
                         </label>
                       </Col>
-                      {projectsListData.length > 0 && (
-                        <Col
-                          sm={12}
-                          className={classnames('form-group', { 'has-error': errors.projectIds })}
-                        >
-                          <Row>
-                            {projectsListData.map(project => (
-                              <ProjectThumb
-                                key={project.id}
-                                project={project}
-                                serverlessResizeImage="https://image.testesolidar.com"
-                                lang={localStorage.lang}
-                                cols={6}
-                                showStatus={false}
-                                myProject={true}
-                                select={true}
-                                selectProject={handleSelectProject}
-                                selectText={useIntl().formatMessage({
-                                  id: 'select',
+                      <Col sm={12} className={classnames({ 'has-error': errors.projectIds })}>
+                        {projectsListData.length > 0 && (
+                          <>
+                            <Row>
+                              {projectsListData.map(project => (
+                                <ProjectThumb
+                                  key={project.id}
+                                  project={project}
+                                  serverlessResizeImage="https://image.testesolidar.com"
+                                  lang={localStorage.lang}
+                                  cols={6}
+                                  showStatus={false}
+                                  myProject={true}
+                                  select={true}
+                                  selectProject={handleSelectProject}
+                                  selectText={useIntl().formatMessage({
+                                    id: 'select',
+                                  })}
+                                  selectedText={useIntl().formatMessage({
+                                    id: 'selected',
+                                  })}
+                                  isSelected={true}
+                                  selectedIds={form.projectIds}
+                                />
+                              ))}
+                              <Col
+                                sm={12}
+                                className={classnames('form-group', {
+                                  'has-error': errors.projectIds,
                                 })}
-                                selectedText={useIntl().formatMessage({
-                                  id: 'selected',
-                                })}
-                                isSelected={true}
-                                selectedIds={form.projectIds}
-                              />
-                            ))}
-                            <Col
-                              sm={12}
-                              className={classnames('form-group', {
-                                'has-error': errors.projectIds,
-                              })}
-                            >
-                              {errors.projectIds && (
-                                <span className="help-block d-block">{errors.projectIds}</span>
-                              )}
-                            </Col>
-                          </Row>
-                          <Row>
-                            <Col sm={12} className="text-center">
-                              <Pagination
-                                innerClass="pagination justify-content-center"
-                                activePage={pagination.projects.activePage}
-                                itemsCountPerPage={pagination.projects.itemsCountPerPage}
-                                totalItemsCount={pagination.projects.totalItemsCount}
-                                pageRangeDisplayed={5}
-                                onChange={handleProjectsPageChange}
-                              />
-                            </Col>
-                          </Row>
-                        </Col>
-                      )}
-                      {projectsListData.length === 0 && (
-                        <Col sm={12} className="text-center">
-                          <FormattedMessage id="auction.no.project" />
-                        </Col>
-                      )}
+                              >
+                                {errors.projectIds && (
+                                  <span className="help-block d-block">{errors.projectIds}</span>
+                                )}
+                              </Col>
+                            </Row>
+                            <Row>
+                              <Col sm={12} className="text-center">
+                                <Pagination
+                                  innerClass="pagination justify-content-center"
+                                  activePage={pagination.projects.activePage}
+                                  itemsCountPerPage={pagination.projects.itemsCountPerPage}
+                                  totalItemsCount={pagination.projects.totalItemsCount}
+                                  pageRangeDisplayed={5}
+                                  onChange={handleProjectsPageChange}
+                                />
+                              </Col>
+                            </Row>
+                          </>
+                        )}
+                        {projectsListData.length === 0 && (
+                          <Col sm={12} className="text-center">
+                            <FormattedMessage id="auction.no.project" />
+                          </Col>
+                        )}
+                        {errors.projectIds && (
+                          <span className="help-block">{errors.projectIds}</span>
+                        )}
+                      </Col>
                     </>
+                  )}
+                  {beneficiary === '' && errors.beneficiary && (
+                    <Col sm={12} className={classnames({ 'has-error': errors.beneficiary })}>
+                      <span className="help-block">{errors.beneficiary}</span>
+                    </Col>
                   )}
                 </Row>
               </Col>
