@@ -70,14 +70,15 @@ export default function validateAuctionForm(data) {
   if (data.showInstitutions && data.showProjects) {
     if (!data.beneficiary) {
       errors.beneficiary = <FormattedMessage id="user.register.error.required" />;
-    }
-    if (!+data.user_id && data.projectIds.length === 0) {
-      errors.user_id = <FormattedMessage id="user.register.error.required" />;
-      errors.projectIds = <FormattedMessage id="user.register.error.required" />;
-    }
-    if (!!+data.user_id && data.projectIds.length > 0) {
-      errors.user_id = <FormattedMessage id="user.register.error.select.only.one" />;
-      errors.projectIds = <FormattedMessage id="user.register.error.select.only.one" />;
+    } else {
+      if (!+data.user_id && data.projectIds.length === 0) {
+        errors.user_id = <FormattedMessage id="user.register.error.required" />;
+        errors.projectIds = <FormattedMessage id="user.register.error.required" />;
+      }
+      if (!!+data.user_id && data.projectIds.length > 0) {
+        errors.user_id = <FormattedMessage id="user.register.error.select.only.one" />;
+        errors.projectIds = <FormattedMessage id="user.register.error.select.only.one" />;
+      }
     }
   }
 
