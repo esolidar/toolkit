@@ -1,14 +1,18 @@
-#### Import
+import CommentContent from './CommentContent';
 
-```js static
-import CommentContent from '@esolidar/toolkit/lib/components/comments/CommentContent';
-```
+export default {
+  title: 'Components/Comments/CommentContent',
+  component: CommentContent,
+};
 
-#### Example
+const Template = args => <CommentContent {...args} />;
 
-```jsx
-<CommentContent
-  comment={{
+export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CommentContent.test.js'],
+};
+Default.args = {
+  comment: {
     comment: 'teste 2',
     comment_id: null,
     company_id: null,
@@ -34,6 +38,5 @@ import CommentContent from '@esolidar/toolkit/lib/components/comments/CommentCon
       },
     },
     user_id: 1275,
-  }}
-/>
-```
+  },
+};

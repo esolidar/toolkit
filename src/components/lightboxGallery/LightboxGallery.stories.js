@@ -8,6 +8,9 @@ export default {
 const Template = args => <LightboxGallery {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['LightboxGallery.test.js'],
+};
 Default.args = {
   images: [
     {

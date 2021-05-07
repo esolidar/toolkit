@@ -79,8 +79,8 @@ const item = {
   amount: 10,
   quantity: 1,
   extra: {
-    hidden: 0,
-    message: '',
+    hidden: '1',
+    message: 'Message text',
     checked: 1,
   },
 };
@@ -206,5 +206,104 @@ describe('CrowdfundingItem component', () => {
     );
     expect(component).toHaveLength(1);
     expect(component.find('.checkout-supports')).toHaveLength(0);
+  });
+
+  it('render image from cdn', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={itemNoInstitution}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    ).shallow();
+    const image = component.find('.js-image-thumb-browser');
+    expect(image.length).toBe(1);
+    expect(image.getElement(0).props.src).toBe(
+      'https://image.testesolidar.com/crowdfundings/707314d0-4db8-45ac-91df-5cacfc548428.jpeg?width=95&height=95'
+    );
+  });
+
+  it('render image from aws', () => {
+    itemNoInstitution.campaign = {
+      images: [
+        {
+          id: 23,
+          crowdfunding_id: 38,
+          image:
+            'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/1/campaigns/8de053a4-192b-4654-bf99-68b74025eafd.jpg',
+        },
+      ],
+    };
+    const component = shallow(
+      <CrowdfundingItem
+        item={itemNoInstitution}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    ).shallow();
+    const image = component.find('.js-image-thumb-browser');
+    expect(image.length).toBe(1);
+    expect(image.getElement(0).props.src).toBe(
+      'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/1/campaigns/8de053a4-192b-4654-bf99-68b74025eafd.jpg'
+    );
+  });
+
+  it('render contribute value correctly', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={itemNoInstitution}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    ).shallow();
+    const price = component.find('FormattedNumber');
+    expect(price.length).toBe(1);
+    expect(price.getElement(0).props.value).toBe(10);
+  });
+
+  it('render message correctly', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={item}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    ).shallow();
+    const message = component.find('TextareaField');
+    expect(message.length).toBe(1);
+    expect(message.getElement(0).props.value).toEqual('Message text');
+  });
+
+  it('render anonymous donation checked', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={item}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+      />
+    ).shallow();
+    const hidden = component.find('input[name="hidden"]');
+    expect(hidden.length).toBe(1);
+    expect(hidden.getElement(0).props.checked).toBe(true);
   });
 });

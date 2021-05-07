@@ -8,6 +8,9 @@ export default {
 const Template = args => <DescriptionDetail {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['DescriptionDetail.test.js'],
+};
 Default.args = {
   title: 'Description',
   description: 'Test Description',

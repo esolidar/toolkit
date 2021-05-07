@@ -8,6 +8,9 @@ export default {
 const Template = args => <Post {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Post.test.js'],
+};
 Default.args = {
   post: {
     attachment: null,

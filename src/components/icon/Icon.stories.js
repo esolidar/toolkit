@@ -19,4 +19,7 @@ const Template = () => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Icon.test.js'],
+};
 Default.args = {};

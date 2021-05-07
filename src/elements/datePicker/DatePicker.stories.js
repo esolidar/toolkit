@@ -8,6 +8,9 @@ export default {
 const Template = args => <DatePicker {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['DatePicker.test.js'],
+};
 Default.args = {
   classnames: () => {},
   label: 'Start Date',

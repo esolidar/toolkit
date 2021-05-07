@@ -14,6 +14,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['GiftCardThumb.test.js'],
+};
 Default.args = {
   giftCard: {
     id: 118,

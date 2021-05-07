@@ -8,6 +8,9 @@ export default {
 const Template = args => <CrowdfundingDescription {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CrowdfundingDescription.test.js'],
+};
 Default.args = {
   campaign: {
     description:

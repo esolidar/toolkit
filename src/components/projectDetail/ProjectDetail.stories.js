@@ -8,6 +8,9 @@ export default {
 const Template = args => <ProjectDetail {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectDetail.test.js'],
+};
 Default.args = {
   project: {
     whitelabel_id: 1,

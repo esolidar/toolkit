@@ -25,6 +25,8 @@ const DatePicker = ({
   timeCaption,
   dateFormat,
   errors,
+  minDate,
+  maxDate,
 }) => (
   <div
     className={classnames('form-group', {
@@ -44,8 +46,10 @@ const DatePicker = ({
       placeholderText={placeholderText}
       timeCaption={timeCaption}
       dateFormat={dateFormat}
+      minDate={minDate}
+      maxDate={maxDate}
     />
-    {!!errors && <span className="error-block">{errors}</span>}
+    {!!errors && <span className="help-block">{errors}</span>}
   </div>
 );
 
@@ -63,6 +67,8 @@ DatePicker.propTypes = {
   timeCaption: PropTypes.string,
   dateFormat: PropTypes.string,
   errors: PropTypes.string,
+  minDate: PropTypes.instanceOf(Date),
+  maxDate: PropTypes.instanceOf(Date),
 };
 
 DatePicker.defaultProps = {

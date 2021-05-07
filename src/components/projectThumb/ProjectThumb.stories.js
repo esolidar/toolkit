@@ -8,6 +8,9 @@ export default {
 const Template = args => <ProjectThumb {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectThumb.test.js'],
+};
 Default.args = {
   project: {
     id: 1,

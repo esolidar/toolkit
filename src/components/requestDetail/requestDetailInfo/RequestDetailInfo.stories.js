@@ -8,6 +8,9 @@ export default {
 const Template = args => <RequestDetailInfo {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['RequestDetailInfo.test.js'],
+};
 Default.args = {
   volunteeringType: 'Every week',
   request: {

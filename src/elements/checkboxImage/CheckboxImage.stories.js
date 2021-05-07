@@ -9,6 +9,9 @@ export default {
 const Template = args => <CheckboxImage {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CheckboxImage.test.js'],
+};
 Default.args = {
   label: 'Lorem Ipsum',
   img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,

@@ -8,6 +8,9 @@ export default {
 const Template = args => <CustomModal {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CustomModal.test.js'],
+};
 Default.args = {
   actionsChildren: (
     <>

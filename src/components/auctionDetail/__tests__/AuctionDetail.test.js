@@ -597,9 +597,7 @@ test('simulate private auction', async () => {
   await waitFor(() => {
     const titlePrivate = screen.getByTestId('title-private');
     expect(titlePrivate).toBeInTheDocument();
-    expect(titlePrivate).toHaveTextContent(
-      'Insert the access code to display and bid on the auction'
-    );
+    expect(titlePrivate).toHaveTextContent('auctions.private.supportes');
     const inputCode = screen.getByTestId('input-private-code');
     expect(inputCode).toBeInTheDocument();
     fireEvent.change(inputCode, { target: { value: '123456' } });
@@ -621,7 +619,7 @@ test('should exist auction support', async () => {
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
     expect(auctionSupport).toBeInTheDocument();
-    expect(auctionSupport).toHaveTextContent('This auctions supports:');
+    expect(auctionSupport).toHaveTextContent('auctions.public.supportes');
     const thumbImage = screen.getByAltText('thumb-supported');
     expect(thumbImage).toBeInTheDocument();
     expect(thumbImage).toHaveAttribute(
@@ -651,7 +649,7 @@ test('should exist countdown with time', async () => {
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent(
-      'This auction ended in: Wednesday, December 30, 2020 4:00 PM'
+      'auction.detail.endsWednesday, December 30, 2020 4:00 PM'
     );
   });
 });

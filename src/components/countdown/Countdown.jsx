@@ -1,9 +1,56 @@
-/* eslint-disable no-unused-expressions */
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment-timezone';
 import { FormattedMessage } from 'react-intl';
+import { format, addMinutes } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz';
 
+const statusOptions = {
+  SOON: 'soon',
+  RUNNING: 'running',
+  HEIGH_HOURS_LEFT: 'heightHoursLeft',
+  ENDED: 'ended',
+};
+const statusMap = {
+  [statusOptions.SOON]: {
+    translation: 'countdown.startsin',
+    defaultMessage: 'Starts in',
+  },
+  [statusOptions.RUNNING]: {
+    translation: 'countdown.running',
+    defaultMessage: 'Running',
+  },
+  [statusOptions.HEIGH_HOURS_LEFT]: {
+    translation: 'thumb.countdown.eightHoursLeft',
+    defaultMessage: 'Ending soon',
+  },
+  [statusOptions.ENDED]: {
+    translation: 'countdown.ended',
+    defaultMessage: 'Ended',
+  },
+};
+const counterOptions = { DAYS: 'days', HOURS: 'hours', MIN: 'min', SEC: 'sec' };
+const counterMap = {
+  [counterOptions.DAYS]: {
+    testid: counterOptions.DAYS,
+    translation: 'countdown.day',
+    defaultMessage: 'DAY',
+  },
+  [counterOptions.HOURS]: {
+    testid: counterOptions.HOURS,
+    translation: 'countdown.hours',
+    defaultMessage: 'HOUR',
+  },
+  [counterOptions.MIN]: {
+    testid: counterOptions.MIN,
+    translation: 'countdown.min',
+    defaultMessage: 'MIN',
+  },
+  [counterOptions.SEC]: {
+    testid: counterOptions.SEC,
+    translation: 'countdown.sec',
+    defaultMessage: 'SEC',
+  },
+};
 class Countdown extends Component {
   state = {
     status: '',
@@ -11,7 +58,6 @@ class Countdown extends Component {
     hours: '',
     min: '',
     sec: '',
-    loading: false,
     isSoon: false,
     isRunning: false,
   };
@@ -19,17 +65,19 @@ class Countdown extends Component {
   componentDidMount() {
     // update every second
     const date = this.calculateCountdown();
-    date ? this.setState(date) : null;
-
+    if (date) this.setState(date);
     this.interval = setInterval(() => {
       const date = this.calculateCountdown();
-      date ? this.setState(date) : this.stop();
+      if (date) this.setState(date);
+      else this.stop();
     }, 1000);
   }
 
   componentWillUnmount() {
     this.stop();
   }
+
+  formatDate = date => format(addMinutes(date, date.getTimezoneOffset()), 'yyyy/MM/dd HH:mm:ss');
 
   addLeadingZeros = value => {
     let newValue = String(value);
@@ -42,36 +90,28 @@ class Countdown extends Component {
   calculateCountdown = () => {
     const { startDate, endDate, onStart, onExpiry } = this.props;
     const { isSoon, isRunning } = this.state;
-    const todaysDate = new Date(
-      moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss')
-    );
+    const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
+    const todaysDate = new Date(this.formatDate(zonedTimeToUtc(new Date(), timeZone)));
     let countDate;
     // Create date from input value
     const inputStartDate = new Date(startDate.replace(/-/g, '/'));
     const inputEndDate = new Date(endDate.replace(/-/g, '/'));
-
     // call setHours to take the time out of the comparison
     if (inputStartDate > todaysDate) {
-      this.setState({
-        status: 'soon',
-        isSoon: true,
-      });
+      this.setState({ status: statusOptions.SOON, isSoon: true });
       countDate = startDate.replace(/-/g, '/');
     } else if (todaysDate <= inputEndDate) {
       if (isSoon) onStart();
-
       this.setState({
-        status: 'running',
+        status: statusOptions.RUNNING,
         isSoon: false,
         isRunning: true,
       });
-
       countDate = endDate.replace(/-/g, '/');
     } else {
       if (isRunning) onExpiry();
-
       this.setState({
-        status: 'ended',
+        status: statusOptions.ENDED,
         days: 0,
         hours: 0,
         min: 0,
@@ -80,20 +120,11 @@ class Countdown extends Component {
       });
       countDate = endDate.replace(/-/g, '/');
     }
-
-    const nowTimeStamp = Date.parse(
-      moment.tz(new Date(), moment.tz.guess()).utc().format('YYYY/MM/DD HH:mm:ss')
-    );
-
-    // const endDateTimeTimeStamp = Date.parse(new Date(countDate.replace(/-/g, "/")));
-    const endDateTimeTimeStamp = Date.parse(moment(countDate));
+    const endDateTimeTimeStamp = Date.parse(countDate);
+    const nowTimeStamp = Date.parse(this.formatDate(zonedTimeToUtc(new Date(), timeZone)));
     let diff = (endDateTimeTimeStamp - nowTimeStamp) / 1000;
-
     // clear countdown when date is reached
-    if (diff < 0) {
-      return false;
-    }
-
+    if (diff < 0) return false;
     const timeLeft = {
       years: 0,
       days: 0,
@@ -102,7 +133,6 @@ class Countdown extends Component {
       sec: 0,
       millisec: 0,
     };
-
     // calculate time difference between now and expected date
     if (diff >= 365.25 * 86400) {
       // 365.25 * 24 * 60 * 60
@@ -123,7 +153,6 @@ class Countdown extends Component {
       timeLeft.min = Math.floor(diff / 60);
       diff -= timeLeft.min * 60;
     }
-
     timeLeft.sec = diff;
     return timeLeft;
   };
@@ -132,83 +161,50 @@ class Countdown extends Component {
     clearInterval(this.interval);
   }
 
+  renderCounter(option) {
+    const dataTestId = `${this.props.dataTestId}-countdown-${option}`;
+    const value = this.addLeadingZeros(this.state[option]);
+    const { translation, defaultMessage } = counterMap[option];
+    return (
+      <span className="Countdown-col">
+        <span className="Countdown-col-element" data-testid={dataTestId}>
+          <strong>{value}</strong>
+          <FormattedMessage id={translation} defaultMessage={defaultMessage} />
+        </span>
+      </span>
+    );
+  }
+
   render() {
-    const countDown = this.state;
-    const { loading } = this.state;
-    const { thumb, dataTestId } = this.props;
+    const { thumb } = this.props;
+    const { days, hours } = this.state;
     let { status } = this.state;
-
-    if (loading) {
-      return <div className="Countdown" />;
-    }
-
-    if (status === 'running' && countDown.days === 0 && countDown.hours < 8) {
-      status = 'heightHoursLeft';
-    }
-
+    if (!status) return <div className="Countdown" />;
+    const lessThan8HoursLeft = status === statusOptions.RUNNING && days === 0 && hours < 8;
+    if (lessThan8HoursLeft) status = statusOptions.HEIGH_HOURS_LEFT;
+    const showCounters = status !== statusOptions.ENDED;
+    const showDays = !thumb || (thumb && days > 0);
+    const showSecs = !thumb || (thumb && days === 0);
     return (
       <div className="CountdownBox">
-        {status === 'heightHoursLeft' && (
-          <div className={`Countdown-label ${status}`}>
-            <FormattedMessage id="thumb.countdown.eightHoursLeft" defaultMessage="Ending soon" />
-          </div>
-        )}
-        {status === 'running' && (
-          <div className={`Countdown-label ${status}`}>
-            <FormattedMessage id="countdown.running" defaultMessage="Running" />
-          </div>
-        )}
-        {status === 'soon' && (
-          <div className={`Countdown-label ${status}`}>
-            <FormattedMessage id="countdown.startsin" defaultMessage="Starts in" />
-          </div>
-        )}
-        {status === 'ended' && (
-          <div className={`Countdown-label ${status}`}>
-            <FormattedMessage id="countdown.ended" defaultMessage="Ended" />
-          </div>
-        )}
-        <div className={`Countdown-box ${status}`}>
-          {((countDown.days > 0 && thumb) || !thumb) && (
-            <span className="Countdown-col">
-              <span className="Countdown-col-element" datat-testid={`${dataTestId}-countdown-days`}>
-                <strong>{this.addLeadingZeros(countDown.days)}</strong>
-                <FormattedMessage id="countdown.day" defaultMessage="Day" />
-              </span>
-            </span>
-          )}
-
-          <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-hour`}>
-              <strong>{this.addLeadingZeros(countDown.hours)}</strong>
-              <FormattedMessage id="countdown.hours" defaultMessage="HOUR" />
-            </span>
-          </span>
-
-          <span className="Countdown-col">
-            <span className="Countdown-col-element" data-testid={`${dataTestId}-countdown-min`}>
-              <strong>{this.addLeadingZeros(countDown.min)}</strong>
-              <FormattedMessage id="countdown.min" defaultMessage="MIN" />
-            </span>
-          </span>
-
-          {((countDown.days === 0 && thumb) || !thumb) && (
-            <span className="Countdown-col">
-              <span
-                className="Countdown-col-element"
-                data-testid={`${dataTestId}-countdown-seconds`}
-              >
-                <strong>{this.addLeadingZeros(countDown.sec)}</strong>
-                <FormattedMessage id="countdown.sec" defaultMessage="SEC" />
-              </span>
-            </span>
-          )}
+        <div className={`Countdown-label ${status}`}>
+          <FormattedMessage
+            id={statusMap[status].translation}
+            defaultMessage={statusMap[status].defaultMessage}
+          />
         </div>
+        {showCounters && (
+          <div className={`Countdown-box ${status}`}>
+            {showDays && this.renderCounter(counterOptions.DAYS)}
+            {this.renderCounter(counterOptions.HOURS)}
+            {this.renderCounter(counterOptions.MIN)}
+            {showSecs && this.renderCounter(counterOptions.SEC)}
+          </div>
+        )}
       </div>
     );
   }
 }
-
 Countdown.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
@@ -217,11 +213,9 @@ Countdown.propTypes = {
   onExpiry: PropTypes.func,
   onStart: PropTypes.func,
 };
-
 Countdown.defaultProps = {
   thumb: false,
   dataTestId: 'count',
   onExpiry: () => {},
 };
-
 export default Countdown;

@@ -15,6 +15,9 @@ export default {
 const Template = args => <ProjectAddForm {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectAddForm.test.js'],
+};
 Default.args = {
   hideDropZone: false,
   color: {

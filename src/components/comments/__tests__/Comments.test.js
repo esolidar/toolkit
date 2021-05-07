@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
-import { shallow } from 'enzyme';
+import { shallow, configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Comments from '../index';
+
+configure({ adapter: new Adapter() });
 
 const props = {
   comments: [
@@ -101,7 +104,7 @@ const props = {
   onChange: () => {},
 
   totalComments: 3,
-  loadingMoreComments: false,
+  loadingMoreComments: true,
   loadMoreComments: () => {},
   thumb: 'image.png',
 };
@@ -113,7 +116,9 @@ describe('Comments component', () => {
   });
 
   it('show readmore comments button', () => {
-    const component = shallow(<Comments {...props} />);
+    const component = shallow(<Comments {...props} />)
+      .shallow()
+      .shallow();
     expect(component.find('.btn-read-more-comments').length).toBe(1);
   });
 

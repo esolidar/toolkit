@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['FormQuestionsGenerator.test.js'],
+};
 Default.args = {
   locale: 'pt',
   state: {},

@@ -8,6 +8,9 @@ export default {
 const Template = args => <ChangeProfileUserImage {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ChangeProfileUserImage.test.js'],
+};
 Default.args = {
   // color: {
   //   primaryColor: '#ddd',

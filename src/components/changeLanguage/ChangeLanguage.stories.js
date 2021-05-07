@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ChangeLanguage.test.js'],
+};
 Default.args = {
   languages: [
     { id: 0, name: 'pt', translate: 'Português (PT)' },

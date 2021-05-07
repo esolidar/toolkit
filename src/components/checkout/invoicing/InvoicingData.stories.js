@@ -8,6 +8,9 @@ export default {
 const Template = args => <InvoicingData {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['InvoicingData.test.js'],
+};
 Default.args = {
   state: {
     errors: {},

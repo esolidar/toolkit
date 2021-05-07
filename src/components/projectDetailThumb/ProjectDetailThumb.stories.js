@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ProjectDetailThumb.test.js'],
+};
 Default.args = {
   project: {
     whitelabel_id: 1,

@@ -8,6 +8,9 @@ export default {
 const Template = args => <Faqs {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Faqs.test.js'],
+};
 Default.args = {
   lang: 'pt',
   tabs: [

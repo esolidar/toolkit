@@ -8,6 +8,9 @@ export default {
 const Template = args => <TextFieldCurrency {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['TextFieldCurrency.test.js'],
+};
 Default.args = {
   label: 'Title',
   prefix: 'EUR',

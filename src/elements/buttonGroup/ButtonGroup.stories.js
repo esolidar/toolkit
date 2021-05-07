@@ -8,6 +8,9 @@ export default {
 const Template = args => <ButtonGroup {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['ButtonGroup.test.js'],
+};
 Default.args = {
   buttonList: [
     {

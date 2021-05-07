@@ -4,6 +4,7 @@ import { FormattedMessage, FormattedNumber } from 'react-intl';
 import CrowdfundingProgressBar from '../crowdfundingProgressBar';
 import CrowdfundingPaymentMethod from '../crowdfundingPaymentMethod';
 import CrowdfundingContributeBtn from '../crowdfundingContributeBtn';
+import SupportedSection from '../supportedSection';
 
 const CrowdfundingHeaderRigth = ({
   campaignTitle,
@@ -73,6 +74,20 @@ const CrowdfundingHeaderRigth = ({
           sibsCc={campaign.product.payment_method.sibs_cc}
           cdnStaticUrl={env.cdn_static_url}
         />
+        {!!campaign.company && !!campaign.company.brands.length && (
+          <SupportedSection
+            href={`${env.esolidar_url}b/${campaign.company.brands[0].username}`}
+            imgSrc={campaign.company.brands[0].logo_thumbs.thumb}
+            text={
+              <FormattedMessage
+                id="crowdfunding.detail.companySupport"
+                values={{
+                  companyName: campaign.company.name,
+                }}
+              />
+            }
+          />
+        )}
       </>
     )}
   </>
@@ -96,9 +111,17 @@ CrowdfundingHeaderRigth.propTypes = {
       }),
     }),
     contributes_count: PropTypes.number,
+    company: PropTypes.shape({
+      name: PropTypes.string,
+      brands: PropTypes.array,
+      payment_method: PropTypes.shape({
+        thumb: PropTypes.string,
+      }),
+    }),
   }),
   env: PropTypes.shape({
     cdn_static_url: PropTypes.string,
+    esolidar_url: PropTypes.string,
   }),
   errorMsgRequired: PropTypes.string,
   errorMsgAmount: PropTypes.string,

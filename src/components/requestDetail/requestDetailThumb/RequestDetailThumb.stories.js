@@ -12,6 +12,9 @@ const Template = args => (
 );
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['RequestDetailThumb.test.js'],
+};
 Default.args = {
   onReviewRequest: () => {},
   onCloseRequest: () => {},

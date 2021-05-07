@@ -8,6 +8,9 @@ export default {
 const Template = args => <AuctionAddForm {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['AuctionAddForm.test.js'],
+};
 Default.args = {
   esolidarList: false,
   loadingPage: false,

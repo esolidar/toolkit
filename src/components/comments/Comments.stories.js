@@ -8,6 +8,9 @@ export default {
 const Template = args => <Comments {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['Comments.test.js'],
+};
 Default.args = {
   getEmployeeName: () => 'Joel Calheiros',
   env: 'https://static.testesolidar.com',

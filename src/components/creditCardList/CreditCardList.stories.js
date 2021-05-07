@@ -8,6 +8,9 @@ export default {
 const Template = args => <CreditCardList {...args} />;
 
 export const Default = Template.bind({});
+Default.parameters = {
+  jest: ['CreditCardList.test.js'],
+};
 Default.args = {
   getStripeCreditCardlist: () => {},
   postStripeCreditCard: () => {},
