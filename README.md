@@ -8,7 +8,7 @@
 <p  align="center">
 Toolkit for building eSolidar Projects.
 <br>
-<a target="_blank" href="https://esolidar.github.io/toolkit-styleguide/"><strong>eSolidar Styleguide »</strong></a>
+<a target="_blank" href="https://effective-waddle-fa3d2b69.pages.github.io/"><strong>eSolidar Storybook »</strong></a>
 <br>
 <br>
 </p>
@@ -37,20 +37,18 @@ Toolkit for building eSolidar Projects.
 Steps to set up the project locally:
 
 - Clone the repo: `git clone https://github.com/esolidar/toolkit.git`
-- Update submodule: `git submodule update --init --recursive`
-- Checkout branch on submodule: `cd styleguide` then `git checkout master`
 
 ### Running toolkit locally
 
 1. Run `yarn` to install all dependencies.
-2. Run `yarn styleguide` to start the styleguide.
-3. Open `http://localhost:6060` in your browser, and voilà.
+2. Run `yarn storybook` to start the storybook.
+3. Open `http://localhost:6006` in your browser, and voilà.
 4. **Tests**
 5. Run `yarn test` to run all components tests.
 6. Run `yarn test --coverage` to run tests, coverage analysis and report.
 7. Run `yarn test:lint` to run eslint analysis.
 8. **Builds**
-9. Run `yarn styleguide:build` to create a production build for the styleguide documentation.
+9. Run `yarn build-storybook` to create a production build for the toolkit documentation.
 10. Run `yarn build` to create a production build for the package.
 11. Rum `yarn build:publish` to create a production build and publish the new version package.
 12. Run `yarn clean` to delete the build (lib folder) locally.
@@ -78,13 +76,13 @@ If you want to use our package, just follow these instructions:
 ## Publish package
 
 Steps to publish the package:
+Publish package and documentation is automatic, when was a merge to master an action will do it. To publish manually follow this steps:
 
 1. Update package.json and change package version.
 2. Update README file in all places where the version is referenced.
-3. Run `yarn styleguide:build` to build and push the new library version to the styleguide.
-4. Run `yarn build`
-5. Add all changes to git (pull/add/commit/push)
-6. Run `yarn build:publish`
+3. Run `yarn build-storybook` to build and push the new library version to the storybook.
+4. Add all changes to git (pull/add/commit/push)
+5. Run `yarn build:publish`
 
 ## Using Sass
 
@@ -118,9 +116,13 @@ $mainColor : red;
 
 ## Documentation
 
-The eSolidar Toolkit documentation, included in this repo in the root directory on styleguide/build, is built with [React Styleguidist](https://react-styleguidist.js.org/) and publicly hosted on GitHub Pages at [Toolkit-Styleguide](https://esolidar.github.io/toolkit-styleguide/). The docs may also be run locally with the command line `yarn styleguide`.
+The eSolidar Toolkit documentation, included in this repo in the root directory on `/storybook-static`, is built with [storybook](https://storybook.js.org/). The docs may also be run locally with the command line `build-storybook`.
 
 ## Copyright and license
 
 ©2020 eSolidar. All rights reversed.
 Code released under the MIT License.
+
+## Roadmap
+
+- Use env constants everywhere in the project

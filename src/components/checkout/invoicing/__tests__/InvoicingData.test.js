@@ -12,14 +12,12 @@ const state = {
 
 const onChangCheckBoxInvoicing = () => {};
 const onChange = () => {};
-const translateMessage = () => 'Some text';
 
 describe('InvoicingData component', () => {
   it('renders InvoicingData correctly', () => {
     const component = shallow(
       <InvoicingData
         state={state}
-        translateMessage={translateMessage}
         onChange={onChange}
         onChangCheckBoxInvoicing={onChangCheckBoxInvoicing}
       />

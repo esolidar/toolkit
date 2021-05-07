@@ -20,15 +20,15 @@ jobs:
           scope: '@esolidar'
 
       - name: Install dependencies
-        run: yarn
+        run: yarn --pure-lockfile --production=false
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Run coverage tests
-        run: yarn test
+        run: yarn test --silent
 
-      # - name: Run codacy-coverage-reporter
-      #   uses: codacy/codacy-coverage-reporter-action@master
-      #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: coverage/clover.xml
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/clover.xml

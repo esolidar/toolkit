@@ -4,10 +4,10 @@
 /demo/dist
 /es
 /lib
-/coverage
 /umd
 npm-debug.log*
 *.iml
 /.idea
 yarn-error.log
 .babelrc
+/storybook-static

@@ -293,7 +293,6 @@ const propsAuctionLastBid = {
       s3_cover_key: 'brands/cover/ae225554-9657-4e9a-863d-6fc4c399a716.jpeg',
     },
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {

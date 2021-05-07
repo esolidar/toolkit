@@ -18,14 +18,12 @@ const stateLoading = {
 };
 const onChangCheckBoxInvoicing = () => {};
 const onChange = () => {};
-const translateMessage = () => 'Some text';
 
 describe('Step2 component', () => {
   it('renders Step2 correctly', () => {
     const component = shallow(
       <Step2
         state={state}
-        translateMessage={translateMessage}
         onChange={onChange}
         onChangCheckBoxInvoicing={onChangCheckBoxInvoicing}
       />
@@ -38,7 +36,6 @@ describe('Step2 component', () => {
     const component = shallow(
       <Step2
         state={stateLoading}
-        translateMessage={translateMessage}
         onChange={onChange}
         onChangCheckBoxInvoicing={onChangCheckBoxInvoicing}
       />
