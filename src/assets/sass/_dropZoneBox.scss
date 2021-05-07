@@ -1,7 +1,5 @@
 .dropzone-box {
   & .upload-file {
-    margin-bottom: 25px;
-
     & > div:first-of-type {
       text-align: center;
       padding: 20px 25px;
@@ -36,6 +34,16 @@
     & .rejected-files {
       color: $statusDeletedColor;
       font-size: 12px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.disabled {
+      &:hover {
+        cursor: no-drop;
+      }
     }
   }
 
