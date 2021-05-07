@@ -469,7 +469,6 @@ const props = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {
@@ -544,7 +543,6 @@ const propsAuctionPrivate = {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',
   },
-  translateMessage: () => 'Some text',
   user: {
     email: 'rocha@esolidar.com',
     currency: {
@@ -599,9 +597,7 @@ test('simulate private auction', async () => {
   await waitFor(() => {
     const titlePrivate = screen.getByTestId('title-private');
     expect(titlePrivate).toBeInTheDocument();
-    expect(titlePrivate).toHaveTextContent(
-      'Insert the access code to display and bid on the auction'
-    );
+    expect(titlePrivate).toHaveTextContent('auctions.private.supportes');
     const inputCode = screen.getByTestId('input-private-code');
     expect(inputCode).toBeInTheDocument();
     fireEvent.change(inputCode, { target: { value: '123456' } });
@@ -623,7 +619,7 @@ test('should exist auction support', async () => {
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
     expect(auctionSupport).toBeInTheDocument();
-    expect(auctionSupport).toHaveTextContent('This auctions supports:');
+    expect(auctionSupport).toHaveTextContent('auctions.public.supportes');
     const thumbImage = screen.getByAltText('thumb-supported');
     expect(thumbImage).toBeInTheDocument();
     expect(thumbImage).toHaveAttribute(
@@ -653,7 +649,7 @@ test('should exist countdown with time', async () => {
     expect(countdownSec).toHaveTextContent('00SEC');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent(
-      'This auction ended in: Wednesday, December 30, 2020 4:00 PM'
+      'auction.detail.endsWednesday, December 30, 2020 4:00 PM'
     );
   });
 });
@@ -735,19 +731,19 @@ test('should exist description, shipping and payment', async () => {
 
   await waitFor(() => {
     const titleDescription = screen.getByTestId('description');
-    expect(titleDescription).toHaveTextContent('Some text');
+    expect(titleDescription).toHaveTextContent('Description');
     const descriptionText = screen.getByTestId('description-text');
     expect(descriptionText).toHaveTextContent('Uma descrição teste');
 
     const titleShipping = screen.getByTestId('shipping');
-    expect(titleShipping).toHaveTextContent('Some text');
+    expect(titleShipping).toHaveTextContent('Shipping');
     const shippingText = screen.getByTestId('shipping-text');
     expect(shippingText).toHaveTextContent(
       'Os portes de envio serão à responsabilidade do vencedor.'
     );
 
     const titlePayment = screen.getByTestId('payment');
-    expect(titlePayment).toHaveTextContent('Some text');
+    expect(titlePayment).toHaveTextContent('Payment');
     const paymentText = screen.getByTestId('payment-text');
     expect(paymentText).toHaveTextContent(
       'O pagamento é realizado por transferência bancária. No final do leilão, será comunicado ao vencedor por email os dados bancários. O pagamento deve ser efetuado no prazo de quarenta e oito horas.'

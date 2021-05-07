@@ -106,7 +106,7 @@ class Countdown extends Component {
     // call setHours to take the time out of the comparison
     if (inputStartDate > todaysDate) {
       this.setState({ status: statusOptions.SOON, isSoon: true });
-      countDate = startDate;
+      countDate = startDate.replace(/-/g, '/');
     } else if (todaysDate <= inputEndDate) {
       if (isSoon) onStart();
 
@@ -116,7 +116,7 @@ class Countdown extends Component {
         isRunning: true,
       });
 
-      countDate = endDate;
+      countDate = endDate.replace(/-/g, '/');
     } else {
       if (isRunning) onExpiry();
 
@@ -128,7 +128,7 @@ class Countdown extends Component {
         sec: 0,
         isRunning: false,
       });
-      countDate = endDate;
+      countDate = endDate.replace(/-/g, '/');
     }
 
     const endDateTimeTimeStamp = Date.parse(countDate);

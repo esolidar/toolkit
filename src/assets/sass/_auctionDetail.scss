@@ -1,34 +1,32 @@
 .mdPrivateCode {
-  width     : 600px;
+  width: 600px;
   min-height: 300px;
-  z-index   : 999;
+  z-index: 999;
   background: #fff;
-  border    : 1px solid #e7eaed;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
-  padding   : 25px 50px;
+  border: 1px solid #e7eaed;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  padding: 25px 50px;
 
   h3 {
-    font-family   : $fontLight;
-    font-size     : 24px;
-    color         : #05c6e5;
+    font-family: $fontLight;
+    font-size: 24px;
+    color: #05c6e5;
     letter-spacing: -1px;
-    line-height   : 40px;
-    margin        : auto;
-  }
-
-  .private-code {
-    width : 300px;
+    line-height: 40px;
     margin: auto;
   }
 
+  .private-code {
+    width: 300px;
+    margin: auto;
+  }
 }
 
 .auction-modal-bid,
 .auction-modal-subscribe,
 .auction-modal-comment-delete {
-
   .modal-body {
-    @media(max-width: 425px) {
+    @media (max-width: 425px) {
       padding: 0px !important;
     }
   }
@@ -46,11 +44,11 @@
   }
 
   label {
-    font-size     : 15px !important;
-    margin        : 5px 0 !important;
+    font-size: 15px !important;
+    margin: 5px 0 !important;
     text-transform: inherit !important;
-    color         : #455C75 !important;
-    font-weight   : inherit !important;
+    color: #455c75 !important;
+    font-weight: inherit !important;
 
     span {
       font-weight: inherit !important;
@@ -58,20 +56,17 @@
   }
 
   .hasError {
-    span {
-      color: red;
-    }
+    color: #dc3545 !important;
+    font-size: 12px;
   }
 }
 
 .auction-detail {
-
   .header-bids {
     display: none;
   }
 
   .sticky-sidebar {
-
     .header-bids {
       display: block;
     }
@@ -87,7 +82,7 @@
 
   @-webkit-keyframes blink {
     0% {
-      color  : #000;
+      color: #000;
       opacity: 1;
     }
 
@@ -97,12 +92,12 @@
   }
 
   .blink {
-    -webkit-animation-name           : blink;
-    -webkit-animation-duration       : 3000ms;
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 3000ms;
     -webkit-animation-iteration-count: 2;
     -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-direction      : alternate-reverse;
-    -webkit-font-smoothing           : antialiased;
+    -webkit-animation-direction: alternate-reverse;
+    -webkit-font-smoothing: antialiased;
   }
 
   .mobile-countdown {
@@ -112,20 +107,20 @@
   }
 
   .readmore-button {
-    color          : #04C7E5;
-    background     : transparent;
-    border         : none;
+    color: #04c7e5;
+    background: transparent;
+    border: none;
     text-decoration: underline;
-    margin-bottom  : 20px;
+    margin-bottom: 20px;
   }
 
   .auction-supported {
-    font-family   : $fontFamily;
-    font-size     : 15px;
-    color         : #a2adba;
-    letter-spacing: -.31px;
-    line-height   : 26px;
-    margin-bottom : 10px;
+    font-family: $fontFamily;
+    font-size: 15px;
+    color: #a2adba;
+    letter-spacing: -0.31px;
+    line-height: 26px;
+    margin-bottom: 10px;
   }
 
   .auction-supported-link {
@@ -133,81 +128,80 @@
     text-decoration: none;
 
     h1 {
-      font-family   : $fontLight;
-      font-size     : 27px;
-      color         : $mainColor;
+      font-family: $fontLight;
+      font-size: 27px;
+      color: $mainColor;
       letter-spacing: 0;
-      line-height   : 40px;
-      margin-bottom : 50px;
-  
+      line-height: 40px;
+      margin-bottom: 50px;
+
       img {
-        width        : 40px;
-        height       : 40px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        margin-right : 15px;
+        margin-right: 15px;
       }
     }
   }
 
   h2 {
-    font-family   : $fontLight;
-    font-size     : 23px;
-    color         : $mainTextColorLight;
+    font-family: $fontLight;
+    font-size: 23px;
+    color: $mainTextColorLight;
     letter-spacing: 0;
-    line-height   : 39px;
-    margin        : 0;
+    line-height: 39px;
+    margin: 0;
 
-    @media(max-width: 425px) {
+    @media (max-width: 425px) {
       text-align: center;
       margin-top: 30px;
     }
   }
 
   .end-date {
-    font-size     : 12px;
-    color         : $mainTextColorLight;
-    letter-spacing: -.25px;
-    line-height   : 26px;
-    margin-bottom : 30px;
+    font-size: 12px;
+    color: $mainTextColorLight;
+    letter-spacing: -0.25px;
+    line-height: 26px;
+    margin-bottom: 30px;
   }
 
   .box {
-    background-color: #FFFFFF;
-    box-shadow      : 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-    border          : 1px solid #E7EAED;
-    border-radius   : 4px;
-    padding         : 40px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e7eaed;
+    border-radius: 4px;
+    padding: 40px;
 
-    @media(max-width: 425px) {
-      margin    : 0;
+    @media (max-width: 425px) {
+      margin: 0;
       margin-top: 0;
-      padding   : 15px;
+      padding: 15px;
     }
   }
 
   .box.box-top {
-    padding   : 15px !important;
-    width     : 100%;
+    padding: 15px !important;
+    width: 100%;
     margin-top: 75px;
 
     @media (max-width: 1024px) {
       margin-top: 60px !important;
     }
-
   }
 
   .open-lightbox {
-    border    : none;
+    border: none;
     background: transparent;
-    padding   : 0;
-    margin    : 0;
+    padding: 0;
+    margin: 0;
   }
 
   .slider-image {
-    background-size    : cover;
+    background-size: cover;
     background-position: 50% 50%;
-    background-repeat  : no-repeat;
-    height             : 470px;
+    background-repeat: no-repeat;
+    height: 470px;
 
     @media (max-width: 425px) {
       height: 250px;
@@ -223,7 +217,7 @@
 
     @media (max-width: 425px) {
       margin-bottom: 0;
-      display      : grid;
+      display: grid;
 
       .slick-thumb {
         display: none !important;
@@ -231,25 +225,25 @@
     }
 
     .prev-arrow {
-      width            : 40px;
-      height           : 90px;
-      background       : #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-left.svg') 50% 50% no-repeat;
-      position         : absolute;
-      display          : block;
-      line-height      : 0;
-      font-size        : 0;
-      cursor           : pointer;
-      color            : transparent;
-      top              : 50%;
+      width: 40px;
+      height: 90px;
+      background: #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-left.svg') 50% 50% no-repeat;
+      position: absolute;
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      cursor: pointer;
+      color: transparent;
+      top: 50%;
       -webkit-transform: translate(0, -50%);
-      -ms-transform    : translate(0, -50%);
-      transform        : translate(0, -50%);
-      padding          : 0;
-      border           : none;
-      outline          : none;
-      z-index          : 9;
-      opacity          : 0.4;
-      border-radius    : 0 3px 3px 0;
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      padding: 0;
+      border: none;
+      outline: none;
+      z-index: 9;
+      opacity: 0.4;
+      border-radius: 0 3px 3px 0;
 
       &:hover {
         opacity: 0.8;
@@ -257,26 +251,26 @@
     }
 
     .next-arrow {
-      width            : 40px;
-      height           : 90px;
-      background       : #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-right.svg') 50% 50% no-repeat;
-      position         : absolute;
-      display          : block;
-      line-height      : 0;
-      font-size        : 0;
-      cursor           : pointer;
-      color            : transparent;
-      top              : 50%;
+      width: 40px;
+      height: 90px;
+      background: #000 url('#{$cdn_static_url}/frontend/icons/ic-slide-right.svg') 50% 50% no-repeat;
+      position: absolute;
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      cursor: pointer;
+      color: transparent;
+      top: 50%;
       -webkit-transform: translate(0, -50%);
-      -ms-transform    : translate(0, -50%);
-      transform        : translate(0, -50%);
-      padding          : 0;
-      border           : none;
-      outline          : none;
-      z-index          : 9;
-      right            : 0;
-      opacity          : 0.4;
-      border-radius    : 3px 0 0 3px;
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      padding: 0;
+      border: none;
+      outline: none;
+      z-index: 9;
+      right: 0;
+      opacity: 0.4;
+      border-radius: 3px 0 0 3px;
 
       &:hover {
         opacity: 0.8;
@@ -285,101 +279,78 @@
   }
 
   .countdown {
-    margin-top     : -75px;
-    margin-bottom  : 10px;
-    display        : flex;
+    margin-top: -75px;
+    margin-bottom: 10px;
+    display: flex;
     justify-content: center;
-    padding        : 0px;
+    padding: 0px;
 
     @media (max-width: 768px) {
       margin-top: -55px;
     }
 
     .CountdownBox {
-      display        : flex;
-      align-items    : center;
+      display: flex;
+      align-items: center;
       justify-content: center;
     }
   }
 
   .txt-price-t {
-    font-size     : 30px;
-    color         : $mainTextColorDark;
-    letter-spacing: -.72px;
-    line-height   : 33px;
-    display       : inline-block;
+    font-size: 30px;
+    color: $mainTextColorDark;
+    letter-spacing: -0.72px;
+    line-height: 33px;
+    display: inline-block;
   }
 
   .auction-title {
-    font-family       : $fontFamily;
-    font-size         : 23px;
-    color             : #455c75;
-    letter-spacing    : -1px;
-    margin-top        : 0;
+    font-family: $fontFamily;
+    font-size: 23px;
+    color: #455c75;
+    letter-spacing: -1px;
+    margin-top: 0;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow          : hidden;
-    text-overflow     : ellipsis;
-    display           : -webkit-box;
-    line-height       : 33px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 33px !important;
     -webkit-line-clamp: 3 !important;
   }
 
   .auction-content-label {
-    font-family   : $fontHeavy;
-    font-size     : 12px;
-    color         : $mainColor;
+    font-family: $fontHeavy;
+    font-size: 12px;
+    color: $mainColor;
     letter-spacing: 0;
     text-transform: uppercase;
-    display       : block;
-    margin-top    : 20px;
-    margin-bottom : 10px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .auction-content-label.text-top {
-    margin-top   : 0px;
+    margin-top: 0px;
     margin-bottom: 7px;
   }
 
   .txt-bid-aprox {
-    font-size     : 12px;
-    color         : #738598;
-    letter-spacing: -.25px;
-    line-height   : 26px;
-    display       : inline-block;
+    font-size: 12px;
+    color: #738598;
+    letter-spacing: -0.25px;
+    line-height: 26px;
+    display: inline-block;
   }
 
   .end-auction {
-    font-family   : $fontFamily;
-    display       : block;
-    height        : 96px;
-    font-size     : 15px;
-    color         : $mainTextColorLight;
-    letter-spacing: -.31px;
-    line-height   : 26px;
-  }
-
-  .auction-box {
-    border       : 1px solid #e7eaed;
-    padding      : 10px 20px;
-    margin-top   : 10px;
-    margin-bottom: 5px;
-    display      : flex;
-
-    .auction-box-link {
-      text-decoration: none;
-      color: $statusDeclinedColor;
-    }
-
-    .npo-thumb {
-      background   : #f6f9f9;
-      border       : 1px solid #e7eaed;
-      width        : 60px;
-      height       : 60px;
-      border-radius: 30px;
-      float        : left;
-      margin-right : 20px;
-    }
+    font-family: $fontFamily;
+    display: block;
+    height: 96px;
+    font-size: 15px;
+    color: $mainTextColorLight;
+    letter-spacing: -0.31px;
+    line-height: 26px;
   }
 
   .has-error {
@@ -391,35 +362,33 @@
   }
 
   .subscribe-auction {
-
     a,
     button {
-      color          : $grayDark;
+      color: $grayDark;
       text-decoration: underline;
-      padding        : 0px;
+      padding: 0px;
     }
-
   }
 
   .btn-esolidar {
-    width     : 100%;
+    width: 100%;
     text-align: center;
   }
 
   .description-text {
-    opacity       : 0.9;
-    font-family   : $fontFamily;
-    font-size     : 15px;
-    color         : $mainTextColorLight;
+    opacity: 0.9;
+    font-family: $fontFamily;
+    font-size: 15px;
+    color: $mainTextColorLight;
     letter-spacing: 0;
-    line-height   : 26px;
-    margin-right  : 30px;
-    width         : 100%;
+    line-height: 26px;
+    margin-right: 30px;
+    width: 100%;
 
     @media (max-width: 425px) {
-      margin            : 0;
-      overflow          : hidden;
-      display           : -webkit-box;
+      margin: 0;
+      overflow: hidden;
+      display: -webkit-box;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
 
@@ -431,10 +400,10 @@
 
   .description-show-all {
     @media (max-width: 425px) {
-      margin            : 0;
-      margin-top        : 0;
-      overflow          : auto;
-      display           : inline-block;
+      margin: 0;
+      margin-top: 0;
+      overflow: auto;
+      display: inline-block;
       -webkit-line-clamp: initial;
       -webkit-box-orient: initial;
     }
@@ -449,42 +418,42 @@
       }
 
       img {
-        width        : 40px;
-        height       : 40px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        float        : left;
-        margin-right : 45px;
-        margin-top   : 8px;
-        margin-left  : 20px;
+        float: left;
+        margin-right: 45px;
+        margin-top: 8px;
+        margin-left: 20px;
       }
 
       .recipient-label {
-        font-family   : $fontFamily;
-        font-size     : 15px;
-        color         : $mainTextColorLight;
+        font-family: $fontFamily;
+        font-size: 15px;
+        color: $mainTextColorLight;
         letter-spacing: 0;
-        line-height   : 26px;
+        line-height: 26px;
       }
 
       .recipient-name {
-        font-family   : $fontFamily;
-        font-size     : 21px;
-        color         : $mainColor;
+        font-family: $fontFamily;
+        font-size: 21px;
+        color: $mainColor;
         letter-spacing: -0.5px;
-        line-height   : 33px;
+        line-height: 33px;
       }
     }
 
     @media (max-width: 425px) {
       .recipient-box {
         text-align: center;
-        padding   : 20px;
+        padding: 20px;
 
         img {
           margin: 0;
-          width : 80px;
+          width: 80px;
           height: 80px;
-          float : none;
+          float: none;
         }
 
         .recipient-label {
@@ -492,7 +461,7 @@
         }
 
         .btn-support-cause {
-          float        : none;
+          float: none;
           margin-bottom: 20px;
         }
       }
@@ -500,20 +469,20 @@
   }
 
   .no-contributions {
-    padding-top   : 25px;
-    font-family   : $fontFamily;
-    font-size     : 14px;
-    color         : $mainTextColorLight;
+    padding-top: 25px;
+    font-family: $fontFamily;
+    font-size: 14px;
+    color: $mainTextColorLight;
     letter-spacing: 0;
-    line-height   : 26px;
+    line-height: 26px;
   }
 
   .comments-box {
-    background   : #fff;
-    border       : 1px solid #e7eaed;
-    box-shadow   : 0 1px 1px 0 rgba(0, 0, 0, .05);
+    background: #fff;
+    border: 1px solid #e7eaed;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
     border-radius: 2px;
-    padding      : 30px 70px;
+    padding: 30px 70px;
 
     @media (max-width: 425px) {
       padding: 15px 15px;
@@ -530,47 +499,47 @@
 
   .support-cause {
     background: #fff;
-    border    : 1px solid #e7eaed;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
+    border: 1px solid #e7eaed;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
     margin-top: 50px;
-    padding   : 30px 70px;
+    padding: 30px 70px;
 
     .npo-thumb {
-      width        : 60px;
-      height       : 60px;
+      width: 60px;
+      height: 60px;
       border-radius: 60px;
-      margin-right : 20px;
+      margin-right: 20px;
       margin-bottom: 70px;
     }
 
     .npo-name {
-      font-size     : 24px;
-      color         : #05c6e5;
-      letter-spacing: -.72px;
-      line-height   : 38px;
-      margin        : 0;
-      padding       : 0;
+      font-size: 24px;
+      color: #05c6e5;
+      letter-spacing: -0.72px;
+      line-height: 38px;
+      margin: 0;
+      padding: 0;
     }
 
     .npo-summary {
-      font-size     : 15px;
-      color         : #738598;
-      letter-spacing: -.31px;
-      line-height   : 26px;
-      margin        : 0;
-      padding       : 0;
+      font-size: 15px;
+      color: #738598;
+      letter-spacing: -0.31px;
+      line-height: 26px;
+      margin: 0;
+      padding: 0;
     }
   }
 
   .other-auctions {
     h4 {
-      font-family   : $fontLight;
-      margin-bottom : 55px;
-      margin-top    : 25px;
-      font-size     : 42px;
-      color         : #05c6e5;
+      font-family: $fontLight;
+      margin-bottom: 55px;
+      margin-top: 25px;
+      font-size: 42px;
+      color: #05c6e5;
       letter-spacing: -1px;
-      line-height   : 58px;
+      line-height: 58px;
     }
   }
 

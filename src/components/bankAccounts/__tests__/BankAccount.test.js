@@ -3,11 +3,16 @@ import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
 import BankAccount from '../index';
+import {
+  internationalBankAccount,
+  nationalBankAccount,
+  brBankAccount,
+  ukBankAccount,
+} from '../../../../__mocks__/bankAccount';
 
 const fx = jest.fn();
 
 const propsWithoutBankAccount = {
-  intl: fx,
   countryId: 231,
   color: 'green',
   userId: 1,
@@ -18,37 +23,33 @@ const propsWithoutBankAccount = {
 };
 
 const propsBankAccount = {
-  intl: fx,
   countryId: 231,
   color: 'green',
   userId: 1,
   postBankTransfer: fx,
   updateLocalstorage: fx,
   getBankTransfer: {},
-  userBankTransfer: {
-    1: [
-      {
-        iban: '123123123123',
-        bic: '123123',
-      },
-      {
-        iban: '123123123123',
-        bic: '123123',
-      },
-    ],
-    231: [
-      {
-        accountholder: '123123',
-        banksortcode: '123123',
-        accountnumber: '132123',
-      },
-      {
-        accountholder: '123123',
-        banksortcode: '123123',
-        accountnumber: '132123',
-      },
-    ],
-  },
+  userBankTransfer: { ...internationalBankAccount, ...ukBankAccount },
+};
+
+const propsBrBankAccount = {
+  countryId: 150,
+  color: 'green',
+  userId: 1,
+  postBankTransfer: fx,
+  updateLocalstorage: fx,
+  getBankTransfer: {},
+  userBankTransfer: brBankAccount,
+};
+
+const propsNationalBankAccount = {
+  countryId: 208,
+  color: 'green',
+  userId: 1,
+  postBankTransfer: fx,
+  updateLocalstorage: fx,
+  getBankTransfer: {},
+  userBankTransfer: nationalBankAccount,
 };
 
 test('simulate bank account', async () => {
@@ -74,6 +75,46 @@ test('simulate bank account', async () => {
   });
 });
 
+test('Verify fields Brasil bank account', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsBrBankAccount} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const bankNumber = screen.getByTestId('bankNumber');
+    expect(bankNumber).toBeInTheDocument();
+    const beneficiary = screen.getByTestId('beneficiary');
+    expect(beneficiary).toBeInTheDocument();
+    const cnpj = screen.getByTestId('cnpj');
+    expect(cnpj).toBeInTheDocument();
+    const bankBranch = screen.getByTestId('bank_branch');
+    expect(bankBranch).toBeInTheDocument();
+    const bankCheckingAccount = screen.getByTestId('bank_checking_account');
+    expect(bankCheckingAccount).toBeInTheDocument();
+  });
+});
+
+test('Verify fields National bank account', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsNationalBankAccount} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const iban = screen.getByTestId('iban');
+    expect(iban).toBeInTheDocument();
+    const nib = screen.getByTestId('nib');
+    expect(nib).toBeInTheDocument();
+    const bic = screen.getByTestId('bic');
+    expect(bic).toBeInTheDocument();
+  });
+});
+
 test('simulate add international bank account', async () => {
   render(
     <IntlProvider locale="en">
@@ -95,6 +136,24 @@ test('simulate add national bank account', async () => {
   await waitFor(() => {
     const internationalAccounts = screen.getByTestId('national-accounts-0');
     expect(internationalAccounts).toBeInTheDocument();
+  });
+});
+
+test('simulate add national bank account without data', async () => {
+  render(
+    <IntlProvider locale="en">
+      <BankAccount {...propsWithoutBankAccount} />
+    </IntlProvider>
+  );
+  await waitFor(() => {
+    const btnAddAccount = screen.getByTestId('add-bank-account');
+    userEvent.click(btnAddAccount);
+    const nationalAccounts = screen.getByTestId('national-accounts-0');
+    expect(nationalAccounts).toBeInTheDocument();
+
+    userEvent.click(btnAddAccount);
+    const secondNationalAccounts = screen.queryByText('BANK ACCOUNT #2');
+    expect(secondNationalAccounts).not.toBeInTheDocument();
   });
 });
 

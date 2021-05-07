@@ -132,15 +132,7 @@ describe('ProjectDetailInfo component', () => {
         },
       ],
     };
-    const component = shallow(
-      <IntlProvider locale="en">
-        <ProjectDetailInfo project={project} />
-      </IntlProvider>
-    )
-      .dive()
-      .dive()
-      .shallow()
-      .dive();
+    const component = shallow(<ProjectDetailInfo project={project} />);
     expect(component.find('Question').length).toBe(project.form.length);
   });
 
