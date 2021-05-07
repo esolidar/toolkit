@@ -11,7 +11,6 @@ const props = {
   env: {
     publishableKey: 'key',
   },
-  translateMessage: jest.fn(),
 };
 
 describe('CreditCardList component', () => {

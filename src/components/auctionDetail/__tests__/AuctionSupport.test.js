@@ -19,7 +19,6 @@ const propsAuctionSupport = {
       phones: [],
     },
   },
-  translateMessage: () => 'Some text',
 };
 
 const user = {

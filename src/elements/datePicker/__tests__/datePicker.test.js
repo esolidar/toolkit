@@ -50,6 +50,6 @@ describe('DatePicker component', () => {
 
     const wrapper = shallow(<DatePicker {...props} errors="required field" />);
     expect(wrapper).toHaveLength(1);
-    expect(wrapper.find('.error-block').length).toBe(1);
+    expect(wrapper.find('.help-block').length).toBe(1);
   });
 });

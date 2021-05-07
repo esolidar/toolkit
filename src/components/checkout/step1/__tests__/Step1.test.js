@@ -101,14 +101,12 @@ const nextStep = () => {};
 const env = {
   serverlessResizeImage: 'https://image.testesolidar.com',
 };
-const translateMessage = () => 'Some text';
 
 describe('Step1 component', () => {
   it('renders Step1 correctly', () => {
     const component = shallow(
       <Step1
         state={state}
-        translateMessage={translateMessage}
         env={env}
         nextStep={nextStep}
         removeCartItem={removeCartItem}
@@ -125,7 +123,6 @@ describe('Step1 component', () => {
     const component = shallow(
       <Step1
         state={stateCartEmpty}
-        translateMessage={translateMessage}
         env={env}
         nextStep={nextStep}
         removeCartItem={removeCartItem}

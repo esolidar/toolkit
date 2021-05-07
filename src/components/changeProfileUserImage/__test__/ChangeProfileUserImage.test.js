@@ -6,7 +6,6 @@ import ChangeProfileUserImage from '../index';
 
 const fx = jest.fn();
 const props = {
-  translateMessage: fx,
   color: {
     primaryColor: '#ddd',
   },
@@ -19,7 +18,6 @@ const props = {
 };
 
 const propsWithoutImage = {
-  translateMessage: fx,
   color: {
     primaryColor: '#ddd',
   },
