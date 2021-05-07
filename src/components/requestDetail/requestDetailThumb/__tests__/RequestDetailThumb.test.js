@@ -202,9 +202,7 @@ const requestWithoutPivot = {
 
 describe('RequestDetailThumb component', () => {
   it('renders RequestDetailThumb correctly', () => {
-    const component = shallow(
-      <RequestDetailThumb request={requestWithoutPivot} translateMessage={() => ''} errors={{}} />
-    );
+    const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
     expect(component).toHaveLength(1);
     expect(component.find('Button').length).toBe(2);
     expect(component.find('LightboxGallery').length).toBe(1);

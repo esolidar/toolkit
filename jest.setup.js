@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable func-names */
 
 import { configure } from 'enzyme';
@@ -14,3 +15,20 @@ window.matchMedia =
       removeListener() {},
     };
   };
+
+jest.mock('react-intl', () => {
+  const reactIntl = jest.requireActual('react-intl');
+  const intlProvider = new reactIntl.IntlProvider(
+    {
+      locale: 'en',
+      messages: require('@esolidar/i18n/projects/toolkit/en'),
+    },
+    {}
+  );
+  return {
+    ...reactIntl,
+    useIntl: () => {
+      return intlProvider.state.intl;
+    },
+  };
+});

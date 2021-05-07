@@ -1,7 +1,6 @@
 /dist
 /node_modules
 /build
-/coverage
 /demo/dist
 /es
 /lib
@@ -11,3 +10,4 @@ npm-debug.log*
 /.idea
 yarn-error.log
 .babelrc
+/storybook-static

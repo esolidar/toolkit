@@ -1,14 +1,13 @@
 import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
-import AuctionAddForm from '../index';
+import AuctionAddForm from '../AuctionAddForm';
 
 const fx = jest.fn();
 
 const props = {
   loadingPage: false,
   action: null,
-  intl: fx,
   institutions: {},
   categories: [],
   showInstitutions: true,
@@ -72,14 +71,12 @@ const props = {
   postAuctionDeleteImage: fx,
   userRole: 'company',
   userBankTransfer: {},
-  translateMessage: fx,
 };
 
 const propsEdit = {
   auctionId: 287,
   loadingPage: false,
   action: 'edit',
-  intl: fx,
   institutions: {},
   categories: [],
   showInstitutions: true,
@@ -144,7 +141,6 @@ const propsEdit = {
   userRole: 'company',
   userBankTransfer: {},
   getAuctionDetail: fx,
-  translateMessage: fx,
 };
 
 const JSONData = {
@@ -180,8 +176,8 @@ test('simulate add auction form', async () => {
     const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionInformation).toBeInTheDocument();
     expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
-    expect(btnSubmit).toHaveTextContent('auctions.add.submitAuction');
-    expect(btnCancel).toHaveTextContent('cancel');
+    expect(btnSubmit).toHaveTextContent('Submit auction');
+    expect(btnCancel).toHaveTextContent('Cancel');
   });
 });
 
@@ -199,7 +195,7 @@ test('simulate edit auction form', async () => {
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
     expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
-    expect(btnSubmit).toHaveTextContent('auctions.edit.submitAuction');
-    expect(btnCancel).toHaveTextContent('cancel');
+    expect(btnSubmit).toHaveTextContent('Update auction');
+    expect(btnCancel).toHaveTextContent('Cancel');
   });
 });
