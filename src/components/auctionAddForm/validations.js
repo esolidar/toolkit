@@ -1,12 +1,13 @@
 import { FormattedMessage } from 'react-intl';
 import isEmpty from '../../utils/isEmpty';
+import isDefined from '../../utils/isDefined';
 import isValidRegex from '../../utils/regex';
 import { youtubeUrl } from '../../constants/regex';
 
 export default function validateAuctionForm(data) {
   const errors = {};
 
-  if (!isEmpty(data.video) && !isValidRegex(youtubeUrl, data.video)) {
+  if (isDefined(data.video) && data.video !== '' && !isValidRegex(youtubeUrl, data.video)) {
     errors.video = <FormattedMessage id="user.register.error.video" />;
   }
 

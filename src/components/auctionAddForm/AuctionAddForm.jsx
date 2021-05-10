@@ -88,8 +88,8 @@ const AuctionAddForm = ({
     payment_description: '',
     images: [],
     video: '',
-    startDate: '',
-    endDate: '',
+    startDate: undefined,
+    endDate: undefined,
     tags: '',
     tagsArray: [],
     projectIds: [],
@@ -203,10 +203,10 @@ const AuctionAddForm = ({
 
       if (data.status === 'A') {
         NotificationManager.error(
-          useIntl().formatMessage({
+          intl.formatMessage({
             id: 'auction.edit.forbidden',
           }),
-          useIntl().formatMessage({
+          intl.formatMessage({
             id: 'error',
           }),
           15000
@@ -265,7 +265,7 @@ const AuctionAddForm = ({
         shipping_description: data.shipping_description,
         payment_description: data.payment_description,
         images: imagesArray,
-        video: data.video,
+        video: data.video || '',
         startDate: new Date(
           moment.utc(data.dateStart).tz(data.timezone).format('YYYY-MM-DD HH:mm:ss')
         ),
@@ -327,10 +327,10 @@ const AuctionAddForm = ({
   useEffect(() => {
     if (updatedAuction && updatedAuction.code === 200) {
       NotificationManager.success(
-        useIntl().formatMessage({
+        intl.formatMessage({
           id: 'success.auction.create',
         }),
-        useIntl().formatMessage({
+        intl.formatMessage({
           id: 'success',
         }),
         15000
@@ -709,7 +709,7 @@ const AuctionAddForm = ({
                       <ReactTags
                         tags={form.tagsArray}
                         handleInputBlur={handleAddition}
-                        delimiters={[32, 188, 13, 186, 9] /* space, comma, enter, semicolon, tab */}
+                        delimiters={[32, 188, 13, 186, 9]}
                         handleDelete={handleDelete}
                         placeholder={useIntl().formatMessage({
                           id: 'auction.tags.placeholder',
@@ -1354,6 +1354,7 @@ const AuctionAddForm = ({
                       <Button
                         dataTestId="btn-submit-edit"
                         extraClass="success-full btn-submit"
+                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={useIntl().formatMessage({
                           id: 'auctions.edit.submitAuction',
                         })}
