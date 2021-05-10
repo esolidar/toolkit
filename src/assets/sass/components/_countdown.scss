@@ -1,0 +1,108 @@
+.CountdownBox {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 450px;
+  width: inherit;
+  height: 70px;
+  color: white;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    width: 100%;
+  }
+
+  .Countdown-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    padding: 10px;
+    height: 100%;
+
+    &.soon {
+      background: #04b1cd;
+    }
+
+    &.heightHoursLeft {
+      background: #e5aa00;
+    }
+
+    &.running {
+      background: #31bd79;
+    }
+
+    &.ended {
+      background: #e54144;
+      width: 100%;
+    }
+  }
+
+  .Countdown-box {
+    width: 67%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 100%;
+
+    &.soon {
+      background: map-get($colors, light-blue);
+    }
+
+    &.running {
+      background: map-get($colors, green);
+    }
+
+    &.heightHoursLeft {
+      background: map-get($colors, amber);
+    }
+
+    &.ended {
+      background: map-get($theme-colors, danger);
+    }
+  }
+
+  @for $i from 1 through 5 {
+    span.Countdown-col:first-child:nth-last-child(#{$i}),
+    span.Countdown-col:first-child:nth-last-child(#{$i}) ~ span.Countdown-col {
+      width: #{100% / $i};
+    }
+  }
+
+  .Countdown-col {
+    display: flex;
+    padding: 0 5px;
+
+    &:not(:first-child) {
+      &:before {
+        content: ':';
+        font-size: 27px;
+        left: -4px;
+        top: 0;
+      }
+    }
+
+    &-element {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: 100%;
+      text-transform: uppercase;
+      width: 100%;
+
+      strong {
+        font-size: 27px;
+        letter-spacing: 0;
+        line-height: 30px;
+        font-weight: 200;
+        height: 30px;
+      }
+    }
+  }
+}

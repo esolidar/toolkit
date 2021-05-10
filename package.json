@@ -214,6 +214,7 @@
     "@babel/runtime": "^7.13.8",
     "react-dropzone": "^11.3.2",
     "react-google-maps": "^9.4.5",
-    "react-telephone-input": "^4.73.4"
+    "react-telephone-input": "^4.73.4",
+    "sass-ffi": "^0.0.2"
   }
 }

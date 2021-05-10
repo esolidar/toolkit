@@ -19,7 +19,6 @@ import Button from '../../elements/button';
 import DatePicker from '../../elements/datePicker';
 import InstitutionListSelect from '../institutionListSelect';
 import ProjectThumb from '../projectThumb';
-import '../../assets/sass/_react-datepicker.scss';
 import SelectField from '../../elements/selectField';
 import BankAccount from '../bankAccounts';
 import InputLabel from '../../elements/inputLabel';

@@ -1,4 +1,5 @@
 import AuctionDetailRigth from './AuctionDetailRigth';
+import variables from '../../constants/variables';
 
 export default {
   title: 'Components/Auctions/AuctionDetailRigth',
@@ -58,7 +59,7 @@ Default.args = {
   },
   inputBidValue: 10,
   valueBidTextField: () => {},
-  primaryColor: '05c6e5',
+  primaryColor: variables.lightBlue,
   inputRef: {},
   env: {
     cdn_uploads_url: '',

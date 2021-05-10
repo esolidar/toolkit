@@ -1,0 +1,15 @@
+.button-group {
+  & button {
+    border: 1px solid map-get($grays, 500);
+    background: transparent;
+    color: map-get($grays, 500);
+    font-size: 12px;
+    font-weight: 600;
+
+    &.active {
+      border: 1px solid map-get($theme-colors, primary);
+      background: map-get($theme-colors, primary);
+      color: white;
+    }
+  }
+}

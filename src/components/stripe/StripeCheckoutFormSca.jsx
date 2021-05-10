@@ -11,12 +11,13 @@ import {
 } from 'react-stripe-elements';
 import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
+import variables from '../../constants/variables';
 
 const createOptions = () => ({
   style: {
     base: {
       fontSize: '16px',
-      color: '#455c75',
+      color: variables.mainTextColorDark,
       letterSpacing: '0.025em',
       padding: '0 10px',
       '::placeholder': {

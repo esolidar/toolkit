@@ -1,0 +1,207 @@
+.request-detail {
+  .request-right-box {
+    padding-right: 0;
+    padding-left: 30px;
+  }
+
+  .box {
+    padding: 35px;
+  }
+
+  h3 {
+    font-size: 20px;
+    color: map-get($main-text-colors, dark);
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+
+  h4 {
+    margin: 25px 0;
+    color: map-get($theme-colors, primary);
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0;
+
+    img {
+      margin-right: 15px;
+    }
+  }
+
+  p {
+    font-size: 15px;
+    color: map-get($main-text-colors, dark);
+    letter-spacing: 0;
+    line-height: 26px;
+  }
+
+  .separator-blue {
+    margin: 40px 0;
+    border-top: 2px solid map-get($theme-colors, primary);
+  }
+
+  .separator-gray {
+    border-top: 1px solid map-get($main-text-colors, light);
+  }
+
+  .arrow-list {
+    margin: 0 0 0 18px;
+    padding: 0;
+
+    li {
+      list-style-image: url('#{$cdn-static-url}/frontend/icons/ic-arrow-right.svg');
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: 0;
+      line-height: 22px;
+      padding-left: 8px;
+    }
+  }
+}
+
+.status-box {
+  background-color: map-get($colors, white);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid map-get($grays, 300);
+  border-radius: 4px;
+  padding: 15px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin: 25px 0;
+  }
+
+  .header {
+    margin: 0;
+    width: 100%;
+    font-family: map-get($fonts, family);
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 19px;
+
+    b {
+      text-transform: uppercase;
+      font-family: map-get($fonts, heavy);
+      display: inline-block;
+      font-weight: 100;
+    }
+
+    span {
+      padding: 10px 0;
+      display: inline-block;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      padding: 5px 10px;
+
+      img {
+        float: left;
+        width: 16px;
+        margin-right: 25px;
+      }
+
+      span {
+        font-family: map-get($fonts, family);
+        font-size: 15px;
+        color: map-get($main-text-colors, dark);
+        letter-spacing: 0;
+        line-height: 22px;
+      }
+    }
+  }
+
+  .footer {
+    margin: 0;
+    padding: 10px 0;
+    background-color: map-get($grays, 100);
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      float: left;
+    }
+
+    span {
+      font-family: map-get($fonts, family);
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: 0;
+      line-height: 40px;
+      padding: 0 15px;
+    }
+  }
+
+  &.status-active {
+    padding: 0 !important;
+    border-top: 6px solid map-get($status-colors, active);
+
+    .header {
+      background-color: lighten(map-get($status-colors, active), 40%);
+      color: map-get($status-colors, active);
+    }
+  }
+
+  &.status-pending {
+    padding: 0 !important;
+    border-top: 6px solid map-get($status-colors, pending);
+
+    .header {
+      background-color: lighten(map-get($status-colors, pending), 40%);
+      color: map-get($status-colors, pending);
+    }
+  }
+
+  &.status-ended {
+    padding: 0 !important;
+    border-top: 6px solid map-get($status-colors, ended);
+
+    .header {
+      background-color: lighten(map-get($status-colors, ended), 40%);
+      color: map-get($status-colors, ended);
+    }
+  }
+
+  &.status-deleted {
+    padding: 0 !important;
+    border-top: 6px solid map-get($status-colors, declined);
+
+    .header {
+      background-color: lighten(map-get($status-colors, declined), 33%);
+      color: map-get($status-colors, declined);
+    }
+  }
+
+  &.status-reviewed {
+    padding: 0 !important;
+    border-top: 6px solid map-get($status-colors, deleted);
+
+    .header {
+      background-color: lighten(map-get($status-colors, deleted), 33%);
+      color: map-get($status-colors, deleted);
+    }
+  }
+}
+
+.md-request-im-in {
+  .modal-content {
+    max-width: 600px;
+
+    .h4 {
+      color: map-get($theme-colors, primary);
+      font-size: 20px;
+    }
+
+    .checkbox-inline {
+      padding: 0 15px;
+    }
+
+    textarea {
+      height: 120px;
+    }
+  }
+}

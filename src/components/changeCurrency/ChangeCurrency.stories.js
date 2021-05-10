@@ -1,4 +1,5 @@
 import ChangeCurrency from './ChangeCurrency';
+import variables from '../../constants/variables';
 
 export default {
   title: 'Components/ChangeCurrency',
@@ -6,7 +7,7 @@ export default {
 };
 
 const Template = args => (
-  <div style={{ background: '#163352', width: '100%', padding: '15px' }}>
+  <div style={{ background: variables.themeColorsDark.primary, width: '100%', padding: '15px' }}>
     <ChangeCurrency {...args} />
   </div>
 );

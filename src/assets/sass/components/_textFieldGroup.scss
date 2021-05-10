@@ -1,0 +1,56 @@
+$input-text-color: #555 !default;
+$input-border-color: #ccc !default;
+$input-background-color: #f5f5f5 !default;
+
+.form-control-validation {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label {
+    color: $input-text-color;
+  }
+}
+
+.form-control {
+  border-color: $input-border-color;
+  @include box-shadow($input-box-shadow);
+
+  &:focus {
+    border-color: darken($input-border-color, 10%);
+    @include box-shadow($input-box-shadow-hover);
+  }
+}
+
+.input-group-addon {
+  color: $input-text-color;
+  border: 2px solid $input-border-color;
+  background-color: $input-background-color;
+  padding: 0 10px;
+  margin-left: -2px;
+  line-height: 36px;
+  border-radius: 0 3px 3px 0;
+}
+
+.input-group {
+  .required-field {
+    &.form-control {
+      border-right: 2px solid $input-border-color !important;
+    }
+  }
+}
+
+.form-control-feedback {
+  color: $input-text-color;
+}
+
+.disabled-group {
+  opacity: 0.5;
+  background-color: #e9ecef;
+  border-left: none;
+}

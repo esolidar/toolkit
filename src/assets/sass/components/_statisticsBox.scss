@@ -1,0 +1,139 @@
+.statisticsBox {
+  .statistics {
+    .box {
+      float: inherit;
+      padding: 0;
+      width: 100%;
+      background-color: map-get($colors, white);
+      border: 1px solid map-get($grays, 200);
+      border-radius: 4px;
+
+      .stats-bottom {
+        border-top: 2px solid map-get($theme-colors, primary);
+        padding: 20px;
+        background: map-get($grays, 50);
+
+        .row {
+          padding: 15px 5px;
+          border-bottom: 1px solid map-get($grays, 300);
+
+          &:first-child {
+            scroll-padding-top: 0;
+          }
+
+          &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+
+      h3 {
+        font-family: map-get($fonts, heavy);
+        font-size: 15px;
+        color: map-get($theme-colors, primary);
+        letter-spacing: 0;
+        line-height: 26px;
+        margin: 0;
+
+        i {
+          margin-right: 8px;
+        }
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          text-align: center;
+        }
+      }
+
+      .people-involved {
+        font-family: map-get($fonts, heavy);
+        font-size: 15px;
+        color: map-get($main-text-colors, dark);
+        letter-spacing: 0;
+        line-height: 26px;
+      }
+
+      .people-involved-stats {
+        font-family: map-get($fonts, family);
+        font-size: 15px;
+        color: map-get($main-text-colors, light);
+        letter-spacing: 0;
+        line-height: 30px;
+      }
+
+      .stats-box {
+        margin: 40px 0;
+
+        &.border {
+          border-left: 1px solid map-get($grays, 300);
+        }
+
+        h2 {
+          font-family: map-get($fonts, heavy);
+          font-size: 15px;
+          color: map-get($theme-colors, primary);
+          letter-spacing: 0;
+          line-height: 26px;
+          margin-top: 0;
+          margin-bottom: 25px;
+          text-align: center;
+        }
+
+        h3 {
+          font-family: map-get($fonts, family);
+          font-size: 27px;
+          color: map-get($main-text-colors, dark);
+          letter-spacing: 0;
+          line-height: 39px;
+        }
+
+        p {
+          font-family: map-get($fonts, family);
+          font-size: 15px;
+          color: map-get($main-text-colors, light);
+          letter-spacing: 0;
+          line-height: 22px;
+          margin: 0;
+        }
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          border: none;
+        }
+      }
+
+      .stats-box.col-sm-4:not(:first-child):not(:last-child) {
+        border-left: 1px solid map-get($grays, 300);
+        border-right: 1px solid map-get($grays, 300);
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          border: none;
+        }
+      }
+
+      .stats-box.col-sm-6:nth-child(2) {
+        border-left: 1px solid map-get($grays, 300);
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          border: none;
+        }
+      }
+    }
+
+    .boundary {
+      h3 {
+        font-size: 18px !important;
+        text-align: center;
+
+        .icon {
+          width: 100% !important;
+          display: block !important;
+          text-align: center !important;
+
+          img {
+            width: 52px;
+          }
+        }
+      }
+    }
+  }
+}

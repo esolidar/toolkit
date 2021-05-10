@@ -1,4 +1,5 @@
 import AuctionDetail from './AuctionDetail';
+import variables from '../../constants/variables';
 
 export default {
   title: 'Components/Auctions/AuctionDetail',
@@ -392,7 +393,7 @@ Default.args = {
   postUpdatedUser: {},
   updatedUser: () => {},
   showAlert: () => {},
-  primaryColor: '#05c6e5',
+  primaryColor: variables.lightBlue,
   domainUrl: 'https://esolidar.local:8081/',
   locale: 'en',
 };

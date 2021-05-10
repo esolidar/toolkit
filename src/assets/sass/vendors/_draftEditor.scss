@@ -1,0 +1,66 @@
+// Draft.js css
+.RichEditor-root {
+  background: map-get($colors, white);
+  border: 1px solid #dddddd;
+  font-size: 14px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.RichEditor-editor {
+  border-top: 1px solid #dddddd;
+  cursor: text;
+  font-size: 16px;
+  margin-top: 10px;
+
+  .public-DraftEditorPlaceholder-root {
+    margin: 0 -15px -15px;
+    padding: 15px;
+  }
+
+  .public-DraftEditor-content {
+    margin: 0 -15px -15px;
+    min-height: 460px;
+    padding: 15px;
+    max-height: 460px;
+    overflow-y: auto;
+  }
+
+  .RichEditor-blockquote {
+    border-left: 5px solid #eeeeee;
+    color: #666666;
+    font-style: italic;
+    margin: 16px 0;
+    padding: 10px 20px;
+  }
+
+  .public-DraftStyleDefault-pre {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+.RichEditor-hidePlaceholder {
+  .public-DraftEditorPlaceholder-root {
+    display: none;
+  }
+}
+
+.RichEditor-controls {
+  font-size: 14px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.RichEditor-styleButton {
+  color: #999999;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 16px;
+  padding: 2px 0;
+}
+
+.RichEditor-activeButton {
+  color: #5890ff;
+}
