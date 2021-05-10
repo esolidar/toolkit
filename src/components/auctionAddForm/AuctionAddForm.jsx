@@ -1156,6 +1156,11 @@ const AuctionAddForm = ({
                       />
                     </Col>
                   )}
+                  {errors.beneficiary && (
+                    <Col sm={12} className={classnames({ 'has-error': errors.beneficiary })}>
+                      <span className="help-block">{errors.beneficiary}</span>
+                    </Col>
+                  )}
                   {((showInstitutions && beneficiary === 'institution') ||
                     (!hasProjects && beneficiary === '')) && (
                     <Col sm={12}>
@@ -1246,16 +1251,8 @@ const AuctionAddForm = ({
                             <FormattedMessage id="auction.no.project" />
                           </Col>
                         )}
-                        {errors.projectIds && (
-                          <span className="help-block">{errors.projectIds}</span>
-                        )}
                       </Col>
                     </>
-                  )}
-                  {beneficiary === '' && errors.beneficiary && (
-                    <Col sm={12} className={classnames({ 'has-error': errors.beneficiary })}>
-                      <span className="help-block">{errors.beneficiary}</span>
-                    </Col>
                   )}
                 </Row>
               </Col>
