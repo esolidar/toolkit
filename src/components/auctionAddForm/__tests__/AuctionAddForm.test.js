@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import AuctionAddForm from '../AuctionAddForm';
+import company from '../../../../__mocks__/company';
 
 const fx = jest.fn();
 
@@ -71,6 +72,8 @@ const props = {
   postAuctionDeleteImage: fx,
   userRole: 'company',
   userBankTransfer: {},
+  company,
+  locale: 'pt',
 };
 
 const propsEdit = {
@@ -141,6 +144,8 @@ const propsEdit = {
   userRole: 'company',
   userBankTransfer: {},
   getAuctionDetail: fx,
+  company,
+  locale: 'pt',
 };
 
 const JSONData = {
