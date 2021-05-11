@@ -68,8 +68,10 @@ const AuctionAddForm = ({
   putCompanyBankTransfer,
   bankTransfer,
   deleteImages,
+  company,
+  locale,
 }) => {
-  const company = JSON.parse(localStorage[userRole] || '{}');
+  // const company = JSON.parse(localStorage[userRole] || '{}');
   const hasWhitelabel = subscription.find(item => item.name === 'whitelabel') || {};
   const hasProjects = !isEmpty(subscription.find(item => item.name === 'projects') || {});
   const [form, setForm] = useState({
@@ -1000,7 +1002,7 @@ const AuctionAddForm = ({
                           label={useIntl().formatMessage({
                             id: 'auctions.add.startDate',
                           })}
-                          locale={localStorage.lang === 'en' ? 'en' : 'pt'}
+                          locale={locale}
                           selected={form.startDate}
                           selectsStart
                           startDate={form.startDate}
@@ -1022,7 +1024,7 @@ const AuctionAddForm = ({
                           label={useIntl().formatMessage({
                             id: 'auctions.add.endDate',
                           })}
-                          locale={localStorage.lang === 'en' ? 'en' : 'pt'}
+                          locale={locale}
                           selected={form.endDate}
                           selectsStart
                           startDate={form.startDate}
@@ -1205,7 +1207,7 @@ const AuctionAddForm = ({
                                   key={project.id}
                                   project={project}
                                   serverlessResizeImage="https://image.testesolidar.com"
-                                  lang={localStorage.lang}
+                                  lang={locale}
                                   cols={6}
                                   showStatus={false}
                                   myProject={true}
@@ -1494,6 +1496,8 @@ AuctionAddForm.propTypes = {
       images: PropTypes.array,
     }),
   }),
+  company: PropTypes.object,
+  locale: PropTypes.string,
 };
 
 export default AuctionAddForm;

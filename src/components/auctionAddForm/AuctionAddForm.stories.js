@@ -1,6 +1,7 @@
 import AuctionAddForm from './AuctionAddForm';
 import project from '../../../__mocks__/project';
 import institution from '../../../__mocks__/institution';
+import company from '../../../__mocks__/company';
 
 export default {
   title: 'Components/Auctions/AuctionAddForm',
@@ -34,9 +35,7 @@ Default.args = {
   projectsList: {
     code: 200,
     data: {
-      project: {
-        data: [project],
-      },
+      data: [project],
     },
   },
   getInstitutionCategories: () => {},
@@ -76,4 +75,6 @@ Default.args = {
     },
   ],
   userBankTransfer: {},
+  company,
+  locale: 'pt',
 };
