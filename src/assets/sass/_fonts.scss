@@ -26,7 +26,7 @@ $slick-font-path: $path + 'slick/';
 }
 
 @font-face {
-  font-family: map-get($fonts, family);
+  font-family: map-get($fonts, main);
   src: url($avenir-font-path + '30CDBF_0_0.eot');
   src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
     url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),

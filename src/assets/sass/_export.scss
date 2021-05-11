@@ -1,0 +1,110 @@
+@import './variables';
+
+:export {
+  main-text-colors: {
+    light: map-get($main-text-colors, light);
+    dark: map-get($main-text-colors, dark);
+  }
+  colors: {
+    red: map-get($colors, red);
+    pink: map-get($colors, pink);
+    purple: map-get($colors, purple);
+    deep-purple: map-get($colors, deep-purple);
+    indigo: map-get($colors, indigo);
+    blue-gray: map-get($colors, blue-gray);
+    blue: map-get($colors, blue);
+    light-blue: map-get($colors, light-blue);
+    cyan: map-get($colors, cyan);
+    teal: map-get($colors, teal);
+    green: map-get($colors, green);
+    light-green: map-get($colors, light-green);
+    lime: map-get($colors, lime);
+    yellow: map-get($colors, yellow);
+    sunglow: map-get($colors, sunglow);
+    amber: map-get($colors, amber);
+    orange: map-get($colors, orange);
+    deep-orange: map-get($colors, deep-orange);
+    danger: map-get($colors, danger);
+    brown: map-get($colors, brown);
+    gray: map-get($colors, gray);
+    black: map-get($colors, black);
+    white: map-get($colors, white);
+    white-smoke: map-get($colors, white-smoke);
+  }
+  theme-colors: {
+    primary: map-get($theme-colors, primary);
+    secondary: map-get($theme-colors, secondary);
+    success: map-get($theme-colors, success);
+    info: map-get($theme-colors, info);
+    warning: map-get($theme-colors, warning);
+    danger: map-get($theme-colors, danger);
+    dark: map-get($theme-colors, dark);
+  }
+  theme-colors-light: {
+    primary: map-get($theme-colors-light, primary);
+    secondary: map-get($theme-colors-light, secondary);
+    success: map-get($theme-colors-light, success);
+    info: map-get($theme-colors-light, info);
+    warning: map-get($theme-colors-light, warning);
+    danger: map-get($theme-colors-light, danger);
+    dark: map-get($theme-colors-light, dark);
+  }
+  theme-colors-dark: {
+    primary: map-get($theme-colors-dark, primary);
+    secondary: map-get($theme-colors-dark, secondary);
+    success: map-get($theme-colors-dark, success);
+    info: map-get($theme-colors-dark, info);
+    warning: map-get($theme-colors-dark, warning);
+    danger: map-get($theme-colors-dark, danger);
+    dark: map-get($theme-colors-dark, dark);
+  }
+  grays: {
+    _50: map-get($grays, 50);
+    _100: map-get($grays, 100);
+    _200: map-get($grays, 200);
+    _300: map-get($grays, 300);
+    _400: map-get($grays, 400);
+    _500: map-get($grays, 500);
+    _600: map-get($grays, 600);
+    _700: map-get($grays, 700);
+    _800: map-get($grays, 800);
+    _900: map-get($grays, 900);
+  }
+  status-colors: {
+    active: map-get($status-colors, active);
+    pending: map-get($status-colors, pending);
+    ended: map-get($status-colors, ended);
+    deleted: map-get($status-colors, deleted);
+    declined: map-get($status-colors, declined);
+  }
+  input: {
+    label-color: map-get($input, label-color);
+    text-color: map-get($input, text-color);
+    border-color: map-get($input, border-color);
+    background-color: map-get($input, background-color);
+    box-shadow: map-get($input, box-shadow);
+    box-shadow-hover: map-get($input, box-shadow-hover);
+  }
+  fonts: {
+    main: map-get($fonts, main);
+    light: map-get($fonts, light);
+    heavy: map-get($fonts, heavy);
+    notification: map-get($fonts, notification);
+  }
+  breakpoints: {
+    xs: map-get($breakpoints, xs);
+    sm: map-get($breakpoints, sm);
+    md: map-get($breakpoints, md);
+    lg: map-get($breakpoints, lg);
+    xl: map-get($breakpoints, xl);
+    xxl: map-get($breakpoints, xxl);
+  }
+  footer-link-color: $footer-link-color;
+  facebook-color: $facebook-color;
+  error-color: $error-color;
+  table-header-text-color: $table-header-text-color;
+  ended-color: $ended-color;
+  running-color: $running-color;
+  soon-color: $soon-color;
+  pending-color: $pending-color;
+}

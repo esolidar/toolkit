@@ -115,7 +115,7 @@
   }
 
   .auction-supported {
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 15px;
     color: map-get($grays, 500);
     letter-spacing: -0.31px;
@@ -307,7 +307,7 @@
   }
 
   .auction-title {
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 23px;
     color: map-get($main-text-colors, dark);
     letter-spacing: -1px;
@@ -346,7 +346,7 @@
   }
 
   .end-auction {
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     display: block;
     height: 96px;
     font-size: 15px;
@@ -379,7 +379,7 @@
 
   .description-text {
     opacity: 0.9;
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 15px;
     color: map-get($main-text-colors, light);
     letter-spacing: 0;
@@ -430,7 +430,7 @@
       }
 
       .recipient-label {
-        font-family: map-get($fonts, family);
+        font-family: map-get($fonts, main);
         font-size: 15px;
         color: map-get($main-text-colors, light);
         letter-spacing: 0;
@@ -438,7 +438,7 @@
       }
 
       .recipient-name {
-        font-family: map-get($fonts, family);
+        font-family: map-get($fonts, main);
         font-size: 21px;
         color: map-get($theme-colors, primary);
         letter-spacing: -0.5px;
@@ -472,7 +472,7 @@
 
   .no-contributions {
     padding-top: 25px;
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 14px;
     color: map-get($main-text-colors, light);
     letter-spacing: 0;

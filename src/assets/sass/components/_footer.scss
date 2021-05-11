@@ -1,7 +1,7 @@
 .landing-footer {
   background: map-get($theme-colors-dark, primary);
   padding: 30px 50px;
-  font-family: map-get($fonts, family);
+  font-family: map-get($fonts, main);
   font-size: 15px;
   color: map-get($theme-colors, primary);
   letter-spacing: 0;
@@ -35,7 +35,7 @@
 
         a,
         span {
-          font-family: map-get($fonts, family);
+          font-family: map-get($fonts, main);
           font-size: 15px;
           color: map-get($theme-colors-light, primary);
           letter-spacing: 0;
@@ -76,7 +76,7 @@
 
     #newsletterID {
       h5 {
-        font-family: map-get($fonts, family);
+        font-family: map-get($fonts, main);
         font-size: 21px;
         letter-spacing: -0.5px;
         line-height: 33px;

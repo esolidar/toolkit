@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import '!style-loader!css-loader!sass-ffi/webpack-loader!../src/index.scss';
+import '!style-loader!css-loader!sass-loader!../src/index.scss';
 
 import '@storybook/addon-console';
 import 'storybook-addon-intl/register';

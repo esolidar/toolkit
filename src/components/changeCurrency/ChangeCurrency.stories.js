@@ -1,5 +1,5 @@
 import ChangeCurrency from './ChangeCurrency';
-import variables from '../../constants/variables';
+import variables from '../../assets/sass/_export.scss';
 
 export default {
   title: 'Components/ChangeCurrency',
@@ -7,7 +7,9 @@ export default {
 };
 
 const Template = args => (
-  <div style={{ background: variables.themeColorsDark.primary, width: '100%', padding: '15px' }}>
+  <div
+    style={{ background: variables['theme-colors-dark-primary'], width: '100%', padding: '15px' }}
+  >
     <ChangeCurrency {...args} />
   </div>
 );

@@ -19,11 +19,11 @@ $input-background-color: #f5f5f5 !default;
 
 .form-control {
   border-color: $input-border-color;
-  @include box-shadow($input-box-shadow);
+  @include box-shadow(map-get($input, box-shadow));
 
   &:focus {
     border-color: darken($input-border-color, 10%);
-    @include box-shadow($input-box-shadow-hover);
+    @include box-shadow(map-get($input, box-shadow-hover));
   }
 }
 

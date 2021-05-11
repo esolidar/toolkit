@@ -13,7 +13,7 @@
 
   .contribute-row-text {
     color: map-get($main-text-colors, dark);
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 13px;
     line-height: 22px;
     display: block;
@@ -31,7 +31,7 @@
 
   .contribute-row-date {
     color: map-get($main-text-colors, dark);
-    font-family: map-get($fonts, family);
+    font-family: map-get($fonts, main);
     font-size: 12px;
     font-weight: 500;
     line-height: 24px;

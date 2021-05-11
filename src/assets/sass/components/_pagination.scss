@@ -9,7 +9,7 @@
   background-color: transparent !important;
   border: none !important;
   margin-left: -1px;
-  font-family: map-get($fonts, family);
+  font-family: map-get($fonts, main);
 
   &:hover {
     color: map-get($colors, light-blue) !important;
@@ -30,7 +30,7 @@
   color: map-get($colors, light-blue) !important;
   border-bottom: 2px solid map-get($colors, light-blue) !important;
   cursor: default;
-  font-family: map-get($fonts, family);
+  font-family: map-get($fonts, main);
 }
 
 .go-first {

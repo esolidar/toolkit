@@ -60,26 +60,16 @@ const variables = {
   },
 
   grays: {
-    900: '#212121',
-    800: '#424242',
-    700: '#444444',
-    600: '#757575',
-    500: '#a2adba',
-    400: '#d0d6dd',
-    300: '#e7ebed',
-    200: '#e7eaed',
-    100: '#f6f9f9',
     50: '#fbfcfc',
-  },
-
-  input: {
-    labelColor: this.mainTextColorDark,
-    textColor: this.mainTextColorDark,
-    borderColor: this.grays[400],
-    backgroundColor: this.white,
-    boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
-    boxShadowHover:
-      'inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px lighten(map-get($input, border-color), 20%)',
+    100: '#f6f9f9',
+    200: '#e7eaed',
+    300: '#e7ebed',
+    400: '#d0d6dd',
+    500: '#a2adba',
+    600: '#757575',
+    700: '#444444',
+    800: '#424242',
+    900: '#212121',
   },
 
   statusColors: {
@@ -90,8 +80,18 @@ const variables = {
     declined: this.mainTextColorLight,
   },
 
+  input: {
+    labelColor: this.mainTextColorDark,
+    textColor: this.mainTextColorDark,
+    borderColor: this.grays[400],
+    backgroundColor: this.white,
+    boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+    boxShadowHover:
+      'inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px lighten(map-get($grays, 400), 20%)',
+  },
+
   fonts: {
-    family: 'AvenirLT-Roman',
+    main: 'AvenirLT-Roman',
     light: 'AvenirLTStd-Light',
     heavy: 'AvenirLTStd-Heavy',
     notification: 'Notification',

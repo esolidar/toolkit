@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620663624858" clover="3.2.0">
-  <project timestamp="1620663624858" name="All files">
-    <metrics statements="2599" coveredstatements="1460" conditionals="2337" coveredconditionals="1197" methods="648" coveredmethods="315" elements="5584" coveredelements="2972" complexity="0" loc="2599" ncloc="2599" packages="90" files="214" classes="214"/>
+<coverage generated="1620731720569" clover="3.2.0">
+  <project timestamp="1620731720569" name="All files">
+    <metrics statements="2598" coveredstatements="1459" conditionals="2337" coveredconditionals="1197" methods="648" coveredmethods="315" elements="5583" coveredelements="2971" complexity="0" loc="2598" ncloc="2598" packages="90" files="213" classes="213"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="84" conditionals="285" coveredconditionals="88" methods="70" coveredmethods="16"/>
       <file name="AuctionAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/AuctionAddForm.jsx">
@@ -2918,7 +2918,7 @@
       </file>
     </package>
     <package name="constants">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="env.js" path="/Users/pedroguia/Projects/toolkit/src/constants/env.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="18" type="stmt"/>
@@ -2928,10 +2928,6 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-      </file>
-      <file name="variables.js" path="/Users/pedroguia/Projects/toolkit/src/constants/variables.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
       </file>
     </package>
     <package name="elements.button">
@@ -3317,11 +3313,11 @@
         <line num="25" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="67" count="16" type="stmt"/>
         <line num="87" count="16" type="stmt"/>

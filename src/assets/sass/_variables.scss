@@ -1,54 +1,51 @@
-$variables: ffi-require('../../constants/variables');
+/* Urls */
+$cdn-static-url: 'https://static.esolidar.com';
 
 /* Colors */
 
 //Text Colors
-$main-text-colors: map-get($variables, 'mainTextColors');
+$main-text-colors: (
+  light: #738598,
+  dark: #455c75,
+);
 
-// $main-text-colors: (
-//   light: #738598,
-//   dark: #455c75,
-// );
-
-$main-text-colors: map-get($variables, 'colors');
-// $colors: (
-//   red: #ff494c,
-//   pink: #ff85af,
-//   purple: #d559ea,
-//   deep-purple: #673ab7,
-//   indigo: #3f51b5,
-//   blue-gray: #5c7d9c,
-//   blue: #0094d4,
-//   light-blue: #05c6e5,
-//   cyan: #00bcd4,
-//   teal: #39bbb0,
-//   green: #34c77f,
-//   light-green: #8bc34a,
-//   lime: #cddc39,
-//   yellow: #ffd500,
-//   sunglow: #ffca3a,
-//   amber: #ffbe00,
-//   orange: #ffa500,
-//   deep-orange: #ff8100,
-//   danger: #fd4b51,
-//   brown: #795548,
-//   gray: #9e9e9e,
-//   black: #000000,
-//   white: #ffffff,
-//   white-smoke: #f2f2f2,
-// );
+$colors: (
+  red: #ff494c,
+  pink: #ff85af,
+  purple: #d559ea,
+  deep-purple: #673ab7,
+  indigo: #3f51b5,
+  blue-gray: #5c7d9c,
+  blue: #0094d4,
+  light-blue: #05c6e5,
+  cyan: #00bcd4,
+  teal: #39bbb0,
+  green: #34c77f,
+  light-green: #8bc34a,
+  lime: #cddc39,
+  yellow: #ffd500,
+  sunglow: #ffca3a,
+  amber: #ffbe00,
+  orange: #ffa500,
+  deep-orange: #ff8100,
+  danger: #fd4b51,
+  brown: #795548,
+  gray: #9e9e9e,
+  black: #000000,
+  white: #ffffff,
+  white-smoke: #f2f2f2,
+);
 
 // Theme Colors
-$main-text-colors: map-get($variables, 'themeColors');
-// $theme-colors: (
-//   primary: #04c7e5,
-//   secondary: map-get($colors, blue),
-//   success: map-get($colors, green),
-//   info: map-get($colors, light-blue),
-//   warning: map-get($colors, amber),
-//   danger: map-get($colors, red),
-//   dark: map-get($main-text-colors, dark),
-// );
+$theme-colors: (
+  primary: #04c7e5,
+  secondary: map-get($colors, blue),
+  success: map-get($colors, green),
+  info: map-get($colors, light-blue),
+  warning: map-get($colors, amber),
+  danger: map-get($colors, red),
+  dark: map-get($main-text-colors, dark),
+);
 
 // Theme Colors Light
 $theme-colors-light: (
@@ -74,27 +71,16 @@ $theme-colors-dark: (
 
 // Grays
 $grays: (
-  900: #212121,
-  800: #424242,
-  700: #444444,
-  600: #757575,
-  500: #a2adba,
-  400: #d0d6dd,
-  300: #e7ebed,
-  200: #e7eaed,
-  100: #f6f9f9,
   50: #fbfcfc,
-);
-
-/* Input */
-$input: (
-  label-color: map-get($main-text-colors, dark),
-  text-color: map-get($main-text-colors, dark),
-  border-color: map-get($grays, 400),
-  background-color: map-get($colors, white),
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-  box-shadow-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px
-    lighten(map-get($input, border-color), 20%),
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
 );
 
 // Status Colors
@@ -106,9 +92,19 @@ $status-colors: (
   declined: map-get($main-text-colors, light),
 );
 
+/* Input */
+$input: (
+  label-color: map-get($main-text-colors, dark),
+  text-color: map-get($main-text-colors, dark),
+  border-color: map-get($grays, 400),
+  background-color: map-get($colors, white),
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px lighten(map-get($grays, 400), 20%),
+);
+
 /* Font Face */
 $fonts: (
-  family: 'AvenirLT-Roman',
+  main: 'AvenirLT-Roman',
   light: 'AvenirLTStd-Light',
   heavy: 'AvenirLTStd-Heavy',
   notification: 'Notification',
@@ -124,9 +120,6 @@ $breakpoints: (
   xxl: 1400px,
 );
 
-/* Urls */
-$cdn-static-url: 'https://static.esolidar.com';
-
 /* Footer */
 $footer-link-color: map-get($theme-colors-light, primary);
 $facebook-color: #39579b;
@@ -137,3 +130,129 @@ $ended-color: map-get($colors, red);
 $running-color: #31bd79;
 $soon-color: map-get($colors, light-blue);
 $pending-color: map-get($colors, orange);
+
+/* Light Pallete */
+
+$base: (
+  black: #1a1b1c,
+  white: #ffffff,
+);
+
+$background: (
+  primary: #ffffff,
+  secondary: #f5f5f6,
+);
+
+$neutrals: (
+  100: #eaebec,
+  400: #abb1b3,
+  700: #6c7679,
+  900: #424f53,
+);
+
+$turquoise: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$blue: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$watermelon: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$golden-tainoi: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$negative: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$positive: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$warning: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$elevation: (
+  0: #eaebec,
+  100: #eaebec,
+  200: #eaebec,
+  300: #eaebec,
+  400: #eaebec,
+  500: #eaebec,
+);

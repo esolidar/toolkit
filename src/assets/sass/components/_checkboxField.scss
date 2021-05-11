@@ -40,7 +40,7 @@
 
     span {
       position: relative;
-      font-family: map-get($fonts, family);
+      font-family: map-get($fonts, main);
       font-size: 15px;
       color: map-get($input, label-color);
       letter-spacing: 0;
