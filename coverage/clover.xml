@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620753342495" clover="3.2.0">
-  <project timestamp="1620753342495" name="All files">
-    <metrics statements="2599" coveredstatements="1501" conditionals="2335" coveredconditionals="1250" methods="649" coveredmethods="316" elements="5583" coveredelements="3067" complexity="0" loc="2599" ncloc="2599" packages="90" files="214" classes="214"/>
+<coverage generated="1620753477865" clover="3.2.0">
+  <project timestamp="1620753477865" name="All files">
+    <metrics statements="2599" coveredstatements="1495" conditionals="2335" coveredconditionals="1247" methods="649" coveredmethods="315" elements="5583" coveredelements="3057" complexity="0" loc="2599" ncloc="2599" packages="90" files="214" classes="214"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/AuctionAddForm.jsx">
@@ -3309,19 +3309,19 @@
       </file>
     </package>
     <package name="elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="7" count="17" type="stmt"/>
         <line num="26" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="27" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="28" count="7" type="stmt"/>
-        <line num="29" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
         <line num="41" count="14" type="stmt"/>
         <line num="70" count="17" type="stmt"/>
         <line num="90" count="17" type="stmt"/>
@@ -3456,7 +3456,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="54" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="53" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
