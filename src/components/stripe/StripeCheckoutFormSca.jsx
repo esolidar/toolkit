@@ -11,7 +11,7 @@ import {
 } from 'react-stripe-elements';
 import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
-import variables from '../../assets/sass/_export.scss';
+import variables from '../../assets/sass/_export.module.scss';
 
 const createOptions = () => ({
   style: {

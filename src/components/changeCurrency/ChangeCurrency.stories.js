@@ -1,5 +1,5 @@
 import ChangeCurrency from './ChangeCurrency';
-import variables from '../../assets/sass/_export.scss';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/ChangeCurrency',
