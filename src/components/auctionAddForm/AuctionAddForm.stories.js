@@ -25,6 +25,9 @@ Default.args = {
     data: {
       institutions: {
         data: [institution],
+        current_page: 1,
+        per_page: 1,
+        total: 1,
       },
     },
   },
@@ -43,9 +46,9 @@ Default.args = {
   getProjectsList: () => {},
   getBrandsList: () => {},
   postUploadImage: () => {},
-  addImages: () => {},
+  addImages: {},
   postAuction: () => {},
-  addAuction: () => {},
+  addAuction: {},
   postAuctionDeleteImage: () => {},
   brands: {},
   returnUrl: '/',
