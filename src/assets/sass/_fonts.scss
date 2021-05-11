@@ -4,6 +4,7 @@ $have-heart-one-font-path: $path + 'haveHeartOne/';
 $icomoon-font-path: $path + 'icomoon/';
 $notification-font-path: $path + 'notification/';
 $slick-font-path: $path + 'slick/';
+$athletics-regular-font-path: $path + 'athletics-regular/';
 
 @font-face {
   font-family: map-get($fonts, heavy);
@@ -78,4 +79,17 @@ $slick-font-path: $path + 'slick/';
     url($slick-font-path + 'slick.woff') format('woff'),
     url($slick-font-path + 'slick.ttf') format('truetype'),
     url($slick-font-path + 'slick.svg#slick') format('svg');
+}
+
+@font-face {
+  font-family: 'AthleticsRegular';
+  src: url($athletics-regular-font-path + 'Athletics-Regular.eot');
+  src: url($athletics-regular-font-path + 'Athletics-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url($athletics-regular-font-path + 'Athletics-Regular.woff') format('woff'),
+    url($athletics-regular-font-path + 'Athletics-Regular.ttf') format('truetype'),
+    url($athletics-regular-font-path + 'Athletics-Regular.svg#Athletics-Regular') format('svg');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
 }
