@@ -69,8 +69,7 @@ Default.args = {
       },
       {
         name: 'Qual o problema social/ambiental que pretende a resolver?',
-        help:
-          'Justifique porque o problema que está a resolver é…cia deste problema gera consequências negativas).',
+        help: 'Justifique porque o problema que está a resolver é…cia deste problema gera consequências negativas).',
         type: 'textarea',
         required: true,
         reply:
@@ -78,8 +77,7 @@ Default.args = {
       },
       {
         name: 'A solução é Inovadora? Justifique.',
-        help:
-          'A solução do seu projeto é inovadora se resolver o… que não está a ser resolvido por nenhuma solução',
+        help: 'A solução do seu projeto é inovadora se resolver o… que não está a ser resolvido por nenhuma solução',
         type: 'textarea',
         required: true,
         reply:
@@ -87,8 +85,7 @@ Default.args = {
       },
       {
         name: 'A sua solução é escalável e replicável?',
-        help:
-          'A sua solução é replicável se conseguir aplicá-la …e energia eléctrica para os agregados familiares.',
+        help: 'A sua solução é replicável se conseguir aplicá-la …e energia eléctrica para os agregados familiares.',
         type: 'textarea',
         required: true,
         reply:
@@ -96,8 +93,7 @@ Default.args = {
       },
       {
         name: 'A sua solução gera impacto?',
-        help:
-          'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+        help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
         type: 'textarea',
         required: true,
         reply:
@@ -105,8 +101,7 @@ Default.args = {
       },
       {
         name: 'A sua solução é sustentável? Tem um modelo de negócios?',
-        help:
-          'Descreva a forma como o seu projeto permite angari…ga pela solução? Para quem é que esta gera valor?',
+        help: 'Descreva a forma como o seu projeto permite angari…ga pela solução? Para quem é que esta gera valor?',
         type: 'textarea',
         required: true,
         reply:

@@ -36,8 +36,7 @@ Default.args = {
   uploadedFiles: [
     {
       created_at: '2020-06-01 10:44:34',
-      file:
-        'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
+      file: 'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
       file_size: 282141,
       file_type: 'jpg',
       id: 21,
@@ -48,8 +47,7 @@ Default.args = {
     },
     {
       created_at: '2020-06-01 10:44:34',
-      file:
-        'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
+      file: 'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
       file_size: 282141,
       file_type: 'jpg',
       id: 21,
@@ -63,8 +61,7 @@ Default.args = {
     {
       checked: true,
       created_at: '2020-06-01 10:44:34',
-      file:
-        'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
+      file: 'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
       file_size: 282141,
       file_type: 'jpg',
       id: 21,
@@ -75,8 +72,7 @@ Default.args = {
     },
     {
       created_at: '2020-06-01 10:44:34',
-      file:
-        'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.pdf',
+      file: 'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.pdf',
       file_size: 282141,
       file_type: 'pdf',
       id: 21,
@@ -87,8 +83,7 @@ Default.args = {
     },
     {
       created_at: '2020-06-01 10:44:34',
-      file:
-        'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
+      file: 'https://image.testesolidar.com/whitelabel/5/projects/2155e7f1-91d0-443f-808a-691a50abeb3c.jpg?width=300',
       file_size: 282141,
       file_type: 'jpg',
       id: 21,

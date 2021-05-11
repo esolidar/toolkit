@@ -115,8 +115,7 @@ const propsCampaign = {
           'Duis quis nibh ipsum. Etiam vestibulum mauris quis iaculis tincidunt. Proin cursus, sapien eu pellentesque lacinia, diam nulla imperdiet ligula, sed convallis nisi erat quis lectus.1237',
         id: 1,
         lastUpdate: '2020-11-06 15:25:12',
-        logo:
-          'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e.png',
+        logo: 'https://s3.eu-west-1.amazonaws.com/esolidar-proto-uploads/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e.png',
         logo_thumbs: {
           detail:
             'https://cdn.testesolidar.com/brands/91d24167-d115-48c8-99b2-0a2dc8b6fc0e-DETAIL.png',
