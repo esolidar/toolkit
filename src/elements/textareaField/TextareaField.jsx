@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
 import InputLabel from '../inputLabel';
+import { isDefined } from '../../utils';
 
 const TextareaField = ({
   field,
@@ -26,8 +27,10 @@ const TextareaField = ({
     if (typeof window !== 'undefined') {
       setTimeout(() => {
         const item = document.getElementById(id || field);
-        autosize(item);
 
+        if (!isDefined(item)) return;
+
+        autosize(item);
         const evt = document.createEvent('Event');
         evt.initEvent('autosize:update', true, false);
         item.dispatchEvent(evt);
