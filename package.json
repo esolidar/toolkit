@@ -200,7 +200,7 @@
     "storybook-dark-mode": "^1.0.7",
     "style-loader": "^1.1.2",
     "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.37.0",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "xlsx": "^0.16.9"
   },
