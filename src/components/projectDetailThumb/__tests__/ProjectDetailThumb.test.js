@@ -163,16 +163,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -272,16 +270,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -392,16 +388,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -512,16 +506,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -630,16 +622,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -749,16 +739,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:
@@ -871,16 +859,14 @@ describe('ProjectDetailThumb component', () => {
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply: '',
         },
         {
           name: 'A sua solução gera impacto?',
-          help:
-            'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+          help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
           required: true,
           reply:

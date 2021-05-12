@@ -1,0 +1,22 @@
+.supported-section {
+  border: 1px solid map-get($grays, 200);
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: flex;
+
+  .link {
+    text-decoration: none;
+    color: map-get($status-colors, declined);
+  }
+
+  .npo-thumb {
+    background: map-get($grays, 100);
+    border: 1px solid map-get($grays, 200);
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    float: left;
+    margin-right: 20px;
+  }
+}

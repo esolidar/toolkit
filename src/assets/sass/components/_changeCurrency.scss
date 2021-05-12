@@ -1,0 +1,32 @@
+.changeCurrency {
+  display: inline-block;
+
+  button {
+    color: map-get($theme-colors-light, primary);
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-radius: 0px;
+
+    &.btn-footer {
+      color: map-get($theme-colors-light, primary);
+      background-color: transparent;
+      border-color: transparent;
+    }
+
+    &.btn.focus,
+    &.btn:focus {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: map-get($theme-colors-dark, primary);
+  }
+
+  .dropdown-menu.show {
+    max-height: 300px;
+    overflow-x: auto;
+  }
+}

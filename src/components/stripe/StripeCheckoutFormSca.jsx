@@ -11,12 +11,13 @@ import {
 } from 'react-stripe-elements';
 import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
+import variables from '../../assets/sass/_export.module.scss';
 
 const createOptions = () => ({
   style: {
     base: {
       fontSize: '16px',
-      color: '#455c75',
+      color: variables['main-text-colors-dark'],
       letterSpacing: '0.025em',
       padding: '0 10px',
       '::placeholder': {

@@ -1,0 +1,37 @@
+.box {
+  background-color: map-get($colors, white);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid map-get($grays, 200);
+  border-radius: 4px;
+  padding: 30px;
+  margin-bottom: 15px;
+
+  &.box-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+  }
+
+  & .text {
+    color: map-get($main-text-colors, dark);
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 26px;
+    padding: 0;
+    margin: 0;
+  }
+
+  & .button {
+    margin-left: 8px;
+
+    @media (max-width: 1024px) {
+      margin-top: 15px;
+      margin-left: unset;
+    }
+  }
+}

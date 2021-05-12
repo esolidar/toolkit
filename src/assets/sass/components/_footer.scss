@@ -1,0 +1,170 @@
+.landing-footer {
+  background: map-get($theme-colors-dark, primary);
+  padding: 30px 50px;
+  font-family: map-get($fonts, main);
+  font-size: 15px;
+  color: map-get($theme-colors, primary);
+  letter-spacing: 0;
+
+  @media only screen and (max-width: map-get($breakpoints, md)) {
+    position: relative;
+    margin-top: 0px;
+    padding: 30px 20px;
+
+    .text-right {
+      text-align: center !important;
+    }
+  }
+
+  .container {
+    @media (min-width: map-get($breakpoints, xl)) {
+      max-width: 100%;
+    }
+
+    ul {
+      padding-inline-start: 0px;
+
+      li {
+        list-style: none;
+
+        &:first-child {
+          @media only screen and (max-width: map-get($breakpoints, md)) {
+            padding-bottom: 0px;
+          }
+        }
+
+        a,
+        span {
+          font-family: map-get($fonts, main);
+          font-size: 15px;
+          color: map-get($theme-colors-light, primary);
+          letter-spacing: 0;
+          padding: 0 20px;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: map-get($colors, white);
+          }
+
+          @media only screen and (max-width: map-get($breakpoints, md)) {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: inline-block;
+          }
+        }
+
+        ul {
+          padding-inline-start: 65px;
+
+          li {
+            list-style: circle;
+
+            a {
+              padding: 0;
+
+              @media only screen and (max-width: map-get($breakpoints, md)) {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                display: inline-block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #newsletterID {
+      h5 {
+        font-family: map-get($fonts, main);
+        font-size: 21px;
+        letter-spacing: -0.5px;
+        line-height: 33px;
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .pipz-input {
+        background-color: transparent;
+        border-color: map-get($input, label-color) !important;
+        border-radius: 2px !important;
+        border-width: 1px !important;
+      }
+
+      .pipz-input::placeholder {
+        color: map-get($theme-colors-light, primary);
+      }
+
+      .pipz-button {
+        width: 65% !important;
+        color: map-get($theme-colors-dark, primary) !important;
+      }
+
+      .pipz-icon {
+        display: none;
+      }
+    }
+
+    h5 {
+      @media (max-width: map-get($breakpoints, lg)) {
+        margin-top: 25px;
+      }
+    }
+
+    .socialNetworks {
+      text-align: right;
+      display: inline-block;
+    }
+
+    .bottom-footer {
+      padding: 0;
+      margin-top: 50px;
+
+      @media only screen and (max-width: map-get($breakpoints, md)) {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      ul {
+        text-align: center;
+
+        li {
+          display: inline;
+
+          @media only screen and (max-width: map-get($breakpoints, md)) {
+            display: block;
+          }
+
+          @media (max-width: map-get($breakpoints, xs)) {
+            padding: 15px 0;
+            text-align: center;
+          }
+        }
+      }
+
+      .changeCurrency button.btn-footer {
+        border-left: 1px solid;
+        margin-left: 5px;
+        line-height: 15px;
+      }
+
+      .order-2 {
+        @media only screen and (max-width: map-get($breakpoints, md)) {
+          margin-top: 25px;
+        }
+      }
+
+      .address {
+        font-size: 11px;
+      }
+    }
+  }
+
+  .no-padding-mobile {
+    @media only screen and (max-width: map-get($breakpoints, md)) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

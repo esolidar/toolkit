@@ -1,0 +1,30 @@
+.not-found-page {
+  .error-404 {
+    font-size: 120px;
+    margin-top: 100px;
+    font-family: map-get($fonts, main);
+    font-weight: bold;
+    line-height: 90px;
+  }
+
+  .div-message {
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .message-404 {
+    border-bottom: 1px solid #d1d1d1;
+    padding: 5px 50px;
+    display: inline-block;
+  }
+
+  .div-link-homepage {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .link-homepage {
+    text-decoration: underline;
+  }
+}

@@ -81,7 +81,8 @@ class SliderImagesLightbox extends Component {
     return images.map((image, indx) => {
       if (image.video) {
         const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
-        const youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
+        const youtube =
+          /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
 
         if (vimeo.test(image.video)) {
           const url = image.video;

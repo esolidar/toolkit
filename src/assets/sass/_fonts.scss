@@ -1,11 +1,95 @@
+$path: $cdn-static-url + '/frontend/fonts/';
+$avenir-font-path: $path + 'avenir/';
+$have-heart-one-font-path: $path + 'haveHeartOne/';
+$icomoon-font-path: $path + 'icomoon/';
+$notification-font-path: $path + 'notification/';
+$slick-font-path: $path + 'slick/';
+$athletics-regular-font-path: $path + 'athletics-regular/';
+
+@font-face {
+  font-family: map-get($fonts, heavy);
+  src: url($avenir-font-path + '30CDB5_0_0.eot');
+  src: url($avenir-font-path + '30CDB5_0_0.eot?#iefix') format('embedded-opentype'),
+    url($avenir-font-path + '30CDB5_0_0.woff2') format('woff2'),
+    url($avenir-font-path + '30CDB5_0_0.woff') format('woff'),
+    url($avenir-font-path + '30CDB5_0_0.ttf') format('truetype'),
+    url($avenir-font-path + '30CDB5_0_0.svg#wf') format('svg');
+}
+
+@font-face {
+  font-family: map-get($fonts, light);
+  src: url($avenir-font-path + '30CDB5_1_0.eot');
+  src: url($avenir-font-path + '30CDB5_1_0.eot?#iefix') format('embedded-opentype'),
+    url($avenir-font-path + '30CDB5_1_0.woff2') format('woff2'),
+    url($avenir-font-path + '30CDB5_1_0.woff') format('woff'),
+    url($avenir-font-path + '30CDB5_1_0.ttf') format('truetype'),
+    url($avenir-font-path + '30CDB5_1_0.svg#wf') format('svg');
+}
+
+@font-face {
+  font-family: map-get($fonts, main);
+  src: url($avenir-font-path + '30CDBF_0_0.eot');
+  src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
+    url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),
+    url($avenir-font-path + '30CDBF_0_0.woff') format('woff'),
+    url($avenir-font-path + '30CDBF_0_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HaveHeartOne';
+  src: url($have-heart-one-font-path + 'have-heart-one.eot');
+  src: url($have-heart-one-font-path + 'have-heart-one.eot?#iefix') format('embedded-opentype'),
+    url($have-heart-one-font-path + 'have-heart-one.woff2') format('woff2'),
+    url($have-heart-one-font-path + 'have-heart-one.woff') format('woff'),
+    url($have-heart-one-font-path + 'have-heart-one.ttf') format('truetype'),
+    url($have-heart-one-font-path + 'have-heart-one.svg#youworkforthem') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: map-get($fonts, notification);
+  src: url($notification-font-path + 'notification.eot?s3g3t9');
+  src: url($notification-font-path + 'notification.eot?#iefixs3g3t9') format('embedded-opentype'),
+    url($notification-font-path + 'notification.woff?s3g3t9') format('woff'),
+    url($notification-font-path + 'notification.ttf?s3g3t9') format('truetype'),
+    url($notification-font-path + 'notification.svg?s3g3t9#notification') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'icomoon';
-  src        : url('#{$cdn_static_url}/frontend/fonts/icomoon.eot');
-  src        : url('#{$cdn_static_url}/frontend/fonts/icomoon.eot') format('embedded-opentype'),
-  url('#{$cdn_static_url}/frontend/fonts/icomoon.ttf') format('truetype'),
-  url('#{$cdn_static_url}/frontend/fonts/icomoon.woff') format('woff'),
-  url('#{$cdn_static_url}/frontend/fonts/icomoon.svg') format('svg');
-  font-weight : normal;
-  font-style  : normal;
+  src: url($icomoon-font-path + 'icomoon.eot');
+  src: url($icomoon-font-path + 'icomoon.eot') format('embedded-opentype'),
+    url($icomoon-font-path + 'icomoon.ttf') format('truetype'),
+    url($icomoon-font-path + 'icomoon.woff') format('woff'),
+    url($icomoon-font-path + 'icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
   font-display: block;
+}
+
+@font-face {
+  font-family: 'slick';
+  font-weight: normal;
+  font-style: normal;
+  src: url($slick-font-path + 'slick.eot');
+  src: url($slick-font-path + 'slick.eot?#iefix') format('embedded-opentype'),
+    url($slick-font-path + 'slick.woff') format('woff'),
+    url($slick-font-path + 'slick.ttf') format('truetype'),
+    url($slick-font-path + 'slick.svg#slick') format('svg');
+}
+
+@font-face {
+  font-family: 'AthleticsRegular';
+  src: url($athletics-regular-font-path + 'Athletics-Regular.eot');
+  src: url($athletics-regular-font-path + 'Athletics-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url($athletics-regular-font-path + 'Athletics-Regular.woff') format('woff'),
+    url($athletics-regular-font-path + 'Athletics-Regular.ttf') format('truetype'),
+    url($athletics-regular-font-path + 'Athletics-Regular.svg#Athletics-Regular') format('svg');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
 }

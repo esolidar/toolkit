@@ -1,67 +1,258 @@
-/*
-  Font Face
-*/
-$fontFamily        : 'AvenirLT-Roman' !default;
-$fontLight         : 'AvenirLTStd-Light' !default;
-$fontHeavy         : 'AvenirLTStd-Heavy' !default;
-$mainTextColorLight: #738598 !default;
-$mainTextColorDark : #455C75 !default;
+/* Urls */
+$cdn-static-url: 'https://static.esolidar.com';
 
+/* Colors */
 
-/* Blue */
-$mainColor     : #04C7E5 !default;
-$mainColorLight: #b3EEF7 !default;
-$mainColorDark : #163352 !default;
+//Text Colors
+$main-text-colors: (
+  light: #738598,
+  dark: #455c75,
+);
 
+$colors: (
+  red: #ff494c,
+  pink: #ff85af,
+  purple: #d559ea,
+  deep-purple: #673ab7,
+  indigo: #3f51b5,
+  blue-gray: #5c7d9c,
+  blue: #0094d4,
+  light-blue: #05c6e5,
+  cyan: #00bcd4,
+  teal: #39bbb0,
+  green: #34c77f,
+  light-green: #8bc34a,
+  lime: #cddc39,
+  yellow: #ffd500,
+  sunglow: #ffca3a,
+  amber: #ffbe00,
+  orange: #ffa500,
+  deep-orange: #ff8100,
+  danger: #fd4b51,
+  brown: #795548,
+  gray: #9e9e9e,
+  black: #000000,
+  white: #ffffff,
+  white-smoke: #f2f2f2,
+);
 
-/* Grays */
-$grayDark            : #738598 !default;
-$graySemiDark        : #A2ADBA !default;
-$grayLight           : #D0D6DD !default;
-$grayExtraLight      : #E7EBED !default;
-$grayWhite           : #F6F9F9 !default;
-$grayWhiteLight      : #FBFCFC !default;
-$grayWhiteUltraLight : #E7EAED !default;
+// Theme Colors
+$theme-colors: (
+  primary: #04c7e5,
+  secondary: map-get($colors, blue),
+  success: map-get($colors, green),
+  info: map-get($colors, light-blue),
+  warning: map-get($colors, amber),
+  danger: map-get($colors, red),
+  dark: map-get($main-text-colors, dark),
+);
 
-/* Warnings */
-$infoColor   : #05c6e5 !default;
-$successColor: #34C77F !default;
-$warningColor: #FFBE00 !default;
-$dangerColor : #dc3545 !default;
+// Theme Colors Light
+$theme-colors-light: (
+  primary: #b3eef7,
+  secondary: lighten(map-get($theme-colors, secondary), 25%),
+  success: lighten(map-get($theme-colors, success), 25%),
+  info: lighten(map-get($theme-colors, info), 25%),
+  warning: lighten(map-get($theme-colors, warning), 25%),
+  danger: lighten(map-get($theme-colors, danger), 25%),
+  dark: lighten(map-get($theme-colors, dark), 25%),
+);
 
-/* Status Colors*/
-$statusActiveColor  : #34C77F !default;
-$statusPendingColor : #FFBE00 !default;
-$statusEndedColor   : $mainColor !default;
-$statusRevieredColor: #fd4b51 !default;
-$statusDeletedColor : #fd4b51 !default;
-$statusDeclinedColor: #738598 !default;
+// Theme Colors Dark
+$theme-colors-dark: (
+  primary: #163352,
+  secondary: darken(map-get($theme-colors, secondary), 18%),
+  success: darken(map-get($theme-colors, success), 18%),
+  info: darken(map-get($theme-colors, info), 18%),
+  warning: darken(map-get($theme-colors, warning), 18%),
+  danger: darken(map-get($theme-colors, danger), 18%),
+  dark: darken(map-get($theme-colors, dark), 18%),
+);
 
-/* Forms */
-$inputLabelColor     : #455C75 !default;
-$borderColor         : #D0D6DD !default;
-$inputTextColor      : #455C75 !default;
-$inputBackgroundColor: #fff !default;
-$boxShadow           : inset 0 1px 1px rgba(0, 0, 0, .075) !default;
-$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075) 0 0 6px lighten($borderColor, 20%) !default;
+// Grays
+$grays: (
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
 
-/* Btn Colors */
-$btnDark   : #455C75 !default;
-$btnInfo   : #05c6e5 !default;
-$btnSuccess: #34C77F !default;
-$btnWarning: #FFBE00 !default;
-$btnDanger : #dc3545 !default;
-$btnDangerColor: #ff494c !default;
+// Status Colors
+$status-colors: (
+  active: map-get($colors, green),
+  pending: map-get($colors, amber),
+  ended: map-get($theme-colors, primary),
+  deleted: map-get($colors, danger),
+  declined: map-get($main-text-colors, light),
+);
 
-$inReview : #ff8100 !default;
+/* Input */
+$input: (
+  label-color: map-get($main-text-colors, dark),
+  text-color: map-get($main-text-colors, dark),
+  border-color: map-get($grays, 400),
+  background-color: map-get($colors, white),
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px lighten(map-get($grays, 400), 20%),
+);
 
-$endedColor  : #dc3545;
-$runningColor: #31BD79;
-$soonColor   : #04b1cd;
-$pendingColor: orange;
-$green       : #006400;
+/* Font Face */
+$fonts: (
+  main: 'AvenirLT-Roman',
+  light: 'AvenirLTStd-Light',
+  heavy: 'AvenirLTStd-Heavy',
+  notification: 'Notification',
+);
 
-// Dimensions
-$mobileWidth: 425px;
+/* Dimensions */
+$breakpoints: (
+  xs: 425px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
 
-$cdn_static_url: 'https://static.esolidar.com';
+/* Footer */
+$footer-link-color: map-get($theme-colors-light, primary);
+$facebook-color: #39579b;
+$error-color: map-get($colors, red);
+$table-header-text-color: map-get($colors, white);
+
+$ended-color: map-get($colors, red);
+$running-color: #31bd79;
+$soon-color: map-get($colors, light-blue);
+$pending-color: map-get($colors, orange);
+
+/* Light Pallete */
+
+$base: (
+  black: #1a1b1c,
+  white: #ffffff,
+);
+
+$background: (
+  primary: #ffffff,
+  secondary: #f5f5f6,
+);
+
+$neutrals: (
+  100: #eaebec,
+  400: #abb1b3,
+  700: #6c7679,
+  900: #424f53,
+);
+
+$turquoise: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$blue: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$watermelon: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$golden-tainoi: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$negative: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$positive: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$warning: (
+  0: #fbfcfc,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$elevation: (
+  0: #eaebec,
+  100: #eaebec,
+  200: #eaebec,
+  300: #eaebec,
+  400: #eaebec,
+  500: #eaebec,
+);
