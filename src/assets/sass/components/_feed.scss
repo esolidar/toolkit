@@ -1288,7 +1288,6 @@
     h4 {
       font-family: map-get($fonts, light);
       font-size: 21px;
-      color: map-get($main-text-colors, light);
       letter-spacing: -0.5px;
       line-height: 29px;
       padding-bottom: 20px;
@@ -1376,7 +1375,6 @@
     max-width: 600px;
 
     .h4 {
-      color: map-get($theme-colors, primary);
       font-size: 20px;
     }
   }

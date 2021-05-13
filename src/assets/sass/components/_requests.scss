@@ -16,7 +16,6 @@
 
   h4 {
     margin: 25px 0;
-    color: map-get($theme-colors, primary);
     font-weight: bold;
     font-size: 12px;
     letter-spacing: 0;
@@ -145,11 +144,11 @@
 
   &.status-pending {
     padding: 0 !important;
-    border-top: 6px solid map-get($status-colors, pending);
+    border-top: 6px solid map-get($warning, 300);
 
     .header {
-      background-color: lighten(map-get($status-colors, pending), 40%);
-      color: map-get($status-colors, pending);
+      background-color: map-get($warning, 50);
+      color: map-get($base, black);
     }
   }
 
@@ -189,7 +188,6 @@
     max-width: 600px;
 
     .h4 {
-      color: map-get($theme-colors, primary);
       font-size: 20px;
     }
 

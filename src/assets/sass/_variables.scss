@@ -214,13 +214,13 @@ $theme-colors-dark: (
   info: map-get($colors, light-blue),
   warning: map-get($warning, 700),
   danger: map-get($negative, 700),
-  dark: map-get($neutrals, 900),
+  dark: map-get($neutrals, 700),
 );
 
 // Status Colors
 $status-colors: (
   active: map-get($colors, green),
-  pending: map-get($colors, amber),
+  pending: map-get($golden-tainoi, 700),
   ended: map-get($theme-colors, primary),
   deleted: map-get($colors, danger),
   declined: map-get($main-text-colors, light),
