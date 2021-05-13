@@ -59,7 +59,7 @@ Default.args = {
   },
   inputBidValue: 10,
   valueBidTextField: () => {},
-  primaryColor: variables['colors-light-blue'],
+  primaryColor: variables['theme-colors-primary'],
   inputRef: {},
   env: {
     cdn_uploads_url: '',

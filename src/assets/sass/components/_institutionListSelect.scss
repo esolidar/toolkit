@@ -10,7 +10,6 @@
   }
 
   .name {
-    font-family: map-get($fonts, main);
     font-size: 15px;
     color: map-get($input, label-color);
     letter-spacing: 0;
@@ -65,7 +64,7 @@
     margin-top: 3px;
     border-radius: 20px;
     padding: 5px 25px;
-    font-family: map-get($fonts, main);
+
     font-size: 12px;
 
     &:hover {

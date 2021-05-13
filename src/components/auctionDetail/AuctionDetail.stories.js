@@ -392,7 +392,7 @@ Default.args = {
   postUpdatedUser: {},
   updatedUser: () => {},
   showAlert: () => {},
-  primaryColor: variables['colors-light-blue'],
+  primaryColor: variables['theme-colors-primary'],
   domainUrl: 'https://esolidar.local:8081/',
   locale: 'en',
 };

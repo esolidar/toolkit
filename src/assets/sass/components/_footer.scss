@@ -1,9 +1,9 @@
 .landing-footer {
   background: map-get($theme-colors-dark, primary);
   padding: 30px 50px;
-  font-family: map-get($fonts, main);
+
   font-size: 15px;
-  color: map-get($theme-colors, primary);
+  color: map-get($main-text-colors, light);
   letter-spacing: 0;
 
   @media only screen and (max-width: map-get($breakpoints, md)) {
@@ -35,16 +35,15 @@
 
         a,
         span {
-          font-family: map-get($fonts, main);
           font-size: 15px;
-          color: map-get($theme-colors-light, primary);
+          color: map-get($main-text-colors, light);
           letter-spacing: 0;
           padding: 0 20px;
 
           &:hover,
           &:focus,
           &:active {
-            color: map-get($colors, white);
+            color: map-get($main-text-colors, light);
           }
 
           @media only screen and (max-width: map-get($breakpoints, md)) {
@@ -76,7 +75,6 @@
 
     #newsletterID {
       h5 {
-        font-family: map-get($fonts, main);
         font-size: 21px;
         letter-spacing: -0.5px;
         line-height: 33px;
@@ -93,7 +91,7 @@
       }
 
       .pipz-input::placeholder {
-        color: map-get($theme-colors-light, primary);
+        color: map-get($main-text-colors, light);
       }
 
       .pipz-button {

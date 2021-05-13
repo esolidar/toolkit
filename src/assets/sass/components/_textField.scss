@@ -14,7 +14,7 @@
     line-height: 24px;
 
     &:focus {
-      border: 2px solid map-get($main-text-colors, light);
+      border: 2px solid map-get($main-text-colors, dark);
       box-shadow: none;
     }
   }

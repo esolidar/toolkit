@@ -45,7 +45,6 @@
       font-family: map-get($fonts, heavy);
       font-size: 14px;
       line-height: 40px;
-      color: map-get($main-text-colors, dark);
       border-bottom: none;
       margin: 0;
       position: absolute;
@@ -68,7 +67,6 @@
 
   .survey-disabled {
     h3 {
-      color: map-get($main-text-colors, dark);
       margin: 30px;
     }
   }
@@ -89,7 +87,7 @@
     border-radius: 100px;
     padding-left: 30px;
     padding-right: 30px;
-    font-family: map-get($fonts, main);
+
     font-size: 17px;
     -webkit-transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);
     transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);

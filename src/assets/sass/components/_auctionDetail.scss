@@ -10,7 +10,6 @@
   h3 {
     font-family: map-get($fonts, light);
     font-size: 24px;
-    color: map-get($colors, light-blue);
     letter-spacing: -1px;
     line-height: 40px;
     margin: auto;
@@ -37,10 +36,6 @@
 
   .modal-content {
     height: initial !important;
-  }
-
-  h2 {
-    color: map-get($theme-colors, primary);
   }
 
   label {
@@ -115,7 +110,6 @@
   }
 
   .auction-supported {
-    font-family: map-get($fonts, main);
     font-size: 15px;
     color: map-get($grays, 500);
     letter-spacing: -0.31px;
@@ -130,7 +124,6 @@
     h1 {
       font-family: map-get($fonts, light);
       font-size: 27px;
-      color: map-get($theme-colors, primary);
       letter-spacing: 0;
       line-height: 40px;
       margin-bottom: 50px;
@@ -147,7 +140,6 @@
   h2 {
     font-family: map-get($fonts, light);
     font-size: 23px;
-    color: map-get($main-text-colors, light);
     letter-spacing: 0;
     line-height: 39px;
     margin: 0;
@@ -307,7 +299,6 @@
   }
 
   .auction-title {
-    font-family: map-get($fonts, main);
     font-size: 23px;
     color: map-get($main-text-colors, dark);
     letter-spacing: -1px;
@@ -346,7 +337,6 @@
   }
 
   .end-auction {
-    font-family: map-get($fonts, main);
     display: block;
     height: 96px;
     font-size: 15px;
@@ -379,7 +369,7 @@
 
   .description-text {
     opacity: 0.9;
-    font-family: map-get($fonts, main);
+
     font-size: 15px;
     color: map-get($main-text-colors, light);
     letter-spacing: 0;
@@ -430,7 +420,6 @@
       }
 
       .recipient-label {
-        font-family: map-get($fonts, main);
         font-size: 15px;
         color: map-get($main-text-colors, light);
         letter-spacing: 0;
@@ -438,7 +427,6 @@
       }
 
       .recipient-name {
-        font-family: map-get($fonts, main);
         font-size: 21px;
         color: map-get($theme-colors, primary);
         letter-spacing: -0.5px;
@@ -472,7 +460,7 @@
 
   .no-contributions {
     padding-top: 25px;
-    font-family: map-get($fonts, main);
+
     font-size: 14px;
     color: map-get($main-text-colors, light);
     letter-spacing: 0;
@@ -488,10 +476,6 @@
 
     @media (max-width: map-get($breakpoints, xs)) {
       padding: 15px 15px;
-    }
-
-    h3 {
-      color: map-get($main-text-colors, light);
     }
 
     .textarea {

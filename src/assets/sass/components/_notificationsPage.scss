@@ -55,7 +55,7 @@
 
     .notification-header-title {
       color: map-get($main-text-colors, dark);
-      font-family: map-get($fonts, main);
+
       font-size: 12px;
       font-weight: 900;
       line-height: 24px;
@@ -67,7 +67,7 @@
         border: none;
         background: transparent;
         color: map-get($theme-colors, primary);
-        font-family: map-get($fonts, main);
+
         font-size: 12px;
         font-weight: 500;
         line-height: 19px;
@@ -106,7 +106,7 @@
 
       .notification-row-text {
         color: map-get($main-text-colors, dark);
-        font-family: map-get($fonts, main);
+
         font-size: 13px;
         line-height: 22px;
         display: block;
@@ -119,7 +119,7 @@
 
       .notification-row-date {
         color: map-get($main-text-colors, dark);
-        font-family: map-get($fonts, main);
+
         padding-left: 50px;
         font-size: 12px;
         font-weight: 500;
@@ -151,7 +151,7 @@
     left: 23px;
     position: absolute;
     color: map-get($colors, white);
-    font-family: map-get($fonts, main);
+
     font-size: 10px;
     font-weight: 500;
     border-radius: 50%;

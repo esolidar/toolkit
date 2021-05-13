@@ -5,14 +5,13 @@
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: map-get($main-text-colors, dark) !important;
-  background-color: transparent !important;
-  border: none !important;
+  color: map-get($main-text-colors, dark);
+  background-color: transparent;
+  border: none;
   margin-left: -1px;
-  font-family: map-get($fonts, main);
 
   &:hover {
-    color: map-get($colors, light-blue) !important;
+    color: map-get($theme-colors, primary);
   }
 }
 
@@ -23,20 +22,18 @@
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   z-index: 3;
-  color: map-get($colors, white);
-  background-color: transparent !important;
-  border-color: transparent !important;
-  font-size: 15px !important;
-  color: map-get($colors, light-blue) !important;
-  border-bottom: 2px solid map-get($colors, light-blue) !important;
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 15px;
+  color: map-get($theme-colors, primary);
+  border-bottom: 2px solid map-get($theme-colors, primary);
   cursor: default;
-  font-family: map-get($fonts, main);
 }
 
 .go-first {
   &:hover {
     #pag-left-arrow {
-      stroke: map-get($colors, light-blue);
+      stroke: map-get($theme-colors, primary);
     }
   }
 }

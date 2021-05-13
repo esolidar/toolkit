@@ -143,14 +143,15 @@ const Comments = ({
             />
             <CommentContent comment={comment} />
             <div className="content-reply">
-              <button
-                type="button"
-                className="btn-add-comment-reply"
+              <Button
+                extraClass="link"
                 onClick={() => showTextAreaClick(comment)}
-              >
-                <img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />
-                <FormattedMessage id="crowdfunding.comments.reply" defaultMessage="Reply" />
-              </button>
+                icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
+                text={useIntl().formatMessage({
+                  id: 'crowdfunding.comments.reply',
+                  defaultMessage: 'Reply',
+                })}
+              />
               {showTextArea === comment.id && (
                 <form onSubmit={onSubmitResponse} method="post">
                   <div className="add-reply">

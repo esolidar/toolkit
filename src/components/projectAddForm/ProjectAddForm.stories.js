@@ -1,4 +1,5 @@
 import ProjectAddForm from './ProjectAddForm';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/Projects/ProjectAddForm',
@@ -21,7 +22,7 @@ Default.parameters = {
 Default.args = {
   hideDropZone: false,
   color: {
-    primaryColor: 'red',
+    primaryColor: variables['theme-colors-primary'],
   },
   errors: {},
   lang: 'pt',

@@ -4,7 +4,7 @@
   background: $bgColor;
   border-radius: 100px;
   padding: 9px 60px;
-  font-family: map-get($fonts, main);
+
   font-size: 20px;
   @include animate();
 
