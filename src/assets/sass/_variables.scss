@@ -220,7 +220,7 @@ $theme-colors-dark: (
 // Status Colors
 $status-colors: (
   active: map-get($colors, green),
-  pending: map-get($golden-tainoi, 700),
+  pending: map-get($warning, 400),
   ended: map-get($theme-colors, primary),
   deleted: map-get($colors, danger),
   declined: map-get($main-text-colors, dark),
