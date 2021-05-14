@@ -18,6 +18,12 @@
   -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
 
+  &.btn-xl {
+    height: 52px;
+    padding: 6px 26px;
+    font-size: 20px;
+  }
+
   &:hover,
   &:focus,
   &:active {

@@ -11,6 +11,7 @@ const Template = args => (
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Squared" rounded={false} />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Rounded" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
@@ -19,6 +20,7 @@ const Template = args => (
       <Button {...args} text="Squared" rounded={false} />
       <Button {...args} text="Rounded" />
       <Button {...args} text="Disabled" disabled />
+      <Button {...args} text="Size XL" size="xl" />
       <Button {...args} text="Size LG" size="lg" />
       <Button {...args} text="Size MD" size="md" />
       <Button {...args} text="Size SM" size="sm" />
@@ -73,6 +75,7 @@ export const Link = args => (
     <Button {...args} text="Squared" rounded={false} />
     <Button {...args} text="Rounded" />
     <Button {...args} text="Disabled" disabled />
+    <Button {...args} text="Size XL" size="xl" />
     <Button {...args} text="Size LG" size="lg" />
     <Button {...args} text="Size MD" size="md" />
     <Button {...args} text="Size SM" size="sm" />

@@ -118,7 +118,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   rel: PropTypes.string,
   rounded: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   style: PropTypes.object,
   target: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
