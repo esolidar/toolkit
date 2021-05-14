@@ -63,8 +63,8 @@
 
       &:hover {
         color: white;
-        background-color: map-get($theme-colors, primary);
-        border-color: map-get($theme-colors, primary);
+        background-color: map-get($theme-colors-light, primary);
+        border-color: map-get($theme-colors-light, primary);
       }
     }
 
@@ -74,8 +74,8 @@
       background-color: map-get($theme-colors, primary);
 
       &:hover {
-        background-color: map-get($theme-colors-dark, primary);
-        border-color: map-get($theme-colors-dark, primary);
+        background-color: map-get($theme-colors-light, primary);
+        border-color: map-get($theme-colors-light, primary);
       }
     }
 
@@ -87,8 +87,8 @@
 
       &:hover {
         color: white;
-        background-color: map-get($theme-colors, secondary);
-        border-color: map-get($theme-colors, secondary);
+        background-color: map-get($theme-colors-light, secondary);
+        border-color: map-get($theme-colors-light, secondary);
       }
     }
 
@@ -98,8 +98,8 @@
       background-color: map-get($theme-colors, secondary);
 
       &:hover {
-        background-color: map-get($theme-colors-dark, secondary);
-        border-color: map-get($theme-colors-dark, secondary);
+        background-color: map-get($theme-colors-light, secondary);
+        border-color: map-get($theme-colors-light, secondary);
       }
     }
 
@@ -111,8 +111,8 @@
 
       &:hover {
         color: white;
-        background-color: map-get($theme-colors, success);
-        border-color: map-get($theme-colors, success);
+        background-color: map-get($theme-colors-light, primary);
+        border-color: map-get($theme-colors-light, primary);
       }
     }
 
@@ -122,8 +122,8 @@
       background-color: map-get($theme-colors, success);
 
       &:hover {
-        background-color: map-get($theme-colors-dark, success);
-        border-color: map-get($theme-colors-dark, success);
+        background-color: map-get($theme-colors-light, primary);
+        border-color: map-get($theme-colors-light, primary);
       }
     }
 
@@ -135,8 +135,8 @@
 
       &:hover {
         color: white;
-        background-color: map-get($theme-colors, danger);
-        border-color: map-get($theme-colors, danger);
+        background-color: map-get($theme-colors-light, danger);
+        border-color: map-get($theme-colors-light, danger);
       }
     }
 
@@ -146,8 +146,8 @@
       background-color: map-get($theme-colors, danger);
 
       &:hover {
-        background-color: map-get($theme-colors-dark, danger);
-        border-color: map-get($theme-colors-dark, danger);
+        background-color: map-get($theme-colors-light, danger);
+        border-color: map-get($theme-colors-light, danger);
       }
     }
 
@@ -159,8 +159,8 @@
 
       &:hover {
         color: white;
-        background-color: map-get($theme-colors, warning);
-        border-color: map-get($theme-colors, warning);
+        background-color: map-get($theme-colors-light, warning);
+        border-color: map-get($theme-colors-light, warning);
       }
     }
 
@@ -170,8 +170,8 @@
       background-color: map-get($theme-colors, warning);
 
       &:hover {
-        background-color: map-get($theme-colors-dark, warning);
-        border-color: map-get($theme-colors-dark, warning);
+        background-color: map-get($theme-colors-light, warning);
+        border-color: map-get($theme-colors-light, warning);
       }
     }
 

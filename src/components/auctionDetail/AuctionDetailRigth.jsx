@@ -174,8 +174,8 @@ const AuctionDetailRigth = ({
                   onClick={showModalSubscribe}
                   text={useIntl().formatMessage({
                     id: 'auction.detail.subscribeAuction',
-                    defaultMessage: 'Subscribe the auction.',
                   })}
+                  dataTestId="subscribe-auction"
                 />
               </Col>
             </Row>
