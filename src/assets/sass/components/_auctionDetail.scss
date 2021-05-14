@@ -8,7 +8,6 @@
   padding: 25px 50px;
 
   h3 {
-    font-family: map-get($fonts, light);
     font-size: 24px;
     letter-spacing: -1px;
     line-height: 40px;
@@ -122,7 +121,6 @@
     text-decoration: none;
 
     h1 {
-      font-family: map-get($fonts, light);
       font-size: 27px;
       letter-spacing: 0;
       line-height: 40px;
@@ -138,7 +136,6 @@
   }
 
   h2 {
-    font-family: map-get($fonts, light);
     font-size: 23px;
     letter-spacing: 0;
     line-height: 39px;
@@ -152,7 +149,7 @@
 
   .end-date {
     font-size: 12px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     letter-spacing: -0.25px;
     line-height: 26px;
     margin-bottom: 30px;
@@ -313,7 +310,6 @@
   }
 
   .auction-content-label {
-    font-family: map-get($fonts, heavy);
     font-size: 12px;
     color: map-get($theme-colors, primary);
     letter-spacing: 0;
@@ -330,7 +326,7 @@
 
   .txt-bid-aprox {
     font-size: 12px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     letter-spacing: -0.25px;
     line-height: 26px;
     display: inline-block;
@@ -340,7 +336,7 @@
     display: block;
     height: 96px;
     font-size: 15px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     letter-spacing: -0.31px;
     line-height: 26px;
   }
@@ -356,7 +352,7 @@
   .subscribe-auction {
     a,
     button {
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       text-decoration: underline;
       padding: 0px;
     }
@@ -371,7 +367,7 @@
     opacity: 0.9;
 
     font-size: 15px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     letter-spacing: 0;
     line-height: 26px;
     margin-right: 30px;
@@ -421,7 +417,7 @@
 
       .recipient-label {
         font-size: 15px;
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
         letter-spacing: 0;
         line-height: 26px;
       }
@@ -462,7 +458,7 @@
     padding-top: 25px;
 
     font-size: 14px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     letter-spacing: 0;
     line-height: 26px;
   }
@@ -509,7 +505,7 @@
 
     .npo-summary {
       font-size: 15px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       letter-spacing: -0.31px;
       line-height: 26px;
       margin: 0;
@@ -519,7 +515,6 @@
 
   .other-auctions {
     h4 {
-      font-family: map-get($fonts, light);
       margin-bottom: 55px;
       margin-top: 25px;
       font-size: 42px;

@@ -29,7 +29,6 @@
       }
 
       h3 {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
         letter-spacing: 0;
         line-height: 26px;
@@ -45,7 +44,6 @@
       }
 
       .people-involved {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
         color: map-get($main-text-colors, dark);
         letter-spacing: 0;
@@ -54,7 +52,7 @@
 
       .people-involved-stats {
         font-size: 15px;
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
         letter-spacing: 0;
         line-height: 30px;
       }
@@ -67,7 +65,6 @@
         }
 
         h2 {
-          font-family: map-get($fonts, heavy);
           font-size: 15px;
           letter-spacing: 0;
           line-height: 26px;
@@ -84,7 +81,7 @@
 
         p {
           font-size: 15px;
-          color: map-get($main-text-colors, light);
+          color: map-get($main-text-colors, dark);
           letter-spacing: 0;
           line-height: 22px;
           margin: 0;

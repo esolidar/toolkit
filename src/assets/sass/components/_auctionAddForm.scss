@@ -8,7 +8,7 @@
   }
 
   .subtitle {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     line-height: 22px;
     font-size: 15px;
     letter-spacing: 0;
@@ -59,7 +59,7 @@
 
     .text {
       font-size: 15px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       letter-spacing: 0;
       line-height: 22px;
       margin-top: 15px;
@@ -141,7 +141,7 @@
     }
 
     div.ReactTags__selected a.ReactTags__remove {
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       cursor: pointer;
       float: left;
       margin-left: -10px;

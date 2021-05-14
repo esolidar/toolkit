@@ -40,7 +40,7 @@ a.btn-next-step {
   }
 
   .paragraph {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -274,7 +274,7 @@ a.btn-next-step {
   }
 
   p {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -339,7 +339,7 @@ a.btn-next-step {
     resize: none;
 
     &:focus {
-      border: 2px solid map-get($main-text-colors, light);
+      border: 2px solid map-get($main-text-colors, dark);
       box-shadow: none;
     }
   }
@@ -372,7 +372,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .checkout-supports {
   font-weight: 200;
-  color: map-get($main-text-colors, light);
+  color: map-get($main-text-colors, dark);
 }
 
 .stripe-checkout {

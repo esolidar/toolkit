@@ -26,6 +26,7 @@ const Comments = ({
   loadingMoreComments,
   loadMoreComments,
   thumb,
+  color,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
   const [isShowResponsive, setIsShowResponsive] = useState(false);
@@ -151,6 +152,7 @@ const Comments = ({
                   id: 'crowdfunding.comments.reply',
                   defaultMessage: 'Reply',
                 })}
+                style={{ color }}
               />
               {showTextArea === comment.id && (
                 <form onSubmit={onSubmitResponse} method="post">
@@ -250,11 +252,11 @@ Comments.propTypes = {
   laodingPostReply: PropTypes.bool.isRequired,
   loadMore: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-
   totalComments: PropTypes.number,
   loadingMoreComments: PropTypes.bool,
   loadMoreComments: PropTypes.func.isRequired,
   thumb: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Comments;

@@ -190,7 +190,7 @@ $theme-colors: (
   secondary: map-get($blue, 500),
   success: map-get($turquoise, 500),
   info: map-get($colors, light-blue),
-  warning: map-get($warning, 500),
+  warning: map-get($warning, 200),
   danger: map-get($negative, 500),
   dark: map-get($neutrals, 400),
 );
@@ -201,7 +201,7 @@ $theme-colors-light: (
   secondary: map-get($blue, 300),
   success: map-get($turquoise, 300),
   info: map-get($colors, light-blue),
-  warning: map-get($warning, 300),
+  warning: map-get($warning, 50),
   danger: map-get($negative, 300),
   dark: map-get($neutrals, 100),
 );
@@ -212,7 +212,7 @@ $theme-colors-dark: (
   secondary: map-get($blue, 700),
   success: map-get($turquoise, 700),
   info: map-get($colors, light-blue),
-  warning: map-get($warning, 700),
+  warning: map-get($warning, 500),
   danger: map-get($negative, 700),
   dark: map-get($neutrals, 700),
 );
@@ -223,7 +223,7 @@ $status-colors: (
   pending: map-get($golden-tainoi, 700),
   ended: map-get($theme-colors, primary),
   deleted: map-get($colors, danger),
-  declined: map-get($main-text-colors, light),
+  declined: map-get($main-text-colors, dark),
 );
 
 /* Input */

@@ -1,5 +1,5 @@
 .survey {
-  margin: 90px 0 25px 0;
+  margin: 0 0 25px 0;
 
   .loading-logo {
     min-height: 350px;
@@ -11,13 +11,11 @@
   }
 
   h5 {
-    font-family: map-get($fonts, heavy);
     font-size: 14px;
     line-height: 24px;
   }
 
   .control-label {
-    font-family: map-get($fonts, heavy);
     text-transform: none;
     font-size: 14px;
     font-weight: normal;
@@ -41,7 +39,6 @@
     height: 40px;
 
     h3 {
-      font-family: map-get($fonts, heavy);
       font-size: 14px;
       line-height: 40px;
       border-bottom: none;

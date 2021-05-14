@@ -2,7 +2,6 @@
   margin-top: 90px;
 
   h1 {
-    font-family: map-get($fonts, light);
     font-size: 47px;
     letter-spacing: -1.3px;
     line-height: 64px;
@@ -18,7 +17,7 @@
     .btn {
       outline: none;
       background: map-get($grays, 50);
-      font-family: map-get($fonts, heavy);
+
       border: 2px solid map-get($main-text-colors, dark);
       font-size: 12px;
       color: map-get($main-text-colors, dark);
@@ -51,7 +50,6 @@
   }
 
   h3 {
-    font-family: map-get($fonts, light);
     font-size: 27px;
     letter-spacing: 0;
     line-height: 39px;
@@ -154,7 +152,6 @@
   .react-bs-container-header th {
     border: none;
     vertical-align: middle;
-    color: map-get($theme-colors-light, primary);
     padding: 15px;
   }
 }
@@ -228,7 +225,6 @@
     }
 
     .used {
-      font-family: map-get($fonts, heavy);
       font-size: 15px;
       color: map-get($theme-colors, primary);
       letter-spacing: 0;
@@ -236,11 +232,10 @@
     }
 
     .used-yes {
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
     }
 
     .amount-value {
-      font-family: map-get($fonts, heavy);
       font-size: 15px;
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;

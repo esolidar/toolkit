@@ -47,7 +47,7 @@
         float: right;
         display: inline-block;
         line-height: 40px;
-        font-family: map-get($fonts, heavy);
+
         font-size: 12px;
         color: map-get($input, label-color);
 
@@ -91,7 +91,7 @@
         .text {
           float: left;
           opacity: 0.9;
-          font-family: map-get($fonts, heavy);
+
           font-size: 12px;
           color: map-get($theme-colors, danger);
           letter-spacing: 0;
@@ -112,7 +112,7 @@
         .text {
           float: left;
           opacity: 0.9;
-          font-family: map-get($fonts, heavy);
+
           font-size: 12px;
           color: map-get($theme-colors, primary);
           letter-spacing: 0;
@@ -142,7 +142,6 @@
       }
 
       .user-post {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
         line-height: 40px;
         color: map-get($main-text-colors, dark);
@@ -153,7 +152,7 @@
         float: right;
         display: inline-block;
         line-height: 40px;
-        font-family: map-get($fonts, heavy);
+
         font-size: 12px;
         color: map-get($input, label-color);
       }
@@ -176,7 +175,7 @@
 
         font-size: 14px;
         line-height: 20px;
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
       }
 
       .after-update {
@@ -205,7 +204,6 @@
       }
 
       .user-post {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
         line-height: 40px;
         color: map-get($main-text-colors, dark);
@@ -216,7 +214,7 @@
         float: right;
         display: inline-block;
         line-height: 40px;
-        font-family: map-get($fonts, heavy);
+
         font-size: 12px;
         color: map-get($input, label-color);
 
@@ -663,7 +661,7 @@
     textarea {
       border: 1px solid map-get($grays, 200);
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       font-size: 14px;
 
       &:active,
@@ -676,7 +674,7 @@
   }
 
   span.small-text {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     font-size: 10px;
   }
 
@@ -1225,7 +1223,6 @@
     }
 
     .auction-title {
-      font-family: map-get($fonts, heavy);
       font-size: 15px;
       color: map-get($theme-colors, primary);
       letter-spacing: 0;
@@ -1240,7 +1237,7 @@
 
     .auction-end-date {
       font-size: 12px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       letter-spacing: 0;
       line-height: 24px;
       padding-left: 55px;
@@ -1250,7 +1247,7 @@
       float: right;
 
       font-size: 12px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       letter-spacing: 0;
       line-height: 24px;
     }
@@ -1264,7 +1261,7 @@
       display: inline-block;
 
       &:hover {
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
         text-decoration: underline;
       }
     }
@@ -1285,7 +1282,6 @@
     }
 
     h4 {
-      font-family: map-get($fonts, light);
       font-size: 21px;
       letter-spacing: -0.5px;
       line-height: 29px;

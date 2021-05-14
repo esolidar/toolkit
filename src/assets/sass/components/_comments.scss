@@ -16,7 +16,6 @@
     }
 
     .company-name {
-      font-family: map-get($fonts, heavy);
       font-size: 15px;
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;
@@ -383,7 +382,6 @@ button.renderMoreBtn {
     margin: 20px 0;
 
     .title {
-      font-family: map-get($fonts, heavy);
       font-size: 12px;
       // color         : @mainTextColor;
       letter-spacing: 0;

@@ -17,7 +17,6 @@
 }
 
 .raised-text {
-  font-family: map-get($fonts, light);
   font-size: 27px;
   color: map-get($colors, green);
   letter-spacing: 0;
@@ -38,7 +37,6 @@
 }
 
 .total-donations-text {
-  font-family: map-get($fonts, heavy);
   font-size: 12px;
   color: map-get($main-text-colors, dark);
   letter-spacing: 0;
@@ -47,7 +45,6 @@
 }
 
 .total-donations-value {
-  font-family: map-get($fonts, light);
   font-size: 27px;
   color: map-get($main-text-colors, dark);
   letter-spacing: 0;

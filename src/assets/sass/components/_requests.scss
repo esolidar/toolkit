@@ -38,7 +38,7 @@
   }
 
   .separator-gray {
-    border-top: 1px solid map-get($main-text-colors, light);
+    border-top: 1px solid map-get($main-text-colors, dark);
   }
 
   .arrow-list {
@@ -77,7 +77,7 @@
 
     b {
       text-transform: uppercase;
-      font-family: map-get($fonts, heavy);
+
       display: inline-block;
       font-weight: 100;
     }

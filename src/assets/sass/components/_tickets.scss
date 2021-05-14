@@ -15,7 +15,7 @@
   .comment-date {
     display: block;
     line-height: 40px;
-    // font-family: map-get($fonts, heavy);
+    //
     font-size: 12px;
     color: map-get($main-text-colors, dark);
   }
@@ -100,7 +100,6 @@
     }
 
     .name {
-      font-family: map-get($fonts, heavy);
       font-size: 15px;
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;
@@ -203,7 +202,7 @@ th[class^='MuiTableCell-root-'] {
   }
 
   .gray {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
   }
 
   .yellow {
@@ -239,7 +238,7 @@ th[class^='MuiTableCell-root-'] {
   }
 
   .border-gray {
-    border: 2px solid map-get($main-text-colors, light) !important;
+    border: 2px solid map-get($main-text-colors, dark) !important;
   }
 
   .border-yellow {
@@ -390,7 +389,7 @@ th[class^='MuiTableCell-root-'] {
 
 .ticket-attachment {
   .upload-file {
-    border: 1px solid map-get($main-text-colors, light);
+    border: 1px solid map-get($main-text-colors, dark);
     padding: 0;
     text-align: center;
 
