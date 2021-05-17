@@ -5,18 +5,15 @@ import { Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
 
 class CrowdfundingDescription extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showmoreDesc: false,
-      showMoreDescButton: true,
-      showMoreRewardButton: true,
-      showmoreReward: false,
-    };
+  state = {
+    showmoreDesc: false,
+    showMoreDescButton: true,
+    showMoreRewardButton: true,
+    showmoreReward: false,
+  };
 
-    this.showMoreDescAction = this.showMoreDescAction.bind(this);
-    this.showMoreRewardAction = this.showMoreRewardAction.bind(this);
-  }
+  // this.showMoreDescAction = this.showMoreDescAction.bind(this);
+  // this.showMoreRewardAction = this.showMoreRewardAction.bind(this);
 
   showMoreDescAction = () => {
     this.setState({
@@ -68,7 +65,10 @@ class CrowdfundingDescription extends Component {
           <Row>
             {campaign.projects.length > 0 && (
               <Col md={12}>
-                <div className="description-header" style={{ marginTop: '50px' }}>
+                <div
+                  className="description-header"
+                  style={{ color, borderColor: color, marginTop: '50px' }}
+                >
                   <FormattedMessage
                     id="crowdfunding.description.ods"
                     defaultMessage="Sustainable Development Goals"
@@ -95,57 +95,59 @@ class CrowdfundingDescription extends Component {
             )}
           </Row>
         )}
-        <Col md={12}>
-          <div
-            className="description-header"
-            style={{ color, borderColor: color, 'margin-top': '50px' }}
-          >
-            <FormattedMessage id="crowdfunding.description" defaultMessage="Description" />
-          </div>
-          <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
-            {campaignDescription()
-              .split('\n')
-              .map((item, index) => (
-                <span key={index}>
-                  {item}
-                  <br />
-                </span>
-              ))}
-          </div>
-          {showMoreDescButton && (
-            <div className="d-block d-sm-none text-center">
-              <button type="button" onClick={this.showMoreDescAction} className="readmore-button">
-                <FormattedMessage id="readmore" defaultMessage="Read more" />
-              </button>
+        <Row>
+          <Col md={12}>
+            <div
+              className="description-header"
+              style={{ color, borderColor: color, 'margin-top': '50px' }}
+            >
+              <FormattedMessage id="crowdfunding.description" defaultMessage="Description" />
             </div>
-          )}
-          {auction && auctionDescriptionLang('shipping_description').length && (
-            <>
-              <div
-                className="shipping-header"
-                style={{ color, borderColor: color, 'margin-top': '50px' }}
-              >
-                <FormattedMessage id="auction.shipping" defaultMessage="Shipping" />
+            <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
+              {campaignDescription()
+                .split('\n')
+                .map((item, index) => (
+                  <span key={index}>
+                    {item}
+                    <br />
+                  </span>
+                ))}
+            </div>
+            {showMoreDescButton && (
+              <div className="d-block d-sm-none text-center">
+                <button type="button" onClick={this.showMoreDescAction} className="readmore-button">
+                  <FormattedMessage id="readmore" defaultMessage="Read more" />
+                </button>
               </div>
-              <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
-                <span>{auctionDescriptionLang('shipping_description')}</span>
-              </div>
-            </>
-          )}
-          {auction && auctionDescriptionLang('payment_description').length && (
-            <>
-              <div
-                className="payment-header"
-                style={{ color, borderColor: color, 'margin-top': '50px' }}
-              >
-                <FormattedMessage id="auction.payment" defaultMessage="Payment" />
-              </div>
-              <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
-                <span>{auctionDescriptionLang('payment_description')}</span>
-              </div>
-            </>
-          )}
-        </Col>
+            )}
+            {auction && auctionDescriptionLang('shipping_description').length && (
+              <>
+                <div
+                  className="shipping-header"
+                  style={{ color, borderColor: color, 'margin-top': '50px' }}
+                >
+                  <FormattedMessage id="auction.shipping" defaultMessage="Shipping" />
+                </div>
+                <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
+                  <span>{auctionDescriptionLang('shipping_description')}</span>
+                </div>
+              </>
+            )}
+            {auction && auctionDescriptionLang('payment_description').length && (
+              <>
+                <div
+                  className="payment-header"
+                  style={{ color, borderColor: color, 'margin-top': '50px' }}
+                >
+                  <FormattedMessage id="auction.payment" defaultMessage="Payment" />
+                </div>
+                <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
+                  <span>{auctionDescriptionLang('payment_description')}</span>
+                </div>
+              </>
+            )}
+          </Col>
+        </Row>
         <Row>
           <Col md={12}>
             {!!campaign && campaign.reward === 1 && (

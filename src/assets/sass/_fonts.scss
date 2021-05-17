@@ -1,39 +1,9 @@
 $path: $cdn-static-url + '/frontend/fonts/';
-$avenir-font-path: $path + 'avenir/';
 $have-heart-one-font-path: $path + 'haveHeartOne/';
 $icomoon-font-path: $path + 'icomoon/';
 $notification-font-path: $path + 'notification/';
 $slick-font-path: $path + 'slick/';
 $athletics-regular-font-path: $path + 'athletics-regular/';
-
-@font-face {
-  font-family: map-get($fonts, heavy);
-  src: url($avenir-font-path + '30CDB5_0_0.eot');
-  src: url($avenir-font-path + '30CDB5_0_0.eot?#iefix') format('embedded-opentype'),
-    url($avenir-font-path + '30CDB5_0_0.woff2') format('woff2'),
-    url($avenir-font-path + '30CDB5_0_0.woff') format('woff'),
-    url($avenir-font-path + '30CDB5_0_0.ttf') format('truetype'),
-    url($avenir-font-path + '30CDB5_0_0.svg#wf') format('svg');
-}
-
-@font-face {
-  font-family: map-get($fonts, light);
-  src: url($avenir-font-path + '30CDB5_1_0.eot');
-  src: url($avenir-font-path + '30CDB5_1_0.eot?#iefix') format('embedded-opentype'),
-    url($avenir-font-path + '30CDB5_1_0.woff2') format('woff2'),
-    url($avenir-font-path + '30CDB5_1_0.woff') format('woff'),
-    url($avenir-font-path + '30CDB5_1_0.ttf') format('truetype'),
-    url($avenir-font-path + '30CDB5_1_0.svg#wf') format('svg');
-}
-
-@font-face {
-  font-family: map-get($fonts, main);
-  src: url($avenir-font-path + '30CDBF_0_0.eot');
-  src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
-    url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),
-    url($avenir-font-path + '30CDBF_0_0.woff') format('woff'),
-    url($avenir-font-path + '30CDBF_0_0.ttf') format('truetype');
-}
 
 @font-face {
   font-family: 'HaveHeartOne';

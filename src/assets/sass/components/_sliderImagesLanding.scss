@@ -4,7 +4,6 @@
   }
 
   .title {
-    font-family: map-get($fonts, main);
     color: map-get($theme-colors, primary);
     font-size: 30px;
     letter-spacing: -0.5px;

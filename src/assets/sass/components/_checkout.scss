@@ -6,7 +6,6 @@
   }
 
   h2 {
-    color: map-get($theme-colors, primary);
     font-size: 20px;
     text-align: left;
     margin-bottom: 10px;
@@ -38,11 +37,10 @@ a.btn-next-step {
     margin: 0;
     padding: 0;
     font-size: 19px;
-    color: map-get($main-text-colors, dark);
   }
 
   .paragraph {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -75,7 +73,6 @@ a.btn-next-step {
 
   h3 {
     margin: 10px 0;
-    color: map-get($main-text-colors, dark);
   }
 
   .price {
@@ -206,7 +203,6 @@ a.btn-next-step {
   color: map-get($main-text-colors, dark);
 
   h3 {
-    color: map-get($theme-colors, primary);
     text-align: right;
     border-bottom: 1px solid map-get($theme-colors, primary);
     padding-bottom: 5px;
@@ -278,15 +274,11 @@ a.btn-next-step {
   }
 
   p {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-  }
-
-  h3 {
-    color: map-get($theme-colors, primary);
   }
 
   .share-icon {
@@ -319,7 +311,6 @@ a.btn-next-step {
   }
 
   .wpwl-label {
-    font-family: map-get($fonts, main);
     font-size: 12px;
     font-weight: 900;
     line-height: 19px;
@@ -348,7 +339,7 @@ a.btn-next-step {
     resize: none;
 
     &:focus {
-      border: 2px solid map-get($main-text-colors, light);
+      border: 2px solid map-get($main-text-colors, dark);
       box-shadow: none;
     }
   }
@@ -381,7 +372,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .checkout-supports {
   font-weight: 200;
-  color: map-get($main-text-colors, light);
+  color: map-get($main-text-colors, dark);
 }
 
 .stripe-checkout {
@@ -392,7 +383,6 @@ input[type='number']::-webkit-outer-spin-button {
       margin: 0;
 
       label {
-        font-family: map-get($fonts, main);
         font-size: 12px;
         font-weight: 900;
         line-height: 19px;
@@ -411,7 +401,7 @@ input[type='number']::-webkit-outer-spin-button {
         box-shadow: none;
         -webkit-box-shadow: none;
         -moz-appearance: none;
-        font-family: map-get($fonts, main);
+
         font-size: 15px;
         color: map-get($input, label-color);
         letter-spacing: -0.31px;

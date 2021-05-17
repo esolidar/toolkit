@@ -1,6 +1,4 @@
 .documents {
-  margin-top: 90px;
-  font-family: map-get($fonts, main);
   font-size: 15px;
   color: map-get($main-text-colors, dark);
   letter-spacing: 0;
@@ -11,12 +9,10 @@
 
     h3 {
       font-size: 24px;
-      font-family: map-get($fonts, light);
     }
 
     p {
       font-size: 14px;
-      font-family: map-get($fonts, light);
     }
   }
 
@@ -44,16 +40,14 @@
     h3 {
       margin: 0;
       padding: 0;
-      font-family: map-get($fonts, heavy);
+
       font-size: 20px;
-      color: map-get($theme-colors, primary);
       letter-spacing: 0;
       line-height: 26px;
       margin-bottom: 10px;
     }
 
     p {
-      font-family: map-get($fonts, main);
       font-size: 15px;
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;
@@ -68,7 +62,6 @@
     }
 
     .download-file {
-      font-family: map-get($fonts, main);
       font-size: 13px;
       color: map-get($theme-colors, primary);
       letter-spacing: 0;

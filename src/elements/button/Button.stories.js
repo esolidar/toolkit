@@ -5,61 +5,84 @@ export default {
   component: Button,
 };
 
-const Template = args => <Button {...args} />;
+const Template = args => (
+  <div>
+    <div className="p-2">
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Squared" rounded={false} />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Rounded" />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
+    </div>
+    <div className="p-2">
+      <Button {...args} text="Squared" rounded={false} />
+      <Button {...args} text="Rounded" />
+      <Button {...args} text="Disabled" disabled />
+      <Button {...args} text="Size XL" size="xl" />
+      <Button {...args} text="Size LG" size="lg" />
+      <Button {...args} text="Size MD" size="md" />
+      <Button {...args} text="Size SM" size="sm" />
+    </div>
+  </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-  extraClass: 'info-full',
+  extraClass: 'primary',
   target: '_blank',
   href: '#',
-  text: 'Primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  extraClass: 'dark-full',
+  extraClass: 'info',
   target: '_blank',
   href: '#',
-  text: 'Secondary',
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  extraClass: 'success-full',
+  extraClass: 'success',
   target: '_blank',
   href: '#',
-  text: 'Success',
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  extraClass: 'danger-full',
+  extraClass: 'danger',
   target: '_blank',
   href: '#',
-  text: 'Danger',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  extraClass: 'warning-full',
+  extraClass: 'warning',
   target: '_blank',
   href: '#',
-  text: 'Warning',
 };
 
-export const Squared = Template.bind({});
-Squared.args = {
-  extraClass: 'info-full',
+export const Dark = Template.bind({});
+Dark.args = {
+  extraClass: 'dark',
   target: '_blank',
   href: '#',
-  text: 'Squared',
-  rounded: false,
 };
 
-export const Outlined = Template.bind({});
-Outlined.args = {
-  extraClass: 'info',
+export const Link = args => (
+  <div className="p-2">
+    <Button {...args} text="Squared" rounded={false} />
+    <Button {...args} text="Rounded" />
+    <Button {...args} text="Disabled" disabled />
+    <Button {...args} text="Size XL" size="xl" />
+    <Button {...args} text="Size LG" size="lg" />
+    <Button {...args} text="Size MD" size="md" />
+    <Button {...args} text="Size SM" size="sm" />
+  </div>
+);
+Link.args = {
+  extraClass: 'link',
   target: '_blank',
   href: '#',
-  text: 'Outlined',
 };

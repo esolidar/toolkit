@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import FormQuestionsGenerator from '../formQuestionsGenerator';
+import Button from '../../elements/button';
 
 const Survey = ({
   status,
@@ -44,9 +45,12 @@ const Survey = ({
               AbsolutelyText={AbsolutelyText}
             />
             <div className="text-right">
-              <button type="submit" className="btn btn-submit-servey" disabled={isLoading}>
-                {SubmitSurveyText}
-              </button>
+              <Button
+                extraClass="primary-full"
+                text={SubmitSurveyText}
+                type="submit"
+                disabled={isLoading}
+              />
             </div>
           </form>
         </div>

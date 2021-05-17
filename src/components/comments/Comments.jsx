@@ -26,6 +26,7 @@ const Comments = ({
   loadingMoreComments,
   loadMoreComments,
   thumb,
+  color,
 }) => {
   const [showTextArea, setShowTextArea] = useState(null);
   const [isShowResponsive, setIsShowResponsive] = useState(false);
@@ -143,14 +144,16 @@ const Comments = ({
             />
             <CommentContent comment={comment} />
             <div className="content-reply">
-              <button
-                type="button"
-                className="btn-add-comment-reply"
+              <Button
+                extraClass="link"
                 onClick={() => showTextAreaClick(comment)}
-              >
-                <img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />
-                <FormattedMessage id="crowdfunding.comments.reply" defaultMessage="Reply" />
-              </button>
+                icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
+                text={useIntl().formatMessage({
+                  id: 'crowdfunding.comments.reply',
+                  defaultMessage: 'Reply',
+                })}
+                style={{ color }}
+              />
               {showTextArea === comment.id && (
                 <form onSubmit={onSubmitResponse} method="post">
                   <div className="add-reply">
@@ -249,11 +252,11 @@ Comments.propTypes = {
   laodingPostReply: PropTypes.bool.isRequired,
   loadMore: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-
   totalComments: PropTypes.number,
   loadingMoreComments: PropTypes.bool,
   loadMoreComments: PropTypes.func.isRequired,
   thumb: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Comments;

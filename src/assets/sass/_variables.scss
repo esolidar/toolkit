@@ -3,12 +3,6 @@ $cdn-static-url: 'https://static.esolidar.com';
 
 /* Colors */
 
-//Text Colors
-$main-text-colors: (
-  light: #738598,
-  dark: #455c75,
-);
-
 $colors: (
   red: #ff494c,
   pink: #ff85af,
@@ -36,39 +30,6 @@ $colors: (
   white-smoke: #f2f2f2,
 );
 
-// Theme Colors
-$theme-colors: (
-  primary: #04c7e5,
-  secondary: map-get($colors, blue),
-  success: map-get($colors, green),
-  info: map-get($colors, light-blue),
-  warning: map-get($colors, amber),
-  danger: map-get($colors, red),
-  dark: map-get($main-text-colors, dark),
-);
-
-// Theme Colors Light
-$theme-colors-light: (
-  primary: #b3eef7,
-  secondary: lighten(map-get($theme-colors, secondary), 25%),
-  success: lighten(map-get($theme-colors, success), 25%),
-  info: lighten(map-get($theme-colors, info), 25%),
-  warning: lighten(map-get($theme-colors, warning), 25%),
-  danger: lighten(map-get($theme-colors, danger), 25%),
-  dark: lighten(map-get($theme-colors, dark), 25%),
-);
-
-// Theme Colors Dark
-$theme-colors-dark: (
-  primary: #163352,
-  secondary: darken(map-get($theme-colors, secondary), 18%),
-  success: darken(map-get($theme-colors, success), 18%),
-  info: darken(map-get($theme-colors, info), 18%),
-  warning: darken(map-get($theme-colors, warning), 18%),
-  danger: darken(map-get($theme-colors, danger), 18%),
-  dark: darken(map-get($theme-colors, dark), 18%),
-);
-
 // Grays
 $grays: (
   50: #fbfcfc,
@@ -83,13 +44,186 @@ $grays: (
   900: #212121,
 );
 
+/* ------------------------ Light Pallete ------------------------ */
+
+$base: (
+  black: #1a1b1c,
+  white: #ffffff,
+);
+
+$background: (
+  primary: #ffffff,
+  secondary: #f5f5f6,
+);
+
+$neutrals: (
+  100: #eaebec,
+  400: #abb1b3,
+  700: #6c7679,
+  900: #424f53,
+);
+
+$turquoise: (
+  0: #edfffd,
+  50: #bff6f0,
+  100: #93ede3,
+  150: #6be3d7,
+  200: #46daca,
+  300: #17c3b2,
+  400: #0fa39a,
+  500: #0c8380,
+  600: #0b6363,
+  700: #094143,
+  800: #062123,
+  900: #010303,
+);
+
+$blue: (
+  0: #edfaff,
+  50: #d1eff9,
+  100: #b6e4f4,
+  150: #9bd7ed,
+  200: #b1cce5,
+  300: #5ab4d4,
+  400: #3a99bd,
+  500: #227c9d,
+  600: #195d7c,
+  700: #113c54,
+  800: #071721,
+  900: #010203,
+);
+
+$watermelon: (
+  0: #ffedee,
+  50: #ffd8d9,
+  100: #ffc2c5,
+  150: #ffadb0,
+  200: #ff979b,
+  300: #fe6d73,
+  400: #d44b50,
+  500: #aa3336,
+  600: #b02224,
+  700: #561516,
+  800: #2c0a0b,
+  900: #030101,
+);
+
+$golden-tainoi: (
+  0: #fff8ed,
+  50: #ffedcf,
+  100: #ffe1b1,
+  150: #ffd694,
+  200: #ffcb77,
+  300: #dba852,
+  400: #b78838,
+  500: #936b26,
+  600: #6f501a,
+  700: #4b3611,
+  800: #271c09,
+  900: #030201,
+);
+
+$negative: (
+  0: #fff1ed,
+  50: #ffdcd1,
+  100: #ffc6b5,
+  150: #ffb099,
+  200: #ff9b7e,
+  300: #f27551,
+  400: #e4572e,
+  500: #b74520,
+  600: #8b3618,
+  700: #5e2611,
+  800: #32160a,
+  900: #050201,
+);
+
+$positive: (
+  0: #edfff3,
+  50: #bbf5cf,
+  100: #8decad,
+  150: #62e28d,
+  200: #3bd96f,
+  300: #0bc14b,
+  400: #07a149,
+  500: #068243,
+  600: #076239,
+  700: #08422b,
+  800: #062218,
+  900: #010302,
+);
+
+$warning: (
+  0: #fff5ed,
+  50: #fee2c4,
+  100: #fdd59b,
+  150: #fbd073,
+  200: #fad14c,
+  300: #d7ae32,
+  400: #b38e22,
+  500: #906e18,
+  600: #6d5112,
+  700: #49350d,
+  800: #261b0b,
+  900: #030301,
+);
+
+$elevation: (
+  0: #eaebec,
+  100: #eaebec,
+  200: #eaebec,
+  300: #eaebec,
+  400: #eaebec,
+  500: #eaebec,
+);
+
+//Text Colors
+$main-text-colors: (
+  light: map-get($base, white),
+  dark: map-get($neutrals, 700),
+  title: map-get($base, black),
+);
+
+/* ------------------------ Theme Colors ------------------------ */
+$theme-colors: (
+  primary: map-get($turquoise, 500),
+  secondary: map-get($blue, 500),
+  success: map-get($turquoise, 500),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 200),
+  danger: map-get($negative, 500),
+  dark: map-get($neutrals, 400),
+);
+
+// Theme Colors Light
+$theme-colors-light: (
+  primary: map-get($turquoise, 300),
+  secondary: map-get($blue, 300),
+  success: map-get($turquoise, 300),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 50),
+  danger: map-get($negative, 300),
+  dark: map-get($neutrals, 100),
+);
+
+// Theme Colors Dark
+$theme-colors-dark: (
+  primary: map-get($turquoise, 700),
+  secondary: map-get($blue, 700),
+  success: map-get($turquoise, 700),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 500),
+  danger: map-get($negative, 700),
+  dark: map-get($neutrals, 700),
+);
+
 // Status Colors
 $status-colors: (
   active: map-get($colors, green),
-  pending: map-get($colors, amber),
+  pending: map-get($warning, 400),
   ended: map-get($theme-colors, primary),
   deleted: map-get($colors, danger),
-  declined: map-get($main-text-colors, light),
+  declined: map-get($main-text-colors, dark),
 );
 
 /* Input */
@@ -104,10 +238,11 @@ $input: (
 
 /* Font Face */
 $fonts: (
-  main: 'AvenirLT-Roman',
-  light: 'AvenirLTStd-Light',
-  heavy: 'AvenirLTStd-Heavy',
+  main: 'basic-sans',
+  light: 'basic-sans',
+  heavy: 'basic-sans',
   notification: 'Notification',
+  serif: 'pt-serif-pro',
 );
 
 /* Dimensions */
@@ -130,129 +265,3 @@ $ended-color: map-get($colors, red);
 $running-color: #31bd79;
 $soon-color: map-get($colors, light-blue);
 $pending-color: map-get($colors, orange);
-
-/* Light Pallete */
-
-$base: (
-  black: #1a1b1c,
-  white: #ffffff,
-);
-
-$background: (
-  primary: #ffffff,
-  secondary: #f5f5f6,
-);
-
-$neutrals: (
-  100: #eaebec,
-  400: #abb1b3,
-  700: #6c7679,
-  900: #424f53,
-);
-
-$turquoise: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$blue: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$watermelon: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$golden-tainoi: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$negative: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$positive: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$warning: (
-  0: #fbfcfc,
-  50: #fbfcfc,
-  100: #f6f9f9,
-  200: #e7eaed,
-  300: #e7ebed,
-  400: #d0d6dd,
-  500: #a2adba,
-  600: #757575,
-  700: #444444,
-  800: #424242,
-  900: #212121,
-);
-
-$elevation: (
-  0: #eaebec,
-  100: #eaebec,
-  200: #eaebec,
-  300: #eaebec,
-  400: #eaebec,
-  500: #eaebec,
-);

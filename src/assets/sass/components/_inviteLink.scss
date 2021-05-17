@@ -9,7 +9,7 @@
   p {
     font-size: 15px;
     line-height: 20px;
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
   }
 
   .form-control:disabled,

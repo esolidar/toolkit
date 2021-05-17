@@ -1,5 +1,5 @@
 .survey {
-  margin: 90px 0 25px 0;
+  margin: 0 0 25px 0;
 
   .loading-logo {
     min-height: 350px;
@@ -11,14 +11,11 @@
   }
 
   h5 {
-    font-family: map-get($fonts, heavy);
     font-size: 14px;
     line-height: 24px;
-    color: map-get($main-text-colors, dark);
   }
 
   .control-label {
-    font-family: map-get($fonts, heavy);
     text-transform: none;
     font-size: 14px;
     font-weight: normal;
@@ -42,10 +39,8 @@
     height: 40px;
 
     h3 {
-      font-family: map-get($fonts, heavy);
       font-size: 14px;
       line-height: 40px;
-      color: map-get($main-text-colors, dark);
       border-bottom: none;
       margin: 0;
       position: absolute;
@@ -68,7 +63,6 @@
 
   .survey-disabled {
     h3 {
-      color: map-get($main-text-colors, dark);
       margin: 30px;
     }
   }
@@ -89,7 +83,7 @@
     border-radius: 100px;
     padding-left: 30px;
     padding-right: 30px;
-    font-family: map-get($fonts, main);
+
     font-size: 17px;
     -webkit-transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);
     transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);
