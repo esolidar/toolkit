@@ -12,6 +12,10 @@
 
     &.active {
       color: map-get($main-text-colors, dark);
+
+      &:hover {
+        cursor: default !important;
+      }
     }
 
     &:not(.active):hover {
