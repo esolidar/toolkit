@@ -204,7 +204,7 @@ const Header = ({
                     <NavDropdown.Item href={esolidarBlogUrl}>
                       <FormattedMessage id="header.menu.blog" />
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/recursos">
+                    <NavDropdown.Item href={`${esolidarBlogUrl}/materiais-ricos/`}>
                       <FormattedMessage id="header.menu.resources" />
                     </NavDropdown.Item>
                     <NavDropdown.Item href={esolidarHelpUrl}>
