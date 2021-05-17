@@ -29,8 +29,8 @@ Default.args = {
   },
   copyright: 'All rights reserved.',
   currentLang: 'en',
-  onChangeLang: () => console.log(''),
-  currencyChanged: () => console.log(''),
+  onChangeLang: () => console.log('onChangeLang'),
+  currencyChanged: () => console.log('currencyChanged'),
   languages: [
     { id: 0, name: 'en', translate: 'English' },
     { id: 1, name: 'pt', translate: 'Português (PT)' },

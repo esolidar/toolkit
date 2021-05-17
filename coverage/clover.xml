@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621264859493" clover="3.2.0">
-  <project timestamp="1621264859493" name="All files">
+<coverage generated="1621265321681" clover="3.2.0">
+  <project timestamp="1621265321681" name="All files">
     <metrics statements="2629" coveredstatements="1511" conditionals="2381" coveredconditionals="1275" methods="656" coveredmethods="315" elements="5666" coveredelements="3101" complexity="0" loc="2629" ncloc="2629" packages="91" files="216" classes="216"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -995,7 +995,7 @@
         <line num="4" count="5" type="stmt"/>
         <line num="6" count="12" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/changeLanguage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

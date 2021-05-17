@@ -8,6 +8,7 @@ const ChangeLanguage = ({ currentLang, languages, onChangeLang }) => (
         type="button"
         onClick={() => onChangeLang(lang.name)}
         className={currentLang === lang.name ? 'active' : ''}
+        disabled={currentLang === lang.name}
       >
         {lang.name}
       </button>
