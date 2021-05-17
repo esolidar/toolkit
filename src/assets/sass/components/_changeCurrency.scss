@@ -1,16 +1,16 @@
 .changeCurrency {
-  display: inline-block;
+  display: flex;
 
   button {
-    color: map-get($theme-colors-light, primary);
-    padding-bottom: 0px;
-    padding-top: 0px;
-    border-radius: 0px;
+    font-size: 14px;
+    padding: 0;
 
     &.btn-footer {
-      color: map-get($theme-colors-light, primary);
-      background-color: transparent;
-      border-color: transparent;
+      color: map-get($main-text-colors, light);
+
+      &:hover {
+        color: map-get($theme-colors-light, primary);
+      }
     }
 
     &.btn.focus,
