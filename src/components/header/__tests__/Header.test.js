@@ -22,7 +22,7 @@ describe('Header component', () => {
     );
 
     expect(component.find('img')).toHaveLength(2);
-    expect(component.find('NavLink')).toHaveLength(5);
+    expect(component.find('NavLink')).toHaveLength(9);
     expect(component.find('NavDropdown')).toHaveLength(2);
     expect(component.find('DropdownItem')).toHaveLength(6);
   });
