@@ -62,9 +62,9 @@
       box-shadow: none;
 
       &:hover {
-        color: white;
-        background-color: map-get($theme-colors-light, primary);
-        border-color: map-get($theme-colors-light, primary);
+        color: map-get($theme-colors, primary);
+        background-color: map-get($turquoise, 100);
+        border-color: map-get($turquoise, 100);
       }
     }
 
