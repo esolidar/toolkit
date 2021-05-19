@@ -4,6 +4,7 @@
   button {
     font-size: 14px;
     padding: 0;
+    border-radius: 0;
 
     &.btn-footer {
       color: map-get($main-text-colors, light);

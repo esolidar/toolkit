@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621420429581" clover="3.2.0">
-  <project timestamp="1621420429581" name="All files">
-    <metrics statements="2629" coveredstatements="1511" conditionals="2381" coveredconditionals="1275" methods="656" coveredmethods="315" elements="5666" coveredelements="3101" complexity="0" loc="2629" ncloc="2629" packages="91" files="216" classes="216"/>
+<coverage generated="1621429255504" clover="3.2.0">
+  <project timestamp="1621429255505" name="All files">
+    <metrics statements="2629" coveredstatements="1511" conditionals="2383" coveredconditionals="1277" methods="656" coveredmethods="315" elements="5668" coveredelements="3103" complexity="0" loc="2629" ncloc="2629" packages="91" files="216" classes="216"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -3234,9 +3234,9 @@
       </file>
     </package>
     <package name="elements.selectField">
-      <metrics statements="8" coveredstatements="8" conditionals="18" coveredconditionals="16" methods="3" coveredmethods="3"/>
+      <metrics statements="8" coveredstatements="8" conditionals="20" coveredconditionals="18" methods="3" coveredmethods="3"/>
       <file name="SelectField.jsx" path="C:\Projects\toolkit\src\elements\selectField\SelectField.jsx">
-        <metrics statements="8" coveredstatements="8" conditionals="18" coveredconditionals="16" methods="3" coveredmethods="3"/>
+        <metrics statements="8" coveredstatements="8" conditionals="20" coveredconditionals="18" methods="3" coveredmethods="3"/>
         <line num="5" count="9" type="stmt"/>
         <line num="23" count="8" type="stmt"/>
         <line num="24" count="8" type="cond" truecount="2" falsecount="0"/>

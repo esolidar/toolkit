@@ -204,6 +204,7 @@
         -ms-transition: opacity 0.25s ease-in-out;
         -o-transition: opacity 0.25s ease-in-out;
         transition: opacity 0.25s ease-in-out;
+        display: none;
       }
 
       &.collapse.show {
@@ -211,6 +212,7 @@
 
         &::after {
           opacity: 1;
+          display: inline-block;
         }
       }
 
