@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621434627688" clover="3.2.0">
-  <project timestamp="1621434627688" name="All files">
+<coverage generated="1621435845245" clover="3.2.0">
+  <project timestamp="1621435845245" name="All files">
     <metrics statements="2639" coveredstatements="1521" conditionals="2383" coveredconditionals="1277" methods="660" coveredmethods="319" elements="5682" coveredelements="3117" complexity="0" loc="2639" ncloc="2639" packages="92" files="217" classes="217"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -3270,14 +3270,14 @@
       <file name="Tabs.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/tabs/Tabs.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="9" type="stmt"/>
-        <line num="9" count="9" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="13" count="9" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="18" count="9" type="stmt"/>
-        <line num="27" count="27" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="27" count="33" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
       </file>
     </package>
