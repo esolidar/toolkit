@@ -134,19 +134,19 @@ const Header = ({
               >
                 <Nav className="ml-auto menu-items d-block d-md-none">
                   <Nav.Link
-                    href={`${esolidarMainUrl}how-it-works`}
+                    href={`${esolidarUrl}how-it-works`}
                     className={window.location.href.includes('how-it-works') ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.companies" />
                   </Nav.Link>
                   <Nav.Link
-                    href={`${esolidarMainUrl}how-it-works`}
+                    href={`${esolidarUrl}how-it-works`}
                     className={window.location.href.includes('how-it-works') ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.organizations" />
                   </Nav.Link>
                   <Nav.Link
-                    href={`${esolidarMainUrl}how-it-works`}
+                    href={`${esolidarUrl}how-it-works`}
                     className={window.location.href.includes('how-it-works') ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.individuals" />
@@ -173,19 +173,19 @@ const Header = ({
                     id="basic-nav-dropdown"
                   >
                     <NavDropdown.Item
-                      href={`${esolidarMainUrl}how-it-works`}
+                      href={`${esolidarUrl}how-it-works`}
                       className={window.location.href.includes('how-it-works') ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.companies" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
-                      href={`${esolidarMainUrl}how-it-works`}
+                      href={`${esolidarUrl}how-it-works`}
                       className={window.location.href.includes('how-it-works') ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.organizations" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
-                      href={`${esolidarMainUrl}how-it-works`}
+                      href={`${esolidarUrl}how-it-works`}
                       className={window.location.href.includes('how-it-works') ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.individuals" />
