@@ -83,6 +83,7 @@ export { default as DatePicker } from './elements/datePicker';
 export { default as TextFieldCurrency } from './elements/textFieldCurrency';
 export { default as TextFieldNumber } from './elements/textFieldNumber';
 export { default as InputLabel } from './elements/inputLabel';
+export { default as Tabs } from './elements/tabs';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
