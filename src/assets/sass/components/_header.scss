@@ -40,8 +40,7 @@
 
       &.active,
       &:hover,
-      &:active,
-      &:focus {
+      &:active {
         color: map-get($turquoise, 500);
         border-bottom: 4px solid map-get($turquoise, 500);
         padding-bottom: 21px;
