@@ -8,11 +8,12 @@ $athletics-regular-font-path: $path + 'athletics-regular/';
 
 @font-face {
   font-family: 'AvenirLTStd-Heavy';
-  src: url($avenir-font-path + '30CDBF_0_0.eot');
-  src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
-    url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),
-    url($avenir-font-path + '30CDBF_0_0.woff') format('woff'),
-    url($avenir-font-path + '30CDBF_0_0.ttf') format('truetype');
+  src: url($avenir-font-path + '30CDB5_0_0.eot');
+  src: url($avenir-font-path + '30CDB5_0_0.eot?#iefix') format('embedded-opentype'),
+    url($avenir-font-path + '30CDB5_0_0.woff2') format('woff2'),
+    url($avenir-font-path + '30CDB5_0_0.woff') format('woff'),
+    url($avenir-font-path + '30CDB5_0_0.ttf') format('truetype'),
+    url($avenir-font-path + '30CDB5_0_0.svg#wf') format('svg');
 }
 
 @font-face {
@@ -27,12 +28,11 @@ $athletics-regular-font-path: $path + 'athletics-regular/';
 
 @font-face {
   font-family: 'AvenirLT-Roman';
-  src: url($avenir-font-path + '30CDB5_0_0.eot');
-  src: url($avenir-font-path + '30CDB5_0_0.eot?#iefix') format('embedded-opentype'),
-    url($avenir-font-path + '30CDB5_0_0.woff2') format('woff2'),
-    url($avenir-font-path + '30CDB5_0_0.woff') format('woff'),
-    url($avenir-font-path + '30CDB5_0_0.ttf') format('truetype'),
-    url($avenir-font-path + '30CDB5_0_0.svg#wf') format('svg');
+  src: url($avenir-font-path + '30CDBF_0_0.eot');
+  src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
+    url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),
+    url($avenir-font-path + '30CDBF_0_0.woff') format('woff'),
+    url($avenir-font-path + '30CDBF_0_0.ttf') format('truetype');
 }
 
 @font-face {
