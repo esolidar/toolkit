@@ -7,7 +7,7 @@ $slick-font-path: $path + 'slick/';
 $athletics-regular-font-path: $path + 'athletics-regular/';
 
 @font-face {
-  font-family: 'AvenirLT-Roman';
+  font-family: 'AvenirLTStd-Heavy';
   src: url($avenir-font-path + '30CDB5_0_0.eot');
   src: url($avenir-font-path + '30CDB5_0_0.eot?#iefix') format('embedded-opentype'),
     url($avenir-font-path + '30CDB5_0_0.woff2') format('woff2'),
@@ -27,7 +27,7 @@ $athletics-regular-font-path: $path + 'athletics-regular/';
 }
 
 @font-face {
-  font-family: 'AvenirLTStd-Heavy';
+  font-family: 'AvenirLT-Roman';
   src: url($avenir-font-path + '30CDBF_0_0.eot');
   src: url($avenir-font-path + '30CDBF_0_0.eot?#iefix') format('embedded-opentype'),
     url($avenir-font-path + '30CDBF_0_0.woff2') format('woff2'),
