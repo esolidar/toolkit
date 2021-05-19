@@ -72,7 +72,7 @@ Dark.args = {
 
 export const Link = args => (
   <div className="p-2">
-    <Button {...args} text="Squared" rounded={false} />
+    <Button {...args} text="Squared" />
     <Button {...args} text="Rounded" />
     <Button {...args} text="Disabled" disabled />
     <Button {...args} text="Size XL" size="xl" />
