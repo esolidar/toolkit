@@ -1,139 +1,116 @@
 .landing-footer {
-  background: map-get($theme-colors-dark, primary);
-  padding: 30px 50px;
-  font-family: map-get($fonts, main);
+  background: map-get($blue, 800);
+  color: map-get($main-text-colors, light);
+  padding: 30px 64px 46px 64px;
   font-size: 15px;
-  color: map-get($theme-colors, primary);
   letter-spacing: 0;
 
   @media only screen and (max-width: map-get($breakpoints, md)) {
     position: relative;
     margin-top: 0px;
     padding: 30px 20px;
-
-    .text-right {
-      text-align: center !important;
-    }
   }
 
   .container {
-    @media (min-width: map-get($breakpoints, xl)) {
-      max-width: 100%;
-    }
+    .top-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $distance-16;
 
-    ul {
-      padding-inline-start: 0px;
+      @media (max-width: map-get($breakpoints, lg)) {
+        flex-direction: column;
+        margin-bottom: $distance-4;
+      }
 
-      li {
-        list-style: none;
-
-        &:first-child {
-          @media only screen and (max-width: map-get($breakpoints, md)) {
-            padding-bottom: 0px;
-          }
+      > * {
+        @media (max-width: map-get($breakpoints, lg)) {
+          margin-bottom: $distance-4;
         }
+      }
 
-        a,
-        span {
-          font-family: map-get($fonts, main);
-          font-size: 15px;
-          color: map-get($theme-colors-light, primary);
-          letter-spacing: 0;
-          padding: 0 20px;
+      .title {
+        color: map-get($main-text-colors, light) !important;
+        font-weight: 600 !important;
+        font-size: 19px;
+        margin-bottom: $distance-4;
+      }
 
-          &:hover,
-          &:focus,
-          &:active {
-            color: map-get($colors, white);
+      ul {
+        padding-inline-start: 0px;
+
+        li {
+          list-style: none;
+          margin-bottom: $distance-2;
+
+          &:first-child {
+            @media only screen and (max-width: map-get($breakpoints, md)) {
+              padding-bottom: 0px;
+            }
           }
 
-          @media only screen and (max-width: map-get($breakpoints, md)) {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            display: inline-block;
-          }
-        }
+          a,
+          span {
+            color: map-get($main-text-colors, light);
 
-        ul {
-          padding-inline-start: 65px;
-
-          li {
-            list-style: circle;
-
-            a {
-              padding: 0;
-
-              @media only screen and (max-width: map-get($breakpoints, md)) {
-                padding-top: 5px;
-                padding-bottom: 5px;
-                display: inline-block;
-              }
+            &:hover,
+            &:focus,
+            &:active {
+              color: map-get($theme-colors-light, primary);
+              text-decoration: none;
             }
           }
         }
       }
     }
 
-    #newsletterID {
-      h5 {
-        font-family: map-get($fonts, main);
-        font-size: 21px;
-        letter-spacing: -0.5px;
-        line-height: 33px;
-        display: block;
-        margin-bottom: 15px;
-        text-align: center;
-      }
-
-      .pipz-input {
-        background-color: transparent;
-        border-color: map-get($input, label-color) !important;
-        border-radius: 2px !important;
-        border-width: 1px !important;
-      }
-
-      .pipz-input::placeholder {
-        color: map-get($theme-colors-light, primary);
-      }
-
-      .pipz-button {
-        width: 65% !important;
-        color: map-get($theme-colors-dark, primary) !important;
-      }
-
-      .pipz-icon {
-        display: none;
-      }
-    }
-
-    h5 {
-      @media (max-width: map-get($breakpoints, lg)) {
-        margin-top: 25px;
-      }
-    }
-
-    .socialNetworks {
-      text-align: right;
-      display: inline-block;
-    }
-
     .bottom-footer {
-      padding: 0;
-      margin-top: 50px;
+      display: flex;
+      justify-content: flex-start;
 
-      @media only screen and (max-width: map-get($breakpoints, md)) {
-        text-align: center;
-        margin-top: 20px;
+      @media (max-width: map-get($breakpoints, md)) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .copyright {
+        margin-right: $distance-1;
+        color: map-get($main-text-colors, dark);
       }
 
       ul {
-        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+        margin-right: auto;
+
+        @media (max-width: map-get($breakpoints, md)) {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
 
         li {
-          display: inline;
+          list-style: none;
+          margin: 0 $distance-1;
 
-          @media only screen and (max-width: map-get($breakpoints, md)) {
-            display: block;
+          @media (max-width: map-get($breakpoints, md)) {
+            &:first-of-type {
+              margin-left: 0;
+            }
+          }
+
+          a {
+            color: map-get($main-text-colors, light);
+
+            @media (max-width: map-get($breakpoints, xs)) {
+              font-size: 12px;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: map-get($theme-colors-light, primary);
+              text-decoration: none;
+            }
           }
 
           @media (max-width: map-get($breakpoints, xs)) {
@@ -143,20 +120,17 @@
         }
       }
 
-      .changeCurrency button.btn-footer {
-        border-left: 1px solid;
-        margin-left: 5px;
-        line-height: 15px;
-      }
+      .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
 
-      .order-2 {
-        @media only screen and (max-width: map-get($breakpoints, md)) {
-          margin-top: 25px;
+        .changeCurrency button.btn-footer {
+          border-left: 1px solid map-get($main-text-colors, dark);
+          margin-left: $distance-2;
+          padding-left: $distance-2;
+          padding-right: 0;
         }
-      }
-
-      .address {
-        font-size: 11px;
       }
     }
   }

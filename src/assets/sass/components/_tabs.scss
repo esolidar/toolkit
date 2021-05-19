@@ -1,0 +1,31 @@
+.esolidar-tabs {
+  border: none;
+
+  .nav-item {
+    color: map-get($main-text-colors, dark);
+    font-weight: 600;
+    font-size: 21px;
+    border-color: transparent;
+
+    @media (max-width: map-get($breakpoints, md)) {
+      font-size: 18px;
+    }
+
+    @media (max-width: map-get($breakpoints, sm)) {
+      font-size: 14px;
+    }
+
+    &:hover,
+    :focus {
+      color: map-get($theme-colors, primary);
+      border-color: transparent;
+    }
+
+    &.active {
+      border-color: transparent;
+      border-bottom: 2px solid map-get($theme-colors, primary);
+      color: map-get($theme-colors, primary);
+      background-color: transparent;
+    }
+  }
+}

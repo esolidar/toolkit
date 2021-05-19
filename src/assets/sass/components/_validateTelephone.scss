@@ -1,6 +1,5 @@
 .validate-telephone {
   .title-add-contact {
-    font-family: map-get($fonts, heavy);
     font-size: 15px;
     color: map-get($theme-colors, primary);
     letter-spacing: -0.31px;
@@ -15,7 +14,7 @@
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-appearance: none;
-      font-family: map-get($fonts, main);
+
       font-size: 15px;
       letter-spacing: -0.31px;
       line-height: 24px;
@@ -23,7 +22,7 @@
       padding-left: 80px;
 
       &:focus {
-        border: 2px solid map-get($main-text-colors, light);
+        border: 2px solid map-get($main-text-colors, dark);
         box-shadow: none;
       }
     }
@@ -38,9 +37,8 @@
     }
 
     .sms-message {
-      font-family: map-get($fonts, main);
       font-size: 12px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
       letter-spacing: -0.25px;
       margin-top: 15px;
     }
@@ -52,7 +50,7 @@
       border-radius: 100px;
       padding-left: 30px;
       padding-right: 30px;
-      font-family: map-get($fonts, light);
+
       font-size: 17px;
       -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
       -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
@@ -81,9 +79,8 @@
       h3 {
         padding: 0;
         margin: 0;
-        font-family: map-get($fonts, heavy);
+
         font-size: 15px;
-        color: map-get($theme-colors, primary);
         letter-spacing: 0;
         margin-bottom: 15px;
 
@@ -94,7 +91,7 @@
 
       input {
         text-align: center;
-        font-family: map-get($fonts, main);
+
         font-size: 21px;
         color: map-get($grays, 500);
         letter-spacing: 2.8px;
@@ -108,7 +105,7 @@
         border-radius: 100px;
         padding-left: 30px;
         padding-right: 30px;
-        font-family: map-get($fonts, light);
+
         font-size: 17px;
         -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
         -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);

@@ -7,6 +7,7 @@ import StripeCheckoutFormSca from '../stripe/StripeCheckoutFormSca';
 import { filterUnique } from '../../utils';
 import Loading from '../loading';
 import RadioField from '../../elements/radioField';
+import Button from '../../elements/button';
 import isEmpty from '../../utils/isEmpty';
 
 const CreditCardList = ({
@@ -160,13 +161,14 @@ const CreditCardList = ({
           {showAddBtnCreditCard && (
             <li className="list-group-item">
               <div className="text-right">
-                <button
-                  type="button"
-                  className="add-card"
+                <Button
+                  extraClass="link"
                   onClick={() => setShowCreditCardForm(!showCreditCardForm)}
-                >
-                  <FormattedMessage id="creditcard.add.card" defaultMessage="Add new card" />
-                </button>
+                  text={useIntl().formatMessage({
+                    id: 'creditcard.add.card',
+                    defaultMessage: 'Add new card',
+                  })}
+                />
               </div>
             </li>
           )}

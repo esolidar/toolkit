@@ -15,7 +15,7 @@
       text-align: center;
       font-size: 21px;
       line-height: 33px;
-      color: map-get($main-text-colors, light);
+      color: map-get($main-text-colors, dark);
 
       &:hover {
         cursor: pointer;
@@ -62,7 +62,7 @@
         justify-content: space-between;
         align-items: center;
         font-size: 21px;
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
         line-height: 33px;
         display: block;
         width: 100%;

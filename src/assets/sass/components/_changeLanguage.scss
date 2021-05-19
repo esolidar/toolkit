@@ -1,29 +1,25 @@
 .changeLanguage {
-  color: map-get($theme-colors-light, primary);
-  display: inline-block;
-
-  i {
-    color: map-get($colors, light-blue);
-    margin-right: 5px;
-  }
+  display: flex;
 
   button {
+    color: map-get($main-text-colors, light);
     cursor: pointer;
     text-transform: uppercase;
     background: transparent;
     border: none;
-    font-size: 14px;
-    color: map-get($theme-colors-light, primary);
+    font-size: 13px;
+    outline: none;
 
-    &:active,
-    &:focus {
-      outline: none;
+    &.active {
+      color: map-get($main-text-colors, dark);
+
+      &:hover {
+        cursor: default !important;
+      }
     }
 
-    &.active,
-    &:hover {
-      color: map-get($colors, white);
-      text-decoration: underline;
+    &:not(.active):hover {
+      color: map-get($theme-colors-light, primary);
     }
   }
 }

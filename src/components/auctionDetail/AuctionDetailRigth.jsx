@@ -169,12 +169,14 @@ const AuctionDetailRigth = ({
                 />
               </Col>
               <Col sm={12} className="subscribe-auction mt-5">
-                <button type="button" className="btn btn-link " onClick={showModalSubscribe}>
-                  <FormattedMessage
-                    id="auction.detail.subscribeAuction"
-                    defaultMessage="Subscribe the auction."
-                  />
-                </button>
+                <Button
+                  extraClass="link"
+                  onClick={showModalSubscribe}
+                  text={useIntl().formatMessage({
+                    id: 'auction.detail.subscribeAuction',
+                  })}
+                  dataTestId="subscribe-auction"
+                />
               </Col>
             </Row>
           )}

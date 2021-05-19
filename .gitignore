@@ -11,3 +11,6 @@ npm-debug.log*
 yarn-error.log
 .babelrc
 /storybook-static
+/coverage/lcov-report
+/coverage/coverage-final.json
+/coverage/lcov.info

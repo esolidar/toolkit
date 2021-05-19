@@ -1,28 +1,20 @@
 import PropTypes from 'prop-types';
-import Icon from '../icon';
 
-const ChangeLanguage = ({ currentLang, languages, onChangeLang }) => {
-  const renderLanguages = languages.map(language => (
-    <span key={language.id}>
+const ChangeLanguage = ({ currentLang, languages, onChangeLang }) => (
+  <div className="changeLanguage">
+    {languages.map(lang => (
       <button
+        key={lang.id}
         type="button"
-        onClick={() => onChangeLang(language.name)}
-        className={currentLang === language.name ? 'active' : ''}
+        onClick={() => onChangeLang(lang.name)}
+        className={currentLang === lang.name ? 'active' : ''}
+        disabled={currentLang === lang.name}
       >
-        {language.name}
+        {lang.name}
       </button>
-    </span>
-  ));
-
-  return (
-    <div className="changeLanguage">
-      <Icon iconClass="icon-globe" />
-      {renderLanguages}
-    </div>
-  );
-};
-
-export default ChangeLanguage;
+    ))}
+  </div>
+);
 
 ChangeLanguage.propTypes = {
   currentLang: PropTypes.string.isRequired,
@@ -35,3 +27,5 @@ ChangeLanguage.propTypes = {
   ).isRequired,
   onChangeLang: PropTypes.func.isRequired,
 };
+
+export default ChangeLanguage;

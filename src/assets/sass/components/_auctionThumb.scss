@@ -126,9 +126,9 @@
     }
 
     .last-bid-label {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 11px;
-      color: map-get($colors, light-blue);
+      color: map-get($theme-colors, primary);
       line-height: 40px;
       text-transform: uppercase;
       white-space: nowrap;
@@ -136,7 +136,7 @@
 
     .last-bid-value {
       font-size: 21px;
-      color: map-get($colors, light-blue);
+      color: map-get($theme-colors, primary);
       line-height: 43px;
 
       @media (max-width: map-get($breakpoints, xs)) {

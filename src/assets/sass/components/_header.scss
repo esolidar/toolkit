@@ -1,0 +1,305 @@
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1049;
+  background: map-get($base, white);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
+  & > .navbar {
+    padding-left: 32px;
+    padding-right: 32px;
+
+    @media (max-width: 768px) {
+      padding-left: 25px;
+      padding-right: 55px;
+      width: 100%;
+    }
+  }
+
+  span.divider {
+    display: inline-block;
+    width: 0;
+    height: 56px;
+    border-left: 1px solid map-get($neutrals, 100);
+    margin-left: 16px;
+  }
+
+  .navbar-nav {
+    .dropdown-item,
+    .nav-link {
+      color: map-get($base, black);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    .nav-link {
+      padding: 25px 16px 25px 16px;
+
+      &.active,
+      &:hover,
+      &:active,
+      &:focus {
+        color: map-get($turquoise, 500);
+        border-bottom: 4px solid map-get($turquoise, 500);
+        padding-bottom: 21px;
+
+        @media (max-width: 768px) {
+          padding-bottom: 8px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding: 12px 12px 12px 25px;
+        text-align: left;
+      }
+    }
+
+    &.signin {
+      position: absolute;
+      right: 13px;
+    }
+  }
+
+  .logo-box {
+    text-align: left;
+    vertical-align: middle;
+    display: contents;
+
+    img {
+      max-width: 120px;
+
+      &.smallLogo {
+        max-width: 30px;
+      }
+
+      @media (max-width: 1024px) {
+        margin: 20px 0;
+      }
+
+      @media (min-width: 769px) and (max-width: 1199px) {
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
+    }
+  }
+  .collapseAnimation .dropdown {
+    .dropdown-toggle::after {
+      border-radius: 1px;
+      margin-left: 8px;
+    }
+
+    .dropdown-menu {
+      top: 90%;
+      left: auto;
+      right: auto;
+      padding: 8px;
+      margin: 0;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+      border-radius: 18px;
+      min-width: auto;
+
+      &:after,
+      &:before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: ' ';
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: map-get($base, white);
+        border-width: 10px;
+        margin-left: -10px;
+      }
+
+      &:before {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: rgba(0, 0, 0, 0.08);
+        border-width: 11px;
+        margin-left: -11px;
+      }
+
+      a.dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 8px 25px 8px 25px;
+        clear: both;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: map-get($background, secondary);
+          color: map-get($base, black);
+        }
+      }
+    }
+  }
+
+  .header-right {
+    .btn-esolidar {
+      margin-left: 16px;
+    }
+  }
+
+  // --------- Mobile ------------
+
+  .navbar-toggler {
+    border: 0px;
+    padding: 0px;
+
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .collapseAnimation.navbar-collapse {
+      position: absolute;
+      width: 300px;
+      min-height: 100vh;
+      top: 70px;
+      left: -400px;
+      background: map-get($base, white);
+      padding-top: 20px;
+      border-top: 1px solid map-get($neutrals, 100);
+      -webkit-box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.07);
+      -moz-box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.07);
+      box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.07);
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function: ease;
+
+      &::after {
+        content: '';
+        position: fixed;
+        top: 70px;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.16);
+        opacity: 0;
+        -webkit-transition: opacity 0.25s ease-in-out;
+        -moz-transition: opacity 0.25s ease-in-out;
+        -ms-transition: opacity 0.25s ease-in-out;
+        -o-transition: opacity 0.25s ease-in-out;
+        transition: opacity 0.25s ease-in-out;
+        display: none;
+      }
+
+      &.collapse.show {
+        left: 0;
+
+        &::after {
+          opacity: 1;
+          display: inline-block;
+        }
+      }
+
+      .scroll-menu {
+        letter-spacing: 0;
+        line-height: 26px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: block;
+      }
+    }
+  }
+
+  .open-nav {
+    float: left;
+    position: relative;
+    z-index: 999;
+
+    #nav-icon3 {
+      cursor: pointer;
+      height: 22px;
+      position: relative;
+      transform: rotate(0deg);
+
+      width: 22px;
+
+      span {
+        background: map-get($turquoise, 500);
+        border-radius: 10px;
+        display: block;
+        height: 2px;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        transform: rotate(0deg);
+        width: 100%;
+
+        &:nth-child(1) {
+          top: 2px;
+          width: 70%;
+        }
+
+        &:nth-child(2) {
+          top: 9px;
+        }
+
+        &:nth-child(3) {
+          top: 9px;
+        }
+
+        &:nth-child(4) {
+          top: 16px;
+          width: 70%;
+        }
+      }
+    }
+
+    #nav-icon3.open {
+      span {
+        &:nth-child(1) {
+          left: 50%;
+          top: 18px;
+          width: 0%;
+        }
+
+        &:nth-child(2) {
+          -moz-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          -moz-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(4) {
+          left: 50%;
+          top: 11px;
+          width: 0%;
+        }
+      }
+    }
+  }
+}

@@ -1,23 +1,31 @@
 import PropTypes from 'prop-types';
 import Button from '../../elements/button';
+import isObject from '../../utils/isObject';
+import isEmpty from '../../utils/isEmpty';
 
-const BoxInfo = ({ button, className, style, text }) => (
-  <div className={`box box-info ${className}`} style={style}>
-    <p className="text">{text}</p>
-    {button && (
-      <div className="button">
-        <Button
-          extraClass={`${button.style ? button.style : 'success'}`}
-          onClick={button.onClick}
-          href={button.href}
-          text={button.text}
-          to={button.to}
-          disabled={button.disabled}
-        />
-      </div>
-    )}
-  </div>
-);
+const BoxInfo = ({ button, className, style, text }) => {
+  const { style: buttonStyle, text: buttonText, onClick, href, to, disabled } = button;
+  const extraClass = !isObject(buttonStyle) ? buttonStyle : 'primary-full';
+
+  return (
+    <div className={`box box-info ${className}`} style={style}>
+      <p className="text">{text}</p>
+      {!isEmpty(button) && (
+        <div className="button">
+          <Button
+            extraClass={extraClass}
+            onClick={onClick}
+            href={href}
+            text={buttonText}
+            to={to}
+            disabled={disabled}
+            style={isObject(buttonStyle) ? buttonStyle : undefined}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
 BoxInfo.propTypes = {
   button: PropTypes.shape({
@@ -34,6 +42,7 @@ BoxInfo.propTypes = {
 };
 
 BoxInfo.defaultProps = {
+  button: {},
   className: '',
 };
 

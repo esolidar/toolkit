@@ -3,7 +3,7 @@
     position: absolute;
     top: 35px;
     left: 25px;
-    font-family: map-get($fonts, heavy);
+
     font-size: 20px;
     color: map-get($grays, 400);
     letter-spacing: 0;
@@ -19,7 +19,7 @@
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-appearance: none;
-    font-family: map-get($fonts, main);
+
     font-size: 15px;
     color: map-get($main-text-colors, dark);
     letter-spacing: -0.31px;

@@ -691,7 +691,7 @@ test('should render component AuctionDetail and verify checkboxs', async () => {
   );
 
   await waitFor(() => {
-    fireEvent.click(screen.getByText('Subscribe the auction.'));
+    fireEvent.click(screen.getByTestId('subscribe-auction'));
     expect(screen.getByTestId('modal')).toBeInTheDocument();
     expect(screen.getByTestId('checkStart').checked).toEqual(true);
     expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);

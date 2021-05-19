@@ -29,9 +29,7 @@
       }
 
       h3 {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
-        color: map-get($theme-colors, primary);
         letter-spacing: 0;
         line-height: 26px;
         margin: 0;
@@ -46,7 +44,6 @@
       }
 
       .people-involved {
-        font-family: map-get($fonts, heavy);
         font-size: 15px;
         color: map-get($main-text-colors, dark);
         letter-spacing: 0;
@@ -54,9 +51,8 @@
       }
 
       .people-involved-stats {
-        font-family: map-get($fonts, main);
         font-size: 15px;
-        color: map-get($main-text-colors, light);
+        color: map-get($main-text-colors, dark);
         letter-spacing: 0;
         line-height: 30px;
       }
@@ -69,9 +65,7 @@
         }
 
         h2 {
-          font-family: map-get($fonts, heavy);
           font-size: 15px;
-          color: map-get($theme-colors, primary);
           letter-spacing: 0;
           line-height: 26px;
           margin-top: 0;
@@ -80,17 +74,14 @@
         }
 
         h3 {
-          font-family: map-get($fonts, main);
           font-size: 27px;
-          color: map-get($main-text-colors, dark);
           letter-spacing: 0;
           line-height: 39px;
         }
 
         p {
-          font-family: map-get($fonts, main);
           font-size: 15px;
-          color: map-get($main-text-colors, light);
+          color: map-get($main-text-colors, dark);
           letter-spacing: 0;
           line-height: 22px;
           margin: 0;

@@ -30,12 +30,11 @@
 
     h4 {
       margin-bottom: 20px;
-      color: map-get($theme-colors, primary);
     }
   }
 
   .no-bank-accounts {
-    color: map-get($main-text-colors, light);
+    color: map-get($main-text-colors, dark);
     padding: 40px;
     font-size: 16px;
   }

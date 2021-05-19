@@ -1,4 +1,5 @@
 import AuctionLastBid from './AuctionLastBid';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/Auctions/AuctionLastBid',
@@ -31,5 +32,5 @@ Default.args = {
   minValue: 10,
   inputBidValue: 10,
   valueBidTextField: () => {},
-  primaryColor: 'red',
+  primaryColor: variables['theme-colors-primary'],
 };
