@@ -124,7 +124,7 @@ const Header = ({
           ) : (
             <>
               <Nav className="signin">
-                <Nav.Link href="/login" className="d-block d-md-none">
+                <Nav.Link href={`${esolidarUrl}user/login`} className="d-block d-md-none">
                   <FormattedMessage id="Header.signin" />
                 </Nav.Link>
               </Nav>
