@@ -22,7 +22,7 @@ const props = {
     {
       key: 'nonprofit',
       title: 'Nonprofit',
-      disabled: false,
+      disabled: true,
       content: <p className="p-3">Nonprofit content</p>,
     },
   ],
@@ -71,5 +71,14 @@ test('changes active tab on click', async () => {
     const corporateTab = screen.getByText('Corporate');
     userEvent.click(corporateTab);
     expect(corporateTab).toHaveClass('active');
+  });
+});
+
+test('renders disabled tab', async () => {
+  render(<Tabs {...props} />);
+
+  await waitFor(() => {
+    const disabledTab = screen.getByText('Nonprofit');
+    expect(disabledTab).toHaveClass('disabled');
   });
 });

@@ -27,5 +27,9 @@
       color: map-get($theme-colors, primary);
       background-color: transparent;
     }
+
+    &.disabled {
+      color: map-get($theme-colors-light, dark);
+    }
   }
 }
