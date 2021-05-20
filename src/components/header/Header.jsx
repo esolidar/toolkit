@@ -140,19 +140,19 @@ const Header = ({
               >
                 <Nav className="ml-auto menu-items d-block d-md-none">
                   <Nav.Link
-                    href={`${esolidarUrl}/${lang}/how-it-works#companies`}
+                    href={`${esolidarUrl}${lang}/how-it-works#companies`}
                     className={window.location.hash === '#companies' ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.companies" />
                   </Nav.Link>
                   <Nav.Link
-                    href={`${esolidarUrl}/${lang}/how-it-works#nonprofits`}
+                    href={`${esolidarUrl}${lang}/how-it-works#nonprofits`}
                     className={window.location.hash === '#nonprofits' ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.organizations" />
                   </Nav.Link>
                   <Nav.Link
-                    href={`${esolidarUrl}/${lang}/how-it-works#individuals`}
+                    href={`${esolidarUrl}${lang}/how-it-works#individuals`}
                     className={window.location.hash === '#individuals' ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.individuals" />
@@ -179,19 +179,19 @@ const Header = ({
                     id="basic-nav-dropdown"
                   >
                     <NavDropdown.Item
-                      href={`${esolidarUrl}/${lang}/how-it-works#companies`}
+                      href={`${esolidarUrl}${lang}/how-it-works#companies`}
                       className={window.location.hash === '#companies' ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.companies" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
-                      href={`${esolidarUrl}/${lang}/how-it-works#nonprofits`}
+                      href={`${esolidarUrl}${lang}/how-it-works#nonprofits`}
                       className={window.location.hash === '#nonprofits' ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.organizations" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
-                      href={`${esolidarUrl}/${lang}/how-it-works#individuals`}
+                      href={`${esolidarUrl}${lang}/how-it-works#individuals`}
                       className={window.location.hash === '#individuals' ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.individuals" />
