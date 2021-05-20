@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const Header = ({
   isUserLogged,
@@ -14,6 +14,7 @@ const Header = ({
   institutionUrl,
   lang,
 }) => {
+  const intl = useIntl();
   const [openIcon, setopenIcon] = useState(false);
   const [openDropOne, setopenDropOne] = useState(false);
   const [openDropTwo, setopenDropTwo] = useState(false);
@@ -49,7 +50,7 @@ const Header = ({
       </Navbar.Toggle>
       {businessCompanyName ? (
         <>
-          <Navbar.Brand className="logo-box pt-0 pb-0 mr-0" href="/" title="Solidarity Ecosystem">
+          <Navbar.Brand className="logo-box pt-0 pb-0 mr-0" href="/">
             <img
               className="smallLogo"
               alt="Business eSolidar"
@@ -76,11 +77,7 @@ const Header = ({
         </>
       ) : (
         <>
-          <Navbar.Brand
-            href={linkLogoUrl}
-            className="logo-box pt-0 pb-0 mr-0"
-            title="Solidarity Ecosystem"
-          >
+          <Navbar.Brand href={linkLogoUrl} className="logo-box pt-0 pb-0 mr-0">
             <img
               className="d-none d-lg-block"
               alt="eSolidar"
@@ -175,8 +172,9 @@ const Header = ({
                     onMouseEnter={() => setopenDropOne(!openDropOne)}
                     onMouseLeave={() => setopenDropOne(!openDropOne)}
                     show={openDropOne}
-                    title="Porquê a esolidar?"
-                    id="basic-nav-dropdown"
+                    title={intl.formatMessage({
+                      id: 'header.menu.whyEsolidar',
+                    })}
                   >
                     <NavDropdown.Item
                       href={`${esolidarUrl}${lang}/how-it-works#companies`}
@@ -204,8 +202,9 @@ const Header = ({
                     onMouseEnter={() => setopenDropTwo(!openDropTwo)}
                     onMouseLeave={() => setopenDropTwo(!openDropTwo)}
                     show={openDropTwo}
-                    title="Aprenda"
-                    id="basic-nav-dropdown"
+                    title={intl.formatMessage({
+                      id: 'header.menu.learn',
+                    })}
                   >
                     <NavDropdown.Item href={esolidarBlogUrl}>
                       <FormattedMessage id="header.menu.blog" />
