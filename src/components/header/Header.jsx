@@ -125,10 +125,7 @@ const Header = ({
                 <Nav.Link
                   href={`${esolidarUrl}${lang}`}
                   className={
-                    window.location.href === `${esolidarUrl}${lang}` ||
-                    isCommunityActive === 'active'
-                      ? 'active'
-                      : ''
+                    window.location.href === `${esolidarUrl}${lang}` ? 'active' : isCommunityActive
                   }
                 >
                   <FormattedMessage id="header.menu.community" />
@@ -174,10 +171,9 @@ const Header = ({
                   <Nav.Link
                     href={`${esolidarUrl}${lang}`}
                     className={
-                      window.location.href === `${esolidarUrl}${lang}` ||
-                      isCommunityActive === 'active'
+                      window.location.href === `${esolidarUrl}${lang}`
                         ? 'active'
-                        : ''
+                        : isCommunityActive
                     }
                   >
                     <FormattedMessage id="header.menu.community" />
@@ -227,10 +223,9 @@ const Header = ({
                   <Nav.Link
                     href={`${esolidarUrl}${lang}`}
                     className={
-                      window.location.href === `${esolidarUrl}${lang}` ||
-                      isCommunityActive === 'active'
+                      window.location.href === `${esolidarUrl}${lang}`
                         ? 'active'
-                        : ''
+                        : isCommunityActive
                     }
                   >
                     <FormattedMessage id="header.menu.community" />
