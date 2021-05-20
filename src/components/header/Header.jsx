@@ -165,13 +165,13 @@ const Header = ({
                   <Nav.Link href={esolidarUrl}>
                     <FormattedMessage id="header.menu.community" />
                   </Nav.Link>
-                  <Nav.Link href={esolidarBlogUrl}>
+                  <Nav.Link href={esolidarBlogUrl} target="_blank">
                     <FormattedMessage id="header.menu.blog" />
                   </Nav.Link>
-                  <Nav.Link href={`${esolidarBlogUrl}/materiais-ricos/`}>
+                  <Nav.Link href={`${esolidarBlogUrl}/materiais-ricos/`} target="_blank">
                     <FormattedMessage id="header.menu.resources" />
                   </Nav.Link>
-                  <Nav.Link href={esolidarHelpUrl}>
+                  <Nav.Link href={esolidarHelpUrl} target="_blank">
                     <FormattedMessage id="header.menu.helpCenter" />
                   </Nav.Link>
                 </Nav>
@@ -217,13 +217,13 @@ const Header = ({
                       id: 'header.menu.learn',
                     })}
                   >
-                    <NavDropdown.Item href={esolidarBlogUrl}>
+                    <NavDropdown.Item href={esolidarBlogUrl} target="_blank">
                       <FormattedMessage id="header.menu.blog" />
                     </NavDropdown.Item>
-                    <NavDropdown.Item href={`${esolidarBlogUrl}/materiais-ricos/`}>
+                    <NavDropdown.Item href={`${esolidarBlogUrl}/materiais-ricos/`} target="_blank">
                       <FormattedMessage id="header.menu.resources" />
                     </NavDropdown.Item>
-                    <NavDropdown.Item href={esolidarHelpUrl}>
+                    <NavDropdown.Item href={esolidarHelpUrl} target="_blank">
                       <FormattedMessage id="header.menu.helpCenter" />
                     </NavDropdown.Item>
                   </NavDropdown>
