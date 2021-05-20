@@ -66,6 +66,11 @@ const Footer = ({
     createNewsletterForm(currentLang);
   }, []);
 
+  const onClick = url => {
+    window.location.href = url;
+    window.location.reload();
+  };
+
   const renderMenu = menu => (
     <>
       {menu.title && <h5 className="title">{menu.title}</h5>}
@@ -76,7 +81,12 @@ const Footer = ({
           return (
             <li key={index}>
               {link.url ? (
-                <a href={link.url} title={link.text} target={link.target}>
+                <a
+                  href={link.url}
+                  title={link.text}
+                  target={link.target}
+                  onClick={() => onClick(link.url)}
+                >
                   {link.text}
                 </a>
               ) : (
