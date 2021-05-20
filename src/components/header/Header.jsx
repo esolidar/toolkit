@@ -31,6 +31,11 @@ const Header = ({
     return esolidarMainUrl;
   });
 
+  const onClick = url => {
+    window.location.href = url;
+    window.location.reload();
+  };
+
   return (
     <>
       <Navbar.Toggle aria-controls="basic-navbar-nav" label="Menu">
@@ -137,18 +142,21 @@ const Header = ({
               >
                 <Nav className="ml-auto menu-items d-block d-md-none">
                   <Nav.Link
+                    onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#companies`)}
                     href={`${esolidarUrl}${lang}/how-it-works#companies`}
                     className={window.location.hash === '#companies' ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.companies" />
                   </Nav.Link>
                   <Nav.Link
+                    onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#nonprofits`)}
                     href={`${esolidarUrl}${lang}/how-it-works#nonprofits`}
                     className={window.location.hash === '#nonprofits' ? 'active' : ''}
                   >
                     <FormattedMessage id="header.menu.organizations" />
                   </Nav.Link>
                   <Nav.Link
+                    onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#individuals`)}
                     href={`${esolidarUrl}${lang}/how-it-works#individuals`}
                     className={window.location.hash === '#individuals' ? 'active' : ''}
                   >
@@ -177,18 +185,21 @@ const Header = ({
                     })}
                   >
                     <NavDropdown.Item
+                      onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#companies`)}
                       href={`${esolidarUrl}${lang}/how-it-works#companies`}
                       className={window.location.hash === '#companies' ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.companies" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#nonprofits`)}
                       href={`${esolidarUrl}${lang}/how-it-works#nonprofits`}
                       className={window.location.hash === '#nonprofits' ? 'active' : ''}
                     >
                       <FormattedMessage id="header.menu.organizations" />
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#individuals`)}
                       href={`${esolidarUrl}${lang}/how-it-works#individuals`}
                       className={window.location.hash === '#individuals' ? 'active' : ''}
                     >
