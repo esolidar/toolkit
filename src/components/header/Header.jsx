@@ -22,14 +22,9 @@ const Header = ({
   const [openDropOne, setopenDropOne] = useState(false);
   const [openDropTwo, setopenDropTwo] = useState(false);
 
-  const isCommunityActive = () => {
-    if (window.location.pathname === `/${lang}`) {
-      return 'active';
-    }
-    communityLinks.map(item => {
-      if (window.location.href.includes(String(item))) return 'active';
-    });
-  };
+  const isCommunityActive = communityLinks.map(item => {
+    if (window.location.href.includes(String(item))) return 'active';
+  });
 
   const isDashboardActive = dashboardLinks.map(item => {
     if (window.location.href.includes(String(item))) return 'active';
@@ -127,7 +122,12 @@ const Header = ({
                     <FormattedMessage id="header.menu.dashboard" />
                   </Nav.Link>
                 )}
-                <Nav.Link href={`${esolidarUrl}${lang}`} className={isCommunityActive()}>
+                <Nav.Link
+                  href={`${esolidarUrl}${lang}`}
+                  className={
+                    window.location.pathname === `/${lang}` || isCommunityActive ? 'active' : ''
+                  }
+                >
                   <FormattedMessage id="header.menu.community" />
                 </Nav.Link>
                 <Nav.Link href={esolidarHelpUrl}>
@@ -168,7 +168,12 @@ const Header = ({
                   >
                     <FormattedMessage id="header.menu.individuals" />
                   </Nav.Link>
-                  <Nav.Link href={`${esolidarUrl}${lang}`} className={isCommunityActive()}>
+                  <Nav.Link
+                    href={`${esolidarUrl}${lang}`}
+                    className={
+                      window.location.pathname === `/${lang}` || isCommunityActive ? 'active' : ''
+                    }
+                  >
                     <FormattedMessage id="header.menu.community" />
                   </Nav.Link>
                   <Nav.Link href={esolidarBlogUrl} target="_blank">
@@ -213,7 +218,12 @@ const Header = ({
                       <FormattedMessage id="header.menu.individuals" />
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href={`${esolidarUrl}${lang}`} className={isCommunityActive()}>
+                  <Nav.Link
+                    href={`${esolidarUrl}${lang}`}
+                    className={
+                      window.location.pathname === `/${lang}` || isCommunityActive ? 'active' : ''
+                    }
+                  >
                     <FormattedMessage id="header.menu.community" />
                   </Nav.Link>
                   <NavDropdown
