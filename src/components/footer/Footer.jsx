@@ -67,6 +67,7 @@ const Footer = ({
   }, []);
 
   const onClick = url => {
+    if (!url.includes('how-it-works')) return;
     window.location.href = url;
     window.location.reload();
   };
