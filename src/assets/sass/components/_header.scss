@@ -70,6 +70,20 @@
     }
   }
 
+  .active.dropdown {
+    .dropdown-toggle {
+      color: map-get($turquoise, 500);
+      border-bottom: 0px;
+      border-bottom: 4px solid map-get($turquoise, 500);
+      padding-bottom: 21px;
+
+      &:hover {
+        border-bottom: 4px solid map-get($turquoise, 500) !important;
+        padding-bottom: 21px !important;
+      }
+    }
+  }
+
   .logo-box {
     text-align: left;
     vertical-align: middle;
@@ -146,7 +160,8 @@
 
         &:hover,
         &:active,
-        &:focus {
+        &:focus,
+        &.active {
           background-color: map-get($background, secondary);
           color: map-get($base, black);
           border-radius: 8px;

@@ -13,11 +13,23 @@ const Header = ({
   dashboardUrl,
   institutionUrl,
   lang,
+  communityLinks,
+  dashboardLinks,
+  cdnStaticUrl,
 }) => {
   const intl = useIntl();
   const [openIcon, setopenIcon] = useState(false);
   const [openDropOne, setopenDropOne] = useState(false);
   const [openDropTwo, setopenDropTwo] = useState(false);
+
+  const isCommunityActive = communityLinks.map(item => {
+    if (window.location.href.includes(String(item))) return 'active';
+  });
+
+  const isDashboardActive = dashboardLinks.map(item => {
+    if (window.location.href.includes(String(item))) return 'active';
+  });
+
   const [linkLogoUrl] = useState(() => {
     if (isUserLogged) {
       if (institutionUrl) {
@@ -59,7 +71,7 @@ const Header = ({
             <img
               className="smallLogo"
               alt="Business eSolidar"
-              src="https://static.esolidar.com/frontend/logo/esolidar/new/logo-xsmall.svg"
+              src={`${cdnStaticUrl}/frontend/logo/esolidar/logo-xsmall.svg`}
             />
           </Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav" className="collapseAnimation ml-auto menu-items">
@@ -86,12 +98,12 @@ const Header = ({
             <img
               className="d-none d-lg-block"
               alt="eSolidar"
-              src="https://static.esolidar.com/frontend/logo/esolidar/new/logo.svg"
+              src={`${cdnStaticUrl}/frontend/logo/esolidar/logo.svg`}
             />
             <img
               className="d-block d-lg-none smallLogo"
               alt="eSolidar"
-              src="https://static.esolidar.com/frontend/logo/esolidar/new/logo-xsmall.svg"
+              src={`${cdnStaticUrl}/frontend/logo/esolidar/logo-xsmall.svg`}
             />
           </Navbar.Brand>
           {isUserLogged ? (
@@ -106,20 +118,14 @@ const Header = ({
                   </Nav.Link>
                 )}
                 {dashboardUrl && (
-                  <Nav.Link
-                    href={dashboardUrl}
-                    className={window.location.href.includes('social-feed') ? 'active' : ''}
-                  >
+                  <Nav.Link href={dashboardUrl} className={isDashboardActive}>
                     <FormattedMessage id="header.menu.dashboard" />
                   </Nav.Link>
                 )}
                 <Nav.Link
-                  href={esolidarUrl}
+                  href={`${esolidarUrl}${lang}`}
                   className={
-                    window.location.pathname.lastIndexOf('/') + 1 === 1 &&
-                    window.location.host.includes('community')
-                      ? 'active'
-                      : ''
+                    window.location.href === `${esolidarUrl}${lang}` ? 'active' : isCommunityActive
                   }
                 >
                   <FormattedMessage id="header.menu.community" />
@@ -162,7 +168,14 @@ const Header = ({
                   >
                     <FormattedMessage id="header.menu.individuals" />
                   </Nav.Link>
-                  <Nav.Link href={esolidarUrl}>
+                  <Nav.Link
+                    href={`${esolidarUrl}${lang}`}
+                    className={
+                      window.location.href === `${esolidarUrl}${lang}`
+                        ? 'active'
+                        : isCommunityActive
+                    }
+                  >
                     <FormattedMessage id="header.menu.community" />
                   </Nav.Link>
                   <Nav.Link href={esolidarBlogUrl} target="_blank">
@@ -183,6 +196,7 @@ const Header = ({
                     title={intl.formatMessage({
                       id: 'header.menu.whyEsolidar',
                     })}
+                    className={window.location.href.includes('how-it-works') ? 'active' : ''}
                   >
                     <NavDropdown.Item
                       onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#companies`)}
@@ -206,7 +220,14 @@ const Header = ({
                       <FormattedMessage id="header.menu.individuals" />
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href={esolidarUrl}>
+                  <Nav.Link
+                    href={`${esolidarUrl}${lang}`}
+                    className={
+                      window.location.href === `${esolidarUrl}${lang}`
+                        ? 'active'
+                        : isCommunityActive
+                    }
+                  >
                     <FormattedMessage id="header.menu.community" />
                   </Nav.Link>
                   <NavDropdown
@@ -248,4 +269,7 @@ Header.propTypes = {
   dashboardUrl: PropTypes.string,
   institutionUrl: PropTypes.string,
   lang: PropTypes.string,
+  communityLinks: PropTypes.array,
+  dashboardLinks: PropTypes.array,
+  cdnStaticUrl: PropTypes.string,
 };
