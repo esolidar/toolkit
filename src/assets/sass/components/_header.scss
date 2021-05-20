@@ -39,14 +39,22 @@
       padding: 25px 16px 25px 16px;
 
       &.active,
-      &:hover,
-      &:active {
+      &:hover {
         color: map-get($turquoise, 500);
         border-bottom: 4px solid map-get($turquoise, 500);
         padding-bottom: 21px;
 
         @media (max-width: 768px) {
           padding-bottom: 8px;
+        }
+      }
+
+      &.dropdown-toggle {
+        &.active,
+        &:hover {
+          color: map-get($turquoise, 500);
+          border-bottom: 0px;
+          padding-bottom: 25px;
         }
       }
 
@@ -141,6 +149,7 @@
         &:focus {
           background-color: map-get($background, secondary);
           color: map-get($base, black);
+          border-radius: 8px;
         }
       }
     }
