@@ -20,4 +20,5 @@ Default.args = {
   businessCompanyName: '',
   dashboardUrl: '',
   institutionUrl: '',
+  lang: 'pt',
 };

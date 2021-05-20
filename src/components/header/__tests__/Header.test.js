@@ -18,6 +18,7 @@ describe('Header component', () => {
         businessCompanyName=""
         dashboardUrl=""
         institutionUrl=""
+        lang="pt"
       />
     );
 
@@ -38,6 +39,7 @@ describe('Header component', () => {
         businessCompanyName=""
         dashboardUrl="/social-feed"
         institutionUrl=""
+        lang="pt"
       />
     );
     expect(component.find('img')).toHaveLength(2);
@@ -56,6 +58,7 @@ describe('Header component', () => {
         businessCompanyName=""
         dashboardUrl=""
         institutionUrl="/npo/store/1600-npo-test"
+        lang="pt"
       />
     );
     expect(component.find('img')).toHaveLength(2);
@@ -74,6 +77,7 @@ describe('Header component', () => {
         businessCompanyName="CompanyName"
         dashboardUrl=""
         institutionUrl=""
+        lang="pt"
       />
     );
     expect(component.find('img')).toHaveLength(1);
