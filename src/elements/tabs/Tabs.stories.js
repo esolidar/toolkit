@@ -29,9 +29,10 @@ Default.args = {
     },
     {
       content: <p className="p-3">Nonprofit content</p>,
-      disabled: false,
+      disabled: true,
       key: 'nonprofit',
       title: 'Nonprofit',
     },
   ],
+  onChange: () => {},
 };
