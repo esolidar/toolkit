@@ -269,7 +269,7 @@ Header.propTypes = {
   dashboardUrl: PropTypes.string,
   institutionUrl: PropTypes.string,
   lang: PropTypes.string,
-  communityLinks: PropTypes.array,
-  dashboardLinks: PropTypes.array,
+  communityLinks: PropTypes.array.isRequired,
+  dashboardLinks: PropTypes.array.isRequired,
   cdnStaticUrl: PropTypes.string,
 };
