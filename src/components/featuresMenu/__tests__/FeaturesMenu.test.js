@@ -36,6 +36,14 @@ const features = [
     },
   },
 ];
+const extraMenuLinks = [
+  {
+    text: 'Central de ajuda',
+    url: 'https://help.esolidar.com',
+    target: '_blank',
+    iconItem: 'icon feed',
+  },
+];
 const project = 'business-frontend';
 const location = 'auctions';
 const translations = {
@@ -73,5 +81,18 @@ describe('FeaturesMenu page', () => {
       />
     );
     expect(component.find('li').length).toBe(2);
+  });
+
+  it('expect 1 extra links', () => {
+    const component = shallow(
+      <FeaturesMenu
+        project={project}
+        location={location}
+        translations={translations}
+        features={[]}
+        extraMenuLinks={extraMenuLinks}
+      />
+    );
+    expect(component.find('li').length).toBe(1);
   });
 });
