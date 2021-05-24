@@ -25,7 +25,6 @@ describe('Header component', () => {
           esolidarUrl="https://community.testesolidar.com/"
           esolidarBlogUrl=""
           esolidarHelpUrl=""
-          businessCompanyName=""
           dashboardUrl=""
           institutionUrl=""
           lang="pt"
@@ -51,7 +50,6 @@ describe('Header component', () => {
           esolidarUrl="https://community.testesolidar.com/"
           esolidarBlogUrl=""
           esolidarHelpUrl=""
-          businessCompanyName=""
           dashboardUrl="/social-feed"
           institutionUrl=""
           lang="pt"
@@ -75,7 +73,6 @@ describe('Header component', () => {
           esolidarUrl="https://community.testesolidar.com/"
           esolidarBlogUrl=""
           esolidarHelpUrl=""
-          businessCompanyName=""
           dashboardUrl=""
           institutionUrl="/npo/store/1600-npo-test"
           lang="pt"
@@ -88,29 +85,5 @@ describe('Header component', () => {
     expect(component.find('img')).toHaveLength(2);
     expect(component.find('NavLink')).toHaveLength(3);
     expect(component.find('NavLink').first().props().href).toEqual('/npo/store/1600-npo-test');
-  });
-
-  it('renders Header logged user on Business', () => {
-    const component = mount(
-      <IntlProvider locale="en">
-        <Header
-          isUserLogged={true}
-          esolidarMainUrl="https://www.esolidar.com/"
-          esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
-          businessCompanyName="CompanyName"
-          dashboardUrl=""
-          institutionUrl=""
-          lang="pt"
-          communityLinks={[]}
-          dashboardLinks={[]}
-          cdnStaticUrl="https://static.esolidar.com"
-        />
-      </IntlProvider>
-    );
-    expect(component.find('img')).toHaveLength(1);
-    expect(component.find('NavLink')).toHaveLength(3);
-    expect(component.find('NavLink').first().text()).toMatch('CompanyName');
   });
 });

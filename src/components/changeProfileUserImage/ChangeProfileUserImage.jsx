@@ -29,7 +29,7 @@ const ChangeProfileUserImage = ({ color, thumb, errors, onDrop, env }) => {
             'has-error': errors.image,
           })}
         >
-          <div className="thumb-box">
+          <div className="thumb-box d-flex justify-content-center">
             <div
               className="thumb"
               data-testid="thumb-change-profile-user-image"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621695169540" clover="3.2.0">
-  <project timestamp="1621695169541" name="All files">
-    <metrics statements="2661" coveredstatements="1518" conditionals="2409" coveredconditionals="1261" methods="673" coveredmethods="320" elements="5743" coveredelements="3099" complexity="0" loc="2661" ncloc="2661" packages="92" files="217" classes="217"/>
+<coverage generated="1621699286123" clover="3.2.0">
+  <project timestamp="1621699286123" name="All files">
+    <metrics statements="2665" coveredstatements="1532" conditionals="2405" coveredconditionals="1284" methods="675" coveredmethods="323" elements="5745" coveredelements="3139" complexity="0" loc="2665" ncloc="2665" packages="92" files="218" classes="218"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -2002,43 +2002,43 @@
       </file>
     </package>
     <package name="components.header">
-      <metrics statements="34" coveredstatements="7" conditionals="44" coveredconditionals="0" methods="17" coveredmethods="1"/>
+      <metrics statements="34" coveredstatements="17" conditionals="40" coveredconditionals="23" methods="17" coveredmethods="2"/>
       <file name="Header.jsx" path="C:\Projects\toolkit\src\components\header\Header.jsx">
-        <metrics statements="34" coveredstatements="7" conditionals="44" coveredconditionals="0" methods="17" coveredmethods="1"/>
+        <metrics statements="34" coveredstatements="17" conditionals="40" coveredconditionals="23" methods="17" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="151" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
         <line num="158" count="0" type="stmt"/>
-        <line num="165" count="0" type="stmt"/>
-        <line num="193" count="0" type="stmt"/>
-        <line num="194" count="0" type="stmt"/>
-        <line num="202" count="0" type="stmt"/>
-        <line num="209" count="0" type="stmt"/>
-        <line num="216" count="0" type="stmt"/>
-        <line num="234" count="0" type="stmt"/>
-        <line num="235" count="0" type="stmt"/>
-        <line num="262" count="1" type="stmt"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="181" count="0" type="stmt"/>
+        <line num="197" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="223" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\header\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3288,7 +3288,7 @@
       </file>
     </package>
     <package name="elements.tabs">
-      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
       <file name="Tabs.jsx" path="C:\Projects\toolkit\src\elements\tabs\Tabs.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="6" count="1" type="stmt"/>
@@ -3301,6 +3301,13 @@
         <line num="18" count="11" type="stmt"/>
         <line num="27" count="33" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
+      </file>
+      <file name="Tabs.stories.js" path="C:\Projects\toolkit\src\elements\tabs\Tabs.stories.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
     </package>
     <package name="elements.textField">
