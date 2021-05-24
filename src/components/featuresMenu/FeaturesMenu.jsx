@@ -702,6 +702,7 @@ FeaturesMenu.propTypes = {
       text: PropTypes.string,
       url: PropTypes.string,
       target: PropTypes.string,
+      iconItem: PropTypes.string,
     })
   ),
 };
