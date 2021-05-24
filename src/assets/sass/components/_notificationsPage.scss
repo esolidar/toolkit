@@ -145,19 +145,6 @@
     }
   }
 
-  .notification-unread-count {
-    padding: 2px 5px 0 5px;
-    top: 5px;
-    left: 23px;
-    position: absolute;
-    color: map-get($colors, white);
-
-    font-size: 10px;
-    font-weight: 500;
-    border-radius: 50%;
-    background-color: map-get($theme-colors, danger);
-  }
-
   @media (max-width: map-get($breakpoints, xs)) {
     width: 100%;
   }
