@@ -107,13 +107,13 @@ const Header = ({
         </Navbar.Collapse>
       ) : (
         <>
-          <Nav className="signin">
-            <Nav.Link href={`${esolidarUrl}user/login`} className="d-block d-md-none">
+          <Nav className="signin d-block d-lg-none">
+            <Nav.Link href={`${esolidarUrl}user/login`}>
               <FormattedMessage id="Header.signin" />
             </Nav.Link>
           </Nav>
           <Navbar.Collapse id="basic-navbar-nav" className="collapseAnimation ml-auto menu-items">
-            <Nav className="ml-auto menu-items d-block d-md-none">
+            <Nav className="ml-auto menu-items d-none d-menu-items-mobile">
               <Nav.Link
                 onClick={() => onClick(`${esolidarUrl}${lang}/how-it-works#companies`)}
                 href={`${esolidarUrl}${lang}/how-it-works#companies`}
