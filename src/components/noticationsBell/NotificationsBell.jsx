@@ -71,16 +71,14 @@ const NotificationsBell = ({
     <div className="inline-block">
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
         <Dropdown.Toggle className="notification-icon">
-          {+totalNotifications > 0 && (
-            <div className="notification-unread-count">
-              {+totalNotifications > 100 ? '+99' : totalNotifications}
-            </div>
-          )}
           <img
             src={`${cdnStaticUrl}/frontend/icons/ic-notification-bell.svg`}
             className="notification-image"
             alt="Notifications"
           />
+          {+totalNotifications > 0 && (
+            <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
+          )}
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <div className="notification-header">
