@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
 import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
+import Button from '../../elements/button';
 
 const NotificationsBell = ({
   notificationsHeadTitle,
@@ -19,11 +20,15 @@ const NotificationsBell = ({
 }) => {
   const items = [];
   const notificationsList = notifications;
+
   if (notificationsList.length > 0) {
     notificationsList.map((notification, i) => {
       if (notification.id) {
         items.push(
-          <li key={i} className="notification-row">
+          <li
+            key={i}
+            className={`notification-row ${notification.read_at === null ? 'unread' : ''}`}
+          >
             <a
               href="#"
               target={notification.url === '#' ? '_self' : notification.target}
@@ -31,33 +36,20 @@ const NotificationsBell = ({
               onClick={() => markAsReadFunc(notification)}
               className="btn-markAsRead"
             >
-              <div
-                className={
-                  notification.read_at === null
-                    ? 'notification-row-box unread'
-                    : 'notification-row-box'
-                }
-              >
-                <div className="notification-thumb">
-                  <img
-                    alt="Thumb"
-                    src={
-                      notification.photo?.thumb
-                        ? notification.photo.thumb
-                        : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
-                    }
-                  />
-                </div>
+              <div className="notification-row-box">
+                <img
+                  alt="Thumb"
+                  src={
+                    notification.photo?.thumb
+                      ? notification.photo.thumb
+                      : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
+                  }
+                />
                 <div>
-                  <span className="notification-row-text">
-                    <div dangerouslySetInnerHTML={{ __html: notification.text }} />
-                  </span>
-                  <span className="notification-row-date">
-                    <Moment fromNow ago>
-                      {notification.created_at}
-                    </Moment>
-                  </span>
-                  {notification.read_at === null && <div className="notification-bullet" />}
+                  <div className="text" dangerouslySetInnerHTML={{ __html: notification.text }} />
+                  <Moment fromNow ago className="date">
+                    {notification.created_at}
+                  </Moment>
                 </div>
               </div>
             </a>
@@ -80,18 +72,24 @@ const NotificationsBell = ({
             <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
           )}
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu flip align="right">
           <div className="notification-header">
             <span className="notification-header-title">{notificationsHeadTitle}</span>
-            <span className="notification-header-mark-read">
-              <button type="button" onClick={markAllAsReadFunc}>
-                {markAllAsReadTitle}
-              </button>
-            </span>
+            {/* <span className="notification-header-mark-read"> */}
+            {/* <button type="button notification-header-mark-read" onClick={markAllAsReadFunc}>
+              {markAllAsReadTitle}
+            </button> */}
+            <Button
+              extraClass="link"
+              className="notification-header-mark-read"
+              onClick={markAllAsReadFunc}
+              text={markAllAsReadTitle}
+            />
+            {/* </span> */}
           </div>
           <ul
             className="notification-list"
-            style={{ height: '500px', overflow: 'auto' }}
+            style={{ overflow: 'auto' }}
             onScroll={handleScrollFunc}
           >
             {!notifications && (

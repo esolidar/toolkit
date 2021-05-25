@@ -5,7 +5,11 @@ export default {
   component: NotificationsBell,
 };
 
-const Template = args => <NotificationsBell {...args} />;
+const Template = args => (
+  <div className="d-flex justify-content-end">
+    <NotificationsBell {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.parameters = {
@@ -30,7 +34,7 @@ Default.args = {
         'https://cdn.testesolidar.com/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png',
       cover_image:
         'https://cdn.testesolidar.com/companies/1/cover/,c761bea5-709f-4ac9-8195-9c347c78bc84.jpg',
-      read_at: '2020-02-07T15:47:28.000000Z',
+      read_at: null,
       url: 'https://business.testesolidar.com/requests/detail/117#report',
       text: 'Finalize a sua iniciativa <u>Lorem Ipsum</u>, faça uma avaliação e anexe arquivos.',
       type: 'RequestNotReviewedByCompanyNotification',
@@ -49,7 +53,7 @@ Default.args = {
         'https://cdn.testesolidar.com/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png',
       cover_image:
         'https://cdn.testesolidar.com/companies/1/cover/,c761bea5-709f-4ac9-8195-9c347c78bc84.jpg',
-      read_at: null,
+      read_at: '2020-02-07T15:47:28.000000Z',
       url: 'https://business.testesolidar.com/requests/detail/117#report',
       text: 'Finalize a sua iniciativa <u>Lorem Ipsum</u>, faça uma avaliação e anexe arquivos.',
       type: 'RequestNotReviewedByCompanyNotification',
