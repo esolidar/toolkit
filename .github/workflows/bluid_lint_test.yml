@@ -49,7 +49,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-      - run: yarn test --silent
+      - run: yarn test
 
   allPass:
     name: Well done
