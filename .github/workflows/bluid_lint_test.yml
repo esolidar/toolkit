@@ -49,7 +49,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-      - run: npx jest
+      - run: npx jest --colors
 
   allPass:
     name: Well done
