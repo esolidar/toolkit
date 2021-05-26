@@ -51,9 +51,21 @@ jobs:
           key: ${{ github.sha }}
       - run: npx jest --colors
 
+  coverage:
+    name: Run coverage tests
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # this is just an example, this could be any command that will trigger jest
+          test-command: 'yarn test'
+
   allPass:
     name: Well done
     runs-on: ubuntu-latest
-    needs: [lint, test]
+    needs: [lint, test, coverage]
     steps:
       - run: exit 0
