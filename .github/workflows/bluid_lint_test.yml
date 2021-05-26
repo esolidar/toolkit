@@ -61,12 +61,14 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
+      - name: Run tests
+        run: yarn jest --json --outputFile="/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json"
       - name: Add Coverage Comment
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: yarn jest --json --outputFile="jest.results.json"
+          test-command: 'echo done'
 
   allPass:
     name: Well done
