@@ -23,6 +23,8 @@ import {
   isValidRegex,
 } from '../index';
 
+const a = 2;
+
 describe('test utils functions', () => {
   test('should return getEmployeeName', () => {
     const userEmployee = {
