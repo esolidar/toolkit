@@ -61,11 +61,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # this is just an example, this could be any command that will trigger jest
-          test-command: 'jest --coverage -u --maxWorkers=50% --colors --json --outputFile=jest.results.json'
+          test-command: 'yarn test --coverage -u --maxWorkers=50% --colors --json --outputFile=jest.results.json'
 
   allPass:
     name: Well done
     runs-on: ubuntu-latest
-    needs: [lint, test, coverage]
+    needs: [lint, test]
     steps:
       - run: exit 0
