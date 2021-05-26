@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
+import Button from '../../elements/button';
 
 const Header = ({
   isUserLogged,
@@ -108,9 +109,13 @@ const Header = ({
       ) : (
         <>
           <Nav className="signin d-block d-lg-none">
-            <Nav.Link href={`${esolidarUrl}user/login`}>
-              <FormattedMessage id="Header.signin" />
-            </Nav.Link>
+            <Button
+              extraClass="dark"
+              href={`${esolidarUrl}user/login`}
+              text={intl.formatMessage({
+                id: 'header.menu.login',
+              })}
+            />
           </Nav>
           <Navbar.Collapse id="basic-navbar-nav" className="collapseAnimation ml-auto menu-items">
             <Nav className="ml-auto menu-items d-none d-menu-items-mobile">
