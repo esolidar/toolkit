@@ -85,7 +85,7 @@ const AuctionDetailRigth = ({
 
   return (
     <>
-      <Col sm={5}>
+      <Col sm={12} md={5}>
         <div>
           <Row>
             <Col sm={12}>
