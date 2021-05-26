@@ -59,7 +59,7 @@ describe('test utils functions', () => {
       lastName: 'Santos',
       work_email: [],
     };
-    expect(getEmployeeName(1, userEmployee)).toEqual('António Santo');
+    expect(getEmployeeName(1, userEmployee)).toEqual('António Santos');
     expect(getEmployeeName(2, userEmployee)).toEqual('João Paulo');
     expect(getEmployeeName(3, userEmployee)).toEqual('Manuel Silva');
     expect(getEmployeeName(4, user)).toEqual('António Santos');
