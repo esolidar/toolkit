@@ -51,25 +51,6 @@ jobs:
           key: ${{ github.sha }}
       - run: npx jest --colors
 
-  coverage:
-    name: Coverage tests
-    runs-on: ubuntu-latest
-    needs: install
-    steps:
-      - uses: actions/cache@v2
-        id: restore-build
-        with:
-          path: ./*
-          key: ${{ github.sha }}
-      # - name: Run tests
-      #   run: yarn jest --colors --json --outputFile="/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json"
-      - name: Add Coverage Comment
-        uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: 'yarn jest --colors --json --outputFile="/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json"'
-
   allPass:
     name: Well done
     runs-on: ubuntu-latest
