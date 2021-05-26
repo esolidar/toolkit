@@ -37,7 +37,7 @@ describe('Header component', () => {
       .mount()
       .mount();
     expect(component.find('img')).toHaveLength(2);
-    expect(component.find('NavLink')).toHaveLength(11);
+    expect(component.find('NavLink')).toHaveLength(10);
     expect(component.find('NavDropdown')).toHaveLength(2);
   });
 
