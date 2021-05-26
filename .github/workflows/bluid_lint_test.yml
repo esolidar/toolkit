@@ -61,6 +61,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
+      - name: Add Coverage Comment
         uses: mattallty/jest-github-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
