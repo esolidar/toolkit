@@ -4,7 +4,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import babel from 'rollup-plugin-babel';
 import scss from 'rollup-plugin-scss';
+import scssVariable from 'rollup-plugin-sass-variables';
 import json from '@rollup/plugin-json';
+import { terser } from 'rollup-plugin-terser';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const packageJson = require('./package.json');
@@ -31,26 +33,6 @@ export default {
       exclude: 'node_modules/**',
       runtimeHelpers: 'runtime',
       extensions,
-      // presets: [
-      //   '@babel/preset-env',
-      //   [
-      //     '@babel/preset-react',
-      //     {
-      //       runtime: 'automatic',
-      //     },
-      //   ],
-      //   '@babel/preset-typescript',
-      // ],
-      // plugins: [
-      //   '@babel/plugin-proposal-class-properties',
-      //   '@babel/plugin-transform-runtime',
-      //   [
-      //     '@babel/plugin-transform-react-jsx',
-      //     {
-      //       runtime: 'automatic',
-      //     },
-      //   ],
-      // ],
       presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
       plugins: [
         '@babel/plugin-proposal-class-properties',
@@ -63,5 +45,7 @@ export default {
     typescript({ useTsconfigDeclarationDir: true }),
     json(),
     scss(),
+    scssVariable(),
+    terser(),
   ],
 };

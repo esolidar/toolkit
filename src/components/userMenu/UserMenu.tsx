@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Dropdown } from 'react-bootstrap';
-import Props from './interfaces';
+import Props from './UserMenu.types';
 
 const UserMenu: FC<Props> = ({
   align = 'right',

@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import UserMenu from './UserMenu';
-import Props from './interfaces';
+import Props from './UserMenu.types';
 
 export default {
   title: 'Components/Header/UserMenu',

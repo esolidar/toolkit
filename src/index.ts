@@ -115,3 +115,6 @@ export { default as sortBy } from './utils/sortBy';
 // Hooks
 export { default as useDebounce } from './hooks/useDebounce';
 export { default as useIsFirstRender } from './hooks/useIsFirstRender';
+export { default as useLocalStorage } from './hooks/useLocalStorage';
+
+import './index.scss';
