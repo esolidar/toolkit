@@ -1,0 +1,31 @@
+.supportsBox {
+  background-color: map-get($colors, white);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid map-get($grays, 200);
+  border-radius: 4px;
+  padding: 40px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 45px;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+  .recipient-label {
+    font-family: 'basic-sans';
+    font-size: 15px;
+    color: map-get($main-text-colors, dark);
+    letter-spacing: 0;
+    line-height: 26px;
+  }
+  .recipient-name {
+    font-family: 'basic-sans';
+    font-size: 21px;
+    color: map-get($turquoise, 500);
+    letter-spacing: -0.5px;
+    line-height: 33px;
+  }
+}

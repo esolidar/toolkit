@@ -109,6 +109,7 @@ const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
+  dataTestId: PropTypes.number,
   disabled: PropTypes.bool,
   extraClass: PropTypes.string,
   fullWidth: PropTypes.bool,
