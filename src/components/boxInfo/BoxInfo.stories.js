@@ -12,7 +12,8 @@ Default.parameters = {
   jest: ['BoxInfo.test.js'],
 };
 Default.args = {
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor ornare enim bibendum consequat. Proin dictum malesuada mollis. Donec pellentesque lacus non purus tincidunt, a sagittis massa molestie. Morbi varius vulputate ex vel accumsan.',
+  text:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor ornare enim bibendum consequat. Proin dictum malesuada mollis. Donec pellentesque lacus non purus tincidunt, a sagittis massa molestie. Morbi varius vulputate ex vel accumsan.',
   button: {
     style: 'success',
     text: 'Action button',
