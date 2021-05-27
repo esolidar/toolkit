@@ -25,10 +25,7 @@ const NotificationsBell = ({
     notificationsList.map((notification, i) => {
       if (notification.id) {
         items.push(
-          <li
-            key={i}
-            className={`notification-row ${notification.read_at === null ? 'unread' : ''}`}
-          >
+          <li key={i} className="notification-row">
             <a
               href="#"
               target={notification.url === '#' ? '_self' : notification.target}
@@ -36,7 +33,9 @@ const NotificationsBell = ({
               onClick={() => markAsReadFunc(notification)}
               className="btn-markAsRead"
             >
-              <div className="notification-row-box">
+              <div
+                className={`notification-row-box ${notification.read_at === null ? 'unread' : ''}`}
+              >
                 <img
                   alt="Thumb"
                   src={
@@ -75,17 +74,12 @@ const NotificationsBell = ({
         <Dropdown.Menu flip align="right">
           <div className="notification-header">
             <span className="notification-header-title">{notificationsHeadTitle}</span>
-            {/* <span className="notification-header-mark-read"> */}
-            {/* <button type="button notification-header-mark-read" onClick={markAllAsReadFunc}>
-              {markAllAsReadTitle}
-            </button> */}
             <Button
               extraClass="link"
               className="notification-header-mark-read"
               onClick={markAllAsReadFunc}
               text={markAllAsReadTitle}
             />
-            {/* </span> */}
           </div>
           <ul
             className="notification-list"

@@ -2,7 +2,7 @@ import ChangeLanguage from './ChangeLanguage';
 import variables from '../../assets/sass/_export.module.scss';
 
 export default {
-  title: 'Components/ChangeLanguage',
+  title: 'Components/Footer/ChangeLanguage',
   component: ChangeLanguage,
 };
 

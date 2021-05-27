@@ -1,7 +1,7 @@
 import NotificationsMobile from './NotificationsMobile';
 
 export default {
-  title: 'Components/Notifications/NotificationsMobile',
+  title: 'Components/Header/NotificationsMobile',
   component: NotificationsMobile,
 };
 

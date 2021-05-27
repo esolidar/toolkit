@@ -1,7 +1,7 @@
 import NotificationsBell from './NotificationsBell';
 
 export default {
-  title: 'Components/Notifications/NotificationsBell',
+  title: 'Components/Header/NotificationsBell',
   component: NotificationsBell,
 };
 
