@@ -7,7 +7,7 @@ export default {
   component: ProgressBarWithlabels,
   argTypes: {
     currency: {
-      options: ['EUR', 'USD', 'BRL'],
+      options: ['EUR', 'USD', 'BRL', 'GBP'],
       control: { type: 'radio' },
     },
   },

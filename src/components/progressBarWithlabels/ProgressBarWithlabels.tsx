@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Props from './interfaces';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 
