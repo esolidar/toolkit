@@ -769,7 +769,7 @@ const AuctionAddForm = ({
               <Col md={4}>
                 <Row>
                   <div className="col-md-12">
-                    <div className="help-right-content">
+                    <div className="help-right-content d-none d-sm-block">
                       <h4 style={{ color: primaryColor, borderColor: primaryColor }}>
                         <FormattedMessage id="auctions.add.help" />
                       </h4>
@@ -851,7 +851,7 @@ const AuctionAddForm = ({
               <Col md={4}>
                 <Row className="row">
                   <div className="col-md-12">
-                    <div className="help-right-content">
+                    <div className="help-right-content d-none d-sm-block">
                       <div className="header">
                         <FormattedMessage id="auctions.add.question2" />
                       </div>
@@ -1261,7 +1261,7 @@ const AuctionAddForm = ({
                 {!isEmpty(hasWhitelabel) && userRole === 'company' && (
                   <Row className="row">
                     <div className="col-md-12">
-                      <div className="help-right-content">
+                      <div className="help-right-content d-none d-sm-block">
                         <div className="header">
                           <FormattedMessage id="auctions.add.question0" />
                         </div>
@@ -1320,10 +1320,10 @@ const AuctionAddForm = ({
               </Col>
               <Col md={8} className="box-lbr">
                 <Row>
-                  <Col sm={12} className="mt-5 text-center">
+                  <Col sm={12} className="text-center">
                     <Button
                       dataTestId="btn-cancel"
-                      extraClass="dark mr-3"
+                      extraClass="dark"
                       href="/auctions"
                       text={intl.formatMessage({
                         id: 'cancel',
@@ -1332,7 +1332,7 @@ const AuctionAddForm = ({
                     {!isEmpty(hasWhitelabel) && userRole === 'company' && (
                       <Button
                         dataTestId="btn-submit-draft"
-                        extraClass="info-full mr-3"
+                        extraClass="info-full mt-2 mr-2 ml-2"
                         onClick={() => handleSubmit('P')}
                         text={intl.formatMessage({
                           id: 'auctions.add.submit.draft',
@@ -1343,7 +1343,7 @@ const AuctionAddForm = ({
                     {action === null && (
                       <Button
                         dataTestId="btn-submit"
-                        extraClass="success-full btn-submit"
+                        extraClass="success-full btn-submit mt-2"
                         onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={intl.formatMessage({
                           id: 'auctions.add.submitAuction',
