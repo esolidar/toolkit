@@ -1,4 +1,3 @@
-/* eslint-disable import/no-webpack-loader-syntax */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import PropTypes from 'prop-types';
@@ -10,7 +9,7 @@ import {
   CardCVCElement,
   injectStripe,
 } from 'react-stripe-elements';
-import variables from 'variables!../../assets/sass/_export.module.scss';
+import variables from '../../assets/sass/_export.module.scss';
 import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
 
