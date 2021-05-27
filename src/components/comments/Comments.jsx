@@ -28,6 +28,7 @@ const Comments = ({
   thumb,
   color,
 }) => {
+  const intl = useIntl();
   const [showTextArea, setShowTextArea] = useState(null);
   const [isShowResponsive, setIsShowResponsive] = useState(false);
   const [backgroundImageStyle, setBackgroundImageStyle] = useState(
@@ -148,7 +149,7 @@ const Comments = ({
                 extraClass="link"
                 onClick={() => showTextAreaClick(comment)}
                 icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
-                text={useIntl().formatMessage({
+                text={intl.formatMessage({
                   id: 'crowdfunding.comments.reply',
                   defaultMessage: 'Reply',
                 })}
@@ -170,7 +171,7 @@ const Comments = ({
                       onKeyDown={e => addMessage(e, comment.id, false)}
                       value={reply}
                       disabled={laodingPostReply}
-                      placeholder={useIntl().formatMessage({
+                      placeholder={intl.formatMessage({
                         id: 'commentHere',
                         defaultMessage: 'Comment here…',
                       })}
@@ -230,8 +231,8 @@ const Comments = ({
             onClick={loadMoreComments}
             text={
               loadingMoreComments
-                ? useIntl().formatMessage({ id: 'loading' })
-                : useIntl().formatMessage({ id: 'readmore' })
+                ? intl.formatMessage({ id: 'loading' })
+                : intl.formatMessage({ id: 'readmore' })
             }
           />
         </div>

@@ -170,7 +170,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={12} className="subscribe-auction mt-5">
                 <Button
-                  extraClass="link"
+                  extraClass="link text-left"
                   onClick={showModalSubscribe}
                   text={useIntl().formatMessage({
                     id: 'auction.detail.subscribeAuction',
