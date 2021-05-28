@@ -9,8 +9,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { terser } from 'rollup-plugin-terser';
 import getFiles from './src/utils/getFiles';
 
-// TODO: remove nwb
-
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.tsx'];
 

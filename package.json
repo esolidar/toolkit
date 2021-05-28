@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "2.1.13",
+  "version": "2.1.1-test",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -10,11 +10,9 @@
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "test": "jest --coverage -u --maxWorkers=50% --colors --json --outputFile=.jest-test-results.json || true",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
-    "build": "nwb build-react-component --copy-files && rimraf lib/**/**/__tests__ && rimraf lib/**/**/*.stories.js",
-    "build:ro": "rollup -c",
-    "build:publish": "npm run build && npm publish",
+    "build:dev": "rollup -c ./rollup.config.dev.js",
+    "build:publish": "rollup -c ./rollup.config.prod.js && npm publish",
     "build-storybook": "build-storybook",
-    "clean": "nwb clean-module && nwb clean-demo",
     "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'"
   },
   "husky": {
@@ -155,7 +153,6 @@
     "moment-timezone": "^0.5.28",
     "move-cli": "^1.2.1",
     "node-sass": "^4.13.0",
-    "nwb": "^0.25.2",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "rc-tooltip": "^4.0.3",
