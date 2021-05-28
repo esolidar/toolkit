@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1622197008344" clover="3.2.0">
-  <project timestamp="1622197008344" name="All files">
-    <metrics statements="2668" coveredstatements="1534" conditionals="2410" coveredconditionals="1288" methods="675" coveredmethods="323" elements="5753" coveredelements="3145" complexity="0" loc="2668" ncloc="2668" packages="92" files="218" classes="218"/>
+<coverage generated="1622198134785" clover="3.2.0">
+  <project timestamp="1622198134785" name="All files">
+    <metrics statements="2669" coveredstatements="1535" conditionals="2411" coveredconditionals="1289" methods="675" coveredmethods="323" elements="5755" coveredelements="3147" complexity="0" loc="2669" ncloc="2669" packages="92" files="218" classes="218"/>
     <package name="components.auctionAddForm">
       <metrics statements="298" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/AuctionAddForm.jsx">
@@ -3418,7 +3418,7 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="102" coveredstatements="89" conditionals="63" coveredconditionals="51" methods="37" coveredmethods="29"/>
+      <metrics statements="103" coveredstatements="90" conditionals="64" coveredconditionals="52" methods="37" coveredmethods="29"/>
       <file name="addUrlParam.js" path="/Users/pedroguia/Projects/toolkit/src/utils/addUrlParam.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="28" type="stmt"/>
@@ -3589,9 +3589,10 @@
         <line num="4" count="1" type="stmt"/>
       </file>
       <file name="slugify.js" path="/Users/pedroguia/Projects/toolkit/src/utils/slugify.js">
-        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="3" count="29" type="cond" truecount="3" falsecount="0"/>
-        <line num="4" count="102" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="3" count="29" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="105" type="cond" truecount="3" falsecount="0"/>
+        <line num="6" count="105" type="stmt"/>
       </file>
       <file name="sortBy.js" path="/Users/pedroguia/Projects/toolkit/src/utils/sortBy.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
