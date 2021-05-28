@@ -311,7 +311,7 @@ describe('test utils functions', () => {
     expect(slugify('34 projecto de uma organização ?*_+~./,()!:@', filters)).toBe(expectedString);
   });
 
-  test('should return slugify url with replace arg "x"', () => {
+  test('should return slugify url with correct casing', () => {
     const expectedString = '34-Projecto-de-uma-Organizacao';
     const filters = {
       lower: false,
