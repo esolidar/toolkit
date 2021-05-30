@@ -717,6 +717,7 @@ const AuctionAddForm = ({
                           id: 'auction.tags.placeholder',
                         })}
                         handleAddition={handleAddition}
+                        autofocus={false}
                       />
                       <span className="footer-label-info">
                         <FormattedMessage id="auction.tags.info" />
@@ -753,7 +754,7 @@ const AuctionAddForm = ({
                       />
                     </Col>
                   )}
-                  {form.private === 1 && (
+                  {form.private.toString() === '1' && (
                     <Col sm={4}>
                       <TextField
                         label={intl.formatMessage({

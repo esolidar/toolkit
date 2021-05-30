@@ -118,7 +118,7 @@ CustomModal.defaultProps = {
   subtitle: '',
   subtitleClassName: '',
   titleClassName: '',
-  titleColor: '#04C7E5',
+  titleColor: '#0c8380',
 };
 
 export default CustomModal;

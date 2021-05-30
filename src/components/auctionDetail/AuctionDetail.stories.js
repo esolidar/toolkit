@@ -33,7 +33,7 @@ Default.args = {
       goal: 0,
       video: null,
       dateStart: '2021-03-26 18:30:00',
-      dateLimit: '2021-05-26 21:00:00',
+      dateLimit: '2022-05-26 21:00:00',
       timezone: 'Europe/Dublin',
       bid_interval: 1,
       bid_max_interval: 100,
