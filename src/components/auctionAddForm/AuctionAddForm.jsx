@@ -614,6 +614,7 @@ const AuctionAddForm = ({
       projectIds: [],
       user_id: '',
     }));
+    setIsMyProject(false);
   };
 
   useEffect(() => {
@@ -678,6 +679,7 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="auctionTitle"
+                      maxLength="255"
                     />
                   </Col>
                   <Col sm={12}>
@@ -715,6 +717,7 @@ const AuctionAddForm = ({
                           id: 'auction.tags.placeholder',
                         })}
                         handleAddition={handleAddition}
+                        autofocus={false}
                       />
                       <span className="footer-label-info">
                         <FormattedMessage id="auction.tags.info" />
@@ -751,7 +754,7 @@ const AuctionAddForm = ({
                       />
                     </Col>
                   )}
-                  {form.private === '1' && (
+                  {form.private.toString() === '1' && (
                     <Col sm={4}>
                       <TextField
                         label={intl.formatMessage({
@@ -761,6 +764,7 @@ const AuctionAddForm = ({
                         error={errors.private_code}
                         value={form.private_code}
                         field="private_code"
+                        maxLength="255"
                       />
                     </Col>
                   )}
@@ -844,6 +848,7 @@ const AuctionAddForm = ({
                       error={errors.video}
                       value={form.video}
                       field="video"
+                      maxLength="255"
                     />
                   </Col>
                 </Row>
