@@ -680,6 +680,7 @@ const AuctionAddForm = ({
                       field="title"
                       fieldTranslate="auctionTitle"
                       maxLength="255"
+                      autofocus={true}
                     />
                   </Col>
                   <Col sm={12}>
