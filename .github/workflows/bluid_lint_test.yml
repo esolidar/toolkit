@@ -49,7 +49,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-      - run: yarn test --silent
+      - run: npx jest --colors
 
   allPass:
     name: Well done

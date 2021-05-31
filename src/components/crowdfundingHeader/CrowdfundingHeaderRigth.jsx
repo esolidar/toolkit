@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
-import CrowdfundingProgressBar from '../crowdfundingProgressBar';
+import { FormattedMessage } from 'react-intl';
+import ProgressBar from '../../elements/progressBar';
 import CrowdfundingPaymentMethod from '../crowdfundingPaymentMethod';
 import CrowdfundingContributeBtn from '../crowdfundingContributeBtn';
 import SupportedSection from '../supportedSection';
@@ -23,28 +23,12 @@ const CrowdfundingHeaderRigth = ({
             <h2 className="title-campaign">{campaignTitle()}</h2>
           </Col>
         </Row>
-        <CrowdfundingProgressBar contributesSum={campaign.contributes_sum} goal={campaign.goal} />
-        <Row>
-          <Col xs={5} className="raised-text">
-            <FormattedNumber
-              value={campaign.contributes_sum}
-              style="currency"
-              currency={campaign.currency.small}
-            />
-          </Col>
-          <Col xs={7} className="goal-text text-right">
-            <span className="goal-span">
-              <FormattedMessage id="crowdfunding.goal" defaultMessage="Goal" />
-            </span>
-            <span className="goal-span">
-              <FormattedNumber
-                value={campaign.goal}
-                style="currency"
-                currency={campaign.currency.small}
-              />
-            </span>
-          </Col>
-        </Row>
+        <ProgressBar
+          contributesSum={campaign.contributes_sum}
+          goal={campaign.goal}
+          currency={campaign.currency.small}
+          text="crowdfunding.goal"
+        />
         <Row className="mt-1">
           <Col sm={12} className="total-donations-text mt-3">
             <FormattedMessage
