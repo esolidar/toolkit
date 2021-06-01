@@ -25,14 +25,14 @@ const CrowdfundingHeaderRigth = ({
         </Row>
         <CrowdfundingProgressBar contributesSum={campaign.contributes_sum} goal={campaign.goal} />
         <Row>
-          <Col xs={5} className="raised-text">
+          <Col xs={12} sm={5} className="raised-text">
             <FormattedNumber
               value={campaign.contributes_sum}
               style="currency"
               currency={campaign.currency.small}
             />
           </Col>
-          <Col xs={7} className="goal-text text-right">
+          <Col xs={12} sm={7} className="goal-text">
             <span className="goal-span">
               <FormattedMessage id="crowdfunding.goal" defaultMessage="Goal" />
             </span>
