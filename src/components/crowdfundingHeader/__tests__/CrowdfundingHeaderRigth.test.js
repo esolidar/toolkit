@@ -196,7 +196,6 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>
     );
-    // console.log(wrapper.debug());
     expect(wrapper).toHaveLength(1);
   });
 
@@ -224,7 +223,7 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>
     );
-    expect(wrapper.find('.raised-text.col-5').text()).toEqual('€60.00');
+    expect(wrapper.find('.raised-text.col-sm-5.col-12').text()).toEqual('€60.00');
   });
 
   it('should value of crowdfunding is €10,000.00', () => {
