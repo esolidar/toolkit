@@ -42,6 +42,7 @@ const extraMenuLinks = [
     url: 'https://help.esolidar.com',
     target: '_blank',
     iconItem: 'icon feed',
+    liClasses: '',
   },
 ];
 const project = 'business-frontend';
