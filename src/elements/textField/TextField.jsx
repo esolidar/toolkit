@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import InputLabel from '../inputLabel';
@@ -14,6 +15,7 @@ const TextField = ({
   maxLength,
   onBlur,
   onFocus,
+  autofocus,
   placeholder,
   message,
   disabled,
@@ -39,6 +41,7 @@ const TextField = ({
         autoComplete="off"
         onChange={onChange}
         onFocus={onFocus}
+        autoFocus={autofocus}
         onBlur={onBlur}
         value={value}
         defaultValue={defaultValue}
@@ -73,6 +76,7 @@ TextField.propTypes = {
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  autofocus: PropTypes.bool,
   placeholder: PropTypes.string,
   message: PropTypes.string,
   disabled: PropTypes.bool,
