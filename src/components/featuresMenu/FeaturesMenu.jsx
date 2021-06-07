@@ -23,7 +23,7 @@ const FeaturesMenu = ({ location, translations, features, project, extraMenuLink
     <>
       {links.map((link, index) => {
         return (
-          <li key={index}>
+          <li key={index} className={link.liClasses}>
             {link.url ? (
               <a href={link.url} title={link.text} target={link.target}>
                 {(
@@ -704,6 +704,7 @@ FeaturesMenu.propTypes = {
       url: PropTypes.string,
       target: PropTypes.string,
       iconItem: PropTypes.string,
+      liClasses: PropTypes.string,
     })
   ),
 };

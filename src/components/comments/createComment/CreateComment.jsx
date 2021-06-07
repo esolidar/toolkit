@@ -71,9 +71,8 @@ const CreateComment = props => {
 export default CreateComment;
 
 CreateComment.propTypes = {
-  comment: PropTypes.array,
+  comment: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   env: PropTypes.object.isRequired,
-
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loadingNewComment: PropTypes.bool.isRequired,

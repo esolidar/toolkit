@@ -197,7 +197,6 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>
     );
-    // console.log(wrapper.debug());
     expect(wrapper).toHaveLength(1);
   });
 

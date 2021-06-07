@@ -59,7 +59,7 @@ const CrowdfundingItem = props => {
                             : `${env.serverlessResizeImage}/${campaignImage}?width=400`
                         }
                         alt={campaignTitle()}
-                        style={{ width: '90%' }}
+                        style={{ width: 95 }}
                       />
                     )}
                   </div>

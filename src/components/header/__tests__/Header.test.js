@@ -24,8 +24,6 @@ describe('Header component', () => {
           isUserLogged={false}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl=""
           institutionUrl=""
           lang="pt"
@@ -38,7 +36,7 @@ describe('Header component', () => {
       .mount()
       .mount();
     expect(component.find('img')).toHaveLength(2);
-    expect(component.find('NavLink')).toHaveLength(11);
+    expect(component.find('NavLink')).toHaveLength(10);
     expect(component.find('NavDropdown')).toHaveLength(2);
   });
 
@@ -49,8 +47,6 @@ describe('Header component', () => {
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl="/social-feed"
           institutionUrl=""
           lang="pt"
@@ -72,8 +68,6 @@ describe('Header component', () => {
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl=""
           institutionUrl="/npo/store/1600-npo-test"
           lang="pt"

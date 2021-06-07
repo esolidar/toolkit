@@ -614,6 +614,7 @@ const AuctionAddForm = ({
       projectIds: [],
       user_id: '',
     }));
+    setIsMyProject(false);
   };
 
   useEffect(() => {
@@ -678,6 +679,8 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="auctionTitle"
+                      maxLength="255"
+                      autofocus={true}
                     />
                   </Col>
                   <Col sm={12}>
@@ -715,6 +718,7 @@ const AuctionAddForm = ({
                           id: 'auction.tags.placeholder',
                         })}
                         handleAddition={handleAddition}
+                        autofocus={false}
                       />
                       <span className="footer-label-info">
                         <FormattedMessage id="auction.tags.info" />
@@ -751,7 +755,7 @@ const AuctionAddForm = ({
                       />
                     </Col>
                   )}
-                  {form.private === '1' && (
+                  {form.private.toString() === '1' && (
                     <Col sm={4}>
                       <TextField
                         label={intl.formatMessage({
@@ -761,6 +765,7 @@ const AuctionAddForm = ({
                         error={errors.private_code}
                         value={form.private_code}
                         field="private_code"
+                        maxLength="255"
                       />
                     </Col>
                   )}
@@ -769,7 +774,7 @@ const AuctionAddForm = ({
               <Col md={4}>
                 <Row>
                   <div className="col-md-12">
-                    <div className="help-right-content">
+                    <div className="help-right-content d-none d-md-block">
                       <h4 style={{ color: primaryColor, borderColor: primaryColor }}>
                         <FormattedMessage id="auctions.add.help" />
                       </h4>
@@ -844,6 +849,7 @@ const AuctionAddForm = ({
                       error={errors.video}
                       value={form.video}
                       field="video"
+                      maxLength="255"
                     />
                   </Col>
                 </Row>
@@ -851,7 +857,7 @@ const AuctionAddForm = ({
               <Col md={4}>
                 <Row className="row">
                   <div className="col-md-12">
-                    <div className="help-right-content">
+                    <div className="help-right-content d-none d-md-block">
                       <div className="header">
                         <FormattedMessage id="auctions.add.question2" />
                       </div>
@@ -1261,7 +1267,7 @@ const AuctionAddForm = ({
                 {!isEmpty(hasWhitelabel) && userRole === 'company' && (
                   <Row className="row">
                     <div className="col-md-12">
-                      <div className="help-right-content">
+                      <div className="help-right-content d-none d-md-block">
                         <div className="header">
                           <FormattedMessage id="auctions.add.question0" />
                         </div>
@@ -1320,10 +1326,10 @@ const AuctionAddForm = ({
               </Col>
               <Col md={8} className="box-lbr">
                 <Row>
-                  <Col sm={12} className="mt-5 text-center">
+                  <Col sm={12} className="text-center">
                     <Button
                       dataTestId="btn-cancel"
-                      extraClass="dark mr-3"
+                      extraClass="dark"
                       href="/auctions"
                       text={intl.formatMessage({
                         id: 'cancel',
@@ -1332,7 +1338,7 @@ const AuctionAddForm = ({
                     {!isEmpty(hasWhitelabel) && userRole === 'company' && (
                       <Button
                         dataTestId="btn-submit-draft"
-                        extraClass="info-full mr-3"
+                        extraClass="info-full mt-4 mr-2 ml-2"
                         onClick={() => handleSubmit('P')}
                         text={intl.formatMessage({
                           id: 'auctions.add.submit.draft',
@@ -1343,7 +1349,7 @@ const AuctionAddForm = ({
                     {action === null && (
                       <Button
                         dataTestId="btn-submit"
-                        extraClass="success-full btn-submit"
+                        extraClass="success-full btn-submit mt-4"
                         onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
                         text={intl.formatMessage({
                           id: 'auctions.add.submitAuction',

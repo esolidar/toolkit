@@ -58,7 +58,7 @@
         }
       }
 
-      @media (max-width: map-get($breakpoints, md)) {
+      @media (max-width: map-get($breakpoints, lg)) {
         padding: 12px 12px 12px 25px;
         text-align: left;
       }
