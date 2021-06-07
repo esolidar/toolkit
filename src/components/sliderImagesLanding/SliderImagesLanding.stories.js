@@ -1,3 +1,4 @@
+import React from 'react';
 import SliderImagesLanding from './SliderImagesLanding';
 import { cdnStaticUrl } from '../../constants/env';
 

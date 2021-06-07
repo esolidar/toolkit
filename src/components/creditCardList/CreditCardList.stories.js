@@ -1,3 +1,4 @@
+import React from 'react';
 import CreditCardList from './CreditCardList';
 
 export default {

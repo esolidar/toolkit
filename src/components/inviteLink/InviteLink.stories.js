@@ -1,3 +1,4 @@
+import React from 'react';
 import InviteLink from './InviteLink';
 
 export default {

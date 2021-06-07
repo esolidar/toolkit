@@ -1,3 +1,4 @@
+import React from 'react';
 import CommentPost from './CommentPost';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import CommentContent from './CommentContent';
 
 export default {

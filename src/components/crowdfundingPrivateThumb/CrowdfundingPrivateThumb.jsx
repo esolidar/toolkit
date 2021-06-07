@@ -1,4 +1,5 @@
-import { createRef, Component } from 'react';
+import React, { createRef, Component } from 'react';
+
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';

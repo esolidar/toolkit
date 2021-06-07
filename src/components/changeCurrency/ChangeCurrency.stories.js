@@ -1,3 +1,4 @@
+import React from 'react';
 import ChangeCurrency from './ChangeCurrency';
 import variables from '../../assets/sass/_export.module.scss';
 

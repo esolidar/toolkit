@@ -1,3 +1,4 @@
+import React from 'react';
 import ProjectFilters from './ProjectFilters';
 
 export default {

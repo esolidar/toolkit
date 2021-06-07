@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import SelectField from '../index';
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import CrowdfundingPrivateThumb from './CrowdfundingPrivateThumb';
 
 export default {

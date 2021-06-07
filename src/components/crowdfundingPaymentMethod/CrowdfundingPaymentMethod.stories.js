@@ -1,3 +1,4 @@
+import React from 'react';
 import CrowdfundingPaymentMethod from './CrowdfundingPaymentMethod';
 
 export default {

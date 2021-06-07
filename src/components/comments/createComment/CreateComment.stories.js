@@ -1,3 +1,4 @@
+import React from 'react';
 import CreateComment from './CreateComment';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import FileInput from './FileInput';
 import { cdnStaticUrl } from '../../constants/env';
 

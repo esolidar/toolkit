@@ -1,3 +1,4 @@
+import React from 'react';
 import AuctionLastBid from './AuctionLastBid';
 import variables from '../../assets/sass/_export.module.scss';
 

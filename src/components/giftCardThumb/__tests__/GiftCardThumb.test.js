@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-undef */
 
+import React from 'react';
 import { shallow } from 'enzyme';
 import GiftCardThumb from '../index';
 

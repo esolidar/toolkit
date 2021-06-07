@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import React from 'react';
 import { shallow } from 'enzyme';
 import ConvertToMyTimezone from '../index';
 

@@ -2,10 +2,10 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import bundleScss from 'rollup-plugin-bundle-scss';
 import json from '@rollup/plugin-json';
-import { visualizer } from 'rollup-plugin-visualizer';
+// import { visualizer } from 'rollup-plugin-visualizer';
 import getFiles from './src/utils/getFiles';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -35,7 +35,7 @@ export default {
     resolve({ extensions }),
     babel({
       exclude: 'node_modules/**',
-      runtimeHelpers: 'runtime',
+      babelHelpers: 'runtime',
       extensions,
       presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
       plugins: [
@@ -47,9 +47,9 @@ export default {
     commonjs(),
     json(),
     bundleScss(),
-    visualizer({
-      filename: 'bundle-analysis.html',
-    }),
+    // visualizer({
+    //   filename: 'bundle-analysis.html',
+    // }),
     typescript({ useTsconfigDeclarationDir: true }),
   ],
 };

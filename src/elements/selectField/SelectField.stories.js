@@ -1,3 +1,4 @@
+import React from 'react';
 import SelectField from './SelectField';
 
 export default {

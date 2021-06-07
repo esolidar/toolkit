@@ -11,15 +11,13 @@ const ProgressBar: FC<Props> = ({
   showPercentage,
 }: Props): JSX.Element => {
   const percent = (contributesSum * 100) / goal / 100;
+  const progressBarWidth = `${String((contributesSum / goal) * 100)}%`;
 
   return (
     <div data-testid="progress-bar">
       <div className="d-flex flex-start">
         <div className="goal w-100" data-testid="bar">
-          <div
-            className="progress-goal-bar"
-            style={{ width: `${(contributesSum / goal) * 100}%` }}
-          />
+          <div className="progress-goal-bar" style={{ width: progressBarWidth }} />
         </div>
         {showPercentage && (
           <span className="progress-percent-label ml-3" data-testid="progress-bar-percent">

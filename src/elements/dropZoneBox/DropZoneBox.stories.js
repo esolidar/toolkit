@@ -1,3 +1,4 @@
+import React from 'react';
 import DropZoneBox from './DropZoneBox';
 
 export default {
