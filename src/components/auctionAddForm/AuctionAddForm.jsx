@@ -10,6 +10,7 @@ import classnames from 'classnames';
 import { NotificationManager } from 'react-notifications';
 import Datetime from 'react-datetime';
 import moment from 'moment-timezone';
+import convertToUtc from '../../utils/convertToUtc';
 import Loading from '../loading';
 import TextField from '../../elements/textField';
 import TextareaField from '../../elements/textareaField';
@@ -576,8 +577,8 @@ const AuctionAddForm = ({
       bid_start: form.bid_start,
       brand_id: form.brand_id,
       currency_id: form.currency_id,
-      dateLimit: form.dateLimit,
-      dateStart: form.dateStart,
+      dateLimit: convertToUtc(form.dateLimit, form.timezone),
+      dateStart: convertToUtc(form.dateStart, form.timezone),
       description: form.description,
       show_on_esolidar: form.show_on_esolidar,
       images: form.images,
