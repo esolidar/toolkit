@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
 import Button from '../../elements/button';
 import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
 
-const NotificationsBell = ({
+const NotificationsMobile = ({
   notificationsHeadTitle,
-  totalNotifications,
-  onToggle,
   markAllAsReadTitle,
   markAllAsReadFunc,
   handleScrollFunc,
@@ -60,68 +57,49 @@ const NotificationsBell = ({
   }
 
   return (
-    <div className="inline-block">
-      <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
-        <Dropdown.Toggle className="notification-icon">
-          <img
-            src={`${cdnStaticUrl}/frontend/icons/ic-notification-bell.svg`}
-            className="notification-image"
-            alt="Notifications"
-          />
-          {+totalNotifications > 0 && (
-            <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
-          )}
-        </Dropdown.Toggle>
-        <Dropdown.Menu flip align="right">
-          <div className="notification-header">
-            <span className="notification-header-title">{notificationsHeadTitle}</span>
-            <Button
-              extraClass="link"
-              className="notification-header-mark-read"
-              onClick={markAllAsReadFunc}
-              text={markAllAsReadTitle}
-            />
+    <div className="notification-box-page">
+      <div className="notification-header">
+        <span className="notification-header-title">{notificationsHeadTitle}</span>
+        <Button
+          extraClass="link"
+          className="notification-header-mark-read"
+          onClick={markAllAsReadFunc}
+          text={markAllAsReadTitle}
+        />
+      </div>
+
+      <ul className="notification-list" style={{ overflow: 'auto' }} onScroll={handleScrollFunc}>
+        {!notifications && (
+          <div className="notification-loader">
+            <Loading />
           </div>
-          <ul
-            className="notification-list"
-            style={{ overflow: 'auto' }}
-            onScroll={handleScrollFunc}
-          >
-            {!notifications && (
-              <div className="notification-loader">
-                <Loading />
-              </div>
-            )}
-            <InfiniteScroll
-              pageStart={0}
-              loadMore={loadMoreFunc}
-              hasMore={hasMoreToLoad}
-              loader={
-                <div key={0} className="text-center">
-                  <img
-                    alt="Loading"
-                    src={`${cdnStaticUrl}/frontend/assets/loader.svg`}
-                    style={{ height: '18px', margin: '5px' }}
-                  />
-                </div>
-              }
-              useWindow={false}
-              threshold={25}
-            >
-              {items}
-            </InfiniteScroll>
-          </ul>
-        </Dropdown.Menu>
-      </Dropdown>
+        )}
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={loadMoreFunc}
+          hasMore={hasMoreToLoad}
+          loader={
+            <div key={0} className="text-center">
+              <img
+                alt="Loading"
+                src={`${cdnStaticUrl}/frontend/assets/loader.svg`}
+                style={{ height: '18px', margin: '5px' }}
+              />
+            </div>
+          }
+          useWindow={false}
+          threshold={25}
+        >
+          {items}
+        </InfiniteScroll>
+      </ul>
     </div>
   );
 };
 
-NotificationsBell.propTypes = {
+NotificationsMobile.propTypes = {
   notificationsHeadTitle: PropTypes.string,
-  totalNotifications: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   markAllAsReadTitle: PropTypes.string,
-  onToggle: PropTypes.func,
   markAllAsReadFunc: PropTypes.func.isRequired,
   markAsReadFunc: PropTypes.func.isRequired,
   handleScrollFunc: PropTypes.func.isRequired,
@@ -130,4 +108,4 @@ NotificationsBell.propTypes = {
   hasMoreToLoad: PropTypes.bool,
 };
 
-export default NotificationsBell;
+export default NotificationsMobile;
