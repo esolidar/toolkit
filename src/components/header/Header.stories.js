@@ -22,4 +22,6 @@ Default.args = {
   dashboardUrl: '',
   institutionUrl: '',
   lang: 'pt',
+  communityLinks: [],
+  dashboardLinks: [],
 };
