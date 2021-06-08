@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623092067478" clover="3.2.0">
-  <project timestamp="1623092067478" name="All files">
-    <metrics statements="2667" coveredstatements="1533" conditionals="2402" coveredconditionals="1286" methods="676" coveredmethods="324" elements="5745" coveredelements="3143" complexity="0" loc="2667" ncloc="2667" packages="92" files="219" classes="219"/>
+<coverage generated="1623140027218" clover="3.2.0">
+  <project timestamp="1623140027218" name="All files">
+    <metrics statements="2668" coveredstatements="1534" conditionals="2402" coveredconditionals="1286" methods="676" coveredmethods="324" elements="5746" coveredelements="3144" complexity="0" loc="2668" ncloc="2668" packages="92" files="219" classes="219"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="D:\projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -3400,12 +3400,12 @@
         <line num="26" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="27" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="28" count="7" type="stmt"/>
-        <line num="29" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
+        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
         <line num="41" count="14" type="stmt"/>
         <line num="70" count="17" type="stmt"/>
         <line num="90" count="17" type="stmt"/>
@@ -3415,7 +3415,7 @@
       </file>
     </package>
     <package name="utils">
-      <metrics statements="104" coveredstatements="91" conditionals="65" coveredconditionals="53" methods="38" coveredmethods="30"/>
+      <metrics statements="105" coveredstatements="92" conditionals="65" coveredconditionals="53" methods="38" coveredmethods="30"/>
       <file name="addUrlParam.js" path="D:\projects\toolkit\src\utils\addUrlParam.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="28" type="stmt"/>
@@ -3447,7 +3447,8 @@
         <line num="12" count="10" type="stmt"/>
       </file>
       <file name="convertToUtc.js" path="D:\projects\toolkit\src\utils\convertToUtc.js">
-        <metrics statements="1" coveredstatements="1" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="3" count="28" type="cond" truecount="1" falsecount="0"/>
         <line num="4" count="4" type="stmt"/>
       </file>
       <file name="debounce.js" path="D:\projects\toolkit\src\utils\debounce.js">
@@ -3544,7 +3545,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="58" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="57" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
