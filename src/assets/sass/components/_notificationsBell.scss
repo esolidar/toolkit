@@ -1,8 +1,10 @@
 $desktop-width: 375px;
-$desktop-height: 497px;
+$desktop-height: 490px;
 $mobile-width: 260px;
 
 .notification-box {
+  padding: calc(#{$distance-1} / 2);
+
   .notification-icon {
     border: none;
     box-shadow: none;
@@ -53,7 +55,7 @@ $mobile-width: 260px;
     position: absolute !important;
     inset: 0px auto auto 0px;
     margin: 0px !important;
-    transform: translate(-319px, 38px) !important;
+    transform: translate(-315px, 42px) !important;
     padding: $distance-2 $distance-1;
 
     @media (max-width: map-get($breakpoints, xs)) {

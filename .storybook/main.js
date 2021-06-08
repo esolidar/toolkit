@@ -11,6 +11,7 @@ module.exports = {
     '@storybook/addon-queryparams',
     '@storybook/addon-links',
     'storybook-dark-mode',
+    '@storybook/addon-viewport',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({

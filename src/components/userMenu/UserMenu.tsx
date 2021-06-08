@@ -21,6 +21,7 @@ const UserMenu: FC<Props> = ({
         return (
           <Dropdown.Item
             key={i}
+            id={item.id}
             className={item.className}
             eventKey={item.eventKey}
             href={item.href}

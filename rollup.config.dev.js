@@ -4,9 +4,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
 import babel from '@rollup/plugin-babel';
 import bundleScss from 'rollup-plugin-bundle-scss';
+import copy from 'rollup-plugin-copy-assets';
 import json from '@rollup/plugin-json';
 // import { visualizer } from 'rollup-plugin-visualizer';
 import getFiles from './src/utils/getFiles';
+import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.tsx'];
@@ -14,7 +16,6 @@ const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.ts
 export default {
   input: [
     'src/index.js',
-    'src/index.scss',
     ...getFiles('src/components', extensions, excludedExtensions),
     ...getFiles('src/constants', extensions, excludedExtensions),
     ...getFiles('src/elements', extensions, excludedExtensions),
@@ -30,11 +31,12 @@ export default {
       sourcemap: true,
     },
   ],
+  external: [...Object.keys(pkg.devDependencies), ...Object.keys(pkg.dependencies)],
   plugins: [
     peerDepsExternal(),
     resolve({ extensions }),
     babel({
-      exclude: 'node_modules/**',
+      exclude: ['node_modules/**'],
       babelHelpers: 'runtime',
       extensions,
       presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
@@ -46,10 +48,13 @@ export default {
     }),
     commonjs(),
     json(),
+    copy({
+      assets: ['src/assets/'],
+    }),
     bundleScss(),
+    typescript({ useTsconfigDeclarationDir: true }),
     // visualizer({
     //   filename: 'bundle-analysis.html',
     // }),
-    typescript({ useTsconfigDeclarationDir: true }),
   ],
 };

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';

@@ -1,4 +1,6 @@
 .esolidar-user-menu {
+  margin-left: $distance-1;
+
   .dropdown-toggle {
     color: map-get($theme-colors, primary) !important;
     background-color: transparent !important;

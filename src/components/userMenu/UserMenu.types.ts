@@ -2,6 +2,7 @@ interface Items {
   className?: string;
   eventKey?: string;
   href: string;
+  id?: string;
   isVisible?: boolean;
   onClick?(): any;
   text: string;

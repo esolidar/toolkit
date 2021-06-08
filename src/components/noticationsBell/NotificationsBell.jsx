@@ -60,7 +60,7 @@ const NotificationsBell = ({
   }
 
   return (
-    <div className="inline-block">
+    <>
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
         <Dropdown.Toggle className="notification-icon">
           <img
@@ -113,7 +113,7 @@ const NotificationsBell = ({
           </ul>
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </>
   );
 };
 
