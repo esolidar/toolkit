@@ -57,6 +57,6 @@ export default {
       assets: ['src/assets/'],
     }),
     bundleScss(),
-    terser(),
+    terser({ keep_fnames: true }),
   ],
 };
