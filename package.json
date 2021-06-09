@@ -1,10 +1,10 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
-    "build"
+    "build/*"
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
