@@ -25,13 +25,17 @@ export default {
   output: [
     {
       dir: 'build',
-      format: 'esm',
+      format: 'cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
       sourcemap: true,
     },
   ],
-  external: [...Object.keys(pkg.devDependencies), ...Object.keys(pkg.dependencies)],
+  external: [
+    ...Object.keys(pkg.devDependencies),
+    ...Object.keys(pkg.dependencies),
+    /@babel\/runtime/,
+  ],
   plugins: [
     peerDepsExternal(),
     resolve({ extensions }),
@@ -46,13 +50,13 @@ export default {
         '@babel/plugin-transform-react-jsx',
       ],
     }),
+    typescript({ useTsconfigDeclarationDir: true, rollupCommonJSResolveHack: true }),
     commonjs(),
     json(),
     copy({
       assets: ['src/assets/'],
     }),
     bundleScss(),
-    typescript({ useTsconfigDeclarationDir: true }),
     // visualizer({
     //   filename: 'bundle-analysis.html',
     // }),
