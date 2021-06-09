@@ -1,4 +1,5 @@
-import { createRef } from 'react';
+import React, { createRef } from 'react';
+
 import Dropzone from 'react-dropzone';
 import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';

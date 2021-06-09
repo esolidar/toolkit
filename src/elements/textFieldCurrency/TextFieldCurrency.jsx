@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { removeAllButLast } from '../../utils/removeAllButLast';

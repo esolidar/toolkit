@@ -1,3 +1,4 @@
+import React from 'react';
 import ProjectDetailInfo from './ProjectDetailInfo';
 
 export default {

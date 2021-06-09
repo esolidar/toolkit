@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
+import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import ProjectDetailInfo from '../index';

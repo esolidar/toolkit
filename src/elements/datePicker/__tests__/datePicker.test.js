@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import { advanceTo } from 'jest-date-mock';
 import DatePicker from '../index';

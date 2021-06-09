@@ -1,3 +1,4 @@
+import React from 'react';
 import RequestDetailThumb from './RequestDetailThumb';
 
 export default {

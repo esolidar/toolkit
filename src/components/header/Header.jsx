@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';

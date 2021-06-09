@@ -1,8 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
+import Button from '../../elements/button';
 import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
 
 const NotificationsBell = ({
@@ -19,6 +21,7 @@ const NotificationsBell = ({
 }) => {
   const items = [];
   const notificationsList = notifications;
+
   if (notificationsList.length > 0) {
     notificationsList.map((notification, i) => {
       if (notification.id) {
@@ -32,32 +35,21 @@ const NotificationsBell = ({
               className="btn-markAsRead"
             >
               <div
-                className={
-                  notification.read_at === null
-                    ? 'notification-row-box unread'
-                    : 'notification-row-box'
-                }
+                className={`notification-row-box ${notification.read_at === null ? 'unread' : ''}`}
               >
-                <div className="notification-thumb">
-                  <img
-                    alt="Thumb"
-                    src={
-                      notification.photo?.thumb
-                        ? notification.photo.thumb
-                        : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
-                    }
-                  />
-                </div>
+                <img
+                  alt="Thumb"
+                  src={
+                    notification.photo?.thumb
+                      ? notification.photo.thumb
+                      : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
+                  }
+                />
                 <div>
-                  <span className="notification-row-text">
-                    <div dangerouslySetInnerHTML={{ __html: notification.text }} />
-                  </span>
-                  <span className="notification-row-date">
-                    <Moment fromNow ago>
-                      {notification.created_at}
-                    </Moment>
-                  </span>
-                  {notification.read_at === null && <div className="notification-bullet" />}
+                  <div className="text" dangerouslySetInnerHTML={{ __html: notification.text }} />
+                  <Moment fromNow ago className="date">
+                    {notification.created_at}
+                  </Moment>
                 </div>
               </div>
             </a>
@@ -68,7 +60,7 @@ const NotificationsBell = ({
   }
 
   return (
-    <div className="inline-block">
+    <>
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
         <Dropdown.Toggle className="notification-icon">
           <img
@@ -80,18 +72,19 @@ const NotificationsBell = ({
             <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
           )}
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu flip align="right">
           <div className="notification-header">
             <span className="notification-header-title">{notificationsHeadTitle}</span>
-            <span className="notification-header-mark-read">
-              <button type="button" onClick={markAllAsReadFunc}>
-                {markAllAsReadTitle}
-              </button>
-            </span>
+            <Button
+              extraClass="link"
+              className="notification-header-mark-read"
+              onClick={markAllAsReadFunc}
+              text={markAllAsReadTitle}
+            />
           </div>
           <ul
             className="notification-list"
-            style={{ height: '500px', overflow: 'auto' }}
+            style={{ overflow: 'auto' }}
             onScroll={handleScrollFunc}
           >
             {!notifications && (
@@ -120,7 +113,7 @@ const NotificationsBell = ({
           </ul>
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </>
   );
 };
 

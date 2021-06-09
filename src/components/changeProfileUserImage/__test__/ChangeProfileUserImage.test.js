@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import '@testing-library/jest-dom';

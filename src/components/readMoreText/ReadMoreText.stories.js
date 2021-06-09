@@ -1,3 +1,4 @@
+import React from 'react';
 import ReadMoreText from './ReadMoreText';
 
 export default {

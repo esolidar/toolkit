@@ -1,3 +1,4 @@
+import React from 'react';
 import { isIE } from 'react-device-detect';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';

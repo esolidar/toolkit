@@ -1,3 +1,4 @@
+import React from 'react';
 import HeartSeparator from './HeartSeparator';
 
 export default {

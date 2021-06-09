@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+
 import { useIntl } from 'react-intl';
 import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML } from 'draft-js';
 import { Editor } from '@pedroguia/react-draft-wysiwyg';

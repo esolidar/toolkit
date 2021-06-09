@@ -1,3 +1,4 @@
+import React from 'react';
 import HtmlEditor from './HtmlEditor';
 
 export default {

@@ -14,3 +14,4 @@ yarn-error.log
 /coverage/lcov-report
 /coverage/coverage-final.json
 /coverage/lcov.info
+bundle-analysis.html

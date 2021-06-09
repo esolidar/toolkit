@@ -1,3 +1,4 @@
+import React from 'react';
 import GiftCardThumb from './GiftCardThumb';
 
 export default {

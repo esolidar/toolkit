@@ -1,3 +1,4 @@
+import React from 'react';
 import CrowdfundingHeaderRigth from './CrowdfundingHeaderRigth';
 
 export default {

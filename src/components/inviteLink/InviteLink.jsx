@@ -1,3 +1,4 @@
+import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import PropTypes from 'prop-types';
 import { Row } from 'react-bootstrap';
