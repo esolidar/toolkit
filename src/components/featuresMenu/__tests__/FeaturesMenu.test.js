@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import FeaturesMenu from '../index';
@@ -42,6 +43,7 @@ const extraMenuLinks = [
     url: 'https://help.esolidar.com',
     target: '_blank',
     iconItem: 'icon feed',
+    liClasses: '',
   },
 ];
 const project = 'business-frontend';

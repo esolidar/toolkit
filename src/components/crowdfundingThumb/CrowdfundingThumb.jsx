@@ -1,9 +1,11 @@
-import { createRef, Component } from 'react';
+import React, { createRef, Component } from 'react';
+
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import { Row, Col } from 'react-bootstrap';
 import Loading from '../loading';
 import { cdnStaticUrl } from '../../constants/env';
+import ProgressBar from '../../elements/progressBar';
 
 class CrowdfundingThumb extends Component {
   constructor(props) {
@@ -121,19 +123,12 @@ class CrowdfundingThumb extends Component {
           </div>
         </div>
         <div className="raised-percent">
-          <Row>
-            <Col xs={10}>
-              <div className="raised-goal">
-                <div
-                  className="percent"
-                  style={{ width: `${(thumb.contributes_sum / thumb.goal) * 100}%` }}
-                />
-              </div>
-            </Col>
-            <Col xs={2} className="percent-text">
-              {`${Math.ceil((thumb.contributes_sum / thumb.goal) * 100)}%`}
-            </Col>
-          </Row>
+          <ProgressBar
+            contributesSum={thumb.contributes_sum}
+            goal={thumb.goal}
+            showPercentage={true}
+            showBottomLabels={false}
+          />
         </div>
         <div className="raised">
           <Row>

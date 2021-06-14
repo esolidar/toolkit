@@ -1,3 +1,4 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { FormattedMessage } from 'react-intl';
 import { validations } from '../index';

@@ -1,3 +1,4 @@
+import React from 'react';
 import SliderImagesLightbox from './SliderImagesLightbox';
 
 export default {

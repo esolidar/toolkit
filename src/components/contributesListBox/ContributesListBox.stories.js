@@ -1,3 +1,4 @@
+import React from 'react';
 import ContributesListBox from './ContributesListBox';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider } from 'react-intl';
@@ -196,7 +197,6 @@ describe('CrowdfundingHeader', () => {
         />
       </IntlProvider>
     );
-    // console.log(wrapper.debug());
     expect(wrapper).toHaveLength(1);
   });
 
@@ -212,32 +212,6 @@ describe('CrowdfundingHeader', () => {
     );
     const title = <h2 className="title-campaign">title test</h2>;
     expect(wrapper.contains(title)).toEqual(true);
-  });
-
-  it('should value of crowdfunding is €60.00', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth
-          campaignTitle={() => 'title test'}
-          campaign={propsCampaign}
-          env={propsEnv}
-        />
-      </IntlProvider>
-    );
-    expect(wrapper.find('.raised-text.col-5').text()).toEqual('€60.00');
-  });
-
-  it('should value of crowdfunding is €10,000.00', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth
-          campaignTitle={() => 'title test'}
-          campaign={propsCampaign}
-          env={propsEnv}
-        />
-      </IntlProvider>
-    );
-    expect(wrapper.find('.goal-span').at(1).text()).toEqual('€10,000.00');
   });
 
   it('should exist a number of donations', () => {

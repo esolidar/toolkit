@@ -1,4 +1,10 @@
+$desktop-width: 375px;
+$desktop-height: 490px;
+$mobile-width: 260px;
+
 .notification-box {
+  padding: calc(#{$distance-1} / 2);
+
   .notification-icon {
     border: none;
     box-shadow: none;
@@ -6,17 +12,16 @@
     border: none !important;
     box-shadow: none !important;
     border-radius: 0;
-    margin-right: $distance-1;
     position: relative;
 
     .number {
       display: block !important;
       position: absolute;
       background: #ec5854;
-      top: 8px;
+      top: $distance-1;
       left: $distance-3;
       right: initial;
-      padding: 0px 8px;
+      padding: 0px $distance-1;
       height: 17px;
       font-size: 12px;
       color: #fff;
@@ -29,20 +34,9 @@
       display: none;
     }
 
-    &:hover {
-      background: transparent;
-    }
-
+    &:hover,
     &:active {
       background: transparent;
-    }
-
-    @media (max-width: map-get($breakpoints, xs)) {
-      position: absolute;
-      top: 25px;
-      left: 0;
-      margin: -14px 0 0 0;
-      z-index: 99999;
     }
   }
 
@@ -54,151 +48,117 @@
   }
 
   .dropdown-menu {
-    top: 110%;
-    right: -134%;
-    left: auto;
+    width: $desktop-width;
+    border-radius: 18px;
+    padding: 0;
+    top: 20px !important;
+    position: absolute !important;
+    inset: 0px auto auto 0px;
+    margin: 0px !important;
+    transform: translate(-315px, 42px) !important;
+    padding: $distance-2 $distance-1;
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      width: $mobile-width;
+      left: 135px !important;
+    }
 
     &:before {
-      bottom: 100%;
-      left: 65%;
-      border: solid transparent;
-      content: ' ';
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-color: rgba(199, 199, 199, 0);
-      border-bottom-color: #c7c7c7;
-      border-width: 11px;
-      margin-left: -11px;
+      @include dropdown-arrow-before();
     }
 
     &:after {
-      bottom: 100%;
-      left: 65%;
-      border: solid transparent;
-      content: ' ';
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-color: rgba(255, 255, 255, 0);
-      border-bottom-color: map-get($colors, white);
-      border-width: 10px;
-      margin-left: -10px;
+      @include dropdown-arrow-after();
     }
 
-    @media (max-width: map-get($breakpoints, xs)) {
-      position: absolute;
-      top: 53px;
-      right: 0;
-      left: 0;
-    }
-  }
-
-  .notification-header {
-    padding: 10px;
-    border-bottom: 1px solid map-get($grays, 300);
-
-    .notification-header-title {
-      color: map-get($main-text-colors, dark);
-
+    .notification-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $distance-1 3px $distance-1;
       font-size: 12px;
-      font-weight: 900;
-      line-height: 24px;
-      text-transform: uppercase;
-    }
 
-    .notification-header-mark-read {
-      button {
-        border: none;
-        background: transparent;
-        color: map-get($theme-colors, primary);
-
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 19px;
-        text-decoration: underline;
-        float: right;
-      }
-    }
-  }
-
-  .notification-list {
-    height: 500px;
-    max-height: 500px;
-    overflow: auto;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 375px;
-
-    .notification-row {
-      border-bottom: 1px solid map-get($grays, 300);
-      position: relative;
-      overflow: auto;
-
-      .notification-row-box {
-        padding: 10px 20px 10px 10px;
+      @media (max-width: map-get($breakpoints, xs)) {
+        font-size: 10px;
       }
 
-      .unread {
-        background-color: map-get($grays, 50);
-        position: relative;
-      }
-
-      img {
-        border-radius: 50%;
-        margin-right: 10px;
-        width: 40px;
-      }
-
-      .notification-row-text {
+      .notification-header-title {
         color: map-get($main-text-colors, dark);
+        font-weight: 900;
+        text-transform: uppercase;
+        padding: 6px $distance-2;
+      }
 
-        font-size: 13px;
-        line-height: 22px;
-        display: block;
-        margin-left: 50px;
+      .notification-header-mark-read {
+        font-weight: 500;
+      }
+    }
 
-        u {
-          color: map-get($theme-colors, primary);
+    .notification-list {
+      overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: calc(#{$desktop-width} - 10px);
+      max-height: $desktop-height;
+
+      @media (min-width: map-get($breakpoints, lg)) {
+        height: $desktop-height;
+      }
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        width: calc(#{$mobile-width} - 2px);
+      }
+
+      .notification-row {
+        position: relative;
+        overflow: auto;
+        padding: 2px $distance-2 2px $distance-1;
+
+        .btn-markAsRead {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .notification-row-box {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: $distance-1;
+          border-radius: 8px;
+
+          &.unread {
+            background-color: map-get($blue, 0);
+          }
+
+          &:hover {
+            background-color: map-get($background, secondary);
+          }
+
+          img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+          }
+
+          .text {
+            color: map-get($main-text-colors, dark);
+            font-size: 13px;
+
+            u {
+              color: map-get($theme-colors, primary);
+              text-decoration: none;
+            }
+          }
+
+          .date {
+            color: map-get($main-text-colors, dark);
+            font-size: 12px;
+            text-transform: capitalize;
+          }
         }
       }
-
-      .notification-row-date {
-        color: map-get($main-text-colors, dark);
-
-        padding-left: 50px;
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 24px;
-        display: block;
-        text-transform: capitalize;
-        padding-top: 10px;
-      }
-
-      .notification-bullet {
-        height: 6px;
-        width: 6px;
-        background-color: map-get($theme-colors, primary);
-        border-radius: 50%;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
     }
-
-    .notification-thumb {
-      float: left;
-    }
-
-    @media (max-width: map-get($breakpoints, xs)) {
-      max-height: 225px;
-    }
-  }
-
-  @media (max-width: map-get($breakpoints, xs)) {
-    width: 100%;
   }
 }

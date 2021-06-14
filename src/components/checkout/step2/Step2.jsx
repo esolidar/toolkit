@@ -1,5 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';

@@ -1,3 +1,4 @@
+import React from 'react';
 import CrowdfundingItem from './CrowdfundingItem';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import Header from '../index';
@@ -23,8 +24,6 @@ describe('Header component', () => {
           isUserLogged={false}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl=""
           institutionUrl=""
           lang="pt"
@@ -48,8 +47,6 @@ describe('Header component', () => {
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl="/social-feed"
           institutionUrl=""
           lang="pt"
@@ -71,8 +68,6 @@ describe('Header component', () => {
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"
           esolidarUrl="https://community.testesolidar.com/"
-          esolidarBlogUrl=""
-          esolidarHelpUrl=""
           dashboardUrl=""
           institutionUrl="/npo/store/1600-npo-test"
           lang="pt"

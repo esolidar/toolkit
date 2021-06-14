@@ -21,7 +21,7 @@ export { default as LightboxGallery } from './components/lightboxGallery';
 export { default as ProjectFilters } from './components/projectFilters';
 export { default as ProjectAddForm } from './components/projectAddForm';
 export { default as NotificationsBell } from './components/noticationsBell';
-export { default as NotificationsMobile } from './components/noticationsPage';
+export { default as NotificationsMobile } from './components/noticationsMobile';
 export { default as InviteLink } from './components/inviteLink';
 export { default as InstitutionListSelect } from './components/institutionListSelect';
 export { default as CrowdfundingThumb } from './components/crowdfundingThumb';
@@ -64,6 +64,7 @@ export { default as BankAccount } from './components/bankAccounts';
 export { default as ChangeProfileUserImage } from './components/changeProfileUserImage';
 export { default as ErrorBoundary } from './components/errorBoundary';
 export { default as supportedSection } from './components/supportedSection';
+export { default as UserMenu } from './components/userMenu';
 
 // Elements
 export { default as Button } from './elements/button';
@@ -84,6 +85,7 @@ export { default as TextFieldCurrency } from './elements/textFieldCurrency';
 export { default as TextFieldNumber } from './elements/textFieldNumber';
 export { default as InputLabel } from './elements/inputLabel';
 export { default as Tabs } from './elements/tabs';
+export { default as ProgressBar } from './elements/progressBar';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
@@ -114,3 +116,4 @@ export { default as sortBy } from './utils/sortBy';
 // Hooks
 export { default as useDebounce } from './hooks/useDebounce';
 export { default as useIsFirstRender } from './hooks/useIsFirstRender';
+export { default as useLocalStorage } from './hooks/useLocalStorage';

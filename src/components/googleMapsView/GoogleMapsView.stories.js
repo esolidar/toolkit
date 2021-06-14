@@ -1,3 +1,4 @@
+import React from 'react';
 import GoogleMapsView from './GoogleMapsView';
 
 export default {

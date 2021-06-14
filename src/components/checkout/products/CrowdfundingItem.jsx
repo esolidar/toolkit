@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
@@ -58,7 +59,7 @@ const CrowdfundingItem = props => {
                             : `${env.serverlessResizeImage}/${campaignImage}?width=400`
                         }
                         alt={campaignTitle()}
-                        style={{ width: '90%' }}
+                        style={{ width: 95 }}
                       />
                     )}
                   </div>

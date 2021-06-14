@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormattedNumber } from 'react-intl';
 
 const convertToMyCurrency = (value, currency) => {

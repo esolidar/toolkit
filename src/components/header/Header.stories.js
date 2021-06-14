@@ -1,7 +1,8 @@
+import React from 'react';
 import Header from './Header';
 
 export default {
-  title: 'Components/Header',
+  title: 'Components/Header/Header',
   component: Header,
 };
 
@@ -21,4 +22,6 @@ Default.args = {
   dashboardUrl: '',
   institutionUrl: '',
   lang: 'pt',
+  communityLinks: [],
+  dashboardLinks: [],
 };

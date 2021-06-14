@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Button from '../../../elements/button';
@@ -38,7 +39,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
         </Col>
       </Row>
       <Row>
-        <Col sm={3} md={4} className="mx-auto">
+        <Col sm={5} md={4} className="mx-auto">
           <Button
             dataTestId="see-all-auctions"
             className="see-all-auctions"

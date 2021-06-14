@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
 import ReactGA from 'react-ga';

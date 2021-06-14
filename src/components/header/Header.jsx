@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import PropTypes from 'prop-types';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -8,8 +9,6 @@ const Header = ({
   isUserLogged,
   esolidarMainUrl,
   esolidarUrl,
-  esolidarBlogUrl,
-  esolidarHelpUrl,
   dashboardUrl,
   institutionUrl,
   lang,
@@ -30,7 +29,7 @@ const Header = ({
     if (window.location.href.includes(String(item))) return 'active';
   });
 
-  const [linkLogoUrl] = useState(() => {
+  const linkLogoUrl = () => {
     if (isUserLogged) {
       if (institutionUrl) {
         return institutionUrl;
@@ -40,8 +39,11 @@ const Header = ({
       }
       return esolidarUrl;
     }
-    return esolidarMainUrl;
-  });
+    if (lang === 'en') {
+      return esolidarMainUrl;
+    }
+    return `${esolidarMainUrl}?locale=pt`;
+  };
 
   const onClick = url => {
     window.location.href = url;
@@ -65,7 +67,7 @@ const Header = ({
           </div>
         </div>
       </Navbar.Toggle>
-      <Navbar.Brand href={linkLogoUrl} className="logo-box pt-0 pb-0 mr-0">
+      <Navbar.Brand href={linkLogoUrl()} className="logo-box pt-0 pb-0 mr-0">
         <img
           className="d-none d-lg-block"
           alt="eSolidar"
@@ -101,7 +103,7 @@ const Header = ({
             >
               <FormattedMessage id="header.menu.community" />
             </Nav.Link>
-            <Nav.Link href={esolidarHelpUrl}>
+            <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })}>
               <FormattedMessage id="header.menu.helpCenter" />
             </Nav.Link>
           </Nav>
@@ -148,13 +150,16 @@ const Header = ({
               >
                 <FormattedMessage id="header.menu.community" />
               </Nav.Link>
-              <Nav.Link href={esolidarBlogUrl} target="_blank">
+              <Nav.Link href={intl.formatMessage({ id: 'header.menu.blog.url' })} target="_blank">
                 <FormattedMessage id="header.menu.blog" />
               </Nav.Link>
-              <Nav.Link href={`${esolidarBlogUrl}/materiais-ricos/`} target="_blank">
+              <Nav.Link
+                href={`${intl.formatMessage({ id: 'header.menu.blog.url' })}materiais-ricos/`}
+                target="_blank"
+              >
                 <FormattedMessage id="header.menu.resources" />
               </Nav.Link>
-              <Nav.Link href={esolidarHelpUrl} target="_blank">
+              <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })} target="_blank">
                 <FormattedMessage id="header.menu.helpCenter" />
               </Nav.Link>
             </Nav>
@@ -206,13 +211,22 @@ const Header = ({
                   id: 'header.menu.learn',
                 })}
               >
-                <NavDropdown.Item href={esolidarBlogUrl} target="_blank">
+                <NavDropdown.Item
+                  href={intl.formatMessage({ id: 'header.menu.blog.url' })}
+                  target="_blank"
+                >
                   <FormattedMessage id="header.menu.blog" />
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`${esolidarBlogUrl}/materiais-ricos/`} target="_blank">
+                <NavDropdown.Item
+                  href={`${intl.formatMessage({ id: 'header.menu.blog.url' })}/materiais-ricos/`}
+                  target="_blank"
+                >
                   <FormattedMessage id="header.menu.resources" />
                 </NavDropdown.Item>
-                <NavDropdown.Item href={esolidarHelpUrl} target="_blank">
+                <NavDropdown.Item
+                  href={intl.formatMessage({ id: 'header.menu.help.url' })}
+                  target="_blank"
+                >
                   <FormattedMessage id="header.menu.helpCenter" />
                 </NavDropdown.Item>
               </NavDropdown>
@@ -229,12 +243,10 @@ Header.propTypes = {
   isUserLogged: PropTypes.bool,
   esolidarMainUrl: PropTypes.string,
   esolidarUrl: PropTypes.string,
-  esolidarBlogUrl: PropTypes.string,
-  esolidarHelpUrl: PropTypes.string,
   dashboardUrl: PropTypes.string,
   institutionUrl: PropTypes.string,
   lang: PropTypes.string,
-  communityLinks: PropTypes.array,
-  dashboardLinks: PropTypes.array,
+  communityLinks: PropTypes.array.isRequired,
+  dashboardLinks: PropTypes.array.isRequired,
   cdnStaticUrl: PropTypes.string,
 };

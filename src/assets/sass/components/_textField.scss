@@ -72,4 +72,9 @@
     letter-spacing: 0;
     display: block;
   }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: map-get($neutrals, 400);
+  }
 }

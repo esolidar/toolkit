@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -70,9 +71,8 @@ const CreateComment = props => {
 export default CreateComment;
 
 CreateComment.propTypes = {
-  comment: PropTypes.array,
+  comment: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   env: PropTypes.object.isRequired,
-
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loadingNewComment: PropTypes.bool.isRequired,

@@ -5,6 +5,7 @@ $icomoon-font-path: $path + 'icomoon/';
 $notification-font-path: $path + 'notification/';
 $slick-font-path: $path + 'slick/';
 $athletics-regular-font-path: $path + 'athletics-regular/';
+$anticon-font-path: '//at.alicdn.com/t/font_1434092639_4910953';
 
 @font-face {
   font-family: 'AvenirLTStd-Heavy';
@@ -92,4 +93,13 @@ $athletics-regular-font-path: $path + 'athletics-regular/';
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'anticon';
+  src: url($anticon-font-path + '.eot');
+  src: url($anticon-font-path + '.eot?#iefix') format('embedded-opentype'),
+    url($anticon-font-path + '.woff') format('woff'),
+    url($anticon-font-path + '.ttf') format('truetype'),
+    url($anticon-font-path + '.svg#iconfont') format('svg');
 }
