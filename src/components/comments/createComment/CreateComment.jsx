@@ -27,7 +27,7 @@ const CreateComment = props => {
     <div className="comments">
       <div className="create-comment">
         <div className="title">
-          <FormattedMessage id="crowdfunding.create.comment" defaultMessage="Write a comment" />
+          <FormattedMessage id="crowdfunding.create.comment" />
         </div>
         <div className="textarea">
           <div className="thumb">

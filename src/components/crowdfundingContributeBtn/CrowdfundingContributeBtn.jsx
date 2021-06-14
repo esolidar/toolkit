@@ -205,7 +205,7 @@ class CrowdfundingContributeBtn extends Component {
         </Row>
         <Row className="mt-1">
           {(campaign.status === 'approved' || campaign.status === 'completed') && (
-            <Col sm={7}>
+            <Col sm={6}>
               <TextField
                 type="number"
                 id="inputDonation"
@@ -240,7 +240,7 @@ class CrowdfundingContributeBtn extends Component {
             </Col>
           )}
           {(campaign.status === 'approved' || campaign.status === 'completed') && (
-            <Col sm={5}>
+            <Col sm={6}>
               <Button
                 className="w-100"
                 extraClass="success-full btn btn-submit"
