@@ -12,11 +12,14 @@ const Template = args => (
   </div>
 );
 
-export const Default = Template.bind({});
-Default.parameters = {
+export const Business = Template.bind({});
+export const Community = Template.bind({});
+export const NoUnreadNotifications = Template.bind({});
+
+Business.parameters = {
   jest: ['NotificationsBell.test.js'],
 };
-Default.args = {
+Business.args = {
   notificationsHeadTitle: 'Notificações',
   totalNotifications: '20',
   onToggle: () => console.log(''),
@@ -61,6 +64,104 @@ Default.args = {
       target: '_SELF',
       updated_at: '2020-02-07T15:47:28.000000Z',
       created_at: '2020-01-23T14:42:08.000000Z',
+    },
+  ],
+  loadMoreFunc: () => console.log(''),
+  hasMoreToLoad: false,
+  markAsReadFunc: () => console.log(''),
+};
+
+Community.parameters = {
+  jest: ['NotificationsBell.test.js'],
+};
+Community.args = {
+  notificationsHeadTitle: 'Notificações',
+  totalNotifications: '20',
+  onToggle: () => console.log(''),
+  markAllAsReadTitle: 'Marcar todas como lidas',
+  markAllAsReadFunc: () => console.log(''),
+  handleScrollFunc: () => console.log(''),
+  notifications: [
+    {
+      notification_company_id: '1007',
+      notification_description: 'Adicionou uma nova publicação.',
+      notification_id: '182008',
+      notification_image:
+        'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/companies/5baa54d4-775a-40fa-81ef-8312226eea07.png',
+      notification_image_alt: 'eSolidar',
+      notification_image_type: 'company',
+      notification_read: '0',
+      notification_streamimage: 'amazons3',
+      notification_time: '2021-06-01 07:41:19',
+      notification_title_name: 'eSolidar',
+      notification_url: 'https://community.esolidar.com/social-feed?post=579',
+      notification_url_title: 'eSolidar',
+      notification_user_id: null,
+    },
+    {
+      notification_company_id: '1007',
+      notification_description: 'Adicionou uma nova publicação.',
+      notification_id: '182009',
+      notification_image:
+        'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/companies/5baa54d4-775a-40fa-81ef-8312226eea07.png',
+      notification_image_alt: 'eSolidar',
+      notification_image_type: 'company',
+      notification_read: '1',
+      notification_streamimage: 'amazons3',
+      notification_time: '2021-06-01 07:41:19',
+      notification_title_name: 'eSolidar',
+      notification_url: 'https://community.esolidar.com/social-feed?post=579',
+      notification_url_title: 'eSolidar',
+      notification_user_id: null,
+    },
+  ],
+  loadMoreFunc: () => console.log(''),
+  hasMoreToLoad: false,
+  markAsReadFunc: () => console.log(''),
+};
+
+NoUnreadNotifications.parameters = {
+  jest: ['NotificationsBell.test.js'],
+};
+NoUnreadNotifications.args = {
+  notificationsHeadTitle: 'Notificações',
+  totalNotifications: '20',
+  onToggle: () => console.log(''),
+  markAllAsReadTitle: 'Marcar todas como lidas',
+  markAllAsReadFunc: () => console.log(''),
+  handleScrollFunc: () => console.log(''),
+  notifications: [
+    {
+      notification_company_id: '1007',
+      notification_description: 'Adicionou uma nova publicação.',
+      notification_id: '182008',
+      notification_image:
+        'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/companies/5baa54d4-775a-40fa-81ef-8312226eea07.png',
+      notification_image_alt: 'eSolidar',
+      notification_image_type: 'company',
+      notification_read: '1',
+      notification_streamimage: 'amazons3',
+      notification_time: '2021-06-01 07:41:19',
+      notification_title_name: 'eSolidar',
+      notification_url: 'https://community.esolidar.com/social-feed?post=579',
+      notification_url_title: 'eSolidar',
+      notification_user_id: null,
+    },
+    {
+      notification_company_id: '1007',
+      notification_description: 'Adicionou uma nova publicação.',
+      notification_id: '182009',
+      notification_image:
+        'https://esolidar-production-uploads.s3.eu-west-1.amazonaws.com/companies/5baa54d4-775a-40fa-81ef-8312226eea07.png',
+      notification_image_alt: 'eSolidar',
+      notification_image_type: 'company',
+      notification_read: '1',
+      notification_streamimage: 'amazons3',
+      notification_time: '2021-06-01 07:41:19',
+      notification_title_name: 'eSolidar',
+      notification_url: 'https://community.esolidar.com/social-feed?post=579',
+      notification_url_title: 'eSolidar',
+      notification_user_id: null,
     },
   ],
   loadMoreFunc: () => console.log(''),
