@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
 import Props from './interfaces';
@@ -12,7 +12,7 @@ export const SupportsBox: FC<Props> = ({ campaign }: Props): JSX.Element => {
     <Col md={12}>
       <Row className="supportsBox">
         <Col sm={1}>
-          <img src={campaign.institution.thumbs.thumb} alt="" />
+          <img src={campaign.institution.thumbs.thumb} alt={campaign.institution.name} />
         </Col>
         <Col sm={7} className="recipient-box">
           <div className="recipient-label">
