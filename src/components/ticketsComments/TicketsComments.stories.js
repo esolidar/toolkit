@@ -1,3 +1,4 @@
+import React from 'react';
 import TicketsComments from './TicketsComments';
 
 export default {

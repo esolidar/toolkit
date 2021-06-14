@@ -1,3 +1,4 @@
+import React from 'react';
 import BoxInfo from './BoxInfo';
 import Button from '../../elements/button';
 

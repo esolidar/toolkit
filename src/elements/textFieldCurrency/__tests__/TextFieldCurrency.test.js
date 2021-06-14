@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow, configure } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';

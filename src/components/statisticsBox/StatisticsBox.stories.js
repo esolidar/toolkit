@@ -1,3 +1,4 @@
+import React from 'react';
 import StatisticsBox from './StatisticsBox';
 
 export default {

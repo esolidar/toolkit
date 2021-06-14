@@ -1,3 +1,4 @@
+import React from 'react';
 import SelectPerPage from './SelectPerPage';
 
 export default {

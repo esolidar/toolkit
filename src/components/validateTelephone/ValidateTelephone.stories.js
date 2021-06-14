@@ -1,3 +1,4 @@
+import React from 'react';
 import ValidateTelephone from './ValidateTelephone';
 
 export default {

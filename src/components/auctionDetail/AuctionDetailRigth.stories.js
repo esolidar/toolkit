@@ -1,3 +1,4 @@
+import React from 'react';
 import AuctionDetailRigth from './AuctionDetailRigth';
 import variables from '../../assets/sass/_export.module.scss';
 

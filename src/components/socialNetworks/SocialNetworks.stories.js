@@ -1,3 +1,4 @@
+import React from 'react';
 import SocialNetworks from './SocialNetworks';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import AuctionAddForm from './AuctionAddForm';
 import project from '../../../__mocks__/project';
 import institution from '../../../__mocks__/institution';

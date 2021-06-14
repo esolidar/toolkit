@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import { FormattedNumber, FormattedMessage } from 'react-intl';

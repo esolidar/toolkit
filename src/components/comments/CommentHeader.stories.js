@@ -1,3 +1,4 @@
+import React from 'react';
 import CommentHeader from './CommentHeader';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import LightboxGallery from './LightboxGallery';
 
 export default {

@@ -1,3 +1,4 @@
+import React from 'react';
 import InstitutionListSelect from './InstitutionListSelect';
 
 export default {

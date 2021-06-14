@@ -1,3 +1,4 @@
+import React from 'react';
 import CheckboxImage from './CheckboxImage';
 import { cdnStaticUrl } from '../../constants/env';
 

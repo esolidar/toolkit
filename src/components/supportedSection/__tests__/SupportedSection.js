@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, mount } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider, FormattedMessage } from 'react-intl';

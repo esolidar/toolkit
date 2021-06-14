@@ -1,8 +1,9 @@
+import React from 'react';
 import ChangeCurrency from './ChangeCurrency';
 import variables from '../../assets/sass/_export.module.scss';
 
 export default {
-  title: 'Components/ChangeCurrency',
+  title: 'Components/Footer/ChangeCurrency',
   component: ChangeCurrency,
 };
 

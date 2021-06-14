@@ -1,3 +1,4 @@
+import React from 'react';
 import CookiesMessage from './CookiesMessage';
 
 export default {
