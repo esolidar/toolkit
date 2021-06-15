@@ -29,6 +29,7 @@ const CrowdfundingHeaderRigth = ({
           goal={campaign.goal}
           currency={campaign.currency.small}
           text="crowdfunding.goal"
+          showBottomLabels={true}
         />
         <Row className="mt-1">
           <Col sm={12} className="total-donations-text mt-3">

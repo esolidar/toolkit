@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 .CountdownBox {
   display: flex;
   border-radius: 3px;
@@ -70,7 +68,7 @@
   @for $i from 1 through 5 {
     span.Countdown-col:first-child:nth-last-child(#{$i}),
     span.Countdown-col:first-child:nth-last-child(#{$i}) ~ span.Countdown-col {
-      width: math.div(100%, $i);
+      width: #{100% / $i};
     }
   }
 
