@@ -1,7 +1,8 @@
+interface Thumbs {
+  thumb: string;
+}
 interface Institution {
-  thumbs: {
-    thumb: string;
-  };
+  thumbs: Thumbs;
   name: string;
   id: number;
 }

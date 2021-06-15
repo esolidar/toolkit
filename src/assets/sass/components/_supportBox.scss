@@ -5,6 +5,7 @@
   border-radius: 4px;
   padding: 40px;
   flex-wrap: wrap;
+  display: flex;
 
   img {
     width: 40px;
@@ -44,6 +45,7 @@
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
+    text-align: center;
 
     @media (max-width: map-get($breakpoints, sm)) {
       justify-content: center;
