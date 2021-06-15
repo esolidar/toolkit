@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
-import Props from './SupportsBox.types';
+import Props from './SupportBox.types';
 import Button from '../../elements/button';
 import slugify from '../../utils/slugify';
 
-export const SupportsBox: FC<Props> = ({ campaign }: Props): JSX.Element => {
+export const SupportBox: FC<Props> = ({ campaign }: Props): JSX.Element => {
   const intl = useIntl();
 
   return (
-    <section className="supportsBox d-flex">
+    <section className="supportBox d-flex">
       <img src={campaign.institution.thumbs.thumb} alt={campaign.institution.name} />
       <div className="recipient-box">
         <div className="recipient-label" data-testid="recipient-label">
@@ -31,4 +31,4 @@ export const SupportsBox: FC<Props> = ({ campaign }: Props): JSX.Element => {
   );
 };
 
-export default SupportsBox;
+export default SupportBox;

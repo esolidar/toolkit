@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 
-import Meta, { Default as DefaultStory } from '../SupportsBox.stories';
+import Meta, { Default as DefaultStory } from '../SupportBox.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 

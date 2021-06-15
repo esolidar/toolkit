@@ -1,16 +1,16 @@
 import { Story, Meta } from '@storybook/react';
-import SupportsBox from './SupportsBox';
-import Props from './interfaces';
+import SupportBox from './SupportBox';
+import Props from './SupportBox.types';
 
 export default {
-  title: 'Components/SupportsBox',
-  component: SupportsBox,
+  title: 'Components/SupportBox',
+  component: SupportBox,
   parameters: {
-    jest: ['SupportsBox.test.js'],
+    jest: ['SupportBox.test.js'],
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <SupportsBox {...args} />;
+const Template: Story<Props> = (args: Props) => <SupportBox {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 Default.args = {
