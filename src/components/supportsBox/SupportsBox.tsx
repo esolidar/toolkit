@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Col, Row } from 'react-bootstrap';
-import Props from './interfaces';
+import Props from './SupportsBox.types';
 import Button from '../../elements/button';
 import slugify from '../../utils/slugify';
 
