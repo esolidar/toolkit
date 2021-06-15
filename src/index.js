@@ -65,6 +65,7 @@ export { default as ChangeProfileUserImage } from './components/changeProfileUse
 export { default as ErrorBoundary } from './components/errorBoundary';
 export { default as supportedSection } from './components/supportedSection';
 export { default as UserMenu } from './components/userMenu';
+export { default as SupportsBox } from './components/supportsBox';
 
 // Elements
 export { default as Button } from './elements/button';

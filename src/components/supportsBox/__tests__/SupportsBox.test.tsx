@@ -8,17 +8,14 @@ import Meta, { Default as DefaultStory } from '../SupportsBox.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 test('render elements correctly', async () => {
-  render(
+  const { getByAltText, getByTestId, getByText } = render(
     <IntlProvider locale="en">
       <Default />
     </IntlProvider>
   );
 
-  screen.debug();
-
-  const campaignThumbs = screen.getByAltText('Lorem Ipsum');
-  expect(campaignThumbs).toBeInTheDocument();
-
-  const campaignname = screen.getByText('Lorem Ipsum');
-  expect(campaignname).toBeInTheDocument();
+  expect(getByAltText('Lorem Ipsum')).toBeInTheDocument();
+  expect(getByTestId('recipient-label')).toBeTruthy();
+  expect(getByText('Lorem Ipsum')).toBeInTheDocument();
+  expect(getByText('Support this cause').getAttribute('href')).toBe('/npo/detail/1-lorem-ipsum');
 });
