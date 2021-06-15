@@ -1,16 +1,7 @@
-interface Thumbs {
-  thumb: string;
-}
-interface Institution {
-  thumbs: Thumbs;
-  name: string;
-  id: number;
-}
+import Campaign from '../../interfaces/campaign.types';
 
 interface Props {
-  campaign: {
-    institution: Institution;
-  };
+  campaign: Campaign;
 }
 
 export default Props;
