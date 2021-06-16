@@ -366,7 +366,7 @@ const AuctionDetail = ({
       } else {
         const arrayIndx = comments.findIndex(o => o.id === auctionUserComment.data.comment_id);
         const repliesArray = comments[arrayIndx].replies || [];
-        comments[arrayIndx].replies = [...auctionUserComment.data, ...repliesArray];
+        comments[arrayIndx].replies = [...newComment, ...repliesArray];
         comments[arrayIndx].totalReplies = comments[arrayIndx].replies.length;
         setComments(comments);
         setLoadingPostReply(false);
