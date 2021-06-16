@@ -100,7 +100,7 @@ const Documents = ({
   };
 
   return (
-    <Col sm={colSm || 9} className="documents">
+    <Col sm={colSm || 9} lg={9} className="documents">
       {headerTitleText && (
         <div className="box">
           <h3>{headerTitleText}</h3>
