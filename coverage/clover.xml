@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623753920685" clover="3.2.0">
-  <project timestamp="1623753920686" name="All files">
+<coverage generated="1623842423922" clover="3.2.0">
+  <project timestamp="1623842423922" name="All files">
     <metrics statements="2728" coveredstatements="1582" conditionals="2414" coveredconditionals="1304" methods="702" coveredmethods="336" elements="5844" coveredelements="3222" complexity="0" loc="2728" ncloc="2728" packages="94" files="224" classes="224"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -3481,12 +3481,12 @@
         <line num="27" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="7" type="stmt"/>
-        <line num="30" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="6" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="36" count="6" type="stmt"/>
-        <line num="37" count="6" type="stmt"/>
+        <line num="30" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
         <line num="42" count="14" type="stmt"/>
         <line num="71" count="17" type="stmt"/>
         <line num="91" count="17" type="stmt"/>
@@ -3626,7 +3626,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="66" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="64" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
