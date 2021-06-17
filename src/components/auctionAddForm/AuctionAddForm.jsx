@@ -3,13 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import Pagination from 'react-js-pagination';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { WithContext as ReactTags } from 'react-tag-input';
 import classnames from 'classnames';
 import { NotificationManager } from 'react-notifications';
 import Datetime from 'react-datetime';
 import moment from 'moment-timezone';
+import Pagination from '../../elements/pagination';
 import convertToUtc from '../../utils/convertToUtc';
 import Loading from '../loading';
 import TextField from '../../elements/textField';
@@ -1241,16 +1241,12 @@ const AuctionAddForm = ({
                               </Col>
                             </Row>
                             <Row>
-                              <Col sm={12} className="text-center">
-                                <Pagination
-                                  innerClass="pagination justify-content-center"
-                                  activePage={pagination.projects.activePage}
-                                  itemsCountPerPage={pagination.projects.itemsCountPerPage}
-                                  totalItemsCount={pagination.projects.totalItemsCount}
-                                  pageRangeDisplayed={5}
-                                  onChange={handleProjectsPageChange}
-                                />
-                              </Col>
+                              <Pagination
+                                activePage={pagination.projects.activePage}
+                                itemsCountPerPage={pagination.projects.itemsCountPerPage}
+                                totalItemsCount={pagination.projects.totalItemsCount}
+                                onChange={handleProjectsPageChange}
+                              />
                             </Row>
                           </>
                         )}
