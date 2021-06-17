@@ -14,13 +14,12 @@ test('renders Pagination with Perv and Next page', async () => {
     </IntlProvider>
   );
 
-  await waitFor(() => {
-    const paginationComponent = screen.getByTestId('pagination');
-    const prev = screen.getByTestId('prev-page');
-    const next = screen.getByTestId('next-page');
-    expect(prev).toBeInTheDocument();
-    expect(next).toBeInTheDocument();
-  });
+  const paginationComponent = screen.getByTestId('pagination');
+  const prev = screen.getByTestId('prev-page');
+  const next = screen.getByTestId('next-page');
+  expect(paginationComponent).toBeInTheDocument();
+  expect(prev).toBeInTheDocument();
+  expect(next).toBeInTheDocument();
 });
 
 test('renders Pagination without Perv and Next page', async () => {
@@ -30,12 +29,10 @@ test('renders Pagination without Perv and Next page', async () => {
     </IntlProvider>
   );
 
-  await waitFor(() => {
-    const paginationComponent = screen.getByTestId('pagination');
-    const prev = document.querySelector('.prev-page');
-    const next = document.querySelector('next-page');
-    expect(paginationComponent).toBeInTheDocument();
-    expect(prev).not.toBeInTheDocument();
-    expect(next).not.toBeInTheDocument();
-  });
+  const paginationComponent = screen.getByTestId('pagination');
+  const prev = document.querySelector('.prev-page');
+  const next = document.querySelector('next-page');
+  expect(paginationComponent).toBeInTheDocument();
+  expect(prev).not.toBeInTheDocument();
+  expect(next).not.toBeInTheDocument();
 });
