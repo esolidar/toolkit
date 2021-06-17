@@ -186,6 +186,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     );
     expect(component).toHaveLength(1);
@@ -203,6 +204,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     );
     expect(component).toHaveLength(1);
@@ -219,6 +221,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     ).shallow();
     const image = component.find('.js-image-thumb-browser');
@@ -248,6 +251,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     ).shallow();
     const image = component.find('.js-image-thumb-browser');
@@ -267,6 +271,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     ).shallow();
     const price = component.find('FormattedNumber');
@@ -284,6 +289,7 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     ).shallow();
     const message = component.find('TextareaField');
@@ -301,10 +307,45 @@ describe('CrowdfundingItem component', () => {
         onChangeMessage={onChangeMessage}
         onAddToCheckout={onAddToCheckout}
         onChangCheckBox={onChangCheckBox}
+        totalItems={1}
       />
     ).shallow();
     const hidden = component.find('input[name="hidden"]');
     expect(hidden.length).toBe(1);
     expect(hidden.getElement(0).props.checked).toBe(true);
+  });
+
+  it('hide checkbox with only one item in cart', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={item}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+        totalItems={1}
+      />
+    ).shallow();
+    const checkbox = component.find('.cart-item-row .checkbox');
+    expect(checkbox.length).toBe(0);
+  });
+
+  it('render checkbox with more than one item in cart', () => {
+    const component = shallow(
+      <CrowdfundingItem
+        item={item}
+        env={env}
+        nextStep={nextStep}
+        removeCartItem={removeCartItem}
+        onChangeMessage={onChangeMessage}
+        onAddToCheckout={onAddToCheckout}
+        onChangCheckBox={onChangCheckBox}
+        totalItems={2}
+      />
+    ).shallow();
+    const checkbox = component.find('.cart-item-row .checkbox');
+    expect(checkbox.length).toBe(1);
   });
 });
