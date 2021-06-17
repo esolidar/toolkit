@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623940957322" clover="3.2.0">
-  <project timestamp="1623940957323" name="All files">
+<coverage generated="1623943841918" clover="3.2.0">
+  <project timestamp="1623943841918" name="All files">
     <metrics statements="2738" coveredstatements="1592" conditionals="2425" coveredconditionals="1315" methods="708" coveredmethods="340" elements="5871" coveredelements="3247" complexity="0" loc="2738" ncloc="2738" packages="95" files="227" classes="227"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -1042,10 +1042,10 @@
         <line num="33" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="37" count="9" type="stmt"/>
         <line num="101" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
-        <line num="146" count="0" type="stmt"/>
-        <line num="156" count="2" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="157" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.checkout.step1">
@@ -3503,12 +3503,12 @@
         <line num="27" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="7" type="stmt"/>
-        <line num="30" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
         <line num="42" count="14" type="stmt"/>
         <line num="71" count="17" type="stmt"/>
         <line num="91" count="17" type="stmt"/>
@@ -3648,7 +3648,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="64" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="63" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
