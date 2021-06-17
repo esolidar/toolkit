@@ -1,5 +1,4 @@
-.toolkit-pagination,
-.pagination {
+.toolkit-pagination {
   justify-content: center;
 
   > li > a,
@@ -28,7 +27,6 @@
     z-index: 3;
     background-color: transparent;
     border-color: transparent;
-    font-size: 15px;
     color: map-get($theme-colors, primary);
     border-bottom: 2px solid map-get($theme-colors, primary);
     cursor: default;
@@ -50,6 +48,10 @@
   li:first-child,
   li:last-child {
     display: none;
+  }
+
+  > .disabled > a {
+    visibility: hidden;
   }
 
   > li > a .next-page,

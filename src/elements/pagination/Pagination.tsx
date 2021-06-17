@@ -6,14 +6,18 @@ const PrevPage = () => <div className="prev-page" data-testid="prev-page" />;
 
 const NextPage = () => <div className="next-page" data-testid="next-page" />;
 
+const arrowList = [
+  { prev: undefined, next: undefined },
+  { prev: <PrevPage />, next: <NextPage /> },
+];
+
 const Pagination: FC<Props> = ({
   innerClass,
-  prevPageText = <PrevPage />,
-  nextPageText = <NextPage />,
   activePage,
   itemsCountPerPage,
   totalItemsCount,
   pageRangeDisplayed = 5,
+  arrowType = 1,
   onChange,
 }: Props): JSX.Element => {
   const hasPrevAndNextPage = !!(totalItemsCount > itemsCountPerPage);
@@ -22,8 +26,8 @@ const Pagination: FC<Props> = ({
     <div className="text-center w-100 mt-2" data-testid="pagination">
       <Paginator
         innerClass={`pagination toolkit-pagination ${innerClass}`}
-        prevPageText={hasPrevAndNextPage ? prevPageText : ''}
-        nextPageText={hasPrevAndNextPage ? nextPageText : ''}
+        prevPageText={hasPrevAndNextPage ? arrowList[arrowType].prev : ''}
+        nextPageText={hasPrevAndNextPage ? arrowList[arrowType].next : ''}
         activePage={activePage}
         itemsCountPerPage={itemsCountPerPage}
         totalItemsCount={totalItemsCount}

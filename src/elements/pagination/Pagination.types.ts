@@ -1,11 +1,10 @@
 interface Props {
   innerClass?: string;
-  prevPageText?: JSX.Element;
-  nextPageText?: JSX.Element;
   activePage: number;
   itemsCountPerPage: number;
   totalItemsCount: number;
   pageRangeDisplayed?: number;
+  arrowType: number;
   onChange: () => void;
 }
 
