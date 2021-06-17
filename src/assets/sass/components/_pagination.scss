@@ -62,11 +62,11 @@
 
   > li > a .next-page,
   > li > span .next-page {
-    background: url(https://static.esolidar.com/frontend/icons/icon-next-page.svg) 50% 50% no-repeat;
+    background: url('#{$cdn-static-url}/frontend/icons/icon-next-page.svg') 50% 50% no-repeat;
   }
 
   > li > a .prev-page,
   > li > span .prev-page {
-    background: url(https://static.esolidar.com/frontend/icons/icon-prev-page.svg) 50% 50% no-repeat;
+    background: url('#{$cdn-static-url}/frontend/icons/icon-prev-page.svg') 50% 50% no-repeat;
   }
 }
