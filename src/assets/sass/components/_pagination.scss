@@ -51,7 +51,8 @@
   }
 
   > .disabled > a {
-    visibility: hidden;
+    opacity: 0.3;
+    cursor: default;
   }
 
   > li > a .next-page,

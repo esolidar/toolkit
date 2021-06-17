@@ -20,14 +20,12 @@ const Pagination: FC<Props> = ({
   arrowType = 1,
   onChange,
 }: Props): JSX.Element => {
-  const hasPrevAndNextPage = !!(totalItemsCount > itemsCountPerPage);
-
   return (
     <div className="text-center w-100 mt-2" data-testid="pagination">
       <Paginator
         innerClass={`pagination toolkit-pagination ${innerClass}`}
-        prevPageText={hasPrevAndNextPage ? arrowList[arrowType].prev : ''}
-        nextPageText={hasPrevAndNextPage ? arrowList[arrowType].next : ''}
+        prevPageText={arrowList[arrowType].prev}
+        nextPageText={arrowList[arrowType].next}
         activePage={activePage}
         itemsCountPerPage={itemsCountPerPage}
         totalItemsCount={totalItemsCount}

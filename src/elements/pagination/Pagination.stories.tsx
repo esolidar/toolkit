@@ -24,7 +24,6 @@ const Template: Story<Props> = (args: Props) => (
 
 export const WithArrowType0: Story<Props> = Template.bind({});
 export const WithArrowType1: Story<Props> = Template.bind({});
-export const WhithoutArrows: Story<Props> = Template.bind({});
 
 WithArrowType0.args = {
   activePage: 2,
@@ -37,13 +36,6 @@ WithArrowType0.args = {
 WithArrowType1.args = {
   activePage: 2,
   itemsCountPerPage: 5,
-  totalItemsCount: 10,
-  onChange: () => {},
-};
-
-WhithoutArrows.args = {
-  activePage: 1,
-  itemsCountPerPage: 10,
   totalItemsCount: 10,
   onChange: () => {},
 };
