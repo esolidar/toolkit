@@ -329,7 +329,9 @@ describe('CrowdfundingItem component', () => {
       />
     ).shallow();
     const checkbox = component.find('.cart-item-row .checkbox');
+    const checkboxOriginal = component.find('#addCart');
     expect(checkbox.length).toBe(0);
+    expect(checkboxOriginal.props().disabled).toBe(true);
   });
 
   it('render checkbox with more than one item in cart', () => {
@@ -346,6 +348,8 @@ describe('CrowdfundingItem component', () => {
       />
     ).shallow();
     const checkbox = component.find('.cart-item-row .checkbox');
+    const checkboxOriginal = component.find('#addCart');
     expect(checkbox.length).toBe(1);
+    expect(checkboxOriginal.props().disabled).toBe(false);
   });
 });

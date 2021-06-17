@@ -100,6 +100,7 @@ const CrowdfundingItem = ({
                   value={item.checked}
                   onChange={e => onAddToCheckout(e, indx)}
                   checked={item.extra.checked === 1}
+                  disabled={totalItems === 1}
                 />
                 {totalItems > 1 && <div className="checkbox" />}
               </label>
