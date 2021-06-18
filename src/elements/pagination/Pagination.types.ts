@@ -5,6 +5,7 @@ interface Props {
   totalItemsCount: number;
   pageRangeDisplayed?: number;
   arrowType: number;
+  dataTestId?: string;
   onChange: () => void;
 }
 
