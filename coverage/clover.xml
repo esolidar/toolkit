@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623943841918" clover="3.2.0">
-  <project timestamp="1623943841918" name="All files">
-    <metrics statements="2738" coveredstatements="1592" conditionals="2425" coveredconditionals="1315" methods="708" coveredmethods="340" elements="5871" coveredelements="3247" complexity="0" loc="2738" ncloc="2738" packages="95" files="227" classes="227"/>
+<coverage generated="1624009014599" clover="3.2.0">
+  <project timestamp="1624009014599" name="All files">
+    <metrics statements="2738" coveredstatements="1592" conditionals="2421" coveredconditionals="1311" methods="708" coveredmethods="340" elements="5867" coveredelements="3243" complexity="0" loc="2738" ncloc="2738" packages="95" files="227" classes="227"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="D:\projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -3298,23 +3298,23 @@
       </file>
     </package>
     <package name="elements.pagination">
-      <metrics statements="11" coveredstatements="11" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="4"/>
+      <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="6" coveredmethods="4"/>
       <file name="Pagination.stories.tsx" path="D:\projects\toolkit\src\elements\pagination\Pagination.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
       </file>
       <file name="Pagination.tsx" path="D:\projects\toolkit\src\elements\pagination\Pagination.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
         <line num="5" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
       </file>
       <file name="index.ts" path="D:\projects\toolkit\src\elements\pagination\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
