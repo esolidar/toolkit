@@ -7,7 +7,7 @@ import Meta, { WithArrowType0, WithArrowType1 } from '../Pagination.stories';
 const WithArrowType0Component = composeStory(WithArrowType0, Meta);
 const WithArrowType1Component = composeStory(WithArrowType1, Meta);
 
-it('renders Pagination with arrow type 0', async () => {
+it('renders Pagination with arrow type 0', () => {
   render(
     <IntlProvider locale="en">
       <WithArrowType0Component />
@@ -24,7 +24,7 @@ it('renders Pagination with arrow type 0', async () => {
   expect(activePage.children[0].textContent).toBe('2');
 });
 
-it('renders Pagination with arrow type 1', async () => {
+it('renders Pagination with arrow type 1', () => {
   render(
     <IntlProvider locale="en">
       <WithArrowType1Component />

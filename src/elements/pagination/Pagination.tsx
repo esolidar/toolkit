@@ -31,6 +31,7 @@ const Pagination: FC<Props> = ({
         totalItemsCount={totalItemsCount}
         pageRangeDisplayed={pageRangeDisplayed}
         onChange={onChange}
+        data-testid="pagination"
       />
     </div>
   );
