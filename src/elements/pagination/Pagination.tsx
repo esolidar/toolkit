@@ -24,9 +24,9 @@ const Pagination: FC<Props> = ({
   return (
     <>
       {totalItemsCount > 0 && (
-        <div className="text-center w-100 mt-2" data-testid="pagination">
+        <div className="text-center w-100 mt-2" data-testid={dataTestId}>
           <Paginator
-            innerClass={`pagination toolkit-pagination ${innerClass}`}
+            innerClass={`pagination toolkit-pagination ${innerClass || ''}`}
             prevPageText={arrowList[arrowType].prev}
             nextPageText={arrowList[arrowType].next}
             activePage={activePage}
@@ -34,7 +34,6 @@ const Pagination: FC<Props> = ({
             totalItemsCount={totalItemsCount}
             pageRangeDisplayed={pageRangeDisplayed}
             onChange={onChange}
-            data-testid={dataTestId}
           />
         </div>
       )}

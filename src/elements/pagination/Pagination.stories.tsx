@@ -32,6 +32,7 @@ WithArrowType0.args = {
   totalItemsCount: 10,
   onChange: () => {},
   arrowType: 0,
+  dataTestId: 'pagination',
 };
 
 WithArrowType1.args = {
@@ -39,6 +40,15 @@ WithArrowType1.args = {
   itemsCountPerPage: 5,
   totalItemsCount: 10,
   onChange: () => {},
+  dataTestId: 'pagination',
+};
+
+WithoutPagination.args = {
+  activePage: 2,
+  itemsCountPerPage: 0,
+  totalItemsCount: 0,
+  onChange: () => {},
+  dataTestId: 'pagination',
 };
 
 WithoutPagination.args = {
