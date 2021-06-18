@@ -22,19 +22,23 @@ const Pagination: FC<Props> = ({
   onChange,
 }: Props): JSX.Element => {
   return (
-    <div className="text-center w-100 mt-2" data-testid="pagination">
-      <Paginator
-        innerClass={`pagination toolkit-pagination ${innerClass}`}
-        prevPageText={arrowList[arrowType].prev}
-        nextPageText={arrowList[arrowType].next}
-        activePage={activePage}
-        itemsCountPerPage={itemsCountPerPage}
-        totalItemsCount={totalItemsCount}
-        pageRangeDisplayed={pageRangeDisplayed}
-        onChange={onChange}
-        data-testid={dataTestId}
-      />
-    </div>
+    <>
+      {totalItemsCount > 0 && (
+        <div className="text-center w-100 mt-2" data-testid="pagination">
+          <Paginator
+            innerClass={`pagination toolkit-pagination ${innerClass}`}
+            prevPageText={arrowList[arrowType].prev}
+            nextPageText={arrowList[arrowType].next}
+            activePage={activePage}
+            itemsCountPerPage={itemsCountPerPage}
+            totalItemsCount={totalItemsCount}
+            pageRangeDisplayed={pageRangeDisplayed}
+            onChange={onChange}
+            data-testid={dataTestId}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
