@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1624009895593" clover="3.2.0">
-  <project timestamp="1624009895594" name="All files">
-    <metrics statements="2738" coveredstatements="1592" conditionals="2424" coveredconditionals="1312" methods="708" coveredmethods="340" elements="5870" coveredelements="3244" complexity="0" loc="2738" ncloc="2738" packages="95" files="227" classes="227"/>
+<coverage generated="1624010734689" clover="3.2.0">
+  <project timestamp="1624010734689" name="All files">
+    <metrics statements="2738" coveredstatements="1592" conditionals="2425" coveredconditionals="1313" methods="708" coveredmethods="340" elements="5871" coveredelements="3245" complexity="0" loc="2738" ncloc="2738" packages="95" files="227" classes="227"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -3298,7 +3298,7 @@
       </file>
     </package>
     <package name="elements.pagination">
-      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="4"/>
+      <metrics statements="11" coveredstatements="11" conditionals="3" coveredconditionals="3" methods="6" coveredmethods="4"/>
       <file name="Pagination.stories.tsx" path="C:\Projects\toolkit\src\elements\pagination\Pagination.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
@@ -3309,12 +3309,12 @@
         <line num="36" count="1" type="stmt"/>
       </file>
       <file name="Pagination.tsx" path="C:\Projects\toolkit\src\elements\pagination\Pagination.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
         <line num="5" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
         <line num="14" count="6" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\elements\pagination\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3503,12 +3503,12 @@
         <line num="27" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="7" type="stmt"/>
-        <line num="30" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
         <line num="42" count="14" type="stmt"/>
         <line num="71" count="17" type="stmt"/>
         <line num="91" count="17" type="stmt"/>
@@ -3648,7 +3648,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="64" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="63" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

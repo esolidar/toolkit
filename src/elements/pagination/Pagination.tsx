@@ -18,6 +18,7 @@ const Pagination: FC<Props> = ({
   totalItemsCount,
   pageRangeDisplayed = 5,
   arrowType = 1,
+  dataTestId = 'pagination',
   onChange,
 }: Props): JSX.Element => {
   return (
@@ -31,6 +32,7 @@ const Pagination: FC<Props> = ({
         totalItemsCount={totalItemsCount}
         pageRangeDisplayed={pageRangeDisplayed}
         onChange={onChange}
+        data-testid={dataTestId}
       />
     </div>
   );
