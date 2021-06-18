@@ -2,9 +2,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pagination from 'react-js-pagination';
 import { Row, Col, Modal } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
+import Pagination from '../../elements/pagination';
 import Loading from '../loading';
 import Icon from '../icon';
 import TextField from '../../elements/textField';
@@ -120,17 +120,12 @@ const Documents = ({
       <Row>
         <Col sm={12}>
           <Col sm={{ span: 6, offset: 3 }}>
-            <div className="text-center">
-              <Pagination
-                prevPageText={<div className="prev-page" />}
-                nextPageText={<div className="next-page" />}
-                activePage={activePage}
-                itemsCountPerPage={Number(per_page)}
-                totalItemsCount={Number(total)}
-                pageRangeDisplayed={5}
-                onChange={handlePageChange}
-              />
-            </div>
+            <Pagination
+              activePage={activePage}
+              itemsCountPerPage={Number(per_page)}
+              totalItemsCount={Number(total)}
+              onChange={handlePageChange}
+            />
           </Col>
         </Col>
       </Row>
