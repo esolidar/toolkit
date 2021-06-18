@@ -50,3 +50,10 @@ WithoutPagination.args = {
   onChange: () => {},
   dataTestId: 'pagination',
 };
+
+WithoutPagination.args = {
+  activePage: 2,
+  itemsCountPerPage: 0,
+  totalItemsCount: 0,
+  onChange: () => {},
+};
