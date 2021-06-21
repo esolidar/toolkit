@@ -103,7 +103,7 @@ const Header = ({
             >
               <FormattedMessage id="header.menu.community" />
             </Nav.Link>
-            <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })}>
+            <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })} target="_blank">
               <FormattedMessage id="header.menu.helpCenter" />
             </Nav.Link>
           </Nav>
