@@ -118,6 +118,7 @@ Community.args = {
   loadMoreFunc: () => console.log(''),
   hasMoreToLoad: false,
   markAsReadFunc: () => console.log(''),
+  showMarkAllAsReadBtn: false,
 };
 
 NoUnreadNotifications.parameters = {

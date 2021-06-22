@@ -54,8 +54,8 @@ test('renders NotificationsBell Community', async () => {
   const notificationsTitle = screen.getByText('Notificações');
   expect(notificationsTitle).toBeInTheDocument();
 
-  const markAsReadBtn = screen.getByText('Marcar todas como lidas');
-  expect(markAsReadBtn).toBeInTheDocument();
+  const markAsReadBtn = screen.queryByText('Marcar todas como lidas');
+  expect(markAsReadBtn).not.toBeInTheDocument();
 
   const notifications = screen.queryAllByTestId('notification-row');
   expect(notifications).toHaveLength(2);
