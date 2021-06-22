@@ -17,8 +17,9 @@ const NotificationsBell = ({
   handleScrollFunc,
   notifications,
   loadMoreFunc,
-  hasMoreToLoad,
+  hasMoreToLoad = false,
   markAsReadFunc,
+  showMarkAllAsReadBtn = true,
 }) => {
   const items = [];
 
@@ -95,7 +96,7 @@ const NotificationsBell = ({
         <Dropdown.Menu flip align="right">
           <div className="notification-header">
             <span className="notification-header-title">{notificationsHeadTitle}</span>
-            {hasUnreadNotifications && (
+            {showMarkAllAsReadBtn && hasUnreadNotifications && (
               <Button
                 extraClass="link"
                 className="notification-header-mark-read"
@@ -144,8 +145,9 @@ NotificationsBell.propTypes = {
   totalNotifications: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   markAllAsReadTitle: PropTypes.string,
   onToggle: PropTypes.func,
-  markAllAsReadFunc: PropTypes.func.isRequired,
-  markAsReadFunc: PropTypes.func.isRequired,
+  markAllAsReadFunc: PropTypes.func,
+  markAsReadFunc: PropTypes.func,
+  showMarkAllAsReadBtn: PropTypes.bool,
   handleScrollFunc: PropTypes.func.isRequired,
   notifications: PropTypes.array,
   loadMoreFunc: PropTypes.func.isRequired,
