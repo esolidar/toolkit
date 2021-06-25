@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1624616447021" clover="3.2.0">
   <project timestamp="1624616447022" name="All files">
     <metrics statements="2741" coveredstatements="1595" conditionals="2435" coveredconditionals="1320" methods="710" coveredmethods="340" elements="5886" coveredelements="3255" complexity="0" loc="2741" ncloc="2741" packages="95" files="227" classes="227"/>
+=======
+<coverage generated="1624612738277" clover="3.2.0">
+  <project timestamp="1624612738278" name="All files">
+    <metrics statements="2741" coveredstatements="1595" conditionals="2433" coveredconditionals="1319" methods="710" coveredmethods="340" elements="5884" coveredelements="3254" complexity="0" loc="2741" ncloc="2741" packages="95" files="227" classes="227"/>
+>>>>>>> master
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -2866,7 +2872,11 @@
       </file>
     </package>
     <package name="components.supportBox">
+<<<<<<< HEAD
       <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="2"/>
+=======
+      <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
+>>>>>>> master
       <file name="SupportBox.stories.tsx" path="C:\Projects\toolkit\src\components\supportBox\SupportBox.stories.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
@@ -2874,7 +2884,11 @@
         <line num="16" count="1" type="stmt"/>
       </file>
       <file name="SupportBox.tsx" path="C:\Projects\toolkit\src\components\supportBox\SupportBox.tsx">
+<<<<<<< HEAD
         <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+=======
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+>>>>>>> master
         <line num="7" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -3506,12 +3520,12 @@
         <line num="27" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="29" count="7" type="stmt"/>
-        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="3" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
-        <line num="37" count="3" type="stmt"/>
+        <line num="30" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="36" count="6" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
         <line num="42" count="14" type="stmt"/>
         <line num="71" count="17" type="stmt"/>
         <line num="91" count="17" type="stmt"/>
@@ -3651,7 +3665,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="63" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="66" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
