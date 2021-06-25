@@ -20,7 +20,7 @@ export const SupportBox: FC<Props> = ({ campaign, communityUrl = '' }: Props): J
         <Button
           className="support-btn"
           extraClass="info"
-          href={`${communityUrl}/npo/detail/${campaign.institution.id}-${slugify(
+          href={`${communityUrl}npo/detail/${campaign.institution.id}-${slugify(
             campaign.institution.name
           )}`}
           text={intl.formatMessage({
