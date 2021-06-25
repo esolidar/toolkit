@@ -26,6 +26,7 @@ export const SupportBox: FC<Props> = ({ campaign, communityUrl = '' }: Props): J
           text={intl.formatMessage({
             id: 'crowdfunding.crowdfunding.institution.helps',
           })}
+          target={communityUrl ? '_blank' : '_self'}
         />
       </div>
     </section>

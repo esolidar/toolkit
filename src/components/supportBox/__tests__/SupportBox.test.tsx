@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 
@@ -19,4 +20,5 @@ it('render elements correctly', () => {
   expect(getByText('Support this cause').getAttribute('href')).toBe(
     'https://community.testesolidar.com/pt/npo/detail/1-lorem-ipsum'
   );
+  expect(getByText('Support this cause')).toHaveAttribute('target', '_blank');
 });
