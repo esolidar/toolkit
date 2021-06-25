@@ -27,6 +27,7 @@ import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
 import isEmpty from '../../utils/isEmpty';
 import ValidateTelephone from '../validateTelephone';
+import SupportBox from '../supportBox';
 
 const AuctionDetail = ({
   auctionId,
@@ -1145,6 +1146,11 @@ const AuctionDetail = ({
                 </Row>
               )}
             </Col>
+            {!auctionDetailInfo.project && (
+              <Col sm={12} md={12} lg={{ span: 10, offset: 1 }} className="mt-3">
+                <SupportBox campaign={auctionDetailInfo.recipient} communityUrl={domainUrl} />
+              </Col>
+            )}
           </Row>
           {listAuctions.length > 0 && (
             <AuctionsList
