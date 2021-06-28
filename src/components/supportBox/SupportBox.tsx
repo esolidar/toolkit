@@ -4,7 +4,7 @@ import Props from './SupportBox.types';
 import Button from '../../elements/button';
 import slugify from '../../utils/slugify';
 
-export const SupportBox: FC<Props> = ({ campaign, communityUrl = '/' }: Props): JSX.Element => {
+const SupportBox: FC<Props> = ({ campaign, communityUrl = '/' }: Props): JSX.Element => {
   const intl = useIntl();
 
   return (
