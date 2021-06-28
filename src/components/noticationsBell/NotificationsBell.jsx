@@ -34,7 +34,7 @@ const NotificationsBell = ({
       notification.title = notification.notification_url_title;
       notification.target = '_self';
       notification.photo = { thumb: notification.notification_image };
-      notification.text = `${notification.notification_title_name} ${notification.notification_description}`;
+      notification.text = `<u>${notification.notification_title_name}</u></br>${notification.notification_description}`;
       notification.created_at = notification.notification_time;
       notification.read_at = notification.notification_read === '0' ? null : '1';
     }
