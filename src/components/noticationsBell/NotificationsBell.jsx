@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -9,10 +10,8 @@ import { cdnStaticUrl } from '../../constants/env';
 import isDefined from '../../utils/isDefined';
 
 const NotificationsBell = ({
-  notificationsHeadTitle,
   totalNotifications,
   onToggle,
-  markAllAsReadTitle,
   markAllAsReadFunc,
   handleScrollFunc,
   notifications,
@@ -21,6 +20,7 @@ const NotificationsBell = ({
   markAsReadFunc,
   showMarkAllAsReadBtn = true,
 }) => {
+  const intl = useIntl();
   const items = [];
 
   notifications.forEach(item => {
@@ -95,13 +95,15 @@ const NotificationsBell = ({
         </Dropdown.Toggle>
         <Dropdown.Menu flip align="right">
           <div className="notification-header">
-            <span className="notification-header-title">{notificationsHeadTitle}</span>
+            <span className="notification-header-title">
+              {intl.formatMessage({ id: 'Notifications.head.title' })}
+            </span>
             {showMarkAllAsReadBtn && hasUnreadNotifications && (
               <Button
                 extraClass="link"
                 className="notification-header-mark-read"
                 onClick={markAllAsReadFunc}
-                text={markAllAsReadTitle}
+                text={intl.formatMessage({ id: 'Notifications.head.mark.all' })}
               />
             )}
           </div>
@@ -113,6 +115,16 @@ const NotificationsBell = ({
             {!notifications && (
               <div className="notification-loader">
                 <Loading />
+              </div>
+            )}
+            {!notifications.length && (
+              <div className="no-notifications">
+                <img
+                  className="img"
+                  src={`${cdnStaticUrl}/frontend/icons/no-feed.svg`}
+                  alt="no-notification"
+                />
+                <p className="text">{intl.formatMessage({ id: 'Notifications.no.results' })}</p>
               </div>
             )}
             <InfiniteScroll
@@ -141,9 +153,7 @@ const NotificationsBell = ({
 };
 
 NotificationsBell.propTypes = {
-  notificationsHeadTitle: PropTypes.string,
   totalNotifications: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  markAllAsReadTitle: PropTypes.string,
   onToggle: PropTypes.func,
   markAllAsReadFunc: PropTypes.func,
   markAsReadFunc: PropTypes.func,
