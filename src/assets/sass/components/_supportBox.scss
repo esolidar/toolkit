@@ -50,6 +50,21 @@
       justify-content: center;
       margin-top: $distance-3;
     }
+
+    .support-btn {
+      border: 2px solid map-get($turquoise, 500);
+      color: map-get($turquoise, 500);
+      padding-left: 30px;
+      padding-right: 30px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: map-get($turquoise, 500);
+        border-color: map-get($turquoise, 500);
+        color: #fff;
+      }
+    }
   }
   @media (max-width: map-get($breakpoints, sm)) {
     flex-direction: column;

@@ -4,6 +4,7 @@ $mobile-width: 260px;
 
 .notification-box {
   padding: calc(#{$distance-1} / 2);
+  @include thin-scroll-bar();
 
   .notification-icon {
     border: none;
