@@ -19,14 +19,13 @@ const SupportBox: FC<Props> = ({ campaign, communityUrl = '/' }: Props): JSX.Ele
       <div className="recipient-btn">
         <Button
           className="support-btn"
-          extraClass="info"
           href={`${communityUrl}npo/detail/${campaign.institution.id}-${slugify(
             campaign.institution.name
           )}`}
           text={intl.formatMessage({
             id: 'crowdfunding.crowdfunding.institution.helps',
           })}
-          target={communityUrl ? '_blank' : '_self'}
+          target="_blank"
         />
       </div>
     </section>
