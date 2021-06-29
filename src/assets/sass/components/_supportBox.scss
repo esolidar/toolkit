@@ -54,8 +54,8 @@
     .support-btn {
       border: 2px solid map-get($turquoise, 500);
       color: map-get($turquoise, 500);
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: $distance-4;
+      padding-right: $distance-4;
 
       &:hover,
       &:active,
