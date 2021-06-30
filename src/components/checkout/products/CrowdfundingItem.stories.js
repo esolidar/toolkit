@@ -89,7 +89,7 @@ Default.args = {
     amount: 10,
     quantity: 1,
     extra: {
-      hidden: 0,
+      hidden: '1',
       message: '',
       checked: 1,
     },

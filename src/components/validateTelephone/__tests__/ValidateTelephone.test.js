@@ -7,9 +7,9 @@ import ValidateTelephone from '../index';
 const propsWithoutValidatePhone = {
   localStorage: {
     lang: 'pt',
-    user: {
+    user: JSON.stringify({
       id: '51792',
-    },
+    }),
   },
   validatePhone: {
     code: 200,

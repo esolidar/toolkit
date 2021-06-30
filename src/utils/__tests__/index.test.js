@@ -24,6 +24,10 @@ import {
   removeAllButLast,
   isValidRegex,
   convertToUtc,
+  firstElemOf,
+  lastElemOf,
+  clone,
+  sortBy,
 } from '../index';
 
 describe('test utils functions', () => {
@@ -208,6 +212,8 @@ describe('test utils functions', () => {
 
     expect(getLocalStorageAuctionPrivateCode(1)).toEqual(123456);
     expect(getLocalStorageAuctionPrivateCode(2)).toEqual(null);
+    localStorage.clear();
+    expect(getLocalStorageAuctionPrivateCode(1)).toEqual(null);
   });
 
   test('should return isCompanyAdmin', () => {
@@ -370,6 +376,8 @@ describe('test utils functions', () => {
     expect(removeAllButLast(value.replace(/[^\d,.]/g, '').replace(',', '.'), token)).toEqual(
       '1000.01'
     );
+    expect(removeAllButLast('1000', '.')).toEqual('1000');
+    expect(removeAllButLast('1.000.00', '.')).toEqual('1000.00');
   });
 
   test('verify regex', () => {
@@ -396,5 +404,58 @@ describe('test utils functions', () => {
     advanceTo(new Date(2021, 7, 1, 1, 0, 0));
     expect(convertToUtc('2021-08-07 00:00:00', 'Europe/Lisbon')).toEqual('2021-08-06 23:00:00');
     expect(convertToUtc('2021-08-07 00:00:00', 'America/Sao_Paulo')).toEqual('2021-08-07 03:00:00');
+  });
+
+  test('test firstElemOf should return first array elem', () => {
+    expect(firstElemOf([0, 1, 2, 3, 4, 5, 6, 7])).toEqual(0);
+    expect(firstElemOf(['a', 'b', 'c'])).toEqual('a');
+    expect(firstElemOf([])).toEqual(undefined);
+    expect(firstElemOf({})).toEqual(undefined);
+    expect(firstElemOf('abcd')).toEqual('a');
+  });
+
+  test('test lastElemOf should return last array elem', () => {
+    expect(lastElemOf([0, 1, 2, 3, 4, 5, 6, 7])).toEqual(7);
+    expect(lastElemOf(['a', 'b', 'c'])).toEqual('c');
+    expect(lastElemOf([])).toEqual(undefined);
+    expect(lastElemOf({})).toEqual(undefined);
+    expect(lastElemOf('abcd')).toEqual('d');
+  });
+
+  test('test clone should return elem', () => {
+    const array = [0, 1, 2, 3, 4, 5, 6, 7];
+    const obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+    };
+    const string = 'string text';
+    const nullVar = null;
+
+    expect(clone(array)).toEqual(array);
+    expect(clone(obj)).toEqual(obj);
+    expect(clone(string)).toEqual(string);
+    expect(clone(nullVar)).toEqual(nullVar);
+  });
+
+  test('test sortBy', () => {
+    const array = [0, 1, 2, 3, 4, 5, 6, 7];
+    const arrayObj = [
+      { a: 3, b: 2 },
+      { a: 1, b: 3 },
+      { a: 2, b: 1 },
+    ];
+
+    expect(sortBy(array)).toEqual(array);
+    expect(sortBy(arrayObj, 'a')).toEqual([
+      { a: 1, b: 3 },
+      { a: 2, b: 1 },
+      { a: 3, b: 2 },
+    ]);
+    expect(sortBy(arrayObj, 'b')).toEqual([
+      { a: 2, b: 1 },
+      { a: 3, b: 2 },
+      { a: 1, b: 3 },
+    ]);
   });
 });

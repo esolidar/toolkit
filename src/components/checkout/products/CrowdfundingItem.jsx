@@ -131,7 +131,7 @@ const CrowdfundingItem = ({
                   id="hidden"
                   value={item.hidden}
                   onChange={e => onChangCheckBox(e, indx)}
-                  checked={item.extra.hidden === '1'}
+                  checked={+item.extra.hidden === 1}
                 />
                 <div className="checkbox" />
               </label>
@@ -174,7 +174,7 @@ CrowdfundingItem.propTypes = {
     }),
     extra: PropTypes.shape({
       checked: PropTypes.number,
-      hidden: PropTypes.number,
+      hidden: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       message: PropTypes.string,
     }),
     hidden: PropTypes.string,
