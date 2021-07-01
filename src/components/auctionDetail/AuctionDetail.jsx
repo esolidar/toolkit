@@ -111,7 +111,7 @@ const AuctionDetail = ({
   const [privateCode, setPrivateCode] = useState('');
   const [errorPrivateCode, setErrorPrivateCode] = useState('');
   const [accessAuction, setAccessAuction] = useState(false);
-  const [auctionDetailInfo, setAuctionDetailInfo] = useState({});
+  const [auctionDetailInfo, setAuctionDetailInfo] = React.useState({});
   const [isLoadingAuction, setIsLoadingAuction] = useState(true);
 
   // Subscribe

@@ -199,7 +199,7 @@ const ProjectAddForm = ({
 
           case 'checkbox':
             return (
-              <div>
+              <div key={field.id}>
                 <div className="form-group">
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
@@ -237,7 +237,7 @@ const ProjectAddForm = ({
 
           case 'radiobox':
             return (
-              <div>
+              <div key={field.id}>
                 <div className="form-group">
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
