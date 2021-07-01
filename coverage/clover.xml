@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625151983116" clover="3.2.0">
-  <project timestamp="1625151983116" name="All files">
-    <metrics statements="2741" coveredstatements="1767" conditionals="2437" coveredconditionals="1442" methods="710" coveredmethods="346" elements="5888" coveredelements="3555" complexity="0" loc="2741" ncloc="2741" packages="95" files="228" classes="228"/>
+<coverage generated="1625158634540" clover="3.2.0">
+  <project timestamp="1625158634541" name="All files">
+    <metrics statements="2750" coveredstatements="1772" conditionals="2437" coveredconditionals="1443" methods="715" coveredmethods="347" elements="5902" coveredelements="3562" complexity="0" loc="2750" ncloc="2750" packages="95" files="228" classes="228"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -1287,7 +1287,7 @@
         <line num="88" count="28" type="stmt"/>
         <line num="89" count="101" type="stmt"/>
         <line num="90" count="101" type="stmt"/>
-        <line num="91" count="59" type="stmt"/>
+        <line num="91" count="60" type="stmt"/>
         <line num="93" count="101" type="stmt"/>
         <line num="96" count="28" type="stmt"/>
         <line num="97" count="33" type="stmt"/>
@@ -2218,12 +2218,13 @@
       </file>
     </package>
     <package name="components.noticationsBell">
-      <metrics statements="46" coveredstatements="33" conditionals="27" coveredconditionals="22" methods="21" coveredmethods="8"/>
+      <metrics statements="55" coveredstatements="38" conditionals="29" coveredconditionals="24" methods="26" coveredmethods="9"/>
       <file name="NotificationsBell.jsx" path="C:\Projects\toolkit\src\components\noticationsBell\NotificationsBell.jsx">
-        <metrics statements="20" coveredstatements="19" conditionals="27" coveredconditionals="22" methods="5" coveredmethods="4"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
+        <metrics statements="21" coveredstatements="20" conditionals="29" coveredconditionals="24" methods="5" coveredmethods="4"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
         <line num="27" count="6" type="stmt"/>
         <line num="29" count="6" type="cond" truecount="3" falsecount="1"/>
         <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
@@ -2235,41 +2236,49 @@
         <line num="37" count="4" type="stmt"/>
         <line num="38" count="4" type="stmt"/>
         <line num="39" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="3" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
         <line num="44" count="6" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
         <line num="81" count="4" type="stmt"/>
-        <line num="83" count="3" type="stmt"/>
-        <line num="143" count="1" type="stmt"/>
+        <line num="83" count="4" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
       </file>
       <file name="NotificationsBell.stories.js" path="C:\Projects\toolkit\src\components\noticationsBell\NotificationsBell.stories.js">
-        <metrics statements="26" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="16" coveredmethods="4"/>
+        <metrics statements="34" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="5"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="118" count="0" type="stmt"/>
-        <line num="120" count="0" type="stmt"/>
-        <line num="124" count="1" type="stmt"/>
-        <line num="127" count="1" type="stmt"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="119" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
-        <line num="168" count="0" type="stmt"/>
-        <line num="170" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="174" count="1" type="stmt"/>
+        <line num="177" count="1" type="stmt"/>
+        <line num="180" count="1" type="stmt"/>
+        <line num="182" count="0" type="stmt"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="185" count="0" type="stmt"/>
+        <line num="187" count="0" type="stmt"/>
       </file>
     </package>
     <package name="components.noticationsMobile">
@@ -2866,7 +2875,7 @@
       </file>
     </package>
     <package name="components.supportBox">
-      <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="SupportBox.stories.tsx" path="C:\Projects\toolkit\src\components\supportBox\SupportBox.stories.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
@@ -2874,7 +2883,7 @@
         <line num="16" count="1" type="stmt"/>
       </file>
       <file name="SupportBox.tsx" path="C:\Projects\toolkit\src\components\supportBox\SupportBox.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>

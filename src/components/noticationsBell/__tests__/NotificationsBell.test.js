@@ -7,11 +7,13 @@ import Meta, {
   Business as BusinessStory,
   Community as CommunityStory,
   NoUnreadNotifications as NoUnreadNotificationsStory,
+  EmptyState as EmptyStateStory,
 } from '../NotificationsBell.stories';
 
 const Business = composeStory(BusinessStory, Meta);
 const Community = composeStory(CommunityStory, Meta);
 const NoUnreadNotifications = composeStory(NoUnreadNotificationsStory, Meta);
+const EmptyState = composeStory(EmptyStateStory, Meta);
 
 test('renders NotificationsBell Business', async () => {
   render(<Business />);
@@ -22,10 +24,10 @@ test('renders NotificationsBell Business', async () => {
   const toggle = screen.getByRole('button');
   userEvent.click(toggle);
 
-  const notificationsTitle = screen.getByText('Notificações');
+  const notificationsTitle = screen.getByText('Notifications');
   expect(notificationsTitle).toBeInTheDocument();
 
-  const markAsReadBtn = screen.getByText('Marcar todas como lidas');
+  const markAsReadBtn = screen.getByText('Mark all as read');
   expect(markAsReadBtn).toBeInTheDocument();
 
   const notifications = screen.queryAllByTestId('notification-row');
@@ -51,10 +53,10 @@ test('renders NotificationsBell Community', async () => {
   const toggle = screen.getByRole('button');
   userEvent.click(toggle);
 
-  const notificationsTitle = screen.getByText('Notificações');
+  const notificationsTitle = screen.getByText('Notifications');
   expect(notificationsTitle).toBeInTheDocument();
 
-  const markAsReadBtn = screen.queryByText('Marcar todas como lidas');
+  const markAsReadBtn = screen.queryByText('Mark all as read');
   expect(markAsReadBtn).not.toBeInTheDocument();
 
   const notifications = screen.queryAllByTestId('notification-row');
@@ -77,6 +79,25 @@ test('renders NotificationsBell NoUnreadNotifications', async () => {
   const toggle = screen.getByRole('button');
   userEvent.click(toggle);
 
-  const markAsReadBtn = screen.queryByText('Marcar todas como lidas');
+  const markAsReadBtn = screen.queryByText('Mark all as read');
   expect(markAsReadBtn).not.toBeInTheDocument();
+
+  const notifications = screen.queryAllByTestId('notification-row');
+  expect(notifications).toHaveLength(2);
+});
+
+test('renders NotificationsBell EmptyState', async () => {
+  render(<EmptyState />);
+
+  const toggle = screen.getByRole('button');
+  userEvent.click(toggle);
+
+  const markAsReadBtn = screen.queryByText('Mark all as read');
+  expect(markAsReadBtn).not.toBeInTheDocument();
+
+  const notifications = screen.queryAllByTestId('notification-row');
+  expect(notifications).toHaveLength(0);
+
+  const noNotificationsText = screen.getByText('There are no notifications.');
+  expect(noNotificationsText).toBeInTheDocument();
 });
