@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
-import Pagination from 'react-js-pagination';
 import classnames from 'classnames';
+import Pagination from '../../elements/pagination';
 import SelectField from '../../elements/selectField';
 import Loading from '../loading';
 
@@ -127,16 +127,12 @@ const InstitutionListSelect = ({
           {error && <span className="help-block">{error}</span>}
           {institutions.length > 0 && (
             <Row>
-              <Col sm={12} className="text-center">
-                <Pagination
-                  innerClass="pagination justify-content-center"
-                  activePage={pagination.activePage}
-                  itemsCountPerPage={pagination.itemsCountPerPage}
-                  totalItemsCount={pagination.totalItemsCount}
-                  pageRangeDisplayed={5}
-                  onChange={handlePageChange}
-                />
-              </Col>
+              <Pagination
+                activePage={pagination.activePage}
+                itemsCountPerPage={pagination.itemsCountPerPage}
+                totalItemsCount={pagination.totalItemsCount}
+                onChange={handlePageChange}
+              />
             </Row>
           )}
         </div>

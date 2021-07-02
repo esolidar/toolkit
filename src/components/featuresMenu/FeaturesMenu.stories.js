@@ -15,6 +15,7 @@ Default.parameters = {
 Default.args = {
   project: 'whitelabel',
   location: '/',
+  locale: 'pt',
   features: [
     {
       id: 1,

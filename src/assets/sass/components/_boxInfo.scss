@@ -4,7 +4,7 @@
   border: 1px solid map-get($grays, 200);
   border-radius: 4px;
   padding: 30px;
-  margin-bottom: 15px;
+  margin-bottom: $distance-2;
 
   &.box-info {
     display: flex;
@@ -33,11 +33,11 @@
       }
     }
 
-    & button {
-      margin-left: 8px;
+    & .btn-esolidar {
+      margin-left: $distance-1;
 
       @media (max-width: 1024px) {
-        margin-top: 15px;
+        margin-top: $distance-2;
         margin-left: unset;
       }
     }

@@ -1,12 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import Header from '../index';
 
 describe('Header component', () => {
   it('renders Header correctly', () => {
     const component = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <Header
           communityLinks={[]}
           dashboardLinks={[]}
@@ -19,7 +20,7 @@ describe('Header component', () => {
 
   it('renders Header logged out user on eSolidar', () => {
     const component = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <Header
           isUserLogged={false}
           esolidarMainUrl="https://www.esolidar.com/"
@@ -42,7 +43,7 @@ describe('Header component', () => {
 
   it('renders Header logged company user on eSolidar', () => {
     const component = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <Header
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"
@@ -63,7 +64,7 @@ describe('Header component', () => {
 
   it('renders Header logged npo user on eSolidar', () => {
     const component = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <Header
           isUserLogged={true}
           esolidarMainUrl="https://www.esolidar.com/"

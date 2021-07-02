@@ -103,7 +103,11 @@ const Header = ({
             >
               <FormattedMessage id="header.menu.community" />
             </Nav.Link>
-            <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })}>
+            <Nav.Link
+              href={intl.formatMessage({ id: 'header.menu.help.url' })}
+              active={false}
+              target="_blank"
+            >
               <FormattedMessage id="header.menu.helpCenter" />
             </Nav.Link>
           </Nav>
@@ -150,16 +154,25 @@ const Header = ({
               >
                 <FormattedMessage id="header.menu.community" />
               </Nav.Link>
-              <Nav.Link href={intl.formatMessage({ id: 'header.menu.blog.url' })} target="_blank">
+              <Nav.Link
+                href={intl.formatMessage({ id: 'header.menu.blog.url' })}
+                active={false}
+                target="_blank"
+              >
                 <FormattedMessage id="header.menu.blog" />
               </Nav.Link>
               <Nav.Link
                 href={`${intl.formatMessage({ id: 'header.menu.blog.url' })}materiais-ricos/`}
+                active={false}
                 target="_blank"
               >
                 <FormattedMessage id="header.menu.resources" />
               </Nav.Link>
-              <Nav.Link href={intl.formatMessage({ id: 'header.menu.help.url' })} target="_blank">
+              <Nav.Link
+                href={intl.formatMessage({ id: 'header.menu.help.url' })}
+                active={false}
+                target="_blank"
+              >
                 <FormattedMessage id="header.menu.helpCenter" />
               </Nav.Link>
             </Nav>
@@ -213,18 +226,21 @@ const Header = ({
               >
                 <NavDropdown.Item
                   href={intl.formatMessage({ id: 'header.menu.blog.url' })}
+                  active={false}
                   target="_blank"
                 >
                   <FormattedMessage id="header.menu.blog" />
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   href={`${intl.formatMessage({ id: 'header.menu.blog.url' })}/materiais-ricos/`}
+                  active={false}
                   target="_blank"
                 >
                   <FormattedMessage id="header.menu.resources" />
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   href={intl.formatMessage({ id: 'header.menu.help.url' })}
+                  active={false}
                   target="_blank"
                 >
                   <FormattedMessage id="header.menu.helpCenter" />

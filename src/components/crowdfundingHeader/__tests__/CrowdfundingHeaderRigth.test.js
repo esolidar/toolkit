@@ -1,5 +1,6 @@
 import React from 'react';
 import { configure, mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider } from 'react-intl';
 import CrowdfundingHeaderRigth from '../index';
@@ -189,11 +190,12 @@ const propsEnv = {
 describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );
@@ -202,11 +204,12 @@ describe('CrowdfundingHeader', () => {
 
   it('should exist a title', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );
@@ -216,11 +219,12 @@ describe('CrowdfundingHeader', () => {
 
   it('should exist a number of donations', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );

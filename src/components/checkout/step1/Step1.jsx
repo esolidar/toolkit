@@ -8,7 +8,6 @@ import CrowdfundingItem from '../products/CrowdfundingItem';
 const Step1 = props => {
   const {
     env,
-
     state,
     nextStep,
     onChangeMessage,
@@ -36,6 +35,7 @@ const Step1 = props => {
                   removeCartItem={removeCartItem}
                   onAddToCheckout={onAddToCheckout}
                   env={env}
+                  totalItems={cartItems.length}
                 />
               </div>
             </div>

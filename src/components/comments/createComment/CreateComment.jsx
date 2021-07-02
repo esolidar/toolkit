@@ -72,7 +72,7 @@ export default CreateComment;
 
 CreateComment.propTypes = {
   comment: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  env: PropTypes.object.isRequired,
+  env: PropTypes.string.isRequired,
   onSubmitComment: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   loadingNewComment: PropTypes.bool.isRequired,
