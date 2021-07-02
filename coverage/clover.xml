@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625227172353" clover="3.2.0">
-  <project timestamp="1625227172353" name="All files">
-    <metrics statements="2750" coveredstatements="1751" conditionals="2437" coveredconditionals="1440" methods="715" coveredmethods="352" elements="5902" coveredelements="3543" complexity="0" loc="2750" ncloc="2750" packages="95" files="228" classes="228"/>
+<coverage generated="1625237908703" clover="3.2.0">
+  <project timestamp="1625237908710" name="All files">
+    <metrics statements="2750" coveredstatements="1759" conditionals="2437" coveredconditionals="1455" methods="715" coveredmethods="355" elements="5902" coveredelements="3569" complexity="0" loc="2750" ncloc="2750" packages="95" files="228" classes="228"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
       <file name="AuctionAddForm.jsx" path="C:\Projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
@@ -2401,31 +2401,31 @@
       </file>
     </package>
     <package name="components.projectDetailInfo">
-      <metrics statements="25" coveredstatements="21" conditionals="61" coveredconditionals="45" methods="10" coveredmethods="6"/>
+      <metrics statements="25" coveredstatements="23" conditionals="61" coveredconditionals="57" methods="10" coveredmethods="8"/>
       <file name="ProjectDetailInfo.jsx" path="C:\Projects\toolkit\src\components\projectDetailInfo\ProjectDetailInfo.jsx">
-        <metrics statements="25" coveredstatements="21" conditionals="61" coveredconditionals="45" methods="10" coveredmethods="6"/>
+        <metrics statements="25" coveredstatements="23" conditionals="61" coveredconditionals="57" methods="10" coveredmethods="8"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="23" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="23" count="6" type="cond" truecount="4" falsecount="0"/>
         <line num="25" count="5" type="cond" truecount="1" falsecount="0"/>
         <line num="27" count="5" type="stmt"/>
-        <line num="28" count="10" type="stmt"/>
+        <line num="28" count="55" type="stmt"/>
         <line num="30" count="5" type="stmt"/>
-        <line num="45" count="10" type="stmt"/>
+        <line num="45" count="55" type="stmt"/>
         <line num="90" count="2" type="stmt"/>
         <line num="102" count="2" type="stmt"/>
-        <line num="113" count="4" type="stmt"/>
-        <line num="115" count="4" type="cond" truecount="3" falsecount="1"/>
-        <line num="117" count="4" type="stmt"/>
-        <line num="118" count="1" type="stmt"/>
-        <line num="121" count="4" type="stmt"/>
-        <line num="122" count="4" type="cond" truecount="4" falsecount="0"/>
-        <line num="123" count="2" type="stmt"/>
-        <line num="124" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="125" count="4" type="cond" truecount="3" falsecount="1"/>
-        <line num="127" count="4" type="stmt"/>
-        <line num="150" count="0" type="stmt"/>
+        <line num="113" count="33" type="stmt"/>
+        <line num="115" count="33" type="cond" truecount="4" falsecount="0"/>
+        <line num="117" count="27" type="stmt"/>
+        <line num="118" count="6" type="stmt"/>
+        <line num="121" count="27" type="stmt"/>
+        <line num="122" count="27" type="cond" truecount="4" falsecount="0"/>
+        <line num="123" count="14" type="stmt"/>
+        <line num="124" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="125" count="27" type="cond" truecount="3" falsecount="1"/>
+        <line num="127" count="27" type="stmt"/>
+        <line num="150" count="3" type="stmt"/>
         <line num="160" count="2" type="stmt"/>
-        <line num="182" count="0" type="stmt"/>
+        <line num="182" count="15" type="stmt"/>
         <line num="188" count="0" type="stmt"/>
         <line num="202" count="0" type="stmt"/>
         <line num="217" count="2" type="stmt"/>
@@ -3105,7 +3105,7 @@
       <file name="CheckboxField.jsx" path="C:\Projects\toolkit\src\elements\checkboxField\CheckboxField.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="4" count="6" type="stmt"/>
-        <line num="15" count="40" type="stmt"/>
+        <line num="15" count="52" type="stmt"/>
         <line num="36" count="6" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\checkboxField\index.js">
@@ -3302,7 +3302,7 @@
       <file name="InputLabel.jsx" path="C:\Projects\toolkit\src\elements\inputLabel\InputLabel.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="5" count="33" type="stmt"/>
-        <line num="6" count="96" type="stmt"/>
+        <line num="6" count="113" type="stmt"/>
         <line num="16" count="33" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\inputLabel\index.js">
@@ -3511,20 +3511,20 @@
       </file>
     </package>
     <package name="elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="17" type="stmt"/>
-        <line num="27" count="14" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="7" type="cond" truecount="1" falsecount="1"/>
-        <line num="29" count="7" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="14" type="stmt"/>
+        <line num="27" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="30" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="42" count="31" type="stmt"/>
         <line num="71" count="17" type="stmt"/>
         <line num="91" count="17" type="stmt"/>
       </file>
@@ -3663,11 +3663,11 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="60" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="63" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="195" type="stmt"/>
+        <line num="1" count="196" type="stmt"/>
       </file>
       <file name="isObject.js" path="C:\Projects\toolkit\src\utils\isObject.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
