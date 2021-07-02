@@ -1,3 +1,4 @@
+import React from 'react';
 import BankAccount from './BankAccount';
 
 export default {

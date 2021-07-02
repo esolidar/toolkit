@@ -1,3 +1,4 @@
+import React from 'react';
 import StatisticsBox from './StatisticsBox';
 
 export default {
@@ -16,6 +17,7 @@ Default.args = {
     { title: 'Raised', statistics: '$279.47', subtitle: '0% growth last quarter' },
     { title: 'Auctions', statistics: '4', subtitle: '0% growth last quarter' },
     { title: 'Bids', statistics: '152', subtitle: '0% growth last quarter' },
+    { title: 'Pending', statistics: '152', subtitle: '0% growth last quarter' },
   ],
   footer: [
     {

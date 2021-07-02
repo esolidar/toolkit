@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
@@ -9,6 +10,7 @@ import {
   CardCVCElement,
   injectStripe,
 } from 'react-stripe-elements';
+import variables from '../../assets/sass/_export.module.scss';
 import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
 
@@ -16,7 +18,7 @@ const createOptions = () => ({
   style: {
     base: {
       fontSize: '16px',
-      color: '#455c75',
+      color: variables['main-text-colors-dark'],
       letterSpacing: '0.025em',
       padding: '0 10px',
       '::placeholder': {

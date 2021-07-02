@@ -1,5 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
+import variables from '../../assets/sass/_export.module.scss';
 
 const CustomModal = ({
   actionsChildren,
@@ -118,7 +120,7 @@ CustomModal.defaultProps = {
   subtitle: '',
   subtitleClassName: '',
   titleClassName: '',
-  titleColor: '#04C7E5',
+  titleColor: variables['theme-colors-primary'],
 };
 
 export default CustomModal;

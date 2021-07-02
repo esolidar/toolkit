@@ -1,0 +1,144 @@
+.landing-footer {
+  background: map-get($blue, 800);
+  color: map-get($main-text-colors, light);
+  padding: 30px 64px 46px 64px;
+  font-size: 15px;
+  letter-spacing: 0;
+
+  @media only screen and (max-width: map-get($breakpoints, md)) {
+    position: relative;
+    margin-top: 0px;
+    padding: 30px 20px;
+  }
+
+  .container {
+    .top-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $distance-16;
+
+      @media (max-width: map-get($breakpoints, lg)) {
+        flex-direction: column;
+        margin-bottom: $distance-4;
+      }
+
+      > * {
+        @media (max-width: map-get($breakpoints, lg)) {
+          margin-bottom: $distance-4;
+        }
+      }
+
+      .title {
+        color: map-get($main-text-colors, light) !important;
+        font-weight: 600 !important;
+        font-size: 19px;
+        margin-bottom: $distance-4;
+      }
+
+      ul {
+        padding-inline-start: 0px;
+
+        li {
+          list-style: none;
+          margin-bottom: $distance-2;
+
+          &:first-child {
+            @media only screen and (max-width: map-get($breakpoints, md)) {
+              padding-bottom: 0px;
+            }
+          }
+
+          a,
+          span {
+            color: map-get($main-text-colors, light);
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: map-get($theme-colors-light, primary);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    .bottom-footer {
+      display: flex;
+      justify-content: flex-start;
+
+      @media (max-width: map-get($breakpoints, md)) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .copyright {
+        margin-right: $distance-1;
+        color: map-get($main-text-colors, dark);
+      }
+
+      ul {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+        margin-right: auto;
+
+        @media (max-width: map-get($breakpoints, md)) {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+
+        li {
+          list-style: none;
+          margin: 0 $distance-1;
+
+          @media (max-width: map-get($breakpoints, md)) {
+            &:first-of-type {
+              margin-left: 0;
+            }
+          }
+
+          a {
+            color: map-get($main-text-colors, light);
+
+            @media (max-width: map-get($breakpoints, xs)) {
+              font-size: 12px;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: map-get($theme-colors-light, primary);
+              text-decoration: none;
+            }
+          }
+
+          @media (max-width: map-get($breakpoints, xs)) {
+            padding: 15px 0;
+            text-align: center;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: baseline;
+
+        .changeCurrency button.btn-footer {
+          border-left: 1px solid map-get($main-text-colors, dark);
+          margin-left: $distance-2;
+          padding-left: $distance-2;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .no-padding-mobile {
+    @media only screen and (max-width: map-get($breakpoints, md)) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

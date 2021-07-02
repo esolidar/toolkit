@@ -1,79 +1,96 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-localstorage-mock';
 import Footer from '../index';
 
 const changed = jest.fn();
-const propIcons = [
-  { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },
-  { class: 'icon-twitter', url: '#' },
-  { class: 'icon-linkedin2', url: '#' },
-  { class: 'icon-google-plus', url: '#' },
-];
+const propIcons = {
+  title: 'Follow us',
+  icons: [
+    { name: 'facebook', url: 'https://www.facebook.com/esolidar' },
+    { name: 'instagram', url: '#' },
+    { name: 'twitter', url: '#' },
+    { name: 'youtube', url: '#' },
+    { name: 'linkedin', url: '#' },
+  ],
+};
 const propLanguages = [
   { id: 0, name: 'pt', translate: 'Português (PT)' },
   { id: 1, name: 'br', translate: 'Português (BR)' },
   { id: 2, name: 'en', translate: 'English' },
 ];
-const propMainMenuFooter = [
-  {
-    text: 'Follow us',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-  },
-  {
-    text: 'Follow us',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-  },
-  {
-    text: 'Follow us',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br'],
-  },
-];
-const propSecondMenuFooter = [
-  {
-    text: 'Follow us',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-  },
-  {
-    text: 'Follow us',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-    submenu: [
-      {
-        text: 'Follow us',
-        url: '#',
-        target: '_self',
-      },
-      {
-        text: 'Follow us',
-        url: '#',
-        target: '_self',
-      },
-    ],
-  },
-];
-const propBottomMenuFooter = [
-  {
-    text: 'Terms and Conditions',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-  },
-  {
-    text: 'Privacy Policy',
-    url: '#',
-    target: '_self',
-    lang: ['pt', 'br', 'en'],
-  },
-];
+
+const propMainMenuFooter = {
+  title: 'Why esolidar?',
+  links: [
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br'],
+    },
+  ],
+};
+
+const propSecondMenuFooter = {
+  title: 'Learn',
+  links: [
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br'],
+    },
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+    {
+      text: 'Follow us',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+  ],
+};
+
+const propBottomMenuFooter = {
+  links: [
+    {
+      text: 'Terms and Conditions',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+    {
+      text: 'Privacy Policy',
+      url: '#',
+      target: '_self',
+      lang: ['pt', 'br', 'en'],
+    },
+  ],
+};
+
 const propCurrentCurrency = {
   id: 1,
   name: 'Euro',
@@ -158,7 +175,6 @@ describe('Footer component', () => {
       />
     );
     expect(component.find('li')).toHaveLength(4);
-    expect(component.find('ul > li > ul > li')).toHaveLength(2);
   });
 
   it('renders Footer correctly with 2 items in Bottom Menu', () => {
@@ -179,7 +195,7 @@ describe('Footer component', () => {
     const component = shallow(
       <Footer
         showCurrency={false}
-        socialIcons={propIcons}
+        social={propIcons}
         languages={propLanguages}
         currentLang="pt"
         onChangeLang={changed}
@@ -188,7 +204,7 @@ describe('Footer component', () => {
     );
     expect(component.find('SocialNetworks')).toHaveLength(1);
     expect(component.find('SocialNetworks').dive().find('.socialNetworks')).toHaveLength(1);
-    expect(component.find('SocialNetworks').dive().find('.socialNetworks a')).toHaveLength(4);
+    expect(component.find('SocialNetworks').dive().find('.socialNetworks a')).toHaveLength(5);
   });
 
   it('renders Footer correctly with showCurrency', () => {
@@ -221,6 +237,6 @@ describe('Footer component', () => {
     );
     expect(component.find('ChangeLanguage')).toHaveLength(1);
     expect(component.find('ChangeLanguage').dive().find('.changeLanguage')).toHaveLength(1);
-    expect(component.find('ChangeLanguage').dive().find('.changeLanguage span')).toHaveLength(3);
+    expect(component.find('ChangeLanguage').dive().find('.changeLanguage button')).toHaveLength(3);
   });
 });

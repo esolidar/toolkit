@@ -1,12 +1,16 @@
+import React from 'react';
 import ChangeLanguage from './ChangeLanguage';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
-  title: 'Components/ChangeLanguage',
+  title: 'Components/Footer/ChangeLanguage',
   component: ChangeLanguage,
 };
 
 const Template = args => (
-  <div style={{ background: '#163352', width: '100%', padding: '15px' }}>
+  <div
+    style={{ background: variables['theme-colors-dark-primary'], width: '100%', padding: '15px' }}
+  >
     <ChangeLanguage {...args} />
   </div>
 );

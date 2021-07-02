@@ -1,0 +1,82 @@
+.notification-box-page {
+  .notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $distance-1 3px $distance-1;
+    font-size: 12px;
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      font-size: 10px;
+    }
+
+    .notification-header-title {
+      color: map-get($main-text-colors, dark);
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 6px $distance-2;
+    }
+
+    .notification-header-mark-read {
+      font-weight: 500;
+    }
+  }
+
+  .notification-list {
+    overflow: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    .notification-row {
+      position: relative;
+      overflow: auto;
+      padding: 2px $distance-1 2px $distance-1;
+
+      .btn-markAsRead {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .notification-row-box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: $distance-1;
+        border-radius: 8px;
+
+        &.unread {
+          background-color: map-get($blue, 0);
+        }
+
+        &:hover {
+          background-color: map-get($background, secondary);
+        }
+
+        img {
+          border-radius: 50%;
+          margin-right: 10px;
+          width: 40px;
+        }
+
+        .text {
+          color: map-get($main-text-colors, dark);
+          font-size: 13px;
+
+          u {
+            color: map-get($theme-colors, primary);
+            text-decoration: none;
+          }
+        }
+
+        .date {
+          color: map-get($main-text-colors, dark);
+          font-size: 12px;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}

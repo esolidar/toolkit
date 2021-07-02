@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -14,18 +15,19 @@ const Button = ({
   rel,
   rounded,
   size,
+  style,
   target,
   text,
   to,
   type,
 }) => {
-  let style;
+  let getType;
   if (onClick) {
-    style = 'button';
+    getType = 'button';
   } else if (type === 'submit') {
-    style = 'submit';
+    getType = 'submit';
   } else if (to) {
-    style = 'link';
+    getType = 'link';
   }
 
   const classes = [
@@ -39,7 +41,7 @@ const Button = ({
   ];
 
   const renderButton = () => {
-    switch (style) {
+    switch (getType) {
       case 'button':
         return (
           <button
@@ -49,6 +51,7 @@ const Button = ({
             onClick={onClick}
             className={classes.join(' ')}
             disabled={disabled}
+            style={style}
           >
             {icon}
             {text}
@@ -63,6 +66,7 @@ const Button = ({
             type="submit"
             className={classes.join(' ')}
             disabled={disabled}
+            style={style}
           >
             {icon}
             {text}
@@ -71,7 +75,13 @@ const Button = ({
 
       case 'link':
         return (
-          <Link data-testid={dataTestId} id={id} to={to} className={classes.join(' ')}>
+          <Link
+            data-testid={dataTestId}
+            id={id}
+            to={to}
+            className={classes.join(' ')}
+            style={style}
+          >
             {icon}
             {text}
           </Link>
@@ -86,6 +96,7 @@ const Button = ({
             target={target || '_self'}
             rel={rel}
             className={classes.join(' ')}
+            style={style}
           >
             {icon}
             {text}
@@ -99,6 +110,7 @@ const Button = ({
 
 Button.propTypes = {
   className: PropTypes.string,
+  dataTestId: PropTypes.string,
   disabled: PropTypes.bool,
   extraClass: PropTypes.string,
   fullWidth: PropTypes.bool,
@@ -108,7 +120,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   rel: PropTypes.string,
   rounded: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  style: PropTypes.object,
   target: PropTypes.string,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,

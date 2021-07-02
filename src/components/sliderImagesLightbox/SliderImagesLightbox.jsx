@@ -2,7 +2,8 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 
-import { Component } from 'react';
+import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import Carousel, { Modal, ModalGateway } from 'react-images';
@@ -81,7 +82,8 @@ class SliderImagesLightbox extends Component {
     return images.map((image, indx) => {
       if (image.video) {
         const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
-        const youtube = /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
+        const youtube =
+          /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
 
         if (vimeo.test(image.video)) {
           const url = image.video;

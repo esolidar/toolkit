@@ -1,3 +1,4 @@
+import React from 'react';
 import FeaturesMenu from './FeaturesMenu';
 
 export default {
@@ -14,6 +15,7 @@ Default.parameters = {
 Default.args = {
   project: 'whitelabel',
   location: '/',
+  locale: 'pt',
   features: [
     {
       id: 1,

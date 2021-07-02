@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -75,7 +76,7 @@ const ProjectDetailInfo = ({
           />
           <Button
             type="button"
-            extraClass="dark-full"
+            extraClass="primary-full"
             onClick={handleSubmitRequestInfo}
             text={useIntl().formatMessage({ id: 'submit', defaultMessage: 'Submit' })}
             disabled={selectedQuestions === 0 || requestInfoErrors.length > 0}

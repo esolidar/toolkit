@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import FaqsItem from '../FaqsItem';
@@ -48,7 +49,7 @@ describe('FaqItem', () => {
     const component = shallow(
       <FaqsItem
         env={env}
-        id="2"
+        id={2}
         faqId={2}
         changeId={changeId}
         title={items[1].title_pt}
@@ -62,7 +63,7 @@ describe('FaqItem', () => {
     const component = shallow(
       <FaqsItem
         env={env}
-        id="2"
+        id={2}
         faqId={2}
         changeId={changeId}
         title={items[1].title_pt}
@@ -77,7 +78,6 @@ describe('FaqItem', () => {
     const component = shallow(
       <FaqsItem
         env={env}
-        id=""
         faqId={2}
         changeId={changeId}
         title={items[1].title_pt}
@@ -93,7 +93,7 @@ describe('FaqItem', () => {
     const component = shallow(
       <FaqsItem
         env={env}
-        id="2"
+        id={2}
         faqId={2}
         changeId={changeId}
         title={items[1].title_pt}
@@ -102,6 +102,6 @@ describe('FaqItem', () => {
     );
     component.find('div.accordion-title').first().simulate('click');
     expect(changeId.mock.calls.length).toEqual(2);
-    expect(component.find('div.accordion-title').first().hasClass('open')).toBe(false);
+    expect(component.find('div.accordion-title').first().hasClass('open')).toBe(true);
   });
 });

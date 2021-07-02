@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime';
 
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import StripeCreditCard from '../index';
@@ -609,8 +610,7 @@ describe('StripeCreditCard component', () => {
             company: {
               id: 1,
               name: 'Webankor (eSolidar)',
-              logo:
-                'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+              logo: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
               country_id: 150,
               currency_id: 1,
               thumbs: {
@@ -1058,8 +1058,7 @@ describe('StripeCreditCard component', () => {
             company: {
               id: 1,
               name: 'Webankor (eSolidar)',
-              logo:
-                'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
+              logo: 'https://cdn.testesolidar.com/companies/e96d453b-a752-4f3f-936f-409c8c735b18.png',
               country_id: 150,
               currency_id: 1,
               thumbs: {

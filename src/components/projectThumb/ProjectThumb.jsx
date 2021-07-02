@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -63,7 +64,7 @@ const ProjectThumb = ({
   const isSelected = (selectedIds || []).filter(o => o === project.id).length;
 
   return (
-    <Col xs={12} sm={6} md={6} lg={cols}>
+    <Col xs={12} sm={12} md={12} lg={cols}>
       <div className="project-thumb" data-testid="projectThumb">
         {showStatus && (
           <div className={`${project.status} status-bar`}>

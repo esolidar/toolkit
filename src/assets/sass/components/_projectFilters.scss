@@ -1,0 +1,40 @@
+.project-filters {
+  h3 {
+    font-size: 27px;
+    letter-spacing: 0;
+    line-height: 39px;
+  }
+
+  input.form-control {
+    background: map-get($colors, white) url('#{$cdn-static-url}/frontend/icons/icon-search.svg')
+      no-repeat 10px 50%;
+    padding-left: 35px;
+  }
+
+  .filters {
+    .filter-button {
+      border: none;
+      background: transparent;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      margin-top: 20px;
+
+      &:focus {
+        outline: none;
+      }
+
+      h4 {
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 26px;
+      }
+
+      img {
+        float: right;
+        margin-top: 7px;
+      }
+    }
+  }
+}

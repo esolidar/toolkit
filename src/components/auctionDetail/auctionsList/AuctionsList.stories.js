@@ -1,3 +1,4 @@
+import React from 'react';
 import AuctionsList from './AuctionsList';
 
 export default {
@@ -124,8 +125,7 @@ Default.args = {
               'https://cdn.testesolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8-STANDARD.png',
             detail:
               'https://cdn.testesolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8-DETAIL.png',
-            pin:
-              'https://cdn.testesolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8-PIN.png',
+            pin: 'https://cdn.testesolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8-PIN.png',
             thumb:
               'https://cdn.testesolidar.com/products/13b3e954-7101-4795-86f9-4eb2e3563eb8-THUMB.png',
           },

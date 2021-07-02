@@ -1,0 +1,72 @@
+.supportBox {
+  background-color: map-get($colors, white);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid map-get($grays, 200);
+  border-radius: 4px;
+  padding: 40px;
+  flex-wrap: wrap;
+  display: flex;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: $distance-1 45px 0 0;
+
+    @media (max-width: map-get($breakpoints, sm)) {
+      margin: 0 auto $distance-2 auto;
+    }
+  }
+  .recipient-box {
+    .recipient-label {
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: 0;
+      line-height: 26px;
+
+      @media (max-width: map-get($breakpoints, sm)) {
+        text-align: center;
+      }
+    }
+    .recipient-name {
+      font-size: 21px;
+      color: map-get($turquoise, 500);
+      letter-spacing: -0.5px;
+      line-height: 33px;
+
+      @media (max-width: map-get($breakpoints, sm)) {
+        text-align: center;
+      }
+    }
+  }
+
+  .recipient-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    @media (max-width: map-get($breakpoints, sm)) {
+      justify-content: center;
+      margin-top: $distance-3;
+    }
+
+    .support-btn {
+      border: 2px solid map-get($turquoise, 500);
+      color: map-get($turquoise, 500);
+      padding-left: $distance-4;
+      padding-right: $distance-4;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: map-get($turquoise, 500);
+        border-color: map-get($turquoise, 500);
+        color: #fff;
+      }
+    }
+  }
+  @media (max-width: map-get($breakpoints, sm)) {
+    flex-direction: column;
+  }
+}

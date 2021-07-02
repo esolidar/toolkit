@@ -1,3 +1,4 @@
+import React from 'react';
 import Faqs from './Faqs';
 
 export default {

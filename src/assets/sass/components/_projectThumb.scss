@@ -1,0 +1,268 @@
+.project-thumb {
+  border-radius: 3px;
+  padding: 0 !important;
+  margin: 0px !important;
+  margin-bottom: 40px !important;
+  border: 1px solid map-get($grays, 300);
+
+  & .status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4px 8px;
+
+    & > * {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .status {
+      margin-left: auto;
+      font-weight: bold;
+    }
+  }
+
+  .DRAFT {
+    margin: 0;
+    background-color: lighten(map-get($grays, 500), 40%);
+    border-top: 5px solid map-get($grays, 500);
+    color: map-get($grays, 500);
+
+    .edit-button {
+      color: map-get($grays, 500);
+    }
+
+    .hover {
+      &:hover {
+        color: darken(map-get($grays, 500), 30%);
+      }
+    }
+  }
+
+  .PENDING {
+    margin: 0;
+    background-color: lighten(map-get($status-colors, pending), 40%);
+    border-top: 5px solid map-get($status-colors, pending);
+    color: map-get($status-colors, pending);
+
+    .edit-button {
+      color: map-get($status-colors, pending);
+    }
+
+    .hover {
+      &:hover {
+        color: darken(map-get($status-colors, pending), 30%);
+      }
+    }
+  }
+
+  .IN_REVIEW {
+    margin: 0;
+    background-color: lighten(map-get($colors, deep-orange), 40%);
+    border-top: 5px solid map-get($colors, deep-orange);
+    color: map-get($colors, deep-orange);
+
+    .hover {
+      &:hover {
+        color: darken(map-get($colors, deep-orange), 30%);
+      }
+    }
+  }
+
+  .APPROVED {
+    margin: 0;
+    background-color: lighten(map-get($status-colors, active), 40%);
+    border-top: 5px solid map-get($status-colors, active);
+    color: map-get($status-colors, active);
+
+    .hover {
+      &:hover {
+        color: darken(map-get($status-colors, active), 30%);
+      }
+    }
+  }
+
+  .COMPLETED {
+    margin: 0;
+    background-color: lighten(map-get($colors, light-blue), 40%);
+    border-top: 5px solid map-get($colors, light-blue);
+    color: map-get($colors, light-blue);
+
+    .hover {
+      &:hover {
+        color: darken(map-get($colors, light-blue), 30%);
+      }
+    }
+  }
+
+  .REJECTED {
+    margin: 0;
+    background-color: lighten(map-get($theme-colors, danger), 40%);
+    border-top: 5px solid map-get($theme-colors, danger);
+    color: map-get($theme-colors, danger);
+
+    .hover {
+      &:hover {
+        color: darken(map-get($theme-colors, danger), 30%);
+      }
+    }
+  }
+
+  .thumb {
+    height: 155px;
+    position: relative;
+    background-size: cover;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: rgba(22, 51, 83, 0.7);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .content {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 100px;
+      left: 0;
+      z-index: 2;
+
+      .title {
+        color: map-get($colors, white);
+        font-weight: bold;
+        padding: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 85px;
+      }
+    }
+
+    .ods-thumb {
+      position: absolute;
+      top: 100px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      padding: 0 15px;
+
+      @media only screen and (min-device-width: map-get($breakpoints, sm)) and (max-device-width: 1199px) {
+        padding: 0 3px;
+      }
+
+      .ods {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px 5px 5px;
+        background-color: rgb(22, 51, 83);
+        background-size: cover;
+
+        @media only screen and (min-device-width: map-get($breakpoints, sm)) and (max-device-width: 1322px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .more-ods {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+        background-color: rgb(22, 51, 83);
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-size: 40px;
+        line-height: 32px;
+
+        @media only screen and (min-device-width: map-get($breakpoints, sm)) and (max-device-width: 1322px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  .description {
+    margin: 15px;
+    font-size: 14px;
+    color: map-get($main-text-colors, dark);
+    letter-spacing: 0;
+    line-height: 20px;
+    display: block;
+    display: -webkit-box;
+    height: 80px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .owner {
+    margin: 15px;
+    color: map-get($main-text-colors, dark);
+    font-weight: bold;
+
+    img {
+      border-radius: 50%;
+      width: 40px;
+      margin-right: 15px;
+    }
+  }
+}
+
+.project-button {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.select-project {
+  padding: 15px;
+
+  button {
+    width: 100%;
+  }
+}
+
+.edit-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  top: 10px;
+  left: 25px;
+  z-index: 9;
+  transition: color 0.1s ease-out;
+
+  i {
+    margin-right: 5px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: color 0.1s ease-in;
+  }
+
+  & > div {
+    border-top: none !important;
+  }
+}

@@ -1,0 +1,43 @@
+.bank-account {
+  h3 {
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    line-height: 31px;
+  }
+
+  .box {
+    height: 100%;
+
+    h4 {
+      font-size: 14px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      line-height: 31px;
+    }
+
+    .add-account {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .btn-esolidar {
+      float: none;
+      margin-left: 0;
+      white-space: pre-wrap;
+      overflow: hidden;
+    }
+
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .no-bank-accounts {
+    color: map-get($main-text-colors, dark);
+    padding: 40px;
+    font-size: 16px;
+  }
+}

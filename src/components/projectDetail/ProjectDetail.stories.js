@@ -1,4 +1,6 @@
+import React from 'react';
 import ProjectDetail from './ProjectDetail';
+import image from '../../../__mocks__/image';
 
 export default {
   title: 'Components/Projects/ProjectDetail',
@@ -69,8 +71,7 @@ Default.args = {
       },
       {
         name: 'Qual o problema social/ambiental que pretende a resolver?',
-        help:
-          'Justifique porque o problema que está a resolver é…cia deste problema gera consequências negativas).',
+        help: 'Justifique porque o problema que está a resolver é…cia deste problema gera consequências negativas).',
         type: 'textarea',
         required: true,
         reply:
@@ -78,8 +79,7 @@ Default.args = {
       },
       {
         name: 'A solução é Inovadora? Justifique.',
-        help:
-          'A solução do seu projeto é inovadora se resolver o… que não está a ser resolvido por nenhuma solução',
+        help: 'A solução do seu projeto é inovadora se resolver o… que não está a ser resolvido por nenhuma solução',
         type: 'textarea',
         required: true,
         reply:
@@ -87,8 +87,7 @@ Default.args = {
       },
       {
         name: 'A sua solução é escalável e replicável?',
-        help:
-          'A sua solução é replicável se conseguir aplicá-la …e energia eléctrica para os agregados familiares.',
+        help: 'A sua solução é replicável se conseguir aplicá-la …e energia eléctrica para os agregados familiares.',
         type: 'textarea',
         required: true,
         reply:
@@ -96,8 +95,7 @@ Default.args = {
       },
       {
         name: 'A sua solução gera impacto?',
-        help:
-          'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
+        help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
         type: 'textarea',
         required: true,
         reply:
@@ -105,32 +103,14 @@ Default.args = {
       },
       {
         name: 'A sua solução é sustentável? Tem um modelo de negócios?',
-        help:
-          'Descreva a forma como o seu projeto permite angari…ga pela solução? Para quem é que esta gera valor?',
+        help: 'Descreva a forma como o seu projeto permite angari…ga pela solução? Para quem é que esta gera valor?',
         type: 'textarea',
         required: true,
         reply:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget dolor turpis. Nulla ut feugiat tortor. Vestibulum pulvinar, nunc in maximus tempus, diam tortor ultrices leo, sed tempor nulla elit eget nunc. Nullam lacinia sem ipsum, at fermentum est elementum at. Curabitur ultrices mi tincidunt, feugiat quam vel, fermentum erat. Phasellus eget metus et ante euismod eleifend. Donec in egestas velit. Duis facilisis luctus rutrum.',
       },
     ],
-    images: [
-      {
-        id: 311,
-        request_id: 204,
-        streamImage: 'amazons3',
-        image: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7.jpg',
-        image_type: 'image/jpeg',
-        image_size: '53730',
-        position: 1,
-        updated_at: '2020-01-31 14:17:20',
-        created_at: '2020-01-31 14:16:37',
-        thumbs: {
-          standard: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7-STANDARD.jpg',
-          detail: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7-DETAIL.jpg',
-          thumb: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7-THUMB.jpg',
-        },
-      },
-    ],
+    images: [image],
   },
   returnText: 'Voltar',
   color: '#04C7E5',

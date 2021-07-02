@@ -1,0 +1,152 @@
+.statisticsBox {
+  .statistics {
+    .box {
+      float: inherit;
+      padding: 0;
+      width: 100%;
+      background-color: map-get($colors, white);
+      border: 1px solid map-get($grays, 200);
+      border-radius: 4px;
+
+      .stats-bottom {
+        border-top: 2px solid map-get($theme-colors, primary);
+        background: map-get($grays, 50);
+
+        .footer-features {
+          display: flex;
+          justify-content: space-between;
+
+          @media (max-width: map-get($breakpoints, xs)) {
+            flex-direction: column;
+            align-items: center;
+            padding: $distance-2 0px;
+          }
+
+          &:not(:last-child) {
+            border-bottom: 1px solid map-get($grays, 300);
+          }
+
+          > * {
+            padding: $distance-2;
+            flex-basis: 30%;
+            text-align: left;
+
+            &:nth-child(2) {
+              flex-basis: auto;
+            }
+
+            @media (max-width: map-get($breakpoints, xs)) {
+              flex-basis: none;
+              padding: $distance-1;
+            }
+          }
+
+          h3 {
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: 26px;
+            margin: 0;
+            text-align: left;
+
+            i {
+              margin-right: $distance-1;
+            }
+
+            @media (max-width: map-get($breakpoints, xs)) {
+              text-align: unset;
+            }
+          }
+
+          .people-involved {
+            font-size: 15px;
+            color: map-get($main-text-colors, dark);
+            letter-spacing: 0;
+            line-height: 26px;
+            text-align: center;
+          }
+
+          .people-involved-stats {
+            font-size: 15px;
+            color: map-get($main-text-colors, dark);
+            letter-spacing: 0;
+            line-height: 30px;
+            text-align: right;
+
+            @media (max-width: map-get($breakpoints, xs)) {
+              text-align: unset;
+            }
+          }
+        }
+      }
+
+      .statics-features {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          flex-direction: column;
+          border-right: none;
+        }
+
+        .stats-box {
+          margin: 40px 0;
+          display: flex;
+          justify-content: center;
+
+          @media (max-width: map-get($breakpoints, xs)) {
+            margin: 22px 0;
+          }
+
+          &:not(:last-of-type) {
+            border-right: 1px solid map-get($grays, 300);
+          }
+
+          h2 {
+            font-size: 15px;
+            letter-spacing: 0;
+            line-height: 26px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+          }
+
+          h3 {
+            font-size: 27px;
+            letter-spacing: 0;
+            line-height: 39px;
+          }
+
+          p {
+            font-size: 15px;
+            color: map-get($main-text-colors, dark);
+            letter-spacing: 0;
+            line-height: 22px;
+            margin: 0;
+          }
+
+          @media (max-width: map-get($breakpoints, xs)) {
+            border: none;
+          }
+        }
+      }
+    }
+
+    .boundary {
+      h3 {
+        font-size: 1$distance-1 !important;
+        text-align: center;
+
+        .icon {
+          width: 100% !important;
+          display: block !important;
+          text-align: center !important;
+
+          img {
+            width: 52px;
+          }
+        }
+      }
+    }
+  }
+}

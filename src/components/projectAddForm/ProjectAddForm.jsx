@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
@@ -198,7 +199,7 @@ const ProjectAddForm = ({
 
           case 'checkbox':
             return (
-              <div>
+              <div key={field.id}>
                 <div className="form-group">
                   <label htmlFor={field.name} className="control-label">
                     {field.name}
@@ -236,7 +237,7 @@ const ProjectAddForm = ({
 
           case 'radiobox':
             return (
-              <div>
+              <div key={field.id}>
                 <div className="form-group">
                   <label htmlFor={field.name} className="control-label">
                     {field.name}

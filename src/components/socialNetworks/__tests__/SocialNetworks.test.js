@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import SocialNetworks from '../index';
 
@@ -16,7 +17,7 @@ describe('SocialNetworks component', () => {
 
   it('renders SocialNetworks and check if Icon exists', () => {
     const component = shallow(<SocialNetworks icons={propIcons} headingText="Follow us" />);
-    expect(component.find('Icon')).toHaveLength(4);
+    expect(component.find('img')).toHaveLength(4);
   });
 
   it('renders SocialNetworks and check title', () => {

@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import TextareaField from '../../elements/textareaField';
+import Button from '../../elements/button';
 
 const CommentPost = ({
   postId,
@@ -36,13 +38,16 @@ const CommentPost = ({
               required={true}
               maxLength={500}
             />
-            <button
+            <Button
               type="submit"
-              className="btn-esolidar btn-success-full float-right"
+              extraClass="primary-full"
+              className="float-right"
+              text={useIntl().formatMessage({
+                id: 'projects.comments.send',
+                defaultMessage: 'Send',
+              })}
               disabled={disabled}
-            >
-              <FormattedMessage id="projects.comments.send" defaultMessage="Send" />
-            </button>
+            />
             {errors.text && <span className="error">{errors.text}</span>}
           </Col>
         </form>

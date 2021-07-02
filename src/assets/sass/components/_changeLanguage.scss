@@ -1,0 +1,25 @@
+.changeLanguage {
+  display: flex;
+
+  button {
+    color: map-get($main-text-colors, light);
+    cursor: pointer;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    outline: none;
+
+    &.active {
+      color: map-get($main-text-colors, dark);
+
+      &:hover {
+        cursor: default !important;
+      }
+    }
+
+    &:not(.active):hover {
+      color: map-get($theme-colors-light, primary);
+    }
+  }
+}

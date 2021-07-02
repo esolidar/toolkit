@@ -1,4 +1,6 @@
+import React from 'react';
 import AuctionDetailRigth from './AuctionDetailRigth';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/Auctions/AuctionDetailRigth',
@@ -58,7 +60,7 @@ Default.args = {
   },
   inputBidValue: 10,
   valueBidTextField: () => {},
-  primaryColor: '05c6e5',
+  primaryColor: variables['theme-colors-primary'],
   inputRef: {},
   env: {
     cdn_uploads_url: '',

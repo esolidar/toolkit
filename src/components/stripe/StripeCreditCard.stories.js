@@ -1,3 +1,4 @@
+import React from 'react';
 import StripeCreditCard from './StripeCreditCard';
 
 export default {

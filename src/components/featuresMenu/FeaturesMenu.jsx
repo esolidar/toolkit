@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import sortBy from '../../utils/sortBy';
+import Icon from '../icon/Icon';
 
-const FeaturesMenu = ({ location, translations, features, project }) => {
+const FeaturesMenu = ({ location, translations, features, project, extraMenuLinks, locale }) => {
   const [user, setUser] = useState({});
   const [companyId, setCompanyId] = useState(null);
   useEffect(() => {
@@ -16,6 +18,46 @@ const FeaturesMenu = ({ location, translations, features, project }) => {
   if (companyId) {
     userWorkEmail = user.work_email?.find(item => item.company_id === companyId) ? 1 : 0;
   }
+
+  const renderExtraMenu = links => (
+    <>
+      {links.map((link, index) => {
+        return (
+          <li key={index} className={link.liClasses}>
+            {link.url ? (
+              <a
+                href={locale ? `/${locale}${link.url}` : link.url}
+                title={link.text}
+                target={link.target}
+              >
+                {(
+                  typeof window !== 'undefined' && link.iconItem
+                    ? localStorage.getItem('fixedBar')
+                    : false
+                ) ? (
+                  <OverlayTrigger
+                    key={index}
+                    placement="right"
+                    overlay={<Tooltip id={index}>{link.text}</Tooltip>}
+                  >
+                    {link.iconItem && <i className={link.iconItem} />}
+                  </OverlayTrigger>
+                ) : (
+                  <>{link.iconItem && <i className={link.iconItem} />}</>
+                )}
+                {link.text}
+              </a>
+            ) : (
+              <>
+                {link.iconItem && <Icon iconClass={link.iconItem} />}
+                <span title={link.text}>{link.text}</span>
+              </>
+            )}
+          </li>
+        );
+      })}
+    </>
+  );
 
   const menuItem = () => {
     const items = [];
@@ -622,7 +664,7 @@ const FeaturesMenu = ({ location, translations, features, project }) => {
                   : ''
               }
             >
-              <a href={`${item.pageRoute}`}>
+              <a href={locale ? `/${locale}${item.pageRoute}` : `${item.pageRoute}`}>
                 {(typeof window !== 'undefined' ? localStorage.getItem('fixedBar') : false) ? (
                   <OverlayTrigger
                     key={item.position}
@@ -645,7 +687,10 @@ const FeaturesMenu = ({ location, translations, features, project }) => {
 
   return (
     <section className="sidebar">
-      <ul className="sidebar-menu">{menuItem()}</ul>
+      <ul className="sidebar-menu">
+        {menuItem()}
+        {extraMenuLinks && renderExtraMenu(extraMenuLinks)}
+      </ul>
     </section>
   );
 };
@@ -657,4 +702,14 @@ FeaturesMenu.propTypes = {
   location: PropTypes.string.isRequired,
   features: PropTypes.array.isRequired,
   project: PropTypes.string.isRequired,
+  extraMenuLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      url: PropTypes.string,
+      target: PropTypes.string,
+      iconItem: PropTypes.string,
+      liClasses: PropTypes.string,
+    })
+  ),
+  locale: PropTypes.string,
 };

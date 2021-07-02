@@ -1,0 +1,42 @@
+.description-header {
+  margin-top: 70px;
+  margin-bottom: 25px;
+  font-size: 20px;
+  color: map-get($theme-colors, primary);
+  letter-spacing: 0;
+  line-height: 31px;
+  border-bottom: 1px dotted map-get($theme-colors, primary);
+  margin-right: 30px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin: 30px;
+  }
+}
+
+.description-text {
+  opacity: 0.9;
+  font-size: 15px;
+  color: map-get($main-text-colors, dark);
+  letter-spacing: 0;
+  line-height: 26px;
+  margin-right: 30px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin: 30px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.description-show-all {
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin: 30px;
+    margin-top: 0;
+    overflow: auto;
+    display: inline-block;
+    -webkit-line-clamp: initial;
+    -webkit-box-orient: initial;
+  }
+}

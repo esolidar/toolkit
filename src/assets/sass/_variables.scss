@@ -1,67 +1,274 @@
-/*
-  Font Face
-*/
-$fontFamily        : 'AvenirLT-Roman' !default;
-$fontLight         : 'AvenirLTStd-Light' !default;
-$fontHeavy         : 'AvenirLTStd-Heavy' !default;
-$mainTextColorLight: #738598 !default;
-$mainTextColorDark : #455C75 !default;
+/* Urls */
+$cdn-static-url: 'https://static.esolidar.com';
 
+/* Colors */
 
-/* Blue */
-$mainColor     : #04C7E5 !default;
-$mainColorLight: #b3EEF7 !default;
-$mainColorDark : #163352 !default;
+$colors: (
+  red: #ff494c,
+  pink: #ff85af,
+  purple: #d559ea,
+  deep-purple: #673ab7,
+  indigo: #3f51b5,
+  blue-gray: #5c7d9c,
+  blue: #0094d4,
+  light-blue: #05c6e5,
+  cyan: #00bcd4,
+  teal: #39bbb0,
+  green: #34c77f,
+  light-green: #8bc34a,
+  lime: #cddc39,
+  yellow: #ffd500,
+  sunglow: #ffca3a,
+  amber: #ffbe00,
+  orange: #ffa500,
+  deep-orange: #ff8100,
+  danger: #fd4b51,
+  brown: #795548,
+  gray: #9e9e9e,
+  black: #000000,
+  white: #ffffff,
+  white-smoke: #f2f2f2,
+);
 
+// Grays
+$grays: (
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
 
-/* Grays */
-$grayDark            : #738598 !default;
-$graySemiDark        : #A2ADBA !default;
-$grayLight           : #D0D6DD !default;
-$grayExtraLight      : #E7EBED !default;
-$grayWhite           : #F6F9F9 !default;
-$grayWhiteLight      : #FBFCFC !default;
-$grayWhiteUltraLight : #E7EAED !default;
+/* ------------------------ Light Pallete ------------------------ */
 
-/* Warnings */
-$infoColor   : #05c6e5 !default;
-$successColor: #34C77F !default;
-$warningColor: #FFBE00 !default;
-$dangerColor : #dc3545 !default;
+$base: (
+  black: #1a1b1c,
+  white: #ffffff,
+);
 
-/* Status Colors*/
-$statusActiveColor  : #34C77F !default;
-$statusPendingColor : #FFBE00 !default;
-$statusEndedColor   : $mainColor !default;
-$statusRevieredColor: #fd4b51 !default;
-$statusDeletedColor : #fd4b51 !default;
-$statusDeclinedColor: #738598 !default;
+$background: (
+  primary: #ffffff,
+  secondary: #f5f5f6,
+);
 
-/* Forms */
-$inputLabelColor     : #455C75 !default;
-$borderColor         : #D0D6DD !default;
-$inputTextColor      : #455C75 !default;
-$inputBackgroundColor: #fff !default;
-$boxShadow           : inset 0 1px 1px rgba(0, 0, 0, .075) !default;
-$boxShadowHover      : inset 0 1px 1px rgba(0, 0, 0, .075) 0 0 6px lighten($borderColor, 20%) !default;
+$neutrals: (
+  100: #eaebec,
+  400: #abb1b3,
+  700: #6c7679,
+  900: #424f53,
+);
 
-/* Btn Colors */
-$btnDark   : #455C75 !default;
-$btnInfo   : #05c6e5 !default;
-$btnSuccess: #34C77F !default;
-$btnWarning: #FFBE00 !default;
-$btnDanger : #dc3545 !default;
-$btnDangerColor: #ff494c !default;
+$turquoise: (
+  0: #edfffd,
+  50: #bff6f0,
+  100: #93ede3,
+  150: #6be3d7,
+  200: #46daca,
+  300: #17c3b2,
+  400: #0fa39a,
+  500: #0c8380,
+  600: #0b6363,
+  700: #094143,
+  800: #062123,
+  900: #010303,
+);
 
-$inReview : #ff8100 !default;
+$blue: (
+  0: #edfaff,
+  50: #d1eff9,
+  100: #b6e4f4,
+  150: #9bd7ed,
+  200: #b1cce5,
+  300: #5ab4d4,
+  400: #3a99bd,
+  500: #227c9d,
+  600: #195d7c,
+  700: #113c54,
+  800: #071721,
+  900: #010203,
+);
 
-$endedColor  : #dc3545;
-$runningColor: #31BD79;
-$soonColor   : #04b1cd;
-$pendingColor: orange;
-$green       : #006400;
+$watermelon: (
+  0: #ffedee,
+  50: #ffd8d9,
+  100: #ffc2c5,
+  150: #ffadb0,
+  200: #ff979b,
+  300: #fe6d73,
+  400: #d44b50,
+  500: #aa3336,
+  600: #b02224,
+  700: #561516,
+  800: #2c0a0b,
+  900: #030101,
+);
 
-// Dimensions
-$mobileWidth: 425px;
+$golden-tainoi: (
+  0: #fff8ed,
+  50: #ffedcf,
+  100: #ffe1b1,
+  150: #ffd694,
+  200: #ffcb77,
+  300: #dba852,
+  400: #b78838,
+  500: #936b26,
+  600: #6f501a,
+  700: #4b3611,
+  800: #271c09,
+  900: #030201,
+);
 
-$cdn_static_url: 'https://static.esolidar.com';
+$negative: (
+  0: #fff1ed,
+  50: #ffdcd1,
+  100: #ffc6b5,
+  150: #ffb099,
+  200: #ff9b7e,
+  300: #f27551,
+  400: #e4572e,
+  500: #b74520,
+  600: #8b3618,
+  700: #5e2611,
+  800: #32160a,
+  900: #050201,
+);
+
+$positive: (
+  0: #edfff3,
+  50: #bbf5cf,
+  100: #8decad,
+  150: #62e28d,
+  200: #3bd96f,
+  300: #0bc14b,
+  400: #07a149,
+  500: #068243,
+  600: #076239,
+  700: #08422b,
+  800: #062218,
+  900: #010302,
+);
+
+$warning: (
+  0: #fff5ed,
+  50: #fee2c4,
+  100: #fdd59b,
+  150: #fbd073,
+  200: #fad14c,
+  300: #d7ae32,
+  400: #b38e22,
+  500: #906e18,
+  600: #6d5112,
+  700: #49350d,
+  800: #261b0b,
+  900: #030301,
+);
+
+$elevation: (
+  0: #eaebec,
+  100: #eaebec,
+  200: #eaebec,
+  300: #eaebec,
+  400: #eaebec,
+  500: #eaebec,
+);
+
+//Text Colors
+$main-text-colors: (
+  light: map-get($base, white),
+  dark: map-get($neutrals, 700),
+  title: map-get($base, black),
+);
+
+/* ------------------------ Theme Colors ------------------------ */
+$theme-colors: (
+  primary: map-get($turquoise, 500),
+  secondary: map-get($blue, 500),
+  success: map-get($turquoise, 500),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 200),
+  danger: map-get($negative, 500),
+  dark: map-get($neutrals, 400),
+);
+
+// Theme Colors Light
+$theme-colors-light: (
+  primary: map-get($turquoise, 300),
+  secondary: map-get($blue, 300),
+  success: map-get($turquoise, 300),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 50),
+  danger: map-get($negative, 300),
+  dark: map-get($neutrals, 100),
+);
+
+// Theme Colors Dark
+$theme-colors-dark: (
+  primary: map-get($turquoise, 700),
+  secondary: map-get($blue, 700),
+  success: map-get($turquoise, 700),
+  info: map-get($colors, light-blue),
+  warning: map-get($warning, 500),
+  danger: map-get($negative, 700),
+  dark: map-get($neutrals, 700),
+);
+
+// Status Colors
+$status-colors: (
+  active: map-get($colors, green),
+  pending: map-get($warning, 400),
+  ended: map-get($theme-colors, primary),
+  deleted: map-get($colors, danger),
+  declined: map-get($main-text-colors, dark),
+);
+
+/* Input */
+$input: (
+  label-color: map-get($main-text-colors, dark),
+  text-color: map-get($main-text-colors, dark),
+  border-color: map-get($grays, 400),
+  background-color: map-get($colors, white),
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+  box-shadow-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075) 0 0 6px lighten(map-get($grays, 400), 20%),
+);
+
+/* Font Face */
+$fonts: (
+  main: 'basic-sans',
+  light: 'basic-sans',
+  heavy: 'basic-sans',
+  notification: 'Notification',
+  serif: 'pt-serif-pro',
+);
+
+/* Dimensions */
+$breakpoints: (
+  xs: 425px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+/* Footer */
+$footer-link-color: map-get($theme-colors-light, primary);
+$facebook-color: #39579b;
+$error-color: map-get($colors, red);
+$table-header-text-color: map-get($colors, white);
+
+$ended-color: map-get($colors, red);
+$running-color: #31bd79;
+$soon-color: map-get($colors, light-blue);
+$pending-color: map-get($colors, orange);
+
+$distance-1: 8px;
+$distance-2: 16px;
+$distance-3: 24px;
+$distance-4: 32px;
+$distance-5: 40px;
+$distance-16: 128px;

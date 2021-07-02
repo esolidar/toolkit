@@ -1,3 +1,4 @@
+import React from 'react';
 import CheckboxField from './CheckboxField';
 
 export default {

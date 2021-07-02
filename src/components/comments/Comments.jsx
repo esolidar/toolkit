@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +26,9 @@ const Comments = ({
   loadingMoreComments,
   loadMoreComments,
   thumb,
+  color,
 }) => {
+  const intl = useIntl();
   const [showTextArea, setShowTextArea] = useState(null);
   const [isShowResponsive, setIsShowResponsive] = useState(false);
   const [backgroundImageStyle, setBackgroundImageStyle] = useState(
@@ -143,14 +145,16 @@ const Comments = ({
             />
             <CommentContent comment={comment} />
             <div className="content-reply">
-              <button
-                type="button"
-                className="btn-add-comment-reply"
+              <Button
+                extraClass="link"
                 onClick={() => showTextAreaClick(comment)}
-              >
-                <img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />
-                <FormattedMessage id="crowdfunding.comments.reply" defaultMessage="Reply" />
-              </button>
+                icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
+                text={intl.formatMessage({
+                  id: 'crowdfunding.comments.reply',
+                  defaultMessage: 'Reply',
+                })}
+                style={{ color }}
+              />
               {showTextArea === comment.id && (
                 <form onSubmit={onSubmitResponse} method="post">
                   <div className="add-reply">
@@ -167,7 +171,7 @@ const Comments = ({
                       onKeyDown={e => addMessage(e, comment.id, false)}
                       value={reply}
                       disabled={laodingPostReply}
-                      placeholder={useIntl().formatMessage({
+                      placeholder={intl.formatMessage({
                         id: 'commentHere',
                         defaultMessage: 'Comment here…',
                       })}
@@ -227,8 +231,8 @@ const Comments = ({
             onClick={loadMoreComments}
             text={
               loadingMoreComments
-                ? useIntl().formatMessage({ id: 'loading' })
-                : useIntl().formatMessage({ id: 'readmore' })
+                ? intl.formatMessage({ id: 'loading' })
+                : intl.formatMessage({ id: 'readmore' })
             }
           />
         </div>
@@ -249,11 +253,11 @@ Comments.propTypes = {
   laodingPostReply: PropTypes.bool.isRequired,
   loadMore: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-
   totalComments: PropTypes.number,
   loadingMoreComments: PropTypes.bool,
   loadMoreComments: PropTypes.func.isRequired,
   thumb: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Comments;

@@ -1,0 +1,141 @@
+.survey {
+  margin: 0 0 25px 0;
+
+  .loading-logo {
+    min-height: 350px;
+  }
+
+  .survey-form-title {
+    margin-bottom: 15px;
+    color: map-get($main-text-colors, dark);
+  }
+
+  h5 {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .control-label {
+    text-transform: none;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+  }
+
+  .radio-wrap {
+    position: relative;
+  }
+
+  .button-label {
+    margin: 0 5px 0 0;
+    display: inline-block;
+    cursor: pointer;
+    background: map-get($grays, 100);
+    transition: 0.3s;
+    user-select: none;
+    border: 1px solid map-get($grays, 300);
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    h3 {
+      font-size: 14px;
+      line-height: 40px;
+      border-bottom: none;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      width: 40px;
+      text-align: center;
+    }
+
+    input[type='radio']:checked + h3,
+    input[type='radio']:hover + h3 {
+      background-color: map-get($main-text-colors, dark);
+      font-size: 14px;
+      color: white !important;
+      font-weight: bold;
+      border: none;
+    }
+  }
+
+  .survey-disabled {
+    h3 {
+      margin: 30px;
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin-top: 15px;
+    padding: 0;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .btn-submit-servey {
+    border: 2px solid map-get($colors, green);
+    color: map-get($colors, white) !important;
+    background: map-get($colors, green);
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    font-size: 17px;
+    -webkit-transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    transition: all 0.7s cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+    -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    margin-top: 15px;
+  }
+}
+
+.btn-submit-servey {
+  margin-top: 15px;
+}
+
+.loading-box {
+  min-height: 350px;
+}
+
+.survey-value-label-1 {
+  padding-right: 15px;
+  color: map-get($main-text-colors, dark);
+  display: inline-block;
+  font-size: 12px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.survey-value-label-2 {
+  padding-left: 15px;
+  color: map-get($main-text-colors, dark);
+  display: inline-block;
+  font-size: 12px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: map-get($breakpoints, xs)) {
+  #form-survey {
+    .box {
+      padding: 20px;
+    }
+
+    .text-right {
+      text-align: center;
+    }
+  }
+}

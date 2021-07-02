@@ -1,0 +1,93 @@
+.documents {
+  font-size: 15px;
+  color: map-get($main-text-colors, dark);
+  letter-spacing: 0;
+  line-height: 26px;
+
+  .box {
+    margin-bottom: 25px;
+
+    h3 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .form-control {
+    background: url('https://static.esolidar.com/frontend/icons/icon-search.svg') 10px 50% no-repeat
+      map-get($colors, white);
+    padding-left: 40px;
+  }
+
+  .document-row {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    position: relative;
+
+    &:after {
+      content: '';
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: map-get($theme-colors, primary);
+      width: 80px;
+      position: absolute;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 0;
+
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: 0;
+      line-height: 26px;
+    }
+
+    img {
+      float: left;
+      width: 16px;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+
+    .download-file {
+      font-size: 13px;
+      color: map-get($theme-colors, primary);
+      letter-spacing: 0;
+      line-height: 26px;
+      text-decoration: underline;
+    }
+  }
+
+  .loading-logo {
+    min-height: 450px;
+  }
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    margin-top: 15px;
+  }
+
+  .deleteButton {
+    background-color: transparent;
+    border: 0px;
+    color: map-get($theme-colors, danger);
+    margin-left: 10px;
+    font-size: 13px;
+  }
+}
+
+.noResult-div {
+  text-align: center;
+  padding-top: 50px;
+}

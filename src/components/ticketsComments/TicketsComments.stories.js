@@ -1,3 +1,4 @@
+import React from 'react';
 import TicketsComments from './TicketsComments';
 
 export default {
@@ -19,8 +20,7 @@ Default.args = {
         attachment_files: [
           {
             created_at: '2020-05-29 08:48:55',
-            file:
-              'https://cdn.testesolidar.com/whitelabel/1/projects/31/files/amazon.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20200530%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20200530T094257Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=53ec28aed49788ccacfaf24390373679d628d60311b4586c25e4ab82a4ba3082',
+            file: 'https://cdn.testesolidar.com/whitelabel/1/projects/31/files/amazon.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20200530%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20200530T094257Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=53ec28aed49788ccacfaf24390373679d628d60311b4586c25e4ab82a4ba3082',
             file_size: 13264,
             file_type: 'pdf',
             id: 39,
@@ -31,8 +31,7 @@ Default.args = {
           },
           {
             created_at: '2020-05-29 08:48:55',
-            file:
-              'https://cdn.testesolidar.com/whitelabel/1/projects/31/files/amazon.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20200530%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20200530T094257Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=53ec28aed49788ccacfaf24390373679d628d60311b4586c25e4ab82a4ba3082',
+            file: 'https://cdn.testesolidar.com/whitelabel/1/projects/31/files/amazon.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20200530%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20200530T094257Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=53ec28aed49788ccacfaf24390373679d628d60311b4586c25e4ab82a4ba3082',
             file_size: 13264,
             file_type: 'pdf',
             id: 40,

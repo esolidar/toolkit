@@ -1,13 +1,22 @@
 /* eslint-disable prefer-destructuring */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import TextareaField from '../../../elements/textareaField';
 
-const CrowdfundingItem = props => {
-  const { env, item } = props;
+const CrowdfundingItem = ({
+  env,
+  item,
+  onAddToCheckout,
+  indx,
+  removeCartItem,
+  onChangCheckBox,
+  onChangeMessage,
+  totalItems,
+}) => {
   const campaignTitle = () => {
     let title;
     if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
@@ -31,7 +40,7 @@ const CrowdfundingItem = props => {
         <Col sm={8} xs={12} className="cart-item-row">
           <div className="checkbox-inline">
             <div className="form-group">
-              <label htmlFor="addCart">
+              <label htmlFor="addCart" className={totalItems === 1 ? 'p-0' : ''}>
                 <BrowserView device={isBrowser}>
                   <div>
                     {item.campaign.images.length > 0 && (
@@ -58,7 +67,7 @@ const CrowdfundingItem = props => {
                             : `${env.serverlessResizeImage}/${campaignImage}?width=400`
                         }
                         alt={campaignTitle()}
-                        style={{ width: '90%' }}
+                        style={{ width: 95 }}
                       />
                     )}
                   </div>
@@ -89,10 +98,11 @@ const CrowdfundingItem = props => {
                   name="checked"
                   id="addCart"
                   value={item.checked}
-                  onChange={e => props.onAddToCheckout(e, props.indx)}
+                  onChange={e => onAddToCheckout(e, indx)}
                   checked={item.extra.checked === 1}
+                  disabled={totalItems === 1}
                 />
-                <div className="checkbox" />
+                {totalItems > 1 && <div className="checkbox" />}
               </label>
             </div>
           </div>
@@ -101,11 +111,7 @@ const CrowdfundingItem = props => {
           <FormattedNumber style="currency" currency={item.currency.small} value={item.amount} />
         </Col>
         <Col sm={2} xs={4} className="text-center">
-          <button
-            type="button"
-            className="btn-remove-item"
-            onClick={() => props.removeCartItem(item.id)}
-          >
+          <button type="button" className="btn-remove-item" onClick={() => removeCartItem(item.id)}>
             <FormattedMessage id="checkout.remove.item" defaultMessage="Remove" />
           </button>
         </Col>
@@ -124,8 +130,8 @@ const CrowdfundingItem = props => {
                   name="hidden"
                   id="hidden"
                   value={item.hidden}
-                  onChange={e => props.onChangCheckBox(e, props.indx)}
-                  checked={item.extra.hidden === '1'}
+                  onChange={e => onChangCheckBox(e, indx)}
+                  checked={+item.extra.hidden === 1}
                 />
                 <div className="checkbox" />
               </label>
@@ -138,7 +144,7 @@ const CrowdfundingItem = props => {
               id: 'crowdfunding.message',
               defaultMessage: 'Leave a message',
             })}
-            onChange={e => props.onChangeMessage(e, props.indx)}
+            onChange={e => onChangeMessage(e, indx)}
             value={item.extra.message}
             field="message"
           />
@@ -149,14 +155,36 @@ const CrowdfundingItem = props => {
 };
 
 CrowdfundingItem.propTypes = {
-  onChangeMessage: PropTypes.func,
-  onAddToCheckout: PropTypes.func,
-  indx: PropTypes.number,
-  item: PropTypes.object,
-  removeCartItem: PropTypes.func,
-  onChangCheckBox: PropTypes.func,
-
   env: PropTypes.object.isRequired,
+  indx: PropTypes.number,
+  item: PropTypes.shape({
+    amount: PropTypes.number,
+    campaign: PropTypes.shape({
+      description: PropTypes.string,
+      images: PropTypes.array,
+      institution: PropTypes.shape({
+        name: PropTypes.string,
+      }),
+      title: PropTypes.string,
+      title_en: PropTypes.string,
+    }),
+    checked: PropTypes.bool,
+    currency: PropTypes.shape({
+      small: PropTypes.string,
+    }),
+    extra: PropTypes.shape({
+      checked: PropTypes.number,
+      hidden: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      message: PropTypes.string,
+    }),
+    hidden: PropTypes.string,
+    id: PropTypes.number,
+  }),
+  onAddToCheckout: PropTypes.func,
+  onChangCheckBox: PropTypes.func,
+  onChangeMessage: PropTypes.func,
+  removeCartItem: PropTypes.func,
+  totalItems: PropTypes.number,
 };
 
 export default CrowdfundingItem;

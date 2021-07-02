@@ -1,4 +1,6 @@
+import React from 'react';
 import AuctionDetail from './AuctionDetail';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/Auctions/AuctionDetail',
@@ -32,7 +34,7 @@ Default.args = {
       goal: 0,
       video: null,
       dateStart: '2021-03-26 18:30:00',
-      dateLimit: '2021-05-26 21:00:00',
+      dateLimit: '2022-05-26 21:00:00',
       timezone: 'Europe/Dublin',
       bid_interval: 1,
       bid_max_interval: 100,
@@ -104,8 +106,7 @@ Default.args = {
               'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-STANDARD.jpeg',
             detail:
               'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-DETAIL.jpeg',
-            pin:
-              'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-PIN.jpeg',
+            pin: 'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-PIN.jpeg',
             thumb:
               'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-THUMB.jpeg',
           },
@@ -392,7 +393,7 @@ Default.args = {
   postUpdatedUser: {},
   updatedUser: () => {},
   showAlert: () => {},
-  primaryColor: '#05c6e5',
+  primaryColor: variables['theme-colors-primary'],
   domainUrl: 'https://esolidar.local:8081/',
   locale: 'en',
 };

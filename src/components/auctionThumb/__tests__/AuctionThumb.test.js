@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';

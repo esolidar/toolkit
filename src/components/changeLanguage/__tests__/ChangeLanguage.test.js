@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import ChangeLanguage from '../index';
 
@@ -13,13 +14,6 @@ describe('ChangeLanguage component', () => {
       <ChangeLanguage languages={propLanguages} onChangeLang={changed} currentLang="pt" />
     );
     expect(component).toHaveLength(1);
-  });
-
-  it('renders ChangeLanguage and check if Icon exists and have all props', () => {
-    const component = shallow(
-      <ChangeLanguage languages={propLanguages} onChangeLang={changed} currentLang="pt" />
-    );
-    expect(component.find('Icon')).toHaveLength(1);
   });
 
   it('renders ChangeLanguage and check how many buttons have', () => {

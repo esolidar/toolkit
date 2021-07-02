@@ -1,4 +1,6 @@
+import React from 'react';
 import { shallow, configure } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import TextFieldCurrency from '../index';
@@ -20,7 +22,7 @@ const props = {
 describe('render TextFieldCurrency', function () {
   it('component renders', () => {
     const wrapper = shallow(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <TextFieldCurrency {...props} prefix="EUR" />
       </IntlProvider>
     )
@@ -32,7 +34,7 @@ describe('render TextFieldCurrency', function () {
 
   it('component verify states and return value EUR formatted', () => {
     const wrapper = shallow(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <TextFieldCurrency {...props} prefix="EUR" />
       </IntlProvider>
     )
@@ -49,7 +51,7 @@ describe('render TextFieldCurrency', function () {
 
   it('component verify states and return value USD formatted', () => {
     const wrapper = shallow(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <TextFieldCurrency {...props} prefix="USD" />
       </IntlProvider>
     )

@@ -1,3 +1,4 @@
+import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import InputLabel from '../inputLabel';
@@ -24,7 +25,7 @@ const SelectField = ({
     if (options) {
       return options.map((option, i) => (
         <option
-          data-testid={`${optionTestId}-${option.id}`}
+          data-testid={`${optionTestId || field}-${option.id}`}
           value={option.id}
           key={option.id || i}
           disabled={option.disabled}
@@ -80,4 +81,5 @@ SelectField.propTypes = {
 
 SelectField.defaultProps = {
   hiddenSelectText: false,
+  className: '',
 };

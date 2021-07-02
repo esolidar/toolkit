@@ -1,4 +1,6 @@
+import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
@@ -326,7 +328,7 @@ afterAll(() => {
 
 test('should exist value last bid', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionLastBid {...propsAuctionLastBid} />
     </IntlProvider>
   );
@@ -341,7 +343,7 @@ test('should exist value last bid', async () => {
 
 test('should exist section new bid and insert value equal or higher last bid', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionLastBid {...propsAuctionLastBid} />
     </IntlProvider>
   );

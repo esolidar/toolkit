@@ -1,7 +1,8 @@
+import React from 'react';
 import Footer from './Footer';
 
 export default {
-  title: 'Components/Footer',
+  title: 'Components/Footer/Footer',
   component: Footer,
 };
 
@@ -16,22 +17,25 @@ Default.parameters = {
   jest: ['Footer.test.js'],
 };
 Default.args = {
-  newsletterTitle: 'Lorem Ipsum',
-  socialTitle: 'Junte-se a nós',
-  socialIcons: [
-    { class: 'icon-facebook', url: 'https://www.facebook.com/esolidar' },
-    { class: 'icon-twitter', url: '#' },
-    { class: 'icon-linkedin2', url: '#' },
-    { class: 'icon-google-plus', url: '#' },
-  ],
+  newsletterTitle: 'Subscribe to our newsletter',
+  social: {
+    title: 'Follow us',
+    icons: [
+      { name: 'facebook', url: 'https://www.facebook.com/esolidar' },
+      { name: 'instagram', url: '#' },
+      { name: 'twitter', url: '#' },
+      { name: 'youtube', url: '#' },
+      { name: 'linkedin', url: '#' },
+    ],
+  },
   copyright: 'All rights reserved.',
-  currentLang: 'pt',
-  onChangeLang: () => console.log(''),
-  currencyChanged: () => console.log(''),
+  currentLang: 'en',
+  onChangeLang: () => console.log('onChangeLang'),
+  currencyChanged: () => console.log('currencyChanged'),
   languages: [
-    { id: 0, name: 'pt', translate: 'Português (PT)' },
-    { id: 1, name: 'br', translate: 'Português (BR)' },
-    { id: 2, name: 'en', translate: 'English' },
+    { id: 0, name: 'en', translate: 'English' },
+    { id: 1, name: 'pt', translate: 'Português (PT)' },
+    { id: 2, name: 'br', translate: 'Português (BR)' },
   ],
   showCurrency: true,
   currentCurrency: {
@@ -63,26 +67,27 @@ Default.args = {
       lastUpdate: '2019-12-16 12:00:03',
     },
   ],
-  mainMenuFooter: [
-    { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-    { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-    { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-    { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br'] },
-  ],
-  secondMenuFooter: [
-    { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-    {
-      text: 'Follow us',
-      submenu: [
-        { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-        { text: 'Follow us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-      ],
-      lang: ['pt', 'br', 'en'],
-    },
-  ],
-  bottomMenuFooter: [
-    { text: 'Terms and Conditions', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-    { text: 'Privacy Policy', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
-  ],
-  addressText: 'Rua das Irmãs Missionárias do Espirito Santo, 33 Braga',
+  mainMenuFooter: {
+    title: 'Learn',
+    links: [
+      { text: 'Contact us', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Help center', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Resources', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Blog', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+    ],
+  },
+  secondMenuFooter: {
+    title: 'Why esolidar?',
+    links: [
+      { text: 'Business', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Personal', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Nonprofit', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+    ],
+  },
+  bottomMenuFooter: {
+    links: [
+      { text: 'Terms & Conditions', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+      { text: 'Privacy Policy', url: '#', target: '_self', lang: ['pt', 'br', 'en'] },
+    ],
+  },
 };

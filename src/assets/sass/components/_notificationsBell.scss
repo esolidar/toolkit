@@ -1,0 +1,182 @@
+$desktop-width: 375px;
+$desktop-height: 490px;
+$mobile-width: 260px;
+
+.notification-box {
+  padding: calc(#{$distance-1} / 2);
+  @include thin-scroll-bar();
+
+  .notification-icon {
+    border: none;
+    box-shadow: none;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    position: relative;
+
+    .number {
+      display: block !important;
+      position: absolute;
+      background: #ec5854;
+      top: $distance-1;
+      left: $distance-3;
+      right: initial;
+      padding: 0px $distance-1;
+      height: 17px;
+      font-size: 12px;
+      color: #fff;
+      border-radius: 100px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .caret {
+      display: none;
+    }
+
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+
+  .btn-default:active,
+  .btn-default.active,
+  .open > .dropdown-toggle.btn-default {
+    background-color: transparent;
+    border: none;
+  }
+
+  .dropdown-menu {
+    width: $desktop-width;
+    border-radius: 18px;
+    padding: 0;
+    top: 20px !important;
+    position: absolute !important;
+    inset: 0px auto auto 0px;
+    margin: 0px !important;
+    transform: translate(-315px, 42px) !important;
+    padding: $distance-2 $distance-1;
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      width: $mobile-width;
+      left: 135px !important;
+    }
+
+    &:before {
+      @include dropdown-arrow-before();
+    }
+
+    &:after {
+      @include dropdown-arrow-after();
+    }
+
+    .notification-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $distance-1 3px $distance-1;
+      font-size: 12px;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        font-size: 10px;
+      }
+
+      .notification-header-title {
+        color: map-get($main-text-colors, dark);
+        font-weight: 900;
+        text-transform: uppercase;
+        padding: 6px $distance-2;
+      }
+
+      .notification-header-mark-read {
+        font-weight: 500;
+      }
+    }
+
+    .notification-list {
+      overflow: auto;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: calc(#{$desktop-width} - 10px);
+      max-height: $desktop-height;
+
+      @media (min-width: map-get($breakpoints, lg)) {
+        max-height: $desktop-height;
+      }
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        width: calc(#{$mobile-width} - 2px);
+      }
+
+      .no-notifications {
+        padding: $distance-1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .img {
+          margin: $distance-2;
+          width: 80px;
+          height: auto;
+        }
+
+        .text {
+          color: map-get($main-text-colors, dark);
+        }
+      }
+
+      .notification-row {
+        position: relative;
+        overflow: auto;
+        padding: 2px $distance-2 2px $distance-1;
+
+        .btn-markAsRead {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        .notification-row-box {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: $distance-1;
+          border-radius: 8px;
+
+          &.unread {
+            background-color: map-get($blue, 0);
+          }
+
+          &:hover {
+            background-color: map-get($background, secondary);
+          }
+
+          img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 40px;
+          }
+
+          .text {
+            color: map-get($main-text-colors, dark);
+            font-size: 13px;
+
+            u {
+              color: map-get($theme-colors, primary);
+              text-decoration: none;
+            }
+          }
+
+          .date {
+            color: map-get($main-text-colors, dark);
+            font-size: 12px;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}

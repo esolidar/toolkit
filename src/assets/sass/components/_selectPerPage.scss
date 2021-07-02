@@ -1,0 +1,12 @@
+.select-per-page {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  color: map-get($main-text-colors, dark);
+
+  & > select {
+    width: 75px;
+    margin-left: 15px;
+  }
+}

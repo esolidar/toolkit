@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import Step2 from '../index';
 

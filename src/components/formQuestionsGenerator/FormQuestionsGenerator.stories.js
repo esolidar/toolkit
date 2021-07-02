@@ -1,3 +1,4 @@
+import React from 'react';
 import FormQuestionsGenerator from './FormQuestionsGenerator';
 
 export default {

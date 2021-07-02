@@ -1,4 +1,6 @@
+import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { advanceTo } from 'jest-date-mock';
@@ -125,8 +127,7 @@ const props = {
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
             detail:
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
-            pin:
-              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
+            pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
             thumb:
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
           },
@@ -151,8 +152,7 @@ const props = {
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-STANDARD.jpg',
             detail:
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-DETAIL.jpg',
-            pin:
-              'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
+            pin: 'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-PIN.jpg',
             thumb:
               'https://cdn.testesolidar.com/products/0bbf216d-f9ed-4836-8873-33c5eaf6d3e2-THUMB.jpg',
           },
@@ -589,7 +589,7 @@ afterAll(() => {
 
 test('simulate private auction', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...propsAuctionPrivate} />
     </IntlProvider>
   );
@@ -597,7 +597,9 @@ test('simulate private auction', async () => {
   await waitFor(() => {
     const titlePrivate = screen.getByTestId('title-private');
     expect(titlePrivate).toBeInTheDocument();
-    expect(titlePrivate).toHaveTextContent('auctions.private.supportes');
+    expect(titlePrivate).toHaveTextContent(
+      'Insert the access code to display and bid on the auction:'
+    );
     const inputCode = screen.getByTestId('input-private-code');
     expect(inputCode).toBeInTheDocument();
     fireEvent.change(inputCode, { target: { value: '123456' } });
@@ -611,7 +613,7 @@ test('simulate private auction', async () => {
 
 test('should exist auction support', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -619,7 +621,7 @@ test('should exist auction support', async () => {
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
     expect(auctionSupport).toBeInTheDocument();
-    expect(auctionSupport).toHaveTextContent('auctions.public.supportes');
+    expect(auctionSupport).toHaveTextContent('This auctions supports:');
     const thumbImage = screen.getByAltText('thumb-supported');
     expect(thumbImage).toBeInTheDocument();
     expect(thumbImage).toHaveAttribute(
@@ -631,7 +633,7 @@ test('should exist auction support', async () => {
 
 test('should exist countdown with time', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -642,21 +644,21 @@ test('should exist countdown with time', async () => {
     const divCountDown = screen.getByTestId('div-countdown');
     expect(divCountDown).toBeInTheDocument();
     const countdownHour = screen.getByTestId('auction-detail-countdown-hours');
-    expect(countdownHour).toHaveTextContent('16HOUR');
+    expect(countdownHour).toHaveTextContent('16Hour');
     const countdownMin = screen.getByTestId('auction-detail-countdown-min');
-    expect(countdownMin).toHaveTextContent('00MIN');
+    expect(countdownMin).toHaveTextContent('00Min');
     const countdownSec = screen.getByTestId('auction-detail-countdown-sec');
-    expect(countdownSec).toHaveTextContent('00SEC');
+    expect(countdownSec).toHaveTextContent('00Sec');
     const endDateInfo = screen.getByTestId('end-date-info');
     expect(endDateInfo).toHaveTextContent(
-      'auction.detail.endsWednesday, December 30, 2020 4:00 PM'
+      'This auction ends in: Wednesday, December 30, 2020 4:00 PM'
     );
   });
 });
 
 test('should exist slide image', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -669,7 +671,7 @@ test('should exist slide image', async () => {
 
 test('should open modal bid', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -687,13 +689,13 @@ test('should open modal bid', async () => {
 
 test('should render component AuctionDetail and verify checkboxs', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
 
   await waitFor(() => {
-    fireEvent.click(screen.getByText('Subscribe the auction.'));
+    fireEvent.click(screen.getByTestId('subscribe-auction'));
     expect(screen.getByTestId('modal')).toBeInTheDocument();
     expect(screen.getByTestId('checkStart').checked).toEqual(true);
     expect(screen.getByTestId('checkEmailBid').checked).toEqual(false);
@@ -703,7 +705,7 @@ test('should render component AuctionDetail and verify checkboxs', async () => {
 
 test('should exist buttons share social media', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -724,7 +726,7 @@ test('should exist buttons share social media', async () => {
 
 test('should exist description, shipping and payment', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -753,7 +755,7 @@ test('should exist description, shipping and payment', async () => {
 
 test('should exist comment box', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -766,7 +768,7 @@ test('should exist comment box', async () => {
 
 test('should exist 2 auction thumbs in auction list', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );
@@ -787,7 +789,7 @@ test('should exist 2 auction thumbs in auction list', async () => {
 
 test('should exist one project thumb', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetail {...props} />
     </IntlProvider>
   );

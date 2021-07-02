@@ -1,0 +1,26 @@
+.socialNetworks {
+  .list-icon {
+    display: flex;
+
+    a {
+      color: map-get($main-text-colors, light);
+      text-decoration: none;
+      width: 22.5px;
+      height: 22.5px;
+
+      &:first-of-type {
+        margin-right: 12px;
+      }
+
+      &:not(:first-of-type) {
+        margin: 0 12px;
+      }
+
+      &:hover {
+        i {
+          color: map-get($theme-colors-light, primary) !important;
+        }
+      }
+    }
+  }
+}

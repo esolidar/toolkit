@@ -1,5 +1,189 @@
+@mixin button($textColor, $borderColor, $bgColor) {
+  border: 2px solid $borderColor;
+  color: $textColor !important;
+  background: $bgColor;
+  border-radius: 100px;
+  padding: 9px 60px;
+
+  font-size: 20px;
+  @include animate();
+
+  &:hover {
+    background: darken($bgColor, 10%);
+    border-color: darken($bgColor, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin buttonWhite($textColor, $borderColor, $bgColor) {
+  border: 2px solid $borderColor;
+  color: $textColor;
+  background: $bgColor;
+  border-radius: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 17px;
+  /*    line-height: 21px;*/
+  @include animate();
+
+  &:hover {
+    background: $textColor;
+    border-color: $textColor;
+    color: map-get($colors, white) !important;
+
+    span {
+      color: map-get($colors, white) !important;
+    }
+  }
+}
+
+@mixin button-small($textColor, $borderColor, $bgColor) {
+  border: 2px solid $borderColor;
+  color: $textColor !important;
+  background: $bgColor;
+  border-radius: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 17px;
+  /*    line-height: 21px;*/
+  @include animate();
+
+  &:hover {
+    background: darken($bgColor, 10%);
+    border-color: darken($bgColor, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin button-x-small($textColor, $borderColor, $bgColor) {
+  border: 2px solid $borderColor;
+  color: $textColor !important;
+  background: $bgColor;
+  border-radius: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  @include animate();
+
+  &:hover {
+    background: darken($bgColor, 10%);
+    border-color: darken($bgColor, 10%);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin animate() {
+  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+  /* older webkit */
+  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+  /* older webkit */
+  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+}
+
+@mixin text-overflow-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
-  -moz-box-shadow   : $shadow;
-  box-shadow        : $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin dropdown-arrow-before($left: 91%, $left-xs: 79%) {
+  bottom: 100%;
+  left: $left;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(199, 199, 199, 0);
+  border-bottom-color: #c7c7c7;
+  border-width: 11px;
+  margin-left: -11px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    left: $left-xs;
+  }
+}
+
+@mixin dropdown-arrow-after($left: 91%, $left-xs: 79%) {
+  bottom: 100%;
+  left: $left;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: map-get($colors, white);
+  border-width: 10px;
+  margin-left: -10px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    left: $left-xs;
+  }
+}
+
+@mixin thin-scroll-bar() {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #9f9f9f;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #6a6a6a;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: #e8e8e8;
+  }
+
+  ::-webkit-scrollbar-track:active {
+    background: #c8c8c8;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }

@@ -1,104 +1,130 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
-import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
+import Button from '../../elements/button';
+import { cdnStaticUrl } from '../../constants/env';
+import isDefined from '../../utils/isDefined';
 
 const NotificationsBell = ({
-  notificationsHeadTitle,
   totalNotifications,
   onToggle,
-  markAllAsReadTitle,
   markAllAsReadFunc,
   handleScrollFunc,
   notifications,
   loadMoreFunc,
-  hasMoreToLoad,
+  hasMoreToLoad = false,
   markAsReadFunc,
+  showMarkAllAsReadBtn = true,
 }) => {
+  const intl = useIntl();
   const items = [];
-  const notificationsList = notifications;
-  if (notificationsList.length > 0) {
-    notificationsList.map((notification, i) => {
-      if (notification.id) {
-        items.push(
-          <li key={i} className="notification-row">
-            <a
-              href="#"
-              target={notification.url === '#' ? '_self' : notification.target}
-              title={notification.title}
-              onClick={() => markAsReadFunc(notification)}
-              className="btn-markAsRead"
-            >
+
+  notifications.forEach(item => {
+    const notification = item;
+
+    if (!notification.id && !notification.notification_id) return;
+
+    if (isDefined(notification.notification_title_name)) {
+      notification.id = notification.notification_id;
+      notification.url = notification.notification_url;
+      notification.title = notification.notification_url_title;
+      notification.target = '_self';
+      notification.photo = { thumb: notification.notification_image };
+      notification.text = `<u>${notification.notification_title_name}</u></br>${notification.notification_description}`;
+      notification.created_at = notification.notification_time;
+      notification.read_at = notification.notification_read === '0' ? null : '1';
+    }
+  });
+
+  notifications.map(notification => {
+    items.push(
+      <li key={notification.id} className="notification-row" data-testid="notification-row">
+        <a
+          href="#"
+          target={notification.url === '#' ? '_self' : notification.target}
+          title={notification.title}
+          onClick={() => markAsReadFunc(notification)}
+          className="btn-markAsRead"
+        >
+          <div
+            className={`notification-row-box ${notification.read_at === null ? 'unread' : ''}`}
+            data-testid="notification-row-box"
+          >
+            <img
+              alt={notification.notification_image_alt || 'User photo'}
+              src={
+                notification.photo?.thumb
+                  ? notification.photo.thumb
+                  : `${cdnStaticUrl}/frontend/assets/no-image.png`
+              }
+            />
+            <div>
               <div
-                className={
-                  notification.read_at === null
-                    ? 'notification-row-box unread'
-                    : 'notification-row-box'
-                }
-              >
-                <div className="notification-thumb">
-                  <img
-                    alt="Thumb"
-                    src={
-                      notification.photo?.thumb
-                        ? notification.photo.thumb
-                        : `${cdnUploadsUrl}/companies/5e931871-e0d1-48d6-8b95-6cc1cdd76b93-THUMB.png`
-                    }
-                  />
-                </div>
-                <div>
-                  <span className="notification-row-text">
-                    <div dangerouslySetInnerHTML={{ __html: notification.text }} />
-                  </span>
-                  <span className="notification-row-date">
-                    <Moment fromNow ago>
-                      {notification.created_at}
-                    </Moment>
-                  </span>
-                  {notification.read_at === null && <div className="notification-bullet" />}
-                </div>
-              </div>
-            </a>
-          </li>
-        );
-      }
-    });
-  }
+                className="text"
+                data-testid="text"
+                dangerouslySetInnerHTML={{ __html: notification.text }}
+              />
+              <Moment fromNow ago className="date">
+                {notification.created_at}
+              </Moment>
+            </div>
+          </div>
+        </a>
+      </li>
+    );
+  });
+
+  const hasUnreadNotifications = notifications.some(item => item.read_at === null);
 
   return (
-    <div className="inline-block">
+    <>
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
-        <Dropdown.Toggle className="notification-icon">
-          {+totalNotifications > 0 && (
-            <div className="notification-unread-count">
-              {+totalNotifications > 100 ? '+99' : totalNotifications}
-            </div>
-          )}
+        <Dropdown.Toggle className="notification-icon" role="button">
           <img
             src={`${cdnStaticUrl}/frontend/icons/ic-notification-bell.svg`}
             className="notification-image"
             alt="Notifications"
           />
+          {+totalNotifications > 0 && (
+            <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
+          )}
         </Dropdown.Toggle>
-        <Dropdown.Menu>
+        <Dropdown.Menu flip align="right">
           <div className="notification-header">
-            <span className="notification-header-title">{notificationsHeadTitle}</span>
-            <span className="notification-header-mark-read">
-              <button type="button" onClick={markAllAsReadFunc}>
-                {markAllAsReadTitle}
-              </button>
+            <span className="notification-header-title">
+              {intl.formatMessage({ id: 'Notifications.head.title' })}
             </span>
+            {showMarkAllAsReadBtn && hasUnreadNotifications && (
+              <Button
+                extraClass="link"
+                className="notification-header-mark-read"
+                onClick={markAllAsReadFunc}
+                text={intl.formatMessage({ id: 'Notifications.head.mark.all' })}
+              />
+            )}
           </div>
           <ul
             className="notification-list"
-            style={{ height: '500px', overflow: 'auto' }}
+            style={{ overflow: 'auto' }}
             onScroll={handleScrollFunc}
           >
             {!notifications && (
               <div className="notification-loader">
                 <Loading />
+              </div>
+            )}
+            {!notifications.length && (
+              <div className="no-notifications">
+                <img
+                  className="img"
+                  src={`${cdnStaticUrl}/frontend/icons/no-feed.svg`}
+                  alt="no-notification"
+                />
+                <p className="text">{intl.formatMessage({ id: 'Notifications.no.results' })}</p>
               </div>
             )}
             <InfiniteScroll
@@ -122,17 +148,16 @@ const NotificationsBell = ({
           </ul>
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </>
   );
 };
 
 NotificationsBell.propTypes = {
-  notificationsHeadTitle: PropTypes.string,
   totalNotifications: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  markAllAsReadTitle: PropTypes.string,
   onToggle: PropTypes.func,
-  markAllAsReadFunc: PropTypes.func.isRequired,
-  markAsReadFunc: PropTypes.func.isRequired,
+  markAllAsReadFunc: PropTypes.func,
+  markAsReadFunc: PropTypes.func,
+  showMarkAllAsReadBtn: PropTypes.bool,
   handleScrollFunc: PropTypes.func.isRequired,
   notifications: PropTypes.array,
   loadMoreFunc: PropTypes.func.isRequired,

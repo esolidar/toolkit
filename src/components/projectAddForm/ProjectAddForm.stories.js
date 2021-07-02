@@ -1,4 +1,6 @@
+import React from 'react';
 import ProjectAddForm from './ProjectAddForm';
+import variables from '../../assets/sass/_export.module.scss';
 
 export default {
   title: 'Components/Projects/ProjectAddForm',
@@ -21,7 +23,7 @@ Default.parameters = {
 Default.args = {
   hideDropZone: false,
   color: {
-    primaryColor: 'red',
+    primaryColor: variables['theme-colors-primary'],
   },
   errors: {},
   lang: 'pt',
@@ -90,14 +92,12 @@ Default.args = {
     },
     {
       id: 'input-7',
-      name:
-        'Ficamos muito contentes pelo seu interesse em fazer parte da nossa Comunidade Human Power Hub Braga!',
+      name: 'Ficamos muito contentes pelo seu interesse em fazer parte da nossa Comunidade Human Power Hub Braga!',
       type: 'paragraph',
     },
     {
       id: 'input-8',
-      name:
-        'O Human Power Hub (HPH) - Centro de Inovação Social Braga, é um projeto lançado em parceria entre a Câmara Municipal e a Fundação Bracara Augusta, de forma a promover o desenvolvimento da inovação social na cidade de Braga. Valorizamos a inovação e a criação de impacto, por isso contem connosco para se tornarem projetos mais resilientes, fortes e criadores de Impacto ',
+      name: 'O Human Power Hub (HPH) - Centro de Inovação Social Braga, é um projeto lançado em parceria entre a Câmara Municipal e a Fundação Bracara Augusta, de forma a promover o desenvolvimento da inovação social na cidade de Braga. Valorizamos a inovação e a criação de impacto, por isso contem connosco para se tornarem projetos mais resilientes, fortes e criadores de Impacto ',
       type: 'paragraph',
     },
     {
@@ -146,40 +146,35 @@ Default.args = {
     },
     {
       id: 'input-10',
-      help:
-        'Justifique porque o problema que está a resolver é 1) Importante (afecta um grande número de pessoas ou um pequeno número de forma muito profunda), é 2) Negligenciado (não está a ser resolvido por outras soluções de forma eficaz), e 3) Gera externalidades (a existência deste problema gera consequências negativas).',
+      help: 'Justifique porque o problema que está a resolver é 1) Importante (afecta um grande número de pessoas ou um pequeno número de forma muito profunda), é 2) Negligenciado (não está a ser resolvido por outras soluções de forma eficaz), e 3) Gera externalidades (a existência deste problema gera consequências negativas).',
       name: 'Qual o problema social/ambiental que pretende a resolver?',
       type: 'textarea',
       required: true,
     },
     {
       id: 'input-11',
-      help:
-        'A solução do seu projeto é inovadora se resolver o problema de uma forma mais eficaz que as soluções já existentes, ou se vier resolver um problema que não está a ser resolvido por nenhuma solução',
+      help: 'A solução do seu projeto é inovadora se resolver o problema de uma forma mais eficaz que as soluções já existentes, ou se vier resolver um problema que não está a ser resolvido por nenhuma solução',
       name: 'A solução é Inovadora? Justifique.',
       type: 'textarea',
       required: true,
     },
     {
       id: 'input-12',
-      help:
-        'A sua solução é replicável se conseguir aplicá-la noutros contextos ou geografias, de forma a resolver aí o problema social/ambiental em questão, ou se a solução permitir diferentes aplicações que permitem resolver outros problemas sociais/ambientais (no mesmo ou em outros contextos). Exemplo: as lâmpadas a energia solar são facilmente replicáveis e escaláveis no contexto africano, pois, por serem baratas e fáceis de disseminar em regiões onde predomina a exposição solar, facilmente se tornam uma solução de energia eléctrica para os agregados familiares.',
+      help: 'A sua solução é replicável se conseguir aplicá-la noutros contextos ou geografias, de forma a resolver aí o problema social/ambiental em questão, ou se a solução permitir diferentes aplicações que permitem resolver outros problemas sociais/ambientais (no mesmo ou em outros contextos). Exemplo: as lâmpadas a energia solar são facilmente replicáveis e escaláveis no contexto africano, pois, por serem baratas e fáceis de disseminar em regiões onde predomina a exposição solar, facilmente se tornam uma solução de energia eléctrica para os agregados familiares.',
       name: 'A sua solução é escalável e replicável?',
       type: 'textarea',
       required: true,
     },
     {
       id: 'input-13',
-      help:
-        'Quem beneficia com a sua solução? Quais os efeitos positivos que gera a sua solução no curto, médio e longo prazo? Quais os benefícios da sua solução e como os pretende medir?',
+      help: 'Quem beneficia com a sua solução? Quais os efeitos positivos que gera a sua solução no curto, médio e longo prazo? Quais os benefícios da sua solução e como os pretende medir?',
       name: 'A sua solução gera impacto?',
       type: 'textarea',
       required: true,
     },
     {
       id: 'input-14',
-      help:
-        'Descreva a forma como o seu projeto permite angariar rendimento de forma a financiar os custos e o funcionamento corrente da mesma? Quem paga pela solução? Para quem é que esta gera valor?',
+      help: 'Descreva a forma como o seu projeto permite angariar rendimento de forma a financiar os custos e o funcionamento corrente da mesma? Quem paga pela solução? Para quem é que esta gera valor?',
       name: 'A sua solução é sustentável? Tem um modelo de negócios?',
       type: 'textarea',
       required: true,
@@ -201,16 +196,14 @@ Default.args = {
     {
       id: 'input-17',
       help: '',
-      name:
-        'Tem necessidades de financiamento no seu projeto? Especifique montantes e onde pretende aplicar os recursos financeiros.',
+      name: 'Tem necessidades de financiamento no seu projeto? Especifique montantes e onde pretende aplicar os recursos financeiros.',
       type: 'textarea',
       required: true,
     },
     {
       id: 'input-18',
       help: '',
-      name:
-        'Tem necessidades de trabalho voluntariado /pró-bono no seu projecto? Indique em que áreas, para que funções e durante quanto tempo.',
+      name: 'Tem necessidades de trabalho voluntariado /pró-bono no seu projecto? Indique em que áreas, para que funções e durante quanto tempo.',
       type: 'textarea',
       required: true,
     },

@@ -1,3 +1,4 @@
+import React from 'react';
 import SliderImagesLightbox from './SliderImagesLightbox';
 
 export default {
@@ -34,8 +35,7 @@ Default.args = {
       thumbs: {
         detail:
           'https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-DETAIL.jpeg',
-        pin:
-          'https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-PIN.jpeg',
+        pin: 'https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-PIN.jpeg',
         standard:
           'https://cdn.testesolidar.com/companies/1/campaigns/88c86ff0-58e7-4cb3-9700-84dbb5a02723-STANDARD.jpeg',
         thumb:

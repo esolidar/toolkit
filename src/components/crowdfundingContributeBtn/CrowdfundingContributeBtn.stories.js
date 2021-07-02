@@ -1,3 +1,4 @@
+import React from 'react';
 import CrowdfundingContributeBtn from './CrowdfundingContributeBtn';
 
 export default {
