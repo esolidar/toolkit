@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 
@@ -9,7 +10,7 @@ const Default = composeStory(DefaultStory, Meta);
 
 it('render elements correctly', () => {
   const { getByAltText, getByTestId, getByText } = render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <Default />
     </IntlProvider>
   );

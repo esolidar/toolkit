@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import ProjectDetailInfo from '../index';
+import ods from '../../../../__mocks__/ods';
 
 describe('ProjectDetailInfo component', () => {
   it('renders ProjectDetailInfo correctly', () => {
@@ -21,7 +23,7 @@ describe('ProjectDetailInfo component', () => {
           standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
-      ods: [1, 4, 6, 9, 11, 12, 17],
+      ods: [ods],
       cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -29,6 +31,7 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
+          position: 1,
           type: 'title',
           name: 'asdasd',
         },
@@ -52,7 +55,7 @@ describe('ProjectDetailInfo component', () => {
         },
       ],
     };
-    const component = shallow(<ProjectDetailInfo project={project} />);
+    const component = shallow(<ProjectDetailInfo project={project} lang="en" />);
     expect(component).toHaveLength(1);
   });
 
@@ -71,7 +74,7 @@ describe('ProjectDetailInfo component', () => {
           standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
-      ods: [1, 4, 6, 9, 11, 12, 17],
+      ods: [ods],
       cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -79,10 +82,12 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
+          position: 1,
           type: 'title',
           name: 'asdasd',
         },
         {
+          position: 2,
           name: 'Qual o modelo de governança da sua Iniciativa?',
           type: 'textarea',
           fixed: true,
@@ -90,6 +95,7 @@ describe('ProjectDetailInfo component', () => {
           reply: '',
         },
         {
+          position: 3,
           name: 'Entidade Associada',
           help: '',
           type: 'input',
@@ -97,6 +103,7 @@ describe('ProjectDetailInfo component', () => {
           reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         },
         {
+          position: 4,
           name: 'A sua solução gera impacto?',
           help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
@@ -104,6 +111,7 @@ describe('ProjectDetailInfo component', () => {
           reply: '',
         },
         {
+          position: 5,
           name: 'A sua solução gera impacto?',
           help: 'Quem beneficia com a sua solução? Quais os efeitos…nefícios da sua solução e como os pretende medir?',
           type: 'textarea',
@@ -131,7 +139,7 @@ describe('ProjectDetailInfo component', () => {
         },
       ],
     };
-    const component = shallow(<ProjectDetailInfo project={project} />);
+    const component = shallow(<ProjectDetailInfo project={project} lang="en" />);
     expect(component.find('Question').length).toBe(project.form.length);
   });
 
@@ -150,7 +158,7 @@ describe('ProjectDetailInfo component', () => {
           standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
-      ods: [1, 4, 6, 9, 11, 12, 17],
+      ods: [ods],
       cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -158,6 +166,7 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
+          position: 1,
           name: 'Qual o modelo de governança da sua Iniciativa?',
           type: 'title',
           fixed: true,
@@ -166,6 +175,7 @@ describe('ProjectDetailInfo component', () => {
           isPrivate: true,
         },
         {
+          position: 2,
           name: 'Qual o modelo de governança da sua Iniciativa?',
           type: 'title',
           fixed: true,
@@ -194,8 +204,8 @@ describe('ProjectDetailInfo component', () => {
       ],
     };
     const component = mount(
-      <IntlProvider locale="en">
-        <ProjectDetailInfo project={project} />
+      <IntlProvider locale="en" messages={translation}>
+        <ProjectDetailInfo project={project} lang="en" />
       </IntlProvider>
     );
     expect(component.find('PrivateIcon').length).toBe(1);
@@ -216,7 +226,7 @@ describe('ProjectDetailInfo component', () => {
           standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
-      ods: [1, 4, 6, 9, 11, 12, 17],
+      ods: [ods],
       cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -224,6 +234,7 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
+          position: 1,
           name: 'Qual o modelo de governança da sua Iniciativa?',
           type: 'ods',
           fixed: true,
@@ -252,8 +263,8 @@ describe('ProjectDetailInfo component', () => {
       ],
     };
     const component = mount(
-      <IntlProvider locale="en">
-        <ProjectDetailInfo project={project} showRequestInfoView={true} />
+      <IntlProvider locale="en" messages={translation}>
+        <ProjectDetailInfo project={project} showRequestInfoView={true} lang="en" />
       </IntlProvider>
     );
     expect(component.find('CheckboxField').length).toBe(1);
@@ -274,7 +285,7 @@ describe('ProjectDetailInfo component', () => {
           standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
         },
       },
-      ods: [1, 4, 6, 9, 11, 12, 17],
+      ods: [ods],
       cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
       title: 'Criação de um canil comunitário para o Bairro do Aleixo',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -282,6 +293,7 @@ describe('ProjectDetailInfo component', () => {
       uuid: '123',
       form: [
         {
+          position: 1,
           name: 'Qual o modelo de governança da sua Iniciativa?',
           type: 'ods',
           fixed: true,
@@ -311,8 +323,8 @@ describe('ProjectDetailInfo component', () => {
       ],
     };
     const component = mount(
-      <IntlProvider locale="en">
-        <ProjectDetailInfo project={project} showRequestInfoView={true} />
+      <IntlProvider locale="en" messages={translation}>
+        <ProjectDetailInfo project={project} showRequestInfoView={true} lang="en" />
       </IntlProvider>
     );
     expect(component.find('TextareaField').length).toBe(1);

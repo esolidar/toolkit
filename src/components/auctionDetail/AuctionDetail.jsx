@@ -111,7 +111,7 @@ const AuctionDetail = ({
   const [privateCode, setPrivateCode] = useState('');
   const [errorPrivateCode, setErrorPrivateCode] = useState('');
   const [accessAuction, setAccessAuction] = useState(false);
-  const [auctionDetailInfo, setAuctionDetailInfo] = useState({});
+  const [auctionDetailInfo, setAuctionDetailInfo] = React.useState({});
   const [isLoadingAuction, setIsLoadingAuction] = useState(true);
 
   // Subscribe
@@ -1095,7 +1095,7 @@ const AuctionDetail = ({
                   postAsCompany={postAuctionCompanyComment}
                   loadingNewComment={loadingNewComment}
                   thumb={thumb}
-                  env={env}
+                  env={env.cdn_static_url}
                 />
                 <Comments
                   requireLogin={requireLogin}

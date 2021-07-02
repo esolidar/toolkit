@@ -10,6 +10,7 @@ const project = {
   description: 'Project 4',
   cover: null,
   title: 'Project 4',
+  status: 'approved',
   user_id: 51803,
   review_average: null,
   whitelabel_config: {

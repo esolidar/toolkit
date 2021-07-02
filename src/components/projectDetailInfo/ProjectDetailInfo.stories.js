@@ -28,7 +28,18 @@ Default.args = {
         standard: 'https://cdn.testesolidar.com/users/9/9-STANDARD.jpg',
       },
     },
-    ods: [1, 4, 6, 9, 11, 12, 17],
+    ods: [
+      {
+        created_at: '2020-02-17 16:44:02',
+        id: 2,
+        laravel_through_key: 85,
+        name: '2-ods-2',
+        ods_id: 2,
+        status: true,
+        tag_name: 'ods-2',
+        updated_at: '2020-02-17 16:44:12',
+      },
+    ],
     cover: 'feed/3f4b8396-c5bd-4c09-bb1f-f0738036e998-DETAIL.jpg',
     title: 'Criação de um canil comunitário para o Bairro do Aleixo',
     description:
@@ -40,6 +51,7 @@ Default.args = {
         type: 'title',
         name: 'asdasd',
       },
+      { id: 'input-4', name: 'ODS', type: 'ods', fixed: true, position: 3 },
       {
         id: 'input-10',
         isPrivate: true,
@@ -153,4 +165,6 @@ Default.args = {
     requestInfoErrors: [0, 3],
   },
   color: '#04C7E5',
+  lang: 'en',
+  staticUrl: 'https://static.esolidar.com',
 };

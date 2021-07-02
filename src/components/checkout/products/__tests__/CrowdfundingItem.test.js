@@ -80,7 +80,7 @@ const item = {
   amount: 10,
   quantity: 1,
   extra: {
-    hidden: '1',
+    hidden: 1,
     message: 'Message text',
     checked: 1,
   },
