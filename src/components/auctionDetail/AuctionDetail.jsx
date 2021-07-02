@@ -1095,7 +1095,7 @@ const AuctionDetail = ({
                   postAsCompany={postAuctionCompanyComment}
                   loadingNewComment={loadingNewComment}
                   thumb={thumb}
-                  env={env}
+                  env={env.cdn_static_url}
                 />
                 <Comments
                   requireLogin={requireLogin}

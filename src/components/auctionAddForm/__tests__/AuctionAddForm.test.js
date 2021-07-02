@@ -79,7 +79,7 @@ const props = {
 };
 
 const propsEdit = {
-  auctionId: 287,
+  auctionId: '287',
   loadingPage: false,
   action: 'edit',
   institutions: {},
