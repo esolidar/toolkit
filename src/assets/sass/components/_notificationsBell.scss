@@ -4,6 +4,7 @@ $mobile-width: 260px;
 
 .notification-box {
   padding: calc(#{$distance-1} / 2);
+  @include thin-scroll-bar();
 
   .notification-icon {
     border: none;
@@ -103,11 +104,28 @@ $mobile-width: 260px;
       max-height: $desktop-height;
 
       @media (min-width: map-get($breakpoints, lg)) {
-        height: $desktop-height;
+        max-height: $desktop-height;
       }
 
       @media (max-width: map-get($breakpoints, xs)) {
         width: calc(#{$mobile-width} - 2px);
+      }
+
+      .no-notifications {
+        padding: $distance-1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .img {
+          margin: $distance-2;
+          width: 80px;
+          height: auto;
+        }
+
+        .text {
+          color: map-get($main-text-colors, dark);
+        }
       }
 
       .notification-row {

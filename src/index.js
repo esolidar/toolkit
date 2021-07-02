@@ -87,6 +87,7 @@ export { default as TextFieldNumber } from './elements/textFieldNumber';
 export { default as InputLabel } from './elements/inputLabel';
 export { default as Tabs } from './elements/tabs';
 export { default as ProgressBar } from './elements/progressBar';
+export { default as Pagination } from './elements/pagination';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';

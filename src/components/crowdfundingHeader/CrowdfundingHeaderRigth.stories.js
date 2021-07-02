@@ -202,4 +202,5 @@ Default.args = {
   },
   errorMsgRequired: 'Value is required.',
   errorMsgAmount: '',
+  textBtnDonate: 'Donate',
 };

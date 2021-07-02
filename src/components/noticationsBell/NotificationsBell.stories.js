@@ -15,6 +15,7 @@ const Template = args => (
 export const Business = Template.bind({});
 export const Community = Template.bind({});
 export const NoUnreadNotifications = Template.bind({});
+export const EmptyState = Template.bind({});
 
 Business.parameters = {
   jest: ['NotificationsBell.test.js'],
@@ -118,6 +119,7 @@ Community.args = {
   loadMoreFunc: () => console.log(''),
   hasMoreToLoad: false,
   markAsReadFunc: () => console.log(''),
+  showMarkAllAsReadBtn: false,
 };
 
 NoUnreadNotifications.parameters = {
@@ -164,6 +166,22 @@ NoUnreadNotifications.args = {
       notification_user_id: null,
     },
   ],
+  loadMoreFunc: () => console.log(''),
+  hasMoreToLoad: false,
+  markAsReadFunc: () => console.log(''),
+};
+
+EmptyState.parameters = {
+  jest: ['NoNotifications.test.js'],
+};
+EmptyState.args = {
+  notificationsHeadTitle: 'Notificações',
+  totalNotifications: '20',
+  onToggle: () => console.log(''),
+  markAllAsReadTitle: 'Marcar todas como lidas',
+  markAllAsReadFunc: () => console.log(''),
+  handleScrollFunc: () => console.log(''),
+  notifications: [],
   loadMoreFunc: () => console.log(''),
   hasMoreToLoad: false,
   markAsReadFunc: () => console.log(''),

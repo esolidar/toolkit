@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import AuctionSupport from '../AuctionSupport';
@@ -44,7 +45,7 @@ afterAll(() => {
 
 test('should exist section supported with thumb, name, description and button', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionSupport {...propsAuctionSupport} />
     </IntlProvider>
   );

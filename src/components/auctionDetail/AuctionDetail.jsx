@@ -27,6 +27,7 @@ import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
 import isEmpty from '../../utils/isEmpty';
 import ValidateTelephone from '../validateTelephone';
+import SupportBox from '../supportBox';
 
 const AuctionDetail = ({
   auctionId,
@@ -110,7 +111,7 @@ const AuctionDetail = ({
   const [privateCode, setPrivateCode] = useState('');
   const [errorPrivateCode, setErrorPrivateCode] = useState('');
   const [accessAuction, setAccessAuction] = useState(false);
-  const [auctionDetailInfo, setAuctionDetailInfo] = useState({});
+  const [auctionDetailInfo, setAuctionDetailInfo] = React.useState({});
   const [isLoadingAuction, setIsLoadingAuction] = useState(true);
 
   // Subscribe
@@ -366,7 +367,7 @@ const AuctionDetail = ({
       } else {
         const arrayIndx = comments.findIndex(o => o.id === auctionUserComment.data.comment_id);
         const repliesArray = comments[arrayIndx].replies || [];
-        comments[arrayIndx].replies = [...auctionUserComment.data, ...repliesArray];
+        comments[arrayIndx].replies = [...newComment, ...repliesArray];
         comments[arrayIndx].totalReplies = comments[arrayIndx].replies.length;
         setComments(comments);
         setLoadingPostReply(false);
@@ -1094,7 +1095,7 @@ const AuctionDetail = ({
                   postAsCompany={postAuctionCompanyComment}
                   loadingNewComment={loadingNewComment}
                   thumb={thumb}
-                  env={env}
+                  env={env.cdn_static_url}
                 />
                 <Comments
                   requireLogin={requireLogin}
@@ -1145,6 +1146,11 @@ const AuctionDetail = ({
                 </Row>
               )}
             </Col>
+            {!auctionDetailInfo.project && (
+              <Col sm={12} md={12} lg={{ span: 10, offset: 1 }} className="mt-3">
+                <SupportBox campaign={auctionDetailInfo.recipient} communityUrl={domainUrl} />
+              </Col>
+            )}
           </Row>
           {listAuctions.length > 0 && (
             <AuctionsList

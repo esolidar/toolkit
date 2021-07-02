@@ -21,7 +21,7 @@ const Survey = ({
   isLoading,
   disabledText,
 }) => (
-  <Col sm={9} className="survey">
+  <Col sm={12} lg={9} className="survey">
     {status === 'A' && (
       <Col sm={12}>
         <div className="box survey-form-title">

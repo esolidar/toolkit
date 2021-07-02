@@ -24,4 +24,5 @@ Default.args = {
       id: 1,
     },
   },
+  communityUrl: 'https://community.testesolidar.com/',
 };
