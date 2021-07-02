@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, screen } from '@testing-library/react';
 import { composeStory } from '@storybook/testing-react';
 import { IntlProvider } from 'react-intl';
@@ -10,7 +11,7 @@ const WithoutPaginationComponent = composeStory(WithoutPagination, Meta);
 
 it('renders Pagination with arrow type 0', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <WithArrowType0Component />
     </IntlProvider>
   );
@@ -27,7 +28,7 @@ it('renders Pagination with arrow type 0', () => {
 
 it('renders Pagination with arrow type 1', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <WithArrowType1Component />
     </IntlProvider>
   );
@@ -44,7 +45,7 @@ it('renders Pagination with arrow type 1', () => {
 
 it('Without Pagination', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <WithoutPaginationComponent />
     </IntlProvider>
   );

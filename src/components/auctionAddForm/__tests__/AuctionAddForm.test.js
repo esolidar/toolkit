@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import AuctionAddForm from '../AuctionAddForm';
@@ -172,7 +173,7 @@ afterAll(() => {
 
 test('simulate add auction form', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionAddForm {...props} />
     </IntlProvider>
   );
@@ -181,7 +182,7 @@ test('simulate add auction form', async () => {
     const btnSubmit = screen.getByTestId('btn-submit');
     const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
+    expect(auctionInformation).toHaveTextContent('Basic information');
     expect(btnSubmit).toHaveTextContent('Submit auction');
     expect(btnCancel).toHaveTextContent('Cancel');
   });
@@ -189,7 +190,7 @@ test('simulate add auction form', async () => {
 
 test('simulate edit auction form', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionAddForm {...propsEdit} />
     </IntlProvider>
   );
@@ -200,7 +201,7 @@ test('simulate edit auction form', async () => {
     const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('auctions.add.form.title');
+    expect(auctionInformation).toHaveTextContent('Basic information');
     expect(btnSubmit).toHaveTextContent('Update auction');
     expect(btnCancel).toHaveTextContent('Cancel');
   });

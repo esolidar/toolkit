@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, waitFor, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
@@ -55,7 +56,7 @@ const propsNationalBankAccount = {
 
 test('simulate bank account', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsWithoutBankAccount} />
     </IntlProvider>
   );
@@ -69,7 +70,7 @@ test('simulate bank account', async () => {
     expect(internationalAccountTitle).toBeInTheDocument();
     expect(accountTitle).toBeInTheDocument();
     expect(internationalAccountTitle).toHaveTextContent('International bank accounts');
-    expect(accountTitle).toHaveTextContent('Bank accounts');
+    expect(accountTitle).toHaveTextContent('Bank account');
     expect(submitButton).toBeInTheDocument();
     expect(noInternationalAccounts).toBeInTheDocument();
     expect(noNationalAccounts).toBeInTheDocument();
@@ -78,7 +79,7 @@ test('simulate bank account', async () => {
 
 test('Verify fields Brasil bank account', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsBrBankAccount} />
     </IntlProvider>
   );
@@ -100,7 +101,7 @@ test('Verify fields Brasil bank account', async () => {
 
 test('Verify fields National bank account', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsNationalBankAccount} />
     </IntlProvider>
   );
@@ -118,7 +119,7 @@ test('Verify fields National bank account', async () => {
 
 test('simulate add international bank account', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsBankAccount} />
     </IntlProvider>
   );
@@ -130,7 +131,7 @@ test('simulate add international bank account', async () => {
 
 test('simulate add national bank account', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsBankAccount} />
     </IntlProvider>
   );
@@ -142,7 +143,7 @@ test('simulate add national bank account', async () => {
 
 test('simulate add national bank account without data', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsWithoutBankAccount} />
     </IntlProvider>
   );
@@ -160,7 +161,7 @@ test('simulate add national bank account without data', async () => {
 
 test('simulate delete international bank account show modal', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsBankAccount} />
     </IntlProvider>
   );
@@ -177,7 +178,7 @@ test('simulate delete international bank account show modal', async () => {
 
 test('simulate delete natoinal bank account show modal', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <BankAccount {...propsBankAccount} />
     </IntlProvider>
   );
