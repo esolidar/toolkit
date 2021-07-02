@@ -1,5 +1,5 @@
 .goal {
-  margin-top: 30px;
+  margin-top: 3px;
   background: map-get($grays, 100);
   height: 10px;
   border-radius: 5px;
@@ -16,12 +16,21 @@
   }
 }
 
+.progress-percent-label {
+  color: map-get($neutrals, 700);
+  font-size: 12px;
+}
+
 .raised-text {
   font-size: 27px;
-  color: map-get($colors, green);
+  color: map-get($theme-colors, success);
   letter-spacing: 0;
   line-height: 39px;
   padding-top: 10px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    text-align: center;
+  }
 }
 
 .goal-text {
@@ -30,6 +39,12 @@
   letter-spacing: 0;
   line-height: 26px;
   padding-top: 20px;
+  text-align: right;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    padding-top: 5px;
+    text-align: center;
+  }
 
   .goal-span {
     padding-right: 5px;

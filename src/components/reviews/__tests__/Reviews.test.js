@@ -1,4 +1,6 @@
+import React from 'react';
 import { configure, mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider } from 'react-intl';
 import Reviews from '../index';
@@ -470,7 +472,7 @@ describe('Reviews component', () => {
 
   it('renders edit review form if "showEditReviewForm" is true', () => {
     const component = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <Reviews {...props} showEditReviewForm={true} />
       </IntlProvider>
     );

@@ -1,9 +1,10 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import Pagination from 'react-js-pagination';
 import { FormattedMessage } from 'react-intl';
 import Moment from 'react-moment';
+import Pagination from '../../elements/pagination';
 import Loading from '../loading';
 
 const Giftcards = ({
@@ -51,17 +52,12 @@ const Giftcards = ({
   return (
     <Row>
       {giftCardsList.length > 0 && (
-        <Col sm={12} className="text-center mobile-nopadding">
-          <Pagination
-            prevPageText={<div className="prev-page" />}
-            nextPageText={<div className="next-page" />}
-            activePage={giftCardsListActivePage}
-            itemsCountPerPage={Number(giftCardsListPerPage)}
-            totalItemsCount={giftCardsListTotal}
-            pageRangeDisplayed={5}
-            onChange={giftCardsListHandlePageChange}
-          />
-        </Col>
+        <Pagination
+          activePage={giftCardsListActivePage}
+          itemsCountPerPage={Number(giftCardsListPerPage)}
+          totalItemsCount={giftCardsListTotal}
+          onChange={giftCardsListHandlePageChange}
+        />
       )}
 
       <Col sm={12} className="mobile-nopadding">
@@ -105,17 +101,12 @@ const Giftcards = ({
           </TableHeaderColumn>
         </BootstrapTable>
       </Col>
-      <Col sm={12} className="text-center">
-        <Pagination
-          prevPageText={<div className="prev-page" />}
-          nextPageText={<div className="next-page" />}
-          activePage={activePageUsed}
-          itemsCountPerPage={Number(itemsPerPage)}
-          totalItemsCount={totalUsed}
-          pageRangeDisplayed={5}
-          onChange={handlePageChangeUsed}
-        />
-      </Col>
+      <Pagination
+        activePage={activePageUsed}
+        itemsCountPerPage={Number(itemsPerPage)}
+        totalItemsCount={totalUsed}
+        onChange={handlePageChangeUsed}
+      />
     </Row>
   );
 };

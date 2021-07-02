@@ -1,3 +1,4 @@
+import React from 'react';
 import ProjectAddForm from './ProjectAddForm';
 import variables from '../../assets/sass/_export.module.scss';
 

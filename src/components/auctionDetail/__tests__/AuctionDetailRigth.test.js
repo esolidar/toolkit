@@ -1,4 +1,6 @@
+import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
@@ -671,7 +673,7 @@ afterAll(() => {
 
 test('should exist title of auction', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigth} />
     </IntlProvider>
   );
@@ -685,7 +687,7 @@ test('should exist title of auction', async () => {
 
 test('should exist section new bid and insert value equal or higher last bid and not open Modal', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigth} />
     </IntlProvider>
   );
@@ -704,7 +706,7 @@ test('should exist section new bid and insert value equal or higher last bid and
 
 test('Insert value equal or higher last bid and open Modal', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigthWithoutErrors} />
     </IntlProvider>
   );
@@ -722,7 +724,7 @@ test('Insert value equal or higher last bid and open Modal', async () => {
 
 test('Insert value higher bid max interval ', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigth} />
     </IntlProvider>
   );
@@ -740,7 +742,7 @@ test('Insert value higher bid max interval ', async () => {
 
 test('simulate auction ended', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionEnded} />
     </IntlProvider>
   );
@@ -751,13 +753,13 @@ test('simulate auction ended', async () => {
     expect(titleEnded).toHaveTextContent('Ended');
     const messageEnded = screen.getByTestId('label-ended-message');
     expect(messageEnded).toBeInTheDocument();
-    expect(messageEnded).toHaveTextContent('This auction has ended.');
+    expect(messageEnded).toHaveTextContent('This auction is ended.');
   });
 });
 
 test('should exist section supported with thumb and name', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigth} />
     </IntlProvider>
   );
@@ -777,7 +779,7 @@ test('should exist section supported with thumb and name', async () => {
 
 test('should exist value last bid', async () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <AuctionDetailRigth {...propsAuctionDetailRigth} />
     </IntlProvider>
   );

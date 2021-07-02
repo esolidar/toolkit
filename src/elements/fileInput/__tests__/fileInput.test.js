@@ -1,4 +1,5 @@
-import { useState as useStateMock } from 'react';
+import React, { useState as useStateMock } from 'react';
+
 import { shallow } from 'enzyme';
 import FileInput from '../index';
 import { cdnStaticUrl } from '../../../constants/env';
@@ -22,7 +23,17 @@ describe('FileInput component', () => {
   });
 
   it('renders FileInput correctly', () => {
-    const wrapper = shallow(<FileInput />);
+    const wrapper = shallow(
+      <FileInput
+        name="logo_image"
+        accept=".png,.jpg,.jpeg"
+        disabled=""
+        placeholder=""
+        value=""
+        handleChange={() => {}}
+        styleLogo={{ 'background-image': `url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)` }}
+      />
+    );
     expect(wrapper).toHaveLength(1);
   });
 
@@ -35,7 +46,7 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo={`background-image: url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}
+        styleLogo={{ 'background-image': `url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)` }}
       />
     );
     expect(wrapper.find('.company-thumb-logo')).toHaveLength(1);
@@ -50,7 +61,7 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo={`background-image: url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)`}
+        styleLogo={{ 'background-image': `url(${cdnStaticUrl}/frontend/assets/brand-logo.jpg)` }}
       />
     );
     expect(wrapper.find('.company-thumb-cover')).toHaveLength(1);
@@ -65,7 +76,6 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo=""
       />
     );
     expect(wrapper.find('.company-thumb-cover')).toHaveLength(1);
@@ -80,7 +90,6 @@ describe('FileInput component', () => {
         placeholder=""
         value=""
         handleChange={() => {}}
-        styleLogo=""
       />
     );
     expect(wrapper.find('.input-image').at(1).is('[disabled]')).toBe(true);
@@ -100,7 +109,6 @@ describe('FileInput component', () => {
         disabled="disabled"
         placeholder=""
         onChange={changed}
-        styleLogo=""
       />
     );
     wrapper.find('input[name="logo_image"]').props().onChange(event);
@@ -121,7 +129,6 @@ describe('FileInput component', () => {
         disabled="disabled"
         placeholder=""
         onChange={changed}
-        styleLogo=""
       />
     );
     wrapper.find('input[name="logo_image"]').props().onChange(event);

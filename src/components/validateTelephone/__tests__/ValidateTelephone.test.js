@@ -1,4 +1,6 @@
+import React from 'react';
 import '@testing-library/jest-dom';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import ValidateTelephone from '../index';
@@ -6,9 +8,9 @@ import ValidateTelephone from '../index';
 const propsWithoutValidatePhone = {
   localStorage: {
     lang: 'pt',
-    user: {
+    user: JSON.stringify({
       id: '51792',
-    },
+    }),
   },
   validatePhone: {
     code: 200,
@@ -44,7 +46,7 @@ beforeAll(() => {
 
 test('should render component ValidateTelephone and verify if exist input', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <ValidateTelephone {...propsWithoutValidatePhone} />
     </IntlProvider>
   );
@@ -54,7 +56,7 @@ test('should render component ValidateTelephone and verify if exist input', () =
 
 test('Should exist Validate button, insert phone number and appear box confirm code', () => {
   render(
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={translation}>
       <ValidateTelephone {...propsWithoutValidatePhone} />
     </IntlProvider>
   );

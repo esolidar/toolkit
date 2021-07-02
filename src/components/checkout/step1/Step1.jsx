@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
@@ -7,7 +8,6 @@ import CrowdfundingItem from '../products/CrowdfundingItem';
 const Step1 = props => {
   const {
     env,
-
     state,
     nextStep,
     onChangeMessage,
@@ -35,6 +35,7 @@ const Step1 = props => {
                   removeCartItem={removeCartItem}
                   onAddToCheckout={onAddToCheckout}
                   env={env}
+                  totalItems={cartItems.length}
                 />
               </div>
             </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { advanceTo } from 'jest-date-mock';
@@ -5,6 +6,8 @@ import CrowdfundingContributeBtn from '../index';
 
 jest.useFakeTimers();
 configure({ adapter: new Adapter() });
+
+jest.mock('react-ga');
 
 const propsCampaign = {
   id: 44,
@@ -146,20 +149,48 @@ const propsCampaign = {
   projects: [],
 };
 
+const cart = {
+  products: [
+    {
+      currency: {
+        id: 1,
+        name: 'Euro',
+        small: 'EUR',
+        value: '1.172',
+        symbol: '€',
+        status: true,
+        lastUpdate: '2020-10-15 12:00:11',
+      },
+      id: 48,
+      campaign: propsCampaign,
+      type: 'crowdfunding',
+      amount: 10,
+      quantity: 1,
+      extra: { hidden: 0, message: '', checked: 1 },
+    },
+  ],
+};
+
 describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper).toHaveLength(1);
   });
 
   it('should exist input donation', () => {
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper.find('TextField')).toHaveLength(1);
   });
 
   it('should input and button disable - soon', () => {
     advanceTo(new Date(2020, 1, 1, 0, 0, 0));
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper.state('countDownStatus')).toEqual('soon');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
     expect(wrapper.find('Button').prop('disabled')).toBe(true);
@@ -167,7 +198,9 @@ describe('CrowdfundingHeader', () => {
 
   it('should input and button disable - running', () => {
     advanceTo(new Date(2020, 7, 1, 0, 0, 0));
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper.state('countDownStatus')).toEqual('running');
     expect(wrapper.find('TextField').prop('disabled')).toBe(false);
     expect(wrapper.find('Button').prop('disabled')).toBe(false);
@@ -175,14 +208,112 @@ describe('CrowdfundingHeader', () => {
 
   it('should input and button disable - ended', () => {
     advanceTo(new Date(2021, 1, 1, 0, 0, 0));
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper.state('countDownStatus')).toEqual('ended');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
     expect(wrapper.find('Button').prop('disabled')).toBe(true);
   });
 
   it('should exist button donate', () => {
-    const wrapper = shallow(<CrowdfundingContributeBtn campaign={propsCampaign} />);
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
+    );
     expect(wrapper.find('Button').length).toBe(1);
+  });
+
+  it('should call checkoutContribution without value', () => {
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+        textBtnDonate="text"
+        errorMsgRequired="This field is required"
+      />
+    );
+
+    wrapper.instance().checkoutContribution();
+    expect(localStorage.getItem('order')).toEqual(null);
+    expect(wrapper.state('errors').value).toEqual('This field is required');
+  });
+
+  it('should call checkoutContribution with minimun less than value', () => {
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+        textBtnDonate="text"
+        errorMsgAmount="Value should be at lest "
+      />
+    );
+
+    wrapper.setState({
+      value: 1,
+    });
+    wrapper.instance().checkoutContribution();
+    expect(localStorage.getItem('order')).toEqual(null);
+    expect(wrapper.state('errors').value).toEqual(
+      `Value should be at lest ${propsCampaign.currency.symbol}${propsCampaign.minimum_contribution}`
+    );
+  });
+
+  it('should call checkoutContribution with correct value without other cart items', () => {
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+        textBtnDonate="text"
+        errorMsgAmount="Value should be at lest "
+      />
+    );
+
+    wrapper.setState({
+      value: 10,
+    });
+    wrapper.instance().checkoutContribution();
+    expect(localStorage.getItem('order')).toEqual(JSON.stringify(cart));
+    expect(wrapper.state('isLoadingButton')).toBe(true);
+  });
+
+  it('should call checkoutContribution with correct value and localstorage products empty', () => {
+    const newCart = { products: [] };
+    localStorage.setItem('order', JSON.stringify(newCart));
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+        textBtnDonate="text"
+        errorMsgAmount="Value should be at lest "
+      />
+    );
+
+    wrapper.setState({
+      value: 10,
+    });
+    wrapper.instance().checkoutContribution();
+    expect(localStorage.getItem('order')).toEqual(JSON.stringify(cart));
+    expect(wrapper.state('isLoadingButton')).toBe(true);
+  });
+
+  it('should call checkoutContribution with correct value and localstorage products filled', () => {
+    const newCart = {
+      products: [
+        {
+          id: 2,
+        },
+      ],
+    };
+    localStorage.setItem('order', JSON.stringify(newCart));
+    const wrapper = shallow(
+      <CrowdfundingContributeBtn
+        campaign={propsCampaign}
+        textBtnDonate="text"
+        errorMsgAmount="Value should be at lest "
+      />
+    );
+
+    wrapper.setState({
+      value: 10,
+    });
+    wrapper.instance().checkoutContribution();
+    expect(localStorage.getItem('order')).toEqual(JSON.stringify(cart));
+    expect(wrapper.state('isLoadingButton')).toBe(true);
   });
 });

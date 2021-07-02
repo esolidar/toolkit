@@ -1,3 +1,4 @@
+import React from 'react';
 import RequestDetailInfo from './RequestDetailInfo';
 
 export default {

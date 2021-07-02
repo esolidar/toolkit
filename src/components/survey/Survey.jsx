@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 import FormQuestionsGenerator from '../formQuestionsGenerator';
@@ -20,7 +21,7 @@ const Survey = ({
   isLoading,
   disabledText,
 }) => (
-  <Col sm={9} className="survey">
+  <Col sm={12} lg={9} className="survey">
     {status === 'A' && (
       <Col sm={12}>
         <div className="box survey-form-title">

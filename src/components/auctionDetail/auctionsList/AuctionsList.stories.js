@@ -1,3 +1,4 @@
+import React from 'react';
 import AuctionsList from './AuctionsList';
 
 export default {

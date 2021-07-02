@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import sortBy from '../../utils/sortBy';
 import Icon from '../icon/Icon';
 
-const FeaturesMenu = ({ location, translations, features, project, extraMenuLinks }) => {
+const FeaturesMenu = ({ location, translations, features, project, extraMenuLinks, locale }) => {
   const [user, setUser] = useState({});
   const [companyId, setCompanyId] = useState(null);
   useEffect(() => {
@@ -22,9 +23,13 @@ const FeaturesMenu = ({ location, translations, features, project, extraMenuLink
     <>
       {links.map((link, index) => {
         return (
-          <li key={index}>
+          <li key={index} className={link.liClasses}>
             {link.url ? (
-              <a href={link.url} title={link.text} target={link.target}>
+              <a
+                href={locale ? `/${locale}${link.url}` : link.url}
+                title={link.text}
+                target={link.target}
+              >
                 {(
                   typeof window !== 'undefined' && link.iconItem
                     ? localStorage.getItem('fixedBar')
@@ -659,7 +664,7 @@ const FeaturesMenu = ({ location, translations, features, project, extraMenuLink
                   : ''
               }
             >
-              <a href={`${item.pageRoute}`}>
+              <a href={locale ? `/${locale}${item.pageRoute}` : `${item.pageRoute}`}>
                 {(typeof window !== 'undefined' ? localStorage.getItem('fixedBar') : false) ? (
                   <OverlayTrigger
                     key={item.position}
@@ -703,6 +708,8 @@ FeaturesMenu.propTypes = {
       url: PropTypes.string,
       target: PropTypes.string,
       iconItem: PropTypes.string,
+      liClasses: PropTypes.string,
     })
   ),
+  locale: PropTypes.string,
 };

@@ -1,3 +1,4 @@
+import React from 'react';
 import TicketsForm from './TicketsForm';
 
 export default {

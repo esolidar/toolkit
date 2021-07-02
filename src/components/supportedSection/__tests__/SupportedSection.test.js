@@ -1,4 +1,6 @@
+import React from 'react';
 import { configure, mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider, FormattedMessage } from 'react-intl';
 import SupportedSection from '../index';
@@ -21,7 +23,7 @@ const props = {
 describe('SupportedSection', () => {
   it('renders without crashing', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <SupportedSection {...props} />
       </IntlProvider>
     );

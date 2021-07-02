@@ -1,4 +1,6 @@
+import React from 'react';
 import { shallow } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -38,18 +40,18 @@ describe('ChangeProfileUserImage component', () => {
 
   it('should exist title', () => {
     render(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );
 
     const title = screen.getByTestId('title-change-profile-user-image');
-    expect(title).toHaveTextContent('About you');
+    expect(title).toHaveTextContent('Profile');
   });
 
   it('should exist image', () => {
     render(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );
@@ -63,7 +65,7 @@ describe('ChangeProfileUserImage component', () => {
 
   it('should appear no image', () => {
     render(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <ChangeProfileUserImage {...propsWithoutImage} />
       </IntlProvider>
     );
@@ -77,7 +79,7 @@ describe('ChangeProfileUserImage component', () => {
 
   it('should exist button', () => {
     render(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <ChangeProfileUserImage {...props} />
       </IntlProvider>
     );

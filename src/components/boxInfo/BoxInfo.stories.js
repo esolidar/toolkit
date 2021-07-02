@@ -1,4 +1,6 @@
+import React from 'react';
 import BoxInfo from './BoxInfo';
+import Button from '../../elements/button';
 
 export default {
   title: 'Components/BoxInfo',
@@ -13,9 +15,5 @@ Default.parameters = {
 };
 Default.args = {
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor ornare enim bibendum consequat. Proin dictum malesuada mollis. Donec pellentesque lacus non purus tincidunt, a sagittis massa molestie. Morbi varius vulputate ex vel accumsan.',
-  button: {
-    style: 'success',
-    text: 'Action button',
-    onClick: '#',
-  },
+  button: <Button extraClass="success-full" text="Action button" onClick={() => {}} />,
 };

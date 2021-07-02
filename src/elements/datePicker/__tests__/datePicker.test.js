@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import { advanceTo } from 'jest-date-mock';
 import DatePicker from '../index';
@@ -20,7 +21,7 @@ const props = {
 
 describe('DatePicker component', () => {
   it('renders DatePicker correctly', () => {
-    const wrapper = shallow(<DatePicker />);
+    const wrapper = shallow(<DatePicker {...props} />);
     expect(wrapper).toHaveLength(1);
   });
 

@@ -1,4 +1,5 @@
-import { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
+
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, useIntl } from 'react-intl';

@@ -109,3 +109,81 @@
   -moz-box-shadow: $shadow;
   box-shadow: $shadow;
 }
+
+@mixin dropdown-arrow-before($left: 91%, $left-xs: 79%) {
+  bottom: 100%;
+  left: $left;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(199, 199, 199, 0);
+  border-bottom-color: #c7c7c7;
+  border-width: 11px;
+  margin-left: -11px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    left: $left-xs;
+  }
+}
+
+@mixin dropdown-arrow-after($left: 91%, $left-xs: 79%) {
+  bottom: 100%;
+  left: $left;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: map-get($colors, white);
+  border-width: 10px;
+  margin-left: -10px;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    left: $left-xs;
+  }
+}
+
+@mixin thin-scroll-bar() {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #9f9f9f;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #858585;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #6a6a6a;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: #e8e8e8;
+  }
+
+  ::-webkit-scrollbar-track:active {
+    background: #c8c8c8;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}

@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import React from 'react';
 import { shallow } from 'enzyme';
 import RequestDetailThumb from '../index';
 
@@ -13,9 +14,9 @@ const requestWithoutPivot = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet justo eget turpis sagittis tempus. Cras dapibus est eget tempus pulvinar. Donec quam mauris, pulvinar ac pulvinar at, gravida a ipsum. Aenean pretium augue sit amet laoreet cursus. Phasellus bibendum, leo nec gravida finibus, quam erat ornare orci, eu tincidunt tortor leo nec tellus. Aliquam accumsan quis erat a dapibus. Nullam a porttitor ligula, id feugiat ligula. Maecenas sed lacus ante. Nullam convallis mi vitae ex consectetur posuere. Phasellus lacinia nulla non tempor aliquet. Nam enim erat, ultrices fringilla orci eu, mollis convallis arcu. Nulla congue nulla dui.\n\nNullam semper placerat dignissim. In ultrices dolor id metus ultricies, quis congue nulla lacinia. Quisque ante lectus, imperdiet vitae consequat at, hendrerit a nunc. Vivamus gravida eu lorem quis convallis. Maecenas lacinia metus in aliquam suscipit. Sed tellus neque, lobortis in consequat ac, sagittis id justo. Pellentesque vestibulum nulla nisi, id mattis orci vehicula eget. Nulla blandit velit sem, et placerat eros cursus sit amet. Phasellus et ullamcorper ligula, quis auctor libero. Integer vel neque ultricies, efficitur augue non, rutrum felis. Pellentesque sit amet semper dolor. Proin at ligula in magna ullamcorper ultricies quis et erat. Etiam id accumsan lacus. Sed luctus gravida lectus. Nulla scelerisque pretium tortor, sit amet suscipit arcu rutrum in. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
   detail:
     'Nullam semper placerat dignissim. In ultrices dolor id metus ultricies, quis congue nulla lacinia. Quisque ante lectus, imperdiet vitae consequat at, hendrerit a nunc. Vivamus gravida eu lorem quis convallis. Maecenas lacinia metus in aliquam suscipit. Sed tellus neque, lobortis in consequat ac, sagittis id justo. Pellentesque vestibulum nulla nisi, id mattis orci vehicula eget. Nulla blandit velit sem, et placerat eros cursus sit amet. Phasellus et ullamcorper ligula, quis auctor libero. Integer vel neque ultricies, efficitur augue non, rutrum felis. Pellentesque sit amet semper dolor. Proin at ligula in magna ullamcorper ultricies quis et erat. Etiam id accumsan lacus. Sed luctus gravida lectus. Nulla scelerisque pretium tortor, sit amet suscipit arcu rutrum in. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;',
-  local: '',
-  local_latitude: '',
-  local_longitude: '',
+  local: 'Braga',
+  local_latitude: '0',
+  local_longitude: '0',
   responsible_contact: 'joel',
   start_date: '2019-12-27 00:00:00',
   end_date: '2020-03-31 00:00:00',
@@ -201,10 +202,35 @@ const requestWithoutPivot = {
 };
 
 describe('RequestDetailThumb component', () => {
-  it('renders RequestDetailThumb correctly', () => {
+  it('renders RequestDetailThumb correctly with status A', () => {
     const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
+
     expect(component).toHaveLength(1);
     expect(component.find('Button').length).toBe(2);
+    expect(component.find('LightboxGallery').length).toBe(1);
+  });
+
+  it('renders RequestDetailThumb correctly with status P', () => {
+    requestWithoutPivot.pivot.status = 'P';
+    const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
+
+    expect(component.find('Button').length).toBe(0);
+    expect(component.find('LightboxGallery').length).toBe(1);
+  });
+
+  it('renders RequestDetailThumb correctly with status F', () => {
+    requestWithoutPivot.pivot.status = 'F';
+    const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
+
+    expect(component.find('Button').length).toBe(1);
+    expect(component.find('LightboxGallery').length).toBe(1);
+  });
+
+  it('renders RequestDetailThumb correctly with status D', () => {
+    requestWithoutPivot.pivot.status = 'D';
+    const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
+
+    expect(component.find('Button').length).toBe(0);
     expect(component.find('LightboxGallery').length).toBe(1);
   });
 });

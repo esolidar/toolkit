@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
@@ -170,7 +171,7 @@ const AuctionDetailRigth = ({
               </Col>
               <Col sm={12} className="subscribe-auction mt-5">
                 <Button
-                  extraClass="link"
+                  extraClass="link text-left"
                   onClick={showModalSubscribe}
                   text={useIntl().formatMessage({
                     id: 'auction.detail.subscribeAuction',

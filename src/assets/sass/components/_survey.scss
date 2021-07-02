@@ -55,7 +55,7 @@
     input[type='radio']:hover + h3 {
       background-color: map-get($main-text-colors, dark);
       font-size: 14px;
-      color: white;
+      color: white !important;
       font-weight: bold;
       border: none;
     }

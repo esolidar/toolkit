@@ -1,47 +1,19 @@
+import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import FeaturesMenu from '../index';
+import features from '../../../../__mocks__/features';
+import company from '../../../../__mocks__/company';
 
 configure({ adapter: new Adapter() });
 
-const features = [
-  {
-    id: 1,
-    name: 'feed',
-    name_en: null,
-    description: null,
-    status: true,
-    description_en: null,
-    updated_at: '2019-10-25 11:07:12',
-    created_at: '2019-09-12 14:09:33',
-    pivot: {
-      subscription_id: 1,
-      feature_id: 1,
-      hide: 0,
-    },
-  },
-  {
-    id: 2,
-    name: 'auctions',
-    name_en: null,
-    description: null,
-    status: true,
-    description_en: null,
-    updated_at: '2019-10-25 11:07:20',
-    created_at: '2019-09-18 11:57:37',
-    pivot: {
-      subscription_id: 1,
-      feature_id: 2,
-      hide: 0,
-    },
-  },
-];
 const extraMenuLinks = [
   {
     text: 'Central de ajuda',
     url: 'https://help.esolidar.com',
     target: '_blank',
     iconItem: 'icon feed',
+    liClasses: '',
   },
 ];
 const project = 'business-frontend';
@@ -71,16 +43,53 @@ describe('FeaturesMenu page', () => {
     expect(component).toHaveLength(1);
   });
 
-  it('expect 4 items', () => {
+  it('expect 10 items on business', () => {
     const component = shallow(
       <FeaturesMenu
-        project={project}
+        project="business-frontend"
         location={location}
         translations={translations}
         features={features}
       />
     );
-    expect(component.find('li').length).toBe(2);
+    expect(component.find('li').length).toBe(10);
+  });
+
+  it('expect 3 items on whitelabel', () => {
+    const component = shallow(
+      <FeaturesMenu
+        project="whitelabel"
+        location={location}
+        translations={translations}
+        features={features}
+      />
+    );
+    expect(component.find('li').length).toBe(3);
+  });
+
+  it('expect 3 items without valid project', () => {
+    const component = shallow(
+      <FeaturesMenu
+        project="xpto"
+        location={location}
+        translations={translations}
+        features={features}
+      />
+    );
+    expect(component.find('li').length).toBe(3);
+  });
+
+  it('expect 7 items on esolidar', () => {
+    localStorage.setItem('company', JSON.stringify(company));
+    const component = shallow(
+      <FeaturesMenu
+        project="esolidar"
+        location={location}
+        translations={translations}
+        features={features}
+      />
+    );
+    expect(component.find('li').length).toBe(7);
   });
 
   it('expect 1 extra links', () => {

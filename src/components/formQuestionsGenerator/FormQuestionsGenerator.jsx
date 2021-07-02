@@ -1,5 +1,6 @@
 /* eslint-disable no-prototype-builtins */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import TextareaField from '../../elements/textareaField';
 import TextField from '../../elements/textField';

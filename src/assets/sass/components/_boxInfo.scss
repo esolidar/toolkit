@@ -4,7 +4,7 @@
   border: 1px solid map-get($grays, 200);
   border-radius: 4px;
   padding: 30px;
-  margin-bottom: 15px;
+  margin-bottom: $distance-2;
 
   &.box-info {
     display: flex;
@@ -15,23 +15,31 @@
     @media (max-width: 1024px) {
       flex-direction: column;
     }
-  }
 
-  & .text {
-    color: map-get($main-text-colors, dark);
-    font-size: 15px;
-    letter-spacing: 0;
-    line-height: 26px;
-    padding: 0;
-    margin: 0;
-  }
+    & .text {
+      color: map-get($main-text-colors, dark);
+      font-size: 15px;
+      letter-spacing: 0;
+      line-height: 26px;
+      padding: 0;
+      margin: 0;
 
-  & .button {
-    margin-left: 8px;
+      &.small {
+        flex-basis: 75%;
 
-    @media (max-width: 1024px) {
-      margin-top: 15px;
-      margin-left: unset;
+        @media (max-width: 1024px) {
+          flex-basis: 100%;
+        }
+      }
+    }
+
+    & .btn-esolidar {
+      margin-left: $distance-1;
+
+      @media (max-width: 1024px) {
+        margin-top: $distance-2;
+        margin-left: unset;
+      }
     }
   }
 }

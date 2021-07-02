@@ -1,4 +1,6 @@
+import React from 'react';
 import { configure, mount } from 'enzyme';
+import translation from '@esolidar/i18n/projects/toolkit/en';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { IntlProvider } from 'react-intl';
 import CrowdfundingHeaderRigth from '../index';
@@ -188,25 +190,26 @@ const propsEnv = {
 describe('CrowdfundingHeader', () => {
   it('renders without crashing', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );
-    // console.log(wrapper.debug());
     expect(wrapper).toHaveLength(1);
   });
 
   it('should exist a title', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );
@@ -214,39 +217,14 @@ describe('CrowdfundingHeader', () => {
     expect(wrapper.contains(title)).toEqual(true);
   });
 
-  it('should value of crowdfunding is €60.00', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth
-          campaignTitle={() => 'title test'}
-          campaign={propsCampaign}
-          env={propsEnv}
-        />
-      </IntlProvider>
-    );
-    expect(wrapper.find('.raised-text.col-5').text()).toEqual('€60.00');
-  });
-
-  it('should value of crowdfunding is €10,000.00', () => {
-    const wrapper = mount(
-      <IntlProvider locale="en">
-        <CrowdfundingHeaderRigth
-          campaignTitle={() => 'title test'}
-          campaign={propsCampaign}
-          env={propsEnv}
-        />
-      </IntlProvider>
-    );
-    expect(wrapper.find('.goal-span').at(1).text()).toEqual('€10,000.00');
-  });
-
   it('should exist a number of donations', () => {
     const wrapper = mount(
-      <IntlProvider locale="en">
+      <IntlProvider locale="en" messages={translation}>
         <CrowdfundingHeaderRigth
           campaignTitle={() => 'title test'}
           campaign={propsCampaign}
           env={propsEnv}
+          textBtnDonate="Donate"
         />
       </IntlProvider>
     );

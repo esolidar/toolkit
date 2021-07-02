@@ -1,3 +1,4 @@
+import React from 'react';
 import ProjectThumb from './ProjectThumb';
 
 export default {

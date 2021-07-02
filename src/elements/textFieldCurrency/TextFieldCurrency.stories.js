@@ -1,3 +1,4 @@
+import React from 'react';
 import TextFieldCurrency from './TextFieldCurrency';
 
 export default {
