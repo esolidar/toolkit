@@ -2,7 +2,7 @@
 [class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -281,9 +281,60 @@
 .icon-youtube:before {
   content: '\e958';
 }
-.icon-image:before {
+.icon-file-picture:before {
+  content: '\e959';
+}
+.icon-clock:before {
   content: '\e95a';
 }
-.icon-projects:before {
-  content: '\e959';
+.icon-clock2:before {
+  content: '\e95b';
+}
+.icon-lock:before {
+  content: '\e98f';
+}
+.icon-unlocked:before {
+  content: '\e990';
+}
+.icon-equalizer:before {
+  content: '\e992';
+}
+.icon-equalizer2:before {
+  content: '\e993';
+}
+.icon-cog:before {
+  content: '\e994';
+}
+.icon-bin:before {
+  content: '\e9ac';
+}
+.icon-bin2:before {
+  content: '\e9ad';
+}
+.icon-link:before {
+  content: '\e9cb';
+}
+.icon-eye:before {
+  content: '\e9ce';
+}
+.icon-eye-blocked:before {
+  content: '\e9d1';
+}
+.icon-heart1:before {
+  content: '\e9da';
+}
+.icon-happy2:before {
+  content: '\e9e0';
+}
+.icon-sad2:before {
+  content: '\e9e6';
+}
+.icon-wondering2:before {
+  content: '\e9fc';
+}
+.icon-share2:before {
+  content: '\ea82';
+}
+.icon-whatsapp:before {
+  content: '\ea93';
 }
