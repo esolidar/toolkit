@@ -6,7 +6,7 @@ import Icon from '../../components/icon/Icon';
 const PasswordField: FC<Props> = ({
   id,
   label,
-  errors,
+  error,
   value,
   field,
   showPassword = false,
@@ -26,7 +26,7 @@ const PasswordField: FC<Props> = ({
         label={label}
         onChange={onChange}
         type={showPasswordText ? 'text' : 'password'}
-        error={errors}
+        error
         value={value}
         field={field}
         dataTestId="input-password"
