@@ -355,6 +355,14 @@ const icons = [
     name: 'icon-projects',
     font: 'e959',
   },
+  {
+    name: 'icon-eye',
+    font: 'e9ce',
+  },
+  {
+    name: 'icon-eye-blocked',
+    font: 'e9d1',
+  },
 ];
 
 export default icons;
