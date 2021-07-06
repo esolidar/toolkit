@@ -1,9 +1,10 @@
 import React, { FC, useState, useEffect } from 'react';
 import Props from './PasswordField.types';
-import TextField from '../../elements/textField';
-import Icon from '../icon/Icon';
+import TextField from '../textField';
+import Icon from '../../components/icon/Icon';
 
 const PasswordField: FC<Props> = ({
+  id,
   label,
   errors,
   value,
@@ -21,6 +22,7 @@ const PasswordField: FC<Props> = ({
   return (
     <div className="password-field" data-testId={dataTestId}>
       <TextField
+        id
         label={label}
         onChange={onChange}
         type={showPasswordText ? 'text' : 'password'}
@@ -29,7 +31,7 @@ const PasswordField: FC<Props> = ({
         field={field}
         dataTestId="input-password"
       />
-      <button onClick={handleClick} role="button">
+      <button onClick={handleClick} role="button" type="button">
         {showPasswordText ? (
           <Icon iconClass="icon-eye-blocked" dataTestId="eye-blocked" />
         ) : (
