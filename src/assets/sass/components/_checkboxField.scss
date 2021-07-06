@@ -9,6 +9,7 @@
     input[type='checkbox'] {
       position: absolute;
       visibility: hidden;
+      margin: 0;
     }
 
     input[type='checkbox']:checked ~ .checkbox {
@@ -29,10 +30,10 @@
     }
 
     .checkbox {
+      left: 0px;
+      top: 0px;
       content: '';
       position: absolute;
-      left: 0;
-      top: 1px;
       width: 16px;
       height: 16px;
       background: url('#{$cdn-static-url}/frontend/assets/checkbox.svg') 0 0 no-repeat;
@@ -47,6 +48,23 @@
       line-height: 26px;
       padding-left: 5px;
       font-weight: bold;
+    }
+
+    .label {
+      &.sm {
+        font-size: 14px;
+        margin-top: -1px;
+      }
+
+      &.md {
+        font-size: 16px;
+        margin-top: -3px;
+      }
+
+      &.lg {
+        font-size: 18px;
+        margin-top: -5px;
+      }
     }
   }
 
