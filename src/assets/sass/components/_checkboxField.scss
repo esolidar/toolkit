@@ -53,17 +53,17 @@
     .label {
       &.sm {
         font-size: 14px;
-        margin-top: 0px;
+        margin-top: -1px;
       }
 
       &.md {
         font-size: 16px;
-        margin-top: -2px;
+        margin-top: -3px;
       }
 
       &.lg {
         font-size: 18px;
-        margin-top: -4px;
+        margin-top: -5px;
       }
     }
   }

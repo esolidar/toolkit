@@ -20,13 +20,13 @@ const PasswordField: FC<Props> = ({
   };
 
   return (
-    <div className="password-field" data-testId={dataTestId}>
+    <div className="password-field" data-testid={dataTestId}>
       <TextField
-        id
+        id={id}
         label={label}
         onChange={onChange}
         type={showPasswordText ? 'text' : 'password'}
-        error
+        error={error}
         value={value}
         field={field}
         dataTestId="input-password"

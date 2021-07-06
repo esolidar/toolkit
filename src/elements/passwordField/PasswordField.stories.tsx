@@ -21,7 +21,7 @@ export const PasswordFieldShowPassword: Story<Props> = Template.bind({});
 
 PasswordFieldHiddenPassword.args = {
   label: 'Password',
-  errors: '',
+  error: '',
   value: 'passwordTest123',
   field: 'password',
   onChange: () => {},
@@ -29,7 +29,7 @@ PasswordFieldHiddenPassword.args = {
 
 PasswordFieldShowPassword.args = {
   label: 'Password',
-  errors: '',
+  error: '',
   value: 'passwordTest123',
   field: 'password',
   showPassword: true,
