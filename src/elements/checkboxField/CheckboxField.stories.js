@@ -4,6 +4,12 @@ import CheckboxField from './CheckboxField';
 export default {
   title: 'Elements/CheckboxField',
   component: CheckboxField,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <CheckboxField {...args} />;
