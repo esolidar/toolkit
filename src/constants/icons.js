@@ -363,6 +363,75 @@ const icons = [
     name: 'icon-eye-blocked',
     font: 'e9d1',
   },
+  {
+    name: 'icon-twitter1',
+    font: 'e95c',
+  },
+  {
+    name: 'icon-ic-switch-keyboard-language',
+    font: 'e95d',
+  },
+  {
+    name: 'icon-happy2',
+    font: 'e9e0',
+  },
+  {
+    name: 'icon-sad2',
+    font: 'e9e6',
+  },
+  {
+    name: 'icon-wondering2',
+    font: 'e9fc',
+  },
+  {
+    name: 'icon-share2',
+    font: 'ea82',
+  },
+  {
+    name: 'icon-whatsapp',
+    font: 'ea93',
+  },
+
+  {
+    name: 'icon-clock',
+    font: 'e95a',
+  },
+  {
+    name: 'icon-clock2',
+    font: 'e95b',
+  },
+  {
+    name: 'icon-lock',
+    font: 'e98f',
+  },
+  {
+    name: 'icon-unlocked',
+    font: 'e990',
+  },
+  {
+    name: 'icon-equalizer',
+    font: 'e992',
+  },
+  {
+    name: 'icon-equalizer2',
+    font: 'e993',
+  },
+  {
+    name: 'icon-cog',
+    font: 'e994',
+  },
+  {
+    name: 'icon-bin',
+    font: 'e9ac',
+  },
+  {
+    name: 'icon-bin2',
+    font: 'e9ad',
+  },
+  {
+    name: 'icon-link',
+    font: 'e9cb',
+  },
 ];
 
 export default icons;
