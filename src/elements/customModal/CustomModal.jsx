@@ -6,15 +6,18 @@ import variables from '../../assets/sass/_export.module.scss';
 const CustomModal = ({
   actionsChildren,
   backdrop,
-  centered,
   bodyChildren,
   bodyClassName,
   bodyPadding,
+  centered,
+  closeButton,
   dialogClassName,
   dividerBottom,
   dividerTop,
   footerClassName,
+  footerPadding,
   headerClassName,
+  headerPadding,
   onHide,
   scrollable,
   show,
@@ -29,6 +32,7 @@ const CustomModal = ({
 
   const headerStyle = {
     borderBottom: dividerTop ? border : 'none',
+    padding: headerPadding || 'auto',
   };
 
   const bodyStyle = {
@@ -37,6 +41,7 @@ const CustomModal = ({
 
   const footerStyle = {
     borderTop: dividerBottom ? border : 'none',
+    padding: footerPadding || 'auto',
   };
 
   return (
@@ -52,7 +57,7 @@ const CustomModal = ({
     >
       <Modal.Header
         className={headerClassName}
-        closeButton={true}
+        closeButton={closeButton}
         closeLabel="Close"
         onHide={onHide}
         style={headerStyle}
@@ -90,11 +95,14 @@ CustomModal.propTypes = {
   bodyChildren: PropTypes.node.isRequired,
   bodyClassName: PropTypes.string,
   bodyPadding: PropTypes.string,
+  closeButton: PropTypes.bool,
   dialogClassName: PropTypes.string,
   dividerBottom: PropTypes.bool,
   dividerTop: PropTypes.bool,
   footerClassName: PropTypes.string,
+  footerPadding: PropTypes.string,
   headerClassName: PropTypes.string,
+  headerPadding: PropTypes.string,
   onHide: PropTypes.func,
   scrollable: PropTypes.bool,
   show: PropTypes.bool.isRequired,
@@ -108,8 +116,9 @@ CustomModal.propTypes = {
 
 CustomModal.defaultProps = {
   backdrop: 'static',
-  centered: true,
   bodyClassName: '',
+  centered: true,
+  closeButton: true,
   dialogClassName: '',
   dividerBottom: false,
   dividerTop: false,
