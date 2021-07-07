@@ -14,6 +14,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-twitter1:before {
+  content: '\e95c';
+}
+.icon-ic-switch-keyboard-language:before {
+  content: '\e95d';
+}
 .icon-camera:before {
   content: '\e900';
 }
