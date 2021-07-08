@@ -14,6 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-language:before {
+  content: '\e95e';
+  color: #abb1b3;
+}
 .icon-twitter1:before {
   content: '\e95c';
 }
