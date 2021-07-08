@@ -432,6 +432,10 @@ const icons = [
     name: 'icon-link',
     font: 'e9cb',
   },
+  {
+    name: 'language',
+    font: 'e95e',
+  },
 ];
 
 export default icons;
