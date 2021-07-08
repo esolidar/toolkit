@@ -6,18 +6,24 @@ import variables from '../../assets/sass/_export.module.scss';
 const CustomModal = ({
   actionsChildren,
   backdrop,
-  centered,
   bodyChildren,
   bodyClassName,
   bodyPadding,
+  centered,
+  closeButton,
   dialogClassName,
   dividerBottom,
   dividerTop,
   footerClassName,
+  footerPadding,
   headerClassName,
+  headerPadding,
   onHide,
   scrollable,
   show,
+  showHeader,
+  showBody,
+  showFooter,
   size,
   subtitle,
   subtitleClassName,
@@ -29,6 +35,7 @@ const CustomModal = ({
 
   const headerStyle = {
     borderBottom: dividerTop ? border : 'none',
+    padding: headerPadding || 'auto',
   };
 
   const bodyStyle = {
@@ -37,6 +44,7 @@ const CustomModal = ({
 
   const footerStyle = {
     borderTop: dividerBottom ? border : 'none',
+    padding: footerPadding || 'auto',
   };
 
   return (
@@ -50,31 +58,35 @@ const CustomModal = ({
       size={size}
       data-testid="modal"
     >
-      <Modal.Header
-        className={headerClassName}
-        closeButton={true}
-        closeLabel="Close"
-        onHide={onHide}
-        style={headerStyle}
-        data-testid="header"
-      >
-        <Modal.Title>
-          <span
-            className={`mr-2 ${titleClassName}`}
-            data-testid="title"
-            style={{ color: titleColor }}
-          >
-            {title}
-          </span>
-          <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
-            {subtitle}
-          </span>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
-        {bodyChildren}
-      </Modal.Body>
-      {actionsChildren && (
+      {showHeader && (
+        <Modal.Header
+          className={headerClassName}
+          closeButton={closeButton}
+          closeLabel="Close"
+          onHide={onHide}
+          style={headerStyle}
+          data-testid="header"
+        >
+          <Modal.Title>
+            <span
+              className={`mr-2 ${titleClassName}`}
+              data-testid="title"
+              style={{ color: titleColor }}
+            >
+              {title}
+            </span>
+            <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
+              {subtitle}
+            </span>
+          </Modal.Title>
+        </Modal.Header>
+      )}
+      {showBody && (
+        <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
+          {bodyChildren}
+        </Modal.Body>
+      )}
+      {showFooter && (
         <Modal.Footer className={footerClassName} style={footerStyle} data-testid="footer">
           {actionsChildren}
         </Modal.Footer>
@@ -90,14 +102,20 @@ CustomModal.propTypes = {
   bodyChildren: PropTypes.node.isRequired,
   bodyClassName: PropTypes.string,
   bodyPadding: PropTypes.string,
+  closeButton: PropTypes.bool,
   dialogClassName: PropTypes.string,
   dividerBottom: PropTypes.bool,
   dividerTop: PropTypes.bool,
   footerClassName: PropTypes.string,
+  footerPadding: PropTypes.string,
   headerClassName: PropTypes.string,
+  headerPadding: PropTypes.string,
   onHide: PropTypes.func,
   scrollable: PropTypes.bool,
   show: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool,
+  showBody: PropTypes.bool,
+  showFooter: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   subtitle: PropTypes.string,
   subtitleClassName: PropTypes.string,
@@ -108,14 +126,18 @@ CustomModal.propTypes = {
 
 CustomModal.defaultProps = {
   backdrop: 'static',
-  centered: true,
   bodyClassName: '',
+  centered: true,
+  closeButton: true,
   dialogClassName: '',
   dividerBottom: false,
   dividerTop: false,
   footerClassName: '',
   headerClassName: '',
   scrollable: true,
+  showHeader: true,
+  showBody: true,
+  showFooter: true,
   size: 'md',
   subtitle: '',
   subtitleClassName: '',

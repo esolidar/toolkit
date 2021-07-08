@@ -33,5 +33,6 @@ PasswordFieldShowPassword.args = {
   value: 'passwordTest123',
   field: 'password',
   showPassword: true,
+  help: 'Password must have at least 6 characters.',
   onChange: () => {},
 };

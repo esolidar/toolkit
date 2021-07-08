@@ -1,3 +1,21 @@
+.custom-modal,
 .modal {
   z-index: 9999;
+}
+
+.custom-modal {
+  .modal-content {
+    padding: $distance-1;
+
+    .modal-header {
+      padding: $distance-2;
+    }
+    .modal-body {
+      padding: 0 $distance-2;
+    }
+
+    .modal-footer {
+      padding: $distance-2;
+    }
+  }
 }
