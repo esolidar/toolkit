@@ -49,7 +49,11 @@ const SelectField = ({
         onChange={onChange}
         disabled={disabled}
       >
-        {!hiddenSelectText && <option value="">{selectText}</option>}
+        {!hiddenSelectText && (
+          <option value="" disabled>
+            {selectText}
+          </option>
+        )}
         {optionsList(options)}
       </select>
       {info && <span className="footer-label-info">{info}</span>}

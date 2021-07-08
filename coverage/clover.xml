@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625674680725" clover="3.2.0">
-  <project timestamp="1625674680726" name="All files">
+<coverage generated="1625752793350" clover="3.2.0">
+  <project timestamp="1625752793350" name="All files">
     <metrics statements="2773" coveredstatements="1776" conditionals="2465" coveredconditionals="1480" methods="725" coveredmethods="360" elements="5963" coveredelements="3616" complexity="0" loc="2773" ncloc="2773" packages="97" files="232" classes="232"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -3424,8 +3424,8 @@
         <line num="26" count="7" type="stmt"/>
         <line num="27" count="23" type="stmt"/>
         <line num="39" count="8" type="stmt"/>
-        <line num="63" count="9" type="stmt"/>
-        <line num="82" count="9" type="stmt"/>
+        <line num="67" count="9" type="stmt"/>
+        <line num="86" count="9" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\selectField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
