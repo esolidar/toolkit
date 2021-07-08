@@ -11,6 +11,7 @@ const PasswordField: FC<Props> = ({
   field,
   showPassword = false,
   dataTestId = 'passwordField',
+  help,
   onChange,
 }: Props): JSX.Element => {
   const [showPasswordText, setShowPasswordText] = useState(showPassword);
@@ -29,9 +30,15 @@ const PasswordField: FC<Props> = ({
         error={error}
         value={value}
         field={field}
+        help={help}
         dataTestId="input-password"
       />
-      <button onClick={handleClick} role="button" type="button">
+      <button
+        onClick={handleClick}
+        role="button"
+        type="button"
+        style={{ top: help ? '60px' : '34px' }}
+      >
         {showPasswordText ? (
           <Icon iconClass="icon-eye-blocked" dataTestId="eye-blocked" />
         ) : (

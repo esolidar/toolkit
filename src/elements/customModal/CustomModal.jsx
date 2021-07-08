@@ -21,6 +21,9 @@ const CustomModal = ({
   onHide,
   scrollable,
   show,
+  showHeader,
+  showBody,
+  showFooter,
   size,
   subtitle,
   subtitleClassName,
@@ -55,31 +58,35 @@ const CustomModal = ({
       size={size}
       data-testid="modal"
     >
-      <Modal.Header
-        className={headerClassName}
-        closeButton={closeButton}
-        closeLabel="Close"
-        onHide={onHide}
-        style={headerStyle}
-        data-testid="header"
-      >
-        <Modal.Title>
-          <span
-            className={`mr-2 ${titleClassName}`}
-            data-testid="title"
-            style={{ color: titleColor }}
-          >
-            {title}
-          </span>
-          <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
-            {subtitle}
-          </span>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
-        {bodyChildren}
-      </Modal.Body>
-      {actionsChildren && (
+      {showHeader && (
+        <Modal.Header
+          className={headerClassName}
+          closeButton={closeButton}
+          closeLabel="Close"
+          onHide={onHide}
+          style={headerStyle}
+          data-testid="header"
+        >
+          <Modal.Title>
+            <span
+              className={`mr-2 ${titleClassName}`}
+              data-testid="title"
+              style={{ color: titleColor }}
+            >
+              {title}
+            </span>
+            <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
+              {subtitle}
+            </span>
+          </Modal.Title>
+        </Modal.Header>
+      )}
+      {showBody && (
+        <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
+          {bodyChildren}
+        </Modal.Body>
+      )}
+      {showFooter && (
         <Modal.Footer className={footerClassName} style={footerStyle} data-testid="footer">
           {actionsChildren}
         </Modal.Footer>
@@ -106,6 +113,9 @@ CustomModal.propTypes = {
   onHide: PropTypes.func,
   scrollable: PropTypes.bool,
   show: PropTypes.bool.isRequired,
+  showHeader: PropTypes.bool,
+  showBody: PropTypes.bool,
+  showFooter: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   subtitle: PropTypes.string,
   subtitleClassName: PropTypes.string,
@@ -125,6 +135,9 @@ CustomModal.defaultProps = {
   footerClassName: '',
   headerClassName: '',
   scrollable: true,
+  showHeader: true,
+  showBody: true,
+  showFooter: true,
   size: 'md',
   subtitle: '',
   subtitleClassName: '',

@@ -5,6 +5,7 @@ interface Props {
   value: string;
   field: string;
   showPassword?: boolean;
+  help?: string;
   dataTestId?: string;
   onChange: () => void;
 }
