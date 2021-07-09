@@ -5,7 +5,7 @@ import moment from 'moment-timezone';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
-import { getEmployeeName, isDefined, filterUnique, slugify } from '../../utils';
+import { getEmployeeName, filterUnique, slugify } from '../../utils';
 import Button from '../../elements/button';
 import NoMatch from '../noMatch';
 import Loading from '../loading';
@@ -47,6 +47,7 @@ const AuctionDetail = ({
   getAuctionComment,
   auctionComments,
   user,
+  isLoggedIn,
   requireLogin,
   env,
   postAuctionUserComment,
@@ -148,8 +149,6 @@ const AuctionDetail = ({
   const inputRef = useRef(null);
 
   const perPage = 4;
-
-  const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
 
   const handleCloseModalBid = () => {
     setIsAnonymous(false);
@@ -1492,6 +1491,7 @@ AuctionDetail.propTypes = {
   mobileConfirmPost: PropTypes.func,
   confirmPhone: PropTypes.object,
   user: PropTypes.object,
+  isLoggedIn: PropTypes.bool,
   env: PropTypes.shape({
     img_cdn: PropTypes.string,
     cdn_static_url: PropTypes.string,
