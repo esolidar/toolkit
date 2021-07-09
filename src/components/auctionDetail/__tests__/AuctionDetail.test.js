@@ -10,6 +10,7 @@ import AuctionDetail from '../index';
 const fx = jest.fn();
 const props = {
   auctionId: '299',
+  isLoggedIn: true,
   getAuctionDetail: fx,
   getAuctionBidList: fx,
   getAuctionList: fx,
