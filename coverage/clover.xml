@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625843739503" clover="3.2.0">
-  <project timestamp="1625843739503" name="All files">
+<coverage generated="1625844775856" clover="3.2.0">
+  <project timestamp="1625844775857" name="All files">
     <metrics statements="2769" coveredstatements="1775" conditionals="2452" coveredconditionals="1476" methods="725" coveredmethods="360" elements="5946" coveredelements="3611" complexity="0" loc="2769" ncloc="2769" packages="97" files="232" classes="232"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -3184,13 +3184,13 @@
       <file name="CustomModal.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/customModal/CustomModal.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="16" coveredconditionals="14" methods="1" coveredmethods="1"/>
         <line num="6" count="7" type="stmt"/>
-        <line num="34" count="30" type="stmt"/>
-        <line num="36" count="30" type="stmt"/>
-        <line num="41" count="30" type="stmt"/>
-        <line num="45" count="30" type="stmt"/>
-        <line num="50" count="30" type="stmt"/>
-        <line num="98" count="7" type="stmt"/>
-        <line num="127" count="7" type="stmt"/>
+        <line num="35" count="30" type="stmt"/>
+        <line num="37" count="30" type="stmt"/>
+        <line num="42" count="30" type="stmt"/>
+        <line num="46" count="30" type="stmt"/>
+        <line num="51" count="30" type="stmt"/>
+        <line num="100" count="7" type="stmt"/>
+        <line num="130" count="7" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/customModal/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
