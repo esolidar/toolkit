@@ -665,17 +665,6 @@ const FeaturesMenu = ({ location, translations, features, project, extraMenuLink
               }
             >
               <a href={locale ? `/${locale}${item.pageRoute}` : `${item.pageRoute}`}>
-                {(typeof window !== 'undefined' ? localStorage.getItem('fixedBar') : false) ? (
-                  <OverlayTrigger
-                    key={item.position}
-                    placement="right"
-                    overlay={<Tooltip id={item.position}>{item.itemText}</Tooltip>}
-                  >
-                    <i className={item.iconItem} />
-                  </OverlayTrigger>
-                ) : (
-                  <i className={item.iconItem} />
-                )}
                 {item.itemText}
               </a>
             </li>

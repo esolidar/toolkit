@@ -14,6 +14,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-user-business:before {
+  content: '\e966';
+}
 .icon-language:before {
   content: '\e95e';
   color: #abb1b3;
@@ -290,6 +293,30 @@
 }
 .icon-youtube:before {
   content: '\e958';
+}
+.icon-user-plus:before {
+  content: '\e95f';
+}
+.icon-user-o:before {
+  content: '\e960';
+}
+.icon-group:before {
+  content: '\e961';
+}
+.icon-users:before {
+  content: '\e961';
+}
+.icon-user-circle-o:before {
+  content: '\e962';
+}
+.icon-user-circle:before {
+  content: '\e963';
+}
+.icon-user-times:before {
+  content: '\e964';
+}
+.icon-user:before {
+  content: '\e965';
 }
 .icon-file-picture:before {
   content: '\e959';
