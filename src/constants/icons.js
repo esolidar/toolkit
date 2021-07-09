@@ -436,6 +436,35 @@ const icons = [
     name: 'language',
     font: 'e95e',
   },
+
+  {
+    name: 'user-plus',
+    font: 'e95f',
+  },
+  {
+    name: 'user-o',
+    font: 'e960',
+  },
+  {
+    name: 'users',
+    font: 'e961',
+  },
+  {
+    name: 'user-circle-o',
+    font: 'e962',
+  },
+  {
+    name: 'user-circle',
+    font: 'e963',
+  },
+  {
+    name: 'user-times',
+    font: 'e964',
+  },
+  {
+    name: 'user-business',
+    font: 'e966',
+  },
 ];
 
 export default icons;
