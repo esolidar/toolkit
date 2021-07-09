@@ -21,7 +21,7 @@ const PasswordField: FC<Props> = ({
   };
 
   return (
-    <div className="password-field" data-testid={dataTestId}>
+    <div className={`password-field ${help ? 'no-margin' : ''}`} data-testid={dataTestId}>
       <TextField
         id={id}
         label={label}
@@ -37,7 +37,7 @@ const PasswordField: FC<Props> = ({
         onClick={handleClick}
         role="button"
         type="button"
-        style={{ top: help ? '60px' : '34px' }}
+        style={{ top: help ? '53px' : '34px' }}
       >
         {showPasswordText ? (
           <Icon iconClass="icon-eye-blocked" dataTestId="eye-blocked" />
