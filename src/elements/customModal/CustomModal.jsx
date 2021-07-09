@@ -25,6 +25,7 @@ const CustomModal = ({
   showBody,
   showFooter,
   size,
+  style,
   subtitle,
   subtitleClassName,
   title,
@@ -57,6 +58,7 @@ const CustomModal = ({
       show={show}
       size={size}
       data-testid="modal"
+      style={style}
     >
       {showHeader && (
         <Modal.Header
@@ -117,6 +119,7 @@ CustomModal.propTypes = {
   showBody: PropTypes.bool,
   showFooter: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  style: PropTypes.object,
   subtitle: PropTypes.string,
   subtitleClassName: PropTypes.string,
   title: PropTypes.string.isRequired,

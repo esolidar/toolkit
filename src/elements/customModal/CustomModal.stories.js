@@ -22,6 +22,6 @@ Default.args = {
   bodyChildren: <p>Hello world!</p>,
   onHide: () => {},
   show: false,
-  title: 'Title',
   subtitle: 'subtitle',
+  title: 'Title',
 };
