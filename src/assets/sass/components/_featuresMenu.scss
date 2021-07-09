@@ -20,10 +20,18 @@
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;
       line-height: 21px;
-      padding: 15px 20px;
+      padding: 10px 20px;
       display: block;
       white-space: nowrap;
       min-width: 250px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: map-get($theme-colors, primary);
+        border-left: 2px solid map-get($theme-colors, primary);
+        padding-left: 7px;
+      }
 
       @media only screen and (max-width: map-get($breakpoints, md)) {
         min-width: 100%;
