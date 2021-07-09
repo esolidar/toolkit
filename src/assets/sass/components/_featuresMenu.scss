@@ -103,11 +103,6 @@
     }
 
     &.active {
-      background: map-get($colors, white);
-      border: 1px solid map-get($grays, 300);
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
-
       i {
         color: #0c8380;
       }
@@ -170,11 +165,6 @@
     }
 
     &:hover {
-      background: map-get($colors, white);
-      border: 1px solid map-get($grays, 300);
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
-
       .feed {
         background-position: 0 0;
       }
