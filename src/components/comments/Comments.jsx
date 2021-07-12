@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
-import { getEmployeeName, isDefined } from '../../utils';
+import { getEmployeeName } from '../../utils';
 import Button from '../../elements/button';
 
 const Comments = ({
@@ -27,6 +27,7 @@ const Comments = ({
   loadMoreComments,
   thumb,
   color,
+  isLoggedIn,
 }) => {
   const intl = useIntl();
   const [showTextArea, setShowTextArea] = useState(null);
@@ -52,11 +53,8 @@ const Comments = ({
   }, [laodingPostReply, isShowResponsive]);
 
   const showTextAreaClick = comment => {
-    const isLoggedIn = isDefined(user) ? !!Object.keys(user).length : false;
-    if (!isLoggedIn) {
-      requireLogin();
-    }
-    if (isLoggedIn) {
+    if (!isLoggedIn) requireLogin();
+    else {
       setShowTextArea(comment.id);
       setTimeout(() => {
         document.getElementById(`textarea-${comment.id}`).focus();
@@ -258,6 +256,7 @@ Comments.propTypes = {
   loadMoreComments: PropTypes.func.isRequired,
   thumb: PropTypes.string.isRequired,
   color: PropTypes.string,
+  isLoggedIn: PropTypes.bool,
 };
 
 export default Comments;
