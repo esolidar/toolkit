@@ -1113,6 +1113,7 @@ const AuctionDetail = ({
                   thumb={thumb}
                   env={env.cdn_static_url}
                   primaryColor={primaryColor}
+                  isLoggedIn={isLoggedIn}
                 />
               </div>
             </Col>

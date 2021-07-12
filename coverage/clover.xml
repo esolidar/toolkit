@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625844775856" clover="3.2.0">
-  <project timestamp="1625844775857" name="All files">
+<coverage generated="1626026990237" clover="3.2.0">
+  <project timestamp="1626026990237" name="All files">
     <metrics statements="2769" coveredstatements="1775" conditionals="2452" coveredconditionals="1476" methods="725" coveredmethods="360" elements="5946" coveredelements="3611" complexity="0" loc="2769" ncloc="2769" packages="97" files="232" classes="232"/>
     <package name="components.auctionAddForm">
       <metrics statements="299" coveredstatements="125" conditionals="281" coveredconditionals="140" methods="71" coveredmethods="17"/>
@@ -716,23 +716,23 @@
         <line num="858" count="13" type="stmt"/>
         <line num="1091" count="0" type="stmt"/>
         <line num="1103" count="0" type="stmt"/>
-        <line num="1174" count="0" type="stmt"/>
-        <line num="1183" count="0" type="stmt"/>
-        <line num="1190" count="0" type="stmt"/>
-        <line num="1262" count="0" type="stmt"/>
-        <line num="1272" count="0" type="stmt"/>
-        <line num="1288" count="0" type="stmt"/>
-        <line num="1302" count="0" type="stmt"/>
-        <line num="1322" count="0" type="stmt"/>
-        <line num="1330" count="0" type="stmt"/>
-        <line num="1349" count="0" type="stmt"/>
-        <line num="1357" count="0" type="stmt"/>
-        <line num="1365" count="0" type="stmt"/>
-        <line num="1370" count="0" type="stmt"/>
-        <line num="1386" count="0" type="stmt"/>
-        <line num="1393" count="0" type="stmt"/>
-        <line num="1401" count="0" type="stmt"/>
-        <line num="1412" count="1" type="stmt"/>
+        <line num="1175" count="0" type="stmt"/>
+        <line num="1184" count="0" type="stmt"/>
+        <line num="1191" count="0" type="stmt"/>
+        <line num="1263" count="0" type="stmt"/>
+        <line num="1273" count="0" type="stmt"/>
+        <line num="1289" count="0" type="stmt"/>
+        <line num="1303" count="0" type="stmt"/>
+        <line num="1323" count="0" type="stmt"/>
+        <line num="1331" count="0" type="stmt"/>
+        <line num="1350" count="0" type="stmt"/>
+        <line num="1358" count="0" type="stmt"/>
+        <line num="1366" count="0" type="stmt"/>
+        <line num="1371" count="0" type="stmt"/>
+        <line num="1387" count="0" type="stmt"/>
+        <line num="1394" count="0" type="stmt"/>
+        <line num="1402" count="0" type="stmt"/>
+        <line num="1413" count="1" type="stmt"/>
       </file>
       <file name="AuctionDetailRigth.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/AuctionDetailRigth.jsx">
         <metrics statements="30" coveredstatements="18" conditionals="41" coveredconditionals="28" methods="2" coveredmethods="2"/>
