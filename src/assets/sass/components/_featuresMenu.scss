@@ -20,10 +20,11 @@
       color: map-get($main-text-colors, dark);
       letter-spacing: 0;
       line-height: 21px;
-      padding: 10px 20px;
+      padding: 5px 20px;
       display: block;
       white-space: nowrap;
       min-width: 250px;
+      margin: 10px 0px;
 
       &:hover,
       &:active,
