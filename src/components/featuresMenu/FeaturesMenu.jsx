@@ -140,8 +140,8 @@ const FeaturesMenu = ({ location, translations, features, project, extraMenuLink
             case 'whitelabel':
               items.push({
                 position: 2,
-                pageRoute: '/',
-                showItem: false,
+                pageRoute: '/auction/list',
+                showItem: true,
                 iconItem: 'icon auction',
                 itemText: translations.auctions,
                 hide: feature.pivot.hide,
