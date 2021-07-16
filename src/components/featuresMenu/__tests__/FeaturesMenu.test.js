@@ -64,7 +64,7 @@ describe('FeaturesMenu page', () => {
         features={features}
       />
     );
-    expect(component.find('li').length).toBe(3);
+    expect(component.find('li').length).toBe(4);
   });
 
   it('expect 3 items without valid project', () => {
