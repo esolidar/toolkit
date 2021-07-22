@@ -214,7 +214,7 @@
     "typescript": "^4.3.2",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "xlsx": "^0.16.9"
+    "xlsx": "^0.17.0"
   },
   "repository": {
     "url": "git://github.com/esolidar/toolkit.git"
