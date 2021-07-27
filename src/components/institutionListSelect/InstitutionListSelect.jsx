@@ -31,7 +31,7 @@ const InstitutionListSelect = ({
   <Row className="institutions-list">
     <Col md={12}>
       <SelectField
-        label={useIntl().formatMessage({ id: 'institution', defaultMessage: 'Nonprofit' })}
+        label={useIntl().formatMessage({ id: 'institution' })}
         onChange={onChangeInstitutionCategory}
         idLabel="selectCategory"
         field="institution_category"
