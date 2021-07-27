@@ -56,7 +56,7 @@ Default.args = {
       user_id: 1125,
       id: 31,
       category_id: 1,
-      name: 'Fundo Brasileiro para a Biodiversidade Fundo Brasileiro para a Biodiversidade Fundo Brasileiro para a Biodiversidade ',
+      name: 'Fundo Brasileiro para a Biodiversidade',
       sigla: 'AP Braga',
       accept_volunteer: 1,
       accept_donations: 1,

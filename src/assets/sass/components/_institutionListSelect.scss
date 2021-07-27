@@ -7,7 +7,7 @@
   }
 
   .no-results {
-    padding: 16px;
+    padding: $distance-2;
     color: map-get($theme-colors, secondary);
     font-size: 16px;
   }
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 15px 0;
+    padding: $distance-2 0;
     border-bottom: 1px solid map-get($grays, 400);
 
     @media (max-width: map-get($breakpoints, xs)) {
