@@ -167,6 +167,7 @@
   margin-left: 0px !important;
 
   .header {
+    min-height: 5px;
     height: 5px;
     background-color: map-get($grays, 500);
 
