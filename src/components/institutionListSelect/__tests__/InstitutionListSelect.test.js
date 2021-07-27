@@ -33,13 +33,15 @@ describe('InstitutionListSelect component', () => {
   it('renders InstitutionListSelect correctly', () => {
     const component = shallow(<InstitutionListSelect {...props} />);
     expect(component).toHaveLength(1);
-    expect(component.find('.npo-thumb')).toHaveLength(1);
+    expect(component.find('InstitutionRow')).toHaveLength(1);
+    expect(component.find('Pagination')).toHaveLength(1);
   });
 
   it('renders InstitutionListSelect correctly without institutions', () => {
     props.institutions = [];
     const component = shallow(<InstitutionListSelect {...props} />);
-    expect(component.find('.npo-thumb')).toHaveLength(0);
+    expect(component.find('InstitutionRow')).toHaveLength(0);
+    expect(component.find('Pagination')).toHaveLength(0);
     expect(component.find('.no-results')).toHaveLength(1);
   });
 });

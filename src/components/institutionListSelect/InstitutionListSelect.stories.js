@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InstitutionListSelect from './InstitutionListSelect';
 
 export default {
@@ -6,15 +6,33 @@ export default {
   component: InstitutionListSelect,
 };
 
-const Template = args => <InstitutionListSelect {...args} />;
+const Template = args => {
+  const [institutionSelected, setInstitutionSelected] = useState(args.institutionSelected);
+
+  const handleOnChange = value => {
+    setInstitutionSelected(value);
+  };
+
+  const handleOnRemove = () => {
+    setInstitutionSelected(args.institutionSelected);
+  };
+
+  return (
+    <InstitutionListSelect
+      {...args}
+      institutionSelected={institutionSelected}
+      onChange={handleOnChange}
+      removeInstitutionSelected={handleOnRemove}
+    />
+  );
+};
 
 export const Default = Template.bind({});
 Default.parameters = {
   jest: ['InstitutionListSelect.test.js'],
 };
 Default.args = {
-  selectText: 'Selecionar',
-  institutionSelected: 30,
+  institutionSelected: Number(''),
   user_id: null,
   isLoading: false,
   institutions: [
@@ -27,7 +45,8 @@ Default.args = {
       accept_volunteer: 1,
       accept_donations: 1,
       paypal_email: 'donativos@esolidar.com',
-      image: 'https://static.esolidar.com/institutions/5db984ee-51b4-43c3-b363-23eaac1f17c3.png',
+      image:
+        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
       cover_image:
         'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
       country: 208,
@@ -42,7 +61,8 @@ Default.args = {
       accept_volunteer: 1,
       accept_donations: 1,
       paypal_email: 'donativos@esolidar.com',
-      image: 'https://static.esolidar.com/institutions/5d00d812-c3a8-47c3-a66c-46bbac1f2e6d.jpg',
+      image:
+        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
       cover_image:
         'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
       country: 208,
@@ -51,6 +71,7 @@ Default.args = {
   ],
   categories: [],
   onChangeInstitutionCategory: () => {},
+  removeInstitutionSelected: () => {},
   handlePageChange: () => {},
   onSearch: () => {},
   NoResultsText: 'No result text',
