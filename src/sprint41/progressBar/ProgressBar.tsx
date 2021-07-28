@@ -25,7 +25,7 @@ const ProgressBar: FC<Props> = ({
             />
           </div>
           {showRaisedOf && (
-            <div className="goal-label ml-2" data-testid="goal-label">
+            <div className="goal-label" data-testid="goal-label">
               <span>
                 <FormattedMessage
                   id="progressBar.raised.goal"
@@ -44,7 +44,7 @@ const ProgressBar: FC<Props> = ({
         </div>
       )}
       <div className="d-flex flex-start">
-        <div className="goal w-100" data-testid="bar">
+        <div className="goal" data-testid="bar">
           <div className="progress-goal-bar" style={{ width: progressBarWidth }} />
         </div>
       </div>

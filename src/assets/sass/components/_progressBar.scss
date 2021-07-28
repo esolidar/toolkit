@@ -15,8 +15,10 @@
   .goal-label {
     font-size: 15px;
     color: map-get($main-text-colors, title);
+    margin-left: $distance-1;
   }
   .goal {
+    width: 100%;
     margin-top: 3px;
     background: map-get($grays, 100);
     height: 10px;
