@@ -22,10 +22,8 @@ const ContributesList = ({
     }
     return (
       <div className="no-contributions">
-        {!isAuction && (
-          <FormattedMessage id="crowdfunding.no-contributions" defaultMessage="No contributions" />
-        )}
-        {isAuction && <FormattedMessage id="auctions.no-bids" defaultMessage="No bids" />}
+        {!isAuction && <FormattedMessage id="crowdfunding.no-contributions" />}
+        {isAuction && <FormattedMessage id="auctions.no-bids" />}
       </div>
     );
   };
@@ -36,12 +34,8 @@ const ContributesList = ({
       {contributes && contributesListTotal > contributes.length && (
         <div className="text-center">
           <button className="see-more-contributors" type="button" onClick={showMoreContributes}>
-            {!loadingContributes && (
-              <FormattedMessage id="crowdfunding.more" defaultMessage="See more" />
-            )}
-            {loadingContributes && (
-              <FormattedMessage id="crowdfunding.loading-text" defaultMessage="Loading ..." />
-            )}
+            {!loadingContributes && <FormattedMessage id="crowdfunding.more" />}
+            {loadingContributes && <FormattedMessage id="crowdfunding.loading-text" />}
           </button>
         </div>
       )}

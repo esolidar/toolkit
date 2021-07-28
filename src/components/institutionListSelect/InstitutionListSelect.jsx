@@ -27,66 +27,68 @@ const InstitutionListSelect = ({
   isLoading,
   user_id,
   removeInstitutionSelected,
-}) => (
-  <Row className="institutions-list">
-    <Col md={12}>
-      <SelectField
-        label={useIntl().formatMessage({ id: 'institution' })}
-        onChange={onChangeInstitutionCategory}
-        idLabel="selectCategory"
-        field="institution_category"
-        selectText={
-          selectCategoryText || useIntl().formatMessage({ id: 'giftcard.modal.select-charity' })
-        }
-        options={categories}
-      />
-    </Col>
-    <Col md={12}>
-      <input
-        className="form-control search-institutions"
-        onChange={onSearch}
-        value={search}
-        placeholder={
-          placeholderSearch || useIntl().formatMessage({ id: 'giftcard.search.charity' })
-        }
-        name="search"
-      />
-    </Col>
-    {isLoading ? (
+}) => {
+  const intl = useIntl();
+
+  return (
+    <Row className="institutions-list">
       <Col md={12}>
-        <Loading />
+        <SelectField
+          label={intl.formatMessage({ id: 'institution' })}
+          onChange={onChangeInstitutionCategory}
+          idLabel="selectCategory"
+          field="institution_category"
+          selectText={
+            selectCategoryText || intl.formatMessage({ id: 'giftcard.modal.select-charity' })
+          }
+          options={categories}
+        />
       </Col>
-    ) : (
-      <Col md={12} className={classnames({ 'has-error': error })}>
-        {!institutions.length ? (
-          <div className="text-center no-results">
-            {NoResultsText || useIntl().formatMessage({ id: 'noDataText' })}
-          </div>
-        ) : (
-          institutions.map(institution => (
-            <InstitutionRow
-              key={institution.id}
-              institution={institution}
-              institutionSelected={institutionSelected}
-              onChange={onChange}
-              userId={Number(user_id)}
-              removeInstitutionSelected={removeInstitutionSelected}
+      <Col md={12}>
+        <input
+          className="form-control search-institutions"
+          onChange={onSearch}
+          value={search}
+          placeholder={placeholderSearch || intl.formatMessage({ id: 'giftcard.search.charity' })}
+          name="search"
+        />
+      </Col>
+      {isLoading ? (
+        <Col md={12}>
+          <Loading />
+        </Col>
+      ) : (
+        <Col md={12} className={classnames({ 'has-error': error })}>
+          {!institutions.length ? (
+            <div className="text-center no-results">
+              {NoResultsText || intl.formatMessage({ id: 'noDataText' })}
+            </div>
+          ) : (
+            institutions.map(institution => (
+              <InstitutionRow
+                key={institution.id}
+                institution={institution}
+                institutionSelected={institutionSelected}
+                onChange={onChange}
+                userId={Number(user_id)}
+                removeInstitutionSelected={removeInstitutionSelected}
+              />
+            ))
+          )}
+          {error && <span className="help-block">{error}</span>}
+          {institutions.length > 0 && (
+            <Pagination
+              activePage={pagination.activePage}
+              itemsCountPerPage={pagination.itemsCountPerPage}
+              totalItemsCount={pagination.totalItemsCount}
+              onChange={handlePageChange}
             />
-          ))
-        )}
-        {error && <span className="help-block">{error}</span>}
-        {institutions.length > 0 && (
-          <Pagination
-            activePage={pagination.activePage}
-            itemsCountPerPage={pagination.itemsCountPerPage}
-            totalItemsCount={pagination.totalItemsCount}
-            onChange={handlePageChange}
-          />
-        )}
-      </Col>
-    )}
-  </Row>
-);
+          )}
+        </Col>
+      )}
+    </Row>
+  );
+};
 
 InstitutionListSelect.propTypes = {
   categories: PropTypes.array.isRequired,
@@ -123,6 +125,7 @@ const InstitutionRow = ({
   userId,
   removeInstitutionSelected,
 }) => {
+  const intl = useIntl();
   const { id, name, image, user_id } = institution;
 
   const isSameUserId = userId === Number(user_id);
@@ -143,7 +146,7 @@ const InstitutionRow = ({
       </div>
       <Button
         extraClass={isSelected ? 'info-full' : 'info'}
-        text={useIntl().formatMessage({
+        text={intl.formatMessage({
           id: isSelected ? 'institutions.list.selected' : 'institutions.list.select',
         })}
         onClick={() => {

@@ -29,6 +29,8 @@ const CreditCardList = ({
   const [isLoading, setIsLoading] = useState(true);
   const [showCreditCardForm, setShowCreditCardForm] = useState(false);
 
+  const intl = useIntl();
+
   useEffect(() => {
     getStripeCreditCardlist();
   }, []);
@@ -49,13 +51,11 @@ const CreditCardList = ({
       setDisableButton(false);
     } else {
       NotificationManager.error(
-        useIntl().formatMessage({
+        intl.formatMessage({
           id: 'credit.card.error.message',
-          defaultMessage: 'An error has occurred, please try again!',
         }),
-        useIntl().formatMessage({
-          id: 'errror',
-          defaultMessage: 'Error:',
+        intl.formatMessage({
+          id: 'crowdfunding.payment.errror.title',
         }),
         15000
       );
@@ -107,7 +107,7 @@ const CreditCardList = ({
   return (
     <div className="stripe-checkout cards-list">
       <p className="font-weight-bold">
-        <FormattedMessage id="creditcard.info.title" defaultMessage="Credit card details" />
+        <FormattedMessage id="creditcard.info.title" />
       </p>
       {isLoading && <Loading />}
       {!isLoading && (
@@ -121,7 +121,6 @@ const CreditCardList = ({
                       !validDate(stripeCreditCard.exp_year, stripeCreditCard.exp_month) ? (
                         <FormattedMessage
                           id="creditcard.number"
-                          defaultMessage="Credit card number: xxxx xxxx xxxx {value} - Expires: {date}"
                           values={{
                             value: stripeCreditCard.last4,
                             date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
@@ -130,7 +129,6 @@ const CreditCardList = ({
                       ) : (
                         <FormattedMessage
                           id="creditcard.number.expired"
-                          defaultMessage="Credit card number: xxxx xxxx xxxx {value} - <span class='expired'>Expired: {date}</span>"
                           values={{
                             value: stripeCreditCard.last4,
                             date: `${stripeCreditCard.exp_month}/${stripeCreditCard.exp_year}`,
@@ -147,15 +145,12 @@ const CreditCardList = ({
               ))
             ) : (
               <li className="list-group-item">
-                <FormattedMessage id="creditcard.no.cards" defaultMessage="No credit card" />
+                <FormattedMessage id="creditcard.no.cards" />
               </li>
             )}
             {isErrorSelectCard && isRadioCc === null && (
               <span className="hasError text-danger">
-                <FormattedMessage
-                  id="creditcard.notSelected"
-                  defaultMessage="You must select a credit card"
-                />
+                <FormattedMessage id="creditcard.notSelected" />
               </span>
             )}
           </>
@@ -165,9 +160,8 @@ const CreditCardList = ({
                 <Button
                   extraClass="link"
                   onClick={() => setShowCreditCardForm(!showCreditCardForm)}
-                  text={useIntl().formatMessage({
+                  text={intl.formatMessage({
                     id: 'creditcard.add.card',
-                    defaultMessage: 'Add new card',
                   })}
                 />
               </div>
@@ -185,9 +179,8 @@ const CreditCardList = ({
                   submit={submit}
                   errors={{}}
                   disableButton={disableButton}
-                  btnText={useIntl().formatMessage({
+                  btnText={intl.formatMessage({
                     id: 'creditcard.save',
-                    defaultMessage: 'Save',
                   })}
                 />
               </div>

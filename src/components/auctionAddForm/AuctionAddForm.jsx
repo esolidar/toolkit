@@ -204,12 +204,8 @@ const AuctionAddForm = ({
 
       if (data.status === 'A') {
         NotificationManager.error(
-          intl.formatMessage({
-            id: 'auction.edit.forbidden',
-          }),
-          intl.formatMessage({
-            id: 'error',
-          }),
+          intl.formatMessage({ id: 'auction.edit.forbidden' }),
+          intl.formatMessage({ id: 'error' }),
           15000
         );
 

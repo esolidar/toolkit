@@ -7,13 +7,10 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
   <div className="request-detail">
     <div className="box col-sm-12">
       <h3>
-        <FormattedMessage id="request.detail.project.about" defaultMessage="About the request" />
+        <FormattedMessage id="request.detail.project.about" />
       </h3>
       <h4>
-        <FormattedMessage
-          id="request.detail.project.description"
-          defaultMessage="Overall description"
-        />
+        <FormattedMessage id="request.detail.project.description" />
       </h4>
       {request.about && (
         <p>
@@ -26,10 +23,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
         </p>
       )}
       <h4>
-        <FormattedMessage
-          id="request.detail.project.detailed.description"
-          defaultMessage="Detailed description"
-        />
+        <FormattedMessage id="request.detail.project.detailed.description" />
       </h4>
       {request.detail && (
         <p>
@@ -43,7 +37,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
       )}
       {request.goals && (
         <h4>
-          <FormattedMessage id="request.detail.project.goals" defaultMessage="Goals" />
+          <FormattedMessage id="request.detail.project.goals" />
         </h4>
       )}
       {request.goals && (
@@ -57,12 +51,12 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
         </p>
       )}
       <h4>
-        <FormattedMessage id="request.detail.project.requirements" defaultMessage="Requirements" />
+        <FormattedMessage id="request.detail.project.requirements" />
       </h4>
       <p>{request.requirements}</p>
       <hr className="separator-blue" />
       <h3>
-        <FormattedMessage id="request.detail.project.needs" defaultMessage="This request needs" />
+        <FormattedMessage id="request.detail.project.needs" />
       </h3>
       {request.volunteering === 1 && (
         <div>
@@ -71,16 +65,12 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
               alt="Volunteering"
               src={`${cdnStaticUrl}/frontend/icons/ic-request-volunteering-blue.svg`}
             />
-            <FormattedMessage
-              id="request.detail.project.volunteering"
-              defaultMessage="Volunteering"
-            />
+            <FormattedMessage id="request.detail.project.volunteering" />
           </h4>
           <ul className="arrow-list">
             <li>
               <FormattedMessage
                 id="request.detail.project.volunteering.duration"
-                defaultMessage="{value, number} {value, plural, one {hour} other {hours}}"
                 values={{ value: request.volunteering_duration }}
               />
               &nbsp;
@@ -89,7 +79,6 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
             <li>
               <FormattedMessage
                 id="request.detail.project.volunteering.volunteers"
-                defaultMessage="{value_min}-{value_max} volunteers"
                 values={{
                   value_min: request.volunteering_min_volunteers,
                   value_max: request.volunteering_max_volunteers,
@@ -116,7 +105,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
               alt="Donation"
               src={`${cdnStaticUrl}/frontend/icons/ic-request-donation-blue.png`}
             />
-            <FormattedMessage id="request.detail.project.donations" defaultMessage="Donations" />
+            <FormattedMessage id="request.detail.project.donations" />
           </h4>
           <ul className="arrow-list">
             <li>
@@ -145,7 +134,7 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
         <div>
           <h4>
             <img alt="Goods" src={`${cdnStaticUrl}/frontend/icons/ic-request-goods-blue.png`} />
-            <FormattedMessage id="request.detail.project.goods" defaultMessage="Goods" />
+            <FormattedMessage id="request.detail.project.goods" />
           </h4>
           <ul className="arrow-list">
             <li>
@@ -166,28 +155,19 @@ const RequestDetailInfo = ({ request, volunteeringType }) => (
       {request.partners && <hr className="separator-blue" />}
       {request.partners && (
         <h3>
-          <FormattedMessage
-            id="request.detail.project.partners"
-            defaultMessage="Partners and sponsors"
-          />
+          <FormattedMessage id="request.detail.project.partners" />
         </h3>
       )}
       <p>{request.partners}</p>
       {request.other_platforms && <hr className="separator-blue" />}
       {request.other_platforms && (
         <h3>
-          <FormattedMessage
-            id="request.detail.project.media.promotion"
-            defaultMessage="Media and promotion"
-          />
+          <FormattedMessage id="request.detail.project.media.promotion" />
         </h3>
       )}
       {request.other_platforms && (
         <h4>
-          <FormattedMessage
-            id="request.detail.project.other.promotion"
-            defaultMessage="Other means of promotion"
-          />
+          <FormattedMessage id="request.detail.project.other.promotion" />
         </h4>
       )}
       <p>{request.other_platforms}</p>

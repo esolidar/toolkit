@@ -49,7 +49,7 @@ const Faqs = ({ lang, tabs, faqs, type, changeType, changeId, id, isLoading, env
           {!faqsFilterLang.length && !isLoading && (
             <Col sm={12}>
               <div className="wrapper">
-                <FormattedMessage id="faqs.items.empty" defaultMessage="No FAQs found" />
+                <FormattedMessage id="faqs.items.empty" />
               </div>
             </Col>
           )}

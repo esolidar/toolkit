@@ -25,6 +25,8 @@ const AuctionDetailRigth = ({
   domainUrl,
   locale,
 }) => {
+  const intl = useIntl();
+
   const valueBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
   const isSameCurrency = user ? auction.currency.small === user.currency.small : true;
 
@@ -58,7 +60,6 @@ const AuctionDetailRigth = ({
     supportedSectionText = (
       <FormattedMessage
         id="auction.detail.brandSupport"
-        defaultMessage="{brandName} will benefit {instituionName} with this auction."
         values={{
           brandName: auction.brand.name,
           instituionName: auction.recipient.institution.name,
@@ -70,7 +71,6 @@ const AuctionDetailRigth = ({
     supportedSectionText = (
       <FormattedMessage
         id="auction.detail.proceedsSupport"
-        defaultMessage="Proceeds support {brandName}"
         values={{ brandName: auction.brand.name }}
       />
     );
@@ -79,7 +79,6 @@ const AuctionDetailRigth = ({
     supportedSectionText = (
       <FormattedMessage
         id="auction.detail.institutionSupport"
-        defaultMessage="Proceeds support {instituionName}"
         values={{ instituionName: auction.recipient.institution.name }}
       />
     );
@@ -104,9 +103,9 @@ const AuctionDetailRigth = ({
                 style={{ color: primaryColor }}
               >
                 {auction.last_bid ? (
-                  <FormattedMessage id="auction.detail.lastbid" defaultMessage="Last Bid" />
+                  <FormattedMessage id="auction.detail.lastbid" />
                 ) : (
-                  <FormattedMessage id="auction.detail.startbid" defaultMessage="Start Bid" />
+                  <FormattedMessage id="auction.detail.startbid" />
                 )}
               </p>
             </Col>
@@ -129,14 +128,14 @@ const AuctionDetailRigth = ({
             <Row>
               <Col sm={12} className="txt-bid-aprox">
                 {convertToMyCurrency(valueBid, auction.currency)}
-                <FormattedMessage id="auction.detail.bidApprox" defaultMessage=" approx." />
+                <FormattedMessage id="auction.detail.bidApprox" />
               </Col>
             </Row>
           )}
           {!isEnded && !isCommingSoon && (
             <Row>
               <Col sm={12} className="auction-content-label" style={{ color: primaryColor }}>
-                <FormattedMessage id="auction.detail.newBid" defaultMessage="New Bid" />
+                <FormattedMessage id="auction.detail.newBid" />
               </Col>
               <Col sm={6} className={error && 'has-error'}>
                 <TextField
@@ -148,11 +147,8 @@ const AuctionDetailRigth = ({
                   onChange={valueBidTextField}
                   error={error}
                   value={inputBidValue}
-                  placeholder={useIntl().formatMessage(
-                    {
-                      id: 'auction.textfield.minValue',
-                      defaultMessage: 'Min. Value: {value}',
-                    },
+                  placeholder={intl.formatMessage(
+                    { id: 'auction.textfield.minValue' },
                     { value: minValue }
                   )}
                   inputRef={inputRef}
@@ -162,9 +158,8 @@ const AuctionDetailRigth = ({
                 <Button
                   dataTestId="btn-bid"
                   extraClass="success-full"
-                  text={useIntl().formatMessage({
+                  text={intl.formatMessage({
                     id: 'auction.button.bid',
-                    defaultMessage: 'Bid',
                   })}
                   onClick={() => handleClickBid(inputBidValue)}
                 />
@@ -173,7 +168,7 @@ const AuctionDetailRigth = ({
                 <Button
                   extraClass="link text-left"
                   onClick={showModalSubscribe}
-                  text={useIntl().formatMessage({
+                  text={intl.formatMessage({
                     id: 'auction.detail.subscribeAuction',
                   })}
                   dataTestId="subscribe-auction"
@@ -190,15 +185,12 @@ const AuctionDetailRigth = ({
                   data-testid="label-ended"
                   style={{ color: primaryColor }}
                 >
-                  <FormattedMessage id="auction.detail.ended" defaultMessage="Ended" />
+                  <FormattedMessage id="auction.detail.ended" />
                 </Col>
               </Row>
               <Row>
                 <Col sm={12} className="end-auction" data-testid="label-ended-message">
-                  <FormattedMessage
-                    id="auction.detail.endedAuction"
-                    defaultMessage="This auction has ended."
-                  />
+                  <FormattedMessage id="auction.detail.endedAuction" />
                 </Col>
               </Row>
             </>
@@ -207,15 +199,12 @@ const AuctionDetailRigth = ({
             <>
               <Row>
                 <Col sm={12} className="auction-content-label" data-testid="label-ended">
-                  <FormattedMessage id="auction.detail.commingSoon" defaultMessage="Comming Soon" />
+                  <FormattedMessage id="auction.detail.commingSoon" />
                 </Col>
               </Row>
               <Row>
                 <Col sm={12} className="end-auction" data-testid="label-ended-message">
-                  <FormattedMessage
-                    id="auction.detail.commingSoonAuction"
-                    defaultMessage="You can make bids when this auction starts."
-                  />
+                  <FormattedMessage id="auction.detail.commingSoonAuction" />
                 </Col>
               </Row>
             </>

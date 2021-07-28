@@ -23,6 +23,8 @@ const ProjectDetailThumb = ({
   showRequestInfoView,
   showReview,
 }) => {
+  const intl = useIntl();
+
   const projectStatesMap = ['PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED'];
   const projectState = projectStatesMap.indexOf(project.status);
 
@@ -43,10 +45,7 @@ const ProjectDetailThumb = ({
         {showReview && (
           <div className="ods-thumb">
             <h4 style={{ color }}>
-              <FormattedMessage
-                id="project.review.average.rate"
-                defaultMessage="project.review.average.rate"
-              />
+              <FormattedMessage id="project.review.average.rate" />
             </h4>
             {project.review_average ? (
               <Rating
@@ -63,13 +62,13 @@ const ProjectDetailThumb = ({
         )}
         <div className="ods-thumb">
           <h4 style={{ color }}>
-            <FormattedMessage id="category" defaultMessage="Category" />
+            <FormattedMessage id="category" />
           </h4>
           <p className="category-name">{project.project_category.name}</p>
         </div>
         <div className="ods-thumb">
           <h4 style={{ color }}>
-            <FormattedMessage id="ods" defaultMessage="ODS" />
+            <FormattedMessage id="ods" />
           </h4>
           {project.ods.map(item => (
             <img
@@ -118,9 +117,8 @@ const ProjectDetailThumb = ({
               { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
             ]}
             value={projectState}
-            label={useIntl().formatMessage({
+            label={intl.formatMessage({
               id: 'project.change.status.title',
-              defaultMessage: 'Change project status',
             })}
             field="changeState"
             onChange={handleChangeState}

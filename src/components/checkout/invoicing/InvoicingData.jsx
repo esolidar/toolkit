@@ -11,16 +11,15 @@ import TextField from '../../../elements/textField';
 const InvoicingData = props => {
   const { errors, receipt, nif, invoice_address, agree } = props.state;
 
+  const intl = useIntl();
+
   return (
     <Row className="cart-item-invoice">
       <Col sm={12}>
         <div className="checkbox-inline">
           <div className="form-group">
             <label htmlFor="receipt">
-              <FormattedMessage
-                id="checkout.receipt"
-                defaultMessage="Do you want a donation receipt?"
-              />
+              <FormattedMessage id="checkout.receipt" />
               <input
                 type="checkbox"
                 name="receipt"
@@ -36,7 +35,7 @@ const InvoicingData = props => {
       </Col>
       <Col sm={12}>
         <TextField
-          label={useIntl().formatMessage({ id: 'user.nif', defaultMessage: 'VAT' })}
+          label={intl.formatMessage({ id: 'user.nif' })}
           onChange={props.onChange}
           error={errors.nif}
           value={nif}
@@ -46,10 +45,7 @@ const InvoicingData = props => {
       </Col>
       <Col sm={12}>
         <TextareaField
-          label={useIntl().formatMessage({
-            id: 'checkout.invoice_address',
-            defaultMessage: 'Invoicing address',
-          })}
+          label={intl.formatMessage({ id: 'checkout.invoice_address' })}
           onChange={props.onChange}
           error={errors.invoice_address}
           value={invoice_address}
@@ -61,16 +57,10 @@ const InvoicingData = props => {
         <div className="checkbox-inline">
           <div className="form-group">
             <label htmlFor="agree">
-              <FormattedMessage
-                id="crowdfunding.donation.modal.agree.text"
-                defaultMessage="I have read and agree with the"
-              />
+              <FormattedMessage id="crowdfunding.donation.modal.agree.text" />
               &nbsp;
               <a href="/terms" target="_blank">
-                <FormattedMessage
-                  id="crowdfunding.donation.modal.agree.href"
-                  defaultMessage="terms and conditions"
-                />
+                <FormattedMessage id="crowdfunding.donation.modal.agree.href" />
               </a>
               <input
                 type="checkbox"

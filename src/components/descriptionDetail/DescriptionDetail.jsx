@@ -44,7 +44,7 @@ const DescriptionDetail = ({
       {showMoreDescButton && (
         <div className="d-block d-sm-none text-center">
           <button type="button" onClick={showMoreDescAction} className="readmore-button">
-            <FormattedMessage id="readmore" defaultMessage="Read more" />
+            <FormattedMessage id="readmore" />
           </button>
         </div>
       )}

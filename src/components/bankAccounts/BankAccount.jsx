@@ -11,22 +11,26 @@ import ConfirmModal from '../../elements/confirmModal';
 import Button from '../../elements/button';
 import { isEmpty } from '../../utils';
 
-const DeleteButton = ({ handleDeleteClick, idx }) => (
-  <button
-    type="button"
-    className="edit-button"
-    style={{ float: 'right', color: '#888' }}
-    onClick={() => handleDeleteClick(idx)}
-  >
-    <FontAwesomeIcon
-      icon={faTrash}
-      className="mr-1"
-      title={useIntl().formatMessage({
-        id: 'bank.account.delete',
-      })}
-    />
-  </button>
-);
+const DeleteButton = ({ handleDeleteClick, idx }) => {
+  const intl = useIntl();
+
+  return (
+    <button
+      type="button"
+      className="edit-button"
+      style={{ float: 'right', color: '#888' }}
+      onClick={() => handleDeleteClick(idx)}
+    >
+      <FontAwesomeIcon
+        icon={faTrash}
+        className="mr-1"
+        title={intl.formatMessage({
+          id: 'bank.account.delete',
+        })}
+      />
+    </button>
+  );
+};
 
 const BankAccount = ({
   countryId,
@@ -44,6 +48,8 @@ const BankAccount = ({
 }) => {
   const [errors, setErrors] = useState({});
   const [bankAccounts, setBankAccounts] = useState(userBankTransfer || {});
+
+  const intl = useIntl();
 
   useEffect(() => {
     if (bankTransfer && bankTransfer.code === 200) {
@@ -92,9 +98,8 @@ const BankAccount = ({
             if (formKey === 'iban' && !IBAN.isValid(formValue)) {
               setErrors(prevState => ({
                 ...prevState,
-                [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
+                [`account-${key}-indx-${i}-field-${formKey}`]: intl.formatMessage({
                   id: 'iban.invalid',
-                  defaultMessage: 'This IBAN is invalid',
                 }),
               }));
               isValid = false;
@@ -110,9 +115,8 @@ const BankAccount = ({
             if (formValue === '') {
               setErrors(prevState => ({
                 ...prevState,
-                [`account-${key}-indx-${i}-field-${formKey}`]: useIntl().formatMessage({
+                [`account-${key}-indx-${i}-field-${formKey}`]: intl.formatMessage({
                   id: 'required',
-                  defaultMessage: 'This field is required',
                 }),
               }));
               isValid = false;
@@ -217,7 +221,6 @@ const BankAccount = ({
                   <h4 style={{ color }}>
                     <FormattedMessage
                       id="bank.account.international.value"
-                      defaultMessage="International account #{value}"
                       values={{ value: i + 1 }}
                     />
                     {isEmptyFieldsInternationalAccount && (
@@ -230,16 +233,16 @@ const BankAccount = ({
                     {!isEmptyFieldsInternationalAccount && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteInternationalAccount(i)}
-                        title={useIntl().formatMessage({
+                        title={intl.formatMessage({
                           id: 'bank.account.delete.title',
                         })}
-                        body={useIntl().formatMessage({
+                        body={intl.formatMessage({
                           id: 'bank.account.delete.body',
                         })}
-                        confirmText={useIntl().formatMessage({
+                        confirmText={intl.formatMessage({
                           id: 'delete',
                         })}
-                        cancelText={useIntl().formatMessage({
+                        cancelText={intl.formatMessage({
                           id: 'cancel',
                         })}
                         style={{ float: 'right', color: '#888' }}
@@ -253,7 +256,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={useIntl().formatMessage({
+                            title={intl.formatMessage({
                               id: 'bank.account.delete',
                             })}
                           />
@@ -263,7 +266,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
-                    label={useIntl().formatMessage({ id: 'iban' })}
+                    label={intl.formatMessage({ id: 'iban' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, 1)}
                     error={errors[`account-1-indx-${i}-field-iban`]}
@@ -272,7 +275,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bic.swift',
                     })}
                     type="text"
@@ -292,19 +295,13 @@ const BankAccount = ({
     return (
       <Col sm={12} className="bank-account" data-testid="no-international-accounts">
         <div className="box text-center no-bank-accounts">
-          <FormattedMessage
-            id="bank.account.empty.international"
-            defaultMessage="There are no international bank accounts, please add."
-          />
+          <FormattedMessage id="bank.account.empty.international" />
           <br />
           <br />
           <Button
             extraClass="dark"
             onClick={handleAddInternationalAccount}
-            text={useIntl().formatMessage({
-              id: 'bank.account.add.international',
-              defaultMessage: 'Add international account',
-            })}
+            text={intl.formatMessage({ id: 'bank.account.add.international' })}
             dataTestId="add-international-bank-account"
           />
         </div>
@@ -332,27 +329,23 @@ const BankAccount = ({
               >
                 <div className="box">
                   <h4 style={{ color }}>
-                    <FormattedMessage
-                      id="bank.account"
-                      defaultMessage="Account #{value}"
-                      values={{ value: i + 1 }}
-                    />
+                    <FormattedMessage id="bank.account" values={{ value: i + 1 }} />
                     {isEmptyFieldsBrasilAccount && i > 0 && (
                       <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
                     )}
                     {!isEmptyFieldsBrasilAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={useIntl().formatMessage({
+                        title={intl.formatMessage({
                           id: 'bank.account.delete.title',
                         })}
-                        body={useIntl().formatMessage({
+                        body={intl.formatMessage({
                           id: 'bank.account.delete.body',
                         })}
-                        confirmText={useIntl().formatMessage({
+                        confirmText={intl.formatMessage({
                           id: 'delete',
                         })}
-                        cancelText={useIntl().formatMessage({
+                        cancelText={intl.formatMessage({
                           id: 'cancel',
                         })}
                         style={{ float: 'right', color: '#888' }}
@@ -366,10 +359,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={useIntl().formatMessage({
-                              id: 'bank.account.delete',
-                              defaultMessage: 'Delete account',
-                            })}
+                            title={intl.formatMessage({ id: 'bank.account.delete' })}
                           />
                         </button>
                       </ConfirmModal>
@@ -377,7 +367,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`bank_number[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bank.account.field',
                     })}
                     type="text"
@@ -389,7 +379,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`beneficiary[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bank.account.beneficiary',
                     })}
                     type="text"
@@ -401,7 +391,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`cnpj[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bank.account.cnpj',
                     })}
                     type="text"
@@ -413,7 +403,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bank_branch[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bank.account.bank_branch',
                     })}
                     type="text"
@@ -425,7 +415,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bank_checking_account[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bank.account.bank_checking_account',
                     })}
                     type="text"
@@ -453,27 +443,23 @@ const BankAccount = ({
               >
                 <div className="box">
                   <h4 style={{ color }}>
-                    <FormattedMessage
-                      id="bank.account"
-                      defaultMessage="Account #{value}"
-                      values={{ value: i + 1 }}
-                    />
+                    <FormattedMessage id="bank.account" values={{ value: i + 1 }} />
                     {isEmptyFieldsPortugalAccount && i > 0 && (
                       <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
                     )}
                     {!isEmptyFieldsPortugalAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={useIntl().formatMessage({
+                        title={intl.formatMessage({
                           id: 'bank.account.delete.title',
                         })}
-                        body={useIntl().formatMessage({
+                        body={intl.formatMessage({
                           id: 'bank.account.delete.body',
                         })}
-                        confirmText={useIntl().formatMessage({
+                        confirmText={intl.formatMessage({
                           id: 'delete',
                         })}
-                        cancelText={useIntl().formatMessage({
+                        cancelText={intl.formatMessage({
                           id: 'cancel',
                         })}
                         style={{ float: 'right', color: '#888' }}
@@ -487,7 +473,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={useIntl().formatMessage({
+                            title={intl.formatMessage({
                               id: 'bank.account.delete',
                             })}
                           />
@@ -497,7 +483,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
-                    label={useIntl().formatMessage({ id: 'iban' })}
+                    label={intl.formatMessage({ id: 'iban' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-iban`]}
@@ -507,7 +493,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`nib[${i}]`}
-                    label={useIntl().formatMessage({ id: 'nib' })}
+                    label={intl.formatMessage({ id: 'nib' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-nib`]}
@@ -517,7 +503,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bic.swift',
                     })}
                     type="text"
@@ -547,27 +533,23 @@ const BankAccount = ({
               >
                 <div className="box">
                   <h4 style={{ color }}>
-                    <FormattedMessage
-                      id="bank.account"
-                      defaultMessage="Account #{value}"
-                      values={{ value: i + 1 }}
-                    />
+                    <FormattedMessage id="bank.account" values={{ value: i + 1 }} />
                     {isEmptyFieldsUkAccount && i > 0 && (
                       <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
                     )}
                     {!isEmptyFieldsUkAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={useIntl().formatMessage({
+                        title={intl.formatMessage({
                           id: 'bank.account.delete.title',
                         })}
-                        body={useIntl().formatMessage({
+                        body={intl.formatMessage({
                           id: 'bank.account.delete.body',
                         })}
-                        confirmText={useIntl().formatMessage({
+                        confirmText={intl.formatMessage({
                           id: 'delete',
                         })}
-                        cancelText={useIntl().formatMessage({
+                        cancelText={intl.formatMessage({
                           id: 'cancel',
                         })}
                         style={{ float: 'right', color: '#888' }}
@@ -581,7 +563,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={useIntl().formatMessage({
+                            title={intl.formatMessage({
                               id: 'bank.account.delete',
                             })}
                           />
@@ -591,7 +573,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`accountholder[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'accountholder',
                     })}
                     type="text"
@@ -603,7 +585,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`banksortcode[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'banksortcode',
                     })}
                     type="text"
@@ -615,7 +597,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`accountnumber[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'accountnumber',
                     })}
                     type="text"
@@ -644,27 +626,23 @@ const BankAccount = ({
               >
                 <div className="box">
                   <h4 style={{ color }}>
-                    <FormattedMessage
-                      id="bank.account"
-                      defaultMessage="Account #{value}"
-                      values={{ value: i + 1 }}
-                    />
+                    <FormattedMessage id="bank.account" values={{ value: i + 1 }} />
                     {isEmptyFieldsRestWorldAccount && i > 0 && (
                       <DeleteButton handleDeleteClick={handleDeleteAccount} idx={i} />
                     )}
                     {!isEmptyFieldsRestWorldAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={useIntl().formatMessage({
+                        title={intl.formatMessage({
                           id: 'bank.account.delete.title',
                         })}
-                        body={useIntl().formatMessage({
+                        body={intl.formatMessage({
                           id: 'bank.account.delete.body',
                         })}
-                        confirmText={useIntl().formatMessage({
+                        confirmText={intl.formatMessage({
                           id: 'delete',
                         })}
-                        cancelText={useIntl().formatMessage({
+                        cancelText={intl.formatMessage({
                           id: 'cancel',
                         })}
                         style={{ float: 'right', color: '#888' }}
@@ -677,7 +655,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={useIntl().formatMessage({
+                            title={intl.formatMessage({
                               id: 'bank.account.delete',
                             })}
                           />
@@ -687,7 +665,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`iban[${i}]`}
-                    label={useIntl().formatMessage({ id: 'iban' })}
+                    label={intl.formatMessage({ id: 'iban' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-iban`]}
@@ -696,7 +674,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={useIntl().formatMessage({
+                    label={intl.formatMessage({
                       id: 'bic.swift',
                     })}
                     type="text"
@@ -714,19 +692,13 @@ const BankAccount = ({
     return (
       <Col sm={12} className="bank-account" data-testid="no-national-accounts">
         <div className="box text-center no-bank-accounts">
-          <FormattedMessage
-            id="bank.account.empty"
-            defaultMessage="There are no bank accounts, please add."
-          />
+          <FormattedMessage id="bank.account.empty" />
           <br />
           <br />
           <Button
             extraClass="dark"
             onClick={handleAddAccount}
-            text={useIntl().formatMessage({
-              id: 'bank.account.add',
-              defaultMessage: 'Add account',
-            })}
+            text={intl.formatMessage({ id: 'bank.account.add' })}
             dataTestId="add-bank-account"
           />
         </div>
@@ -739,7 +711,7 @@ const BankAccount = ({
       <Row className="bank-account">
         <Col sm={12}>
           <h3 style={{ color }} data-testid="account-title">
-            <FormattedMessage id="bank.account.subtitle" defaultMessage="Bank accounts" />
+            <FormattedMessage id="bank.account.subtitle" />
           </h3>
         </Col>
         {renderAccounts(bankAccounts)}
@@ -750,10 +722,7 @@ const BankAccount = ({
                 <Button
                   extraClass="dark"
                   onClick={handleAddAccount}
-                  text={useIntl().formatMessage({
-                    id: 'bank.account.add',
-                    defaultMessage: 'Add account',
-                  })}
+                  text={intl.formatMessage({ id: 'bank.account.add' })}
                   dataTestId="add-bank-account"
                 />
               </div>
@@ -765,10 +734,7 @@ const BankAccount = ({
         <Row className="bank-account">
           <Col sm={12}>
             <h3 style={{ color }} data-testid="international-account-title">
-              <FormattedMessage
-                id="bank.account.international"
-                defaultMessage="International bank accounts"
-              />
+              <FormattedMessage id="bank.account.international" />
             </h3>
           </Col>
           {renderInternacionalAccounts(bankAccounts)}
@@ -779,10 +745,7 @@ const BankAccount = ({
                   <Button
                     extraClass="dark"
                     onClick={handleAddInternationalAccount}
-                    text={useIntl().formatMessage({
-                      id: 'bank.account.add.international',
-                      defaultMessage: 'Add international account',
-                    })}
+                    text={intl.formatMessage({ id: 'bank.account.add.international' })}
                     dataTestId="add-international-bank-account"
                   />
                 </div>
@@ -800,7 +763,7 @@ const BankAccount = ({
             <Button
               extraClass="success-full"
               onClick={handleSubmit}
-              text={useIntl().formatMessage({ id: 'bank.account.save', defaultMessage: 'Save' })}
+              text={intl.formatMessage({ id: 'bank.account.save' })}
             />
           </Col>
         </Row>
