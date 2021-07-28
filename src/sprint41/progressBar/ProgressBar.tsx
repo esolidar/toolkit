@@ -29,7 +29,6 @@ const ProgressBar: FC<Props> = ({
               <span>
                 <FormattedMessage
                   id="progressBar.raised.goal"
-                  defaultMessage="raised of {value} goal"
                   values={{
                     value: `${Intl.NumberFormat('en-EN', {
                       style: 'currency',
