@@ -1,7 +1,12 @@
 import React, { FC } from 'react';
 import Props from './Picture.types';
 
-const Picture: FC<Props> = ({ src, className, alt, sizes }: Props): JSX.Element => {
+const Picture: FC<Props> = ({
+  src,
+  className,
+  alt,
+  sizes = [330, 425, 650, 768, 1200],
+}: Props): JSX.Element => {
   return (
     <picture data-testid="picture">
       {sizes
@@ -19,7 +24,3 @@ const Picture: FC<Props> = ({ src, className, alt, sizes }: Props): JSX.Element 
 };
 
 export default Picture;
-
-Picture.defaultProps = {
-  sizes: [330, 425, 650, 768, 1200],
-};

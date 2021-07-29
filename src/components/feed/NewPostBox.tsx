@@ -85,7 +85,7 @@ const NewPostBox: FC<Props> = ({
       domain: shareLink ? shareLink.domain : '',
       images: imageIds,
     };
-    console.log('data', data.type);
+
     feedPost(companyId, data);
   };
 
@@ -252,7 +252,11 @@ const NewPostBox: FC<Props> = ({
                             >
                               <Icon iconClass="icon-close" />
                             </button>
-                            <img src={image.image} alt="image" className={`w-${width}`} />
+                            <img
+                              src={image.image}
+                              alt="image"
+                              className={`w-${JSON.stringify(width)}`}
+                            />
                           </div>
                         );
                       } else {
@@ -260,7 +264,7 @@ const NewPostBox: FC<Props> = ({
                           <div
                             key={image.id}
                             style={{ backgroundImage: `url("${image.image}")` }}
-                            className={`post-image-box w-${width}`}
+                            className={`post-image-box w-${JSON.stringify(width)}`}
                             data-testid="post-image-box"
                           >
                             &nbsp;
