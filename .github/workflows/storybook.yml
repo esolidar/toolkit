@@ -1,0 +1,70 @@
+name: update-storybook
+
+on: [pull_request]
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    name: Install dependencies
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: '12.x'
+          registry-url: https://npm.pkg.github.com
+          scope: '@esolidar'
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile --production=false
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+  build:
+    name: Build to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - run: yarn build-storybook
+
+      - uses: canastro/copy-file-action@master
+        with:
+          source: '.jest-test-results.json'
+          target: 'storybook-static/.jest-test-results.json'
+
+      - uses: actions/cache@v2
+        id: cache-storybook
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+      - name: send
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          folder: storybook-static
+
+  allPass:
+    name: Well done
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - run: exit 0

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Props from './ProgressBar.types';
-import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 const ProgressBar: FC<Props> = ({
   contributesSum,
