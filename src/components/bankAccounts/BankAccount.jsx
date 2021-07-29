@@ -24,9 +24,7 @@ const DeleteButton = ({ handleDeleteClick, idx }) => {
       <FontAwesomeIcon
         icon={faTrash}
         className="mr-1"
-        title={intl.formatMessage({
-          id: 'bank.account.delete',
-        })}
+        title={intl.formatMessage({ id: 'bank.account.delete' })}
       />
     </button>
   );
@@ -233,18 +231,10 @@ const BankAccount = ({
                     {!isEmptyFieldsInternationalAccount && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteInternationalAccount(i)}
-                        title={intl.formatMessage({
-                          id: 'bank.account.delete.title',
-                        })}
-                        body={intl.formatMessage({
-                          id: 'bank.account.delete.body',
-                        })}
-                        confirmText={intl.formatMessage({
-                          id: 'delete',
-                        })}
-                        cancelText={intl.formatMessage({
-                          id: 'cancel',
-                        })}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body' })}
+                        confirmText={intl.formatMessage({ id: 'delete' })}
+                        cancelText={intl.formatMessage({ id: 'cancel' })}
                         style={{ float: 'right', color: '#888' }}
                       >
                         <button
@@ -256,9 +246,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={intl.formatMessage({
-                              id: 'bank.account.delete',
-                            })}
+                            title={intl.formatMessage({ id: 'bank.account.delete' })}
                           />
                         </button>
                       </ConfirmModal>
@@ -275,9 +263,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bic.swift',
-                    })}
+                    label={intl.formatMessage({ id: 'bic.swift' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, 1)}
                     error={errors[`account-1-indx-${i}-field-bic`]}
@@ -336,18 +322,10 @@ const BankAccount = ({
                     {!isEmptyFieldsBrasilAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={intl.formatMessage({
-                          id: 'bank.account.delete.title',
-                        })}
-                        body={intl.formatMessage({
-                          id: 'bank.account.delete.body',
-                        })}
-                        confirmText={intl.formatMessage({
-                          id: 'delete',
-                        })}
-                        cancelText={intl.formatMessage({
-                          id: 'cancel',
-                        })}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body' })}
+                        confirmText={intl.formatMessage({ id: 'delete' })}
+                        cancelText={intl.formatMessage({ id: 'cancel' })}
                         style={{ float: 'right', color: '#888' }}
                       >
                         <button
@@ -367,9 +345,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`bank_number[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bank.account.field',
-                    })}
+                    label={intl.formatMessage({ id: 'bank.account.field' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bank_number`]}
@@ -379,9 +355,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`beneficiary[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bank.account.beneficiary',
-                    })}
+                    label={intl.formatMessage({ id: 'bank.account.beneficiary' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
@@ -391,9 +365,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`cnpj[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bank.account.cnpj',
-                    })}
+                    label={intl.formatMessage({ id: 'bank.account.cnpj' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
@@ -403,9 +375,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bank_branch[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bank.account.bank_branch',
-                    })}
+                    label={intl.formatMessage({ id: 'bank.account.bank_branch' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bank_branch`]}
@@ -415,9 +385,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bank_checking_account[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bank.account.bank_checking_account',
-                    })}
+                    label={intl.formatMessage({ id: 'bank.account.bank_checking_account' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bank_checking_account`]}
@@ -450,18 +418,10 @@ const BankAccount = ({
                     {!isEmptyFieldsPortugalAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={intl.formatMessage({
-                          id: 'bank.account.delete.title',
-                        })}
-                        body={intl.formatMessage({
-                          id: 'bank.account.delete.body',
-                        })}
-                        confirmText={intl.formatMessage({
-                          id: 'delete',
-                        })}
-                        cancelText={intl.formatMessage({
-                          id: 'cancel',
-                        })}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body' })}
+                        confirmText={intl.formatMessage({ id: 'delete' })}
+                        cancelText={intl.formatMessage({ id: 'cancel' })}
                         style={{ float: 'right', color: '#888' }}
                       >
                         <button
@@ -473,9 +433,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={intl.formatMessage({
-                              id: 'bank.account.delete',
-                            })}
+                            title={intl.formatMessage({ id: 'bank.account.delete' })}
                           />
                         </button>
                       </ConfirmModal>
@@ -503,9 +461,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bic.swift',
-                    })}
+                    label={intl.formatMessage({ id: 'bic.swift' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bic`]}
@@ -540,18 +496,10 @@ const BankAccount = ({
                     {!isEmptyFieldsUkAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={intl.formatMessage({
-                          id: 'bank.account.delete.title',
-                        })}
-                        body={intl.formatMessage({
-                          id: 'bank.account.delete.body',
-                        })}
-                        confirmText={intl.formatMessage({
-                          id: 'delete',
-                        })}
-                        cancelText={intl.formatMessage({
-                          id: 'cancel',
-                        })}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body' })}
+                        confirmText={intl.formatMessage({ id: 'delete' })}
+                        cancelText={intl.formatMessage({ id: 'cancel' })}
                         style={{ float: 'right', color: '#888' }}
                       >
                         <button
@@ -563,9 +511,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={intl.formatMessage({
-                              id: 'bank.account.delete',
-                            })}
+                            title={intl.formatMessage({ id: 'bank.account.delete' })}
                           />
                         </button>
                       </ConfirmModal>
@@ -573,9 +519,7 @@ const BankAccount = ({
                   </h4>
                   <TextField
                     id={`accountholder[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'accountholder',
-                    })}
+                    label={intl.formatMessage({ id: 'accountholder' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-accountholder`]}
@@ -585,9 +529,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`banksortcode[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'banksortcode',
-                    })}
+                    label={intl.formatMessage({ id: 'banksortcode' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-banksortcode`]}
@@ -597,9 +539,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`accountnumber[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'accountnumber',
-                    })}
+                    label={intl.formatMessage({ id: 'accountnumber' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-accountnumber`]}
@@ -633,18 +573,10 @@ const BankAccount = ({
                     {!isEmptyFieldsRestWorldAccount && i > 0 && (
                       <ConfirmModal
                         onConfirm={() => handleDeleteAccount(i)}
-                        title={intl.formatMessage({
-                          id: 'bank.account.delete.title',
-                        })}
-                        body={intl.formatMessage({
-                          id: 'bank.account.delete.body',
-                        })}
-                        confirmText={intl.formatMessage({
-                          id: 'delete',
-                        })}
-                        cancelText={intl.formatMessage({
-                          id: 'cancel',
-                        })}
+                        title={intl.formatMessage({ id: 'bank.account.delete.title' })}
+                        body={intl.formatMessage({ id: 'bank.account.delete.body' })}
+                        confirmText={intl.formatMessage({ id: 'delete' })}
+                        cancelText={intl.formatMessage({ id: 'cancel' })}
                         style={{ float: 'right', color: '#888' }}
                       >
                         <button
@@ -655,9 +587,7 @@ const BankAccount = ({
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="mr-1"
-                            title={intl.formatMessage({
-                              id: 'bank.account.delete',
-                            })}
+                            title={intl.formatMessage({ id: 'bank.account.delete' })}
                           />
                         </button>
                       </ConfirmModal>
@@ -674,9 +604,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`bic[${i}]`}
-                    label={intl.formatMessage({
-                      id: 'bic.swift',
-                    })}
+                    label={intl.formatMessage({ id: 'bic.swift' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-bic`]}

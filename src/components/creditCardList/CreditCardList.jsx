@@ -51,12 +51,8 @@ const CreditCardList = ({
       setDisableButton(false);
     } else {
       NotificationManager.error(
-        intl.formatMessage({
-          id: 'credit.card.error.message',
-        }),
-        intl.formatMessage({
-          id: 'crowdfunding.payment.errror.title',
-        }),
+        intl.formatMessage({ id: 'crowdfunding.payment.error.message' }),
+        intl.formatMessage({ id: 'crowdfunding.payment.error.title' }),
         15000
       );
       setDisableButton(false);
@@ -160,9 +156,7 @@ const CreditCardList = ({
                 <Button
                   extraClass="link"
                   onClick={() => setShowCreditCardForm(!showCreditCardForm)}
-                  text={intl.formatMessage({
-                    id: 'creditcard.add.card',
-                  })}
+                  text={intl.formatMessage({ id: 'creditcard.add.card' })}
                 />
               </div>
             </li>
@@ -179,9 +173,7 @@ const CreditCardList = ({
                   submit={submit}
                   errors={{}}
                   disableButton={disableButton}
-                  btnText={intl.formatMessage({
-                    id: 'creditcard.save',
-                  })}
+                  btnText={intl.formatMessage({ id: 'creditcard.save' })}
                 />
               </div>
             </Elements>

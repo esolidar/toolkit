@@ -117,9 +117,7 @@ const ProjectDetailThumb = ({
               { id: 4, name: admin.rejectText, disabled: project.status === projectStatesMap[4] },
             ]}
             value={projectState}
-            label={intl.formatMessage({
-              id: 'project.change.status.title',
-            })}
+            label={intl.formatMessage({ id: 'project.change.status.title' })}
             field="changeState"
             onChange={handleChangeState}
             hiddenSelectText={true}

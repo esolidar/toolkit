@@ -54,28 +54,20 @@ const RequestDetailThumb = ({
       status = 'status-box status-pending';
       statusText = intl.formatMessage({ id: 'statusPending' });
       joinedStatus = 'joined-pending';
-      joinedStatusText = intl.formatMessage({
-        id: 'joinedStatusTextPending',
-      });
+      joinedStatusText = intl.formatMessage({ id: 'joinedStatusTextPending' });
       break;
     case 'F':
       if (request.pivot) {
         if (request.pivot.review) {
           status = 'status-box status-reviewed';
-          statusText = intl.formatMessage({
-            id: 'statusReviewed',
-          });
+          statusText = intl.formatMessage({ id: 'statusReviewed' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = intl.formatMessage({
-            id: 'statusReviewed',
-          });
+          joinedStatusText = intl.formatMessage({ id: 'statusReviewed' });
         } else {
           status = 'status-box status-ended';
           statusText = intl.formatMessage({ id: 'statusEnded' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = intl.formatMessage({
-            id: 'statusEnded',
-          });
+          joinedStatusText = intl.formatMessage({ id: 'statusEnded' });
         }
       } else {
         status = 'status-box status-ended';
@@ -88,9 +80,7 @@ const RequestDetailThumb = ({
       status = 'status-box status-deleted';
       statusText = intl.formatMessage({ id: 'statusDeclined' });
       joinedStatus = 'joined-declined';
-      joinedStatusText = intl.formatMessage({
-        id: 'statusDeleted',
-      });
+      joinedStatusText = intl.formatMessage({ id: 'statusDeleted' });
       break;
     default:
       status = 'status-box';
@@ -129,9 +119,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onCloseRequest}
-                text={intl.formatMessage({
-                  id: 'charityneeds.detail.btn.close.request',
-                })}
+                text={intl.formatMessage({ id: 'charityneeds.detail.btn.close.request' })}
               />
             </div>
           )}
@@ -140,9 +128,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onReviewRequest}
-                text={intl.formatMessage({
-                  id: 'charityneeds.detail.btn.review',
-                })}
+                text={intl.formatMessage({ id: 'charityneeds.detail.btn.review' })}
               />
             </div>
           )}

@@ -57,9 +57,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
                       {user.institution ? user.institution.sigla : user.name}
                       {supportTag && !user.institution && (
                         <span className="support">
-                          {intl.formatMessage({
-                            id: 'tickets.supportTag',
-                          })}
+                          {intl.formatMessage({ id: 'tickets.supportTag' })}
                         </span>
                       )}
                     </span>

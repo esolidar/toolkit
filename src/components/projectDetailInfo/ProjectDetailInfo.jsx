@@ -194,9 +194,7 @@ const Question = ({
         <TextareaField
           label={intl.formatMessage({ id: 'project.comments' })}
           className="description"
-          placeholder={intl.formatMessage({
-            id: 'project.tickets.requestInfo.comments',
-          })}
+          placeholder={intl.formatMessage({ id: 'project.tickets.requestInfo.comments' })}
           onChange={e => handleChangeFieldObs(e, index)}
           field={`${name}-description`}
           resize={true}

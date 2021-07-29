@@ -76,9 +76,7 @@ const ProjectThumb = ({
                   <FontAwesomeIcon
                     icon={faPen}
                     className="mr-1"
-                    title={intl.formatMessage({
-                      id: 'project.edit.title',
-                    })}
+                    title={intl.formatMessage({ id: 'project.edit.title' })}
                   />
                   <FormattedMessage id="project.edit" />
                 </button>
@@ -97,9 +95,7 @@ const ProjectThumb = ({
                 className="ml-2 hover"
                 onClick={handleClickOpenTab}
                 style={{ cursor: 'pointer' }}
-                title={intl.formatMessage({
-                  id: 'open.new.tab',
-                })}
+                title={intl.formatMessage({ id: 'open.new.tab' })}
               />
             </OverlayTrigger>
           </div>
