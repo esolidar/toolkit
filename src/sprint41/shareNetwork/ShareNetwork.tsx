@@ -16,7 +16,7 @@ const ShareNetwork: FC<Props> = ({
   windowLocationHref = window.location.href,
 }: Props): JSX.Element => {
   return (
-    <div className="text-right" data-testid="btn-share">
+    <div className="share-network" data-testid="btn-share">
       <FacebookShareButton url={windowLocationHref} quote={title} className="share-icon">
         <FacebookIcon size={32} round />
       </FacebookShareButton>
