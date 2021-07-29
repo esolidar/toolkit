@@ -1,8 +1,6 @@
 name: publish-github-package
 
-on:
-  push:
-    branches: ['master']
+on: [pull_request]
 
 jobs:
   install:

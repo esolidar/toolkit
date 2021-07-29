@@ -1,0 +1,172 @@
+.feed-create-post {
+  border: 1px solid map-get($neutrals, 400);
+  padding: $distance-3;
+  border-radius: $distance-1;
+
+  .btn-link {
+    text-decoration: underline;
+    padding: 0;
+    display: inline-flex;
+    padding-left: $distance-1;
+  }
+
+  .header {
+    .thumb {
+      border-radius: 50%;
+      margin-right: $distance-2;
+    }
+    span {
+      color: map-get($neutrals, 700);
+    }
+  }
+
+  .body {
+    .no-border {
+      border: none;
+      padding: 0;
+      margin-top: $distance-2;
+    }
+
+    .images-preview {
+      margin-bottom: $distance-3;
+
+      .post-image-box-1 {
+        border-radius: $distance-1;
+        border: 1px solid #fff;
+        overflow: hidden;
+      }
+
+      .post-image-box {
+        display: inline-block;
+        background-size: cover;
+        height: 200px;
+        background-position: 50% 50%;
+        border-radius: $distance-1;
+        border: 1px solid #fff;
+      }
+
+      .post-image-box,
+      .post-image-box-1 {
+        position: relative;
+        .delete-image {
+          display: none;
+        }
+
+        &:hover {
+          .delete-image {
+            border: none;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+            display: inline-block;
+            position: absolute;
+            color: #000;
+            right: $distance-1;
+            top: $distance-1;
+            background-color: map-get($neutrals, 100);
+            border-radius: 50%;
+            padding: 5px;
+
+            &:focus,
+            :focus-visible {
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .w-33 {
+        width: 33.3%;
+      }
+    }
+
+    .share-link-preview {
+      margin-bottom: $distance-3;
+      border-radius: $distance-1;
+      border: 1px solid #fff;
+      overflow: hidden;
+      background-color: map-get($neutrals, 100);
+      position: relative;
+
+      .delete-share-link {
+        display: none;
+      }
+
+      &:hover {
+        .delete-share-link {
+          border: none;
+          margin: 0;
+          padding: 0;
+          line-height: 0;
+          display: inline-block;
+          position: absolute;
+          color: #000;
+          right: $distance-1;
+          top: $distance-1;
+          background-color: map-get($neutrals, 100);
+          border-radius: 50%;
+          padding: 5px;
+
+          &:focus,
+          :focus-visible {
+            outline: none;
+          }
+        }
+      }
+
+      .share-link-preview-domain {
+        padding-top: $distance-1;
+        padding-right: $distance-2;
+        padding-left: $distance-2;
+        font-size: 14px;
+        color: map-get($neutrals, 700);
+        text-transform: uppercase;
+      }
+      .share-link-preview-title {
+        padding-left: $distance-2;
+        padding-right: $distance-2;
+        font-size: 18px;
+        color: map-get($neutrals, 700);
+      }
+      .share-link-preview-og_description {
+        padding-left: $distance-2;
+        padding-right: $distance-2;
+        padding-bottom: $distance-1;
+        font-size: 13px;
+        color: map-get($neutrals, 700);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+
+    .add-image {
+      margin-right: auto;
+      color: map-get($turquoise, 500);
+
+      i {
+        color: map-get($turquoise, 500);
+        display: inline-flex;
+        margin-top: 3px;
+      }
+
+      span {
+        color: map-get($turquoise, 500);
+        font-size: 20px;
+        display: inline-flex;
+        padding-left: $distance-1;
+        font-weight: bold;
+      }
+    }
+
+    .add-post {
+      margin-left: auto;
+      text-align: right;
+    }
+  }
+}
