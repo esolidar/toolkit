@@ -133,27 +133,21 @@ const Documents = ({
         <Modal show={showDeleteModal} onHide={closeModal} className="md-delete-employee">
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage
-                id="documents.list.delete.modal.title"
-                defaultMessage="Delete document"
-              />
+              <FormattedMessage id="documents.list.delete.modal.title" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="row">
               <div className="col-sm-12">
                 <p>
-                  <FormattedMessage
-                    id="documents.department.delete.text"
-                    defaultMessage="Are you sure do you want to delete this document?"
-                  />
+                  <FormattedMessage id="documents.department.delete.text" />
                 </p>
               </div>
               <div className="col-sm-12 text-center mt-3">
                 <Button
                   extraClass="success-full"
                   onClick={deleteDocument}
-                  text={<FormattedMessage id="yes" defaultMessage="Yes" />}
+                  text={<FormattedMessage id="yes" />}
                 />
               </div>
             </div>

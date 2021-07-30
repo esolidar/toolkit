@@ -11,47 +11,43 @@ const statusOptions = {
   HEIGH_HOURS_LEFT: 'heightHoursLeft',
   ENDED: 'ended',
 };
+
 const statusMap = {
   [statusOptions.SOON]: {
     translation: 'countdown.startsin',
-    defaultMessage: 'Starts in',
   },
   [statusOptions.RUNNING]: {
     translation: 'countdown.running',
-    defaultMessage: 'Running',
   },
   [statusOptions.HEIGH_HOURS_LEFT]: {
     translation: 'thumb.countdown.eightHoursLeft',
-    defaultMessage: 'Ending soon',
   },
   [statusOptions.ENDED]: {
-    translation: 'countdown.ended',
-    defaultMessage: 'Ended',
+    translation: 'ended',
   },
 };
+
 const counterOptions = { DAYS: 'days', HOURS: 'hours', MIN: 'min', SEC: 'sec' };
+
 const counterMap = {
   [counterOptions.DAYS]: {
     testid: counterOptions.DAYS,
     translation: 'countdown.day',
-    defaultMessage: 'DAY',
   },
   [counterOptions.HOURS]: {
     testid: counterOptions.HOURS,
-    translation: 'countdown.hours',
-    defaultMessage: 'HOUR',
+    translation: 'hour',
   },
   [counterOptions.MIN]: {
     testid: counterOptions.MIN,
     translation: 'countdown.min',
-    defaultMessage: 'MIN',
   },
   [counterOptions.SEC]: {
     testid: counterOptions.SEC,
     translation: 'countdown.sec',
-    defaultMessage: 'SEC',
   },
 };
+
 class Countdown extends Component {
   state = {
     status: '',
@@ -67,6 +63,7 @@ class Countdown extends Component {
     // update every second
     const date = this.calculateCountdown();
     if (date) this.setState(date);
+
     this.interval = setInterval(() => {
       const date = this.calculateCountdown();
       if (date) this.setState(date);
@@ -94,23 +91,28 @@ class Countdown extends Component {
     const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
     const todaysDate = new Date(this.formatDate(zonedTimeToUtc(new Date(), timeZone)));
     let countDate;
+
     // Create date from input value
     const inputStartDate = new Date(startDate.replace(/-/g, '/'));
     const inputEndDate = new Date(endDate.replace(/-/g, '/'));
+
     // call setHours to take the time out of the comparison
     if (inputStartDate > todaysDate) {
       this.setState({ status: statusOptions.SOON, isSoon: true });
       countDate = startDate.replace(/-/g, '/');
     } else if (todaysDate <= inputEndDate) {
       if (isSoon) onStart();
+
       this.setState({
         status: statusOptions.RUNNING,
         isSoon: false,
         isRunning: true,
       });
+
       countDate = endDate.replace(/-/g, '/');
     } else {
       if (isRunning) onExpiry();
+
       this.setState({
         status: statusOptions.ENDED,
         days: 0,
@@ -121,11 +123,14 @@ class Countdown extends Component {
       });
       countDate = endDate.replace(/-/g, '/');
     }
+
     const endDateTimeTimeStamp = Date.parse(countDate);
     const nowTimeStamp = Date.parse(this.formatDate(zonedTimeToUtc(new Date(), timeZone)));
     let diff = (endDateTimeTimeStamp - nowTimeStamp) / 1000;
+
     // clear countdown when date is reached
     if (diff < 0) return false;
+
     const timeLeft = {
       years: 0,
       days: 0,
@@ -134,6 +139,7 @@ class Countdown extends Component {
       sec: 0,
       millisec: 0,
     };
+
     // calculate time difference between now and expected date
     if (diff >= 365.25 * 86400) {
       // 365.25 * 24 * 60 * 60
@@ -154,6 +160,7 @@ class Countdown extends Component {
       timeLeft.min = Math.floor(diff / 60);
       diff -= timeLeft.min * 60;
     }
+
     timeLeft.sec = diff;
     return timeLeft;
   };
@@ -165,12 +172,13 @@ class Countdown extends Component {
   renderCounter(option) {
     const dataTestId = `${this.props.dataTestId}-countdown-${option}`;
     const value = this.addLeadingZeros(this.state[option]);
-    const { translation, defaultMessage } = counterMap[option];
+    const { translation } = counterMap[option];
+
     return (
       <span className="Countdown-col">
         <span className="Countdown-col-element" data-testid={dataTestId}>
           <strong>{value}</strong>
-          <FormattedMessage id={translation} defaultMessage={defaultMessage} />
+          <FormattedMessage id={translation} />
         </span>
       </span>
     );
@@ -180,20 +188,22 @@ class Countdown extends Component {
     const { thumb } = this.props;
     const { days, hours } = this.state;
     let { status } = this.state;
+
     if (!status) return <div className="Countdown" />;
+
     const lessThan8HoursLeft = status === statusOptions.RUNNING && days === 0 && hours < 8;
     if (lessThan8HoursLeft) status = statusOptions.HEIGH_HOURS_LEFT;
+
     const showCounters = status !== statusOptions.ENDED;
     const showDays = !thumb || (thumb && days > 0);
     const showSecs = !thumb || (thumb && days === 0);
+
     return (
       <div className="CountdownBox">
         <div className={`Countdown-label ${status}`}>
-          <FormattedMessage
-            id={statusMap[status].translation}
-            defaultMessage={statusMap[status].defaultMessage}
-          />
+          <FormattedMessage id={statusMap[status].translation} />
         </div>
+
         {showCounters && (
           <div className={`Countdown-box ${status}`}>
             {showDays && this.renderCounter(counterOptions.DAYS)}
@@ -206,6 +216,7 @@ class Countdown extends Component {
     );
   }
 }
+
 Countdown.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
@@ -214,9 +225,11 @@ Countdown.propTypes = {
   onExpiry: PropTypes.func,
   onStart: PropTypes.func,
 };
+
 Countdown.defaultProps = {
   thumb: false,
   dataTestId: 'count',
   onExpiry: () => {},
 };
+
 export default Countdown;

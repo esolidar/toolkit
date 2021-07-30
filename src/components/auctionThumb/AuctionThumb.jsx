@@ -76,17 +76,9 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
                 id={`last-bid-label-${auction.id}`}
                 style={{ color: primaryColor }}
               >
-                {auction.last_bid && (
-                  <FormattedMessage
-                    id="homepage.toolsbox.charityAuctions.lastBid"
-                    defaultMessage="Last Bid"
-                  />
-                )}
+                {auction.last_bid && <FormattedMessage id="auction.last.bid" />}
                 {!auction.last_bid && (
-                  <FormattedMessage
-                    id="homepage.toolsbox.charityAuctions.startBid"
-                    defaultMessage="Starting Bid"
-                  />
+                  <FormattedMessage id="homepage.toolsbox.charityAuctions.startBid" />
                 )}
               </Col>
               <Col
@@ -105,10 +97,7 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
           {+today >= +auctionEndDate && (
             <Row className="last-bid">
               <Col xs={5} className="last-bid-label" style={{ color: primaryColor }}>
-                <FormattedMessage
-                  id="homepage.toolsbox.charityAuctions.raised"
-                  defaultMessage="Raised"
-                />
+                <FormattedMessage id="homepage.toolsbox.charityAuctions.raised" />
               </Col>
               {auction.last_bid && (
                 <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
@@ -130,10 +119,7 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
       {auction.private === 1 && (
         <Row className="last-bid">
           <Col xs={12} className="text-center private">
-            <FormattedMessage
-              id="homepage.toolsbox.charityAuctions.private"
-              defaultMessage="PRIVATE AUCTION"
-            />
+            <FormattedMessage id="homepage.toolsbox.charityAuctions.private" />
           </Col>
         </Row>
       )}

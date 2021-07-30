@@ -39,7 +39,7 @@ const ContributeRow = ({ contribute, env, currency }) => {
             {contribute.hidden === 0 && <div className="user">{row.name}</div>}
             {contribute.hidden === 1 && (
               <div className="user">
-                <FormattedMessage id="crowdfunding.anonymous" defaultMessage="Anonymous user" />
+                <FormattedMessage id="crowdfunding.anonymous" />
               </div>
             )}
             <FormattedNumber value={row.value} style="currency" currency={row.currency} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import ValidateTelephone from '../index';
 
@@ -61,10 +61,7 @@ test('Should exist Validate button, insert phone number and appear box confirm c
     </IntlProvider>
   );
 
-  const searchInput = screen.getByText(/Verify/i);
-  expect(screen.getByText(/Verify/i)).toBeInTheDocument();
-  expect(searchInput.value).toBe('');
-  fireEvent.change(searchInput, { target: { value: '919552199' } });
+  const validateButtons = screen.getAllByText(/Validate/i);
+  expect(validateButtons).toHaveLength(3);
   expect(screen.getByText(/Insert your validation code/i)).toBeInTheDocument();
-  expect(screen.getByText(/Verify/i)).toBeInTheDocument();
 });

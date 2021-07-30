@@ -108,10 +108,7 @@ class Post extends Component {
                             onClick={() => this.toggleModalEdit(comment.id, comment.text)}
                             disabled={disabled}
                           >
-                            <FormattedMessage
-                              id="feed.options.edit-comment"
-                              defaultMessage="Edit comment"
-                            />
+                            <FormattedMessage id="projects.comments.edit" />
                           </button>
                         </Dropdown.Header>
 
@@ -123,8 +120,7 @@ class Post extends Component {
                               onClick={() => this.toggleModal(comment.id)}
                             >
                               <FormattedMessage
-                                id="feed.options.delete-comment"
-                                defaultMessage="Delete comment"
+                                id="delete"
                               />
                             </button>
                           </Dropdown.Header>
@@ -144,7 +140,7 @@ class Post extends Component {
                       ellipsis={
                         <span>
                           <a href="#" className="readmore-link" onClick={this.toggleLines}>
-                            <FormattedMessage id="feed.post.readmore" defaultMessage="Read more" />
+                            <FormattedMessage id="readmore" />
                           </a>
                         </span>
                       }
@@ -215,10 +211,7 @@ class Post extends Component {
                           type="button"
                           onClick={() => this.toggleModalEdit(post.id, post.text)}
                         >
-                          <FormattedMessage
-                            id="projects.comments.edit"
-                            defaultMessage="Edit Comment"
-                          />
+                          <FormattedMessage id="projects.comments.edit" />
                         </button>
                       </Dropdown.Header>
 
@@ -230,8 +223,7 @@ class Post extends Component {
                             onClick={() => this.toggleModal(post.id)}
                           >
                             <FormattedMessage
-                              id="feed.options.delete-post"
-                              defaultMessage="Delete post"
+                              id="delete"
                             />
                           </button>
                         </Dropdown.Header>
@@ -259,7 +251,7 @@ class Post extends Component {
                 {post.replies && (
                   <span>
                     {post.total}
-                    <FormattedMessage id="feed.post.commentPlural" defaultMessage=" Comments" />
+                    <FormattedMessage id="feed.post.commentPlural" />
                   </span>
                 )}
               </div>
@@ -275,10 +267,7 @@ class Post extends Component {
                       onClick={() => renderMoreReplies(post)}
                       className="renderMoreBtn"
                     >
-                      <FormattedMessage
-                        id="projects.comments.renderMore"
-                        defaultMessage="Load more comments"
-                      />
+                      <FormattedMessage id="projects.comments.renderMore" />
                     </button>
                   ) : (
                     <div className="loadingReplies">
@@ -312,7 +301,7 @@ class Post extends Component {
         >
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage id="projects.comments.edit" defaultMessage="Edit Comment" />
+              <FormattedMessage id="projects.comments.edit" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -337,7 +326,7 @@ class Post extends Component {
                       required={true}
                     />
                     <button type="submit" className="btn-esolidar btn-success-full float-right">
-                      <FormattedMessage id="projects.comments.save" defaultMessage="Save" />
+                      <FormattedMessage id="save" />
                     </button>
                   </Col>
                 </form>
@@ -348,17 +337,14 @@ class Post extends Component {
         <Modal show={showDeleteModal} onHide={this.toggleModal} className="md-delete">
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage id="projects.comment.delete" defaultMessage="Delete Comment" />
+              <FormattedMessage id="comment.delete" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="row">
               <div className="col-sm-12">
                 <p>
-                  <FormattedMessage
-                    id="projects.comment.delete.text"
-                    defaultMessage="Are you sure do you want to delete this comment?"
-                  />
+                  <FormattedMessage id="projects.comment.delete.text" />
                 </p>
               </div>
               <div className="col-sm-12 text-right">
@@ -367,7 +353,7 @@ class Post extends Component {
                   type="button"
                   onClick={deleteComment(deleteCommenId)}
                 >
-                  <FormattedMessage id="company.department.yes" defaultMessage="Yes" />
+                  <FormattedMessage id="yes" />
                 </button>
               </div>
             </div>

@@ -118,9 +118,7 @@ const Header = ({
             <Button
               extraClass="dark"
               href={`${esolidarUrl}user/login`}
-              text={intl.formatMessage({
-                id: 'header.menu.login',
-              })}
+              text={intl.formatMessage({ id: 'header.menu.login' })}
             />
           </Nav>
           <Navbar.Collapse id="basic-navbar-nav" className="collapseAnimation ml-auto menu-items">
@@ -181,9 +179,7 @@ const Header = ({
                 onMouseEnter={() => setopenDropOne(!openDropOne)}
                 onMouseLeave={() => setopenDropOne(!openDropOne)}
                 show={openDropOne}
-                title={intl.formatMessage({
-                  id: 'header.menu.whyEsolidar',
-                })}
+                title={intl.formatMessage({ id: 'header.menu.whyEsolidar' })}
                 className={window.location.href.includes('how-it-works') ? 'active' : ''}
               >
                 <NavDropdown.Item
@@ -220,9 +216,7 @@ const Header = ({
                 onMouseEnter={() => setopenDropTwo(!openDropTwo)}
                 onMouseLeave={() => setopenDropTwo(!openDropTwo)}
                 show={openDropTwo}
-                title={intl.formatMessage({
-                  id: 'header.menu.learn',
-                })}
+                title={intl.formatMessage({ id: 'header.menu.learn' })}
               >
                 <NavDropdown.Item
                   href={intl.formatMessage({ id: 'header.menu.blog.url' })}
