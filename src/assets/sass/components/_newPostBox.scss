@@ -166,21 +166,12 @@
     display: flex;
 
     .add-image {
-      margin-right: auto;
-      color: map-get($turquoise, 500);
-
-      i {
-        color: map-get($turquoise, 500);
-        display: inline-flex;
-        margin-top: 3px;
+      .btn-esolidar {
+        height: 38px;
       }
 
-      .add-image-plus {
-        color: map-get($turquoise, 500);
-        font-size: 20px;
-        display: inline-flex;
-        padding-left: $distance-1;
-        font-weight: bold;
+      i {
+        color: map-get($neutrals, 700);
       }
     }
 

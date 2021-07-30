@@ -357,15 +357,22 @@ const NewPostBox: FC<Props> = ({
                   >
                     <Button
                       extraClass="dark"
+                      className="d-flex align-items-center"
                       fullWidth={false}
                       rounded={true}
                       size="md"
-                      text={
+                      icon={
                         <>
-                          <Icon iconClass="icon-camera" />
-                          <span className="add-image-plus">+</span>
+                          <Icon iconClass="icon-camera-outline" style={{ fontSize: '24px' }} />
+                          <Icon iconClass="icon-plus ml-2" style={{ fontSize: '10px' }} />
                         </>
                       }
+                      // text={
+                      //   <>
+                      //     <Icon iconClass="icon-plus" />
+                      //     <span className="add-image-plus">+</span>
+                      //   </>
+                      // }
                       type="button"
                     />
                   </DropZoneBox>
