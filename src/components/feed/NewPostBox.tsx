@@ -363,7 +363,7 @@ const NewPostBox: FC<Props> = ({
                       text={
                         <>
                           <Icon iconClass="icon-camera" />
-                          <span>+</span>
+                          <span className="add-image-plus">+</span>
                         </>
                       }
                       type="button"
