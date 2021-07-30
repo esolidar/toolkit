@@ -23,7 +23,7 @@ const statusMap = {
     translation: 'thumb.countdown.eightHoursLeft',
   },
   [statusOptions.ENDED]: {
-    translation: 'countdown.ended',
+    translation: 'ended',
   },
 };
 
@@ -36,7 +36,7 @@ const counterMap = {
   },
   [counterOptions.HOURS]: {
     testid: counterOptions.HOURS,
-    translation: 'countdown.hours',
+    translation: 'hour',
   },
   [counterOptions.MIN]: {
     testid: counterOptions.MIN,

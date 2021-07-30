@@ -17,7 +17,7 @@ const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => (
         <Dropdown.Menu>
           <Dropdown.Header>
             <button onClick={deleteComment} type="button">
-              <FormattedMessage id="crowdfunding.delete.comments" />
+              <FormattedMessage id="comment.delete" />
             </button>
           </Dropdown.Header>
         </Dropdown.Menu>

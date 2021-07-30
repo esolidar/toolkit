@@ -35,7 +35,7 @@ const ContributesList = ({
         <div className="text-center">
           <button className="see-more-contributors" type="button" onClick={showMoreContributes}>
             {!loadingContributes && <FormattedMessage id="crowdfunding.more" />}
-            {loadingContributes && <FormattedMessage id="crowdfunding.loading-text" />}
+            {loadingContributes && <FormattedMessage id="loading" />}
           </button>
         </div>
       )}

@@ -65,22 +65,22 @@ const RequestDetailThumb = ({
           joinedStatusText = intl.formatMessage({ id: 'statusReviewed' });
         } else {
           status = 'status-box status-ended';
-          statusText = intl.formatMessage({ id: 'statusEnded' });
+          statusText = intl.formatMessage({ id: 'ended' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = intl.formatMessage({ id: 'statusEnded' });
+          joinedStatusText = intl.formatMessage({ id: 'ended' });
         }
       } else {
         status = 'status-box status-ended';
-        statusText = intl.formatMessage({ id: 'statusEnded' });
+        statusText = intl.formatMessage({ id: 'ended' });
         joinedStatus = 'joined-finished';
-        joinedStatusText = intl.formatMessage({ id: 'statusEnded' });
+        joinedStatusText = intl.formatMessage({ id: 'ended' });
       }
       break;
     case 'D':
       status = 'status-box status-deleted';
-      statusText = intl.formatMessage({ id: 'statusDeclined' });
+      statusText = intl.formatMessage({ id: 'ended' });
       joinedStatus = 'joined-declined';
-      joinedStatusText = intl.formatMessage({ id: 'statusDeleted' });
+      joinedStatusText = intl.formatMessage({ id: 'ended' });
       break;
     default:
       status = 'status-box';
@@ -91,7 +91,7 @@ const RequestDetailThumb = ({
     <div className={status}>
       <Row className="header">
         <Col xs={4} sm={4}>
-          <FormattedMessage id="request.detail.box.status" />
+          <FormattedMessage id="project.tickets.status" />
         </Col>
         <Col xs={8} sm={8} className="text-right">
           <span>
@@ -235,7 +235,7 @@ const RequestDetailThumb = ({
                 onClick={() => onImin()}
                 disabled={disabledButton}
               >
-                <FormattedMessage id="modal.request.imIn.confirm" />
+                <FormattedMessage id="confirm" />
               </button>
             </div>
           </Row>

@@ -355,7 +355,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`beneficiary[${i}]`}
-                    label={intl.formatMessage({ id: 'bank.account.beneficiary' })}
+                    label={intl.formatMessage({ id: 'auction.beneficiary' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
@@ -365,7 +365,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`cnpj[${i}]`}
-                    label={intl.formatMessage({ id: 'bank.account.cnpj' })}
+                    label={intl.formatMessage({ id: 'user.nif' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-cnpj`]}
@@ -691,7 +691,7 @@ const BankAccount = ({
             <Button
               extraClass="success-full"
               onClick={handleSubmit}
-              text={intl.formatMessage({ id: 'bank.account.save' })}
+              text={intl.formatMessage({ id: 'save' })}
             />
           </Col>
         </Row>

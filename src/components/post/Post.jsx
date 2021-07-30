@@ -108,7 +108,7 @@ class Post extends Component {
                             onClick={() => this.toggleModalEdit(comment.id, comment.text)}
                             disabled={disabled}
                           >
-                            <FormattedMessage id="feed.options.edit-comment" />
+                            <FormattedMessage id="projects.comments.edit" />
                           </button>
                         </Dropdown.Header>
 
@@ -120,7 +120,7 @@ class Post extends Component {
                               onClick={() => this.toggleModal(comment.id)}
                             >
                               <FormattedMessage
-                                id="feed.options.delete-comment"
+                                id="delete"
                               />
                             </button>
                           </Dropdown.Header>
@@ -223,7 +223,7 @@ class Post extends Component {
                             onClick={() => this.toggleModal(post.id)}
                           >
                             <FormattedMessage
-                              id="feed.options.delete-post"
+                              id="delete"
                             />
                           </button>
                         </Dropdown.Header>
@@ -326,7 +326,7 @@ class Post extends Component {
                       required={true}
                     />
                     <button type="submit" className="btn-esolidar btn-success-full float-right">
-                      <FormattedMessage id="projects.comments.save" />
+                      <FormattedMessage id="save" />
                     </button>
                   </Col>
                 </form>
@@ -337,7 +337,7 @@ class Post extends Component {
         <Modal show={showDeleteModal} onHide={this.toggleModal} className="md-delete">
           <Modal.Header closeButton>
             <Modal.Title>
-              <FormattedMessage id="projects.comments.delete" />
+              <FormattedMessage id="comment.delete" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -353,7 +353,7 @@ class Post extends Component {
                   type="button"
                   onClick={deleteComment(deleteCommenId)}
                 >
-                  <FormattedMessage id="company.department.yes" />
+                  <FormattedMessage id="yes" />
                 </button>
               </div>
             </div>

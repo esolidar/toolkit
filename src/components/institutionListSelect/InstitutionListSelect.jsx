@@ -147,7 +147,7 @@ const InstitutionRow = ({
       <Button
         extraClass={isSelected ? 'info-full' : 'info'}
         text={intl.formatMessage({
-          id: isSelected ? 'institutions.list.selected' : 'institutions.list.select',
+          id: isSelected ? 'selected' : 'select',
         })}
         onClick={() => {
           if (isSameUserId && removeInstitutionSelected) removeInstitutionSelected();

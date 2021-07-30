@@ -111,6 +111,7 @@ const ValidateTelephone = ({
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             disabled={verified === 1}
+            id="teste"
           />
           {errors && (
             <div className="has-error">
@@ -130,7 +131,7 @@ const ValidateTelephone = ({
                 disabled={isLoading}
                 className="btn btn-validate-phone"
               >
-                <FormattedMessage id="user.settings.btn.validate.phone" />
+                <FormattedMessage id="validate" />
               </button>
             </div>
             <div className="col-sm-12 sms-message">
@@ -176,7 +177,7 @@ const ValidateTelephone = ({
               </Col>
               <Col sm={12}>
                 <button type="button" onClick={mobileVerify} className="btn btn-verify-phone">
-                  <FormattedMessage id="user.settings.verify.phone" />
+                  <FormattedMessage id="validate" />
                 </button>
               </Col>
             </div>

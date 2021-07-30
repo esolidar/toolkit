@@ -76,9 +76,7 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
                 id={`last-bid-label-${auction.id}`}
                 style={{ color: primaryColor }}
               >
-                {auction.last_bid && (
-                  <FormattedMessage id="homepage.toolsbox.charityAuctions.lastBid" />
-                )}
+                {auction.last_bid && <FormattedMessage id="auction.last.bid" />}
                 {!auction.last_bid && (
                   <FormattedMessage id="homepage.toolsbox.charityAuctions.startBid" />
                 )}

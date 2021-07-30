@@ -235,7 +235,7 @@ const TicketsForm = ({
                       <Col sm={12}>
                         <div className="form-group">
                           <label className="control-label">
-                            {intl.formatMessage({ id: 'tickets.institution' })}
+                            {intl.formatMessage({ id: 'institution' })}
                           </label>
                           <AsyncPaginate
                             isClearable
@@ -286,11 +286,11 @@ const TicketsForm = ({
                 )}
                 <Col sm={12}>
                   <TextField
-                    label={intl.formatMessage({ id: 'project.tickets.title' })}
+                    label={intl.formatMessage({ id: 'title' })}
                     type="text"
                     onChange={onChange}
                     error={errors.title}
-                    placeholder={intl.formatMessage({ id: 'project.tickets.titlePlaceholder' })}
+                    placeholder={intl.formatMessage({ id: 'title' })}
                     defaultValue={editTicket.title}
                     field="title"
                     required={true}
@@ -300,7 +300,7 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <TextareaField
-                        label={intl.formatMessage({ id: 'project.tickets.text' })}
+                        label={intl.formatMessage({ id: 'description' })}
                         error={errors.text}
                         placeholder={intl.formatMessage({ id: 'project.tickets.textPlaceholder' })}
                         onChange={onChange}
@@ -357,7 +357,7 @@ const TicketsForm = ({
                     extraClass="success-full ml-auto"
                     onClick={onSubmit}
                     disabled={disabled}
-                    text={intl.formatMessage({ id: 'Company.department.save' })}
+                    text={intl.formatMessage({ id: 'save' })}
                   />
                 </Col>
               </Row>
@@ -369,7 +369,7 @@ const TicketsForm = ({
               <Row>
                 <Col sm={12}>
                   <TextareaField
-                    label={intl.formatMessage({ id: 'project.tickets.text' })}
+                    label={intl.formatMessage({ id: 'description' })}
                     error={errors.text}
                     placeholder={intl.formatMessage({ id: 'project.tickets.textPlaceholder' })}
                     onChange={onChangeComment}
@@ -398,12 +398,12 @@ const TicketsForm = ({
                   <Button
                     extraClass="dark mr-2"
                     onClick={addComment}
-                    text={intl.formatMessage({ id: 'Company.department.cancel' })}
+                    text={intl.formatMessage({ id: 'cancel' })}
                   />
                   <Button
                     extraClass="success-full"
                     onClick={onSubmitComment}
-                    text={intl.formatMessage({ id: 'Company.department.save' })}
+                    text={intl.formatMessage({ id: 'save' })}
                     disabled={disabled}
                   />
                 </Col>

@@ -880,14 +880,14 @@ const AuctionDetail = ({
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
                     href="/auction/list"
-                    text={intl.formatMessage({ id: 'auction.private.cancel' })}
+                    text={intl.formatMessage({ id: 'cancel' })}
                   />
                   <Button
                     dataTestId="btn-private-validate"
                     className="auction-private-cancel"
                     extraClass="success-full"
                     onClick={handleConfirmPrivateCode}
-                    text={intl.formatMessage({ id: 'auction.private.validate' })}
+                    text={intl.formatMessage({ id: 'validate' })}
                   />
                 </Col>
               </Col>
@@ -1038,7 +1038,7 @@ const AuctionDetail = ({
               <DescriptionDetail
                 dataTestIdTitle="description"
                 dataTestIdDescription="description-text"
-                title={intl.formatMessage({ id: 'auction.description' })}
+                title={intl.formatMessage({ id: 'description' })}
                 description={auctionDescriptionLang('description')}
                 color={primaryColor}
               />
@@ -1057,7 +1057,7 @@ const AuctionDetail = ({
                 color={primaryColor}
               />
               <h3 className="mt-5">
-                <FormattedMessage id="auction.detail.titleComments" />
+                <FormattedMessage id="project.comments" />
               </h3>
               <div className="comments-box">
                 <CreateComment
@@ -1148,12 +1148,12 @@ const AuctionDetail = ({
                 <Button
                   extraClass="dark"
                   onClick={() => handleCloseModalBid()}
-                  text={intl.formatMessage({ id: 'auction.private.cancel' })}
+                  text={intl.formatMessage({ id: 'cancel' })}
                 />
                 <Button
                   extraClass="success-full"
                   onClick={() => handleConfirmBid(isAnonymous)}
-                  text={intl.formatMessage({ id: 'auction.private.confirm' })}
+                  text={intl.formatMessage({ id: 'confirm' })}
                   disabled={isConfirmBid}
                 />
               </>
@@ -1271,7 +1271,7 @@ const AuctionDetail = ({
                 <Button
                   extraClass="dark"
                   onClick={() => handleCancelModalSubscribe()}
-                  text={intl.formatMessage({ id: 'auction.private.cancel' })}
+                  text={intl.formatMessage({ id: 'cancel' })}
                 />
                 <Button
                   extraClass="success-full"
@@ -1282,7 +1282,7 @@ const AuctionDetail = ({
                       isCheckedEmail24H
                     )
                   }
-                  text={intl.formatMessage({ id: 'auction.private.save' })}
+                  text={intl.formatMessage({ id: 'save' })}
                 />
               </>
             }
@@ -1323,19 +1323,19 @@ const AuctionDetail = ({
               <Button
                 extraClass="dark"
                 onClick={() => setModalDelete({ ...modalDelete, isOpen: false })}
-                text={intl.formatMessage({ id: 'auction.private.cancel' })}
+                text={intl.formatMessage({ id: 'cancel' })}
               />
               <Button
                 extraClass="success-full"
                 onClick={() => handleDeleteComment(modalDelete.commentId)}
-                text={intl.formatMessage({ id: 'auction.modal.comment.Confirm' })}
+                text={intl.formatMessage({ id: 'confirm' })}
               />
             </>
           }
           bodyChildren={<FormattedMessage id="auctions.comment.message.delete" />}
           onHide={() => setModalDelete({ ...modalDelete, isOpen: false })}
           show={modalDelete.isOpen}
-          title={intl.formatMessage({ id: 'auction.modal.comment.title' })}
+          title={intl.formatMessage({ id: 'comment.delete' })}
         />
       )}
     </Container>

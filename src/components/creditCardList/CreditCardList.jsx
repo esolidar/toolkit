@@ -173,7 +173,7 @@ const CreditCardList = ({
                   submit={submit}
                   errors={{}}
                   disableButton={disableButton}
-                  btnText={intl.formatMessage({ id: 'creditcard.save' })}
+                  btnText={intl.formatMessage({ id: 'save' })}
                 />
               </div>
             </Elements>

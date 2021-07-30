@@ -654,19 +654,19 @@ const AuctionAddForm = ({
                   </Col>
                   <Col sm={12}>
                     <TextField
-                      label={intl.formatMessage({ id: 'auctionTitle' })}
+                      label={intl.formatMessage({ id: 'title' })}
                       onChange={e => handleChangeForm(e)}
                       error={errors.title}
                       value={form.title}
                       field="title"
-                      fieldTranslate="auctionTitle"
+                      fieldTranslate="title"
                       maxLength="255"
                       autofocus={true}
                     />
                   </Col>
                   <Col sm={12}>
                     <TextareaField
-                      label={intl.formatMessage({ id: 'auctionDescription' })}
+                      label={intl.formatMessage({ id: 'description' })}
                       help={intl.formatMessage({ id: 'auction.description.info' })}
                       onChange={handleChangeForm}
                       error={errors.description}
@@ -1060,7 +1060,7 @@ const AuctionAddForm = ({
                         <FormattedMessage id="auction.beneficiary.help" />
                       </span>
                       <RadioField
-                        label={intl.formatMessage({ id: 'auction.institution' })}
+                        label={intl.formatMessage({ id: 'institution' })}
                         onChange={handleChangeBeneficiary}
                         name="auction_beneficiary_institution"
                         value="institution"
@@ -1266,7 +1266,7 @@ const AuctionAddForm = ({
                         dataTestId="btn-submit-clone"
                         extraClass="success-full btn-submit"
                         onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
-                        text={intl.formatMessage({ id: 'auctions.clone.submitAuction' })}
+                        text={intl.formatMessage({ id: 'auctions.clone.title' })}
                         disabled={disabled}
                       />
                     )}

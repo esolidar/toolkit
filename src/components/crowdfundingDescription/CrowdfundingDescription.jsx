@@ -98,7 +98,7 @@ class CrowdfundingDescription extends Component {
               className="description-header"
               style={{ color, borderColor: color, 'margin-top': '50px' }}
             >
-              <FormattedMessage id="crowdfunding.description" />
+              <FormattedMessage id="description" />
             </div>
             <div className={`description-text ${showmoreDesc ? 'description-show-all' : ''}`}>
               {campaignDescription()

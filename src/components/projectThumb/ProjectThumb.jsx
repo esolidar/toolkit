@@ -76,7 +76,7 @@ const ProjectThumb = ({
                   <FontAwesomeIcon
                     icon={faPen}
                     className="mr-1"
-                    title={intl.formatMessage({ id: 'project.edit.title' })}
+                    title={intl.formatMessage({ id: 'project.edit' })}
                   />
                   <FormattedMessage id="project.edit" />
                 </button>

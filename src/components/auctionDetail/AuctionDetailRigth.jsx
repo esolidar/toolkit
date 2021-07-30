@@ -103,7 +103,7 @@ const AuctionDetailRigth = ({
                 style={{ color: primaryColor }}
               >
                 {auction.last_bid ? (
-                  <FormattedMessage id="auction.detail.lastbid" />
+                  <FormattedMessage id="auction.last.bid" />
                 ) : (
                   <FormattedMessage id="auction.detail.startbid" />
                 )}
@@ -185,7 +185,7 @@ const AuctionDetailRigth = ({
                   data-testid="label-ended"
                   style={{ color: primaryColor }}
                 >
-                  <FormattedMessage id="auction.detail.ended" />
+                  <FormattedMessage id="ended" />
                 </Col>
               </Row>
               <Row>

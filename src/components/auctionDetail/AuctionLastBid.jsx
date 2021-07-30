@@ -34,7 +34,7 @@ const AuctionLastBid = ({
                     style={{ color: primaryColor }}
                   >
                     {auction.last_bid ? (
-                      <FormattedMessage id="auction.detail.lastbid" />
+                      <FormattedMessage id="auction.last.bid" />
                     ) : (
                       <FormattedMessage id="auction.detail.startbid" />
                     )}
