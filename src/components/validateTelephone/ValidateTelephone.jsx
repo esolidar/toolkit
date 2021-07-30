@@ -97,7 +97,7 @@ const ValidateTelephone = ({
     <Col className="validate-telephone box mb-3">
       <Row>
         <Col className="title-add-contact">
-          <FormattedMessage id="user.settings.title.addContact" defaultMessage="Add Contact" />
+          <FormattedMessage id="user.settings.title.addContact" />
         </Col>
       </Row>
       <Row className="phone-box">
@@ -111,14 +111,12 @@ const ValidateTelephone = ({
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             disabled={verified === 1}
+            id="teste"
           />
           {errors && (
             <div className="has-error">
               <span className="help-block">
-                <FormattedMessage
-                  id="user.settings.phone.errorNumber"
-                  defaultMessage="Phone is not valid"
-                />
+                <FormattedMessage id="user.settings.phone.errorNumber" />
               </span>
             </div>
           )}
@@ -133,14 +131,11 @@ const ValidateTelephone = ({
                 disabled={isLoading}
                 className="btn btn-validate-phone"
               >
-                <FormattedMessage id="user.settings.btn.validate.phone" defaultMessage="Validate" />
+                <FormattedMessage id="validate" />
               </button>
             </div>
             <div className="col-sm-12 sms-message">
-              <FormattedMessage
-                id="user.settings.validate.phone.sms.message"
-                defaultMessage="You will receive an SMS with the validation code"
-              />
+              <FormattedMessage id="user.settings.validate.phone.sms.message" />
             </div>
           </>
         )}
@@ -148,7 +143,6 @@ const ValidateTelephone = ({
           <FormattedMessage
             id="user.settings.phone.message"
             // eslint-disable-next-line max-len
-            defaultMessage="You should validate your telephone number, so we can contact you when one of your items is sold or you win a charity auction. This information is also necessary to validate the identity of active users in auctions, purchases, and sales, as well as any irregular supervenient circumstance."
           />
         </div>
         {showVerifyCode && (
@@ -160,10 +154,7 @@ const ValidateTelephone = ({
                     alt="phone"
                     src={`${cdnStaticUrl}/frontend/icons/ic-verification-phone-code.svg`}
                   />
-                  <FormattedMessage
-                    id="user.settings.validate.phone.insert.verification.code"
-                    defaultMessage="Insert your validation code"
-                  />
+                  <FormattedMessage id="user.settings.validate.phone.insert.verification.code" />
                 </h3>
               </Col>
               <Col sm={12}>
@@ -179,17 +170,14 @@ const ValidateTelephone = ({
                 {errorCode && (
                   <div className="has-error">
                     <span className="help-block">
-                      <FormattedMessage
-                        id="user.settings.phone.errorCode"
-                        defaultMessage="Code is not valid"
-                      />
+                      <FormattedMessage id="user.settings.phone.errorCode" />
                     </span>
                   </div>
                 )}
               </Col>
               <Col sm={12}>
                 <button type="button" onClick={mobileVerify} className="btn btn-verify-phone">
-                  <FormattedMessage id="user.settings.verify.phone" defaultMessage="Verify" />
+                  <FormattedMessage id="validate" />
                 </button>
               </Col>
             </div>

@@ -66,6 +66,8 @@ const HtmlEditor = ({
       : EditorState.createEmpty()
   );
 
+  const intl = useIntl();
+
   useEffect(() => {
     let newClassArray = [...wrapperClassName];
 
@@ -127,7 +129,7 @@ const HtmlEditor = ({
   if (showColumnsBtn) {
     toolbarCustomButtons.push(
       <Dropdown
-        title={useIntl().formatMessage({ id: 'columns', defaultMessage: 'Columns' })}
+        title={intl.formatMessage({ id: 'columns' })}
         options={[1, 2, 3]}
         value={columns}
         handleChange={changeColumns}

@@ -151,10 +151,7 @@ const Reviews = ({
                       placeholder={texts.writeReview}
                     />
                     <div className="rate">
-                      <FormattedMessage
-                        id="projects.review.rate"
-                        defaultMessage="Review this project"
-                      />
+                      <FormattedMessage id="projects.review.rate" />
                       <Rating
                         className="rating"
                         emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}

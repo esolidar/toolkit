@@ -28,6 +28,8 @@ const ProjectThumb = ({
   selectedText,
   whitelabelUrl,
 }) => {
+  const intl = useIntl();
+
   const hasImages = project.images.length > 0 ? project.images[0].image : '';
   const thumbImage = project.cover ? project.cover : hasImages;
   const link =
@@ -74,12 +76,9 @@ const ProjectThumb = ({
                   <FontAwesomeIcon
                     icon={faPen}
                     className="mr-1"
-                    title={useIntl().formatMessage({
-                      id: 'project.edit.title',
-                      defaultMessage: 'Edit project',
-                    })}
+                    title={intl.formatMessage({ id: 'project.edit' })}
                   />
-                  <FormattedMessage id="project.edit" defaultMessage="Edit project" />
+                  <FormattedMessage id="project.edit" />
                 </button>
               )}
             <div className="status">{status}</div>
@@ -87,7 +86,7 @@ const ProjectThumb = ({
               placement="top"
               overlay={
                 <Tooltip id={0}>
-                  <FormattedMessage id="open.new.tab" defaultMessage="Open in new tab" />
+                  <FormattedMessage id="open.new.tab" />
                 </Tooltip>
               }
             >
@@ -96,10 +95,7 @@ const ProjectThumb = ({
                 className="ml-2 hover"
                 onClick={handleClickOpenTab}
                 style={{ cursor: 'pointer' }}
-                title={useIntl().formatMessage({
-                  id: 'open.new.tab',
-                  defaultMessage: 'Open in new tab',
-                })}
+                title={intl.formatMessage({ id: 'open.new.tab' })}
               />
             </OverlayTrigger>
           </div>

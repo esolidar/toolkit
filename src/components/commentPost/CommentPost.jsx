@@ -15,46 +15,47 @@ const CommentPost = ({
   textareaOnChange,
   errors,
   disabled,
-}) => (
-  <Col id={`post-${postId}`} sm={12} className="no-padding">
-    <div className="comment-post-no-border d-block">
-      <div className="comment-post-projects">
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            onSubmit(postId);
-          }}
-          method="post"
-        >
-          <Col sm={12} className="pt-3">
-            <TextareaField
-              id={`text-reply-${postId}`}
-              field={`reply-${postId}`}
-              defaultValue={textareaValue}
-              className="new-post background-post-comment w-100"
-              placeholder={commentHereText}
-              onChange={textareaOnChange}
-              error={errors[`reply-${postId}`]}
-              required={true}
-              maxLength={500}
-            />
-            <Button
-              type="submit"
-              extraClass="primary-full"
-              className="float-right"
-              text={useIntl().formatMessage({
-                id: 'projects.comments.send',
-                defaultMessage: 'Send',
-              })}
-              disabled={disabled}
-            />
-            {errors.text && <span className="error">{errors.text}</span>}
-          </Col>
-        </form>
+}) => {
+  const intl = useIntl();
+
+  return (
+    <Col id={`post-${postId}`} sm={12} className="no-padding">
+      <div className="comment-post-no-border d-block">
+        <div className="comment-post-projects">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              onSubmit(postId);
+            }}
+            method="post"
+          >
+            <Col sm={12} className="pt-3">
+              <TextareaField
+                id={`text-reply-${postId}`}
+                field={`reply-${postId}`}
+                defaultValue={textareaValue}
+                className="new-post background-post-comment w-100"
+                placeholder={commentHereText}
+                onChange={textareaOnChange}
+                error={errors[`reply-${postId}`]}
+                required={true}
+                maxLength={500}
+              />
+              <Button
+                type="submit"
+                extraClass="primary-full"
+                className="float-right"
+                text={intl.formatMessage({ id: 'projects.comments.send' })}
+                disabled={disabled}
+              />
+              {errors.text && <span className="error">{errors.text}</span>}
+            </Col>
+          </form>
+        </div>
       </div>
-    </div>
-  </Col>
-);
+    </Col>
+  );
+};
 
 CommentPost.propTypes = {
   postId: PropTypes.number,

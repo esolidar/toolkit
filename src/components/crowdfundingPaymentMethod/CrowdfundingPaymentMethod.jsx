@@ -8,7 +8,7 @@ const CrowdfundingPaymentMethod = ({ utrust, paypal, stripe, sibsMbway, sibsCc, 
     <Row className="mt-1">
       <Col sm={12} className="share-label">
         <span className="control-label">
-          <FormattedMessage id="payment.methods" defaultMessage="Payment methods" />
+          <FormattedMessage id="payment.methods" />
         </span>
       </Col>
     </Row>

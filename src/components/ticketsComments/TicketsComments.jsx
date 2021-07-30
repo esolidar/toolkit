@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import Button from '../../elements/button';
 
 const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, supportTag }) => {
+  const intl = useIntl();
+
   const renderFiles = files =>
     files.map((document, index) => (
       <div className="document-row" key={index}>
@@ -55,10 +57,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
                       {user.institution ? user.institution.sigla : user.name}
                       {supportTag && !user.institution && (
                         <span className="support">
-                          {useIntl().formatMessage({
-                            id: 'tickets.supportTag',
-                            defaultMessage: 'Support eSolidar',
-                          })}
+                          {intl.formatMessage({ id: 'tickets.supportTag' })}
                         </span>
                       )}
                     </span>
@@ -108,7 +107,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
             <Button
               extraClass="dark"
               onClick={() => handlePageChange(activePage)}
-              text={useIntl().formatMessage({ id: 'readmore', defaultMessage: 'Read more' })}
+              text={intl.formatMessage({ id: 'readmore' })}
             />
           </div>
         )}

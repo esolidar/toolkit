@@ -54,10 +54,7 @@ class ErrorBoundary extends Component {
             <p data-testid="errorBoundary-emoji">⚠️</p>
           </div>
           <h3 data-testid="errorBoundary-title">
-            <FormattedMessage
-              id="error.boundary"
-              defaultMessage="There was an error during loading"
-            />
+            <FormattedMessage id="error.boundary" />
           </h3>
           <div className="link">
             <a
@@ -66,7 +63,7 @@ class ErrorBoundary extends Component {
               style={{ color: color.primaryColor }}
               data-testid="errorBoundary-link"
             >
-              <FormattedMessage id="error.boundary.retry" defaultMessage="Retry" />
+              <FormattedMessage id="error.boundary.retry" />
             </a>
           </div>
         </div>
