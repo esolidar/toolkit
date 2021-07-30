@@ -1,10 +1,28 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import TextareaField from '../../elements/textareaField';
+import DropZoneBox from '../../elements/dropZoneBox';
+import Loading from '../../components/loading';
 import Button from '../../elements/button';
+import useIsFirstRender from '../../hooks/useIsFirstRender';
 import Icon from '../icon';
 import Picture from '../picture';
 import Props from './NewPostBox.types';
+
+const initialPostData = {
+  public: '0',
+  as_company: '0',
+  text: '',
+  type: 'post',
+  description: '',
+  og_description: '',
+  og_image: '',
+  og_title: '',
+  title: '',
+  link: '',
+  domain: '',
+  images: [],
+};
 
 const NewPostBox: FC<Props> = ({
   user,
@@ -17,20 +35,55 @@ const NewPostBox: FC<Props> = ({
   loginAction,
   companyId,
   feedWebScrapter,
+  feedPostResponse,
 }: Props): JSX.Element => {
+  const [isLoading, setIsLoading] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [text, setText] = useState('');
   const [images, setImages] = useState([]);
+  const [imagesToSend, setImagesToSend] = useState([]);
   const [shareLink, setShareLink] = useState(null);
+  const [postData, setPostData] = useState(initialPostData);
   const intl = useIntl();
-  const inputFile = useRef(null);
+  const isFirstRender = useIsFirstRender();
+
+  useEffect(() => {
+    if (feedPostResponse) {
+      if (feedPostResponse.data) {
+        setEditMode(false);
+        setPostData(initialPostData);
+        setImages([]);
+        setImagesToSend([]);
+        setIsLoading(false);
+        setText('');
+        setShareLink(null);
+      }
+    }
+  }, [feedPostResponse]);
 
   useEffect(() => {
     if (imagesResponse) {
-      const newImages = [...images, ...imagesResponse.images];
-      setImages(newImages);
+      setImagesToSend([]);
+      const receivedImages = [];
+      imagesResponse.images.map(img => {
+        receivedImages.push(img.id);
+      });
+
+      const data = postData;
+      data.images = receivedImages;
+      setPostData(data);
+
+      if (images.length === 0) {
+        const newImages = imagesResponse.images;
+        setImages(newImages);
+      }
     }
   }, [imagesResponse]);
+
+  useEffect(() => {
+    if (!isFirstRender && imagesToSend.length === 0 && postData.images.length > 0)
+      handleSubmitPost();
+  }, [imagesToSend]);
 
   useEffect(() => {
     if (scraper) {
@@ -61,16 +114,9 @@ const NewPostBox: FC<Props> = ({
   const handleSubmitPost = () => {
     let type = 'post';
     const employee = user.work_email.find(u => u.company_id === companyId);
-
-    const imageIds = [];
-    images.map(img => {
-      imageIds.push(img.id);
-    });
-
     if (shareLink && images.length === 0) type = 'share';
     if (images.length > 0 && !shareLink) type = 'gallery';
-    if (images.length > 0 && shareLink) type = 'share-gallery';
-
+    if (images.length > 0 && shareLink) type = 'share_gallery';
     const data = {
       public: employee ? '0' : '1',
       as_company: '0',
@@ -83,10 +129,18 @@ const NewPostBox: FC<Props> = ({
       title: shareLink ? shareLink.title : '',
       link: shareLink ? shareLink.link : '',
       domain: shareLink ? shareLink.domain : '',
-      images: imageIds,
+      images: postData.images,
     };
 
-    feedPost(companyId, data);
+    setPostData(data);
+    if (data.text) {
+      if (!isLoading) setIsLoading(true);
+      if (imagesToSend.length > 0) {
+        feedUploadGallery(companyId, imagesToSend);
+      } else {
+        feedPost(companyId, data);
+      }
+    }
   };
 
   const handdlePaste = e => {
@@ -108,21 +162,18 @@ const NewPostBox: FC<Props> = ({
     });
   };
 
-  const deleteImage = (id: number) => {
+  const deleteImage = (indx: number) => {
     const newImages = [...images];
-    const i = images.findIndex(o => o.id === id);
-    newImages.splice(i, 1);
+    const newImagesToSend = [...imagesToSend];
+    newImages.splice(indx, 1);
+    newImagesToSend.splice(indx, 1);
     setImages(newImages);
-
-    deleteImages(companyId, id);
+    setImagesToSend(newImagesToSend);
   };
 
-  const handleOpenFile = () => {
-    inputFile.current.click();
-  };
-
-  const handleSelectFile = e => {
-    const thumb = window.URL.createObjectURL(e.target.files[0]);
+  const handleSelectFile = ([file]) => {
+    const type = typeof file.name === 'string' ? 'file' : 'blob';
+    const thumb = type === 'blob' ? URL.createObjectURL(file) : file.preview;
     const newImage = [
       {
         id: images.length + 1,
@@ -131,7 +182,9 @@ const NewPostBox: FC<Props> = ({
     ];
     const newImages = [...images, ...newImage];
     setImages(newImages);
-    feedUploadGallery(companyId, e.target.files[0], images.length + 1);
+    setImagesToSend([...imagesToSend, file]);
+
+    // feedUploadGallery(companyId, file, images.length + 1);
   };
 
   return (
@@ -142,7 +195,7 @@ const NewPostBox: FC<Props> = ({
       onClick={handleEditMode}
     >
       {!user && (
-        <div className="header">
+        <div className="feed-create-post-header">
           <span>
             <FormattedMessage id="feed.create.post.without.login" />
           </span>
@@ -160,7 +213,12 @@ const NewPostBox: FC<Props> = ({
       )}
       {user && (
         <>
-          <div className="header" data-testid="header">
+          {isLoading && (
+            <div className="feed-create-post-loading">
+              <Loading />
+            </div>
+          )}
+          <div className="feed-create-post-header" data-testid="header">
             <img src={user.thumbs.thumb} alt={user.name} className="thumb" />
             {!editMode ? (
               <span>
@@ -172,7 +230,7 @@ const NewPostBox: FC<Props> = ({
           </div>
           {editMode && (
             <>
-              <div className="body" data-testid="body">
+              <div className="feed-create-post-body" data-testid="body">
                 <TextareaField
                   field="text"
                   id="text"
@@ -185,6 +243,7 @@ const NewPostBox: FC<Props> = ({
                   value={text}
                   onPaste={handdlePaste}
                   dataTestId="text"
+                  autofocus={true}
                 />
                 {shareLink && (
                   <div className="share-link-preview" data-testid="share-link-preview">
@@ -216,6 +275,10 @@ const NewPostBox: FC<Props> = ({
                       let width = 100;
                       const { length } = images;
 
+                      if (length === 2) {
+                        width = 50;
+                      }
+
                       if (length === 3) {
                         if (i < 1) width = 100;
                         if (i >= 1) width = 50;
@@ -241,12 +304,12 @@ const NewPostBox: FC<Props> = ({
                         if (i >= 7) width = 100;
                       }
 
-                      if (length <= 2) {
+                      if (length === 1) {
                         return (
                           <div className="post-image-box-1" key={image.id}>
                             <button
                               type="button"
-                              onClick={() => deleteImage(image.id)}
+                              onClick={() => deleteImage(i)}
                               className="delete-image"
                               data-testid="delete-image"
                             >
@@ -285,28 +348,27 @@ const NewPostBox: FC<Props> = ({
               </div>
               <div className="footer">
                 <div className="add-image">
-                  <Button
-                    extraClass="dark"
-                    fullWidth={false}
-                    onClick={handleOpenFile}
-                    rounded={true}
-                    size="md"
-                    text={
-                      <>
-                        <Icon iconClass="icon-camera" />
-                        <span>+</span>
-                      </>
-                    }
-                    type="button"
-                  />
-                  <input
-                    type="file"
-                    id="file"
-                    accept="image/png, image/jpeg"
-                    onChange={handleSelectFile}
-                    ref={inputFile}
-                    style={{ display: 'none' }}
-                  />
+                  <DropZoneBox
+                    accept=".jpg, .jpeg, .png"
+                    onSelect={handleSelectFile}
+                    showImagesPreviews={false}
+                    showDropArea={false}
+                    multiple={false}
+                  >
+                    <Button
+                      extraClass="dark"
+                      fullWidth={false}
+                      rounded={true}
+                      size="md"
+                      text={
+                        <>
+                          <Icon iconClass="icon-camera" />
+                          <span>+</span>
+                        </>
+                      }
+                      type="button"
+                    />
+                  </DropZoneBox>
                 </div>
                 <div className="add-post">
                   <Button

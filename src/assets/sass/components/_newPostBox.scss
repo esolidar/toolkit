@@ -2,6 +2,26 @@
   border: 1px solid map-get($neutrals, 400);
   padding: $distance-3;
   border-radius: $distance-1;
+  position: relative;
+  margin-bottom: $distance-3;
+
+  .feed-create-post-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 9;
+    border-radius: $distance-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > div {
+      width: 100px;
+    }
+  }
 
   .btn-link {
     text-decoration: underline;
@@ -10,7 +30,7 @@
     padding-left: $distance-1;
   }
 
-  .header {
+  .feed-create-post-header {
     .thumb {
       border-radius: 50%;
       margin-right: $distance-2;
@@ -20,7 +40,7 @@
     }
   }
 
-  .body {
+  .feed-create-post-body {
     .no-border {
       border: none;
       padding: 0;

@@ -26,11 +26,12 @@ interface Props {
   post?: Post;
   imagesResponse?: ImagesResponse;
   feedPost: (companyId: number, data: any) => void;
-  feedUploadGallery: (companyId: number, file: any, position: number) => void;
+  feedUploadGallery: (companyId: number, file: any) => void;
   deleteImages: (companyId: number, id: number) => void;
   loginAction: () => void;
   feedWebScrapter: (companyId: number, url: string) => void;
   scraper?: Scraper;
+  feedPostResponse: any;
 }
 
 export default Props;
