@@ -21,6 +21,8 @@ export default {
     ...getFiles('src/elements', extensions, excludedExtensions),
     ...getFiles('src/hooks', extensions, excludedExtensions),
     ...getFiles('src/utils', extensions, excludedExtensions),
+    ...getFiles('__mocks__', extensions, excludedExtensions),
+    ...getFiles('__customQueries__', extensions, excludedExtensions),
   ],
   output: [
     {
