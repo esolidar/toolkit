@@ -21,7 +21,7 @@ const NewPostBoxFocusBoxWithImages = composeStory(FocusBoxWithImages, Meta);
 const NewPostBoxFocusBoxWithShareAndImages = composeStory(FocusBoxWithShareAndImages, Meta);
 const NewPostBoxEditPost = composeStory(EditPost, Meta);
 
-it('Without Login', async () => {
+it('Without Login', () => {
   render(
     <IntlProvider locale="en" messages={translation}>
       <NewPostBoxWithoutLogin />
@@ -39,7 +39,7 @@ it('Without Login', async () => {
   expect(body).not.toBeInTheDocument();
 });
 
-it('With Login', async () => {
+it('With Login', () => {
   render(
     <IntlProvider locale="en" messages={translation}>
       <NewPostBoxWithLogin />
@@ -141,7 +141,7 @@ it('Remove one image from gallery', async () => {
   expect(box).toBeInTheDocument();
 });
 
-it('With Login and image share and gallery', async () => {
+it('With Login and image share and gallery', () => {
   render(
     <IntlProvider locale="en" messages={translation}>
       <NewPostBoxFocusBoxWithShareAndImages />
@@ -160,7 +160,7 @@ it('With Login and image share and gallery', async () => {
   expect(body).toBeInTheDocument();
 });
 
-it('Edit post', async () => {
+it('Edit post', () => {
   render(
     <IntlProvider locale="en" messages={translation}>
       <NewPostBoxEditPost />

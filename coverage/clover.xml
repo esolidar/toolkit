@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627657059381" clover="3.2.0">
-  <project timestamp="1627657059382" name="All files">
+<coverage generated="1627892495109" clover="3.2.0">
+  <project timestamp="1627892495110" name="All files">
     <metrics statements="2991" coveredstatements="1932" conditionals="2572" coveredconditionals="1548" methods="800" coveredmethods="387" elements="6363" coveredelements="3867" complexity="0" loc="2991" ncloc="2991" packages="103" files="246" classes="246"/>
     <package name="__customQueries__">
       <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
@@ -2327,7 +2327,7 @@
       <file name="Icon.jsx" path="C:\Projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="9" type="stmt"/>
-        <line num="5" count="64" type="stmt"/>
+        <line num="5" count="76" type="stmt"/>
         <line num="8" count="9" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\icon\index.js">
