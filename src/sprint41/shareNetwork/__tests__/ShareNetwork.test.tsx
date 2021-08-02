@@ -11,6 +11,6 @@ it('renders ShareNetwork default', () => {
   expect(getByLabelText('facebook')).toBeTruthy();
   expect(getByLabelText('twitter')).toBeTruthy();
   expect(getByLabelText('whatsapp')).toBeTruthy();
-  expect(getByLabelText('share-link')).toBeTruthy();
+  expect(getByLabelText('copyToClipboard')).toBeTruthy();
   expect(getAllByClass(/share-icon/)).toHaveLength(4);
 });

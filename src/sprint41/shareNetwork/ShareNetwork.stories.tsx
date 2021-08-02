@@ -19,5 +19,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  title: 'teste',
+  title: 'Campanha Solidária de Crowdfunding',
+  windowLocationHref:
+    'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
