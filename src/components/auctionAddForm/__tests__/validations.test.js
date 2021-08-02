@@ -50,15 +50,15 @@ const filledData = {
 };
 
 const errors = {
-  bid_interval: <FormattedMessage id="user.register.error.required" />,
-  bid_max_interval: <FormattedMessage id="user.register.error.required" />,
-  bid_start: <FormattedMessage id="user.register.error.required" />,
-  brand_id: <FormattedMessage id="user.register.error.required" />,
-  description: <FormattedMessage id="user.register.error.required" />,
+  bid_interval: <FormattedMessage id="required" />,
+  bid_max_interval: <FormattedMessage id="required" />,
+  bid_start: <FormattedMessage id="required" />,
+  brand_id: <FormattedMessage id="required" />,
+  description: <FormattedMessage id="required" />,
   images: <FormattedMessage id="user.register.error.images.required" />,
-  title: <FormattedMessage id="user.register.error.required" />,
-  user_id: <FormattedMessage id="user.register.error.required" />,
-  projectIds: <FormattedMessage id="user.register.error.required" />,
+  title: <FormattedMessage id="required" />,
+  user_id: <FormattedMessage id="required" />,
+  projectIds: <FormattedMessage id="required" />,
 };
 
 test('All validations pass', () => {
@@ -106,8 +106,8 @@ test('Date Start and Date limit field error', () => {
     dateStart: undefined,
   };
   const errorDates = {
-    dateLimit: <FormattedMessage id="user.register.error.required" />,
-    dateStart: <FormattedMessage id="user.register.error.required" />,
+    dateLimit: <FormattedMessage id="required" />,
+    dateStart: <FormattedMessage id="required" />,
   };
 
   expect(validations(datesData)).toEqual({
@@ -123,7 +123,7 @@ test('Private code empty field error', () => {
     private_code: '',
   };
   const errorPrivateCode = {
-    private_code: <FormattedMessage id="user.register.error.required" />,
+    private_code: <FormattedMessage id="required" />,
   };
 
   expect(validations(datesData)).toEqual({
@@ -154,7 +154,7 @@ test('Private code field error', () => {
     user_id: '',
   };
   const errorUserId = {
-    user_id: <FormattedMessage id="user.register.error.required" />,
+    user_id: <FormattedMessage id="required" />,
   };
 
   expect(validations(userIdData)).toEqual({
@@ -205,7 +205,7 @@ test('Show required field beneficiary', () => {
   expect(validations(dataBeneficiary)).toEqual({
     errors: {
       ...errors,
-      beneficiary: <FormattedMessage id="user.register.error.required" />,
+      beneficiary: <FormattedMessage id="required" />,
     },
     isValid: false,
   });

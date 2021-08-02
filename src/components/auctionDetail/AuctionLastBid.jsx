@@ -16,6 +16,7 @@ const AuctionLastBid = ({
   valueBidTextField,
   primaryColor,
 }) => {
+  const intl = useIntl();
   const lastBid = auction.last_bid ? auction.last_bid.value : auction.bid_start;
 
   return (
@@ -33,9 +34,9 @@ const AuctionLastBid = ({
                     style={{ color: primaryColor }}
                   >
                     {auction.last_bid ? (
-                      <FormattedMessage id="auction.detail.lastbid" defaultMessage="Last Bid" />
+                      <FormattedMessage id="auction.last.bid" />
                     ) : (
-                      <FormattedMessage id="auction.detail.startbid" defaultMessage="Start Bid" />
+                      <FormattedMessage id="auction.detail.startbid" />
                     )}
                   </p>
                 </Col>
@@ -59,7 +60,7 @@ const AuctionLastBid = ({
                     data-testid="new-bid"
                     style={{ color: primaryColor }}
                   >
-                    <FormattedMessage id="auction.detail.newBid" defaultMessage="New Bid" />
+                    <FormattedMessage id="auction.detail.newBid" />
                   </Col>
                   <Col sm={12} className={error && 'has-error'}>
                     <TextField
@@ -69,11 +70,8 @@ const AuctionLastBid = ({
                       onChange={valueBidTextField}
                       error={error}
                       value={inputBidValue}
-                      placeholder={useIntl().formatMessage(
-                        {
-                          id: 'auction.textfield.minValue',
-                          defaultMessage: 'Min. Value: {value}',
-                        },
+                      placeholder={intl.formatMessage(
+                        { id: 'auction.textfield.minValue' },
                         { value: minValue }
                       )}
                       field="forCompanies"
@@ -84,10 +82,7 @@ const AuctionLastBid = ({
                   <Button
                     dataTestId="button-bid"
                     extraClass="success-full mt-sm-4"
-                    text={useIntl().formatMessage({
-                      id: 'auction.button.bid',
-                      defaultMessage: 'Bid',
-                    })}
+                    text={intl.formatMessage({ id: 'auction.button.bid' })}
                     onClick={() => handleClickBid(inputBidValue)}
                   />
                 </Col>

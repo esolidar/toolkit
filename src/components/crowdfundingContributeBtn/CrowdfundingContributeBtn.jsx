@@ -187,7 +187,6 @@ class CrowdfundingContributeBtn extends Component {
             <span className="control-label">
               <FormattedMessage
                 id="crowdfunding.new.donation"
-                defaultMessage="NEW DONATION (Min. {value})"
                 values={{ value: `${campaign.currency.symbol}${campaign.minimum_contribution}` }}
               />
             </span>
@@ -196,10 +195,7 @@ class CrowdfundingContributeBtn extends Component {
         <Row>
           <Col sm={12}>
             <span className="control-label-note">
-              <FormattedMessage
-                id="crowdfunding.new.donation.note"
-                defaultMessage="Use only integer numbers"
-              />
+              <FormattedMessage id="crowdfunding.new.donation.note" />
             </span>
           </Col>
         </Row>

@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import Button from '../../elements/button';
 
 const AuctionSupport = ({ auction }) => {
+  const intl = useIntl();
   const supported = auction.recipient ? auction.recipient : auction.user;
 
   return (
@@ -29,10 +30,7 @@ const AuctionSupport = ({ auction }) => {
                 extraClass="info"
                 target="_blank"
                 href="#"
-                text={useIntl().formatMessage({
-                  id: 'auction.detail.supportCharity',
-                  defaultMessage: 'Support this charity',
-                })}
+                text={intl.formatMessage({ id: 'auction.detail.supportCharity' })}
               />
             </Col>
           </Row>

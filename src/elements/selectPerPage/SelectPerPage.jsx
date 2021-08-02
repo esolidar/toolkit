@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const SelectPerPage = ({ onChange, options, value }) =>
   useMemo(() => (
     <div className="select-per-page">
-      <FormattedMessage id="items.per-page" defaultMessage="Items per page:" data-testid="label" />
+      <FormattedMessage id="items.per-page" data-testid="label" />
       <select
         name="per_page"
         className="form-control"

@@ -22,9 +22,7 @@ const SupportBox: FC<Props> = ({ campaign, communityUrl = '/' }: Props): JSX.Ele
           href={`${communityUrl}npo/detail/${campaign.institution.id}-${slugify(
             campaign.institution.name
           )}`}
-          text={intl.formatMessage({
-            id: 'crowdfunding.crowdfunding.institution.helps',
-          })}
+          text={intl.formatMessage({ id: 'crowdfunding.crowdfunding.institution.helps' })}
           target="_blank"
         />
       </div>

@@ -1,6 +1,4 @@
-interface Thumbs {
-  thumb: string;
-}
+import Thumbs from './thumbs.types';
 
 interface Institution {
   thumbs: Thumbs;
