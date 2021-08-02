@@ -134,3 +134,56 @@
     }
   }
 }
+
+.crowdfunding-thumb-component {
+  background: map-get($colors, white);
+  border: 1px solid map-get($grays, 300);
+  border-radius: 3px;
+  margin-bottom: 30px;
+
+  .bg-image {
+    height: 200px;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  .crowdfunding-thumb-component-body {
+    margin-left: $distance-2;
+    margin-right: $distance-2;
+
+    .crowdfunding-thumb-component-countdown {
+      margin-top: -50px;
+    }
+
+    .crowdfunding-thumb-component-title {
+      margin-top: $distance-2;
+      margin-bottom: $distance-1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: -0.3px;
+      line-height: 22px;
+    }
+
+    .crowdfunding-thumb-component-progressbar {
+      padding-bottom: $distance-5;
+    }
+
+    .crowdfunding-thumb-component-support {
+      padding: $distance-2 0;
+      margin-top: $distance-3;
+      border-top: 1px solid map-get($grays, 300);
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: -0.3px;
+      line-height: 22px;
+
+      a {
+        color: map-get($main-text-colors, dark);
+        text-decoration: underline;
+      }
+    }
+  }
+}

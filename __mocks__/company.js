@@ -8,8 +8,7 @@ const company = {
   vat: '111111111',
   company_id: null,
   nipc: null,
-  logo:
-    'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
+  logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
   logo_stream: 'amazons3',
   cover_image:
     'https://cdn.testesolidar.com/companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
@@ -38,8 +37,7 @@ const company = {
     logo: 'companies/273/whitelabels/21/7d38e6d6-5866-4aa2-afb2-8662b1e67ecf.jpg',
     subdomain: 'rochacompany.esolidar.local',
     domain: null,
-    data:
-      '{"style":{"primaryColor":"#8bc34a","secondaryColor":"#03a9f4","fontFamily":"Roboto"},"share":{"shareDescription":"","shareImage":"companies/273/whitelabels/21/images/d69d2f7d-626e-4383-a681-9a9c68d64405.jpg","tags":"zxcdsfsdf,sdfsdf,sdfsdff"},"customFooter":{"items":[{"title":"","url":"","image":"companies/273/whitelabels/21/images/8e70d17c-83aa-4c52-a47c-ae89b216bedc.jpg","image_id":273},{"title":"","url":"","image":"companies/273/whitelabels/21/images/90e71cae-2e63-4df4-a6f8-63c7758f1c56.jpg","image_id":274}],"alignment":"left","active":0,"title":"teste"}}',
+    data: '{"style":{"primaryColor":"#8bc34a","secondaryColor":"#03a9f4","fontFamily":"Roboto"},"share":{"shareDescription":"","shareImage":"companies/273/whitelabels/21/images/d69d2f7d-626e-4383-a681-9a9c68d64405.jpg","tags":"zxcdsfsdf,sdfsdf,sdfsdff"},"customFooter":{"items":[{"title":"","url":"","image":"companies/273/whitelabels/21/images/8e70d17c-83aa-4c52-a47c-ae89b216bedc.jpg","image_id":273},{"title":"","url":"","image":"companies/273/whitelabels/21/images/90e71cae-2e63-4df4-a6f8-63c7758f1c56.jpg","image_id":274}],"alignment":"left","active":0,"title":"teste"}}',
     allow_member_registration: 1,
     google_analytics: '',
     updated_at: '2021-03-23 16:58:46',

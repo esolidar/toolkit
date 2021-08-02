@@ -8,6 +8,7 @@ interface WorkEmail {
   name: string;
   role: string;
   department?: string;
+  user?: null;
 }
 
 interface User {
@@ -64,6 +65,14 @@ interface User {
   s3_key?: string;
   institution?: null;
   phones?: Array<Phone>;
+  sync_friends: number;
+  sync_likes: number;
+  private_beta: number;
+  import_bewarket: number;
+  ws_import: number;
+  only_mysells: number;
+  deauthorize_times: number;
+  invite_friends?: number;
 }
 
 export default User;
