@@ -43,6 +43,7 @@ const ShareNetwork: FC<Props> = ({
       <a
         href={`https://twitter.com/intent/tweet?text=${title}&url=${windowLocationHref}`}
         target="_blank"
+        rel="noopener noreferrer"
         aria-label="twitter"
         title="Twitter"
         className="share-icon share-twitter"
@@ -55,6 +56,7 @@ const ShareNetwork: FC<Props> = ({
         data-action="share/whatsapp/share"
         aria-label="whatsapp"
         target="_blank"
+        rel="noopener noreferrer"
         title="Whatsapp"
         className="share-icon share-whatsapp"
       >
