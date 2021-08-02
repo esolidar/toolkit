@@ -78,7 +78,7 @@ it('With Login and scrapter link', async () => {
   expect(share).toBeInTheDocument();
 });
 
-it('Remove scrapter link', async () => {
+it('Remove scrapter link', () => {
   render(
     <IntlProvider locale="en" messages={translation}>
       <NewPostBoxFocusBoxWithShare />
