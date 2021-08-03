@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Props from './ProgressBar.types';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 
 const ProgressBar: FC<Props> = ({
   contributesSum,
@@ -9,6 +9,7 @@ const ProgressBar: FC<Props> = ({
   showLabel,
   showRaisedOf,
 }: Props): JSX.Element => {
+  const intl = useIntl();
   const progressBarWidth = `${String((contributesSum / goal) * 100)}%`;
 
   return (
@@ -30,7 +31,7 @@ const ProgressBar: FC<Props> = ({
                 <FormattedMessage
                   id="progressBar.raised.goal"
                   values={{
-                    value: `${Intl.NumberFormat('en-EN', {
+                    value: `${Intl.NumberFormat(intl.locale, {
                       style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 0,
