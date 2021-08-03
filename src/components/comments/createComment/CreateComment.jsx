@@ -15,6 +15,8 @@ const CreateComment = props => {
     thumb,
   } = props;
 
+  const intl = useIntl();
+
   const addMessage = (e, isMobile) => {
     if (e.keyCode === 13 && e.shiftKey === false && !isMobile) {
       onSubmitComment(e);
@@ -39,10 +41,7 @@ const CreateComment = props => {
             style={{
               backgroundImage: loadingNewComment
                 ? `url(${env}/frontend/assets/loader.svg)`
-                : useIntl().formatMessage({
-                    id: 'commentHere.image',
-                    defaultMessage: `url(${env}/frontend/assets/send-comment.png)`,
-                  }),
+                : intl.formatMessage({ id: 'commentHere.image' }),
               backgroundSize: loadingNewComment ? '16px' : '48px',
               backgroundColor: 'transparent',
             }}
@@ -51,10 +50,7 @@ const CreateComment = props => {
             onKeyDown={e => addMessage(e, false)}
             disabled={loadingNewComment}
             value={comment}
-            placeholder={useIntl().formatMessage({
-              id: 'commentHere',
-              defaultMessage: 'Leave a comment',
-            })}
+            placeholder={intl.formatMessage({ id: 'commentHere' })}
             maxLength="500"
           />
           <FontAwesomeIcon

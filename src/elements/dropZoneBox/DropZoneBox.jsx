@@ -44,6 +44,8 @@ const DropZoneBox = ({
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
 
+  const intl = useIntl();
+
   const minWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
   const minHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
 
@@ -87,32 +89,20 @@ const DropZoneBox = ({
   const errorMessages = [
     {
       id: 'extensionError',
-      message: useIntl().formatMessage({
-        id: 'document.files.modal.error.extension',
-        defaultMessage: 'extension not allowed ',
-      }),
+      message: intl.formatMessage({ id: 'document.files.modal.error.extension' }),
     },
     {
       id: 'maxSizeError',
-      message: useIntl().formatMessage({
-        id: 'document.files.modal.error.filesSizeMax',
-        defaultMessage: 'size larger than ',
-      }),
+      message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMax' }),
     },
     {
       id: 'minSizeError',
-      message: useIntl().formatMessage({
-        id: 'document.files.modal.error.filesSizeMin',
-        defaultMessage: 'size less than ',
-      }),
+      message: intl.formatMessage({ id: 'document.files.modal.error.filesSizeMin' }),
     },
     {
       id: 'dimensions',
-      message: useIntl().formatMessage(
-        {
-          id: 'document.files.modal.error.dimensions',
-          defaultMessage: 'The image should be at least {width}px by {height}px.',
-        },
+      message: intl.formatMessage(
+        { id: 'document.files.modal.error.dimensions' },
         {
           width: minWidth,
           height: minHeight,
@@ -229,25 +219,15 @@ const DropZoneBox = ({
             {!isLoading && (
               <p>
                 <strong>
-                  <FormattedMessage
-                    id="document.files.modal.drop"
-                    defaultMessage="Drag and drop or click to select a file"
-                  />
+                  <FormattedMessage id="document.files.modal.drop" />
                 </strong>
                 <br />
                 <small>
-                  <FormattedMessage
-                    id="document.files.modal.acceptedFiles"
-                    defaultMessage="Accepted files: {accept}"
-                    values={{ accept }}
-                  />
+                  <FormattedMessage id="document.files.modal.acceptedFiles" values={{ accept }} />
                 </small>
                 <br />
                 <small>
-                  <FormattedMessage
-                    id="document.files.modal.maxSize"
-                    defaultMessage={`Maximum file size: ${convertToMb(maxSize)}`}
-                  />
+                  <FormattedMessage id="document.files.modal.maxSize" />
                 </small>
               </p>
             )}
@@ -255,10 +235,7 @@ const DropZoneBox = ({
           {errorList.length > 0 && (
             <div className="text-left error-files">
               <div className="error">
-                <FormattedMessage
-                  id="document.files.modal.error.files"
-                  defaultMessage="The following file(s) contain error(s):"
-                />
+                <FormattedMessage id="document.files.modal.error.files" />
               </div>
               {errorList.map((file, idx) => (
                 <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
@@ -276,10 +253,7 @@ const DropZoneBox = ({
           {errorList.length > 0 && (
             <div className="text-left error-files">
               <div className="error">
-                <FormattedMessage
-                  id="document.files.modal.error.files"
-                  defaultMessage="The following file(s) contain error(s):"
-                />
+                <FormattedMessage id="document.files.modal.error.files" />
               </div>
               {errorList.map((file, idx) => (
                 <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(

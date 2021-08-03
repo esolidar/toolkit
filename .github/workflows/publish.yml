@@ -53,43 +53,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  build:
-    name: Build to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: install
-    steps:
-      - uses: actions/cache@v2
-        id: restore-build
-        with:
-          path: ./*
-          key: ${{ github.sha }}
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - run: yarn build-storybook
-
-      - uses: canastro/copy-file-action@master
-        with:
-          source: '.jest-test-results.json'
-          target: 'storybook-static/.jest-test-results.json'
-
-      - uses: actions/cache@v2
-        id: cache-storybook
-        with:
-          path: ./*
-          key: ${{ github.sha }}
-
-      - name: send
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: storybook-static
-
   allPass:
     name: Well done
     runs-on: ubuntu-latest
-    needs: [publish, build]
+    needs: [publish]
     steps:
       - run: exit 0

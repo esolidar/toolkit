@@ -44,7 +44,7 @@ const Giftcards = ({
     }
     return (
       <div className="error" style={{ textAlign: 'center' }}>
-        <FormattedMessage id="giftcard.expired" defaultMessage="Expired" />
+        <FormattedMessage id="giftcard.expired" />
       </div>
     );
   };

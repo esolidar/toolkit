@@ -23,6 +23,10 @@ const TextareaField = ({
   className,
   info,
   showOptionalLabel,
+  cssClass,
+  onPaste,
+  dataTestId,
+  autofocus,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -59,7 +63,11 @@ const TextareaField = ({
         name={field}
         maxLength={maxLength || ''}
         placeholder={placeholder}
-        className={error ? 'form-control required-field' : 'form-control'}
+        className={error ? `${cssClass} form-control required-field` : `${cssClass} form-control`}
+        onPaste={onPaste}
+        data-testid={dataTestId}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
+        autoFocus={autofocus}
       />
       {info && <span className="footer-label-info">{info}</span>}
       {error && <span className="help-block">{error}</span>}
@@ -85,7 +93,11 @@ TextareaField.propTypes = {
   resize: PropTypes.bool,
   className: PropTypes.string,
   info: PropTypes.string,
+  cssClass: PropTypes.string,
   showOptionalLabel: PropTypes.bool,
+  onPaste: PropTypes.func,
+  dataTestId: PropTypes.string,
+  autofocus: PropTypes.bool,
 };
 
 TextareaField.defaultProps = {

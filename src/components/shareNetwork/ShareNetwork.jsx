@@ -25,7 +25,7 @@ const ShareNetwork = ({ title, image, description }) => (
   <>
     <Row>
       <Col sm={12} className="share-label text-center mb-3 mt-3">
-        <FormattedMessage id="share" defaultMessage="SHARE" />
+        <FormattedMessage id="share" />
       </Col>
     </Row>
     <Row>

@@ -6,6 +6,8 @@ import Button from '../../elements/button';
 import DropZoneBox from '../../elements/dropZoneBox';
 
 const ChangeProfileUserImage = ({ color, thumb, errors, onDrop, env }) => {
+  const intl = useIntl();
+
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
     const thumb = type === 'blob' ? URL.createObjectURL(file[0]) : file[0].preview;
@@ -22,7 +24,7 @@ const ChangeProfileUserImage = ({ color, thumb, errors, onDrop, env }) => {
         style={{ color: color ? color.primaryColor : '' }}
         data-testid="title-change-profile-user-image"
       >
-        <FormattedMessage id="user.settings.regional" defaultMessage="About you" />
+        <FormattedMessage id="user.settings.regional" />
       </h4>
       <div className="box">
         <div
@@ -54,13 +56,13 @@ const ChangeProfileUserImage = ({ color, thumb, errors, onDrop, env }) => {
             minHeight: 200,
           }}
           modalClassName="change-profile-user-image"
-          titleCropModal={useIntl().formatMessage({ id: 'modal.crop.title' })}
-          textSaveCropModal={useIntl().formatMessage({ id: 'modal.crop.button.save' })}
+          titleCropModal={intl.formatMessage({ id: 'modal.crop.title' })}
+          textSaveCropModal={intl.formatMessage({ id: 'modal.crop.button.save' })}
         >
           <Button
             extraClass="dark"
             type="file"
-            text={useIntl().formatMessage({ id: 'user.settings.choose.file' })}
+            text={intl.formatMessage({ id: 'user.settings.choose.file' })}
             dataTestId="button-change-profile-user-image"
           />
         </DropZoneBox>

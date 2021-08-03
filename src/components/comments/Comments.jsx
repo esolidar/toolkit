@@ -147,10 +147,7 @@ const Comments = ({
                 extraClass="link"
                 onClick={() => showTextAreaClick(comment)}
                 icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
-                text={intl.formatMessage({
-                  id: 'crowdfunding.comments.reply',
-                  defaultMessage: 'Reply',
-                })}
+                text={intl.formatMessage({ id: 'crowdfunding.comments.reply' })}
                 style={{ color }}
               />
               {showTextArea === comment.id && (
@@ -169,10 +166,7 @@ const Comments = ({
                       onKeyDown={e => addMessage(e, comment.id, false)}
                       value={reply}
                       disabled={laodingPostReply}
-                      placeholder={intl.formatMessage({
-                        id: 'commentHere',
-                        defaultMessage: 'Comment here…',
-                      })}
+                      placeholder={intl.formatMessage({ id: 'commentHere' })}
                       maxLength="500"
                     />
                     <FontAwesomeIcon
@@ -193,12 +187,8 @@ const Comments = ({
                         className="btn btn-read-more-comments"
                         onClick={() => loadMore(comment.id, comment.page)}
                       >
-                        {laodingPostReply && (
-                          <FormattedMessage id="loading" defaultMessage="Loading ..." />
-                        )}
-                        {!laodingPostReply && (
-                          <FormattedMessage id="readmore" defaultMessage="Read more" />
-                        )}
+                        {laodingPostReply && <FormattedMessage id="loading" />}
+                        {!laodingPostReply && <FormattedMessage id="readmore" />}
                       </button>
                     </div>
                   )}
@@ -212,7 +202,7 @@ const Comments = ({
 
     return (
       <div className="text-center no-results">
-        <FormattedMessage id="crowdfunding.no-comments" defaultMessage="No comments" />
+        <FormattedMessage id="crowdfunding.no-comments" />
       </div>
     );
   };

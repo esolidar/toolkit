@@ -199,11 +199,7 @@ const AuctionDetail = ({
       setAccessAuction(false);
       setIsLoadingAuction(false);
       if (privateCode) {
-        setErrorPrivateCode(
-          intl.formatMessage({
-            id: 'auction.detail.error.privateCode',
-          })
-        );
+        setErrorPrivateCode(intl.formatMessage({ id: 'auction.detail.error.privateCode' }));
       }
     } else {
       setIsAuctionForbiden(true);
@@ -574,9 +570,7 @@ const AuctionDetail = ({
       ) {
         setError(
           intl.formatMessage(
-            {
-              id: 'auction.detail.error.startBidInvalid',
-            },
+            { id: 'auction.detail.error.startBidInvalid' },
             {
               bidStart: auctionDetailInfo.bid_start,
               maxBid: auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval,
@@ -595,9 +589,7 @@ const AuctionDetail = ({
       ) {
         setError(
           intl.formatMessage(
-            {
-              id: 'auction.detail.error.startBidInvalid',
-            },
+            { id: 'auction.detail.error.startBidInvalid' },
             {
               bidStart: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval,
               maxBid: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval,
@@ -688,18 +680,12 @@ const AuctionDetail = ({
   };
 
   const textPrivacyandTerms = () => {
-    const initialText = intl.formatMessage({
-      id: 'auctions.private.iagree',
-    });
-    const privacyPolicy = intl.formatMessage({
-      id: 'auctions.private.privacy',
-    });
+    const initialText = intl.formatMessage({ id: 'auctions.private.iagree' });
+    const privacyPolicy = intl.formatMessage({ id: 'auctions.private.privacy' });
     // TODO: Uncomment when there is content on the terms and conditions page
-    // const textAnd = intl.formatMessage({
-    //   id: 'and',
+    // const textAnd = intl.formatMessage({ id: 'and',
     // });
-    // const termsConditions = intl.formatMessage({
-    //   id: 'footer.menu.terms',
+    // const termsConditions = intl.formatMessage({id: 'footer.menu.terms',
     // });
 
     // const html = `
@@ -883,9 +869,7 @@ const AuctionDetail = ({
                 type="text"
                 onChange={handleChangePrivateCode}
                 error={errorPrivateCode}
-                placeholder={intl.formatMessage({
-                  id: 'auction.private.insertCode',
-                })}
+                placeholder={intl.formatMessage({ id: 'auction.private.insertCode' })}
               />
             </Row>
             <Row>
@@ -896,18 +880,14 @@ const AuctionDetail = ({
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
                     href="/auction/list"
-                    text={intl.formatMessage({
-                      id: 'auction.private.cancel',
-                    })}
+                    text={intl.formatMessage({ id: 'cancel' })}
                   />
                   <Button
                     dataTestId="btn-private-validate"
                     className="auction-private-cancel"
                     extraClass="success-full"
                     onClick={handleConfirmPrivateCode}
-                    text={intl.formatMessage({
-                      id: 'auction.private.validate',
-                    })}
+                    text={intl.formatMessage({ id: 'validate' })}
                   />
                 </Col>
               </Col>
@@ -1058,32 +1038,26 @@ const AuctionDetail = ({
               <DescriptionDetail
                 dataTestIdTitle="description"
                 dataTestIdDescription="description-text"
-                title={intl.formatMessage({
-                  id: 'auction.description',
-                })}
+                title={intl.formatMessage({ id: 'description' })}
                 description={auctionDescriptionLang('description')}
                 color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="shipping"
                 dataTestIdDescription="shipping-text"
-                title={intl.formatMessage({
-                  id: 'auction.shipping',
-                })}
+                title={intl.formatMessage({ id: 'auction.shipping' })}
                 description={auctionDescriptionLang('shipping_description')}
                 color={primaryColor}
               />
               <DescriptionDetail
                 dataTestIdTitle="payment"
                 dataTestIdDescription="payment-text"
-                title={intl.formatMessage({
-                  id: 'auction.payment',
-                })}
+                title={intl.formatMessage({ id: 'auction.payment' })}
                 description={auctionDescriptionLang('payment_description')}
                 color={primaryColor}
               />
               <h3 className="mt-5">
-                <FormattedMessage id="auction.detail.titleComments" />
+                <FormattedMessage id="project.comments" />
               </h3>
               <div className="comments-box">
                 <CreateComment
@@ -1121,9 +1095,7 @@ const AuctionDetail = ({
               <ContributesListBox
                 isAuction={true}
                 testeId="ContributesListBox"
-                title={intl.formatMessage({
-                  id: 'auction.last.bids',
-                })}
+                title={intl.formatMessage({ id: 'auction.last.bids' })}
                 contributesList={listUsersBid}
                 loadingContributesList={isLoadingContributesList}
                 loadingContributes={isloadingContributes}
@@ -1154,13 +1126,9 @@ const AuctionDetail = ({
           </Row>
           {listAuctions.length > 0 && (
             <AuctionsList
-              title={intl.formatMessage({
-                id: 'auction.detail.otherAuctions',
-              })}
+              title={intl.formatMessage({ id: 'auction.detail.otherAuctions' })}
               listAuctions={listAuctions}
-              buttonTitle={intl.formatMessage({
-                id: 'auction.detail.seeAll',
-              })}
+              buttonTitle={intl.formatMessage({ id: 'auction.detail.seeAll' })}
               primaryColor={primaryColor}
               env={env}
             />
@@ -1174,24 +1142,18 @@ const AuctionDetail = ({
             dialogClassName="auction-modal-bid"
             onHide={() => handleCloseModalBid()}
             show={isShowModal}
-            title={intl.formatMessage({
-              id: 'auction.modal.bid.confirm',
-            })}
+            title={intl.formatMessage({ id: 'auction.modal.bid.confirm' })}
             actionsChildren={
               <>
                 <Button
                   extraClass="dark"
                   onClick={() => handleCloseModalBid()}
-                  text={intl.formatMessage({
-                    id: 'auction.private.cancel',
-                  })}
+                  text={intl.formatMessage({ id: 'cancel' })}
                 />
                 <Button
                   extraClass="success-full"
                   onClick={() => handleConfirmBid(isAnonymous)}
-                  text={intl.formatMessage({
-                    id: 'auction.private.confirm',
-                  })}
+                  text={intl.formatMessage({ id: 'confirm' })}
                   disabled={isConfirmBid}
                 />
               </>
@@ -1213,21 +1175,15 @@ const AuctionDetail = ({
                   />
                 </p>
                 <div className="mb-3">
-                  {intl.formatMessage({
-                    id: 'auction.modal.bid.email',
-                  })}
+                  {intl.formatMessage({ id: 'auction.modal.bid.email' })}
                   <br />
                   {user.email}
                   <span> (</span>
                   <a
                     href="/user/settings"
-                    title={intl.formatMessage({
-                      id: 'auction.modal.bid.chageEmail',
-                    })}
+                    title={intl.formatMessage({ id: 'auction.modal.bid.chageEmail' })}
                   >
-                    {intl.formatMessage({
-                      id: 'auction.modal.bid.chageEmail',
-                    })}
+                    {intl.formatMessage({ id: 'auction.modal.bid.chageEmail' })}
                   </a>
                   <span>)</span>
                 </div>
@@ -1257,9 +1213,7 @@ const AuctionDetail = ({
                   <CheckboxField
                     dataTestId="checkbox-anonymous"
                     className="mb-2 checkbox-modal-bid"
-                    label={intl.formatMessage({
-                      id: 'auction.modal.bid.anonymousBid',
-                    })}
+                    label={intl.formatMessage({ id: 'auction.modal.bid.anonymousBid' })}
                     onChange={e => selectedCheck(e, 0)}
                     checked={isAnonymous}
                   />
@@ -1267,9 +1221,7 @@ const AuctionDetail = ({
                 <div className="mb-2">
                   <CheckboxField
                     className="checkbox-modal-bid"
-                    label={intl.formatMessage({
-                      id: 'auction.modal.bid.check1',
-                    })}
+                    label={intl.formatMessage({ id: 'auction.modal.bid.check1' })}
                     onChange={e => selectedCheck(e, 1)}
                     checked={isCheckedLegal}
                   />
@@ -1283,9 +1235,7 @@ const AuctionDetail = ({
                   {hasNotifications === 0 && (
                     <CheckboxField
                       className="checkbox-modal-bid"
-                      label={intl.formatMessage({
-                        id: 'auction.modal.bid.check3',
-                      })}
+                      label={intl.formatMessage({ id: 'auction.modal.bid.check3' })}
                       onChange={e => selectedCheck(e, 3)}
                       checked={isCheckedNotifications}
                     />
@@ -1321,9 +1271,7 @@ const AuctionDetail = ({
                 <Button
                   extraClass="dark"
                   onClick={() => handleCancelModalSubscribe()}
-                  text={intl.formatMessage({
-                    id: 'auction.private.cancel',
-                  })}
+                  text={intl.formatMessage({ id: 'cancel' })}
                 />
                 <Button
                   extraClass="success-full"
@@ -1334,9 +1282,7 @@ const AuctionDetail = ({
                       isCheckedEmail24H
                     )
                   }
-                  text={intl.formatMessage({
-                    id: 'auction.private.save',
-                  })}
+                  text={intl.formatMessage({ id: 'save' })}
                 />
               </>
             }
@@ -1344,25 +1290,19 @@ const AuctionDetail = ({
               <div>
                 <CheckboxField
                   dataTestId="checkStart"
-                  label={intl.formatMessage({
-                    id: 'auction.modal.subscribe.check1',
-                  })}
+                  label={intl.formatMessage({ id: 'auction.modal.subscribe.check1' })}
                   onChange={e => selectedCheckSubscribe(e, 0)}
                   checked={isCheckedEmailStart}
                 />
                 <CheckboxField
                   dataTestId="checkEmailBid"
-                  label={intl.formatMessage({
-                    id: 'auction.modal.subscribe.check2',
-                  })}
+                  label={intl.formatMessage({ id: 'auction.modal.subscribe.check2' })}
                   onChange={e => selectedCheckSubscribe(e, 1)}
                   checked={isCheckedEmailFirstBid}
                 />
                 <CheckboxField
                   dataTestId="checkEmail24"
-                  label={intl.formatMessage({
-                    id: 'auction.modal.subscribe.check3',
-                  })}
+                  label={intl.formatMessage({ id: 'auction.modal.subscribe.check3' })}
                   onChange={e => selectedCheckSubscribe(e, 2)}
                   checked={isCheckedEmail24H}
                 />
@@ -1370,9 +1310,7 @@ const AuctionDetail = ({
             }
             onHide={() => handleCancelModalSubscribe()}
             show={isShowModalSubscribe}
-            title={intl.formatMessage({
-              id: 'auction.detail.subscribeAuction',
-            })}
+            title={intl.formatMessage({ id: 'auction.detail.subscribeAuction' })}
           />
         </>
       )}
@@ -1385,25 +1323,19 @@ const AuctionDetail = ({
               <Button
                 extraClass="dark"
                 onClick={() => setModalDelete({ ...modalDelete, isOpen: false })}
-                text={intl.formatMessage({
-                  id: 'auction.private.cancel',
-                })}
+                text={intl.formatMessage({ id: 'cancel' })}
               />
               <Button
                 extraClass="success-full"
                 onClick={() => handleDeleteComment(modalDelete.commentId)}
-                text={intl.formatMessage({
-                  id: 'auction.modal.comment.Confirm',
-                })}
+                text={intl.formatMessage({ id: 'confirm' })}
               />
             </>
           }
           bodyChildren={<FormattedMessage id="auctions.comment.message.delete" />}
           onHide={() => setModalDelete({ ...modalDelete, isOpen: false })}
           show={modalDelete.isOpen}
-          title={intl.formatMessage({
-            id: 'auction.modal.comment.title',
-          })}
+          title={intl.formatMessage({ id: 'comment.delete' })}
         />
       )}
     </Container>
