@@ -1,15 +1,9 @@
 .share-network {
   text-align: right;
   .share-icon {
+    color: map-get($base, white);
+    font-size: 16px;
     margin-right: $distance-1;
-    display: inline-block;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .share-link {
     justify-content: center;
     border-radius: 50%;
     height: 31px;
@@ -18,7 +12,68 @@
     vertical-align: middle;
     align-items: center;
     border: 0px;
+    cursor: pointer;
+    position: relative;
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: map-get($base, white);
+      text-decoration: none;
+      outline: none;
+    }
+
+    .tooltiptext {
+      min-width: 100px;
+      background-color: map-get($base, black);
+      color: map-get($base, white);
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px $distance-1;
+      font-size: 13px;
+      opacity: 0;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      top: -40px;
+      left: -113%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: map-get($base, black) transparent transparent transparent;
+      }
+
+      &.hide-opacity {
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+        -webkit-transition: opacity 3s ease-in-out;
+        -moz-transition: opacity 3s ease-in-out;
+        -ms-transition: opacity 3s ease-in-out;
+        -o-transition: opacity 3s ease-in-out;
+      }
+      &.show-opacity {
+        opacity: 1;
+      }
+    }
+  }
+  .share-facebook {
+    background-color: #3b5998;
+  }
+  .share-twitter {
+    background-color: #00aced;
+  }
+  .share-whatsapp {
+    background-color: #25d366;
+    font-size: 19px;
+  }
+  .share-link {
     background-color: map-get($neutrals, 400);
-    color: map-get($base, white);
   }
 }
