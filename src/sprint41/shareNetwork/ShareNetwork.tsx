@@ -32,14 +32,14 @@ const ShareNetwork: FC<Props> = ({
 
   return (
     <div className="share-network" data-testid="btn-share">
-      <a
+      <button
         onClick={fbShare}
         aria-label="facebook"
         title="Facebook"
         className="share-icon share-facebook"
       >
         <Icon iconClass="icon-facebook" />
-      </a>
+      </button>
       <a
         href={`https://twitter.com/intent/tweet?text=${title}&url=${windowLocationHref}`}
         target="_blank"
