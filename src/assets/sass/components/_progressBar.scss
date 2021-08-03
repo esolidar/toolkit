@@ -2,11 +2,6 @@
   .progress-bar-labels {
     display: flex;
     align-items: center;
-
-    @media (max-width: map-get($breakpoints, md)) {
-      align-items: initial;
-      flex-flow: column;
-    }
   }
   .raised-value {
     font-size: 27px;
@@ -14,10 +9,11 @@
     letter-spacing: 0;
   }
   .goal-label {
-    font-size: 15px;
+    font-size: 14px;
     color: map-get($main-text-colors, title);
     margin-left: $distance-1;
     letter-spacing: 0;
+    line-height: 1.1;
   }
   .goal {
     width: 100%;
@@ -28,7 +24,7 @@
     overflow: hidden;
 
     .progress-goal-bar {
-      background: map-get($colors, green);
+      background: map-get($theme-colors, primary);
       border-radius: 5px;
       height: 10px;
     }
