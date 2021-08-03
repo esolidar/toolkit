@@ -141,10 +141,33 @@
   border-radius: 3px;
   margin-bottom: 30px;
 
-  .bg-image {
-    height: 200px;
-    background-size: cover;
-    background-position: 50% 50%;
+  &:hover {
+    .bg-image {
+      -ms-transform: scale(1.1, 1.1);
+      -webkit-transform: scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  .crowdfunding-thumb-component-image {
+    overflow: hidden;
+    position: relative;
+    .bg-image {
+      height: 200px;
+      background-size: cover;
+      background-position: 50% 50%;
+      overflow: hidden;
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    }
   }
 
   .crowdfunding-thumb-component-body {
@@ -153,6 +176,8 @@
 
     .crowdfunding-thumb-component-countdown {
       margin-top: -50px;
+      position: relative;
+      z-index: 9;
     }
 
     .crowdfunding-thumb-component-title {

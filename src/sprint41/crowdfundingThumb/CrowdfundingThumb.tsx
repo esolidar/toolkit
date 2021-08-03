@@ -31,15 +31,17 @@ const CrowdfundingThumb: FC<Props> = ({ crowdfunding }: Props): JSX.Element => {
 
   return (
     <div className="crowdfunding-thumb-component">
-      <div
-        className="bg-image"
-        style={{
-          backgroundImage:
-            crowdfunding.images.length > 0
-              ? `url('${cdnUploadsUrl}/${crowdfunding.images[0].image}')`
-              : `url({'${cdnStaticUrl}/frontend/assets/no-image.jpg')`,
-        }}
-      />
+      <div className="crowdfunding-thumb-component-image">
+        <div
+          className="bg-image"
+          style={{
+            backgroundImage:
+              crowdfunding.images.length > 0
+                ? `url('${cdnUploadsUrl}/${crowdfunding.images[0].image}')`
+                : `url({'${cdnStaticUrl}/frontend/assets/no-image.jpg')`,
+          }}
+        />
+      </div>
       <div className="crowdfunding-thumb-component-body">
         <div className="crowdfunding-thumb-component-countdown">
           <Countdown
