@@ -62,7 +62,7 @@ const ShareNetwork: FC<Props> = ({
       >
         <Icon iconClass="icon-whatsapp" />
       </a>
-      <a
+      <button
         aria-label="copyToClipboard"
         title={intl.formatMessage({
           id: 'copy.link',
@@ -74,7 +74,7 @@ const ShareNetwork: FC<Props> = ({
         <span className={`tooltiptext ${showTooltip ? 'show-opacity' : 'hide-opacity'}`}>
           <FormattedMessage id="copied.link" />
         </span>
-      </a>
+      </button>
     </div>
   );
 };
