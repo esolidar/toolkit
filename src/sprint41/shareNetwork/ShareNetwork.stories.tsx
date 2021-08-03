@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="w-25 mt-5">
+  <div className="mt-5">
     <ShareNetwork {...args} />
   </div>
 );
