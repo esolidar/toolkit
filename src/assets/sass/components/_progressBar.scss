@@ -28,7 +28,7 @@
     overflow: hidden;
 
     .progress-goal-bar {
-      background: map-get($theme-colors, greprimaryen);
+      background: map-get($theme-colors, primary);
       border-radius: 5px;
       height: 10px;
     }
