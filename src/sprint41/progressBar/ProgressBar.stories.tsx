@@ -17,7 +17,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="w-25 mt-5">
+  <div className="col-lg-3 col-sm-12">
     <ProgressBar {...args} />
   </div>
 );
