@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628082286354" clover="3.2.0">
-  <project timestamp="1628082286354" name="All files">
-    <metrics statements="3119" coveredstatements="2003" conditionals="2634" coveredconditionals="1584" methods="832" coveredmethods="399" elements="6585" coveredelements="3986" complexity="0" loc="3119" ncloc="3119" packages="104" files="249" classes="249"/>
+<coverage generated="1628082464932" clover="3.2.0">
+  <project timestamp="1628082464933" name="All files">
+    <metrics statements="3120" coveredstatements="2004" conditionals="2634" coveredconditionals="1584" methods="832" coveredmethods="399" elements="6586" coveredelements="3987" complexity="0" loc="3120" ncloc="3120" packages="104" files="249" classes="249"/>
     <package name="__customQueries__">
       <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -3943,7 +3943,7 @@
       </file>
     </package>
     <package name="src.sprint41.progressBar">
-      <metrics statements="11" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="ProgressBar.stories.tsx" path="C:\Projects\toolkit\src\sprint41\progressBar\ProgressBar.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
@@ -3956,10 +3956,11 @@
         <line num="45" count="1" type="stmt"/>
       </file>
       <file name="ProgressBar.tsx" path="C:\Projects\toolkit\src\sprint41\progressBar\ProgressBar.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.sprint41.shareNetwork">

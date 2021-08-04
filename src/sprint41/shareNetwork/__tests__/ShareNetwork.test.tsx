@@ -1,4 +1,3 @@
-import React from 'react';
 import { composeStory } from '@storybook/testing-react';
 import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
