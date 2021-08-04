@@ -24,10 +24,6 @@ export const NotShowCopyToClipboard: Story<Props> = Template.bind({});
 
 Default.args = {
   title: 'Campanha Solidária de Crowdfunding',
-  showFacebook: true,
-  showTwitter: true,
-  showWhatsapp: true,
-  showCopyToClipboard: true,
   windowLocationHref:
     'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
@@ -35,38 +31,26 @@ Default.args = {
 NotShowFacebook.args = {
   title: 'Campanha Solidária de Crowdfunding',
   showFacebook: false,
-  showTwitter: true,
-  showWhatsapp: true,
-  showCopyToClipboard: true,
   windowLocationHref:
     'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
 
 NotShowTwitter.args = {
   title: 'Campanha Solidária de Crowdfunding',
-  showFacebook: true,
   showTwitter: false,
-  showWhatsapp: true,
-  showCopyToClipboard: true,
   windowLocationHref:
     'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
 
 NotShowWhatsapp.args = {
   title: 'Campanha Solidária de Crowdfunding',
-  showFacebook: true,
-  showTwitter: true,
   showWhatsapp: false,
-  showCopyToClipboard: true,
   windowLocationHref:
     'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
 
 NotShowCopyToClipboard.args = {
   title: 'Campanha Solidária de Crowdfunding',
-  showFacebook: true,
-  showTwitter: true,
-  showWhatsapp: true,
   showCopyToClipboard: false,
   windowLocationHref:
     'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
