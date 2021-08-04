@@ -5,6 +5,10 @@ import Icon from '../../components/icon';
 
 const ShareNetwork: FC<Props> = ({
   title,
+  showFacebook = true,
+  showTwitter = true,
+  showWhatsapp = true,
+  showCopyToClipboard = true,
   windowLocationHref = window.location.href,
 }: Props): JSX.Element => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -32,49 +36,60 @@ const ShareNetwork: FC<Props> = ({
 
   return (
     <div className="share-network" data-testid="btn-share">
-      <button
-        onClick={fbShare}
-        aria-label="facebook"
-        title="Facebook"
-        className="share-icon share-facebook"
-      >
-        <Icon iconClass="icon-facebook" />
-      </button>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${title}&url=${windowLocationHref}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="twitter"
-        title="Twitter"
-        className="share-icon share-twitter"
-      >
-        <Icon iconClass="icon-twitter" />
-      </a>
-
-      <a
-        href={`https://api.whatsapp.com/send?text=${title} ${windowLocationHref}`}
-        data-action="share/whatsapp/share"
-        aria-label="whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Whatsapp"
-        className="share-icon share-whatsapp"
-      >
-        <Icon iconClass="icon-whatsapp" />
-      </a>
-      <button
-        aria-label="copyToClipboard"
-        title={intl.formatMessage({
-          id: 'copy.link',
-        })}
-        className="share-icon share-link"
-        onClick={copyToClipboard}
-      >
-        <Icon iconClass="icon-link" />
-        <span className={`tooltiptext ${showTooltip ? 'show-opacity' : 'hide-opacity'}`}>
-          <FormattedMessage id="copied.link" />
-        </span>
-      </button>
+      {showFacebook && (
+        <button
+          onClick={fbShare}
+          aria-label="facebook"
+          title="Facebook"
+          className="share-icon share-facebook"
+          data-testid="share-facebook"
+        >
+          <Icon iconClass="icon-facebook" />
+        </button>
+      )}
+      {showTwitter && (
+        <a
+          href={`https://twitter.com/intent/tweet?text=${title}&url=${windowLocationHref}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="twitter"
+          title="Twitter"
+          className="share-icon share-twitter"
+          data-testid="share-twitter"
+        >
+          <Icon iconClass="icon-twitter" />
+        </a>
+      )}
+      {showWhatsapp && (
+        <a
+          href={`https://api.whatsapp.com/send?text=${title} ${windowLocationHref}`}
+          data-action="share/whatsapp/share"
+          aria-label="whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Whatsapp"
+          className="share-icon share-whatsapp"
+          data-testid="share-whatsapp"
+        >
+          <Icon iconClass="icon-whatsapp" />
+        </a>
+      )}
+      {showCopyToClipboard && (
+        <button
+          aria-label="copyToClipboard"
+          title={intl.formatMessage({
+            id: 'copy.link',
+          })}
+          className="share-icon share-link"
+          data-testid="share-link"
+          onClick={copyToClipboard}
+        >
+          <Icon iconClass="icon-link" />
+          <span className={`tooltiptext ${showTooltip ? 'show-opacity' : 'hide-opacity'}`}>
+            <FormattedMessage id="copied.link" />
+          </span>
+        </button>
+      )}
     </div>
   );
 };
