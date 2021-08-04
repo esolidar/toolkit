@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="w-25 mt-5">
+  <div className="mt-5">
     <ShareNetwork {...args} />
   </div>
 );
@@ -19,5 +19,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  title: 'teste',
+  title: 'Campanha Solidária de Crowdfunding',
+  windowLocationHref:
+    'https://community.testesolidar.com/pt/crowdfunding/detail/137-teste-campanha-real-3',
 };
