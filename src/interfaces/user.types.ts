@@ -2,6 +2,7 @@ import Currency from './currency.types';
 import Language from './language.types';
 import Thumbs from './thumbs.types';
 import Phone from './phone.types';
+import Institution from './institution.types';
 
 interface WorkEmail {
   company_id: number;
@@ -63,7 +64,7 @@ interface User {
   work_email?: Array<WorkEmail>;
   name: string;
   s3_key?: string;
-  institution?: null;
+  institution?: Institution;
   phones?: Array<Phone>;
   sync_friends: number;
   sync_likes: number;

@@ -3,7 +3,7 @@ import { composeStory } from '@storybook/testing-react';
 import translation from '@esolidar/i18n/projects/toolkit/en';
 import { IntlProvider } from 'react-intl';
 import { render } from '../../../../__customQueries__/test-utils';
-import Meta, { Default as DefaultStory } from '../CrowdfundingThumb.stories';
+import Meta, { Public as DefaultStory } from '../Thumb.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 

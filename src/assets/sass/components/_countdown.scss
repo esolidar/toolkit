@@ -108,7 +108,7 @@
 }
 
 .countdown-component {
-  border-radius: 3px;
+  border-radius: $distance-1;
   overflow: hidden;
   max-width: 450px;
   width: inherit;

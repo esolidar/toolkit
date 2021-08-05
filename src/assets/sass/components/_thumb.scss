@@ -1,0 +1,95 @@
+.thumb-component {
+  background: map-get($colors, white);
+  border: 1px solid map-get($grays, 300);
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: $distance-1;
+
+  &:hover {
+    .bg-image {
+      -ms-transform: scale(1.1, 1.1);
+      -webkit-transform: scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
+    }
+  }
+
+  .thumb-component-image {
+    overflow: hidden;
+    position: relative;
+    .bg-image {
+      height: 200px;
+      background-size: cover;
+      background-position: 50% 50%;
+      overflow: hidden;
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+    }
+  }
+
+  .thumb-component-body {
+    margin-left: $distance-2;
+    margin-right: $distance-2;
+    height: 310px;
+
+    .thumb-component-countdown {
+      margin-top: -50px;
+      position: relative;
+      z-index: 9;
+    }
+
+    .thumb-component-title {
+      margin-top: $distance-2;
+      margin-bottom: $distance-1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: -0.3px;
+      line-height: 22px;
+    }
+
+    .thumb-component-body-middle {
+      height: 95px;
+
+      .thumb-component-progressbar {
+        padding-bottom: $distance-5;
+      }
+    }
+
+    .thumb-component-support {
+      padding: $distance-2 0;
+      margin-top: $distance-3;
+      border-top: 1px solid map-get($grays, 300);
+      font-size: 15px;
+      color: map-get($main-text-colors, dark);
+      letter-spacing: -0.3px;
+      line-height: 22px;
+
+      a {
+        color: map-get($main-text-colors, dark);
+        text-decoration: underline;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+
+      .receipient-name {
+        color: map-get($main-text-colors, dark);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+    }
+  }
+}

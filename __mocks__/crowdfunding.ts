@@ -1,9 +1,16 @@
+import Crowdfunding from '../src/interfaces/crowdfunding.types';
 import company from './company';
 import currency from './currency';
-// import project from './project';
-import institution from './institution';
+import project from './project';
+// import institution from './institution';
 
-const crowdfunding = {
+const image = {
+  crowdfunding_id: 133,
+  id: 292,
+  image: 'crowdfundings/fotoperfil-69b5f478-67a6-40c6-913d-3455a9efb7cc.jpg',
+};
+
+const crowdfunding: Crowdfunding = {
   company,
   company_id: 254,
   contributes_count: 7,
@@ -17,14 +24,7 @@ const crowdfunding = {
   esolidar_list: 0,
   goal: 300,
   id: 133,
-  images: [
-    {
-      crowdfunding_id: 133,
-      id: 292,
-      image: 'crowdfundings/fotoperfil-69b5f478-67a6-40c6-913d-3455a9efb7cc.jpg',
-    },
-  ],
-  institution,
+  images: [image],
   institution_id: 1,
   minimum_contribution: 3,
   position: 0,
@@ -49,8 +49,7 @@ const crowdfunding = {
     created_at: '2021-04-01 10:34:26',
   },
   product_id: 143,
-  // projects: [project],
-  projects: null,
+  projects: [project],
   recipient_visible: 1,
   reward: 0,
   reward_description: 'Um beijinho',
