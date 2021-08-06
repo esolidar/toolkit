@@ -1,5 +1,5 @@
-import React, { FC, useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import React, { FC, useEffect, useState } from 'react';
+import { FormattedDateParts, FormattedMessage, useIntl } from 'react-intl';
 import { format, addMinutes } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Props from './Countdown.types';
@@ -10,7 +10,7 @@ const Countdown: FC<Props> = ({
   endDate,
   onStart,
   onExpiry,
-  mode,
+  mode = 'timer-count',
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [countDowndate, setCountDownDate] = React.useState<any>({
@@ -24,74 +24,48 @@ const Countdown: FC<Props> = ({
   const [statusText, setStatusText] = React.useState<string>('');
   const [isSoon, setIsSoon] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [interval, setInterval] = useState<number>(60000);
+
+  useEffect(() => {
+    const date = calculateCountdown();
+    setCountDownDate(date);
+  }, []);
 
   useInterval(
     () => {
       const date = calculateCountdown();
       setCountDownDate(date);
     },
-    isPlaying ? 1000 : null
+    isPlaying ? interval : null
   );
 
   const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
   const formatDate = date =>
     format(addMinutes(date, date.getTimezoneOffset()), 'yyyy/MM/dd HH:mm:ss');
-  const today: any = new Date(formatDate(zonedTimeToUtc(new Date(), timeZone)));
-  const start: any = new Date(startDate.replace(/-/g, '/'));
+  const start: any = startDate ? new Date(startDate.replace(/-/g, '/')) : null;
   const end: any = new Date(endDate.replace(/-/g, '/'));
 
   const daysLeft = () => {
     if (countDowndate.days > 0) {
       if (countDowndate.days === 1) {
-        return (
-          <FormattedMessage
-            id="day.left"
-            values={{ value: countDowndate.days }}
-            defaultMessage="{value} day left"
-          />
-        );
+        return <FormattedMessage id="last.day" />;
       }
-      return (
-        <FormattedMessage
-          id="days.left"
-          values={{ value: countDowndate.days }}
-          defaultMessage="{value} days left"
-        />
-      );
+      return <FormattedMessage id="days.left" values={{ value: countDowndate.days }} />;
     }
     if (countDowndate.hours > 0) {
-      return (
-        <FormattedMessage
-          id="hours.left"
-          values={{ value: countDowndate.hours }}
-          defaultMessage="{value} hour left"
-        />
-      );
+      return <FormattedMessage id="hours.left" values={{ value: countDowndate.hours }} />;
     }
 
-    if (countDowndate.min > 0) {
-      return (
-        <FormattedMessage
-          id="min.left"
-          values={{ value: countDowndate.min }}
-          defaultMessage="{value} min left"
-        />
-      );
+    if (countDowndate.hours === 0 && countDowndate.min > 1) {
+      return <FormattedMessage id="mins.left" values={{ value: countDowndate.min }} />;
     }
-    if (countDowndate.sec > 0) {
-      return (
-        <FormattedMessage
-          id="sec.left"
-          values={{ value: countDowndate.sec }}
-          defaultMessage="{value} sec left"
-        />
-      );
+    if (countDowndate.hours === 0 && countDowndate.min <= 1) {
+      return <FormattedMessage id="min.left" values={{ value: countDowndate.min + 1 }} />;
     }
-
-    return intl.formatMessage({ id: 'ended' });
   };
 
   const calculateCountdown = () => {
+    const today: any = new Date(formatDate(zonedTimeToUtc(new Date(), timeZone)));
     const nowTimeStamp = Date.parse(today);
     let countDate;
     let status;
@@ -144,6 +118,8 @@ const Countdown: FC<Props> = ({
     timeLeft.sec = diff;
 
     if (isLoading) setIsLoading(false);
+
+    if (timeLeft.hours === 0 && timeLeft.min === 0) setInterval(1000);
     return timeLeft;
   };
 
@@ -156,74 +132,105 @@ const Countdown: FC<Props> = ({
     return newValue;
   };
 
-  return (
-    <div className="countdown-component" data-testid="countdown-component">
-      {mode === 'crowdfunding' && (
-        <div className="countdown-days-left">
-          {!isLoading && <div className="countdown-days-left-values">{daysLeft()}</div>}
-        </div>
-      )}
-      {mode === 'auction' && isPlaying && (
-        <div className="countdown-days-left">
-          {!isLoading && (
+  const renderTimerCountdown = () => {
+    if (
+      (countDowndate.days > 0 && mode === 'timer-count') ||
+      (countDowndate.days === 0 &&
+        countDowndate.hours >= 9 &&
+        isRunning &&
+        mode === 'timer-count') ||
+      isSoon
+    )
+      return (
+        <>
+          <div className="countdown-days-left-label-status">{statusText}</div>
+          <div
+            className={`countdown-days-left-label-status ${
+              isSoon ? 'countdown-soon' : 'countdown-running'
+            }`}
+          >
+            <div
+              className="countdown-days-left-label countdown-days-left-label-separator"
+              data-testid="days"
+            >
+              {addLeadingZeros(countDowndate.days)}
+              <span>
+                {countDowndate.days === 1 ? (
+                  <FormattedMessage id="countdown.day" />
+                ) : (
+                  <FormattedMessage id="countdown.days" />
+                )}
+              </span>
+            </div>
+            <div
+              className="countdown-days-left-label countdown-days-left-label-separator"
+              data-testid="hours"
+            >
+              {addLeadingZeros(countDowndate.hours)}
+              <span>
+                {countDowndate.hours === 1 ? (
+                  <FormattedMessage id="countdown.hour" />
+                ) : (
+                  <FormattedMessage id="countdown.hours" />
+                )}
+              </span>
+            </div>
+            <div data-testid="min" className="countdown-days-left-label">
+              {addLeadingZeros(countDowndate.min)}
+              <span>
+                <FormattedMessage id="countdown.min" />
+              </span>
+            </div>
+          </div>
+        </>
+      );
+
+    return <div className="countdown-days-left-values">{daysLeft()}</div>;
+  };
+
+  const renderDates = () => {
+    return (
+      <div>
+        {start && (
+          <>
+            <FormattedDateParts value={start} month="short" day="2-digit">
+              {parts => (
+                <>
+                  {parts[0].value}
+                  {parts[1].value}
+                  {parts[2].value}
+                </>
+              )}
+            </FormattedDateParts>
+            &nbsp;-&nbsp;
+          </>
+        )}
+        <FormattedDateParts value={end} month="short" day="2-digit">
+          {parts => (
             <>
-              <div className="countdown-days-left-label-status">{statusText}</div>
-              <div className="countdown-days-left-label-status">
-                {countDowndate.days > 0 && (
-                  <div
-                    className="countdown-days-left-label countdown-days-left-label-separator"
-                    data-testid="days"
-                  >
-                    {addLeadingZeros(countDowndate.days)}
-                    <span>
-                      {countDowndate.days === 1 ? (
-                        <FormattedMessage id="countdown.day" />
-                      ) : (
-                        <FormattedMessage id="countdown.days" />
-                      )}
-                    </span>
-                  </div>
-                )}
-                <div
-                  className="countdown-days-left-label countdown-days-left-label-separator"
-                  data-testid="hours"
-                >
-                  {addLeadingZeros(countDowndate.hours)}
-                  <span>
-                    {countDowndate.hours === 1 ? (
-                      <FormattedMessage id="countdown.hour" />
-                    ) : (
-                      <FormattedMessage id="countdown.hours" />
-                    )}
-                  </span>
-                </div>
-                <div
-                  data-testid="min"
-                  className={`countdown-days-left-label ${
-                    countDowndate.days === 0 ? 'countdown-days-left-label-separator' : ''
-                  }`}
-                >
-                  {addLeadingZeros(countDowndate.min)}
-                  <span>
-                    <FormattedMessage id="countdown.min" />
-                  </span>
-                </div>
-                {countDowndate.days === 0 && (
-                  <div className="countdown-days-left-label" data-testid="sec">
-                    {addLeadingZeros(countDowndate.sec)}
-                    <span>
-                      <FormattedMessage id="countdown.sec" />
-                    </span>
-                  </div>
-                )}
-              </div>
+              {parts[0].value}
+              {parts[1].value}
+              {parts[2].value}
             </>
           )}
+        </FormattedDateParts>
+      </div>
+    );
+  };
+
+  return (
+    <div className="countdown-component" data-testid="countdown-component">
+      {mode === 'date' && (
+        <div className="countdown-days-left">
+          {!isLoading && <div className="countdown-days-left-values">{renderDates()}</div>}
         </div>
       )}
-      {mode === 'auction' && !isPlaying && (
+      {mode !== 'date' && isPlaying && (
+        <div className="countdown-days-left">{!isLoading && <>{renderTimerCountdown()}</>}</div>
+      )}
+      {!isPlaying && (
         <div className="countdown-days-left">
-          <div className="countdown-days-left-values">
+          <div className="countdown-days-left-values countdown-ended" data-testid="ended">
             <FormattedMessage id="ended" />
           </div>
         </div>

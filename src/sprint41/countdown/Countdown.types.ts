@@ -1,9 +1,9 @@
 interface Props {
-  startDate: string;
+  startDate?: string;
   endDate: string;
   onStart?: () => void;
   onExpiry?: () => void;
-  mode?: 'auction' | 'crowdfunding';
+  mode: 'date' | 'timer-count' | 'timer-left';
 }
 
 export default Props;
