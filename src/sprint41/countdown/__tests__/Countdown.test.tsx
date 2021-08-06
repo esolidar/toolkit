@@ -3,306 +3,174 @@ import '@testing-library/jest-dom';
 import translation from '@esolidar/i18n/projects/toolkit/en';
 import { composeStory } from '@storybook/testing-react';
 import { IntlProvider } from 'react-intl';
+import { advanceTo } from 'jest-date-mock';
 import Meta, {
-  CrowdfundingOneMinuteLeftToStart as CrowdfundingStory,
-  AuctionOneMinuteLeftToStart as AuctionStory,
+  Ended as CrowdfundingEnded,
+  CountdownSoonTimer as SoonTimer,
+  CountdownRunningTimer as RunningTimer,
+  CountdownLastDay as LastDay,
+  CountdownHoursToGo as HoursToGo,
+  CountdownMinutesToGo as MinutesToGo,
+  CountdownOneMinuteToGo as OneMinuteToGo,
+  CountdownCrowdfundingDaysToGo as DaysToGo,
+  CountdownDate as ShowDate,
+  CountdownDateInterval as DateInterval,
 } from '../Countdown.stories';
 import { render } from '../../../../__customQueries__/test-utils';
 
-const Crowdfunding = composeStory(CrowdfundingStory, Meta);
-const Auction = composeStory(AuctionStory, Meta);
+const Ended = composeStory(CrowdfundingEnded, Meta);
+const Soon = composeStory(SoonTimer, Meta);
+const Running = composeStory(RunningTimer, Meta);
+const LastDayTemplate = composeStory(LastDay, Meta);
+const HoursToGoTemplate = composeStory(HoursToGo, Meta);
+const MinutesToGoTemplate = composeStory(MinutesToGo, Meta);
+const OneMinuteToGoTemplate = composeStory(OneMinuteToGo, Meta);
+const DaysToGoTemplate = composeStory(DaysToGo, Meta);
+const ShowDateTemplate = composeStory(ShowDate, Meta);
+const DateIntervalTemplate = composeStory(DateInterval, Meta);
 
 jest.useFakeTimers();
+const date = new Date();
 
-it('renders countdown crowdfunding with 1 day left', () => {
-  const countDowndate = {
-    days: 1,
-    hours: 0,
-    min: 0,
-    sec: 0,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
+it('renders countdown ended', () => {
+  advanceTo(date);
+  const { queryByClass, queryByTestId } = render(
     <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
+      <Ended />
     </IntlProvider>
   );
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left-values')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('1 day left');
+  expect(queryByTestId('ended')).toBeInTheDocument();
+  expect(queryByTestId('ended')).toHaveTextContent('Ended');
 });
 
-it('renders countdown crowdfunding with 2 days left', () => {
-  const countDowndate = {
-    days: 2,
-    hours: 0,
-    min: 0,
-    sec: 0,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
+it('renders countdown soon', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
     <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
-    </IntlProvider>
-  );
-
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('2 days left');
-});
-
-it('renders countdown crowdfunding with 1 hour left', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 1,
-    min: 0,
-    sec: 0,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
-    </IntlProvider>
-  );
-
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('1 hour left');
-});
-
-it('renders countdown crowdfunding with 1 min left', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 0,
-    min: 1,
-    sec: 0,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
-    </IntlProvider>
-  );
-
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('1 min left');
-});
-
-it('renders countdown crowdfunding with 50 min left', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 0,
-    min: 0,
-    sec: 50,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
-    </IntlProvider>
-  );
-
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('50 sec left');
-});
-
-it('renders countdown crowdfunding ended', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 0,
-    min: 0,
-    sec: 0,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Crowdfunding />
-    </IntlProvider>
-  );
-
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('Ended');
-});
-
-it('renders countdown auction ended', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 0,
-    min: 0,
-    sec: 0,
-  };
-  const isPlaying = false;
-  const isLoading = false;
-  const statusText = 'Ended';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass, getAllByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Auction />
+      <Soon />
     </IntlProvider>
   );
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).toHaveTextContent('Starts in');
+  expect(queryByClass('countdown-days-left-label-status countdown-soon')).toBeInTheDocument();
+  expect(queryByTestId('days')).toHaveTextContent('01Day');
+  expect(queryByTestId('hours')).toHaveTextContent('01Hour');
+  expect(queryByTestId('min')).toHaveTextContent('55Min.');
+});
+
+it('renders countdown running', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
+    <IntlProvider locale="en" messages={translation}>
+      <Running />
+    </IntlProvider>
+  );
+
+  expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).toHaveTextContent('Ends in');
+  expect(queryByClass('countdown-days-left-label-status countdown-running')).toBeInTheDocument();
+  expect(queryByTestId('days')).toHaveTextContent('01Day');
+  expect(queryByTestId('hours')).toHaveTextContent('01Hour');
+  expect(queryByTestId('min')).toHaveTextContent('55Min.');
+});
+
+it('renders countdown last day', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
+    <IntlProvider locale="en" messages={translation}>
+      <LastDayTemplate />
+    </IntlProvider>
+  );
+
+  expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
   expect(queryByClass('countdown-days-left')).toBeInTheDocument();
-  expect(getAllByClass('countdown-days-left-values')).toHaveLength(1);
-  expect(queryByClass('countdown-days-left-values')).toHaveTextContent('Ended');
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('Last day');
 });
 
-it('renders countdown auction whith 0 days', () => {
-  const countDowndate = {
-    days: 0,
-    hours: 1,
-    min: 1,
-    sec: 10,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass, getAllByClass, getByTestId } = render(
+it('renders countdown hours to go', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
     <IntlProvider locale="en" messages={translation}>
-      <Auction />
+      <HoursToGoTemplate />
     </IntlProvider>
   );
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left-values')).not.toBeInTheDocument();
-  expect(getAllByClass('countdown-days-left-label-status')).toHaveLength(2);
-  expect(getAllByClass('countdown-days-left-label')).toHaveLength(1);
-  expect(getByTestId('hours')).toHaveTextContent('01Hour');
-  expect(getByTestId('min')).toHaveTextContent('01Min.');
-  expect(getByTestId('sec')).toHaveTextContent('10Sec.');
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('8 hours to go');
 });
 
-it('renders countdown auction whith 1 day left', () => {
-  const countDowndate = {
-    days: 1,
-    hours: 1,
-    min: 1,
-    sec: 10,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass, getAllByClass, getByTestId } = render(
+it('renders countdown 60 minutes to go', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
     <IntlProvider locale="en" messages={translation}>
-      <Auction />
+      <MinutesToGoTemplate />
     </IntlProvider>
   );
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left-values')).not.toBeInTheDocument();
-  expect(getAllByClass('countdown-days-left-label-status')).toHaveLength(2);
-  expect(getAllByClass('countdown-days-left-label')).toHaveLength(1);
-  expect(getByTestId('days')).toHaveTextContent('01Day');
-  expect(getByTestId('hours')).toHaveTextContent('01Hour');
-  expect(getByTestId('min')).toHaveTextContent('01Min.');
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('59 minutes to go');
 });
 
-it('renders countdown auction whith 2 day left', () => {
-  const countDowndate = {
-    days: 2,
-    hours: 3,
-    min: 10,
-    sec: 10,
-  };
-  const isPlaying = true;
-  const isLoading = false;
-  const statusText = 'Running';
-
-  React.useState = jest
-    .fn()
-    .mockReturnValueOnce([countDowndate, {}])
-    .mockReturnValueOnce([isPlaying, {}])
-    .mockReturnValueOnce([isLoading, {}])
-    .mockReturnValueOnce([statusText, {}]);
-
-  const { queryByClass, getAllByClass, getByTestId } = render(
+it('renders countdown 1 minute to go', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
     <IntlProvider locale="en" messages={translation}>
-      <Auction />
+      <OneMinuteToGoTemplate />
     </IntlProvider>
   );
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left-values')).not.toBeInTheDocument();
-  expect(getAllByClass('countdown-days-left-label-status')).toHaveLength(2);
-  expect(getAllByClass('countdown-days-left-label')).toHaveLength(1);
-  expect(getByTestId('days')).toHaveTextContent('02Days');
-  expect(getByTestId('hours')).toHaveTextContent('03Hours');
-  expect(getByTestId('min')).toHaveTextContent('10Min.');
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('1 minute to go');
+});
+
+it('renders countdown days to go', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
+    <IntlProvider locale="en" messages={translation}>
+      <DaysToGoTemplate />
+    </IntlProvider>
+  );
+
+  expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('10 days left');
+});
+
+it('renders countdown date', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
+    <IntlProvider locale="en" messages={translation}>
+      <ShowDateTemplate />
+    </IntlProvider>
+  );
+
+  expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 16');
+});
+
+it('renders countdown date interval', () => {
+  advanceTo(new Date(date));
+  const { queryByClass, queryByTestId } = render(
+    <IntlProvider locale="en" messages={translation}>
+      <DateIntervalTemplate />
+    </IntlProvider>
+  );
+
+  expect(queryByClass('countdown-component')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 05 - Aug 16');
 });
