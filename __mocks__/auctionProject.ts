@@ -1,6 +1,6 @@
 import ods from './ods';
 
-const AuctionProject = {
+const auctionProject = {
   id: 72,
   as_company: 0,
   title: 'Projecto do Pedro',
@@ -23,4 +23,4 @@ const AuctionProject = {
   ],
 };
 
-export default AuctionProject;
+export default auctionProject;

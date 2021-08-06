@@ -2,11 +2,9 @@ import user from './user';
 import currency from './currency';
 import project from './project';
 import Auction from '../src/interfaces/auction.types';
-import AuctionProject from './auctionProject';
+import auctionProject from './auctionProject';
 
-console.log('project -> auction', project);
-
-const auction: Auction = {
+const auction = {
   id: 445,
   user_id: 1124,
   cause_id: null,
@@ -95,7 +93,7 @@ const auction: Auction = {
   user,
   cause: null,
   currency,
-  project: AuctionProject,
+  project: auctionProject,
 };
 
 export default auction;
