@@ -12,7 +12,7 @@ const project = {
   user_id: 51974,
   as_company: 0,
   cover: null,
-  title: 'Projecto Rocha',
+  title: 'Pegadas do Brincar – Crianças, Natureza e Cidades',
   description: 'Descrição',
   form: '[{"id":"input-1","name":"Título do projeto","type":"input","fixed":true,"required":true,"reply":"Projecto Rocha","position":0},{"id":"input-2","name":"Descrição","type":"textarea","fixed":true,"required":true,"reply":"Descrição","position":1},{"id":"input-3","name":"Categoria","type":"dropdown","fixed":true,"required":true,"reply":"5","position":2},{"id":"input-4","name":"ODS","type":"ods","fixed":true,"position":3},{"id":"input-5","name":"Imagens","type":"upload-images","fixed":true,"position":4},{"id":"input-105","name":"Escolha as opções que mais lhe agradam","help":"","type":"checkbox","required":true,"requiredMin":"2","requiredMax":"3","isPrivate":false,"options":["Cinema","Literatura","Praia","Montanha"],"checked":["Cinema","Literatura"],"position":5}]',
   private_form:
@@ -59,7 +59,7 @@ const project = {
     },
   ],
   auctions: [auction],
-  crowdfundings: [crowdfunding],
+  // crowdfundings: [crowdfunding],
 };
 
 export default project;

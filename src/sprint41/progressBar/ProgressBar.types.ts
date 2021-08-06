@@ -1,7 +1,7 @@
 interface Props {
   contributesSum: number;
   goal: number;
-  currency?: 'EUR' | 'USD' | 'BRL' | 'GBP';
+  currency?: string | 'EUR' | 'USD' | 'BRL' | 'GBP';
   showLabel: boolean;
   showRaisedOf: boolean;
 }

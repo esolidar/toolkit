@@ -83,7 +83,7 @@ const campaign: Campaign = {
   recipient: 'individual',
   recipient_name: 'Rocha company',
   recipient_user_id: 51974,
-  recipient_visible: 0,
+  recipient_visible: 1,
   reward: 0,
   reward_description: 'asd',
   start_date: '2021-06-30 23:00:00',

@@ -1,9 +1,10 @@
-.thumb-component {
+.card-component {
   background: map-get($colors, white);
   border: 1px solid map-get($grays, 300);
   overflow: hidden;
   margin-bottom: 30px;
   border-radius: $distance-1;
+  cursor: pointer;
 
   &:hover {
     .bg-image {
@@ -13,7 +14,7 @@
     }
   }
 
-  .thumb-component-image {
+  .card-component-image {
     overflow: hidden;
     position: relative;
     .bg-image {
@@ -34,48 +35,54 @@
     }
   }
 
-  .thumb-component-body {
+  .card-component-body {
     margin-left: $distance-2;
     margin-right: $distance-2;
     height: 310px;
+    position: relative;
 
-    .thumb-component-countdown {
+    .card-component-countdown {
       margin-top: -50px;
       position: relative;
       z-index: 9;
     }
 
-    .thumb-component-title {
+    .card-component-title {
       margin-top: $distance-2;
       margin-bottom: $distance-1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 15px;
-      color: map-get($main-text-colors, dark);
+      font-size: 16px;
+      font-weight: 700;
+      color: map-get($grays, 900);
       letter-spacing: -0.3px;
       line-height: 22px;
     }
 
-    .thumb-component-body-middle {
+    .card-component-body-middle {
       height: 95px;
 
-      .thumb-component-progressbar {
+      .card-component-progressbar {
         padding-bottom: $distance-5;
       }
     }
 
-    .thumb-component-support {
-      padding: $distance-2 0;
-      margin-top: $distance-3;
+    .card-component-support {
+      padding-bottom: $distance-2;
+      padding-top: $distance-4;
       border-top: 1px solid map-get($grays, 300);
       font-size: 15px;
-      color: map-get($main-text-colors, dark);
+      color: map-get($grays, 900);
       letter-spacing: -0.3px;
       line-height: 22px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
 
       a {
-        color: map-get($main-text-colors, dark);
+        color: map-get($grays, 900);
         text-decoration: underline;
         white-space: nowrap;
         overflow: hidden;
@@ -91,5 +98,9 @@
         display: block;
       }
     }
+  }
+
+  .card-supporting-label {
+    font-weight: 600;
   }
 }
