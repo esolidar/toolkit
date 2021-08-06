@@ -21,7 +21,12 @@ const DetailTitle: FC<Props> = ({
       <div className="detail-title-supporting">
         <FormattedMessage id="supporting" />
         {supportingUrl && supportingName && (
-          <a href={supportingUrl} title={supportingName} className="detail-title-supporting-href">
+          <a
+            href={supportingUrl}
+            title={supportingName}
+            target="_blank"
+            className="detail-title-supporting-href"
+          >
             {supportingName}
           </a>
         )}
