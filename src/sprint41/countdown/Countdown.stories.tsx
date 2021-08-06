@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { format, addDays, subDays, addMinutes } from 'date-fns';
+import { format, addDays, subDays, addMinutes, addSeconds } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Countdown from './Countdown';
 import Props from './Countdown.types';
@@ -38,116 +38,46 @@ const dateFormat = 'yyyy-MM-dd HH:mm:ss';
 const date = new Date(formatDate(zonedTimeToUtc(new Date(), timeZone)));
 
 const dates = {
-  start: {
+  soon: {
     oneMinute: {
-      startDate: format(addMinutes(date, 1), dateFormat),
+      startDate: format(addMinutes(date, 1555), dateFormat),
       endDate: format(addDays(date, 1), dateFormat),
-    },
-    oneHour: {
-      startDate: format(addMinutes(date, 60), dateFormat),
-      endDate: format(addDays(date, 5), dateFormat),
-    },
-    oneDay: {
-      startDate: format(addDays(date, 2), dateFormat),
-      endDate: format(addDays(date, 5), dateFormat),
     },
   },
-  end: {
-    oneMinute: {
-      startDate: format(addMinutes(date, 1), dateFormat),
-      endDate: format(addDays(date, 1), dateFormat),
+  running: {
+    oneDayToGo: {
+      startDate: format(subDays(date, 1), dateFormat),
+      endDate: format(addMinutes(date, 1555), dateFormat),
     },
-    oneHour: {
-      startDate: format(addDays(date, 2), dateFormat),
-      endDate: format(addDays(date, 5), dateFormat),
+    eightHoursToGo: {
+      startDate: format(subDays(date, 1), dateFormat),
+      endDate: format(addMinutes(date, 485), dateFormat),
     },
-    oneDay: {
-      startDate: format(addDays(date, 2), dateFormat),
-      endDate: format(addDays(date, 5), dateFormat),
+    tenDaysToGo: {
+      startDate: format(subDays(date, 1), dateFormat),
+      endDate: format(addMinutes(date, 14401), dateFormat),
+    },
+    lessOneHours: {
+      startDate: format(subDays(date, 1), dateFormat),
+      endDate: format(addMinutes(date, 59), dateFormat),
+    },
+    OneMinuteLess: {
+      startDate: format(subDays(date, 1), dateFormat),
+      endDate: format(addSeconds(date, 59), dateFormat),
     },
   },
 };
 
-export const CrowdfundingOneMinuteLeftToStart: Story<Props> = Template.bind({});
-export const CrowdfundingOneHourLeftToStart: Story<Props> = Template.bind({});
-export const CrowdfundingOneDayLeftToStart: Story<Props> = Template.bind({});
-
-export const AuctionOneMinuteLeftToStart: Story<Props> = Template.bind({});
-export const AuctionOneHourLeftToStart: Story<Props> = Template.bind({});
-export const AuctionOneDayLeftToStart: Story<Props> = Template.bind({});
 export const Ended: Story<Props> = Template.bind({});
-
-CrowdfundingOneMinuteLeftToStart.args = {
-  startDate: dates.start.oneMinute.startDate,
-  endDate: dates.start.oneMinute.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'crowdfunding',
-};
-
-CrowdfundingOneHourLeftToStart.args = {
-  startDate: dates.start.oneHour.startDate,
-  endDate: dates.start.oneHour.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'crowdfunding',
-};
-
-CrowdfundingOneDayLeftToStart.args = {
-  startDate: dates.start.oneDay.startDate,
-  endDate: dates.start.oneDay.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'crowdfunding',
-};
-
-AuctionOneMinuteLeftToStart.args = {
-  startDate: dates.start.oneMinute.startDate,
-  endDate: dates.start.oneMinute.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'auction',
-};
-
-AuctionOneHourLeftToStart.args = {
-  startDate: dates.start.oneHour.startDate,
-  endDate: dates.start.oneHour.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'auction',
-};
-
-AuctionOneDayLeftToStart.args = {
-  startDate: dates.start.oneDay.startDate,
-  endDate: dates.start.oneDay.endDate,
-  onStart: () => {
-    alert('Started');
-  },
-  onExpiry: () => {
-    alert('Ended');
-  },
-  mode: 'auction',
-};
+export const CountdownSoonTimer: Story<Props> = Template.bind({});
+export const CountdownRunningTimer: Story<Props> = Template.bind({});
+export const CountdownLastDay: Story<Props> = Template.bind({});
+export const CountdownHoursToGo: Story<Props> = Template.bind({});
+export const CountdownMinutesToGo: Story<Props> = Template.bind({});
+export const CountdownOneMinuteToGo: Story<Props> = Template.bind({});
+export const CountdownCrowdfundingDaysToGo: Story<Props> = Template.bind({});
+export const CountdownDate: Story<Props> = Template.bind({});
+export const CountdownDateInterval: Story<Props> = Template.bind({});
 
 Ended.args = {
   startDate: '2020-01-01 00:00:00',
@@ -158,5 +88,107 @@ Ended.args = {
   onExpiry: () => {
     alert('Ended');
   },
-  mode: 'auction',
+};
+
+CountdownSoonTimer.args = {
+  startDate: dates.soon.oneMinute.startDate,
+  endDate: dates.soon.oneMinute.endDate,
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownRunningTimer.args = {
+  startDate: dates.running.oneDayToGo.startDate,
+  endDate: dates.running.oneDayToGo.endDate,
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownLastDay.args = {
+  startDate: dates.running.oneDayToGo.startDate,
+  endDate: dates.running.oneDayToGo.endDate,
+  mode: 'timer-left',
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownHoursToGo.args = {
+  startDate: dates.running.eightHoursToGo.startDate,
+  endDate: dates.running.eightHoursToGo.endDate,
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownMinutesToGo.args = {
+  startDate: dates.running.lessOneHours.startDate,
+  endDate: dates.running.lessOneHours.endDate,
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownOneMinuteToGo.args = {
+  startDate: dates.running.OneMinuteLess.startDate,
+  endDate: dates.running.OneMinuteLess.endDate,
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownCrowdfundingDaysToGo.args = {
+  startDate: dates.running.tenDaysToGo.startDate,
+  endDate: dates.running.tenDaysToGo.endDate,
+  mode: 'timer-left',
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownDate.args = {
+  startDate: null,
+  endDate: dates.running.tenDaysToGo.endDate,
+  mode: 'date',
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
+};
+
+CountdownDateInterval.args = {
+  startDate: dates.running.tenDaysToGo.startDate,
+  endDate: dates.running.tenDaysToGo.endDate,
+  mode: 'date',
+  onStart: () => {
+    alert('Started');
+  },
+  onExpiry: () => {
+    alert('Ended');
+  },
 };
