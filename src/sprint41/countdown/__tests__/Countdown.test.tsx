@@ -158,7 +158,7 @@ it('renders countdown date', () => {
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
   expect(queryByClass('countdown-days-left')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 16');
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 17');
 });
 
 it('renders countdown date interval', () => {
@@ -172,5 +172,5 @@ it('renders countdown date interval', () => {
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
   expect(queryByClass('countdown-days-left')).toBeInTheDocument();
-  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 05 - Aug 16');
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('Aug 06 - Aug 17');
 });
