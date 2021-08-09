@@ -1,8 +1,9 @@
 import currency from './currency';
 import language from './language';
 import phone from './phone';
+import User from '../src/interfaces/user.types';
 
-const user = {
+const user: User = {
   id: 9,
   fb_id: 10153603867112402,
   institution_id: null,
