@@ -18,7 +18,7 @@ const ListFooter: FC<Props> = ({
           activePage={data.current_page}
           arrowType={0}
           dataTestId="pagination"
-          itemsCountPerPage={data.per_page}
+          itemsCountPerPage={+data.per_page}
           onChange={onChangePagination}
           totalItemsCount={data.total}
         />
