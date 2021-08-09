@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628515796729" clover="3.2.0">
-  <project timestamp="1628515796730" name="All files">
+<coverage generated="1628515990284" clover="3.2.0">
+  <project timestamp="1628515990285" name="All files">
     <metrics statements="3212" coveredstatements="2115" conditionals="2723" coveredconditionals="1675" methods="860" coveredmethods="416" elements="6795" coveredelements="4206" complexity="0" loc="3212" ncloc="3212" packages="108" files="256" classes="256"/>
     <package name="__customQueries__">
       <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
@@ -3655,8 +3655,8 @@
         <line num="26" count="7" type="stmt"/>
         <line num="27" count="23" type="stmt"/>
         <line num="39" count="8" type="stmt"/>
-        <line num="67" count="9" type="stmt"/>
-        <line num="86" count="9" type="stmt"/>
+        <line num="63" count="9" type="stmt"/>
+        <line num="82" count="9" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\selectField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
