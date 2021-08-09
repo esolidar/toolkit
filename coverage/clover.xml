@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628517528192" clover="3.2.0">
-  <project timestamp="1628517528192" name="All files">
-    <metrics statements="3212" coveredstatements="2115" conditionals="2723" coveredconditionals="1675" methods="860" coveredmethods="416" elements="6795" coveredelements="4206" complexity="0" loc="3212" ncloc="3212" packages="108" files="256" classes="256"/>
+<coverage generated="1628523303340" clover="3.2.0">
+  <project timestamp="1628523303341" name="All files">
+    <metrics statements="3212" coveredstatements="2115" conditionals="2724" coveredconditionals="1676" methods="860" coveredmethods="416" elements="6796" coveredelements="4207" complexity="0" loc="3212" ncloc="3212" packages="108" files="256" classes="256"/>
     <package name="__customQueries__">
       <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -3669,7 +3669,7 @@
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="18" count="11" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
       </file>
@@ -4045,7 +4045,7 @@
       </file>
     </package>
     <package name="src.sprint41.listFooter">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="2"/>
       <file name="ListFooter.stories.tsx" path="C:\Projects\toolkit\src\sprint41\listFooter\ListFooter.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4054,7 +4054,7 @@
         <line num="22" count="1" type="stmt"/>
       </file>
       <file name="ListFooter.tsx" path="C:\Projects\toolkit\src\sprint41\listFooter\ListFooter.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>

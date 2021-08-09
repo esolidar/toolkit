@@ -24,5 +24,4 @@ Default.args = {
   onChangeSelectPerPage: () => {},
   onChangePagination: () => {},
   data: list,
-  perPageOptions: [6, 12, 18, 21, 24],
 };

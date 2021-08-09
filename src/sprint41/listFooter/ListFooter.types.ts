@@ -3,7 +3,7 @@ interface Props {
   onChangeSelectPerPage(): void;
   onChangePagination(): void;
   data: any;
-  perPageOptions: Array<number>;
+  perPageOptions?: number[];
 }
 
 export default Props;

@@ -8,7 +8,7 @@ const ListFooter: FC<Props> = ({
   onChangeSelectPerPage,
   onChangePagination,
   data,
-  perPageOptions,
+  perPageOptions = [6, 12, 18, 24],
 }: Props): JSX.Element => {
   return (
     <div className="component-list-footer">
@@ -20,7 +20,6 @@ const ListFooter: FC<Props> = ({
           dataTestId="pagination"
           itemsCountPerPage={data.per_page}
           onChange={onChangePagination}
-          pageRangeDisplayed={5}
           totalItemsCount={data.total}
         />
       </div>
