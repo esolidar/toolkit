@@ -1284,17 +1284,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-<<<<<<< HEAD
-"@esolidar/i18n@^0.0.188":
-  version "0.0.188"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.0.188/990de12130f574431782412b75a234bd8c285d6bccc3d0210122c49772534ece#8cb286f12d78e3e8192b581a4aa184f639496720"
-  integrity sha512-bUJ7SSuqXofzMAJMhafRbl/B2YJ4vafRKxxP1fpoCjCs+TXecYiyefSNB6q5H0fD/VXNgqZUCDWT/ree2ZBBnw==
-=======
-"@esolidar/i18n@^0.0.192":
-  version "0.0.192"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.0.192/98506856c5cb8eac68aa2bd776c9268b1b13f816636018934a3c2d189d2c3c6d#f2f6c8a13f23d51f2c5119eb487531a6541ef5fc"
-  integrity sha512-vubzdtLE0bNMFcWy4b5xHFzyOuGiGouryMuzpa7FDfnYsYe9AfyN2lL7BwQzxTaLTd6LC994lEXDfjKOOmSQEg==
->>>>>>> master
+"@esolidar/i18n@^0.0.195":
+  version "0.0.195"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.0.195/c6d8765a0b8474c76cab09d3d4d3fd7ca898aa62e9033b919a9d3d6a6bd2c10f#6990351491a616615f56984d321973ac6d8b188a"
+  integrity sha512-G3q1kOYCWfCMgK0J17KU6FUc6UZmrt0r1w7sW+smceGUsnTvlRy0l48PxWTk+Gn0naW0nu8OceBcQ15ysEy/kA==
   dependencies:
     readline-sync "^1.4.10"
 
