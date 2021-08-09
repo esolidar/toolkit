@@ -1,8 +1,10 @@
+import List from '../../interfaces/list';
+
 interface Props {
   labelResultText: string;
   onChangeSelectPerPage(): void;
   onChangePagination(): void;
-  data: any;
+  data: List;
   perPageOptions?: number[];
 }
 
