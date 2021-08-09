@@ -11,7 +11,7 @@ const ListFooter: FC<Props> = ({
   perPageOptions,
 }: Props): JSX.Element => {
   return (
-    <div className="component-list-footer d-flex justify-content-between align-items-center">
+    <div className="component-list-footer">
       <div className="component-list-footer-results">{`${data.total} ${labelResultText}`}</div>
       <div>
         <Pagination

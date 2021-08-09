@@ -1,4 +1,8 @@
 .component-list-footer {
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+
   .component-list-footer-results {
     font-size: 14px;
     color: map-get($grays, 700);

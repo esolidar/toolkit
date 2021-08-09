@@ -15,9 +15,7 @@ it('renders Detail Title default component', () => {
     </IntlProvider>
   );
 
-  expect(
-    getAllByClass('component-list-footer d-flex justify-content-between align-items-center')
-  ).toBeTruthy();
+  expect(getAllByClass('component-list-footer')).toBeTruthy();
   expect(getAllByClass('component-list-footer-results')).toBeTruthy();
   expect(getByClass('component-list-footer-results')).toHaveTextContent('25 Crowdfundings');
 
