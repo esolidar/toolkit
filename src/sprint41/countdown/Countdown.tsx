@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { FormattedDateParts, FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { format, addMinutes } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Props from './Countdown.types';
 import useInterval from '../../hooks/useInterval';
+import MONTHS from '../../constants/months';
 
 const Countdown: FC<Props> = ({
   startDate,
@@ -52,8 +53,11 @@ const Countdown: FC<Props> = ({
       }
       return <FormattedMessage id="days.left" values={{ value: countDowndate.days }} />;
     }
-    if (countDowndate.hours > 0) {
+    if (countDowndate.hours > 1) {
       return <FormattedMessage id="hours.left" values={{ value: countDowndate.hours }} />;
+    }
+    if (countDowndate.hours === 1) {
+      return <FormattedMessage id="hour.left" values={{ value: countDowndate.hours }} />;
     }
 
     if (countDowndate.hours === 0 && countDowndate.min > 1) {
@@ -189,31 +193,26 @@ const Countdown: FC<Props> = ({
   };
 
   const renderDates = () => {
+    const startShortMonth = intl.formatMessage({ id: MONTHS[new Date(start).getMonth()].short });
+    const endShortMonth = intl.formatMessage({ id: MONTHS[new Date(end).getMonth()].short });
+
     return (
       <div>
         {start && (
           <>
-            <FormattedDateParts value={start} month="short" day="2-digit">
-              {parts => (
-                <>
-                  {parts[0].value}
-                  {parts[1].value}
-                  {parts[2].value}
-                </>
-              )}
-            </FormattedDateParts>
+            <FormattedMessage
+              id="month.day"
+              defaultMessage="{month} {day}"
+              values={{ month: startShortMonth, day: new Date(start).getDate() }}
+            />
             &nbsp;-&nbsp;
           </>
         )}
-        <FormattedDateParts value={end} month="short" day="2-digit">
-          {parts => (
-            <>
-              {parts[0].value}
-              {parts[1].value}
-              {parts[2].value}
-            </>
-          )}
-        </FormattedDateParts>
+        <FormattedMessage
+          id="month.day"
+          defaultMessage="{month} {day}"
+          values={{ month: endShortMonth, day: new Date(end).getDate() }}
+        />
       </div>
     );
   };
