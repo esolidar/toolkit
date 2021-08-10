@@ -80,6 +80,7 @@ const AuctionAddForm = ({
     description: '',
     bid_interval: '1',
     bid_max_interval: '100',
+    brand_id: '',
     tax: isEmpty(hasWhitelabel) ? company.country.auction_tax * 100 : 0,
     acquisition_value: '0',
     status: 'P',
@@ -171,6 +172,7 @@ const AuctionAddForm = ({
     if (institutionCategories && institutionCategories.code === 200) {
       const { categories } = institutionCategories.data;
       setInstitutionCategoriesData(categories);
+      setInstitutionCategory(categories[0].id);
     }
   }, [institutionCategories]);
 
@@ -370,6 +372,10 @@ const AuctionAddForm = ({
     }
   }, [deleteImages]);
 
+  useEffect(() => {
+    if (beneficiary === 'institution') getInstitutions(1, institutionCategory, institutionSearch);
+  }, [beneficiary]);
+
   const handleChangeInstitutioncategory = e => {
     setIsLoadingInstitutionListSelect(true);
     setInstitutionCategory(e.target.value);
@@ -495,14 +501,8 @@ const AuctionAddForm = ({
     setDeletedImage(imageId);
   };
 
-  const handleChangeInstitution = e => {
-    const { name, value } = e.target;
-    if (value === '') {
-      e.preventDefault();
-      setForm(prevState => ({ ...prevState, user_id: '' }));
-    } else {
-      setForm(prevState => ({ ...prevState, [name]: value }));
-    }
+  const handleChangeInstitution = institution => {
+    setForm(prevState => ({ ...prevState, user_id: institution ? institution.user_id : '' }));
   };
 
   const checkIsValidBankAccount = resp => {

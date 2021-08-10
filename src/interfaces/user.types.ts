@@ -2,12 +2,14 @@ import Currency from './currency.types';
 import Language from './language.types';
 import Thumbs from './thumbs.types';
 import Phone from './phone.types';
+import Institution from './institution.types';
 
 interface WorkEmail {
   company_id: number;
   name: string;
   role: string;
   department?: string;
+  user?: null;
 }
 
 interface User {
@@ -62,8 +64,16 @@ interface User {
   work_email?: Array<WorkEmail>;
   name: string;
   s3_key?: string;
-  institution?: null;
+  institution?: Institution;
   phones?: Array<Phone>;
+  sync_friends: number;
+  sync_likes: number;
+  private_beta: number;
+  import_bewarket: number;
+  ws_import: number;
+  only_mysells: number;
+  deauthorize_times: number;
+  invite_friends?: number;
 }
 
 export default User;

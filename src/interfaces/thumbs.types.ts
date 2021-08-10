@@ -1,6 +1,7 @@
 interface Thumbs {
-  original: string;
-  standard: string;
+  detail?: string;
+  original?: string;
+  standard?: string;
   thumb: string;
 }
 

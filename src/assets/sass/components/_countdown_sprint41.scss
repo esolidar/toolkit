@@ -1,0 +1,86 @@
+.countdown-component {
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 320px;
+  width: inherit;
+  height: 70px;
+  background: map-get($colors, white);
+  border: 1px solid map-get($grays, 300);
+
+  .countdown-days-left {
+    color: map-get($grays, 900);
+    height: 100%;
+    padding-top: $distance-1;
+    padding-bottom: $distance-1;
+
+    .countdown-days-left-values {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-weight: 700;
+
+      &.countdown-ended {
+        color: map-get($neutrals, 400);
+      }
+    }
+
+    .countdown-days-left-label-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: $distance-1;
+      font-size: 12px;
+      line-height: 12px;
+      color: map-get($neutrals, 700);
+
+      &.countdown-soon {
+        color: map-get($neutrals, 400);
+      }
+
+      &.countdown-running {
+        color: map-get($grays, 900);
+      }
+    }
+
+    .countdown-days-left-label-title {
+      width: 100%;
+      font-size: 12px;
+      text-align: center;
+      padding: $distance-1;
+      line-height: 100%;
+    }
+
+    .countdown-days-left-label {
+      text-align: center;
+      font-size: 18px;
+      justify-content: center;
+      line-height: 100%;
+      width: 50px;
+      position: relative;
+      font-weight: 700;
+
+      &.countdown-days-left-label-separator {
+        &:before {
+          top: -1px;
+          right: -3px;
+          position: absolute;
+          content: ':';
+        }
+      }
+
+      span {
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        color: map-get($neutrals, 700);
+        line-height: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    width: 100%;
+  }
+}
