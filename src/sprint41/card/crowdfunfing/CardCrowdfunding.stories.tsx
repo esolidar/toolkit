@@ -23,31 +23,19 @@ export const PublicTitleEn: Story<Props> = Template.bind({});
 export const Private: Story<Props> = Template.bind({});
 
 PublicTitlePt.args = {
-  contributes_sum: 10,
-  contribution_raised: 100,
-  currencySmall: 'EUR',
-  goal: 200,
-  lang: 'pt',
   crowdfunding,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',
+  lang: 'pt',
 };
 
 PublicTitleEn.args = {
-  contributes_sum: 10,
-  contribution_raised: 100,
-  currencySmall: 'EUR',
-  goal: 200,
   crowdfunding,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',
 };
 
 Private.args = {
-  contributes_sum: 10,
-  contribution_raised: 100,
-  currencySmall: 'EUR',
-  goal: 200,
   campaign,
   clickThumb: () => alert('clicked'),
 };
