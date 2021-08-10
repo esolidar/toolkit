@@ -162,11 +162,12 @@ const NewPostBox: FC<Props> = ({
     });
   };
 
-  const deleteImage = (indx: number) => {
+  const deleteImage = (id: number) => {
     const newImages = [...images];
     const newImagesToSend = [...imagesToSend];
-    newImages.splice(indx, 1);
-    newImagesToSend.splice(indx, 1);
+    const arrayIndx = newImages.findIndex(o => o.id === id);
+    newImages.splice(arrayIndx, 1);
+    newImagesToSend.splice(arrayIndx, 1);
     setImages(newImages);
     setImagesToSend(newImagesToSend);
   };
@@ -304,44 +305,24 @@ const NewPostBox: FC<Props> = ({
                         if (i >= 7) width = 100;
                       }
 
-                      if (length === 1) {
-                        return (
-                          <div className="post-image-box-1" key={image.id}>
-                            <button
-                              type="button"
-                              onClick={() => deleteImage(i)}
-                              className="delete-image"
-                              data-testid="delete-image"
-                            >
-                              <Icon iconClass="icon-close" />
-                            </button>
-                            <img
-                              src={image.image}
-                              alt="image"
-                              className={`w-${JSON.stringify(width)}`}
-                            />
-                          </div>
-                        );
-                      } else {
-                        return (
-                          <div
-                            key={image.id}
-                            style={{ backgroundImage: `url("${image.image}")` }}
-                            className={`post-image-box w-${JSON.stringify(width)}`}
-                            data-testid="post-image-box"
+                      return (
+                        <div
+                          key={image.id}
+                          style={{ backgroundImage: `url("${image.image}")` }}
+                          className={`post-image-box w-${JSON.stringify(width)}`}
+                          data-testid="post-image-box"
+                        >
+                          &nbsp;
+                          <button
+                            type="button"
+                            onClick={() => deleteImage(image.id)}
+                            className="delete-image"
+                            data-testid="delete-image"
                           >
-                            &nbsp;
-                            <button
-                              type="button"
-                              onClick={() => deleteImage(image.id)}
-                              className="delete-image"
-                              data-testid="delete-image"
-                            >
-                              <Icon iconClass="icon-close" />
-                            </button>
-                          </div>
-                        );
-                      }
+                            <Icon iconClass="icon-close" />
+                          </button>
+                        </div>
+                      );
                     })}
                   </div>
                 )}
