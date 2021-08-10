@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="mt-5">
+  <div className="mt-5" style={{ maxWidth: '600px' }}>
     <NewPostBox {...args} />
   </div>
 );
@@ -26,7 +26,7 @@ const TemplateOpen: Story<Props> = (args: Props) => {
   }, []);
 
   return (
-    <div className="mt-5">
+    <div className="mt-5" style={{ maxWidth: '600px' }}>
       <NewPostBox {...args} />
     </div>
   );

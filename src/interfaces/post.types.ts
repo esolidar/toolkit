@@ -21,7 +21,7 @@ interface Image {
   created_at: string;
   id: number;
   image: string;
-  image_size?: number | number;
+  image_size?: number;
   image_type?: number;
   position: number;
   post_id: number;
