@@ -7,5 +7,10 @@
     font-size: 14px;
     color: map-get($grays, 700);
     font-weight: 700;
+    width: 30%;
+  }
+
+  .component-list-footer-perpage {
+    width: 30%;
   }
 }
