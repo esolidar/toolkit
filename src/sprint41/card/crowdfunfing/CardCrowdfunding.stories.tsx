@@ -42,14 +42,14 @@ Private.args = {
   clickThumb: () => alert('clicked'),
 };
 
-const crowdfundingZero = crowdfunding;
+const crowdfundingZero = { ...crowdfunding };
 crowdfundingZero.contributes_sum = 0;
 PublicZeroRaised.args = {
   crowdfunding: crowdfundingZero,
   clickThumb: () => alert('clicked'),
 };
 
-const campaignZero = campaign;
+const campaignZero = { ...campaign };
 campaignZero.contribution_raised = 0;
 PrivateZeroRaised.args = {
   campaign: campaignZero,
