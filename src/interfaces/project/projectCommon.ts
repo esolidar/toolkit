@@ -7,7 +7,7 @@ interface ProjectImage {
   streamImage: string;
   image: string;
   image_type: string;
-  image_size: number | number;
+  image_size: number | string;
   default: number;
   position: number;
   updated_at: string;

@@ -10,7 +10,7 @@
   }
   .goal-label {
     font-size: 14px;
-    color: map-get($main-text-colors, title);
+    color: map-get($neutrals, 700);
     margin-left: $distance-1;
     letter-spacing: 0;
     line-height: 1.1;
@@ -27,6 +27,7 @@
       background: map-get($theme-colors, primary);
       border-radius: 5px;
       height: 10px;
+      min-width: 10px;
     }
   }
 }
