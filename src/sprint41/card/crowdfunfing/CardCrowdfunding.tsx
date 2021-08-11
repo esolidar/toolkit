@@ -86,7 +86,11 @@ const CardCrowdfunding: FC<Props> = ({
       }
       body={
         <ProgressBar
-          contributesSum={crowdfunding?.contributes_sum || campaign?.contribution_raised}
+          contributesSum={
+            crowdfunding?.contributes_sum === 0 || crowdfunding?.contributes_sum
+              ? crowdfunding?.contributes_sum
+              : campaign?.contribution_raised
+          }
           currency={crowdfunding?.currency?.small || campaign?.currency?.small}
           goal={crowdfunding?.goal || campaign?.goal}
           showLabel
