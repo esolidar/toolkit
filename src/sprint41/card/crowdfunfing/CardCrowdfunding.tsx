@@ -72,13 +72,6 @@ const CardCrowdfunding: FC<Props> = ({
     };
   };
 
-  console.log(
-    'contributes_sum',
-    crowdfunding?.contributes_sum === 0 || crowdfunding?.contributes_sum
-      ? crowdfunding?.contributes_sum
-      : campaign?.contribution_raised
-  );
-
   return (
     <Card
       clickThumb={clickThumb}

@@ -20,7 +20,9 @@ const Template: Story<Props> = (args: Props) => (
 
 export const PublicTitlePt: Story<Props> = Template.bind({});
 export const PublicTitleEn: Story<Props> = Template.bind({});
+export const PublicZeroRaised: Story<Props> = Template.bind({});
 export const Private: Story<Props> = Template.bind({});
+export const PrivateZeroRaised: Story<Props> = Template.bind({});
 
 PublicTitlePt.args = {
   crowdfunding,
@@ -37,5 +39,19 @@ PublicTitleEn.args = {
 
 Private.args = {
   campaign,
+  clickThumb: () => alert('clicked'),
+};
+
+const crowdfundingZero = crowdfunding;
+crowdfundingZero.contributes_sum = 0;
+PublicZeroRaised.args = {
+  crowdfunding: crowdfundingZero,
+  clickThumb: () => alert('clicked'),
+};
+
+const campaignZero = campaign;
+campaignZero.contribution_raised = 0;
+PrivateZeroRaised.args = {
+  campaign: campaignZero,
   clickThumb: () => alert('clicked'),
 };
