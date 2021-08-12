@@ -23,7 +23,7 @@ const ListFooter: FC<Props> = ({
           totalItemsCount={data.total}
         />
       </div>
-      <div>
+      <div className="component-list-footer-perpage">
         <SelectPerPage onChange={onChangeSelectPerPage} options={perPageOptions} value={10} />
       </div>
     </div>
