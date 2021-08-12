@@ -2,9 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
+import Button from '../../elements/button';
 import Pagination from '../../elements/pagination';
 import SelectField from '../../elements/selectField';
 import Loading from '../loading';
@@ -21,89 +22,25 @@ const InstitutionListSelect = ({
   handlePageChange,
   institutionSelected,
   onChange,
-  selectText,
   NoResultsText,
   pagination,
   isLoading,
   user_id,
   removeInstitutionSelected,
 }) => {
-  const renderCharities = () => {
-    if (institutions) {
-      if (institutions.length > 0) {
-        return institutions.map(charity => {
-          const divStyle = {
-            backgroundImage: `url(${charity.image})`,
-          };
-
-          return (
-            <div key={charity.id}>
-              <div className="npo-thumb" title={charity.name}>
-                <label htmlFor={`input_${charity.id}`}>
-                  {institutionSelected ? (
-                    <input
-                      onChange={onChange}
-                      type="radio"
-                      name={`input_${charity.id}`}
-                      id={`input_${charity.id}`}
-                      checked={+institutionSelected === +charity.id}
-                      value={charity.id}
-                    />
-                  ) : (
-                    <input
-                      onChange={onChange}
-                      type="radio"
-                      name="user_id"
-                      id={`input_${charity.id}`}
-                      checked={+user_id === +charity.user_id}
-                      value={charity.user_id}
-                    />
-                  )}
-                  <div className="npo-pin-thumb" style={divStyle} />
-                  <div className="name">{charity.name}</div>
-                  <div className="btn btn-select">
-                    {selectText || ''}
-                    {!selectText && +user_id !== charity.user_id && (
-                      <FormattedMessage id="institutions.list.select" defaultMessage="Select" />
-                    )}
-                    {!selectText && +user_id === charity.user_id && (
-                      <FormattedMessage id="institutions.list.selected" defaultMessage="Selected" />
-                    )}
-                    {+user_id === charity.user_id && removeInstitutionSelected && (
-                      <button
-                        onClick={removeInstitutionSelected}
-                        className="remove-selected"
-                        type="button"
-                      >
-                        x
-                      </button>
-                    )}
-                  </div>
-                </label>
-              </div>
-            </div>
-          );
-        });
-      }
-      return (
-        <Row>
-          <Col xs={12} className="text-center no-results">
-            {NoResultsText}
-          </Col>
-        </Row>
-      );
-    }
-  };
+  const intl = useIntl();
 
   return (
     <Row className="institutions-list">
       <Col md={12}>
         <SelectField
-          label={useIntl().formatMessage({ id: 'institution', defaultMessage: 'Nonprofit' })}
+          label={intl.formatMessage({ id: 'institution' })}
           onChange={onChangeInstitutionCategory}
           idLabel="selectCategory"
           field="institution_category"
-          selectText={selectCategoryText}
+          selectText={
+            selectCategoryText || intl.formatMessage({ id: 'giftcard.modal.select-charity' })
+          }
           options={categories}
         />
       </Col>
@@ -112,30 +49,42 @@ const InstitutionListSelect = ({
           className="form-control search-institutions"
           onChange={onSearch}
           value={search}
-          placeholder={placeholderSearch}
+          placeholder={placeholderSearch || intl.formatMessage({ id: 'giftcard.search.charity' })}
           name="search"
         />
       </Col>
-      {isLoading && (
+      {isLoading ? (
         <Col md={12}>
           <Loading />
         </Col>
-      )}
-      {!isLoading && (
-        <div className={classnames('col-sm-12', { 'has-error': error })}>
-          {renderCharities()}
+      ) : (
+        <Col md={12} className={classnames({ 'has-error': error })}>
+          {!institutions.length ? (
+            <div className="text-center no-results">
+              {NoResultsText || intl.formatMessage({ id: 'noDataText' })}
+            </div>
+          ) : (
+            institutions.map(institution => (
+              <InstitutionRow
+                key={institution.id}
+                institution={institution}
+                institutionSelected={institutionSelected}
+                onChange={onChange}
+                userId={Number(user_id)}
+                removeInstitutionSelected={removeInstitutionSelected}
+              />
+            ))
+          )}
           {error && <span className="help-block">{error}</span>}
           {institutions.length > 0 && (
-            <Row>
-              <Pagination
-                activePage={pagination.activePage}
-                itemsCountPerPage={pagination.itemsCountPerPage}
-                totalItemsCount={pagination.totalItemsCount}
-                onChange={handlePageChange}
-              />
-            </Row>
+            <Pagination
+              activePage={pagination.activePage}
+              itemsCountPerPage={pagination.itemsCountPerPage}
+              totalItemsCount={pagination.totalItemsCount}
+              onChange={handlePageChange}
+            />
           )}
-        </div>
+        </Col>
       )}
     </Row>
   );
@@ -143,12 +92,12 @@ const InstitutionListSelect = ({
 
 InstitutionListSelect.propTypes = {
   categories: PropTypes.array.isRequired,
-  institutions: PropTypes.array.isRequired,
+  institutions: PropTypes.array,
   onChangeInstitutionCategory: PropTypes.func.isRequired,
   handlePageChange: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
-  selectText: PropTypes.string,
+
   NoResultsText: PropTypes.string.isRequired,
   selectCategoryText: PropTypes.string.isRequired,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -163,6 +112,64 @@ InstitutionListSelect.propTypes = {
   isLoading: PropTypes.bool,
   user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
+};
+
+InstitutionListSelect.defaultProps = {
+  institutions: [],
+};
+
+const InstitutionRow = ({
+  institution,
+  institutionSelected,
+  onChange,
+  userId,
+  removeInstitutionSelected,
+}) => {
+  const intl = useIntl();
+  const { id, name, image, user_id } = institution;
+
+  const isSameUserId = userId === Number(user_id);
+  const isSameInstitutionId = institutionSelected === Number(id);
+
+  const isSelected = !!(
+    (institutionSelected && isSameInstitutionId) ||
+    (!institutionSelected && isSameUserId)
+  );
+
+  return (
+    <div key={id} className="institution-row">
+      <div className="info">
+        <div className="image" style={{ backgroundImage: `url(${image})` }} />
+        <div className={`name ${isSelected ? 'selected' : ''}`} title={name}>
+          {name}
+        </div>
+      </div>
+      <Button
+        extraClass={isSelected ? 'info-full' : 'info'}
+        text={intl.formatMessage({
+          id: isSelected ? 'selected' : 'select',
+        })}
+        onClick={() => {
+          if (isSameUserId && removeInstitutionSelected) removeInstitutionSelected();
+          else if (!isSameUserId) onChange(institution);
+        }}
+        size="sm"
+      />
+    </div>
+  );
+};
+
+InstitutionRow.propTypes = {
+  institution: PropTypes.shape({
+    id: PropTypes.any,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    user_id: PropTypes.any,
+  }),
+  institutionSelected: PropTypes.number,
+  onChange: PropTypes.func,
+  removeInstitutionSelected: PropTypes.func,
+  userId: PropTypes.any,
 };
 
 export default InstitutionListSelect;

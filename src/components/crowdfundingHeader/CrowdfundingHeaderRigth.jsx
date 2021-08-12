@@ -33,10 +33,7 @@ const CrowdfundingHeaderRigth = ({
         />
         <Row className="mt-1">
           <Col sm={12} className="total-donations-text mt-3">
-            <FormattedMessage
-              id="crowdfunding.total.number.donations"
-              defaultMessage="Number of donations"
-            />
+            <FormattedMessage id="crowdfunding.total.number.donations" />
           </Col>
         </Row>
         <Row>

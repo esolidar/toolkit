@@ -21,11 +21,14 @@ const RequestDetailThumb = ({
   const [allowEmployees, setAllowEmployees] = useState('1');
   const [comment, setComment] = useState('');
   const [disabledButton, setDisabledButton] = useState(false);
+
+  const intl = useIntl();
+
   const statusPivot = request.pivot ? request.pivot.status : request.status;
   let status;
   let statusText;
   let joinedStatus = 'join-request';
-  let joinedStatusText = useIntl().formatMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
+  let joinedStatusText = intl.formatMessage({ id: 'joinRequest' });
 
   const onChangCheckBox = e => {
     if (e.target.checked === true) {
@@ -43,56 +46,41 @@ const RequestDetailThumb = ({
   switch (statusPivot) {
     case 'A':
       status = 'status-box status-active';
-      statusText = useIntl().formatMessage({ id: 'statusActive', defaultMessage: 'Active' });
+      statusText = intl.formatMessage({ id: 'statusActive' });
       joinedStatus = 'joined-active';
-      joinedStatusText = useIntl().formatMessage({ id: 'joinRequest', defaultMessage: "I'm In" });
+      joinedStatusText = intl.formatMessage({ id: 'joinRequest' });
       break;
     case 'P':
       status = 'status-box status-pending';
-      statusText = useIntl().formatMessage({ id: 'statusPending', defaultMessage: 'Pending' });
+      statusText = intl.formatMessage({ id: 'statusPending' });
       joinedStatus = 'joined-pending';
-      joinedStatusText = useIntl().formatMessage({
-        id: 'joinedStatusTextPending',
-        defaultMessage: 'Waiting approval',
-      });
+      joinedStatusText = intl.formatMessage({ id: 'joinedStatusTextPending' });
       break;
     case 'F':
       if (request.pivot) {
         if (request.pivot.review) {
           status = 'status-box status-reviewed';
-          statusText = useIntl().formatMessage({
-            id: 'statusReviewed',
-            defaultMessage: 'Completed and revised',
-          });
+          statusText = intl.formatMessage({ id: 'statusReviewed' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = useIntl().formatMessage({
-            id: 'statusReviewed',
-            defaultMessage: 'Completed and revised',
-          });
+          joinedStatusText = intl.formatMessage({ id: 'statusReviewed' });
         } else {
           status = 'status-box status-ended';
-          statusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+          statusText = intl.formatMessage({ id: 'ended' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = useIntl().formatMessage({
-            id: 'statusEnded',
-            defaultMessage: 'Ended',
-          });
+          joinedStatusText = intl.formatMessage({ id: 'ended' });
         }
       } else {
         status = 'status-box status-ended';
-        statusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+        statusText = intl.formatMessage({ id: 'ended' });
         joinedStatus = 'joined-finished';
-        joinedStatusText = useIntl().formatMessage({ id: 'statusEnded', defaultMessage: 'Ended' });
+        joinedStatusText = intl.formatMessage({ id: 'ended' });
       }
       break;
     case 'D':
       status = 'status-box status-deleted';
-      statusText = useIntl().formatMessage({ id: 'statusDeclined', defaultMessage: 'Declined' });
+      statusText = intl.formatMessage({ id: 'ended' });
       joinedStatus = 'joined-declined';
-      joinedStatusText = useIntl().formatMessage({
-        id: 'statusDeleted',
-        defaultMessage: 'Deleted',
-      });
+      joinedStatusText = intl.formatMessage({ id: 'ended' });
       break;
     default:
       status = 'status-box';
@@ -103,7 +91,7 @@ const RequestDetailThumb = ({
     <div className={status}>
       <Row className="header">
         <Col xs={4} sm={4}>
-          <FormattedMessage id="request.detail.box.status" defaultMessage="Status" />
+          <FormattedMessage id="project.tickets.status" />
         </Col>
         <Col xs={8} sm={8} className="text-right">
           <span>
@@ -131,10 +119,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onCloseRequest}
-                text={useIntl().formatMessage({
-                  id: 'charityneeds.detail.btn.close.request',
-                  defaultMessage: 'Close request',
-                })}
+                text={intl.formatMessage({ id: 'charityneeds.detail.btn.close.request' })}
               />
             </div>
           )}
@@ -143,10 +128,7 @@ const RequestDetailThumb = ({
               <Button
                 extraClass="dark"
                 onClick={() => onReviewRequest}
-                text={useIntl().formatMessage({
-                  id: 'charityneeds.detail.btn.review',
-                  defaultMessage: 'Review',
-                })}
+                text={intl.formatMessage({ id: 'charityneeds.detail.btn.review' })}
               />
             </div>
           )}
@@ -184,7 +166,6 @@ const RequestDetailThumb = ({
               />
               <FormattedMessage
                 id="request.detail.companies.joined"
-                defaultMessage="{value, number} {value, plural, one {company} other {companies}}"
                 values={{ value: request.companies_joined }}
               />
             </li>
@@ -215,10 +196,7 @@ const RequestDetailThumb = ({
           <Row>
             <div className="col-xs-12">
               <Modal.Title>
-                <FormattedMessage
-                  id="request.detail.modal.imIn.title"
-                  defaultMessage="You’re confirming your commitment to this request."
-                />
+                <FormattedMessage id="request.detail.modal.imIn.title" />
               </Modal.Title>
             </div>
           </Row>
@@ -228,10 +206,7 @@ const RequestDetailThumb = ({
             <div className="col-sm-12">
               <div className="checkbox-inline">
                 <div className="form-group">
-                  <FormattedMessage
-                    id="request.detail.modal.make.available"
-                    defaultMessage="Make this request available to your employees."
-                  />
+                  <FormattedMessage id="request.detail.modal.make.available" />
                   <input
                     type="checkbox"
                     name="allow_employees"
@@ -260,7 +235,7 @@ const RequestDetailThumb = ({
                 onClick={() => onImin()}
                 disabled={disabledButton}
               >
-                <FormattedMessage id="modal.request.imIn.confirm" defaultMessage="Confirm" />
+                <FormattedMessage id="confirm" />
               </button>
             </div>
           </Row>

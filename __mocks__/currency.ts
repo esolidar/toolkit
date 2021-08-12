@@ -1,4 +1,6 @@
-const currency = {
+import Currency from '../src/interfaces/currency.types';
+
+const currency: Currency = {
   id: 1,
   name: 'Euro',
   small: 'EUR',

@@ -17,6 +17,8 @@ const CrowdfundingItem = ({
   onChangeMessage,
   totalItems,
 }) => {
+  const intl = useIntl();
+
   const campaignTitle = () => {
     let title;
     if (localStorage.lang === 'pt' || localStorage.lang === 'br') {
@@ -85,10 +87,7 @@ const CrowdfundingItem = ({
                 </BrowserView>
                 {item.campaign.institution && (
                   <div className="checkout-supports">
-                    {useIntl().formatMessage({
-                      id: 'checkout.suports',
-                      defaultMessage: 'Supports',
-                    })}
+                    {intl.formatMessage({ id: 'checkout.suports' })}
                     &nbsp;
                     <strong>{item.campaign.institution.name}</strong>
                   </div>
@@ -112,7 +111,7 @@ const CrowdfundingItem = ({
         </Col>
         <Col sm={2} xs={4} className="text-center">
           <button type="button" className="btn-remove-item" onClick={() => removeCartItem(item.id)}>
-            <FormattedMessage id="checkout.remove.item" defaultMessage="Remove" />
+            <FormattedMessage id="checkout.remove.item" />
           </button>
         </Col>
       </Row>
@@ -121,10 +120,7 @@ const CrowdfundingItem = ({
           <div className="checkbox-inline">
             <div className="form-group">
               <label htmlFor="hidden">
-                <FormattedMessage
-                  id="crowdfunding.donation.checkout.anonymous"
-                  defaultMessage="Make an anonymous donation."
-                />
+                <FormattedMessage id="crowdfunding.donation.checkout.anonymous" />
                 <input
                   type="checkbox"
                   name="hidden"
@@ -140,10 +136,7 @@ const CrowdfundingItem = ({
         </Col>
         <Col xs={12}>
           <TextareaField
-            label={useIntl().formatMessage({
-              id: 'crowdfunding.message',
-              defaultMessage: 'Leave a message',
-            })}
+            label={intl.formatMessage({ id: 'crowdfunding.message' })}
             onChange={e => onChangeMessage(e, indx)}
             value={item.extra.message}
             field="message"

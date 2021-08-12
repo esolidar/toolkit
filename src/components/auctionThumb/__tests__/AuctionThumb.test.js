@@ -132,7 +132,9 @@ describe('AuctionThumb', () => {
     const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedNumber).prop('currency')).toEqual(propsAuction.currency.small);
     expect(wrapper.find(FormattedNumber).prop('value')).toEqual(propsAuction.last_bid_value.value);
-    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
+    expect(wrapper.find(FormattedMessage).prop('id')).toEqual(
+      'homepage.toolsbox.charityAuctions.startBid'
+    );
   });
 
   it('should starting bid auction', () => {
@@ -145,7 +147,9 @@ describe('AuctionThumb', () => {
     const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
     expect(wrapper.find(FormattedNumber).prop('currency')).toEqual(propsAuction.currency.small);
     expect(wrapper.find(FormattedNumber).prop('value')).toEqual(propsAuction.bid_start);
-    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Starting Bid');
+    expect(wrapper.find(FormattedMessage).prop('id')).toEqual(
+      'homepage.toolsbox.charityAuctions.startBid'
+    );
   });
 
   it('should raised auction', () => {
@@ -155,6 +159,8 @@ describe('AuctionThumb', () => {
     propsAuction.dateLimit = '2019-07-20 16:00:00';
 
     const wrapper = shallow(<AuctionThumb auction={propsAuction} />);
-    expect(wrapper.find(FormattedMessage).prop('defaultMessage')).toEqual('Raised');
+    expect(wrapper.find(FormattedMessage).prop('id')).toEqual(
+      'homepage.toolsbox.charityAuctions.raised'
+    );
   });
 });

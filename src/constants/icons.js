@@ -465,6 +465,18 @@ const icons = [
     name: 'user-business',
     font: 'e966',
   },
+  {
+    name: 'icon-check-circle',
+    font: 'e96d',
+  },
+  {
+    name: 'icon-camera-outline',
+    font: 'e9aa',
+  },
+  {
+    name: 'icon-plus',
+    font: 'e998',
+  },
 ];
 
 export default icons;

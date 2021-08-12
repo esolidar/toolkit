@@ -20,6 +20,8 @@ const ProjectDetailInfo = ({
   lang,
   staticUrl,
 }) => {
+  const intl = useIntl();
+
   if (isEmpty(project) || !project) return <div />;
 
   const { form, requestInfoErrors = [] } = project;
@@ -31,10 +33,7 @@ const ProjectDetailInfo = ({
     <div className="project-detail-info">
       {showRequestInfoView && (
         <div className="in-review-info top">
-          <FormattedMessage
-            id="project.requestInfo.title"
-            defaultMessage="Select the fields you want more information about and then submit the request"
-          />
+          <FormattedMessage id="project.requestInfo.title" />
         </div>
       )}
       <div className="box">
@@ -64,7 +63,6 @@ const ProjectDetailInfo = ({
           <div className="mr-auto">
             <FormattedMessage
               id="project.requestInfo.count"
-              defaultMessage="Selected fields: {selectedQuestions} of {totalQuestions}"
               values={{ selectedQuestions, totalQuestions }}
             />
           </div>
@@ -72,13 +70,13 @@ const ProjectDetailInfo = ({
             type="button"
             extraClass="dark mr-2"
             onClick={handleCancelRequestInfo}
-            text={useIntl().formatMessage({ id: 'cancel', defaultMessage: 'Cancel' })}
+            text={intl.formatMessage({ id: 'cancel' })}
           />
           <Button
             type="button"
             extraClass="primary-full"
             onClick={handleSubmitRequestInfo}
-            text={useIntl().formatMessage({ id: 'submit', defaultMessage: 'Submit' })}
+            text={intl.formatMessage({ id: 'submit' })}
             disabled={selectedQuestions === 0 || requestInfoErrors.length > 0}
           />
         </div>
@@ -110,6 +108,7 @@ const Question = ({
   staticUrl,
   error,
 }) => {
+  const intl = useIntl();
   const { type, name, selected, isPrivate, checked, obs, reply } = question;
 
   if (type === 'dropdown' || type === 'upload-images') return null;
@@ -193,12 +192,9 @@ const Question = ({
       </div>
       {selected && (
         <TextareaField
-          label={useIntl().formatMessage({ id: 'project.comments', defaultMessage: 'Comments' })}
+          label={intl.formatMessage({ id: 'project.comments' })}
           className="description"
-          placeholder={useIntl().formatMessage({
-            id: 'project.tickets.requestInfo.comments',
-            defaultMessage: 'Write something...',
-          })}
+          placeholder={intl.formatMessage({ id: 'project.tickets.requestInfo.comments' })}
           onChange={e => handleChangeFieldObs(e, index)}
           field={`${name}-description`}
           resize={true}
@@ -207,7 +203,7 @@ const Question = ({
       )}
       {selected && error && (
         <p className="mt-1 text-danger">
-          <FormattedMessage id="form.required" defaultMessage="This field is required." />
+          <FormattedMessage id="form.required" />
         </p>
       )}
     </div>

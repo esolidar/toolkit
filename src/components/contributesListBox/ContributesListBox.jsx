@@ -19,13 +19,8 @@ const ContributesListBox = ({
     <div className="row">
       <div className="box" style={{ width: '100%' }}>
         <p className="control-label mb-4" style={{ color: primaryColor }}>
-          {!isAuction && (
-            <FormattedMessage
-              id="crowdfunding.last.donations.list"
-              defaultMessage="Latest donations"
-            />
-          )}
-          {isAuction && <FormattedMessage id="auction.last.bid" defaultMessage="Last Bid" />}
+          {!isAuction && <FormattedMessage id="crowdfunding.last.donations.list" />}
+          {isAuction && <FormattedMessage id="auction.last.bid" />}
         </p>
         {loadingContributesList && (
           <div className="loading-contributes-list">

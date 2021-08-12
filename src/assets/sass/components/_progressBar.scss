@@ -1,0 +1,33 @@
+.progress-bar-component {
+  .progress-bar-labels {
+    display: flex;
+    align-items: center;
+  }
+  .raised-value {
+    font-size: 27px;
+    color: map-get($main-text-colors, title);
+    letter-spacing: 0;
+  }
+  .goal-label {
+    font-size: 14px;
+    color: map-get($neutrals, 700);
+    margin-left: $distance-1;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+  .goal {
+    width: 100%;
+    margin-top: 3px;
+    background: map-get($grays, 100);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .progress-goal-bar {
+      background: map-get($theme-colors, primary);
+      border-radius: 5px;
+      height: 10px;
+      min-width: 10px;
+    }
+  }
+}

@@ -15,6 +15,8 @@ const Step1 = props => {
     removeCartItem,
     onAddToCheckout,
   } = props;
+  const intl = useIntl();
+
   const cartItems = state.order.products;
 
   if (typeof window === 'undefined' && cartItems.length === 0) return <div />;
@@ -45,12 +47,7 @@ const Step1 = props => {
     }
     return (
       <div className="no-items">
-        <h1>
-          {useIntl().formatMessage({
-            id: 'checkout.noitems',
-            defaultMessage: 'There are no items to checkout',
-          })}
-        </h1>
+        <h1>{intl.formatMessage({ id: 'checkout.noitems' })}</h1>
       </div>
     );
   };
@@ -65,10 +62,7 @@ const Step1 = props => {
               <Button
                 extraClass="success-full next-step"
                 onClick={() => nextStep(1)}
-                text={useIntl().formatMessage({
-                  id: 'crowdfunding.donation.checkout.next',
-                  defaultMessage: 'Next',
-                })}
+                text={intl.formatMessage({ id: 'crowdfunding.donation.checkout.next' })}
               />
             </div>
           </Col>
@@ -79,10 +73,7 @@ const Step1 = props => {
           <Col sm={12} className="text-center">
             <div className="box">
               <a className="btn-next-step" href="/">
-                {useIntl().formatMessage({
-                  id: 'crowdfunding.donation.checkout.goHome',
-                  defaultMessage: 'Go home',
-                })}
+                {intl.formatMessage({ id: 'crowdfunding.donation.checkout.goHome' })}
               </a>
             </div>
           </Col>
