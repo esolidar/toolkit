@@ -4,23 +4,12 @@ import { IntlProvider } from 'react-intl';
 import * as queryById from './queryById';
 import * as queryByClass from './queryByClass';
 
-const toolkit = require('@esolidar/i18n/projects/toolkit/en');
-const admin = require('@esolidar/i18n/projects/admin/en');
-const business = require('@esolidar/i18n/projects/business/en');
-const esolidar = require('@esolidar/i18n/projects/esolidar/en');
-const whitelabel = require('@esolidar/i18n/projects/whitelabel/en');
-
-const messages = {
-  toolkit,
-  admin,
-  business,
-  esolidar,
-  whitelabel,
-};
+// eslint-disable-next-line import/no-dynamic-require
+const messages = require(process.env.PUBLIC_I18N_PATH || '@esolidar/i18n/projects/toolkit/en');
 
 const customRender = (ui, options) =>
   render(
-    <IntlProvider locale="en" messages={messages[process.env.PUBLIC_TOOLKIT_i18N]}>
+    <IntlProvider locale="en" messages={messages}>
       {ui}
     </IntlProvider>,
     { queries: { ...queries, ...queryByClass, ...queryById }, ...options }
