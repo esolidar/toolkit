@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
 import Meta, {
   PasswordFieldHiddenPassword,
   PasswordFieldShowPassword,
@@ -12,11 +10,7 @@ const PasswordFieldHiddenPasswordComponent = composeStory(PasswordFieldHiddenPas
 const PasswordFieldShowPasswordComponent = composeStory(PasswordFieldShowPassword, Meta);
 
 it('renders Password Field hidden password', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <PasswordFieldHiddenPasswordComponent />
-    </IntlProvider>
-  );
+  render(<PasswordFieldHiddenPasswordComponent />);
 
   const passwordFielnComponent = screen.queryAllByTestId('passwordField');
   expect(passwordFielnComponent).toHaveLength(1);
@@ -29,11 +23,7 @@ it('renders Password Field hidden password', () => {
 });
 
 it('renders Password Field show password', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <PasswordFieldShowPasswordComponent />
-    </IntlProvider>
-  );
+  render(<PasswordFieldShowPasswordComponent />);
 
   const passwordFielnComponent = screen.queryAllByTestId('passwordField');
   expect(passwordFielnComponent).toHaveLength(1);
@@ -46,11 +36,7 @@ it('renders Password Field show password', () => {
 });
 
 it('renders Password Field and click button eye', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <PasswordFieldShowPasswordComponent />
-    </IntlProvider>
-  );
+  render(<PasswordFieldShowPasswordComponent />);
 
   fireEvent.click(screen.getByRole('button'));
   const eye = screen.getByTestId('eye');

@@ -1,7 +1,5 @@
-import { render } from '@testing-library/react';
+import { render } from '../../../../__customQueries__/test-utils';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 
 import Meta, { Default as DefaultStory } from '../SupportBox.stories';
@@ -9,11 +7,7 @@ import Meta, { Default as DefaultStory } from '../SupportBox.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 it('render elements correctly', () => {
-  const { getByAltText, getByTestId, getByText } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { getByAltText, getByTestId, getByText } = render(<Default />);
 
   expect(getByAltText('Lorem Ipsum')).toBeTruthy();
   expect(getByTestId('recipient-label')).toBeTruthy();

@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { IntlProvider } from 'react-intl';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../../../__customQueries__/test-utils';
 import ChangeProfileUserImage from '../index';
 
 const fx = jest.fn();
@@ -39,22 +37,14 @@ describe('ChangeProfileUserImage component', () => {
   });
 
   it('should exist title', () => {
-    render(
-      <IntlProvider locale="en" messages={translation}>
-        <ChangeProfileUserImage {...props} />
-      </IntlProvider>
-    );
+    render(<ChangeProfileUserImage {...props} />);
 
     const title = screen.getByTestId('title-change-profile-user-image');
     expect(title).toHaveTextContent('Profile');
   });
 
   it('should exist image', () => {
-    render(
-      <IntlProvider locale="en" messages={translation}>
-        <ChangeProfileUserImage {...props} />
-      </IntlProvider>
-    );
+    render(<ChangeProfileUserImage {...props} />);
 
     const image = screen.getByTestId('thumb-change-profile-user-image');
     expect(image).toBeInTheDocument();
@@ -64,11 +54,7 @@ describe('ChangeProfileUserImage component', () => {
   });
 
   it('should appear no image', () => {
-    render(
-      <IntlProvider locale="en" messages={translation}>
-        <ChangeProfileUserImage {...propsWithoutImage} />
-      </IntlProvider>
-    );
+    render(<ChangeProfileUserImage {...propsWithoutImage} />);
 
     const image = screen.getByTestId('thumb-change-profile-user-image');
     expect(image).toBeInTheDocument();
@@ -78,11 +64,7 @@ describe('ChangeProfileUserImage component', () => {
   });
 
   it('should exist button', () => {
-    render(
-      <IntlProvider locale="en" messages={translation}>
-        <ChangeProfileUserImage {...props} />
-      </IntlProvider>
-    );
+    render(<ChangeProfileUserImage {...props} />);
 
     const button = screen.getByTestId('button-change-profile-user-image');
     expect(button).toBeInTheDocument();

@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultDetailTitle,
@@ -15,11 +13,7 @@ const TitleOnly = composeStory(DefaultTitleOnly, Meta);
 const WithoutSupportUrl = composeStory(DefaultWithoutSupportUrl, Meta);
 
 it('renders Detail Title default component', () => {
-  const { getAllByClass, getByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { getAllByClass, getByClass } = render(<Default />);
 
   expect(getAllByClass('component-detail-title')).toBeTruthy();
   expect(getAllByClass('detail-title-back')).toBeTruthy();
@@ -33,11 +27,7 @@ it('renders Detail Title default component', () => {
 });
 
 it('renders simple Detail Title', () => {
-  const { getAllByClass, getByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <TitleOnly />
-    </IntlProvider>
-  );
+  const { getAllByClass, getByClass } = render(<TitleOnly />);
 
   expect(getAllByClass('component-detail-title')).toBeTruthy();
   expect(getAllByClass('detail-title-h1')).toHaveLength(1);
@@ -45,11 +35,7 @@ it('renders simple Detail Title', () => {
 });
 
 it('renders Detail Title default component', () => {
-  const { getAllByClass, getByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <WithoutSupportUrl />
-    </IntlProvider>
-  );
+  const { getAllByClass, getByClass } = render(<WithoutSupportUrl />);
 
   expect(getAllByClass('component-detail-title')).toBeTruthy();
   expect(getAllByClass('detail-title-back')).toBeTruthy();

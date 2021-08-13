@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, screen } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
+import { render, screen } from '../../../../__customQueries__/test-utils';
 import ValidateTelephone from '../index';
 
 const propsWithoutValidatePhone = {
@@ -45,21 +43,13 @@ beforeAll(() => {
 });
 
 test('should render component ValidateTelephone and verify if exist input', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <ValidateTelephone {...propsWithoutValidatePhone} />
-    </IntlProvider>
-  );
+  render(<ValidateTelephone {...propsWithoutValidatePhone} />);
 
   expect(screen.getByPlaceholderText('+1 (702) 123-4567')).toBeInTheDocument();
 });
 
 test('Should exist Validate button, insert phone number and appear box confirm code', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <ValidateTelephone {...propsWithoutValidatePhone} />
-    </IntlProvider>
-  );
+  render(<ValidateTelephone {...propsWithoutValidatePhone} />);
 
   const validateButtons = screen.getAllByText(/Validate/i);
   expect(validateButtons).toHaveLength(3);

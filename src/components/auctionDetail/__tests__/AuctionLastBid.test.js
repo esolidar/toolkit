@@ -1,9 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IntlProvider } from 'react-intl';
+import { render, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import AuctionLastBid from '../AuctionLastBid';
 
 const fx = jest.fn();
@@ -327,11 +325,7 @@ afterAll(() => {
 });
 
 test('should exist value last bid', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionLastBid {...propsAuctionLastBid} />
-    </IntlProvider>
-  );
+  render(<AuctionLastBid {...propsAuctionLastBid} />);
 
   const titleLastBid = screen.getByTestId('title-last-bid');
   expect(titleLastBid).toBeInTheDocument();
@@ -342,11 +336,7 @@ test('should exist value last bid', async () => {
 });
 
 test('should exist section new bid and insert value equal or higher last bid', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionLastBid {...propsAuctionLastBid} />
-    </IntlProvider>
-  );
+  render(<AuctionLastBid {...propsAuctionLastBid} />);
 
   const newBid = screen.getByTestId('new-bid');
   expect(newBid).toBeInTheDocument();

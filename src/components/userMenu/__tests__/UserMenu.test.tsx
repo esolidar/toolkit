@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import translation from '@esolidar/i18n/projects/toolkit/en';
+import { render, screen } from '../../../../__customQueries__/test-utils';
 import userEvent from '@testing-library/user-event';
-import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 
 import Meta, { Default as DefaultStory } from '../UserMenu.stories';
@@ -10,11 +8,7 @@ import Meta, { Default as DefaultStory } from '../UserMenu.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 test('renders the correct elements in first load', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  render(<Default />);
 
   const toggle = screen.getByRole('toggle');
   expect(toggle).toBeInTheDocument();
@@ -27,11 +21,7 @@ test('renders the correct elements in first load', async () => {
 });
 
 test('renders dropdown menu when button is clicked', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  render(<Default />);
 
   const toggle = screen.getByRole('toggle');
   userEvent.click(toggle);
