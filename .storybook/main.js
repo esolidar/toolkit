@@ -1,8 +1,7 @@
-const path = require('path');
-
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    '@storybook/addon-actions',
     '@storybook/addon-essentials',
     'storybook-addon-intl',
     'storybook-addon-jsx',
@@ -13,25 +12,11 @@ module.exports = {
     'storybook-dark-mode',
     '@storybook/addon-viewport',
   ],
-  webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
-    });
-    config.module.rules.push({
-      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          query: {
-            name: '[name].[ext]',
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    });
+  core: {
+    builder: 'storybook-builder-vite',
+  },
 
+  async viteFinal(config, { configType }) {
     return config;
   },
 };
