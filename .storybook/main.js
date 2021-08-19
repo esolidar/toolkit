@@ -15,8 +15,4 @@ module.exports = {
   core: {
     builder: 'storybook-builder-vite',
   },
-
-  async viteFinal(config, { configType }) {
-    return config;
-  },
 };

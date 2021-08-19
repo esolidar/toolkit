@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite preview --port 8080",
-    "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
+    "storybook": "start-storybook -p 6006",
     "test": "jest --coverage -u --maxWorkers=50% --colors --json --outputFile=.jest-test-results.json || true",
     "test:lint": "eslint ./src --ext .jsx --ext .js",
     "build:dev": "vite build",
@@ -63,12 +63,12 @@
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "rc-tooltip": "^4.0.3",
-    "react": "^16.14.0",
+    "react": "^17.0.0",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-table": "^4.3.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-device-detect": "^1.11.14",
-    "react-dom": "^16.14.0",
+    "react-dom": "^17.0.0",
     "react-images": "^1.1.0-beta.3",
     "react-infinite-scroller": "^1.2.4",
     "react-moment": "^0.9.7",
@@ -84,7 +84,7 @@
     "slugify": "^1.3.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
+    "@babel/core": "^7.15.0",
     "@babel/eslint-parser": "^7.13.8",
     "@babel/node": "^7.13.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -113,12 +113,12 @@
     "@storybook/addon-a11y": "^6.2.8",
     "@storybook/addon-actions": "^6.3.7",
     "@storybook/addon-console": "^1.2.3",
-    "@storybook/addon-essentials": "^6.4.0-alpha.30",
+    "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-jest": "^6.2.8",
-    "@storybook/addon-links": "^6.4.0-alpha.30",
+    "@storybook/addon-links": "^6.3.7",
     "@storybook/addon-queryparams": "^6.2.8",
     "@storybook/addon-viewport": "^6.2.9",
-    "@storybook/react": "^6.4.0-alpha.30",
+    "@storybook/react": "^6.3.7",
     "@storybook/testing-react": "^0.0.13",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -219,7 +219,6 @@
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
     "vite-plugin-singlefile": "^0.5.1",
-    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "xlsx": "^0.17.0"
   },
@@ -229,7 +228,5 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
-  "dependencies": {
-    "@preact/preset-vite": "^2.1.0"
-  }
+  "dependencies": {}
 }
