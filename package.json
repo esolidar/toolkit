@@ -214,12 +214,10 @@
     "storybook-builder-vite": "^0.0.12",
     "storybook-dark-mode": "^1.0.7",
     "style-loader": "^1.1.2",
-    "terser-webpack-plugin": "^5.1.1",
     "ts-loader": "^8.0.16",
     "typescript": "^4.3.2",
-    "vite": "^2.4.4",
+    "vite": "^2.5.0",
     "vite-plugin-singlefile": "^0.5.1",
-    "webpack-cli": "^3.3.10",
     "xlsx": "^0.17.0"
   },
   "repository": {
@@ -228,5 +226,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vite-plugin-html": "^2.0.7"
+  }
 }

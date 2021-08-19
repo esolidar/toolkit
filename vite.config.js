@@ -31,6 +31,12 @@ export default defineConfig({
     },
   },
   build: {
+    target: ['es2019', 'chrome61', 'edge18', 'firefox60', 'safari16'], // default esbuild config with edge18 instead of edge16
+    minify: true,
+    brotliSize: true,
+    chunkSizeWarningLimit: 20000, // allow compressing large files (default is 500) by slowing the build. Please consider that Brotli reduces bundles size by 80%!
+    sourcemap: true,
+
     rollupOptions: {
       input: [
         'src/index.js',

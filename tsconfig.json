@@ -24,5 +24,8 @@
     "src/**/*.stories.tsx",
     "src/**/*.test.js",
     "src/**/*.test.tsx"
-  ]
+  ],
+  "isolatedModules": true,
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true
 }
