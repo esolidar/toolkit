@@ -11,15 +11,6 @@ function App() {
           <button type="button" onClick={() => setCount(count => count + 1)}>
             count is: {count}
           </button>
-          <button type="button" onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
-          <button type="button" onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
-          <button type="button" onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
         </p>
         <p>
           Edit <code>App.jsx</code> and save to test HMR updates.
@@ -31,7 +22,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn Reactdd
           </a>
           {' | '}
           <a
@@ -40,7 +31,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Vite Docs
+            Vite Docsssa
           </a>
         </p>
       </header>

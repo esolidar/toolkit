@@ -26,17 +26,12 @@ export default defineConfig({
   mode: 'development',
   server: {
     hmr: {
-      host: 'localhost',
+      protocol: 'ws',
       port: 3000,
     },
   },
   optimizeDeps: {
-    include: [
-      'idb',
-      'immer',
-      'axios',
-      // ...
-    ],
+    exclude: ['dragula'],
   },
   build: {
     target: ['es2019', 'chrome61', 'edge18', 'firefox60', 'safari16'], // default esbuild config with edge18 instead of edge16
