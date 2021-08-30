@@ -1,4 +1,6 @@
-const ods = {
+import Ods from '../src/interfaces/ods.types';
+
+const ods: Ods = {
   id: 4,
   ods_id: 4,
   tag_name: 'ods-4',

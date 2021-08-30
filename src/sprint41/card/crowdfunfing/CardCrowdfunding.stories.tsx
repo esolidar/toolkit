@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
 import CardCrowdfunding from './CardCrowdfunding';
 import Props from './CardCrowdfunding.types';

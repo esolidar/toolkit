@@ -1,14 +1,14 @@
-import en from '@esolidar/i18n/projects/toolkit/en';
-import pt from '@esolidar/i18n/projects/toolkit/pt';
-import br from '@esolidar/i18n/projects/toolkit/br';
+const en = require('@esolidar/i18n/projects/toolkit/en');
+const pt = require('@esolidar/i18n/projects/toolkit/pt');
+const br = require('@esolidar/i18n/projects/toolkit/br');
 
-export const MESSAGES = {
+export const MESSAGES: any = {
   pt,
   en,
   br,
 };
 
-export const SUPPORTED_LOCALES = {
+export const SUPPORTED_LOCALES: any = {
   BR: 'br',
   EN: 'en',
   PT: 'pt',

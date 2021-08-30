@@ -12,16 +12,16 @@ const UserMenu: FC<Props> = ({
   items,
 }: Props): JSX.Element => (
   <Dropdown className="esolidar-user-menu">
-    <Dropdown.Toggle role="toggle">
+    <Dropdown.Toggle>
       <img src={companyLogo} alt={companyName} onError={handleError} />
     </Dropdown.Toggle>
-    <Dropdown.Menu flip={flip} align={align} role="menu">
+    <Dropdown.Menu flip={flip} align={align}>
       {items.map((item, i) => {
         if (item.isVisible === false) return;
         return (
           <Dropdown.Item
             key={i}
-            id={item.id}
+            // id={item.id}
             className={item.className}
             eventKey={item.eventKey}
             href={item.href}

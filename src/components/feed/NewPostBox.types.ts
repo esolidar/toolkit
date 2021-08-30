@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import User from '../../interfaces/user.types';
 import Post from '../../interfaces/post.types';
 
@@ -25,11 +26,10 @@ interface Props {
   user?: User;
   post?: Post;
   imagesResponse?: ImagesResponse;
-  feedPost: (companyId: number, data: any) => void;
-  feedUploadGallery: (companyId: number, file: any) => void;
-  deleteImages: (companyId: number, id: number) => void;
-  loginAction: () => void;
-  feedWebScrapter: (companyId: number, url: string) => void;
+  feedPost(companyId: number, data: any): void;
+  feedUploadGallery(companyId: number, file: any): void;
+  loginAction(): void;
+  feedWebScrapter(companyId: number, url: string): void;
   scraper?: Scraper;
   feedPostResponse: any;
 }

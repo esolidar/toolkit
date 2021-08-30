@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Picture from './Picture';
 import Props from './Picture.types';

@@ -2,7 +2,7 @@ interface Props {
   src: string;
   className?: string;
   alt?: string;
-  sizes?: Array<[330, 425, 650, 768, 1200]>;
+  sizes?: Array<number>;
 }
 
 export default Props;

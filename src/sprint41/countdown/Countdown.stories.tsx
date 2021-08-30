@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
 import { format, addDays, subDays, addMinutes, addSeconds } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';

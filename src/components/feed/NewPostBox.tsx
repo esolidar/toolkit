@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import TextareaField from '../../elements/textareaField';
 import DropZoneBox from '../../elements/dropZoneBox';
-import Loading from '../../components/loading';
+import Loading from '../loading';
 import Button from '../../elements/button';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
 import Icon from '../icon';
@@ -29,7 +29,6 @@ const NewPostBox: FC<Props> = ({
   post,
   feedPost,
   feedUploadGallery,
-  deleteImages,
   imagesResponse,
   scraper,
   loginAction,
@@ -80,37 +79,6 @@ const NewPostBox: FC<Props> = ({
     }
   }, [imagesResponse]);
 
-  useEffect(() => {
-    if (!isFirstRender && imagesToSend.length === 0 && postData.images.length > 0)
-      handleSubmitPost();
-  }, [imagesToSend]);
-
-  useEffect(() => {
-    if (scraper) {
-      setShareLink(scraper);
-    }
-  }, [scraper]);
-
-  useEffect(() => {
-    if (post) {
-      setEditMode(true);
-      setText(post.text);
-    }
-  }, [post]);
-
-  const handleEditMode = () => {
-    setEditMode(true);
-  };
-
-  const handleChange = e => {
-    const { value } = e.target;
-    setText(value);
-  };
-
-  const deleteShareLink = () => {
-    setShareLink(null);
-  };
-
   const handleSubmitPost = () => {
     let type = 'post';
     const employee = user.work_email.find(u => u.company_id === companyId);
@@ -141,6 +109,37 @@ const NewPostBox: FC<Props> = ({
         feedPost(companyId, data);
       }
     }
+  };
+
+  useEffect(() => {
+    if (!isFirstRender && imagesToSend.length === 0 && postData.images.length > 0)
+      handleSubmitPost();
+  }, [imagesToSend]);
+
+  useEffect(() => {
+    if (scraper) {
+      setShareLink(scraper);
+    }
+  }, [scraper]);
+
+  useEffect(() => {
+    if (post) {
+      setEditMode(true);
+      setText(post.text);
+    }
+  }, [post]);
+
+  const handleEditMode = () => {
+    setEditMode(true);
+  };
+
+  const handleChange = e => {
+    const { value } = e.target;
+    setText(value);
+  };
+
+  const deleteShareLink = () => {
+    setShareLink(null);
   };
 
   const handdlePaste = e => {
@@ -194,6 +193,7 @@ const NewPostBox: FC<Props> = ({
       id="feed-create-post"
       data-testid="feed-create-post"
       onClick={handleEditMode}
+      onKeyPress={handleEditMode}
     >
       {!user && (
         <div className="feed-create-post-header">

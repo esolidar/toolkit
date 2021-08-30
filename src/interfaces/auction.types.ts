@@ -1,4 +1,4 @@
-import AuctionProject from './auctionProject';
+// import AuctionProject from './auctionProject';
 import Bid from './bid.types';
 import Currency from './currency.types';
 import ImageThumbs from './imageThumbs.types';

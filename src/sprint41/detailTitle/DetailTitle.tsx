@@ -26,6 +26,7 @@ const DetailTitle: FC<Props> = ({
             title={supportingName}
             target="_blank"
             className="detail-title-supporting-href"
+            rel="noreferrer"
           >
             {supportingName}
           </a>
