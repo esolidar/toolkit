@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import { composeStory } from '@storybook/testing-react';
+import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   Label as LabelStory,

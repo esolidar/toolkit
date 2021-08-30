@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '../../../../__customQueries__/test-utils';
 import { composeStory } from '@storybook/testing-react';
+import { render, screen } from '../../../../__customQueries__/test-utils';
 import Meta, { WithArrowType0, WithArrowType1, WithoutPagination } from '../Pagination.stories';
 
 const WithArrowType0Component = composeStory(WithArrowType0, Meta);

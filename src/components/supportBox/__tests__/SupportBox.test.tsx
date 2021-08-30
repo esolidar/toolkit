@@ -1,6 +1,6 @@
+import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 import '@testing-library/jest-dom';
-import { composeStory } from '@storybook/testing-react';
 
 import Meta, { Default as DefaultStory } from '../SupportBox.stories';
 

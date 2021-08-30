@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import { composeStory } from '@storybook/testing-react';
+import { render, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import Meta, {
   PasswordFieldHiddenPassword,
   PasswordFieldShowPassword,
