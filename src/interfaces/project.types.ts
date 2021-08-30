@@ -1,8 +1,8 @@
 import WhitelabelConfig from './whitelabelConfig.types';
 import Ods from './ods.types';
 import User from './user.types';
-import Crowdfunding from './crowdfunding.types';
-import Auction from './auction.types';
+// import Crowdfunding from './crowdfunding.types';
+// import Auction from './auction.types';
 
 interface ProjectCategory {
   id: number;

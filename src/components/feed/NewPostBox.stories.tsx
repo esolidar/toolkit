@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useEffect } from 'react';
 import { Story, Meta } from '@storybook/react';
 import NewPostBox from './NewPostBox';
@@ -50,7 +51,7 @@ WithLogin.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -64,7 +65,7 @@ FocusBox.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -90,7 +91,7 @@ FocusBoxWithShare.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -133,7 +134,7 @@ FocusBoxWithImages.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -178,7 +179,7 @@ FocusBoxWithShareAndImages.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -191,7 +192,7 @@ WithoutLogin.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };
 
@@ -205,6 +206,6 @@ EditPost.args = {
     alert('Open login modal');
   },
   feedWebScrapter: (a, b) => {
-    alert('get scrapter ' + b);
+    alert(`get scrapter ${b}`);
   },
 };

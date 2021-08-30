@@ -27,46 +27,11 @@ const Countdown: FC<Props> = ({
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [interval, setInterval] = useState<number>(60000);
 
-  useEffect(() => {
-    const date = calculateCountdown();
-    setCountDownDate(date);
-  }, []);
-
-  useInterval(
-    () => {
-      const date = calculateCountdown();
-      setCountDownDate(date);
-    },
-    isPlaying ? interval : null
-  );
-
   const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
   const formatDate = date =>
     format(addMinutes(date, date.getTimezoneOffset()), 'yyyy/MM/dd HH:mm:ss');
   const start: any = startDate ? new Date(startDate.replace(/-/g, '/')) : null;
   const end: any = new Date(endDate.replace(/-/g, '/'));
-
-  const daysLeft = () => {
-    if (countDowndate.days > 0) {
-      if (countDowndate.days === 1) {
-        return <FormattedMessage id="last.day" />;
-      }
-      return <FormattedMessage id="days.left" values={{ value: countDowndate.days }} />;
-    }
-    if (countDowndate.hours > 1) {
-      return <FormattedMessage id="hours.left" values={{ value: countDowndate.hours }} />;
-    }
-    if (countDowndate.hours === 1) {
-      return <FormattedMessage id="hour.left" values={{ value: countDowndate.hours }} />;
-    }
-
-    if (countDowndate.hours === 0 && countDowndate.min > 1) {
-      return <FormattedMessage id="mins.left" values={{ value: countDowndate.min }} />;
-    }
-    if (countDowndate.hours === 0 && countDowndate.min <= 1) {
-      return <FormattedMessage id="min.left" values={{ value: countDowndate.min + 1 }} />;
-    }
-  };
 
   const calculateCountdown = () => {
     const today: any = new Date(formatDate(zonedTimeToUtc(new Date(), timeZone)));
@@ -125,6 +90,41 @@ const Countdown: FC<Props> = ({
 
     if (timeLeft.hours === 0 && timeLeft.min === 0) setInterval(1000);
     return timeLeft;
+  };
+
+  useEffect(() => {
+    const date = calculateCountdown();
+    setCountDownDate(date);
+  }, []);
+
+  useInterval(
+    () => {
+      const date = calculateCountdown();
+      setCountDownDate(date);
+    },
+    isPlaying ? interval : null
+  );
+
+  const daysLeft = () => {
+    if (countDowndate.days > 0) {
+      if (countDowndate.days === 1) {
+        return <FormattedMessage id="last.day" />;
+      }
+      return <FormattedMessage id="days.left" values={{ value: countDowndate.days }} />;
+    }
+    if (countDowndate.hours > 1) {
+      return <FormattedMessage id="hours.left" values={{ value: countDowndate.hours }} />;
+    }
+    if (countDowndate.hours === 1) {
+      return <FormattedMessage id="hour.left" values={{ value: countDowndate.hours }} />;
+    }
+
+    if (countDowndate.hours === 0 && countDowndate.min > 1) {
+      return <FormattedMessage id="mins.left" values={{ value: countDowndate.min }} />;
+    }
+    if (countDowndate.hours === 0 && countDowndate.min <= 1) {
+      return <FormattedMessage id="min.left" values={{ value: countDowndate.min + 1 }} />;
+    }
   };
 
   const addLeadingZeros = value => {

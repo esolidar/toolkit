@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Props from './Pagination.types';
 import Paginator from 'react-js-pagination';
+import Props from './Pagination.types';
 
 const PrevPage = () => <div className="prev-page" data-testid="prev-page" />;
 

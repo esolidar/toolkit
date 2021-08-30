@@ -1,6 +1,7 @@
+import Company from '../src/interfaces/company.types';
 import currency from './currency';
 
-const company = {
+const company: Company = {
   id: 273,
   code: '050abf4f-9de8-4c80-ab0d-ffc7814873a0',
   name: 'Rocha Company',

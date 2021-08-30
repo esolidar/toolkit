@@ -49,5 +49,5 @@ Default.args = {
       lastUpdate: '2019-12-16 12:00:03',
     },
   ],
-  onChange: () => console.log(''),
+  onChange: () => {},
 };

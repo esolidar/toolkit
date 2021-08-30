@@ -1,4 +1,6 @@
-const language = {
+import Language from '../src/interfaces/language.types';
+
+const language: Language = {
   id: 2,
   name: 'pt',
   translate: 'Português (PT)',

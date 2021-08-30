@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Props from './ProgressBar.types';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
+import Props from './ProgressBar.types';
 
 const ProgressBar: FC<Props> = ({
   text,

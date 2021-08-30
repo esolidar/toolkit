@@ -9,7 +9,7 @@ const Card: FC<Props> = ({
   body,
   support,
 }: Props): JSX.Element => (
-  <div className="card-component" onClick={() => clickThumb()} tabIndex={1}>
+  <div className="card-component" onClick={() => clickThumb()} onKeyDown={() => clickThumb()}>
     <div className="card-component-image">
       <div
         className="bg-image"

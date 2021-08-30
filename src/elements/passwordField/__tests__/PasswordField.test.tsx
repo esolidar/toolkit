@@ -52,11 +52,11 @@ it('renders Password Field and click button eye', () => {
     </IntlProvider>
   );
 
-  fireEvent.click(screen.getByRole('button'));
+  fireEvent.click(screen.getByTestId('button'));
   const eye = screen.getByTestId('eye');
   expect(eye).toBeInTheDocument();
 
-  fireEvent.click(screen.getByRole('button'));
+  fireEvent.click(screen.getByTestId('button'));
   const eyeBlocked = screen.getByTestId('eye-blocked');
   expect(eyeBlocked).toBeInTheDocument();
 });

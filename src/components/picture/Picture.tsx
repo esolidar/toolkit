@@ -12,11 +12,15 @@ const Picture: FC<Props> = ({
       {sizes
         .sort((a, b) => a - b)
         .map(size => (
-          <source key={size} media={`(max-width:${size}px)`} srcSet={`${src}?width=${size}`} />
+          <source
+            key={size}
+            media={`(max-width:${JSON.stringify(size)}px)`}
+            srcSet={`${src}?width=${JSON.stringify(size)}`}
+          />
         ))}
       <source
-        media={`(min-width:${Math.max(...sizes)}px)`}
-        srcSet={`${src}?width=${Math.max(...sizes)}`}
+        media={`(min-width:${JSON.stringify(Math.max(...sizes))}px)`}
+        srcSet={`${src}?width=${JSON.stringify(Math.max(...sizes))}`}
       />
       <img src={src} alt={alt} className={className} />
     </picture>

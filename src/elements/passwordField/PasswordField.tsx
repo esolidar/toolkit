@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import Props from './PasswordField.types';
 import TextField from '../textField';
 import Icon from '../../components/icon/Icon';
@@ -35,7 +35,7 @@ const PasswordField: FC<Props> = ({
       />
       <button
         onClick={handleClick}
-        role="button"
+        data-testid="button"
         type="button"
         style={{ top: help ? '53px' : '34px' }}
       >

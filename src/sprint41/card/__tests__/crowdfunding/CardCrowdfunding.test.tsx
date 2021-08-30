@@ -8,7 +8,7 @@ import Meta, {
   PublicTitlePt as PublicPt,
   PublicTitleEn as PublicEn,
   PublicZeroRaised as PublicZero,
-  Private as Private,
+  Private,
   PrivateZeroRaised as PrivateZero,
 } from '../../crowdfunfing/CardCrowdfunding.stories';
 import crowdfunding from '../../../../../__mocks__/crowdfunding';
@@ -21,7 +21,7 @@ const PublicZeroRaised = composeStory(PublicZero, Meta);
 const PrivateZeroRaised = composeStory(PrivateZero, Meta);
 
 it('renders Crowdfunding public with title PT', () => {
-  const { queryByTestId, getAllByClass, getByClass } = render(
+  const { getAllByClass, getByClass } = render(
     <IntlProvider locale="en" messages={translation}>
       <DefaultPT />
     </IntlProvider>
@@ -39,7 +39,7 @@ it('renders Crowdfunding public with title PT', () => {
 });
 
 it('renders Crowdfunding public with title En', () => {
-  const { queryByTestId, getAllByClass, getByClass } = render(
+  const { getAllByClass, getByClass } = render(
     <IntlProvider locale="en" messages={translation}>
       <DefaultEn />
     </IntlProvider>

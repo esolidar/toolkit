@@ -1,76 +1,75 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
 import translation from '@esolidar/i18n/projects/toolkit/en';
 import userEvent from '@testing-library/user-event';
 import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
+import { render } from '../../../../__customQueries__/test-utils';
 
 import Meta, { Default as DefaultStory } from '../UserMenu.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 
 test('renders the correct elements in first load', async () => {
-  render(
+  const { queryByClass, getByAltText, queryByRole } = render(
     <IntlProvider locale="en" messages={translation}>
       <Default />
     </IntlProvider>
   );
 
-  const toggle = screen.getByRole('toggle');
-  expect(toggle).toBeInTheDocument();
+  expect(queryByClass('esolidar-user-menu dropdown')).toBeInTheDocument();
 
-  const companyLogo = screen.getByAltText('Webankor');
+  const companyLogo = getByAltText('Webankor');
   expect(companyLogo).toBeInTheDocument();
 
-  const menu = screen.queryByRole('menu');
+  const menu = queryByRole('menu');
   expect(menu).not.toBeInTheDocument();
 });
 
 test('renders dropdown menu when button is clicked', async () => {
-  render(
+  const { queryByClass, queryByText } = render(
     <IntlProvider locale="en" messages={translation}>
       <Default />
     </IntlProvider>
   );
 
-  const toggle = screen.getByRole('toggle');
+  const toggle = queryByClass('dropdown-toggle btn btn-primary');
   userEvent.click(toggle);
 
-  const menu = screen.getByRole('menu');
+  const menu = queryByClass('dropdown-menu show dropdown-menu-right');
   expect(menu).toBeInTheDocument();
 
-  const hidden = screen.queryByText('this item is hidden');
+  const hidden = queryByText('this item is hidden');
   expect(hidden).not.toBeInTheDocument();
 
-  const settings = screen.queryByText('topMenu.settings');
+  const settings = queryByText('topMenu.settings');
   expect(settings).toBeInTheDocument();
   expect(settings).toHaveClass('dropdown-item');
 
-  const usersettings = screen.queryByText('topMenu.usersettings');
+  const usersettings = queryByText('topMenu.usersettings');
   expect(usersettings).toBeInTheDocument();
   expect(usersettings).toHaveClass('dropdown-item');
 
-  const manageBankAccounts = screen.queryByText('topMenu.manageBankAccounts');
+  const manageBankAccounts = queryByText('topMenu.manageBankAccounts');
   expect(manageBankAccounts).toBeInTheDocument();
   expect(manageBankAccounts).toHaveClass('dropdown-item');
 
-  const documents = screen.queryByText('topMenu.documents');
+  const documents = queryByText('topMenu.documents');
   expect(documents).toBeInTheDocument();
   expect(documents).toHaveClass('dropdown-item');
 
-  const tickets = screen.queryByText('topMenu.tickets');
+  const tickets = queryByText('topMenu.tickets');
   expect(tickets).toBeInTheDocument();
   expect(tickets).toHaveClass('dropdown-item');
 
-  const departments = screen.queryByText('topMenu.departments');
+  const departments = queryByText('topMenu.departments');
   expect(departments).toBeInTheDocument();
   expect(departments).toHaveClass('dropdown-item');
 
-  const brands = screen.queryByText('topMenu.brands');
+  const brands = queryByText('topMenu.brands');
   expect(brands).toBeInTheDocument();
   expect(brands).toHaveClass('dropdown-item');
 
-  const logout = screen.queryByText('topMenu.logout');
+  const logout = queryByText('topMenu.logout');
   expect(logout).toBeInTheDocument();
   expect(logout).toHaveClass('dropdown-item');
 });
