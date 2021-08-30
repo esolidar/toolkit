@@ -1,10 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { advanceTo } from 'jest-date-mock';
-import { IntlProvider } from 'react-intl';
+import { render, waitFor, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import AuctionDetail from '../index';
 
 const fx = jest.fn();
@@ -589,11 +587,7 @@ afterAll(() => {
 });
 
 test('simulate private auction', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...propsAuctionPrivate} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...propsAuctionPrivate} />);
 
   await waitFor(() => {
     const titlePrivate = screen.getByTestId('title-private');
@@ -613,11 +607,7 @@ test('simulate private auction', async () => {
 });
 
 test('should exist auction support', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
@@ -633,11 +623,7 @@ test('should exist auction support', async () => {
 });
 
 test('should exist countdown with time', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   advanceTo(new Date(2020, 1, 12, 0, 0, 0));
 
@@ -658,11 +644,7 @@ test('should exist countdown with time', async () => {
 });
 
 test('should exist slide image', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const auctionSlide = screen.getByTestId('slide-image-multiple');
@@ -671,11 +653,7 @@ test('should exist slide image', async () => {
 });
 
 test('should open modal bid', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -689,11 +667,7 @@ test('should open modal bid', async () => {
 });
 
 test('should render component AuctionDetail and verify checkboxs', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     fireEvent.click(screen.getByTestId('subscribe-auction'));
@@ -705,11 +679,7 @@ test('should render component AuctionDetail and verify checkboxs', async () => {
 });
 
 test('should exist buttons share social media', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const shareAuction = screen.getByTestId('btn-share');
@@ -726,11 +696,7 @@ test('should exist buttons share social media', async () => {
 });
 
 test('should exist description, shipping and payment', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const titleDescription = screen.getByTestId('description');
@@ -755,11 +721,7 @@ test('should exist description, shipping and payment', async () => {
 });
 
 test('should exist comment box', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const createComment = screen.getByTestId('create-comment');
@@ -768,11 +730,7 @@ test('should exist comment box', async () => {
 });
 
 test('should exist 2 auction thumbs in auction list', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const titleOtherAuctions = screen.getByTestId('title-other-auctions');
@@ -789,11 +747,7 @@ test('should exist 2 auction thumbs in auction list', async () => {
 });
 
 test('should exist one project thumb', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetail {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionDetail {...props} />);
 
   await waitFor(() => {
     const project = screen.getByTestId('projectThumb');

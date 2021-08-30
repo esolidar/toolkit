@@ -1,9 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
 import userEvent from '@testing-library/user-event';
+import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import BankAccount from '../index';
 import {
   internationalBankAccount,
@@ -55,11 +53,7 @@ const propsNationalBankAccount = {
 };
 
 test('simulate bank account', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsWithoutBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsWithoutBankAccount} />);
   await waitFor(() => {
     const internationalAccountTitle = screen.getByTestId('international-account-title');
     const accountTitle = screen.getByTestId('account-title');
@@ -78,11 +72,7 @@ test('simulate bank account', async () => {
 });
 
 test('Verify fields Brasil bank account', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsBrBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsBrBankAccount} />);
   await waitFor(() => {
     const btnAddAccount = screen.getByTestId('add-bank-account');
     userEvent.click(btnAddAccount);
@@ -100,11 +90,7 @@ test('Verify fields Brasil bank account', async () => {
 });
 
 test('Verify fields National bank account', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsNationalBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsNationalBankAccount} />);
   await waitFor(() => {
     const btnAddAccount = screen.getByTestId('add-bank-account');
     userEvent.click(btnAddAccount);
@@ -118,11 +104,7 @@ test('Verify fields National bank account', async () => {
 });
 
 test('simulate add international bank account', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsBankAccount} />);
   await waitFor(() => {
     const internationalAccounts = screen.getByTestId('international-accounts-0');
     expect(internationalAccounts).toBeInTheDocument();
@@ -130,11 +112,7 @@ test('simulate add international bank account', async () => {
 });
 
 test('simulate add national bank account', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsBankAccount} />);
   await waitFor(() => {
     const internationalAccounts = screen.getByTestId('national-accounts-0');
     expect(internationalAccounts).toBeInTheDocument();
@@ -142,11 +120,7 @@ test('simulate add national bank account', async () => {
 });
 
 test('simulate add national bank account without data', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsWithoutBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsWithoutBankAccount} />);
   await waitFor(() => {
     const btnAddAccount = screen.getByTestId('add-bank-account');
     userEvent.click(btnAddAccount);
@@ -160,11 +134,7 @@ test('simulate add national bank account without data', async () => {
 });
 
 test('simulate delete international bank account show modal', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsBankAccount} />);
   await waitFor(() => {
     const btnDelete0 = screen.getByTestId('btn-delete-international-account-1');
     const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');
@@ -177,11 +147,7 @@ test('simulate delete international bank account show modal', async () => {
 });
 
 test('simulate delete natoinal bank account show modal', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <BankAccount {...propsBankAccount} />
-    </IntlProvider>
-  );
+  render(<BankAccount {...propsBankAccount} />);
   await waitFor(() => {
     const btnDelete0 = screen.getByTestId('btn-delete-national-account-1');
     const btnDelete1 = screen.getByTestId('btn-delete-international-account-1');

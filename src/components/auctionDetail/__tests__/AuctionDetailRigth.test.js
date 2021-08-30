@@ -1,9 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { IntlProvider } from 'react-intl';
+import { render, waitFor, screen, fireEvent } from '../../../../__customQueries__/test-utils';
 import AuctionDetailRigth from '../AuctionDetailRigth';
 
 const fx = jest.fn();
@@ -672,11 +670,7 @@ afterAll(() => {
 });
 
 test('should exist title of auction', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigth} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigth} />);
 
   await waitFor(() => {
     const titleAuction = screen.getByTestId('auction-title');
@@ -686,11 +680,7 @@ test('should exist title of auction', async () => {
 });
 
 test('should exist section new bid and insert value equal or higher last bid and not open Modal', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigth} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigth} />);
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -705,11 +695,7 @@ test('should exist section new bid and insert value equal or higher last bid and
 });
 
 test('Insert value equal or higher last bid and open Modal', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigthWithoutErrors} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigthWithoutErrors} />);
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -723,11 +709,7 @@ test('Insert value equal or higher last bid and open Modal', async () => {
 });
 
 test('Insert value higher bid max interval ', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigth} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigth} />);
 
   await waitFor(() => {
     const inputBid = screen.getByTestId('inputBid');
@@ -741,11 +723,7 @@ test('Insert value higher bid max interval ', async () => {
 });
 
 test('simulate auction ended', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionEnded} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionEnded} />);
 
   await waitFor(() => {
     const titleEnded = screen.getByTestId('label-ended');
@@ -758,11 +736,7 @@ test('simulate auction ended', async () => {
 });
 
 test('should exist section supported with thumb and name', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigth} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigth} />);
 
   await waitFor(() => {
     const supported = screen.getByTestId('supported-section');
@@ -778,11 +752,7 @@ test('should exist section supported with thumb and name', async () => {
 });
 
 test('should exist value last bid', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionDetailRigth {...propsAuctionDetailRigth} />
-    </IntlProvider>
-  );
+  render(<AuctionDetailRigth {...propsAuctionDetailRigth} />);
 
   await waitFor(() => {
     const titleLastBid = screen.getByTestId('title-last-bid');

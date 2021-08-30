@@ -1,10 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
-import translation from '@esolidar/i18n/projects/toolkit/en';
+import { render, screen } from '../../../../__customQueries__/test-utils';
 import Meta, {
   WithoutLogin,
   WithLogin,
@@ -22,11 +20,7 @@ const NewPostBoxFocusBoxWithShareAndImages = composeStory(FocusBoxWithShareAndIm
 const NewPostBoxEditPost = composeStory(EditPost, Meta);
 
 it('Without Login', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxWithoutLogin />
-    </IntlProvider>
-  );
+  render(<NewPostBoxWithoutLogin />);
 
   const box = screen.queryByTestId('feed-create-post');
   const loginButton = screen.queryByTestId('login-button');
@@ -40,11 +34,7 @@ it('Without Login', () => {
 });
 
 it('With Login', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxWithLogin />
-    </IntlProvider>
-  );
+  render(<NewPostBoxWithLogin />);
 
   const box = screen.queryByTestId('feed-create-post');
   const loginButton = screen.queryByTestId('login-button');
@@ -58,11 +48,7 @@ it('With Login', () => {
 });
 
 it('With Login and scrapter link', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxFocusBoxWithShare />
-    </IntlProvider>
-  );
+  render(<NewPostBoxFocusBoxWithShare />);
 
   const box = screen.queryByTestId('feed-create-post');
   userEvent.click(box);
@@ -79,11 +65,7 @@ it('With Login and scrapter link', async () => {
 });
 
 it('Remove scrapter link', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxFocusBoxWithShare />
-    </IntlProvider>
-  );
+  render(<NewPostBoxFocusBoxWithShare />);
 
   const box = screen.queryByTestId('feed-create-post');
   userEvent.click(box);
@@ -102,11 +84,7 @@ it('Remove scrapter link', () => {
 });
 
 it('With Login and image gallery', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxFocusBoxWithImages />
-    </IntlProvider>
-  );
+  render(<NewPostBoxFocusBoxWithImages />);
 
   const box = screen.queryByTestId('feed-create-post');
   userEvent.click(box);
@@ -127,11 +105,7 @@ it('With Login and image gallery', async () => {
 });
 
 it('Remove one image from gallery', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxFocusBoxWithImages />
-    </IntlProvider>
-  );
+  render(<NewPostBoxFocusBoxWithImages />);
 
   const box = screen.queryByTestId('feed-create-post');
   const btn = screen.findAllByTestId('delete-image');
@@ -142,11 +116,7 @@ it('Remove one image from gallery', async () => {
 });
 
 it('With Login and image share and gallery', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxFocusBoxWithShareAndImages />
-    </IntlProvider>
-  );
+  render(<NewPostBoxFocusBoxWithShareAndImages />);
 
   const box = screen.queryByTestId('feed-create-post');
   userEvent.click(box);
@@ -161,11 +131,7 @@ it('With Login and image share and gallery', () => {
 });
 
 it('Edit post', () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <NewPostBoxEditPost />
-    </IntlProvider>
-  );
+  render(<NewPostBoxEditPost />);
 
   const loginButton = screen.queryByTestId('login-button');
   const header = screen.queryByTestId('header');
