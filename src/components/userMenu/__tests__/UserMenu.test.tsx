@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
 import userEvent from '@testing-library/user-event';
-import { IntlProvider } from 'react-intl';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 
@@ -10,11 +8,7 @@ import Meta, { Default as DefaultStory } from '../UserMenu.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 test('renders the correct elements in first load', async () => {
-  const { queryByClass, getByAltText, queryByRole } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { queryByClass, getByAltText, queryByRole } = render(<Default />);
 
   expect(queryByClass('esolidar-user-menu dropdown')).toBeInTheDocument();
 
@@ -26,11 +20,7 @@ test('renders the correct elements in first load', async () => {
 });
 
 test('renders dropdown menu when button is clicked', async () => {
-  const { queryByClass, queryByText } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { queryByClass, queryByText } = render(<Default />);
 
   const toggle = queryByClass('dropdown-toggle btn btn-primary');
   userEvent.click(toggle);

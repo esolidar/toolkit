@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
 import { advanceTo } from 'jest-date-mock';
 import Meta, {
   Ended as CrowdfundingEnded,
@@ -34,11 +32,7 @@ const date = new Date();
 
 it('renders countdown ended', () => {
   advanceTo(date);
-  const { queryByClass, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Ended />
-    </IntlProvider>
-  );
+  const { queryByClass, queryByTestId } = render(<Ended />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByTestId('ended')).toBeInTheDocument();
@@ -47,11 +41,7 @@ it('renders countdown ended', () => {
 
 it('renders countdown soon', () => {
   advanceTo(new Date(date));
-  const { queryByClass, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Soon />
-    </IntlProvider>
-  );
+  const { queryByClass, queryByTestId } = render(<Soon />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).toHaveTextContent('Starts in');
@@ -62,11 +52,7 @@ it('renders countdown soon', () => {
 
 it('renders countdown running', () => {
   advanceTo(new Date(date));
-  const { queryByClass, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Running />
-    </IntlProvider>
-  );
+  const { queryByClass, queryByTestId } = render(<Running />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).toHaveTextContent('Ends in');
@@ -77,11 +63,7 @@ it('renders countdown running', () => {
 
 it('renders countdown last day', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <LastDayTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<LastDayTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -91,11 +73,7 @@ it('renders countdown last day', () => {
 
 it('renders countdown hours to go', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <HoursToGoTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<HoursToGoTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -105,11 +83,7 @@ it('renders countdown hours to go', () => {
 
 it('renders countdown 60 minutes to go', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <MinutesToGoTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<MinutesToGoTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -118,11 +92,7 @@ it('renders countdown 60 minutes to go', () => {
 
 it('renders countdown 1 minute to go', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <OneMinuteToGoTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<OneMinuteToGoTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -132,11 +102,7 @@ it('renders countdown 1 minute to go', () => {
 
 it('renders countdown days to go', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <DaysToGoTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<DaysToGoTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -146,11 +112,7 @@ it('renders countdown days to go', () => {
 
 it('renders countdown date', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <ShowDateTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<ShowDateTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
@@ -159,11 +121,7 @@ it('renders countdown date', () => {
 
 it('renders countdown date interval', () => {
   advanceTo(new Date(date));
-  const { queryByClass } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <DateIntervalTemplate />
-    </IntlProvider>
-  );
+  const { queryByClass } = render(<DateIntervalTemplate />);
 
   expect(queryByClass('countdown-component')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();

@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630329816155" clover="3.2.0">
-  <project timestamp="1630329816155" name="All files">
-    <metrics statements="3223" coveredstatements="2125" conditionals="2726" coveredconditionals="1678" methods="861" coveredmethods="415" elements="6810" coveredelements="4218" complexity="0" loc="3223" ncloc="3223" packages="108" files="257" classes="257"/>
+<coverage generated="1630332754978" clover="3.2.0">
+  <project timestamp="1630332754978" name="All files">
+    <metrics statements="3224" coveredstatements="2126" conditionals="2728" coveredconditionals="1680" methods="861" coveredmethods="415" elements="6813" coveredelements="4221" complexity="0" loc="3224" ncloc="3224" packages="108" files="257" classes="257"/>
     <package name="__customQueries__">
-      <metrics statements="14" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="3" count="85" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
+        <line num="5" count="23" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
+        <line num="7" count="23" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
+        <line num="10" count="23" type="stmt"/>
       </file>
       <file name="queryById.js" path="C:\Projects\toolkit\__customQueries__\queryById.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
+        <line num="3" count="23" type="stmt"/>
+        <line num="5" count="23" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
+        <line num="7" count="23" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
+        <line num="10" count="23" type="stmt"/>
       </file>
       <file name="test-utils.js" path="C:\Projects\toolkit\__customQueries__\test-utils.js">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="26" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="23" type="stmt"/>
+        <line num="11" count="93" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">

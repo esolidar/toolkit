@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { IntlProvider } from 'react-intl';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
@@ -18,11 +16,7 @@ const NotShowWhatsapp = composeStory(NotShowWhatsappStory, Meta);
 const NotShowCopyToClipboard = composeStory(NotShowCopyToClipboardStory, Meta);
 
 it('renders ShareNetwork default', () => {
-  const { getByLabelText } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { getByLabelText } = render(<Default />);
 
   expect(getByLabelText('facebook')).toBeTruthy();
   expect(getByLabelText('twitter')).toBeTruthy();
@@ -31,11 +25,7 @@ it('renders ShareNetwork default', () => {
 });
 
 it('renders ShareNetwork and dont show facebook button', () => {
-  const { getByLabelText, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <NotShowFacebook />
-    </IntlProvider>
-  );
+  const { getByLabelText, queryByTestId } = render(<NotShowFacebook />);
 
   expect(queryByTestId('share-facebook')).not.toBeInTheDocument();
   expect(getByLabelText('twitter')).toBeTruthy();
@@ -44,11 +34,7 @@ it('renders ShareNetwork and dont show facebook button', () => {
 });
 
 it('renders ShareNetwork and dont show twitter button', () => {
-  const { getByLabelText, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <NotShowTwitter />
-    </IntlProvider>
-  );
+  const { getByLabelText, queryByTestId } = render(<NotShowTwitter />);
 
   expect(getByLabelText('facebook')).toBeTruthy();
   expect(queryByTestId('share-twitter')).not.toBeInTheDocument();
@@ -57,11 +43,7 @@ it('renders ShareNetwork and dont show twitter button', () => {
 });
 
 it('renders ShareNetwork and dont show Whatsapp button', () => {
-  const { getByLabelText, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <NotShowWhatsapp />
-    </IntlProvider>
-  );
+  const { getByLabelText, queryByTestId } = render(<NotShowWhatsapp />);
 
   expect(getByLabelText('facebook')).toBeTruthy();
   expect(getByLabelText('twitter')).toBeTruthy();
@@ -70,11 +52,7 @@ it('renders ShareNetwork and dont show Whatsapp button', () => {
 });
 
 it('renders ShareNetwork and dont show copyToClipboard button', () => {
-  const { getByLabelText, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <NotShowCopyToClipboard />
-    </IntlProvider>
-  );
+  const { getByLabelText, queryByTestId } = render(<NotShowCopyToClipboard />);
 
   expect(getByLabelText('facebook')).toBeTruthy();
   expect(getByLabelText('twitter')).toBeTruthy();

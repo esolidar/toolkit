@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
+import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import ErrorBoundary from '../index';
 
 const props = {
@@ -14,11 +12,7 @@ const props = {
 };
 
 test('Error Boundary', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <ErrorBoundary {...props} />
-    </IntlProvider>
-  );
+  render(<ErrorBoundary {...props} />);
   await waitFor(() => {
     const errorTitle = screen.getByTestId('errorBoundary-title');
     expect(errorTitle).toBeInTheDocument();

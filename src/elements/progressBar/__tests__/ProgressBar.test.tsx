@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen } from '@testing-library/react';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
+import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   Label as LabelStory,
@@ -16,11 +14,7 @@ const Minimal = composeStory(MinimalStory, Meta);
 const Percent = composeStory(PercentStory, Meta);
 
 test('renders ProgressBar default', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  render(<Default />);
 
   await waitFor(() => {
     const progressBarComponent = screen.getByTestId('progress-bar');
@@ -35,11 +29,7 @@ test('renders ProgressBar default', async () => {
 });
 
 test('renders ProgressBar Label', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Label />
-    </IntlProvider>
-  );
+  render(<Label />);
 
   await waitFor(() => {
     const progressBarComponent = screen.getByTestId('progress-bar');
@@ -52,11 +42,7 @@ test('renders ProgressBar Label', async () => {
 });
 
 test('renders ProgressBar Minimal', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Minimal />
-    </IntlProvider>
-  );
+  render(<Minimal />);
 
   await waitFor(() => {
     const progressBarComponent = screen.getByTestId('progress-bar');
@@ -67,11 +53,7 @@ test('renders ProgressBar Minimal', async () => {
 });
 
 test('renders ProgressBar Percent', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <Percent />
-    </IntlProvider>
-  );
+  render(<Percent />);
 
   await waitFor(() => {
     const progressBarComponent = screen.getByTestId('progress-bar');

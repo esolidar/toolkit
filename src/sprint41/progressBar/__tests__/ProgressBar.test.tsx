@@ -1,8 +1,6 @@
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render } from '@testing-library/react';
 import { composeStory } from '@storybook/testing-react';
-import { IntlProvider } from 'react-intl';
+import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   Minimal as MinimalStory,
@@ -14,11 +12,7 @@ const Minimal = composeStory(MinimalStory, Meta);
 const HideRaisedOf = composeStory(hideRaisedOfStory, Meta);
 
 it('renders ProgressBar default', () => {
-  const { getByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Default />
-    </IntlProvider>
-  );
+  const { getByTestId } = render(<Default />);
 
   expect(getByTestId('progress-bar')).toBeInTheDocument();
   expect(getByTestId('bar')).toBeInTheDocument();
@@ -27,11 +21,7 @@ it('renders ProgressBar default', () => {
 });
 
 it('renders ProgressBar Minimal', () => {
-  const { getByTestId, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <Minimal />
-    </IntlProvider>
-  );
+  const { getByTestId, queryByTestId } = render(<Minimal />);
 
   expect(getByTestId('progress-bar')).toBeInTheDocument();
   expect(getByTestId('bar')).toBeInTheDocument();
@@ -40,11 +30,7 @@ it('renders ProgressBar Minimal', () => {
 });
 
 it('renders ProgressBar hideRaisedOf', () => {
-  const { getByTestId, queryByTestId } = render(
-    <IntlProvider locale="en" messages={translation}>
-      <HideRaisedOf />
-    </IntlProvider>
-  );
+  const { getByTestId, queryByTestId } = render(<HideRaisedOf />);
 
   expect(getByTestId('progress-bar')).toBeInTheDocument();
   expect(getByTestId('bar')).toBeInTheDocument();

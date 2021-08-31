@@ -1,8 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import translation from '@esolidar/i18n/projects/toolkit/en';
-import { render, waitFor, screen } from '@testing-library/react';
-import { IntlProvider } from 'react-intl';
+import { render, waitFor, screen } from '../../../../__customQueries__/test-utils';
 import AuctionAddForm from '../AuctionAddForm';
 import company from '../../../../__mocks__/company';
 
@@ -172,11 +170,7 @@ afterAll(() => {
 });
 
 test('simulate add auction form', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionAddForm {...props} />
-    </IntlProvider>
-  );
+  render(<AuctionAddForm {...props} />);
   await waitFor(() => {
     const auctionInformation = screen.getByTestId('auction-information');
     const btnSubmit = screen.getByTestId('btn-submit');
@@ -189,11 +183,7 @@ test('simulate add auction form', async () => {
 });
 
 test('simulate edit auction form', async () => {
-  render(
-    <IntlProvider locale="en" messages={translation}>
-      <AuctionAddForm {...propsEdit} />
-    </IntlProvider>
-  );
+  render(<AuctionAddForm {...propsEdit} />);
   await waitFor(() => {
     const auctionTitle = screen.getByTestId('auction-edit-title');
     const auctionInformation = screen.getByTestId('auction-information');
