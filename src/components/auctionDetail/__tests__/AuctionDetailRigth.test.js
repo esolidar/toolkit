@@ -757,7 +757,7 @@ test('should exist value last bid', async () => {
   await waitFor(() => {
     const titleLastBid = screen.getByTestId('title-last-bid');
     expect(titleLastBid).toBeInTheDocument();
-    expect(titleLastBid).toHaveTextContent('Last Bid');
+    expect(titleLastBid).toHaveTextContent('Last bid');
     const valueLastBid = screen.getByTestId('value-last-bid');
     expect(valueLastBid).toBeInTheDocument();
     expect(valueLastBid).toHaveTextContent('€31.00');

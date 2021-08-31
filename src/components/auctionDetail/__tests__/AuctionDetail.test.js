@@ -612,7 +612,7 @@ test('should exist auction support', async () => {
   await waitFor(() => {
     const auctionSupport = screen.getByTestId('auction-support');
     expect(auctionSupport).toBeInTheDocument();
-    expect(auctionSupport).toHaveTextContent('This auctions supports:');
+    expect(auctionSupport).toHaveTextContent('This auction supports:');
     const thumbImage = screen.getByAltText('thumb-supported');
     expect(thumbImage).toBeInTheDocument();
     expect(thumbImage).toHaveAttribute(
