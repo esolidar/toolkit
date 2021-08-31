@@ -1,11 +1,17 @@
+/* eslint-disable import/no-dynamic-require */
 import React from 'react';
 import { render, queries } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 import * as queryById from './queryById';
 import * as queryByClass from './queryByClass';
 
-// eslint-disable-next-line import/no-dynamic-require
-const messages = require(process.env.PUBLIC_I18N_PATH || '@esolidar/i18n/projects/toolkit/en');
+const toolkit = require('@esolidar/i18n/projects/toolkit/en');
+
+const project = require(process.env.PUBLIC_I18N_PATH || '');
+const messages = {
+  ...toolkit,
+  ...project,
+};
 
 const customRender = (ui, options) =>
   render(
