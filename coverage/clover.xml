@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630407451301" clover="3.2.0">
-  <project timestamp="1630407451302" name="All files">
-    <metrics statements="3226" coveredstatements="2128" conditionals="2728" coveredconditionals="1682" methods="861" coveredmethods="415" elements="6815" coveredelements="4225" complexity="0" loc="3226" ncloc="3226" packages="108" files="257" classes="257"/>
+<coverage generated="1630429475662" clover="3.2.0">
+  <project timestamp="1630429475662" name="All files">
+    <metrics statements="3226" coveredstatements="2128" conditionals="2728" coveredconditionals="1680" methods="861" coveredmethods="415" elements="6815" coveredelements="4223" complexity="0" loc="3226" ncloc="3226" packages="108" files="257" classes="257"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -3902,7 +3902,7 @@
       </file>
     </package>
     <package name="src.sprint41.countdown">
-      <metrics statements="132" coveredstatements="106" conditionals="75" coveredconditionals="64" methods="31" coveredmethods="10"/>
+      <metrics statements="132" coveredstatements="106" conditionals="75" coveredconditionals="62" methods="31" coveredmethods="10"/>
       <file name="Countdown.stories.tsx" path="C:\Projects\toolkit\src\sprint41\countdown\Countdown.stories.tsx">
         <metrics statements="48" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="22" coveredmethods="2"/>
         <line num="28" count="1" type="stmt"/>
@@ -3955,7 +3955,7 @@
         <line num="193" count="0" type="stmt"/>
       </file>
       <file name="Countdown.tsx" path="C:\Projects\toolkit\src\sprint41\countdown\Countdown.tsx">
-        <metrics statements="84" coveredstatements="78" conditionals="75" coveredconditionals="64" methods="9" coveredmethods="8"/>
+        <metrics statements="84" coveredstatements="78" conditionals="75" coveredconditionals="62" methods="9" coveredmethods="8"/>
         <line num="9" count="2" type="stmt"/>
         <line num="16" count="30" type="stmt"/>
         <line num="17" count="30" type="stmt"/>

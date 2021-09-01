@@ -98,6 +98,6 @@ test('renders NotificationsBell EmptyState', async () => {
   const notifications = screen.queryAllByTestId('notification-row');
   expect(notifications).toHaveLength(0);
 
-  const noNotificationsText = screen.getByText('There are no notifications.');
+  const noNotificationsText = screen.getByText('No notifications yet.');
   expect(noNotificationsText).toBeInTheDocument();
 });

@@ -12,8 +12,8 @@ it('render elements correctly', () => {
   expect(getByAltText('Lorem Ipsum')).toBeTruthy();
   expect(getByTestId('recipient-label')).toBeTruthy();
   expect(getByText('Lorem Ipsum')).toBeTruthy();
-  expect(getByText('Support this cause:').getAttribute('href')).toBe(
+  expect(getByText('Support this nonprofit:').getAttribute('href')).toBe(
     'https://community.testesolidar.com/npo/detail/1-lorem-ipsum'
   );
-  expect(getByText('Support this cause:')).toHaveAttribute('target', '_blank');
+  expect(getByText('Support this nonprofit:')).toHaveAttribute('target', '_blank');
 });
