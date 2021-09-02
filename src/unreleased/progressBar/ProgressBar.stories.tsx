@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar';
 import Props from './ProgressBar.types';
 
 export default {
-  title: 'Sprint41/ProgressBar',
+  title: 'Unreleased/ProgressBar',
   component: ProgressBar,
   argTypes: {
     currency: {

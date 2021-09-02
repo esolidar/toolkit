@@ -3,7 +3,7 @@ import DetailTitle from './DetailTitle';
 import Props from './DetailTitle.types';
 
 export default {
-  title: 'Sprint41/DetailTitle',
+  title: 'Unreleased/DetailTitle',
   component: DetailTitle,
   parameters: {
     jest: ['DetailTitle.test.tsx'],

@@ -4,7 +4,7 @@ import ListFooter from './ListFooter';
 import Props from './ListFooter.types';
 
 export default {
-  title: 'Sprint41/ListFooter',
+  title: 'Unreleased/ListFooter',
   component: ListFooter,
   parameters: {
     jest: ['DetailTitle.test.tsx'],
