@@ -3,7 +3,7 @@ import ShareNetwork from './ShareNetwork';
 import Props from './ShareNetwork.types';
 
 export default {
-  title: 'Sprint41/ShareNetwork',
+  title: 'Unreleased/ShareNetwork',
   component: ShareNetwork,
   parameters: {
     jest: ['ShareNetwork.test.tsx'],

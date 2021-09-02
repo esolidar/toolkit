@@ -6,7 +6,7 @@ import Countdown from './Countdown';
 import Props from './Countdown.types';
 
 export default {
-  title: 'Sprint41/Countdown',
+  title: 'Unreleased/Countdown',
   component: Countdown,
   argTypes: {
     startDate: {
