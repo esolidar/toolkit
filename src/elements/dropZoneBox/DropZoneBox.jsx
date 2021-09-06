@@ -7,7 +7,7 @@ import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
 import CustomModal from '../customModal';
 import Button from '../button';
-import { lastElemOf } from '../../utils/index';
+import lastElemOf from '../../utils/lastElemOf';
 
 const cropper = createRef(null);
 
