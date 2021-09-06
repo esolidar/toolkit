@@ -17,6 +17,7 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const WithSubtitle: Story<Props> = Template.bind({});
 export const WithoutSupportUrl: Story<Props> = Template.bind({});
 export const TitleOnly: Story<Props> = Template.bind({});
 
@@ -27,12 +28,17 @@ Default.args = {
   goBackUrl: '#',
 };
 
-TitleOnly.args = {
+WithSubtitle.args = {
   title: 'Crowdfunding title',
+  subtitle: 'Help support the Acme Inc. initiatives',
 };
 
 WithoutSupportUrl.args = {
   title: 'Crowdfunding title',
   supportingName: 'Joel Calheiros',
   goBackUrl: '#',
+};
+
+TitleOnly.args = {
+  title: 'Crowdfunding title',
 };
