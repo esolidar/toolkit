@@ -4,14 +4,15 @@ import SelectField from './SelectField';
 export default {
   title: 'Elements/SelectField',
   component: SelectField,
+  parameters: {
+    jest: ['SelectField.test.tsx'],
+  },
 };
 
 const Template = args => <SelectField {...args} />;
 
 export const Default = Template.bind({});
-Default.parameters = {
-  jest: ['SelectField.test.js'],
-};
+export const LeftLabel = Template.bind({});
 Default.args = {
   options: [{ id: 1, name: 'lorem' }],
   value: '',
@@ -19,4 +20,13 @@ Default.args = {
   field: 'name',
   onChange: () => {},
   selectText: 'Exemplo',
+};
+LeftLabel.args = {
+  options: [{ id: 1, name: 'lorem' }],
+  value: '',
+  label: 'Select left',
+  field: 'name',
+  onChange: () => {},
+  selectText: 'Exemplo',
+  isLabelLeft: true,
 };
