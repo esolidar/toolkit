@@ -11,7 +11,6 @@ import {
   injectStripe,
 } from 'react-stripe-elements';
 import variables from '../../assets/sass/_export.module.scss';
-import isEmpty from '../../utils/isEmpty';
 import Button from '../../elements/button';
 
 const createOptions = () => ({
@@ -26,7 +25,7 @@ const createOptions = () => ({
       },
     },
     invalid: {
-      color: '#FF494C',
+      color: '#b74520',
     },
   },
 });
@@ -44,25 +43,39 @@ const StripeCheckoutFormSca = ({
 
   return (
     <Row className="checkout">
-      <Col sm={12}>
-        <label className={!isEmpty(errors) ? 'error' : ''}>
+      <Col sm={12} className={errors.cardnumber ? 'has-error' : ''}>
+        <label className={errors.cardnumber ? 'error' : ''}>
           <FormattedMessage id="checkout.payment.cardnumber" />
-          <CardNumberElement {...createOptions()} onChange={handleChange} />
+          <CardNumberElement {...createOptions()} onChange={e => handleChange(e, 'cardnumber')} />
         </label>
+        {!!errors.cardnumber && (
+          <span className="help-block">
+            {errors.cardnumber?.invalid_number}
+            {errors.cardnumber?.incomplete_number}
+          </span>
+        )}
       </Col>
-      <Col sm={6}>
-        <label className={!isEmpty(errors) ? 'error' : ''}>
+      <Col sm={6} className={errors.expiration ? 'has-error' : ''}>
+        <label className={errors.expiration ? 'error' : ''}>
           <FormattedMessage id="checkout.payment.expiration" />
-          <CardExpiryElement {...createOptions()} onChange={handleChange} />
+          <CardExpiryElement {...createOptions()} onChange={e => handleChange(e, 'expiration')} />
         </label>
+        {!!errors.expiration && (
+          <span className="help-block">
+            {errors.expiration?.incomplete_expiry}
+            {errors.expiration?.invalid_expiry_month_past}
+            {errors.expiration?.invalid_expiry_year_past}
+          </span>
+        )}
       </Col>
-      <Col sm={6}>
-        <label className={!isEmpty(errors) ? 'error' : ''}>
+      <Col sm={6} className={errors.cvc ? 'has-error' : ''}>
+        <label className={errors.cvc ? 'error' : ''}>
           <FormattedMessage id="checkout.payment.cvc" />
-          <CardCVCElement {...createOptions()} onChange={handleChange} />
+          <CardCVCElement {...createOptions()} onChange={e => handleChange(e, 'cvc')} />
         </label>
+        {!!errors.cvc && <span className="help-block">{errors.cvc?.incomplete_cvc}</span>}
       </Col>
-      <Col sm={12} className="text-right">
+      <Col sm={12} className="text-right mt-3">
         <Button
           disabled={disableButton}
           extraClass="success-full"
