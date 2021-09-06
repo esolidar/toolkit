@@ -25,7 +25,7 @@ const createOptions = () => ({
       },
     },
     invalid: {
-      color: '#b74520',
+      color: variables['negative-_500'],
     },
   },
 });
