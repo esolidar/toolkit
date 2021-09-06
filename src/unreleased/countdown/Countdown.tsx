@@ -173,7 +173,7 @@ const Countdown: FC<Props> = ({
               {addLeadingZeros(countDowndate.hours)}
               <span>
                 {countDowndate.hours === 1 ? (
-                  <FormattedMessage id="countdown.hour" />
+                  <FormattedMessage id="hour" />
                 ) : (
                   <FormattedMessage id="countdown.hours" />
                 )}
