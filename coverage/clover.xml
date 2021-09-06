@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1630579136328" clover="3.2.0">
-  <project timestamp="1630579136328" name="All files">
+<coverage generated="1630690048596" clover="3.2.0">
+  <project timestamp="1630690048596" name="All files">
     <metrics statements="3226" coveredstatements="2128" conditionals="2728" coveredconditionals="1680" methods="861" coveredmethods="415" elements="6815" coveredelements="4223" complexity="0" loc="3226" ncloc="3226" packages="108" files="257" classes="257"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
@@ -3817,10 +3817,10 @@
         <line num="6" count="30" type="stmt"/>
         <line num="7" count="30" type="stmt"/>
         <line num="11" count="30" type="stmt"/>
-        <line num="13" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="22" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="6" type="stmt"/>
-        <line num="17" count="19" type="stmt"/>
-        <line num="19" count="19" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="/Users/pedroguia/Projects/toolkit/src/hooks/useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4001,8 +4001,8 @@
         <line num="79" count="4" type="stmt"/>
         <line num="80" count="4" type="stmt"/>
         <line num="82" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="83" count="5" type="stmt"/>
-        <line num="84" count="5" type="stmt"/>
+        <line num="83" count="8" type="stmt"/>
+        <line num="84" count="8" type="stmt"/>
         <line num="87" count="9" type="stmt"/>
         <line num="89" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="91" count="9" type="cond" truecount="4" falsecount="0"/>
@@ -4040,25 +4040,6 @@
         <line num="197" count="2" type="stmt"/>
         <line num="199" count="2" type="stmt"/>
         <line num="220" count="30" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.unreleased.detailTitle">
-      <metrics statements="10" coveredstatements="10" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
-      <file name="DetailTitle.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/detailTitle/DetailTitle.stories.tsx">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-      </file>
-      <file name="DetailTitle.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/detailTitle/DetailTitle.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.listFooter">
@@ -4132,6 +4113,25 @@
         <line num="31" count="0" type="stmt"/>
         <line num="34" count="5" type="stmt"/>
         <line num="37" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.unreleased.title">
+      <metrics statements="10" coveredstatements="10" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+      <file name="title.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/title/title.stories.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="title.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/title/title.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">

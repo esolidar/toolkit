@@ -1,18 +1,18 @@
 import { Story, Meta } from '@storybook/react';
-import DetailTitle from './DetailTitle';
-import Props from './DetailTitle.types';
+import Title from './title';
+import Props from './title.types';
 
 export default {
-  title: 'Unreleased/DetailTitle',
-  component: DetailTitle,
+  title: 'Unreleased/Title',
+  component: Title,
   parameters: {
-    jest: ['DetailTitle.test.tsx'],
+    jest: ['Title.test.tsx'],
   },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
   <div>
-    <DetailTitle {...args} />
+    <Title {...args} />
   </div>
 );
 

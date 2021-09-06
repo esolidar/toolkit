@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Props from './DetailTitle.types';
+import Props from './title.types';
 import Icon from '../../components/icon';
 
-const DetailTitle: FC<Props> = ({
+const Title: FC<Props> = ({
   title,
   supportingName,
   supportingUrl,
@@ -39,4 +39,4 @@ const DetailTitle: FC<Props> = ({
   </div>
 );
 
-export default DetailTitle;
+export default Title;
