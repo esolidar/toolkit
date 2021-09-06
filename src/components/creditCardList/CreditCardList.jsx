@@ -59,14 +59,19 @@ const CreditCardList = ({
     }
   }, [stripeCreditCard]);
 
-  const handleChange = ({ error }) => {
+  const handleChange = ({ error }, field) => {
     setDisableButton(false);
+    const receivedErrors = { ...errors };
+
     if (error) {
-      errors[error.code] = error.message;
-      setErrors(errors);
+      receivedErrors[field] = {
+        [error.code]: error.message,
+      };
     } else {
-      setErrors({});
+      delete receivedErrors[field];
     }
+
+    setErrors(receivedErrors);
   };
 
   const submit = async (stripe, elements) => {
@@ -171,7 +176,7 @@ const CreditCardList = ({
                 <StripeCheckoutFormSca
                   handleChange={handleChange}
                   submit={submit}
-                  errors={{}}
+                  errors={errors}
                   disableButton={disableButton}
                   btnText={intl.formatMessage({ id: 'save' })}
                 />

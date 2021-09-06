@@ -22,9 +22,7 @@ Default.args = {
     data: [],
   },
   env: {
-    stripe: {
-      publishableKey:
-        'pk_test_51HwraUDRsG5ScpiIgYWfWizITsiVhiyaKECi0YaOCVo5GoCB4kv2EXSRgsPowMfisHMUU9M7nn2Kz4AU2h0EtO2000BTReJHG1',
-    },
+    publishableKey:
+      'pk_test_51HwraUDRsG5ScpiIgYWfWizITsiVhiyaKECi0YaOCVo5GoCB4kv2EXSRgsPowMfisHMUU9M7nn2Kz4AU2h0EtO2000BTReJHG1',
   },
 };
