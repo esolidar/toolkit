@@ -97,15 +97,19 @@ class StripeCreditCard extends Component {
     }
   }
 
-  handleChange = ({ error }) => {
+  handleChange = ({ error }, field) => {
     const { errors } = this.state;
     this.setState({ disableButton: false });
+    const receivedErrors = { ...errors };
+
     if (error) {
-      errors[error.code] = error.message;
-      this.setState({ errors });
+      receivedErrors[field] = {
+        [error.code]: error.message,
+      };
     } else {
-      this.setState({ errors: {} });
+      delete receivedErrors[field];
     }
+    this.setState({ errors: receivedErrors });
   };
 
   submit = (stripe, elements) => {

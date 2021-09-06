@@ -496,9 +496,11 @@ describe('StripeCreditCard component', () => {
       type: 'validation_error',
     };
 
-    component.instance().handleChange({ error });
+    component.instance().handleChange({ error }, 'invalid_number');
     expect(component.state('errors')).toEqual({
-      invalid_number: 'O número do seu cartão é inválido.',
+      invalid_number: {
+        invalid_number: 'O número do seu cartão é inválido.',
+      },
     });
   });
 

@@ -7,7 +7,7 @@ export default {
   title: 'Unreleased/ListFooter',
   component: ListFooter,
   parameters: {
-    jest: ['DetailTitle.test.tsx'],
+    jest: ['ListFooter.test.tsx'],
   },
 } as Meta;
 

@@ -3,12 +3,12 @@ import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
-  Default as DefaultDetailTitle,
+  Default as DefaultTitle,
   TitleOnly as DefaultTitleOnly,
   WithoutSupportUrl as DefaultWithoutSupportUrl,
-} from '../DetailTitle.stories';
+} from '../title.stories';
 
-const Default = composeStory(DefaultDetailTitle, Meta);
+const Default = composeStory(DefaultTitle, Meta);
 const TitleOnly = composeStory(DefaultTitleOnly, Meta);
 const WithoutSupportUrl = composeStory(DefaultWithoutSupportUrl, Meta);
 
