@@ -9,7 +9,7 @@ const company: Company = {
   vat: '111111111',
   company_id: null,
   nipc: null,
-  logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/ompanies/68d60b43-c2c3-49d2-95da-96492d5fe035.jpg',
+  logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
   logo_stream: 'amazons3',
   cover_image:
     'https://image.testesolidar.com/companies/254/whitelabels/9/images/0c6f25e4-ea07-4f2a-93f9-ed24e33e47d1.jpg',
@@ -48,12 +48,12 @@ const company: Company = {
   subscription: { id: 19, company_id: 273 },
   thumbs: {
     detail:
-      'https://cdn.testesolidar.com/companies/ompanies/68d60b43-c2c3-49d2-95da-96492d5fe035-DETAIL.jpg',
+      'https://cdn.testesolidar.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8-DETAIL.jpg',
     thumb: 'https://cdn.testesolidar.com/companies/68d60b43-c2c3-49d2-95da-96492d5fe035-THUMB.png',
     cover_image:
       'https://cdn.testesolidar.com/companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
   },
-  s3_logo_key: 'companies/ompanies/68d60b43-c2c3-49d2-95da-96492d5fe035.jpg',
+  s3_logo_key: 'companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
   s3_cover_key: 'companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
   country: {
     id: 208,
