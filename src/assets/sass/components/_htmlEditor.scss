@@ -242,6 +242,14 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   }
 }
 
+.rdw-colorpicker-modal {
+  height: auto !important;
+
+  &-options {
+    overflow: hidden !important;
+  }
+}
+
 .public-DraftStyleDefault-block {
   margin: 0 !important;
 }

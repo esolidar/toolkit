@@ -116,9 +116,9 @@ const HtmlEditor = ({
     'inline',
     'blockType',
     'fontSize',
+    'colorPicker',
     'list',
     'textAlign',
-    'colorPicker',
     'remove',
     'history',
   ];

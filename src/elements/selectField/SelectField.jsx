@@ -20,6 +20,7 @@ const SelectField = ({
   info,
   help,
   showOptionalLabel,
+  isLabelLeft,
 }) => {
   const optionsList = options => {
     if (options) {
@@ -37,23 +38,36 @@ const SelectField = ({
   };
 
   return (
-    <div className={classnames('form-group', { 'has-error': error })}>
-      {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
-      {help && <span className="label-help">{help}</span>}
-      <select
-        data-testid={dataTestId}
-        name={field}
-        className={error ? `form-control ${className} required-field` : `form-control ${className}`}
-        value={value}
-        defaultValue={defaultValue}
-        onChange={onChange}
-        disabled={disabled}
-      >
-        {!hiddenSelectText && <option value="">{selectText}</option>}
-        {optionsList(options)}
-      </select>
-      {info && <span className="footer-label-info">{info}</span>}
-      {error && <span className="help-block">{error}</span>}
+    <div
+      className={classnames(
+        'select-field',
+        'form-group',
+        { 'has-error': error },
+        { 'left-label': isLabelLeft }
+      )}
+    >
+      <div className="select-field__info">
+        {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
+        {help && <span className="label-help">{help}</span>}
+      </div>
+      <div className="select-field__input">
+        <select
+          data-testid={dataTestId}
+          name={field}
+          className={
+            error ? `form-control ${className} required-field` : `form-control ${className}`
+          }
+          value={value}
+          defaultValue={defaultValue}
+          onChange={onChange}
+          disabled={disabled}
+        >
+          {!hiddenSelectText && <option value="">{selectText}</option>}
+          {optionsList(options)}
+        </select>
+        {info && <span className="footer-label-info">{info}</span>}
+        {error && <span className="help-block">{error}</span>}
+      </div>
     </div>
   );
 };
@@ -77,9 +91,11 @@ SelectField.propTypes = {
   info: PropTypes.string,
   help: PropTypes.string,
   showOptionalLabel: PropTypes.bool,
+  isLabelLeft: PropTypes.bool,
 };
 
 SelectField.defaultProps = {
   hiddenSelectText: false,
+  isLabelLeft: false,
   className: '',
 };

@@ -1,22 +1,23 @@
 import { Story, Meta } from '@storybook/react';
-import DetailTitle from './DetailTitle';
-import Props from './DetailTitle.types';
+import Title from './title';
+import Props from './title.types';
 
 export default {
-  title: 'Sprint41/DetailTitle',
-  component: DetailTitle,
+  title: 'Unreleased/Title',
+  component: Title,
   parameters: {
-    jest: ['DetailTitle.test.tsx'],
+    jest: ['Title.test.tsx'],
   },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
   <div>
-    <DetailTitle {...args} />
+    <Title {...args} />
   </div>
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const WithSubtitle: Story<Props> = Template.bind({});
 export const WithoutSupportUrl: Story<Props> = Template.bind({});
 export const TitleOnly: Story<Props> = Template.bind({});
 
@@ -27,12 +28,17 @@ Default.args = {
   goBackUrl: '#',
 };
 
-TitleOnly.args = {
+WithSubtitle.args = {
   title: 'Crowdfunding title',
+  subtitle: 'Help support the Acme Inc. initiatives',
 };
 
 WithoutSupportUrl.args = {
   title: 'Crowdfunding title',
   supportingName: 'Joel Calheiros',
   goBackUrl: '#',
+};
+
+TitleOnly.args = {
+  title: 'Crowdfunding title',
 };

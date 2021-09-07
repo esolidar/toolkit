@@ -41,7 +41,7 @@ describe('TicketsForm component', () => {
         uploadedFiles={[{ name: 2, file: { file: 'lorem_ipsum', name: 'file name' } }]}
       />
     );
-    expect(component.find('.control-label').text()).toEqual('Files');
+    expect(component.find('.control-label').text()).toEqual('File list');
     expect(component.find('.attachments-row')).toHaveLength(1);
   });
 

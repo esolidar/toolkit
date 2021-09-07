@@ -27,6 +27,7 @@ const TextareaField = ({
   onPaste,
   dataTestId,
   autofocus,
+  onKeyDown,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -65,6 +66,7 @@ const TextareaField = ({
         placeholder={placeholder}
         className={error ? `${cssClass} form-control required-field` : `${cssClass} form-control`}
         onPaste={onPaste}
+        onKeyDown={onKeyDown}
         data-testid={dataTestId}
         // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autofocus}
@@ -98,6 +100,7 @@ TextareaField.propTypes = {
   onPaste: PropTypes.func,
   dataTestId: PropTypes.string,
   autofocus: PropTypes.bool,
+  onKeyDown: PropTypes.func,
 };
 
 TextareaField.defaultProps = {

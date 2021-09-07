@@ -386,6 +386,7 @@ input[type='number']::-webkit-outer-spin-button {
         letter-spacing: 0;
         display: inline-block;
         width: 100%;
+        margin-top: 15px;
       }
 
       .StripeElement {
@@ -396,13 +397,12 @@ input[type='number']::-webkit-outer-spin-button {
         box-shadow: none;
         -webkit-box-shadow: none;
         -moz-appearance: none;
-
         font-size: 15px;
         color: map-get($input, label-color);
         letter-spacing: -0.31px;
         line-height: 24px;
         resize: none;
-        margin-bottom: 15px;
+
         padding: 10px;
       }
     }

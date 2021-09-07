@@ -1,0 +1,33 @@
+.select-field {
+  &.left-label {
+    display: flex;
+    justify-content: space-between;
+
+    .select-field__info {
+      margin-right: $distance-1;
+      height: 36.5px;
+      max-height: 36.5px;
+      display: flex;
+      flex-wrap: wrap;
+
+      label {
+        align-self: center;
+      }
+    }
+  }
+
+  &__info {
+    white-space: pre;
+    label {
+      margin-bottom: 0;
+    }
+
+    .label-help {
+      font-size: 12px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+  }
+}
