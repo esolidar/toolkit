@@ -93,6 +93,7 @@ export { default as Tabs } from './elements/tabs';
 export { default as ProgressBar } from './elements/progressBar';
 export { default as Pagination } from './elements/pagination';
 export { default as PasswordField } from './elements/passwordField';
+export { default as AccountSelector } from './elements/accountSelector';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';

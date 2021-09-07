@@ -2,7 +2,7 @@
 import { Story, Meta } from '@storybook/react';
 import AccountSelector from './AccountSelector';
 import Props from './AccountSelector.types';
-import Company from '../../../../__mocks__/company';
+import Company from '../../../__mocks__/company';
 
 export default {
   title: 'Components/AccountSelector',

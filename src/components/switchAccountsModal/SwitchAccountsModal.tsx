@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Props from './SwitchAccountsModal.types';
 import CustomModal from '../../elements/customModal';
-import AccountSelector from './accountSelector/AccountSelector';
+import AccountSelector from '../../elements/accountSelector/AccountSelector';
 
 const SwitchAccountsModal: FC<Props> = ({
   title,

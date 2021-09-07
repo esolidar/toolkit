@@ -1,25 +1,18 @@
-@mixin ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 @mixin media-breakpoint-xxs {
   @media (max-width: map-get($breakpoints, xxs)) {
-    @include ellipsis;
+    @include text-overflow-ellipsis;
     max-width: 160px;
   }
 }
 
 @mixin media-breakpoint-xs {
   @media (max-width: map-get($breakpoints, xs)) {
-    @include ellipsis;
+    @include text-overflow-ellipsis;
     max-width: 215px;
   }
 }
 
 .account-selector {
-  $self: &;
   display: flex;
   align-items: center;
   border-radius: 18px;
@@ -41,19 +34,19 @@
     flex-direction: column;
     justify-content: center;
     padding-left: $distance-2;
+  }
 
-    #{ $self }__name {
-      font-weight: 700;
-      font-size: 18px;
-      color: map-get($main-text-colors, title) !important;
-      @include media-breakpoint-xs;
-      @include media-breakpoint-xxs;
-    }
+  &__name {
+    font-weight: 700;
+    font-size: 18px;
+    color: map-get($main-text-colors, title) !important;
+    @include media-breakpoint-xs;
+    @include media-breakpoint-xxs;
+  }
 
-    #{ $self }__email {
-      color: map-get($main-text-colors, dark);
-      @include media-breakpoint-xs;
-      @include media-breakpoint-xxs;
-    }
+  &__email {
+    color: map-get($main-text-colors, dark);
+    @include media-breakpoint-xs;
+    @include media-breakpoint-xxs;
   }
 }

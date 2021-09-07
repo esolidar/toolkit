@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render } from '../../../../../__customQueries__/test-utils';
+import { render } from '../../../../__customQueries__/test-utils';
 import Meta, { Default as DefaultStory, Minimal as MinimalStory } from '../AccountSelector.stories';
-import Company from '../../../../../__mocks__/company';
+import Company from '../../../../__mocks__/company';
 
 const Default = composeStory(DefaultStory, Meta);
 const Minimal = composeStory(MinimalStory, Meta);
