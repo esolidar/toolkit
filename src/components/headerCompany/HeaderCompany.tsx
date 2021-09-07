@@ -16,11 +16,7 @@ const HeaderCompany: FC<Props> = ({ company, cdnStaticUrl }: Props): JSX.Element
 
   return (
     <div className="header-company-component">
-      <div
-        className="header-company-component__header-bg"
-        data-testid="coverBox"
-        style={coverBox}
-      />
+      <div className="header-company-component__header-bg" style={coverBox} />
     </div>
   );
 };
