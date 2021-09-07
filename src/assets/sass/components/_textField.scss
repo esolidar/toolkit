@@ -1,26 +1,62 @@
 .form-group {
   position: relative;
 
-  .form-control {
-    background-color: map-get($colors, white);
-    border: 2px solid map-get($grays, 400);
-    border-radius: 3px;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-appearance: none;
-    font-size: 15px;
-    color: map-get($input, label-color);
-    letter-spacing: -0.31px;
-    line-height: 24px;
-
-    &:focus {
-      border: 2px solid map-get($main-text-colors, dark);
-      box-shadow: none;
-    }
+  .help {
+    font-size: 13px;
+    color: map-get($main-text-colors, dark);
+    line-height: 19px;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0;
+    display: block;
   }
 
-  .form-control[disabled] {
-    opacity: 0.5;
+  .input {
+    position: relative;
+
+    & .icon {
+      position: absolute;
+      top: 0.2rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: map-get($theme-colors, dark);
+
+      &.left {
+        left: 0.2rem;
+      }
+
+      &.right {
+        right: 0.2rem;
+      }
+    }
+
+    .form-control {
+      background-color: map-get($colors, white);
+      border: 2px solid map-get($grays, 400);
+      border-radius: 3px;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-appearance: none;
+      font-size: 15px;
+      color: map-get($input, label-color);
+      letter-spacing: -0.31px;
+      line-height: 24px;
+
+      &:focus {
+        border: 2px solid map-get($main-text-colors, dark);
+        box-shadow: none;
+      }
+    }
+
+    .form-control[disabled] {
+      opacity: 0.5;
+    }
+
+    .required-field {
+      border-color: map-get($theme-colors, danger) !important;
+    }
   }
 
   .control-label {
@@ -44,19 +80,6 @@
       border-radius: 50%;
       background: map-get($theme-colors, danger);
     }
-  }
-
-  .required-field {
-    border-color: map-get($theme-colors, danger) !important;
-  }
-
-  .help {
-    font-size: 13px;
-    color: map-get($main-text-colors, dark);
-    line-height: 19px;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0;
-    display: block;
   }
 
   .label-optional {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631004357755" clover="3.2.0">
-  <project timestamp="1631004357755" name="All files">
-    <metrics statements="3238" coveredstatements="2136" conditionals="2740" coveredconditionals="1680" methods="867" coveredmethods="416" elements="6845" coveredelements="4232" complexity="0" loc="3238" ncloc="3238" packages="108" files="258" classes="258"/>
+<coverage generated="1631011724990" clover="3.2.0">
+  <project timestamp="1631011724990" name="All files">
+    <metrics statements="3238" coveredstatements="2136" conditionals="2752" coveredconditionals="1690" methods="867" coveredmethods="416" elements="6857" coveredelements="4242" complexity="0" loc="3238" ncloc="3238" packages="108" files="258" classes="258"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -2327,9 +2327,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/icon/Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="10" type="stmt"/>
-        <line num="5" count="93" type="stmt"/>
-        <line num="8" count="10" type="stmt"/>
+        <line num="5" count="28" type="stmt"/>
+        <line num="6" count="93" type="stmt"/>
+        <line num="9" count="28" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/icon/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3719,13 +3719,13 @@
       </file>
     </package>
     <package name="src.elements.textField">
-      <metrics statements="4" coveredstatements="4" conditionals="22" coveredconditionals="21" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="31" methods="1" coveredmethods="1"/>
       <file name="TextField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/TextField.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="22" coveredconditionals="21" methods="1" coveredmethods="1"/>
-        <line num="7" count="21" type="stmt"/>
-        <line num="32" count="126" type="stmt"/>
-        <line num="66" count="21" type="stmt"/>
-        <line num="92" count="21" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="31" methods="1" coveredmethods="1"/>
+        <line num="8" count="21" type="stmt"/>
+        <line num="35" count="127" type="stmt"/>
+        <line num="91" count="21" type="stmt"/>
+        <line num="125" count="21" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
