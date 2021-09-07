@@ -12,7 +12,7 @@ const company: Company = {
   logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
   logo_stream: 'amazons3',
   cover_image:
-    'https://cdn.testesolidar.com/companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
+    'https://image.testesolidar.com/companies/254/whitelabels/9/images/0c6f25e4-ea07-4f2a-93f9-ed24e33e47d1.jpg',
   about: '',
   presentation: '',
   phone: '911111111',
