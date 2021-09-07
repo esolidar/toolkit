@@ -1,5 +1,5 @@
 import User from '../../interfaces/user.types';
-import Companies from '../../interfaces/companies.type';
+import Company from '../../interfaces/company.types';
 
 interface Props {
   title: string;
@@ -7,7 +7,7 @@ interface Props {
   numberOfAccounts?: number;
   isOpen: boolean;
   user?: User;
-  companies: Companies;
+  companies: Company[];
   handleClickSelectUser(): any;
   handleClickSelectCompany(): any;
 }
