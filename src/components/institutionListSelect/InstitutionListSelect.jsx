@@ -59,7 +59,7 @@ const InstitutionListSelect = ({
         </Col>
       ) : (
         <Col md={12} className={classnames({ 'has-error': error })}>
-          {!institutions.length ? (
+          {institutions.length === 0 ? (
             <div className="text-center no-results">
               {NoResultsText || intl.formatMessage({ id: 'noDataText' })}
             </div>
