@@ -1,27 +1,32 @@
-.component-detail-title {
-  .detail-title-back {
+.component-title {
+  &-back {
     color: map-get($turquoise, 500);
     text-decoration: underline;
   }
 
-  .detail-title-h1 {
+  &-h1 {
     font-size: 36px;
     color: map-get($grays, 900);
     margin: 0;
     padding: 0;
   }
-  .detail-title-supporting {
+
+  &-subtitle {
+    font-size: 14px;
+  }
+
+  &-supporting {
     font-size: 14px;
     color: map-get($grays, 700);
 
-    .detail-title-supporting-href {
+    &-href {
       margin-left: $distance-1;
       color: map-get($turquoise, 500);
       font-weight: 700;
       font-size: 15px;
     }
 
-    .detail-title-supporting-name {
+    &-name {
       margin-left: $distance-1;
       font-weight: 700;
       font-size: 15px;
