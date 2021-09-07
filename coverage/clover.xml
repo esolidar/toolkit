@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631007630818" clover="3.2.0">
-  <project timestamp="1631007630819" name="All files">
-    <metrics statements="3252" coveredstatements="2156" conditionals="2742" coveredconditionals="1684" methods="870" coveredmethods="420" elements="6864" coveredelements="4260" complexity="0" loc="3252" ncloc="3252" packages="109" files="260" classes="260"/>
+<coverage generated="1631010692462" clover="3.2.0">
+  <project timestamp="1631010692462" name="All files">
+    <metrics statements="3250" coveredstatements="2154" conditionals="2742" coveredconditionals="1684" methods="869" coveredmethods="419" elements="6861" coveredelements="4257" complexity="0" loc="3250" ncloc="3250" packages="109" files="260" classes="260"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -2231,7 +2231,7 @@
       </file>
     </package>
     <package name="src.components.headerCompany">
-      <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="HeaderCompany.stories.tsx" path="C:\Projects\toolkit\src\components\headerCompany\HeaderCompany.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="15" count="1" type="stmt"/>
@@ -2244,13 +2244,11 @@
         <line num="32" count="1" type="stmt"/>
       </file>
       <file name="HeaderCompany.tsx" path="C:\Projects\toolkit\src\components\headerCompany\HeaderCompany.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.heartSeparator">
@@ -3831,12 +3829,12 @@
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
+        <line num="35" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="8" type="stmt"/>
+        <line num="40" count="8" type="stmt"/>
+        <line num="41" count="8" type="stmt"/>
+        <line num="42" count="8" type="stmt"/>
         <line num="47" count="43" type="stmt"/>
         <line num="81" count="18" type="stmt"/>
         <line num="106" count="18" type="stmt"/>
@@ -4303,7 +4301,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="39" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="44" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
