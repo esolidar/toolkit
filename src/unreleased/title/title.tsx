@@ -1,42 +1,44 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
-import Props from './DetailTitle.types';
+import Props from './title.types';
 import Icon from '../../components/icon';
 
-const DetailTitle: FC<Props> = ({
+const Title: FC<Props> = ({
   title,
+  subtitle,
   supportingName,
   supportingUrl,
   goBackUrl,
 }: Props): JSX.Element => (
-  <div className="component-detail-title">
+  <div className="component-title">
     {goBackUrl && (
-      <a className="detail-title-back" href={goBackUrl}>
-        <Icon iconClass="icon-cheveron-left" />
+      <a className="component-title-back" href={goBackUrl}>
+        <Icon iconClass="icon-chevron-left" />
         <FormattedMessage id="go.back" />
       </a>
     )}
-    <h1 className="detail-title-h1">{title}</h1>
+    <h1 className="component-title-h1">{title}</h1>
+    <span className="component-title-subtitle">{subtitle}</span>
     {supportingName && (
-      <div className="detail-title-supporting">
+      <div className="component-title-supporting">
         <FormattedMessage id="supporting" />
         {supportingUrl && supportingName && (
           <a
             href={supportingUrl}
             title={supportingName}
             target="_blank"
-            className="detail-title-supporting-href"
+            className="component-title-supporting-href"
             rel="noreferrer"
           >
             {supportingName}
           </a>
         )}
         {!supportingUrl && supportingName && (
-          <span className="detail-title-supporting-name">{supportingName}</span>
+          <span className="component-title-supporting-name">{supportingName}</span>
         )}
       </div>
     )}
   </div>
 );
 
-export default DetailTitle;
+export default Title;

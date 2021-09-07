@@ -339,7 +339,7 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({ id: 'project.tickets.files' })}
+                        {intl.formatMessage({ id: 'document.files.modal.fileList' })}
                       </span>
                       <div className="attachments-box">{renderUploadedFiles(uploadedFiles)}</div>
                     </div>
@@ -383,7 +383,7 @@ const TicketsForm = ({
                   <Col sm={12}>
                     <div className="form-group">
                       <span htmlFor="status" className="control-label">
-                        {intl.formatMessage({ id: 'project.tickets.files' })}
+                        {intl.formatMessage({ id: 'document.files.modal.fileList' })}
                       </span>
                       <div className="attachments-box">{renderUploadedFiles(uploadedFiles)}</div>
                     </div>

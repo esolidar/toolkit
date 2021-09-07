@@ -1,6 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { composeStory } from '@storybook/testing-react';
 import SelectField from '../index';
+import '@testing-library/jest-dom';
+import { render } from '../../../../__customQueries__/test-utils';
+import Meta, { LeftLabel } from '../SelectField.stories';
+
+const LeftLabelComponent = composeStory(LeftLabel, Meta);
 
 const changed = jest.fn();
 
@@ -86,5 +92,12 @@ describe('SelectField component', () => {
     );
 
     expect(component.find('.form-control').hasClass('required-field')).toEqual(true);
+  });
+
+  it('renders Select Field with label on the left side', () => {
+    const { getByText, getByClass } = render(<LeftLabelComponent />);
+
+    expect(getByText('Select left')).toBeInTheDocument();
+    expect(getByClass('select-field form-group left-label')).toBeInTheDocument();
   });
 });
