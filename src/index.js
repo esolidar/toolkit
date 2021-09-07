@@ -68,6 +68,7 @@ export { default as UserMenu } from './components/userMenu';
 export { default as SupportBox } from './components/supportBox';
 export { default as NewPostBox } from './components/feed';
 export { default as Picture } from './components/picture';
+export { default as HeaderCompany } from './components/headerCompany';
 
 // Elements
 export { default as Button } from './elements/button';
