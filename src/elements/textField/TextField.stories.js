@@ -4,14 +4,16 @@ import TextField from './TextField';
 export default {
   title: 'Elements/TextField',
   component: TextField,
+  parameters: {
+    jest: ['TextField.test.tsx'],
+  },
 };
 
 const Template = args => <TextField {...args} />;
 
 export const Default = Template.bind({});
-Default.parameters = {
-  jest: ['TextField.test.js'],
-};
+export const WithIcons = Template.bind({});
+
 Default.args = {
   label: 'Lorem Ipsum',
   type: 'text',
@@ -20,4 +22,16 @@ Default.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
+};
+
+WithIcons.args = {
+  label: 'Lorem Ipsum',
+  type: 'text',
+  onChange: () => {},
+  error: '',
+  placeholder: '',
+  defaultValue: 'defaultValue',
+  field: 'forCompanies',
+  leftIcon: { name: 'icon-search' },
+  rightIcon: { name: 'icon-x', onClick: () => alert('right-button') },
 };
