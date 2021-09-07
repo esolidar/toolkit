@@ -29,5 +29,10 @@
     flex-direction: column;
     padding: $distance-3 $distance-3 $distance-5 $distance-3;
     background-color: map-get($neutrals, 100);
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      padding-left: $distance-2;
+      padding-right: $distance-2;
+    }
   }
 }

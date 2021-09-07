@@ -22,17 +22,17 @@ describe('SwitchAccountsModal', () => {
   it('Renders two account selector components', () => {
     const { queryAllByTestId } = render(<Default />);
 
-    expect(queryAllByTestId('account-selector')).toHaveLength(2);
+    expect(queryAllByTestId('list-element')).toHaveLength(2);
   });
 
   it('Renders correct user and company info', () => {
     const { queryAllByAltText, getByText } = render(<Default />);
 
-    expect(queryAllByAltText('account-img')).toHaveLength(2);
-    expect(queryAllByAltText('account-img')[0]).toHaveAttribute('src', user.thumbs.thumb);
+    expect(queryAllByAltText('img-thumb')).toHaveLength(2);
+    expect(queryAllByAltText('img-thumb')[0]).toHaveAttribute('src', user.thumbs.thumb);
     expect(getByText(user.name)).toBeInTheDocument();
     expect(getByText(user.email)).toBeInTheDocument();
-    expect(queryAllByAltText('account-img')[1]).toHaveAttribute('src', company.thumbs.thumb);
+    expect(queryAllByAltText('img-thumb')[1]).toHaveAttribute('src', company.thumbs.thumb);
     expect(getByText(company.name)).toBeInTheDocument();
     expect(getByText('Admin')).toBeInTheDocument();
   });
@@ -45,9 +45,9 @@ describe('SwitchAccountsModal', () => {
     expect(getByText('Select company')).toBeInTheDocument();
     expect(queryByText(user.name)).not.toBeInTheDocument();
     expect(queryByText(user.email)).not.toBeInTheDocument();
-    expect(queryAllByTestId('account-selector')).toHaveLength(3);
-    expect(queryAllByAltText('account-img')).toHaveLength(3);
-    expect(queryAllByAltText('account-img')[1]).toHaveAttribute('src', company.thumbs.thumb);
+    expect(queryAllByTestId('list-element')).toHaveLength(3);
+    expect(queryAllByAltText('img-thumb')).toHaveLength(3);
+    expect(queryAllByAltText('img-thumb')[1]).toHaveAttribute('src', company.thumbs.thumb);
     expect(queryAllByText(company.name)).toHaveLength(3);
     expect(queryByText('Admin')).not.toBeInTheDocument();
   });

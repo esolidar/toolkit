@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Props from './SwitchAccountsModal.types';
 import CustomModal from '../../elements/customModal';
-import AccountSelector from '../../elements/accountSelector/AccountSelector';
+import ListElement from '../../elements/listElement';
 
 const SwitchAccountsModal: FC<Props> = ({
   title,
@@ -17,7 +17,7 @@ const SwitchAccountsModal: FC<Props> = ({
   const showCompanies = companies => {
     if (companies?.length > 0) {
       return companies.map((company, index) => (
-        <AccountSelector
+        <ListElement
           key={index}
           onClick={handleClickSelectCompany}
           name={company.name}
@@ -44,7 +44,7 @@ const SwitchAccountsModal: FC<Props> = ({
           </div>
           <div className="switch-accounts-modal__account-list">
             {user && (
-              <AccountSelector
+              <ListElement
                 onClick={handleClickSelectUser}
                 name={user?.name}
                 email={user?.email}

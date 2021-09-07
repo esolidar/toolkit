@@ -1,22 +1,26 @@
 @mixin media-breakpoint-xxs {
   @media (max-width: map-get($breakpoints, xxs)) {
     @include text-overflow-ellipsis;
-    max-width: 160px;
+    max-width: 185px;
   }
 }
 
 @mixin media-breakpoint-xs {
   @media (max-width: map-get($breakpoints, xs)) {
     @include text-overflow-ellipsis;
-    max-width: 215px;
+    max-width: 240px;
   }
 }
 
-.account-selector {
+.list-element {
   display: flex;
   align-items: center;
   border-radius: 18px;
   padding: $distance-2;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    padding: $distance-1;
+  }
 
   &:hover {
     background-color: map-get($grays, 50);

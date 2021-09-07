@@ -1,18 +1,18 @@
 /* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
-import AccountSelector from './AccountSelector';
-import Props from './AccountSelector.types';
+import ListElement from './ListElement';
+import Props from './ListElement.types';
 import Company from '../../../__mocks__/company';
 
 export default {
-  title: 'Components/AccountSelector',
-  component: AccountSelector,
+  title: 'Elements/ListElement',
+  component: ListElement,
   parameters: {
-    jest: ['AccountSelector.test.tsx'],
+    jest: ['ListElement.test.tsx'],
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <AccountSelector {...args} />;
+const Template: Story<Props> = (args: Props) => <ListElement {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 export const Minimal: Story<Props> = Template.bind({});
