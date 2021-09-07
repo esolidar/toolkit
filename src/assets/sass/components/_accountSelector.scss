@@ -1,0 +1,59 @@
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin media-breakpoint-xxs {
+  @media (max-width: map-get($breakpoints, xxs)) {
+    @include ellipsis;
+    max-width: 160px;
+  }
+}
+
+@mixin media-breakpoint-xs {
+  @media (max-width: map-get($breakpoints, xs)) {
+    @include ellipsis;
+    max-width: 215px;
+  }
+}
+
+.account-selector {
+  $self: &;
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+  padding: $distance-2;
+
+  &:hover {
+    background-color: map-get($grays, 50);
+    cursor: pointer;
+  }
+
+  &__img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: $distance-2;
+
+    #{ $self }__name {
+      font-weight: 700;
+      font-size: 18px;
+      color: map-get($main-text-colors, title) !important;
+      @include media-breakpoint-xs;
+      @include media-breakpoint-xxs;
+    }
+
+    #{ $self }__email {
+      color: map-get($main-text-colors, dark);
+      @include media-breakpoint-xs;
+      @include media-breakpoint-xxs;
+    }
+  }
+}
