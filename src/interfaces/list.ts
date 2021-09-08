@@ -11,7 +11,7 @@ interface List {
   current_page: number;
   data: Crowdfunding[] | Auction[];
   first_page_url?: string;
-  from: number;
+  from?: number;
   last_page: number;
   last_page_url?: string;
   links?: Link[];
@@ -19,7 +19,7 @@ interface List {
   path?: string;
   per_page: number | string;
   prev_page_url?: null;
-  to: number;
+  to?: number;
   total: number;
 }
 

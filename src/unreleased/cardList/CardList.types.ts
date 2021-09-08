@@ -1,22 +1,23 @@
 /* eslint-disable camelcase */
+import Crowdfunding from '../../interfaces/crowdfunding.types';
+
 interface SeeAll {
   url?: string;
   text?: string;
 }
 
-interface Card {
-  contributes_count?: number;
+interface Card extends Crowdfunding {
   bid_start?: number;
   project_category?: object;
-  type: 'crowdfundings' | 'auctions' | 'projects';
+  type: 'crowdfunding' | 'auction' | 'project';
 }
 
 interface List {
   current_page: number;
-  from: number;
+  from?: number;
   last_page: number;
   per_page: number | string;
-  to: number;
+  to?: number;
   total: number;
   data: Card[];
 }

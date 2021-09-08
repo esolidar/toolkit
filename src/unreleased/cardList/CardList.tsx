@@ -9,6 +9,38 @@ import ListFooter from '../listFooter/ListFooter';
 import Title from '../title/title';
 import List from '../../interfaces/list';
 
+interface Types {
+  crowdfunding: number;
+  auction: number;
+  project: number;
+}
+
+const getListFooterLabel = ({ crowdfunding, auction, project }: Types, intl: () => void) => {
+  if (crowdfunding > 0 && auction === 0 && project === 0) {
+    return intl.formatMessage({
+      id: 'toolkit.list.footer.crowdfunding',
+      values: { count: crowdfunding },
+    });
+  }
+  if (crowdfunding === 0 && auction > 0 && project === 0) {
+    return intl.formatMessage({
+      id: 'toolkit.list.footer.crowdfunding',
+      values: { count: auction },
+    });
+  }
+  if (crowdfunding === 0 && auction === 0 && project > 0) {
+    return intl.formatMessage({
+      id: 'toolkit.list.footer.project',
+      values: { count: auction },
+    });
+  }
+
+  return intl.formatMessage({
+    id: 'toolkit.list.footer.initiative',
+    values: { count: auction },
+  });
+};
+
 const CardList: FC<Props> = ({
   title,
   subtitle,
@@ -22,27 +54,33 @@ const CardList: FC<Props> = ({
   onChangeSelectPerPage,
 }: Props): JSX.Element => {
   const intl = useIntl();
-  const [cardList, setCardList] = useState<List | []>([]);
-  const [types, setTypes] = useState('');
+  const [cardList, setCardList] = useState<List>(list);
+  const [types, setTypes] = useState({
+    crowdfunding: 0,
+    auction: 0,
+    project: 0,
+  });
 
   useEffect(() => {
     const tempList = { ...list };
+    const tempTypes = { ...types };
 
     tempList.data.map(card => {
       if (card.contributes_count !== undefined) {
-        card.type = 'crowdfundings';
-        setTypes(card.type);
+        card.type = 'crowdfunding';
+        tempTypes.crowdfunding += 1;
       }
       if (card.bid_start !== undefined) {
-        card.type = 'auctions';
-        setTypes(card.type);
+        card.type = 'auction';
+        tempTypes.auction += 1;
       }
       if (card.project_category !== undefined) {
-        card.type = 'projects';
-        setTypes(card.type);
+        card.type = 'project';
+        tempTypes.project += 1;
       }
     });
 
+    setTypes(tempTypes);
     setCardList(tempList);
   }, [list]);
 
@@ -50,7 +88,7 @@ const CardList: FC<Props> = ({
     <>
       <Title title={title} subtitle={subtitle} />
       <Row className="cardList__content">
-        {cardList.data?.map(card => (
+        {cardList?.data?.map(card => (
           <Col xs={12} sm={4} lg={3}>
             {card?.type === 'crowdfundings' && (
               <CardCrowdfunding
@@ -65,7 +103,7 @@ const CardList: FC<Props> = ({
       </Row>
       {hasListFooter && (
         <ListFooter
-          labelResultText={types}
+          labelResultText={getListFooterLabel(types, intl)}
           onChangePagination={onChangePagination}
           onChangeSelectPerPage={onChangeSelectPerPage}
           data={cardList}
@@ -75,7 +113,7 @@ const CardList: FC<Props> = ({
       {!!seeAll && !hasListFooter && (
         <div className="cardList__see-all text-center">
           <Button
-            extraClass="primary-full"
+            extraClass="primary"
             fullWidth={false}
             rounded={false}
             href={seeAll.url}

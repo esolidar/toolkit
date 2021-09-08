@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import CardList from './CardList';
 import Props from './CardList.types';
 import crowdfunding from '../../../__mocks__/crowdfunding';
+import auction from '../../../__mocks__/auction';
 
 export default {
   title: 'Unreleased/CardList',
@@ -28,7 +29,8 @@ Default.args = {
     total: 4,
     per_page: 6,
     current_page: 1,
-    data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding],
+    last_page: 1,
+    data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding, auction],
   },
   hasListFooter: true,
   perPageOptions: [6],
@@ -39,6 +41,7 @@ WithoutTitleAndSubtitle.args = {
     total: 2,
     per_page: 6,
     current_page: 1,
+    last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
   hasListFooter: true,
@@ -52,6 +55,7 @@ SeeAll.args = {
     total: 2,
     per_page: 6,
     current_page: 1,
+    last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
   seeAll: {
