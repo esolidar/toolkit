@@ -32,6 +32,6 @@ WithIcons.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
-  leftIcon: { name: 'icon-search' },
-  rightIcon: { name: 'icon-x', onClick: () => alert('right-button') },
+  leftIcon: { name: 'icon-search', show: true },
+  rightIcon: { name: 'icon-x', onClick: () => alert('right-button'), show: true },
 };
