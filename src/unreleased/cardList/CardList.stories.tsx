@@ -2,7 +2,6 @@ import { Story, Meta } from '@storybook/react';
 import CardList from './CardList';
 import Props from './CardList.types';
 import crowdfunding from '../../../__mocks__/crowdfunding';
-import auction from '../../../__mocks__/auction';
 
 export default {
   title: 'Unreleased/CardList',
@@ -34,25 +33,26 @@ Default.args = {
   hasListFooter: true,
 };
 
-// WithoutTitleAndSubtitle.args = {
-//   list: {
-//     total: 15,
-//     per_page: '1',
-//     current_page: 1,
-//     data: [crowdfunding],
-//   },
-//   hasListFooter: true,
-// };
+WithoutTitleAndSubtitle.args = {
+  list: {
+    total: 15,
+    per_page: '1',
+    current_page: 1,
+    data: [crowdfunding],
+  },
+  hasListFooter: true,
+};
 
-// SeeAll.args = {
-//   title: 'Initiatives',
-//   subtitle: 'Initiatives supporting the project',
-//   list: {
-//     total: 15,
-//     per_page: '1',
-//     current_page: 1,
-//   },
-//   seeAll: {
-//     url: 'https://www.google.com',
-//   },
-// };
+SeeAll.args = {
+  title: 'Initiatives',
+  subtitle: 'Initiatives supporting the project',
+  list: {
+    total: 15,
+    per_page: '1',
+    current_page: 1,
+    data: [crowdfunding],
+  },
+  seeAll: {
+    url: 'joel.testesolidar.com/pt/crowdfunding/list',
+  },
+};

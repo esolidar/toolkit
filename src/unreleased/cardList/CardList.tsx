@@ -21,7 +21,7 @@ const CardList: FC<Props> = ({
   onChangeSelectPerPage,
 }: Props): JSX.Element => {
   const intl = useIntl();
-  const [cardList, setCardList] = useState<List>([]);
+  const [cardList, setCardList] = useState<List | []>([]);
   const [types, setTypes] = useState('');
 
   useEffect(() => {
@@ -34,6 +34,10 @@ const CardList: FC<Props> = ({
       }
       if (card.bid_start !== undefined) {
         card.type = 'auction';
+        setTypes(card.type);
+      }
+      if (card.project_category !== undefined) {
+        card.type = 'project';
         setTypes(card.type);
       }
     });
@@ -55,7 +59,6 @@ const CardList: FC<Props> = ({
                 lang={lang}
               />
             )}
-            {/* {card?.type === 'auction' && <div>Auction</div>} */}
           </Col>
         ))}
       </Row>
@@ -68,7 +71,7 @@ const CardList: FC<Props> = ({
         />
       )}
       {!!seeAll && !hasListFooter && (
-        <div className="text-center">
+        <div className="cardList__see-all text-center">
           <Button
             extraClass="primary-full"
             fullWidth={false}

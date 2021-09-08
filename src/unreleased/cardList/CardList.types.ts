@@ -5,8 +5,9 @@ interface SeeAll {
 }
 
 interface Card {
-  contributes_count: number;
-  bid_start: number;
+  contributes_count?: number;
+  bid_start?: number;
+  project_category?: object;
   type: 'crowdfunding' | 'auction' | 'project';
 }
 
