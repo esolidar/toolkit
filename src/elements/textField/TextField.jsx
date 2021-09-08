@@ -41,7 +41,7 @@ const TextField = ({
     {help && <p className="help">{help}</p>}
     {!children && (
       <div className="input">
-        {leftIcon?.name && (
+        {leftIcon?.show && (
           <Icon
             iconClass={`icon left ${leftIcon?.name}`}
             onClick={leftIcon?.onClick}
@@ -67,11 +67,11 @@ const TextField = ({
           className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
           style={{
-            paddingLeft: leftIcon?.name ? '36px' : '12px',
-            paddingRight: rightIcon?.name ? '36px' : '12px',
+            paddingLeft: leftIcon?.show ? '36px' : '12px',
+            paddingRight: rightIcon?.show ? '36px' : '12px',
           }}
         />
-        {rightIcon?.name && (
+        {rightIcon?.show && (
           <Icon
             iconClass={`icon right ${rightIcon?.name}`}
             onClick={rightIcon?.onClick}
@@ -115,10 +115,12 @@ TextField.propTypes = {
   leftIcon: PropTypes.shape({
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
   }),
   rightIcon: PropTypes.shape({
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
   }),
 };
 

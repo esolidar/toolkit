@@ -1,0 +1,17 @@
+.list-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  > * {
+    margin-right: $distance-2;
+  }
+
+  > *:last-of-type {
+    margin-right: 0;
+  }
+
+  &__space {
+    margin-right: auto;
+  }
+}

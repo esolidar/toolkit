@@ -55,7 +55,10 @@ describe('TextField component', () => {
 
   it('renders TextField with left and right icons', () => {
     const component = shallow(
-      <TextField leftIcon={{ name: 'icon-search' }} rightIcon={{ name: 'icon-x' }} />
+      <TextField
+        leftIcon={{ name: 'icon-search', show: true }}
+        rightIcon={{ name: 'icon-x', show: true }}
+      />
     );
 
     expect(component.find('[dataTestId="input-left-icon"]').length).toBe(1);
