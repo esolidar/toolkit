@@ -172,7 +172,6 @@ const AuctionAddForm = ({
     if (institutionCategories && institutionCategories.code === 200) {
       const { categories } = institutionCategories.data;
       setInstitutionCategoriesData(categories);
-      setInstitutionCategory(categories[0].id);
     }
   }, [institutionCategories]);
 

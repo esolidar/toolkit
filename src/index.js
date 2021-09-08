@@ -69,6 +69,7 @@ export { default as SupportBox } from './components/supportBox';
 export { default as NewPostBox } from './components/feed';
 export { default as Picture } from './components/picture';
 export { default as HeaderCompany } from './components/headerCompany';
+export { default as SwitchAccountsModal } from './components/switchAccountsModal';
 
 // Elements
 export { default as Button } from './elements/button';
@@ -92,6 +93,7 @@ export { default as Tabs } from './elements/tabs';
 export { default as ProgressBar } from './elements/progressBar';
 export { default as Pagination } from './elements/pagination';
 export { default as PasswordField } from './elements/passwordField';
+export { default as ListElement } from './elements/listElement';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
