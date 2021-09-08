@@ -4,6 +4,7 @@ import TextareaField from '../../elements/textareaField';
 import DropZoneBox from '../../elements/dropZoneBox';
 import Loading from '../loading';
 import Button from '../../elements/button';
+import ProfileAvatar from '../../unreleased/profileAvatar';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
 import Icon from '../icon';
 import Picture from '../picture';
@@ -219,16 +220,10 @@ const NewPostBox: FC<Props> = ({
               <Loading />
             </div>
           )}
-          <div className="feed-create-post-header" data-testid="header">
-            <img src={user.thumbs.thumb} alt={user.name} className="thumb" />
-            {!editMode ? (
-              <span>
-                <FormattedMessage id="feed.create.post.with.login" />
-              </span>
-            ) : (
-              <span>{user.name}</span>
-            )}
-          </div>
+          <ProfileAvatar
+            thumb={user.thumbs.thumb}
+            name={editMode ? user.name : intl.formatMessage({ id: 'feed.create.post.with.login' })}
+          />
           {editMode && (
             <>
               <div className="feed-create-post-body" data-testid="body">

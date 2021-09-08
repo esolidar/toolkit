@@ -5,7 +5,7 @@
   position: relative;
   margin-bottom: $distance-3;
 
-  .feed-create-post-loading {
+  &-loading {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,19 +30,7 @@
     padding-left: $distance-1;
   }
 
-  .feed-create-post-header {
-    .thumb {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: $distance-2;
-    }
-    span {
-      color: map-get($neutrals, 700);
-    }
-  }
-
-  .feed-create-post-body {
+  &-body {
     .no-border {
       border: none;
       padding: 0;
@@ -130,7 +118,7 @@
         }
       }
 
-      .share-link-preview-domain {
+      &-domain {
         padding-top: $distance-1;
         padding-right: $distance-2;
         padding-left: $distance-2;
@@ -138,13 +126,14 @@
         color: map-get($neutrals, 700);
         text-transform: uppercase;
       }
-      .share-link-preview-title {
+
+      &-title {
         padding-left: $distance-2;
         padding-right: $distance-2;
         font-size: 18px;
         color: map-get($neutrals, 700);
       }
-      .share-link-preview-og_description {
+      &-og_description {
         padding-left: $distance-2;
         padding-right: $distance-2;
         padding-bottom: $distance-1;
