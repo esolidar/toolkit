@@ -32,6 +32,7 @@ interface Props {
   lang: 'pt' | 'br' | 'en';
   onChangeSelectPerPage(): void;
   onChangePagination(): void;
+  perPageOptions?: number[];
 }
 
 export default Props;

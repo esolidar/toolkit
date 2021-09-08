@@ -31,6 +31,7 @@ Default.args = {
     data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding],
   },
   hasListFooter: true,
+  perPageOptions: [6],
 };
 
 WithoutTitleAndSubtitle.args = {
@@ -41,6 +42,7 @@ WithoutTitleAndSubtitle.args = {
     data: [crowdfunding, crowdfunding],
   },
   hasListFooter: true,
+  perPageOptions: [6],
 };
 
 SeeAll.args = {
@@ -55,4 +57,5 @@ SeeAll.args = {
   seeAll: {
     url: 'https://joel.testesolidar.com/pt/crowdfunding/list',
   },
+  perPageOptions: [6],
 };

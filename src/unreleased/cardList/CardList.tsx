@@ -15,6 +15,7 @@ const CardList: FC<Props> = ({
   list,
   seeAll,
   communityUrl,
+  perPageOptions,
   lang = 'en',
   hasListFooter = false,
   onChangePagination,
@@ -68,6 +69,7 @@ const CardList: FC<Props> = ({
           onChangePagination={onChangePagination}
           onChangeSelectPerPage={onChangeSelectPerPage}
           data={cardList}
+          perPageOptions={perPageOptions}
         />
       )}
       {!!seeAll && !hasListFooter && (
