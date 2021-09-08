@@ -19,14 +19,14 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default = Template.bind({});
 export const WithoutTitleAndSubtitle = Template.bind({});
-export const SeeAll: Story<Props> = Template.bind({});
+export const SeeAll = Template.bind({});
 
 Default.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {
-    total: 15,
-    per_page: 1,
+    total: 4,
+    per_page: 6,
     current_page: 1,
     data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding],
   },
@@ -35,10 +35,10 @@ Default.args = {
 
 WithoutTitleAndSubtitle.args = {
   list: {
-    total: 15,
-    per_page: '1',
+    total: 2,
+    per_page: 6,
     current_page: 1,
-    data: [crowdfunding],
+    data: [crowdfunding, crowdfunding],
   },
   hasListFooter: true,
 };
@@ -47,12 +47,12 @@ SeeAll.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {
-    total: 15,
-    per_page: '1',
+    total: 2,
+    per_page: 6,
     current_page: 1,
-    data: [crowdfunding],
+    data: [crowdfunding, crowdfunding],
   },
   seeAll: {
-    url: 'joel.testesolidar.com/pt/crowdfunding/list',
+    url: 'https://joel.testesolidar.com/pt/crowdfunding/list',
   },
 };

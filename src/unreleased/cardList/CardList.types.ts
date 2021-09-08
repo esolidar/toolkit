@@ -8,7 +8,7 @@ interface Card {
   contributes_count?: number;
   bid_start?: number;
   project_category?: object;
-  type: 'crowdfunding' | 'auction' | 'project';
+  type: 'crowdfundings' | 'auctions' | 'projects';
 }
 
 interface List {

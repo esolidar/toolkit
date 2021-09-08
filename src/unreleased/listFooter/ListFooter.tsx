@@ -13,6 +13,7 @@ const ListFooter: FC<Props> = ({
   return (
     <div className="component-list-footer" data-testid="list-footer">
       <div className="component-list-footer-results">{`${data.total} ${labelResultText}`}</div>
+      {console.log('teste', data.total)}
       <div>
         <Pagination
           activePage={data.current_page}
