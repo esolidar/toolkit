@@ -1,7 +1,7 @@
 interface Props {
   isBold?: boolean;
   name?: string;
-  thumb: string;
+  thumb?: string;
 }
 
 export default Props;
