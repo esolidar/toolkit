@@ -22,7 +22,7 @@ it('renders ProgressBar default', () => {
   expect(getByTestId('goal-label')).toBeInTheDocument();
 });
 
-it('renders ProgressBar default', () => {
+it('renders ProgressBar crowdfunding', () => {
   const { getByTestId, getByText, getByClass } = render(<Crowdfunding />);
 
   expect(getByTestId('progress-bar')).toBeInTheDocument();
