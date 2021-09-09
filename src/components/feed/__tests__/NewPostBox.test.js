@@ -47,7 +47,7 @@ it('With Login', () => {
   expect(body).not.toBeInTheDocument();
 });
 
-it('With Login and scrapter link', async () => {
+it('With Login and scrapter link', () => {
   render(<NewPostBoxFocusBoxWithShare />);
 
   const box = screen.queryByTestId('feed-create-post');
