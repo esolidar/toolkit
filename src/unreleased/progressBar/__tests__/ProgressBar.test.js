@@ -3,11 +3,13 @@ import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
+  Crowdfunding as CrowdfundingStory,
   Minimal as MinimalStory,
   HideRaisedOf as hideRaisedOfStory,
 } from '../ProgressBar.stories';
 
 const Default = composeStory(DefaultStory, Meta);
+const Crowdfunding = composeStory(CrowdfundingStory, Meta);
 const Minimal = composeStory(MinimalStory, Meta);
 const HideRaisedOf = composeStory(hideRaisedOfStory, Meta);
 
@@ -18,6 +20,18 @@ it('renders ProgressBar default', () => {
   expect(getByTestId('bar')).toBeInTheDocument();
   expect(getByTestId('progress-bar-labels')).toBeInTheDocument();
   expect(getByTestId('goal-label')).toBeInTheDocument();
+});
+
+it('renders ProgressBar default', () => {
+  const { getByTestId, getByText, getByClass } = render(<Crowdfunding />);
+
+  expect(getByTestId('progress-bar')).toBeInTheDocument();
+  expect(getByTestId('bar')).toBeInTheDocument();
+  expect(getByTestId('progress-bar-labels')).toBeInTheDocument();
+  expect(getByTestId('goal-label')).toBeInTheDocument();
+  expect(getByText('22 donors')).toBeInTheDocument();
+  expect(getByClass('time-left')).toBeInTheDocument();
+  expect(getByText('15 days left')).toBeInTheDocument();
 });
 
 it('renders ProgressBar Minimal', () => {
