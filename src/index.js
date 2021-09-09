@@ -70,6 +70,7 @@ export { default as NewPostBox } from './components/feed';
 export { default as Picture } from './components/picture';
 export { default as HeaderCompany } from './components/headerCompany';
 export { default as SwitchAccountsModal } from './components/switchAccountsModal';
+export { default as ProfileAvatar } from './components/profileAvatar';
 
 // Elements
 export { default as Button } from './elements/button';
