@@ -1,0 +1,39 @@
+$border-radius-1: 8px;
+
+.detail-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border: 1px solid map-get($neutrals, 400);
+  border-radius: $border-radius-1;
+  max-width: 500px;
+  overflow: hidden;
+
+  &__header {
+    border-bottom: 1px solid map-get($neutrals, 400);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__body {
+    padding: $distance-2;
+  }
+
+  &__organized {
+    margin-top: auto;
+    padding: $distance-2;
+
+    & p {
+      margin-bottom: $distance-1;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70px;
+    padding: $distance-2;
+  }
+}

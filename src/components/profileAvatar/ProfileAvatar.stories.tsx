@@ -3,7 +3,7 @@ import ProfileAvatar from './ProfileAvatar';
 import Props from './ProfileAvatar.types';
 
 export default {
-  title: 'Unreleased/ProfileAvatar',
+  title: 'Components/ProfileAvatar',
   component: ProfileAvatar,
   parameters: {
     jest: ['ProfileAvatar.test.tsx'],
