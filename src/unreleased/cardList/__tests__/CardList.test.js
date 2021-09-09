@@ -19,21 +19,23 @@ it('renders list crowdfunding with title and Subtitle', () => {
   expect(getAllByClass('component-title-subtitle')).toBeTruthy();
   expect(getAllByClass('card-component')).toBeTruthy();
   expect(getAllByClass('component-list-footer')).toBeTruthy();
+  expect(getByClass('component-list-footer-results')).toHaveTextContent('4 Initiatives');
 });
 
 it('renders list crowdfunding without title and Subtitle', () => {
-  const { getByClass } = render(<WithoutTitleAndSubtitle />);
+  const { getByClass, getAllByClass } = render(<WithoutTitleAndSubtitle />);
 
   expect(getByClass('component-title-h1')).toHaveTextContent('');
   expect(getByClass('component-title-subtitle')).toHaveTextContent('');
-  expect(getByClass('card-component')).toBeTruthy();
+  expect(getAllByClass('card-component')).toBeTruthy();
   expect(getByClass('component-list-footer')).toBeTruthy();
+  expect(getByClass('component-list-footer-results')).toHaveTextContent('2 Crowdfundings');
 });
 
 it('renders list crowdfunding with button See All', () => {
-  const { getByClass, queryByTestId } = render(<SeeAll />);
+  const { getByClass, getAllByClass, queryByTestId } = render(<SeeAll />);
 
-  expect(getByClass('card-component')).toBeTruthy();
+  expect(getAllByClass('card-component')).toBeTruthy();
   expect(queryByTestId('list-footer')).not.toBeInTheDocument();
   expect(getByClass('cardList__see-all text-center')).toBeTruthy();
 });

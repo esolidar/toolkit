@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { FC, useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
+import { IntlShape } from 'react-intl/src/types';
 import { Col, Row } from 'react-bootstrap';
 import Props from './CardList.types';
 import CardCrowdfunding from '../card/crowdfunfing/CardCrowdfunding';
@@ -15,29 +16,34 @@ interface Types {
   project: number;
 }
 
-const getListFooterLabel = ({ crowdfunding, auction, project }: Types, intl: () => void) => {
+const getListFooterLabel = ({ crowdfunding, auction, project }: Types, intl: IntlShape) => {
   if (crowdfunding > 0 && auction === 0 && project === 0) {
-    return intl.formatMessage({
-      id: 'toolkit.list.footer.crowdfunding',
-      values: { count: crowdfunding },
-    });
+    return intl.formatMessage(
+      {
+        id: 'toolkit.list.footer.crowdfunding',
+      },
+      { count: crowdfunding }
+    );
   }
   if (crowdfunding === 0 && auction > 0 && project === 0) {
-    return intl.formatMessage({
-      id: 'toolkit.list.footer.crowdfunding',
-      values: { count: auction },
-    });
+    return intl.formatMessage(
+      {
+        id: 'toolkit.list.footer.crowdfunding',
+      },
+      { count: auction }
+    );
   }
   if (crowdfunding === 0 && auction === 0 && project > 0) {
-    return intl.formatMessage({
-      id: 'toolkit.list.footer.project',
-      values: { count: auction },
-    });
+    return intl.formatMessage(
+      {
+        id: 'toolkit.list.footer.project',
+      },
+      { count: project }
+    );
   }
 
   return intl.formatMessage({
     id: 'toolkit.list.footer.initiative',
-    values: { count: auction },
   });
 };
 
@@ -79,7 +85,6 @@ const CardList: FC<Props> = ({
         tempTypes.project += 1;
       }
     });
-
     setTypes(tempTypes);
     setCardList(tempList);
   }, [list]);
@@ -88,9 +93,9 @@ const CardList: FC<Props> = ({
     <>
       <Title title={title} subtitle={subtitle} />
       <Row className="cardList__content">
-        {cardList?.data?.map(card => (
-          <Col xs={12} sm={4} lg={3}>
-            {card?.type === 'crowdfundings' && (
+        {cardList?.data?.map((card, indx) => (
+          <Col key={indx} xs={12} sm={4} lg={3}>
+            {card?.type === 'crowdfunding' && (
               <CardCrowdfunding
                 crowdfunding={card}
                 clickThumb={() => {}}

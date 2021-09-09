@@ -25,7 +25,6 @@ interface List {
 interface Props {
   title?: string;
   subtitle?: string;
-  cardType: string;
   list: List;
   hasListFooter?: boolean;
   seeAll?: SeeAll;

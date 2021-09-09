@@ -1,9 +1,3 @@
-// .cardList__content {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-
-//   .card-component {
-//     flex-grow: 0;
-//   }
-// }
+.cardList__content {
+  margin-top: $distance-2;
+}
