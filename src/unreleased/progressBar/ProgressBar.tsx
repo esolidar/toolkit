@@ -8,7 +8,7 @@ import { today } from '../../constants/date';
 
 const interval: number = 60000;
 
-const getHasStarted = (startDate: string): boolean => {
+const checkHasStarted = (startDate: string): boolean => {
   const start: Date | null = startDate ? new Date(startDate.replace(/-/g, '/')) : null;
 
   if (start > today) return true;
@@ -27,9 +27,9 @@ const ProgressBar: FC<Props> = ({
   endDate,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
-  const [hasStarted, setHasStarted] = useState<boolean>(getHasStarted(startDate));
+  const [hasStarted, setHasStarted] = useState<boolean>(checkHasStarted(startDate));
 
-  useInterval(() => setHasStarted(getHasStarted(startDate)), hasStarted ? interval : null);
+  useInterval(() => setHasStarted(checkHasStarted(startDate)), hasStarted ? interval : null);
 
   const progressBarWidth: string = `${String((contributesSum / goal) * 100)}%`;
 
