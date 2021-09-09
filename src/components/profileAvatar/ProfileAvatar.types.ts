@@ -1,5 +1,5 @@
 interface Props {
-  isBold?: boolean;
+  isNameBold?: boolean;
   name?: string;
   thumb?: string;
 }

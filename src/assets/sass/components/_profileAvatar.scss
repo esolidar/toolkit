@@ -8,7 +8,12 @@
     height: 40px;
     border-radius: 50%;
     margin-right: $distance-2;
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      margin-right: $distance-1;
+    }
   }
+
   &__name {
     color: map-get($neutrals, 700);
     @include text-overflow-ellipsis();

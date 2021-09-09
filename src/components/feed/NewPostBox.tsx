@@ -4,7 +4,7 @@ import TextareaField from '../../elements/textareaField';
 import DropZoneBox from '../../elements/dropZoneBox';
 import Loading from '../loading';
 import Button from '../../elements/button';
-import ProfileAvatar from '../../unreleased/profileAvatar';
+import ProfileAvatar from '../profileAvatar';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
 import Icon from '../icon';
 import Picture from '../picture';
