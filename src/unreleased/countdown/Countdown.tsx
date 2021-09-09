@@ -12,6 +12,7 @@ const Countdown: FC<Props> = ({
   onStart,
   onExpiry,
   mode = 'timer-count',
+  showBorder = true,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [countDowndate, setCountDownDate] = React.useState<any>({
@@ -218,7 +219,10 @@ const Countdown: FC<Props> = ({
   };
 
   return (
-    <div className="countdown-component" data-testid="countdown-component">
+    <div
+      className={`countdown-component ${showBorder ? 'border' : ''}`}
+      data-testid="countdown-component"
+    >
       {mode === 'date' && (
         <div className="countdown-days-left">
           {!isLoading && <div className="countdown-days-left-values">{renderDates()}</div>}
