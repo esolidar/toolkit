@@ -130,7 +130,7 @@ it('renders countdown date interval', () => {
   expect(queryByClass('countdown-days-left')).toBeInTheDocument();
 });
 
-it('renders countdown hours to go', () => {
+it('renders countdown minimal', () => {
   advanceTo(new Date(date));
   const { queryByClass } = render(<Minimal />);
 
