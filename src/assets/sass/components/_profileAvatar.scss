@@ -39,6 +39,7 @@
     &.click:hover {
       cursor: pointer;
       text-decoration: underline;
+      color: map-get($theme-colors, 'primary');
     }
 
     @media (max-width: map-get($breakpoints, xs)) {

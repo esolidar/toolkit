@@ -3,7 +3,7 @@ import DetailInfoBox from './DetailInfoBox';
 import Props from './DetailInfoBox.types';
 
 export default {
-  title: 'Unreleased/DetailInfoBox',
+  title: 'Elements/DetailInfoBox',
   component: DetailInfoBox,
   parameters: {
     jest: ['DetailInfoBox.test.tsx'],
