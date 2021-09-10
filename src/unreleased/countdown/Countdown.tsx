@@ -1,10 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { format, addMinutes } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
 import Props from './Countdown.types';
 import useInterval from '../../hooks/useInterval';
 import MONTHS from '../../constants/months';
+import { today } from '../../constants/date';
 
 const Countdown: FC<Props> = ({
   startDate,
@@ -13,6 +12,7 @@ const Countdown: FC<Props> = ({
   onExpiry,
   mode = 'timer-count',
   showBorder = true,
+  minimal = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [countDowndate, setCountDownDate] = React.useState<any>({
@@ -28,15 +28,11 @@ const Countdown: FC<Props> = ({
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [interval, setInterval] = useState<number>(60000);
 
-  const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
-  const formatDate = date =>
-    format(addMinutes(date, date.getTimezoneOffset()), 'yyyy/MM/dd HH:mm:ss');
   const start: any = startDate ? new Date(startDate.replace(/-/g, '/')) : null;
   const end: any = new Date(endDate.replace(/-/g, '/'));
 
   const calculateCountdown = () => {
-    const today: any = new Date(formatDate(zonedTimeToUtc(new Date(), timeZone)));
-    const nowTimeStamp = Date.parse(today);
+    const nowTimeStamp = today.getTime();
     let countDate;
     let status;
 
@@ -45,7 +41,7 @@ const Countdown: FC<Props> = ({
       countDate = start;
       setIsSoon(true);
     } else if (today <= end) {
-      if (isSoon) onStart();
+      if (isSoon && onStart) onStart();
       status = intl.formatMessage({ id: 'countdown.endsin' });
       setIsRunning(true);
       setIsSoon(false);
@@ -53,7 +49,7 @@ const Countdown: FC<Props> = ({
     } else {
       setPlaying(null);
       if (isLoading) setIsLoading(false);
-      if (isRunning) onExpiry();
+      if (isRunning && onExpiry) onExpiry();
       return false;
     }
     setStatusText(status);
@@ -220,7 +216,7 @@ const Countdown: FC<Props> = ({
 
   return (
     <div
-      className={`countdown-component ${showBorder ? 'border' : ''}`}
+      className={`countdown-component ${showBorder ? 'border' : ''} ${minimal ? 'minimal' : ''}`}
       data-testid="countdown-component"
     >
       {mode === 'date' && (

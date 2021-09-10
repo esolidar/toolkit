@@ -13,6 +13,7 @@ import Meta, {
   CountdownCrowdfundingDaysToGo as DaysToGo,
   CountdownDate as ShowDate,
   CountdownDateInterval as DateInterval,
+  Minimal as MinimalStory,
 } from '../Countdown.stories';
 import { render } from '../../../../__customQueries__/test-utils';
 
@@ -26,6 +27,7 @@ const OneMinuteToGoTemplate = composeStory(OneMinuteToGo, Meta);
 const DaysToGoTemplate = composeStory(DaysToGo, Meta);
 const ShowDateTemplate = composeStory(ShowDate, Meta);
 const DateIntervalTemplate = composeStory(DateInterval, Meta);
+const Minimal = composeStory(MinimalStory, Meta);
 
 jest.useFakeTimers();
 const date = new Date();
@@ -126,4 +128,14 @@ it('renders countdown date interval', () => {
   expect(queryByClass('countdown-component border')).toBeInTheDocument();
   expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
   expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+});
+
+it('renders countdown minimal', () => {
+  advanceTo(new Date(date));
+  const { queryByClass } = render(<Minimal />);
+
+  expect(queryByClass('countdown-component minimal')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left-label-status')).not.toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toBeInTheDocument();
+  expect(queryByClass('countdown-days-left')).toHaveTextContent('8 hours to go');
 });
