@@ -6,26 +6,40 @@
   &__thumb {
     border-radius: 50%;
 
-    &.lg {
-      width: 40px;
-      height: 40px;
+    &.click:hover {
+      cursor: pointer;
     }
 
-    &.md {
-      width: 32px;
-      height: 32px;
-    }
+    &.thumb {
+      &-lg {
+        width: 40px;
+        height: 40px;
+      }
 
-    &.sm {
-      width: 24px;
-      height: 24px;
+      &-md {
+        width: 32px;
+        height: 32px;
+      }
+
+      &-sm {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
   &__name {
     color: map-get($neutrals, 700);
-    margin-left: $distance-2;
     @include text-overflow-ellipsis();
+
+    &.margin {
+      margin-left: $distance-2;
+    }
+
+    &.click:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
     @media (max-width: map-get($breakpoints, xs)) {
       margin-left: $distance-1;

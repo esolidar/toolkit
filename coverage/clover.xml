@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631267297432" clover="3.2.0">
-  <project timestamp="1631267297432" name="All files">
-    <metrics statements="3295" coveredstatements="2213" conditionals="2812" coveredconditionals="1746" methods="876" coveredmethods="432" elements="6983" coveredelements="4391" complexity="0" loc="3295" ncloc="3295" packages="114" files="275" classes="275"/>
+<coverage generated="1631268777968" clover="3.2.0">
+  <project timestamp="1631268777968" name="All files">
+    <metrics statements="3298" coveredstatements="2214" conditionals="2816" coveredconditionals="1746" methods="877" coveredmethods="432" elements="6991" coveredelements="4392" complexity="0" loc="3298" ncloc="3298" packages="114" files="275" classes="275"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -2618,7 +2618,7 @@
       </file>
     </package>
     <package name="src.components.profileAvatar">
-      <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="12" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="2"/>
       <file name="ProfileAvatar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.stories.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="3" type="stmt"/>
@@ -2630,11 +2630,14 @@
         <line num="28" count="1" type="stmt"/>
       </file>
       <file name="ProfileAvatar.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="11" count="25" type="stmt"/>
-        <line num="12" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="25" type="stmt"/>
+        <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="8" methods="2" coveredmethods="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="25" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="25" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3295,7 +3298,7 @@
       </file>
     </package>
     <package name="src.components.userMenu">
-      <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="3"/>
+      <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="3"/>
       <file name="UserMenu.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/userMenu/UserMenu.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
@@ -3304,7 +3307,7 @@
         <line num="19" count="1" type="stmt"/>
       </file>
       <file name="UserMenu.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/userMenu/UserMenu.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="20" count="18" type="cond" truecount="2" falsecount="0"/>
@@ -3918,14 +3921,14 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="22" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="22" methods="2" coveredmethods="2"/>
         <line num="8" count="18" type="stmt"/>
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>

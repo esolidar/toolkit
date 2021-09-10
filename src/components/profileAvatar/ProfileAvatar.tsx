@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC } from 'react';
-import { useIntl } from 'react-intl';
+import { IntlShape, useIntl } from 'react-intl';
+import classnames from 'classnames';
 import Props from './ProfileAvatar.types';
 
 const ProfileAvatar: FC<Props> = ({
@@ -7,14 +10,39 @@ const ProfileAvatar: FC<Props> = ({
   name,
   thumb,
   thumbSize = 'lg',
+  href,
 }: Props): JSX.Element => {
-  const intl = useIntl();
-  const alt = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
+  const intl: IntlShape = useIntl();
+  const alt: string = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
+
+  const onClick = (): void => {
+    if (!href) return;
+    window.open(href, '_blank');
+  };
 
   return (
     <div className="profile-avatar" data-testid="profile-avatar">
-      {thumb && <img className={`profile-avatar__thumb ${thumbSize}`} src={thumb} alt={alt} />}
-      {name && <div className={`profile-avatar__name ${isNameBold ? 'bold' : ''}`}>{name}</div>}
+      {thumb && (
+        <img
+          className={classnames('profile-avatar__thumb', `thumb-${thumbSize}`, { click: href })}
+          src={thumb}
+          alt={alt}
+          onClick={onClick}
+        />
+      )}
+      {name && (
+        <div
+          className={classnames(
+            'profile-avatar__name',
+            { margin: thumb },
+            { bold: isNameBold },
+            { click: href }
+          )}
+          onClick={onClick}
+        >
+          {name}
+        </div>
+      )}
     </div>
   );
 };
