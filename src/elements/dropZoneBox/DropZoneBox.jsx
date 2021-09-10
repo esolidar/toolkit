@@ -135,7 +135,7 @@ const DropZoneBox = ({
         const file = fileList.item(i);
         files.push(file);
       }
-      await wait(1000);
+      await wait(250);
       return files;
     },
     onDrop: () => {},
