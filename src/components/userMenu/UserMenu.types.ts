@@ -5,7 +5,8 @@ interface Items {
   id?: string;
   isVisible?: boolean;
   onClick?(): any;
-  text: string;
+  text?: string;
+  plainText?: string;
 }
 
 interface Props {
