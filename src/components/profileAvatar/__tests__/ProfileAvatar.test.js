@@ -15,10 +15,10 @@ it('renders ProfileAvatar default', () => {
   const { getByTestId, getByClass, getByText, getByAltText } = render(<Default />);
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__thumb lg')).toBeInTheDocument();
+  expect(getByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__name')).toBeInTheDocument();
+  expect(getByClass('profile-avatar__name margin')).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
 });
 
@@ -28,7 +28,7 @@ it('renders ProfileAvatar without thumb', () => {
   );
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
 
-  expect(queryByClass('profile-avatar__thumb lg')).not.toBeInTheDocument();
+  expect(queryByClass('profile-avatar__thumb thumb-lg')).not.toBeInTheDocument();
   expect(queryByAltText('Joel F. Calheiros')).not.toBeInTheDocument();
 
   expect(getByClass('profile-avatar__name')).toBeInTheDocument();
@@ -41,7 +41,7 @@ it('renders ProfileAvatar without name', () => {
   );
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__thumb lg')).toBeInTheDocument();
+  expect(getByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
   expect(getByAltText('Profile picture')).toBeInTheDocument();
 
   expect(queryByClass('profile-avatar__name')).not.toBeInTheDocument();

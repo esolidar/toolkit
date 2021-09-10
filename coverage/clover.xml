@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631198972456" clover="3.2.0">
-  <project timestamp="1631198972456" name="All files">
-    <metrics statements="3305" coveredstatements="2198" conditionals="2793" coveredconditionals="1728" methods="892" coveredmethods="431" elements="6990" coveredelements="4357" complexity="0" loc="3305" ncloc="3305" packages="114" files="273" classes="273"/>
+<coverage generated="1631229244270" clover="3.2.0">
+  <project timestamp="1631229244270" name="All files">
+    <metrics statements="3308" coveredstatements="2199" conditionals="2793" coveredconditionals="1727" methods="893" coveredmethods="431" elements="6994" coveredelements="4357" complexity="0" loc="3308" ncloc="3308" packages="114" files="273" classes="273"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -2618,7 +2618,7 @@
       </file>
     </package>
     <package name="src.components.profileAvatar">
-      <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="9" methods="2" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="12" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="2"/>
       <file name="ProfileAvatar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.stories.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="3" type="stmt"/>
@@ -2630,11 +2630,14 @@
         <line num="28" count="1" type="stmt"/>
       </file>
       <file name="ProfileAvatar.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="11" count="25" type="stmt"/>
-        <line num="12" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="25" type="stmt"/>
+        <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="8" methods="2" coveredmethods="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="25" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="25" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
