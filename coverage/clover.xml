@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631288381948" clover="3.2.0">
-  <project timestamp="1631288381948" name="All files">
-    <metrics statements="3300" coveredstatements="2210" conditionals="2816" coveredconditionals="1744" methods="877" coveredmethods="431" elements="6993" coveredelements="4385" complexity="0" loc="3300" ncloc="3300" packages="114" files="275" classes="275"/>
+<coverage generated="1631524362510" clover="3.2.0">
+  <project timestamp="1631524362510" name="All files">
+    <metrics statements="3301" coveredstatements="2216" conditionals="2817" coveredconditionals="1748" methods="878" coveredmethods="432" elements="6996" coveredelements="4396" complexity="0" loc="3301" ncloc="3301" packages="114" files="275" classes="275"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3219,7 +3219,7 @@
       </file>
     </package>
     <package name="src.components.switchAccountsModal">
-      <metrics statements="15" coveredstatements="11" conditionals="8" coveredconditionals="7" methods="8" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="11" conditionals="8" coveredconditionals="7" methods="9" coveredmethods="4"/>
       <file name="SwitchAccountsModal.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/switchAccountsModal/SwitchAccountsModal.stories.tsx">
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="16" count="4" type="stmt"/>
@@ -3233,12 +3233,13 @@
         <line num="44" count="0" type="stmt"/>
       </file>
       <file name="SwitchAccountsModal.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/switchAccountsModal/SwitchAccountsModal.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <metrics statements="7" coveredstatements="6" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="3"/>
         <line num="7" count="1" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
         <line num="18" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="19" count="4" type="stmt"/>
         <line num="20" count="6" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
         <line num="31" count="4" type="stmt"/>
       </file>
     </package>
@@ -3537,7 +3538,7 @@
       </file>
     </package>
     <package name="src.elements.detailInfoBox">
-      <metrics statements="12" coveredstatements="12" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
+      <metrics statements="12" coveredstatements="12" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2"/>
       <file name="DetailInfoBox.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/detailInfoBox/DetailInfoBox.stories.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="4" type="stmt"/>
@@ -3551,10 +3552,10 @@
         <line num="48" count="1" type="stmt"/>
       </file>
       <file name="DetailInfoBox.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/detailInfoBox/DetailInfoBox.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="16" coveredconditionals="16" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="17" coveredconditionals="17" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.dropZoneBox">
@@ -3923,19 +3924,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="18" type="stmt"/>
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
         <line num="47" count="43" type="stmt"/>
         <line num="81" count="18" type="stmt"/>
         <line num="106" count="18" type="stmt"/>
@@ -4206,17 +4207,17 @@
       </file>
       <file name="ProgressBar.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/progressBar/ProgressBar.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="16" coveredconditionals="13" methods="3" coveredmethods="2"/>
-        <line num="9" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="9" type="cond" truecount="1" falsecount="1"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="29" count="9" type="stmt"/>
-        <line num="30" count="9" type="stmt"/>
-        <line num="32" count="9" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="9" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="31" count="9" type="stmt"/>
+        <line num="32" count="9" type="stmt"/>
+        <line num="34" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="9" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.shareNetwork">
@@ -4411,7 +4412,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="37" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

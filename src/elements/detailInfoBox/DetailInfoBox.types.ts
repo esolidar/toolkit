@@ -4,9 +4,7 @@ import ShareNetwork from '../../unreleased/shareNetwork/ShareNetwork.types';
 interface Props {
   headerChildren?: JSX.Element;
   bodyChildren?: JSX.Element;
-  headerClassName?: string;
-  bodyClassName?: string;
-  footerClassName?: string;
+  className?: string;
   organizedBy?: ProfileAvatar;
   shareNetwork?: ShareNetwork;
   dataTestId?: string;

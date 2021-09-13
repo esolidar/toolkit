@@ -19,6 +19,7 @@ export default {
     ...getFiles('src/components', extensions, excludedExtensions),
     ...getFiles('src/constants', extensions, excludedExtensions),
     ...getFiles('src/elements', extensions, excludedExtensions),
+    ...getFiles('src/unreleased', extensions, excludedExtensions),
     ...getFiles('src/hooks', extensions, excludedExtensions),
     ...getFiles('src/utils', extensions, excludedExtensions),
     ...getFiles('__mocks__', extensions, excludedExtensions),
