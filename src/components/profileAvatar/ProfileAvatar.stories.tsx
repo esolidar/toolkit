@@ -13,12 +13,19 @@ export default {
 const Template: Story<Props> = (args: Props) => <ProfileAvatar {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
+export const WithLink: Story<Props> = Template.bind({});
 export const WithoutThumb: Story<Props> = Template.bind({});
 export const WithoutName: Story<Props> = Template.bind({});
 
 Default.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
+};
+
+WithLink.args = {
+  thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
+  name: 'Joel F. Calheiros',
+  href: 'https://www.esolidar.com/',
 };
 
 WithoutThumb.args = {

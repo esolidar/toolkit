@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631524145597" clover="3.2.0">
-  <project timestamp="1631524145597" name="All files">
-    <metrics statements="3299" coveredstatements="2208" conditionals="2817" coveredconditionals="1745" methods="878" coveredmethods="431" elements="6994" coveredelements="4384" complexity="0" loc="3299" ncloc="3299" packages="114" files="275" classes="275"/>
+<coverage generated="1631524362510" clover="3.2.0">
+  <project timestamp="1631524362510" name="All files">
+    <metrics statements="3301" coveredstatements="2216" conditionals="2817" coveredconditionals="1748" methods="878" coveredmethods="432" elements="6996" coveredelements="4396" complexity="0" loc="3301" ncloc="3301" packages="114" files="275" classes="275"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="3" count="104" type="stmt"/>
+        <line num="3" count="106" type="stmt"/>
         <line num="5" count="30" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="30" type="stmt"/>
@@ -28,7 +28,7 @@
         <line num="10" count="30" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="30" type="stmt"/>
         <line num="16" count="30" type="stmt"/>
-        <line num="17" count="113" type="stmt"/>
+        <line num="17" count="114" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -2618,26 +2618,28 @@
       </file>
     </package>
     <package name="src.components.profileAvatar">
-      <metrics statements="14" coveredstatements="12" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="2"/>
+      <metrics statements="16" coveredstatements="14" conditionals="10" coveredconditionals="8" methods="3" coveredmethods="2"/>
       <file name="ProfileAvatar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.stories.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="13" count="3" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="13" count="4" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
       <file name="ProfileAvatar.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.tsx">
         <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="8" methods="2" coveredmethods="1"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="15" count="25" type="stmt"/>
-        <line num="16" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="25" type="stmt"/>
+        <line num="15" count="26" type="stmt"/>
+        <line num="16" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="26" type="stmt"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="20" count="0" type="stmt"/>
-        <line num="23" count="25" type="stmt"/>
+        <line num="23" count="26" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3922,19 +3924,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="18" type="stmt"/>
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
         <line num="47" count="43" type="stmt"/>
         <line num="81" count="18" type="stmt"/>
         <line num="106" count="18" type="stmt"/>
@@ -4410,7 +4412,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="37" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

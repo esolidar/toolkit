@@ -3,11 +3,13 @@ import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
+  WithLink as WithLinkStory,
   WithoutThumb as WithoutThumbStory,
   WithoutName as WithoutNameStory,
 } from '../ProfileAvatar.stories';
 
 const Default = composeStory(DefaultStory, Meta);
+const WithLink = composeStory(WithLinkStory, Meta);
 const WithoutThumb = composeStory(WithoutThumbStory, Meta);
 const WithoutName = composeStory(WithoutNameStory, Meta);
 
@@ -19,6 +21,17 @@ it('renders ProfileAvatar default', () => {
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
   expect(getByClass('profile-avatar__name margin')).toBeInTheDocument();
+  expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
+});
+
+it('renders ProfileAvatar with link', () => {
+  const { getByTestId, getByClass, getByAltText, getByText } = render(<WithLink />);
+  expect(getByTestId('profile-avatar')).toBeInTheDocument();
+
+  expect(getByClass('profile-avatar__thumb thumb-lg click')).toBeInTheDocument();
+  expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
+
+  expect(getByClass('profile-avatar__name margin click')).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
 });
 
