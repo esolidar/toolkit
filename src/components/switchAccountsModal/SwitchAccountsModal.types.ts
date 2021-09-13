@@ -8,8 +8,8 @@ interface Props {
   isOpen: boolean;
   user?: User;
   companies: Company[];
-  handleClickSelectUser(): any;
-  handleClickSelectCompany(): any;
+  handleClickSelectUser?(): void;
+  handleClickSelectCompany(index: number): void;
 }
 
 export default Props;

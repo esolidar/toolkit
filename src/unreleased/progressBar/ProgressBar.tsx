@@ -6,6 +6,8 @@ import Countdown from '../countdown';
 import Props from './ProgressBar.types';
 import { today } from '../../constants/date';
 
+// TODO: colocar hasStarted e checkHasStarted na view detail do crowdfunding
+
 const interval: number = 60000;
 
 const checkHasStarted = (startDate: string): boolean => {

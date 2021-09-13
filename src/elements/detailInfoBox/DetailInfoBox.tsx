@@ -7,9 +7,7 @@ import ShareNetwork from '../../unreleased/shareNetwork';
 const DetailInfoBox: FC<Props> = ({
   headerChildren,
   bodyChildren,
-  headerClassName,
-  bodyClassName,
-  footerClassName,
+  className = '',
   organizedBy,
   shareNetwork,
   dataTestId,
@@ -21,10 +19,10 @@ const DetailInfoBox: FC<Props> = ({
   const intl = useIntl();
 
   return (
-    <div className="detail-info-box" data-testid={dataTestId || 'detail-info-box'}>
+    <div className={`detail-info-box ${className}`} data-testid={dataTestId || 'detail-info-box'}>
       {headerChildren && (
         <div
-          className={`detail-info-box__header ${headerClassName}`}
+          className="detail-info-box__header "
           data-testid={dataTestIdHeader || 'detail-info-box-header'}
         >
           {headerChildren}
@@ -32,7 +30,7 @@ const DetailInfoBox: FC<Props> = ({
       )}
       {bodyChildren && (
         <div
-          className={`detail-info-box__body ${bodyClassName}`}
+          className="detail-info-box__body"
           data-testid={dataTestIdBody || 'detail-info-box-body'}
         >
           {bodyChildren}
@@ -48,7 +46,7 @@ const DetailInfoBox: FC<Props> = ({
         </div>
       )}
       <div
-        className={`detail-info-box__footer ${footerClassName}`}
+        className="detail-info-box__footer"
         data-testid={dataTestIdFooter || 'detail-info-box-footer'}
       >
         <ShareNetwork {...shareNetwork} />

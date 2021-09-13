@@ -19,7 +19,7 @@ const SwitchAccountsModal: FC<Props> = ({
       return companies.map((company, index) => (
         <ListElement
           key={index}
-          onClick={handleClickSelectCompany}
+          onClick={() => handleClickSelectCompany(index)}
           name={company.name}
           email={companies?.length === 1 ? 'Admin' : ''}
           imageSrc={company.thumbs?.thumb}
