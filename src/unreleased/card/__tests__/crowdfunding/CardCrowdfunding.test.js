@@ -28,7 +28,7 @@ it('renders Crowdfunding public with title PT', () => {
   expect(getAllByClass('card-component-title')).toHaveLength(1);
   expect(getByClass('card-component-title')).toHaveTextContent(crowdfunding.title);
   expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
-  expect(getAllByClass('countdown-component')).toHaveLength(1);
+  expect(getAllByClass('countdown-component border')).toHaveLength(1);
   expect(getAllByClass('card-component-support')).toHaveLength(1);
 });
 
@@ -42,7 +42,7 @@ it('renders Crowdfunding public with title En', () => {
   expect(getAllByClass('card-component-title')).toHaveLength(1);
   expect(getByClass('card-component-title')).toHaveTextContent(crowdfunding.title_en);
   expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
-  expect(getAllByClass('countdown-component')).toHaveLength(1);
+  expect(getAllByClass('countdown-component border')).toHaveLength(1);
   expect(getAllByClass('card-component-support')).toHaveLength(1);
 });
 
@@ -56,7 +56,7 @@ it('renders Crowdfunding private', () => {
   expect(getAllByClass('card-component-title')).toHaveLength(1);
   expect(getByClass('card-component-title')).toHaveTextContent(campaign.title);
   expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
-  expect(getAllByClass('countdown-component')).toHaveLength(1);
+  expect(getAllByClass('countdown-component border')).toHaveLength(1);
   expect(getAllByClass('card-component-support')).toHaveLength(1);
   expect(queryByTestId('supporting-name')).toBeTruthy();
 });

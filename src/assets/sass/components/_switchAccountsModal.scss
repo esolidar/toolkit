@@ -1,0 +1,38 @@
+.switch-accounts-modal {
+  .modal-content {
+    padding: 0;
+
+    .modal-body {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $distance-5 0 $distance-3 0;
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+    color: map-get($main-text-colors, dark);
+
+    @media (max-width: map-get($breakpoints, xxs)) {
+      font-size: 14px;
+    }
+  }
+
+  &__account-list {
+    display: flex;
+    flex-direction: column;
+    padding: $distance-3 $distance-3 $distance-5 $distance-3;
+    background-color: map-get($neutrals, 100);
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      padding-left: $distance-2;
+      padding-right: $distance-2;
+    }
+  }
+}

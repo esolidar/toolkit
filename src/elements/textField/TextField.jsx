@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import InputLabel from '../inputLabel';
+import Icon from '../../components/icon';
 
 const TextField = ({
   field,
@@ -28,6 +29,8 @@ const TextField = ({
   children,
   info,
   showOptionalLabel,
+  leftIcon,
+  rightIcon,
 }) => (
   <div
     className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
@@ -37,24 +40,46 @@ const TextField = ({
     )}
     {help && <p className="help">{help}</p>}
     {!children && (
-      <input
-        data-testid={dataTestId}
-        autoComplete="off"
-        onChange={onChange}
-        onFocus={onFocus}
-        autoFocus={autofocus}
-        onBlur={onBlur}
-        value={value}
-        defaultValue={defaultValue}
-        type={type}
-        name={field}
-        id={id || field}
-        placeholder={placeholder}
-        maxLength={maxLength}
-        disabled={disabled}
-        className={error ? 'form-control required-field' : 'form-control'}
-        ref={inputRef}
-      />
+      <div className="input">
+        {leftIcon?.show && (
+          <Icon
+            iconClass={`icon left ${leftIcon?.name}`}
+            onClick={leftIcon?.onClick}
+            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+            dataTestId="input-left-icon"
+          />
+        )}
+        <input
+          data-testid={dataTestId}
+          autoComplete="off"
+          onChange={onChange}
+          onFocus={onFocus}
+          autoFocus={autofocus}
+          onBlur={onBlur}
+          value={value}
+          defaultValue={defaultValue}
+          type={type}
+          name={field}
+          id={id || field}
+          placeholder={placeholder}
+          maxLength={maxLength}
+          disabled={disabled}
+          className={error ? 'form-control required-field' : 'form-control'}
+          ref={inputRef}
+          style={{
+            paddingLeft: leftIcon?.show ? '36px' : '12px',
+            paddingRight: rightIcon?.show ? '36px' : '12px',
+          }}
+        />
+        {rightIcon?.show && (
+          <Icon
+            iconClass={`icon right ${rightIcon?.name}`}
+            onClick={rightIcon?.onClick}
+            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+            dataTestId="input-right-icon"
+          />
+        )}
+      </div>
     )}
     {children && children}
     {info && <span className="footer-label-info">{info}</span>}
@@ -87,6 +112,16 @@ TextField.propTypes = {
   inputRef: PropTypes.object,
   children: PropTypes.node,
   showOptionalLabel: PropTypes.bool,
+  leftIcon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+  }),
+  rightIcon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+  }),
 };
 
 TextField.defaultProps = {

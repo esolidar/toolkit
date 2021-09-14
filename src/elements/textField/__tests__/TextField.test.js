@@ -8,6 +8,8 @@ describe('TextField component', () => {
   it('renders TextField correctly', () => {
     const component = shallow(<TextField field="businessEmail" onChange={changed} />);
     expect(component).toHaveLength(1);
+    expect(component.find('[dataTestId="input-left-icon"]').length).toBe(0);
+    expect(component.find('[dataTestId="input-right-icon"]').length).toBe(0);
   });
 
   it('renders TextField with field label', () => {
@@ -49,5 +51,20 @@ describe('TextField component', () => {
     const component = shallow(<TextField field="businessEmail" className="test new-class" />);
     expect(component.find('.test').length).toBe(1);
     expect(component.find('.new-class').length).toBe(1);
+  });
+
+  it('renders TextField with left and right icons', () => {
+    const component = shallow(
+      <TextField
+        leftIcon={{ name: 'icon-search', show: true }}
+        rightIcon={{ name: 'icon-x', show: true }}
+      />
+    );
+
+    expect(component.find('[dataTestId="input-left-icon"]').length).toBe(1);
+    expect(component.find('[iconClass="icon left icon-search"]').length).toBe(1);
+
+    expect(component.find('[dataTestId="input-right-icon"]').length).toBe(1);
+    expect(component.find('[iconClass="icon right icon-x"]').length).toBe(1);
   });
 });

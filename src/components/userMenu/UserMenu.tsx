@@ -27,7 +27,11 @@ const UserMenu: FC<Props> = ({
             href={item.href}
             onClick={item.onClick}
           >
-            <FormattedMessage id={item.text} />
+            {item.plainText ? (
+              <div>{item.plainText}</div>
+            ) : (
+              <FormattedMessage id={item.text || ' '} />
+            )}
           </Dropdown.Item>
         );
       })}

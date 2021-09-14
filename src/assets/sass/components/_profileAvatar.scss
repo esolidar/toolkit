@@ -1,0 +1,53 @@
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__thumb {
+    border-radius: 50%;
+
+    &.click:hover {
+      cursor: pointer;
+    }
+
+    &.thumb {
+      &-lg {
+        width: 40px;
+        height: 40px;
+      }
+
+      &-md {
+        width: 32px;
+        height: 32px;
+      }
+
+      &-sm {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__name {
+    color: map-get($neutrals, 700);
+    @include text-overflow-ellipsis();
+
+    &.margin {
+      margin-left: $distance-2;
+    }
+
+    &.click:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      color: map-get($theme-colors, primary);
+    }
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      margin-left: $distance-1;
+    }
+
+    &.bold {
+      font-weight: bold;
+    }
+  }
+}

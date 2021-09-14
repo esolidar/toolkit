@@ -477,6 +477,14 @@ const icons = [
     name: 'icon-plus',
     font: 'e998',
   },
+  {
+    name: 'icon-search',
+    font: 'e999',
+  },
+  {
+    name: 'icon-x',
+    font: 'e9a7',
+  },
 ];
 
 export default icons;

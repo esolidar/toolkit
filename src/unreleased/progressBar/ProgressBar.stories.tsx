@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react';
+import { format, addDays, subDays } from 'date-fns';
 import ProgressBar from './ProgressBar';
 import Props from './ProgressBar.types';
+import { today, dateFormat } from '../../constants/date';
 
 export default {
   title: 'Unreleased/ProgressBar',
@@ -23,6 +25,7 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const Crowdfunding: Story<Props> = Template.bind({});
 export const Minimal: Story<Props> = Template.bind({});
 export const HideRaisedOf: Story<Props> = Template.bind({});
 
@@ -32,6 +35,20 @@ Default.args = {
   currency: 'EUR',
   showLabel: true,
   showRaisedOf: true,
+};
+
+Crowdfunding.args = {
+  contributesSum: 120,
+  goal: 1500,
+  currency: 'EUR',
+  showLabel: true,
+  showRaisedOf: true,
+  numberContributors: 22,
+  onClickContributors: () => {
+    alert('You clicked contributors button!');
+  },
+  startDate: format(subDays(today, 1), dateFormat),
+  endDate: format(addDays(today, 15), dateFormat),
 };
 
 Minimal.args = {

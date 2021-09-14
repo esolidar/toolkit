@@ -24,7 +24,7 @@ it('Without Login', () => {
 
   const box = screen.queryByTestId('feed-create-post');
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
 
   expect(box).toBeInTheDocument();
@@ -38,7 +38,7 @@ it('With Login', () => {
 
   const box = screen.queryByTestId('feed-create-post');
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
 
   expect(box).toBeInTheDocument();
@@ -47,14 +47,14 @@ it('With Login', () => {
   expect(body).not.toBeInTheDocument();
 });
 
-it('With Login and scrapter link', async () => {
+it('With Login and scrapter link', () => {
   render(<NewPostBoxFocusBoxWithShare />);
 
   const box = screen.queryByTestId('feed-create-post');
   userEvent.click(box);
 
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
   const share = screen.queryByTestId('share-link-preview');
 
@@ -71,7 +71,7 @@ it('Remove scrapter link', () => {
   userEvent.click(box);
 
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
   const share = screen.queryByTestId('share-link-preview');
   const shareBtn = screen.queryByTestId('share-link-preview-btn');
@@ -90,7 +90,7 @@ it('With Login and image gallery', async () => {
   userEvent.click(box);
 
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
   const images = screen.queryByTestId('images-preview');
   const image = screen.findAllByTestId('post-image-box');
@@ -122,7 +122,7 @@ it('With Login and image share and gallery', () => {
   userEvent.click(box);
 
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
 
   expect(loginButton).not.toBeInTheDocument();
@@ -134,7 +134,7 @@ it('Edit post', () => {
   render(<NewPostBoxEditPost />);
 
   const loginButton = screen.queryByTestId('login-button');
-  const header = screen.queryByTestId('header');
+  const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
 
   expect(loginButton).not.toBeInTheDocument();

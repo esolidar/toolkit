@@ -4,15 +4,15 @@ import currency from './currency';
 const company: Company = {
   id: 273,
   code: '050abf4f-9de8-4c80-ab0d-ffc7814873a0',
-  name: 'Rocha Company',
-  email: 'rocha+1@esolidar.com',
+  name: 'Company Demo',
+  email: 'demo@esolidar.com',
   vat: '111111111',
   company_id: null,
   nipc: null,
   logo: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8.jpg',
   logo_stream: 'amazons3',
   cover_image:
-    'https://cdn.testesolidar.com/companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
+    'https://image.testesolidar.com/companies/254/whitelabels/9/images/0c6f25e4-ea07-4f2a-93f9-ed24e33e47d1.jpg',
   about: '',
   presentation: '',
   phone: '911111111',
@@ -49,7 +49,7 @@ const company: Company = {
   thumbs: {
     detail:
       'https://cdn.testesolidar.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8-DETAIL.jpg',
-    thumb: 'https://cdn.testesolidar.com/companies/a25527f7-cf38-430e-b6b3-8af42e513bf8-THUMB.jpg',
+    thumb: 'https://cdn.testesolidar.com/companies/68d60b43-c2c3-49d2-95da-96492d5fe035-THUMB.png',
     cover_image:
       'https://cdn.testesolidar.com/companies/273/cover/c62dddf3-d706-4cf6-be1d-09234ce976d3.jpg',
   },
