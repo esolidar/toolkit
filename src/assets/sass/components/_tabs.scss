@@ -6,6 +6,7 @@
     font-weight: 600;
     font-size: 21px;
     border-color: transparent;
+    padding: $distance-1;
 
     @media (max-width: map-get($breakpoints, md)) {
       font-size: 18px;

@@ -43,6 +43,7 @@
       color: map-get($input, label-color);
       letter-spacing: -0.31px;
       line-height: 24px;
+      border-radius: $border-radius-1;
 
       &:focus {
         border: 2px solid map-get($main-text-colors, dark);

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './title.types';
 import Icon from '../../components/icon';
 
