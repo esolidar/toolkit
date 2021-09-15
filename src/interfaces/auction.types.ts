@@ -68,6 +68,7 @@ interface Auction {
   currency: Currency;
   // project?: AuctionProject;
   last_bid_value?: Bid;
+  type?: string;
 }
 
 export default Auction;
