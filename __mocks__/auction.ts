@@ -1,7 +1,5 @@
 import user from './user';
 import currency from './currency';
-import project from './project';
-import Auction from '../src/interfaces/auction.types';
 import auctionProject from './auctionProject';
 
 const auction = {
@@ -12,7 +10,7 @@ const auction = {
   sub_category_id: 54,
   currency_id: 1,
   title: 'Leilão do Pedro',
-  title_en: null,
+  title_en: 'Pedro auction',
   position: 1,
   description: 'teste',
   description_en: null,
