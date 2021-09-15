@@ -9,6 +9,7 @@ import Button from '../../elements/button';
 import ListFooter from '../listFooter/ListFooter';
 import Title from '../title/title';
 import List from '../../interfaces/list';
+import clone from '../../utils/clone';
 
 interface Types {
   crowdfunding: number;
@@ -68,8 +69,8 @@ const CardList: FC<Props> = ({
   });
 
   useEffect(() => {
-    const tempList = { ...list };
-    const tempTypes = { ...types };
+    const tempList = clone(list);
+    const tempTypes = clone(types);
 
     tempList.data.map(card => {
       if (card.contributes_count !== undefined) {
