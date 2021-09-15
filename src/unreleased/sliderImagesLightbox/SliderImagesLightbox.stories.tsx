@@ -13,6 +13,7 @@ Default.parameters = {
   jest: ['SliderImagesLightbox.test.js'],
 };
 Default.args = {
+  videoProps: 'https://www.youtube.com/watch?v=xF_QkfZI1mM',
   imagesProps: [
     {
       crowdfunding_id: 61,
@@ -42,7 +43,6 @@ Default.args = {
       },
     },
   ],
-  // videoProps: 'https://www.youtube.com/watch?v=xF_QkfZI1mM',
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',

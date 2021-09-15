@@ -93,19 +93,20 @@ $slick-opacity-not-active: 0.25;
 }
 
 .slick-dots {
-  position: absolute;
-  bottom: -60px;
   list-style: none;
   display: block;
   text-align: center;
   padding: 0;
   margin: 0;
   text-align: left;
+  li:first-child {
+    margin-left: 0px;
+  }
   li {
     position: relative;
     display: inline-block;
-    height: 40px;
-    width: 40px;
+    height: 44px;
+    width: 44px;
     margin: 0 5px;
     padding: 0;
     cursor: pointer;
@@ -262,7 +263,8 @@ $slick-opacity-not-active: 0.25;
 }
 
 .slick-slider {
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: map-get($breakpoints, xs)) {
     margin-bottom: 0;
@@ -284,7 +286,7 @@ $slick-opacity-not-active: 0.25;
     font-size: 0;
     cursor: pointer;
     color: transparent;
-    top: 50%;
+    top: 45%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -311,7 +313,7 @@ $slick-opacity-not-active: 0.25;
     font-size: 0;
     cursor: pointer;
     color: transparent;
-    top: 50%;
+    top: 45%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);

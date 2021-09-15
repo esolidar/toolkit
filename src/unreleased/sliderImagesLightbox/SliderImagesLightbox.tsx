@@ -1,21 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+/* eslint-disable camelcase */
+import React, { FC, useState, useEffect, MouseEvent } from 'react';
 import Slider from 'react-slick';
 import Carousel, { Modal, ModalGateway } from 'react-images';
+import { Props, Images } from './sliderImagesLightbox.types';
 
-const SliderNextArrow = ({ onClick }) => {
+const YOUTUBE_URL = 'https://www.youtube.com/embed/';
+const VIMEO_URL = 'https://player.vimeo.com/video/';
+
+interface SliderNextArrowInterface {
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+interface SliderPrevArrowInterface {
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const SliderNextArrow: FC<SliderNextArrowInterface> = ({
+  onClick,
+}: SliderNextArrowInterface): JSX.Element => {
   return <button type="button" className="next-arrow" onClick={onClick} />;
 };
 
-const SliderPrevArrow = onClick => {
+const SliderPrevArrow: FC<SliderPrevArrowInterface> = ({
+  onClick,
+}: SliderPrevArrowInterface): JSX.Element => {
   return <button type="button" className="prev-arrow" onClick={onClick} />;
 };
 
-const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
+const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props): JSX.Element => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
-  const [images, setImages] = useState([]);
+  const [imagesArray, setImagesArray] = useState<Images>([]);
+  const { serverlessResizeImage } = env;
+
+  console.log('imagesProps --->', imagesProps);
 
   useEffect(() => {
+    console.log('entrei');
     let imagesData = [];
     if (videoProps) {
       const video = [
@@ -31,11 +51,13 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
           },
         },
       ];
-      imagesData = video.concat(images);
+      imagesData = [...video, ...imagesProps];
 
-      setImages(imagesData);
+      setImagesArray(imagesData);
+      console.log('imagesData --->', imagesData);
     } else {
-      setImages(imagesProps);
+      setImagesArray(imagesProps);
+      console.log('imagesProps --->', imagesProps);
     }
   }, []);
 
@@ -48,7 +70,7 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
   };
 
   const renderImages = () => {
-    return images.map((image, indx) => {
+    return imagesArray.map(image => {
       if (image.video) {
         const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
         const youtube =
@@ -64,7 +86,7 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
               title="video"
               className="slick-slide"
               key={image.id}
-              src={`https://player.vimeo.com/video/${videoUrl}?color=ffffff&title=0&byline=0&portrait=0&badge=0`}
+              src={`${VIMEO_URL}${videoUrl}?color=ffffff&title=0&byline=0&portrait=0&badge=0`}
               frameBorder="0"
             />
           );
@@ -84,7 +106,7 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
               className="slick-slide"
               title="video"
               key={image.id}
-              src={`https://www.youtube.com/embed/${videoUrl[0]}`}
+              src={`${YOUTUBE_URL}${videoUrl[0]}`}
             />
           );
         }
@@ -94,14 +116,14 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
             title="video"
             className="slick-slide"
             key={image.id}
-            src={`https://www.youtube.com/embed/${image.video}`}
+            src={`${YOUTUBE_URL}${image.video}`}
           />
         );
       }
       return (
         <button
           type="button"
-          onClick={() => openLightbox(indx)}
+          onClick={() => openLightbox()}
           key={image.id}
           className="open-lightbox"
         >
@@ -109,7 +131,7 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
             src={`${
               image.thumbs
                 ? image.thumbs.detail
-                : `${env.serverlessResizeImage}/${image.image}?width=550&height=470`
+                : `${serverlessResizeImage}/${image.image}?width=550&height=470`
             }`}
             style={{ width: '100%' }}
             alt={image.image}
@@ -121,15 +143,15 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
 
   const imagesOnly = imagesProps;
   const settings = {
-    customPaging(i) {
+    customPaging(i: number) {
       return (
         <a>
           <img
             alt="thumb"
             src={`${
-              images[i].thumbs
-                ? images[i].thumbs.thumb
-                : `${env.serverlessResizeImage}/${images[i].image}?width=50&height=50`
+              imagesArray[i].thumbs
+                ? imagesArray[i].thumbs.thumb
+                : `${serverlessResizeImage}/${imagesArray[i].image}?width=44&height=44`
             }`}
           />
         </a>
@@ -141,6 +163,7 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    fade: true,
     nextArrow: <SliderNextArrow />,
     prevArrow: <SliderPrevArrow />,
   };
@@ -168,22 +191,6 @@ const SliderImagesLightbox = ({ imagesProps, videoProps, env }) => {
       </ModalGateway>
     </div>
   );
-};
-
-SliderImagesLightbox.propTypes = {
-  request: PropTypes.object,
-  onClick: PropTypes.func,
-  imagesProps: PropTypes.array,
-  videoProps: PropTypes.string,
-  env: PropTypes.object,
-};
-
-SliderNextArrow.propTypes = {
-  onClick: PropTypes.func,
-};
-
-SliderPrevArrow.propTypes = {
-  onClick: PropTypes.func,
 };
 
 export default SliderImagesLightbox;
