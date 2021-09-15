@@ -9,7 +9,7 @@ import Button from '../../elements/button';
 import ListFooter from '../listFooter/ListFooter';
 import Title from '../title/title';
 import List from '../../interfaces/list';
-import { clone } from '../../utils/index';
+import clone from '../../utils/clone';
 
 interface Types {
   crowdfunding: number;
