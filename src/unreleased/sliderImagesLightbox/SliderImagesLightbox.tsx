@@ -32,10 +32,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
   const [imagesArray, setImagesArray] = useState<Images>([]);
   const { serverlessResizeImage } = env;
 
-  console.log('imagesProps --->', imagesProps);
-
   useEffect(() => {
-    console.log('entrei');
     let imagesData = [];
     if (videoProps) {
       const video = [
@@ -54,10 +51,8 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
       imagesData = [...video, ...imagesProps];
 
       setImagesArray(imagesData);
-      console.log('imagesData --->', imagesData);
     } else {
       setImagesArray(imagesProps);
-      console.log('imagesProps --->', imagesProps);
     }
   }, []);
 
@@ -83,6 +78,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
 
           return (
             <iframe
+              data-testid="iframe"
               title="video"
               className="slick-slide"
               key={image.id}
@@ -103,6 +99,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
 
           return (
             <iframe
+              data-testid="iframe"
               className="slick-slide"
               title="video"
               key={image.id}
@@ -113,6 +110,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
 
         return (
           <iframe
+            data-testid="iframe"
             title="video"
             className="slick-slide"
             key={image.id}
@@ -128,10 +126,12 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
           className="open-lightbox"
         >
           <img
+            data-testid="image"
             src={`${
               image.thumbs
                 ? image.thumbs.detail
-                : `${serverlessResizeImage}/${image.image}?width=550&height=470`
+                : // : `${serverlessResizeImage}/${image.image}?width=550&height=470`
+                  `${serverlessResizeImage}/${image.image}`
             }`}
             style={{ width: '100%' }}
             alt={image.image}
@@ -147,6 +147,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
       return (
         <a>
           <img
+            data-testid="thumb"
             alt="thumb"
             src={`${
               imagesArray[i].thumbs
@@ -163,7 +164,6 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    fade: true,
     nextArrow: <SliderNextArrow />,
     prevArrow: <SliderPrevArrow />,
   };
@@ -181,7 +181,9 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
 
   return (
     <div>
-      <Slider {...settings}>{renderImages()}</Slider>
+      <div className="demoWrapper">
+        <Slider {...settings}>{renderImages()}</Slider>
+      </div>
       <ModalGateway>
         {lightboxIsOpen ? (
           <Modal onClose={toggleModal}>

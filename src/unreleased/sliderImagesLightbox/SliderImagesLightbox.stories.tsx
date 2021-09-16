@@ -1,17 +1,25 @@
-import React from 'react';
+import { Story, Meta } from '@storybook/react';
 import SliderImagesLightbox from './SliderImagesLightbox';
+import { Props } from './sliderImagesLightbox.types';
 
 export default {
   title: 'Unreleased/SliderImagesLightbox',
   component: SliderImagesLightbox,
-};
+  parameters: {
+    jest: ['SliderImagesLightbox.test.tsx'],
+  },
+} as Meta;
 
-const Template = args => <SliderImagesLightbox {...args} />;
+const Template: Story<Props> = (args: Props) => (
+  <div className="mt-5">
+    <SliderImagesLightbox {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
-Default.parameters = {
-  jest: ['SliderImagesLightbox.test.js'],
-};
+export const SliderOneImage: Story<Props> = Template.bind({});
+export const SliderNoImageNoVideo: Story<Props> = Template.bind({});
+
 Default.args = {
   videoProps: 'https://www.youtube.com/watch?v=xF_QkfZI1mM',
   imagesProps: [
@@ -24,8 +32,7 @@ Default.args = {
     {
       crowdfunding_id: 61,
       id: 160,
-      image:
-        'crowdfundings/4ac3fa5b-b82f-40aa-86f9-b1acab3ddd51-b4e830ac-ec36-4141-af9d-056b1af217f4.jpg',
+      image: 'crowdfundings/16_9-743226d2-799f-4f32-8039-8a8693cb0178.jpg',
     },
     {
       crowdfunding_id: 44,
@@ -43,6 +50,31 @@ Default.args = {
       },
     },
   ],
+  env: {
+    serverlessResizeImage: 'https://image.testesolidar.com',
+    cdn_static_url: 'https://static.esolidar.com',
+  },
+};
+
+SliderOneImage.args = {
+  videoProps: null,
+  imagesProps: [
+    {
+      crowdfunding_id: 61,
+      id: 159,
+      image:
+        'crowdfundings/1-4372bb2b-b9d7-44b6-b2da-ae0c6af81daf-c7c2c853-0853-4c96-8cac-1ae51da7f1c2.jpg',
+    },
+  ],
+  env: {
+    serverlessResizeImage: 'https://image.testesolidar.com',
+    cdn_static_url: 'https://static.esolidar.com',
+  },
+};
+
+SliderNoImageNoVideo.args = {
+  videoProps: null,
+  imagesProps: [],
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',
     cdn_static_url: 'https://static.esolidar.com',

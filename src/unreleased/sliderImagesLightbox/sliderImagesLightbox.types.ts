@@ -14,9 +14,9 @@ interface Image {
   crowdfunding_id?: number;
   id: number;
   image: string;
-  length: number;
-  thumbs: Thumbs;
-  video: string;
+  length?: number;
+  thumbs?: Thumbs;
+  video?: string;
 }
 
 export interface Images extends Array<Image> {}
