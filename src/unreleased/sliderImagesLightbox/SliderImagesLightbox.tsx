@@ -128,10 +128,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
           <img
             data-testid="image"
             src={`${
-              image.thumbs
-                ? image.thumbs.detail
-                : // : `${serverlessResizeImage}/${image.image}?width=550&height=470`
-                  `${serverlessResizeImage}/${image.image}`
+              image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
             }`}
             style={{ width: '100%' }}
             alt={image.image}
@@ -181,9 +178,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
 
   return (
     <div>
-      <div className="demoWrapper">
-        <Slider {...settings}>{renderImages()}</Slider>
-      </div>
+      <Slider {...settings}>{renderImages()}</Slider>
       <ModalGateway>
         {lightboxIsOpen ? (
           <Modal onClose={toggleModal}>
