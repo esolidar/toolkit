@@ -1,14 +1,14 @@
 interface Props {
   className?: string;
   dataTestId?: string;
-  extraClass?: string;
+  extraClass?: 'default' | 'primary' | 'info' | 'success' | 'danger' | 'warning' | 'dark';
   fullWidth?: boolean;
   style?: any;
   text?: string;
   plaintext?: string;
   icon?: string;
   iconDataTestId?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   type?: 'span' | 'button';
   onClick?(): void;
 }
