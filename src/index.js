@@ -95,6 +95,7 @@ export { default as ProgressBar } from './elements/progressBar';
 export { default as Pagination } from './elements/pagination';
 export { default as PasswordField } from './elements/passwordField';
 export { default as ListElement } from './elements/listElement';
+export { default as Badge } from './elements/badge';
 
 // Utils
 export { default as addUrlParam } from './utils/addUrlParam';
