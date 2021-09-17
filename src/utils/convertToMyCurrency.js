@@ -1,11 +1,14 @@
 import React from 'react';
 import { FormattedNumber } from 'react-intl';
+import isDefined from './isDefined';
 
 const convertToMyCurrency = (value, currency) => {
   let convertedValue = value;
   const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
   const myCurrency =
-    user && user.currency !== 'null' && user.currency !== undefined ? user.currency : currency;
+    isDefined(user) && user.currency !== 'null' && isDefined(user.currency)
+      ? user.currency
+      : currency;
 
   if (myCurrency.id !== currency.id) {
     convertedValue = (value * currency.value) / myCurrency.value;
