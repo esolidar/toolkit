@@ -3,11 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
 import { getEmployeeName } from '../../utils';
+import Icon from '../icon';
 import Button from '../../elements/button';
 
 const Comments = ({
@@ -149,6 +148,7 @@ const Comments = ({
                 icon={<img alt="comment" src={`${env}/frontend/icons/ic-comment.svg`} />}
                 text={intl.formatMessage({ id: 'crowdfunding.comments.reply' })}
                 style={{ color }}
+                size="sm"
               />
               {showTextArea === comment.id && (
                 <form onSubmit={onSubmitResponse} method="post">
@@ -169,9 +169,8 @@ const Comments = ({
                       placeholder={intl.formatMessage({ id: 'commentHere' })}
                       maxLength="500"
                     />
-                    <FontAwesomeIcon
-                      icon={faPaperPlane}
-                      className="mr-1 d-lg-none comment-reply"
+                    <Icon
+                      iconClass="icon-send mr-1 d-lg-none comment-reply "
                       onClick={e => addMessage(e, comment.id, true)}
                     />
                   </div>

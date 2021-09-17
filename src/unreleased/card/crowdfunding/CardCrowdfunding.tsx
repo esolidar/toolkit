@@ -56,7 +56,7 @@ const CardCrowdfunding: FC<Props> = ({
         supportTarget = '_blanc';
       }
 
-      if (crowdfunding.projects.length > 0) {
+      if (crowdfunding?.projects?.length > 0) {
         supportRecipient = crowdfunding?.projects[0].title;
         supportUrl = `${communityUrl}npo/detail/${crowdfunding?.projects[0].id}-${slugify(
           crowdfunding?.projects[0].title

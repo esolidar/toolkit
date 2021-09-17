@@ -6,7 +6,11 @@ export default {
   component: Comments,
 };
 
-const Template = args => <Comments {...args} />;
+const Template = args => (
+  <div style={{ maxWidth: '500px' }}>
+    <Comments {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.parameters = {
@@ -23,10 +27,10 @@ Default.args = {
       comment: 'teste 2',
       comment_id: null,
       company_id: null,
-      created_at: '2020-08-07 13:07:29',
+      created_at: '2021-09-15 17:35:29',
       crowdfunding_id: 45,
       id: 382,
-      updated_at: '2020-08-07 13:07:29',
+      updated_at: '2021-09-15 17:35:29',
       user: {
         institution: {
           id: 106,

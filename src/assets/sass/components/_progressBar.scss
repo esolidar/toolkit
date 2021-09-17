@@ -45,14 +45,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: $distance-1;
+    margin-top: $distance-2;
+    font-size: 14px;
 
     & .contributors {
-      padding: 0;
+      font-weight: 600;
+      color: map-get($neutrals, 900);
+
+      &.click:hover {
+        cursor: pointer;
+        color: map-get($theme-colors, primary);
+        text-decoration: underline;
+      }
     }
 
     & .time-left {
       margin-left: auto;
+      font-weight: 600;
     }
   }
 }

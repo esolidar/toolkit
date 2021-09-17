@@ -10,7 +10,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <DetailInfoBox {...args} />;
+const Template: Story<Props> = (args: Props) => (
+  <div style={{ width: '560px' }}>
+    <DetailInfoBox {...args} />
+  </div>
+);
 
 export const Default: Story<Props> = Template.bind({});
 export const WithoutHeader: Story<Props> = Template.bind({});
