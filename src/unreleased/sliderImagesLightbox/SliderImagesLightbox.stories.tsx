@@ -19,6 +19,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default = Template.bind({});
 export const SliderOneImage: Story<Props> = Template.bind({});
 export const SliderNoImageNoVideo: Story<Props> = Template.bind({});
+export const SliderVimeo: Story<Props> = Template.bind({});
 
 Default.args = {
   videoProps: 'https://www.youtube.com/watch?v=xF_QkfZI1mM',
@@ -74,6 +75,15 @@ SliderOneImage.args = {
 
 SliderNoImageNoVideo.args = {
   videoProps: null,
+  imagesProps: [],
+  env: {
+    serverlessResizeImage: 'https://image.testesolidar.com',
+    cdn_static_url: 'https://static.esolidar.com',
+  },
+};
+
+SliderVimeo.args = {
+  videoProps: 'https://player.vimeo.com/video/76979871?h=8272103f6e',
   imagesProps: [],
   env: {
     serverlessResizeImage: 'https://image.testesolidar.com',

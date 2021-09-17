@@ -5,7 +5,7 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import { Props, Images } from './sliderImagesLightbox.types';
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed/';
-const VIMEO_URL = 'https://player.vimeo.com/video/';
+const VIMEO_URL = 'https://player.vimeo.com/';
 
 interface SliderNextArrowInterface {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -65,77 +65,89 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
   };
 
   const renderImages = () => {
-    return imagesArray.map(image => {
-      if (image.video) {
-        const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
-        const youtube =
-          /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
+    if (imagesArray.length) {
+      return imagesArray.map(image => {
+        if (image.video) {
+          const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
+          const youtube =
+            /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
 
-        if (vimeo.test(image.video)) {
-          const url = image.video;
-          const result = url.split('com/');
-          const videoUrl = result[1].split('&');
+          if (vimeo.test(image.video)) {
+            const url = image.video;
+            const result = url.split('com/');
+            const videoUrl = result[1].split('&');
 
-          return (
-            <iframe
-              data-testid="iframe"
-              title="video"
-              className="slick-slide"
-              key={image.id}
-              src={`${VIMEO_URL}${videoUrl}?color=ffffff&title=0&byline=0&portrait=0&badge=0`}
-              frameBorder="0"
-            />
-          );
-        }
-        if (youtube.test(image.video)) {
-          let videoUrl;
-          const result = image.video.split('v=');
+            return (
+              <iframe
+                data-testid="iframe-vimeo"
+                title="video"
+                className="slick-slide"
+                key={image.id}
+                src={`${VIMEO_URL}${videoUrl}?title=0&byline=0&portrait=0&transparent=0&autoplay=0`}
+                frameBorder="0"
+              />
+            );
+          }
+          if (youtube.test(image.video)) {
+            let videoUrl;
+            const result = image.video.split('v=');
 
-          if (result.length > 1) {
-            videoUrl = result.reverse();
-          } else {
-            videoUrl = image.video.split('/').reverse();
+            if (result.length > 1) {
+              videoUrl = result.reverse();
+            } else {
+              videoUrl = image.video.split('/').reverse();
+            }
+
+            return (
+              <iframe
+                data-testid="iframe-youtube"
+                className="slick-slide"
+                title="video"
+                frameBorder="0"
+                key={image.id}
+                src={`${YOUTUBE_URL}${videoUrl[0]}?autoplay=0&rel=0`}
+              />
+            );
           }
 
           return (
             <iframe
-              data-testid="iframe"
-              className="slick-slide"
+              data-testid="iframe-youtube"
               title="video"
+              className="slick-slide"
+              frameBorder="0"
               key={image.id}
-              src={`${YOUTUBE_URL}${videoUrl[0]}`}
+              src={`${YOUTUBE_URL}${image.video}?autoplay=1&rel=0`}
             />
           );
         }
-
         return (
-          <iframe
-            data-testid="iframe"
-            title="video"
-            className="slick-slide"
+          <button
+            type="button"
+            onClick={() => openLightbox()}
             key={image.id}
-            src={`${YOUTUBE_URL}${image.video}`}
-          />
+            className="open-lightbox"
+          >
+            <img
+              data-testid="image"
+              src={`${
+                image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
+              }`}
+              style={{ width: '100%' }}
+              alt={image.image}
+            />
+          </button>
         );
-      }
-      return (
-        <button
-          type="button"
-          onClick={() => openLightbox()}
-          key={image.id}
-          className="open-lightbox"
-        >
-          <img
-            data-testid="image"
-            src={`${
-              image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
-            }`}
-            style={{ width: '100%' }}
-            alt={image.image}
-          />
-        </button>
-      );
-    });
+      });
+    }
+    return (
+      <img
+        data-testid="no-image"
+        src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
+        style={{ width: '100%' }}
+        alt="teste"
+      />
+    );
   };
 
   const imagesOnly = imagesProps;

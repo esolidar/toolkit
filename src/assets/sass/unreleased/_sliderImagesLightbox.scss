@@ -286,7 +286,6 @@ $slick-opacity-not-active: 0.25;
   flex-direction: column;
   position: relative;
   width: 100%;
-  // padding-top: 56.25%;
   aspect-ratio: 16 / 9;
 
   @media (max-width: map-get($breakpoints, xs)) {
@@ -294,63 +293,45 @@ $slick-opacity-not-active: 0.25;
     display: grid;
 
     .slick-thumb {
-      display: none !important;
+      display: block !important;
     }
   }
 
-  .prev-arrow {
-    width: 40px;
-    height: 90px;
-    background: map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-left.svg')
-      50% 50% no-repeat;
-    position: absolute;
-    display: block;
-    line-height: 0;
-    font-size: 0;
-    cursor: pointer;
-    color: transparent;
-    top: 45%;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    padding: 0;
-    border: none;
-    outline: none;
-    z-index: 9;
-    opacity: 0.4;
-    border-radius: 0 3px 3px 0;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
+  .prev-arrow,
   .next-arrow {
-    width: 40px;
-    height: 90px;
-    background: map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-right.svg')
-      50% 50% no-repeat;
-    position: absolute;
-    display: block;
-    line-height: 0;
-    font-size: 0;
-    cursor: pointer;
-    color: transparent;
-    top: 45%;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    padding: 0;
-    border: none;
-    outline: none;
-    z-index: 9;
-    right: 0;
-    opacity: 0.4;
-    border-radius: 3px 0 0 3px;
+    opacity: 0;
+  }
 
-    &:hover {
+  &:hover {
+    .next-arrow,
+    .prev-arrow {
+      width: 40px;
+      height: 90px;
+      background: map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-left.svg')
+          50% 50% no-repeat,
+        map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-right.svg') 50% 50%
+          no-repeat;
+      position: absolute;
+      display: block;
+      line-height: 0;
+      font-size: 0;
+      cursor: pointer;
+      color: transparent;
+      top: 45%;
+      -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      padding: 0;
+      border: none;
+      outline: none;
+      z-index: 9;
       opacity: 0.8;
+      border-radius: 0 3px 3px 0;
     }
+  }
+
+  .ytp-title-text {
+    display: none;
   }
 }
 
@@ -369,6 +350,6 @@ $slick-opacity-not-active: 0.25;
 }
 
 iframe.slick-slide {
-  height: 470px;
+  height: 390px;
   border: none;
 }
