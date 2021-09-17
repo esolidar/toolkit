@@ -24,3 +24,4 @@ export { default as slugify } from './slugify';
 export { default as sortBy } from './sortBy';
 export { default as isValidRegex } from './regex';
 export { default as convertToUtc } from './convertToUtc';
+export { default as getFNSDateLocale } from './getFNSDateLocale';

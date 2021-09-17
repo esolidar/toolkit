@@ -18,25 +18,27 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
   };
 
   return (
-    <TabsBts
-      activeKey={activeTab}
-      defaultActiveKey={defaultActiveKey}
-      id={id}
-      onSelect={onSelect}
-      className="esolidar-tabs"
-    >
-      {tabsList.map(tab => (
-        <Tab
-          key={tab.key}
-          eventKey={tab.key}
-          title={tab.title}
-          disabled={tab.disabled}
-          tabClassName={tab.className}
-        >
-          {tab.content}
-        </Tab>
-      ))}
-    </TabsBts>
+    <div className="esolidar-tabs">
+      <TabsBts
+        activeKey={activeTab}
+        defaultActiveKey={defaultActiveKey}
+        id={id}
+        onSelect={onSelect}
+        className="esolidar-tabs__header"
+      >
+        {tabsList.map(tab => (
+          <Tab
+            key={tab.key}
+            eventKey={tab.key}
+            title={tab.title}
+            disabled={tab.disabled}
+            tabClassName={tab.className}
+          >
+            {tab.content}
+          </Tab>
+        ))}
+      </TabsBts>
+    </div>
   );
 };
 

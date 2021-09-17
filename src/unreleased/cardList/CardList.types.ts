@@ -1,9 +1,15 @@
 /* eslint-disable camelcase */
 import Crowdfunding from '../../interfaces/crowdfunding.types';
 
-interface SeeAll {
+interface Button {
   url?: string;
   text?: string;
+}
+
+interface Footer {
+  onChangeSelectPerPage(): void;
+  onChangePagination(): void;
+  perPageOptions?: number[];
 }
 
 interface Card extends Crowdfunding {
@@ -12,27 +18,23 @@ interface Card extends Crowdfunding {
   type: 'crowdfunding' | 'auction' | 'project';
 }
 
-interface List {
-  current_page: number;
+export interface List {
+  current_page?: number;
   from?: number;
-  last_page: number;
+  last_page?: number;
   per_page: number | string;
   to?: number;
   total: number;
   data: Card[];
 }
 
-interface Props {
+export interface Props {
   title?: string;
   subtitle?: string;
   list: List;
-  hasListFooter?: boolean;
-  seeAll?: SeeAll;
+  button?: Button;
   communityUrl?: string;
   lang: 'pt' | 'br' | 'en';
-  onChangeSelectPerPage(): void;
-  onChangePagination(): void;
-  perPageOptions?: number[];
+  footer?: Footer;
+  onClickThumb(id: number): void;
 }
-
-export default Props;

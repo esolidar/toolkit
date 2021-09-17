@@ -1,10 +1,12 @@
-import List from '../../interfaces/list';
+/* eslint-disable camelcase */
 
 interface Props {
   labelResultText: string;
   onChangeSelectPerPage(): void;
   onChangePagination(): void;
-  data: List;
+  total: number;
+  current_page: number;
+  per_page: number | string;
   perPageOptions?: number[];
 }
 
