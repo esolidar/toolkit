@@ -68,15 +68,31 @@
   }
   .share-facebook {
     background-color: #3b5998;
+
+    &.black {
+      background-color: map-get($base, black);
+    }
   }
   .share-twitter {
     background-color: #00aced;
+
+    &.black {
+      background-color: map-get($base, black);
+    }
   }
   .share-whatsapp {
     background-color: #25d366;
     font-size: 19px;
+
+    &.black {
+      background-color: map-get($base, black);
+    }
   }
   .share-link {
     background-color: map-get($neutrals, 400);
+
+    &.black {
+      background-color: map-get($base, black);
+    }
   }
 }

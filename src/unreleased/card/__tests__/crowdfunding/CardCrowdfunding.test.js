@@ -8,7 +8,7 @@ import Meta, {
   PublicZeroRaised as PublicZero,
   Private,
   PrivateZeroRaised as PrivateZero,
-} from '../../crowdfunfing/CardCrowdfunding.stories';
+} from '../../crowdfunding/CardCrowdfunding.stories';
 import crowdfunding from '../../../../../__mocks__/crowdfunding';
 import campaign from '../../../../../__mocks__/campaign';
 

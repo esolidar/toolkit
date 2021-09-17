@@ -23,5 +23,7 @@ Default.args = {
   labelResultText: 'Crowdfundings',
   onChangeSelectPerPage: () => {},
   onChangePagination: () => {},
-  data: list,
+  total: list.total,
+  current_page: list.current_page,
+  per_page: list.per_page,
 };

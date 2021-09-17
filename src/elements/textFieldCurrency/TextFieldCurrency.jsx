@@ -57,11 +57,13 @@ class TextFieldCurrency extends Component {
     el.value = this.props.intl.formatNumber(value, {
       style: 'currency',
       currency: prefix,
+      minimumFractionDigits: this.props.decimalScale,
+      maximumFractionDigits: this.props.decimalScale,
     });
 
     this.setState(
       {
-        value: value ? Number(value).toFixed(2) : '',
+        value: value ? Number(value).toFixed(this.props.decimalScale) : '',
         formattedValue: el.value,
       },
       () => {
@@ -113,7 +115,7 @@ TextFieldCurrency.propTypes = {
 };
 
 TextFieldCurrency.defaultProps = {
-  decimalScale: 0,
+  decimalScale: 2,
   value: '',
 };
 

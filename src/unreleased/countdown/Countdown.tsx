@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { zonedTimeToUtc } from 'date-fns-tz';
 import Props from './Countdown.types';
 import useInterval from '../../hooks/useInterval';
 import MONTHS from '../../constants/months';
-import { today } from '../../constants/date';
+import { getToday, formatDate } from '../../constants/date';
 
 const Countdown: FC<Props> = ({
   startDate,
@@ -32,16 +33,19 @@ const Countdown: FC<Props> = ({
   const end: any = new Date(endDate.replace(/-/g, '/'));
 
   const calculateCountdown = () => {
-    const nowTimeStamp = today.getTime();
+    const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
+    const nowTimeStamp = Date.parse(formatDate(zonedTimeToUtc(new Date(), timeZone)));
     let countDate;
     let status;
+
+    const today = getToday();
 
     if (start > today) {
       status = intl.formatMessage({ id: 'countdown.startsin' });
       countDate = start;
       setIsSoon(true);
     } else if (today <= end) {
-      if (isSoon && onStart) onStart();
+      if (isSoon) onStart();
       status = intl.formatMessage({ id: 'countdown.endsin' });
       setIsRunning(true);
       setIsSoon(false);
@@ -63,7 +67,7 @@ const Countdown: FC<Props> = ({
       sec: 0,
     };
 
-    if (diff < 0) {
+    if (diff < 0 && isRunning) {
       setPlaying(null);
       if (isLoading) setIsLoading(false);
       return false;
@@ -124,6 +128,25 @@ const Countdown: FC<Props> = ({
     }
   };
 
+  const detailDaysLeft = () => {
+    if (countDowndate.days > 0) {
+      return intl.formatMessage({ id: 'toolkit.days.left.detail' }, { value: countDowndate.days });
+    }
+    if (countDowndate.hours > 0) {
+      return intl.formatMessage(
+        { id: 'toolkit.hours.left.detail' },
+        { value: countDowndate.hours }
+      );
+    }
+
+    if (countDowndate.min > 0) {
+      return intl.formatMessage({ id: 'toolkit.mins.left.detail' }, { value: countDowndate.min });
+    }
+    if (countDowndate.min <= 1) {
+      return intl.formatMessage({ id: 'toolkit.secs.left.detail' }, { value: countDowndate.sec });
+    }
+  };
+
   const addLeadingZeros = value => {
     let newValue = String(value);
 
@@ -134,6 +157,10 @@ const Countdown: FC<Props> = ({
   };
 
   const renderTimerCountdown = () => {
+    if (mode === 'detail') {
+      return <div className="countdown-days-left-values">{detailDaysLeft()}</div>;
+    }
+
     if (
       (countDowndate.days > 0 && mode === 'timer-count') ||
       (countDowndate.days === 0 &&
@@ -185,7 +212,6 @@ const Countdown: FC<Props> = ({
           </div>
         </>
       );
-
     return <div className="countdown-days-left-values">{daysLeft()}</div>;
   };
 

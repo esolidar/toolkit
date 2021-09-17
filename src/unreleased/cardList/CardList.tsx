@@ -3,12 +3,12 @@ import React, { FC, useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { IntlShape } from 'react-intl/src/types';
 import { Col, Row } from 'react-bootstrap';
-import Props from './CardList.types';
-import CardCrowdfunding from '../card/crowdfunfing/CardCrowdfunding';
+import { Props, List } from './CardList.types';
+import CardCrowdfunding from '../card/crowdfunding/CardCrowdfunding';
 import Button from '../../elements/button';
+import isDefined from '../../utils/isDefined';
 import ListFooter from '../listFooter/ListFooter';
 import Title from '../title/title';
-import List from '../../interfaces/list';
 import clone from '../../utils/clone';
 
 interface Types {
@@ -52,13 +52,11 @@ const CardList: FC<Props> = ({
   title,
   subtitle,
   list,
-  seeAll,
+  button,
   communityUrl,
-  perPageOptions,
-  lang = 'en',
-  hasListFooter = false,
-  onChangePagination,
-  onChangeSelectPerPage,
+  lang,
+  footer,
+  onClickThumb,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [cardList, setCardList] = useState<List>(list);
@@ -95,11 +93,11 @@ const CardList: FC<Props> = ({
       <Title title={title} subtitle={subtitle} />
       <Row className="cardList__content">
         {cardList?.data?.map((card, indx) => (
-          <Col key={indx} xs={12} sm={4} lg={3}>
+          <Col key={indx} xs={12} sm={6} md={4}>
             {card?.type === 'crowdfunding' && (
               <CardCrowdfunding
                 crowdfunding={card}
-                clickThumb={() => {}}
+                clickThumb={() => onClickThumb(card.id)}
                 communityUrl={communityUrl}
                 lang={lang}
               />
@@ -107,28 +105,27 @@ const CardList: FC<Props> = ({
           </Col>
         ))}
       </Row>
-      {hasListFooter && (
+      {isDefined(footer) && (
         <ListFooter
           labelResultText={getListFooterLabel(types, intl)}
-          onChangePagination={onChangePagination}
-          onChangeSelectPerPage={onChangeSelectPerPage}
-          data={cardList}
-          perPageOptions={perPageOptions}
+          onChangePagination={footer?.onChangePagination}
+          onChangeSelectPerPage={footer?.onChangeSelectPerPage}
+          total={cardList.total}
+          current_page={cardList.current_page}
+          per_page={cardList.per_page}
+          perPageOptions={footer?.perPageOptions}
         />
       )}
-      {!!seeAll && !hasListFooter && (
-        <div className="cardList__see-all text-center">
+      {isDefined(button) && (
+        <div className="cardList__see-all">
           <Button
             extraClass="primary"
-            fullWidth={false}
             rounded={false}
-            href={seeAll.url}
-            size="md"
+            href={button.url}
             target="_blank"
             text={intl.formatMessage({
-              id: 'see.all',
+              id: button.text || 'see.all',
             })}
-            type="button"
           />
         </div>
       )}

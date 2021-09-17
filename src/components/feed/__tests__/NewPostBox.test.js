@@ -22,12 +22,10 @@ const NewPostBoxEditPost = composeStory(EditPost, Meta);
 it('Without Login', () => {
   render(<NewPostBoxWithoutLogin />);
 
-  const box = screen.queryByTestId('feed-create-post');
   const loginButton = screen.queryByTestId('login-button');
   const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');
 
-  expect(box).toBeInTheDocument();
   expect(loginButton).toBeInTheDocument();
   expect(header).not.toBeInTheDocument();
   expect(body).not.toBeInTheDocument();

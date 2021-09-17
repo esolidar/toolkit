@@ -5,6 +5,7 @@ interface Props {
   showWhatsapp?: boolean;
   showCopyToClipboard?: boolean;
   windowLocationHref?: string;
+  blackIcons?: boolean;
 }
 
 export default Props;
