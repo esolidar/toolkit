@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631636036061" clover="3.2.0">
-  <project timestamp="1631636036061" name="All files">
-    <metrics statements="3338" coveredstatements="2249" conditionals="2847" coveredconditionals="1775" methods="885" coveredmethods="438" elements="7070" coveredelements="4462" complexity="0" loc="3338" ncloc="3338" packages="115" files="277" classes="277"/>
+<coverage generated="1631885339851" clover="3.2.0">
+  <project timestamp="1631885339851" name="All files">
+    <metrics statements="3338" coveredstatements="2243" conditionals="2848" coveredconditionals="1773" methods="885" coveredmethods="437" elements="7071" coveredelements="4453" complexity="0" loc="3338" ncloc="3338" packages="115" files="277" classes="277"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -3924,19 +3924,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="8" count="18" type="stmt"/>
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="47" count="43" type="stmt"/>
         <line num="81" count="18" type="stmt"/>
         <line num="106" count="18" type="stmt"/>
@@ -4328,7 +4328,7 @@
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="105" coveredstatements="94" conditionals="65" coveredconditionals="55" methods="38" coveredmethods="33"/>
+      <metrics statements="105" coveredstatements="94" conditionals="66" coveredconditionals="56" methods="38" coveredmethods="33"/>
       <file name="addUrlParam.js" path="D:\projects\toolkit\src\utils\addUrlParam.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
@@ -4350,14 +4350,14 @@
         <line num="1" count="27" type="stmt"/>
       </file>
       <file name="convertToMyCurrency.js" path="D:\projects\toolkit\src\utils\convertToMyCurrency.js">
-        <metrics statements="7" coveredstatements="7" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="7" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="4" count="27" type="stmt"/>
         <line num="5" count="10" type="stmt"/>
         <line num="6" count="10" type="cond" truecount="1" falsecount="1"/>
-        <line num="7" count="10" type="cond" truecount="4" falsecount="0"/>
-        <line num="9" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
+        <line num="8" count="10" type="cond" truecount="5" falsecount="0"/>
+        <line num="10" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
       </file>
       <file name="convertToUtc.js" path="D:\projects\toolkit\src\utils\convertToUtc.js">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -4458,7 +4458,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="36" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
