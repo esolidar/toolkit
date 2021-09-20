@@ -24,7 +24,7 @@ it('renders Crowdfunding public', () => {
   expect(getAllByClass('bg-image')).toHaveLength(1);
   expect(getAllByClass('card-component__body')).toHaveLength(1);
   expect(getAllByClass('card-component__title')).toHaveLength(1);
-  expect(getByClass('card-component__title')).toHaveTextContent(crowdfunding.title);
+  expect(getByClass('card-component__title')).toHaveTextContent(crowdfunding.title_en);
   expect(getAllByClass('card-component__body-middle')).toHaveLength(1);
   expect(getAllByClass('countdown-component border')).toHaveLength(1);
   expect(getAllByClass('card-component__support')).toHaveLength(1);
