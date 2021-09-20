@@ -19,20 +19,12 @@ const Template: Story<Props> = (args: Props) => (
   </div>
 );
 
-export const PublicTitlePt: Story<Props> = Template.bind({});
-export const PublicTitleEn: Story<Props> = Template.bind({});
+export const Default: Story<Props> = Template.bind({});
 export const PublicZeroRaised: Story<Props> = Template.bind({});
 export const Private: Story<Props> = Template.bind({});
 export const PrivateZeroRaised: Story<Props> = Template.bind({});
 
-PublicTitlePt.args = {
-  crowdfunding,
-  clickThumb: () => alert('clicked'),
-  communityUrl: 'https://community.testesolidar.com/',
-  lang: 'pt',
-};
-
-PublicTitleEn.args = {
+Default.args = {
   crowdfunding,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',

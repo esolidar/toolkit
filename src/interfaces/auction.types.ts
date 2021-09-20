@@ -1,8 +1,9 @@
-// import AuctionProject from './auctionProject';
 import Bid from './bid.types';
 import Currency from './currency.types';
 import ImageThumbs from './imageThumbs.types';
 import User from './user.types';
+import Recipient from './recipient.types';
+import AuctionProject from './auctionProject.types';
 
 interface AuctionImage {
   id: number;
@@ -66,9 +67,11 @@ interface Auction {
   user?: User;
   cause?: any;
   currency: Currency;
-  // project?: AuctionProject;
+  project?: AuctionProject;
   last_bid_value?: Bid;
   type?: string;
+  recipient?: Recipient;
+  bids_count?: number;
 }
 
 export default Auction;
