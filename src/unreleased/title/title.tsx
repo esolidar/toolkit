@@ -12,7 +12,10 @@ const Title: FC<Props> = ({
 }: Props): JSX.Element => (
   <div className="component-title">
     {goBackUrl && (
-      <a className="component-title-back" href={goBackUrl}>
+      <a
+        className="component-title-back client__primary--color client__primary--color-hover"
+        href={goBackUrl}
+      >
         <Icon iconClass="icon-chevron-left" />
         <FormattedMessage id="go.back" />
       </a>
@@ -27,7 +30,7 @@ const Title: FC<Props> = ({
             href={supportingUrl}
             title={supportingName}
             target="_blank"
-            className="component-title-supporting-href"
+            className="component-title-supporting-href client__primary--color-hover"
             rel="noreferrer"
           >
             {supportingName}

@@ -34,6 +34,7 @@ const ProfileAvatar: FC<Props> = ({
         <div
           className={classnames(
             'profile-avatar__name',
+            'client__primary--color-hover',
             { margin: thumb },
             { bold: isNameBold },
             { click: href }

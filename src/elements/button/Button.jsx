@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
 const Button = ({
@@ -30,15 +31,32 @@ const Button = ({
     getType = 'link';
   }
 
-  const classes = [
+  const classes = classnames(
     'btn-esolidar',
     `btn-${extraClass}`,
     `btn-${size}`,
-    rounded ? 'rounded' : '',
-    fullWidth ? 'full-width' : '',
-    disabled ? 'disabled' : '',
+    { rounded },
+    { 'full-width': fullWidth },
+    { disabled },
     className,
-  ];
+    {
+      'client__primary--background-color client__primary--border-color client__primary--background-color-hover client__primary--border-color-hover':
+        extraClass === 'primary-full',
+    },
+    {
+      'client__primary--border-color client__primary--border-color-hover client__primary--background-color-hover':
+        extraClass === 'primary',
+    },
+    {
+      'client__secondary--background-color client__secondary--border-color client__secondary--background-color-hover client__secondary--border-color-hover':
+        extraClass === 'info-full',
+    },
+    {
+      'client__secondary--border-color client__secondary--border-color-hover client__secondary--background-color-hover':
+        extraClass === 'info',
+    },
+    { 'client__primary--color client__primary--color-hover': extraClass === 'link' }
+  );
 
   const renderButton = () => {
     switch (getType) {
@@ -49,7 +67,7 @@ const Button = ({
             id={id}
             type="button"
             onClick={onClick}
-            className={classes.join(' ')}
+            className={classes}
             disabled={disabled}
             style={style}
           >
@@ -64,7 +82,7 @@ const Button = ({
             data-testid={dataTestId}
             id={id}
             type="submit"
-            className={classes.join(' ')}
+            className={classes}
             disabled={disabled}
             style={style}
           >
@@ -75,13 +93,7 @@ const Button = ({
 
       case 'link':
         return (
-          <Link
-            data-testid={dataTestId}
-            id={id}
-            to={to}
-            className={classes.join(' ')}
-            style={style}
-          >
+          <Link data-testid={dataTestId} id={id} to={to} className={classes} style={style}>
             {icon}
             {text}
           </Link>
@@ -95,7 +107,7 @@ const Button = ({
             href={href}
             target={target || '_self'}
             rel={rel}
-            className={classes.join(' ')}
+            className={classes}
             style={style}
           >
             {icon}
