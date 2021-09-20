@@ -6,7 +6,6 @@ interface Props {
   campaign?: Campaign;
   clickThumb(): void;
   communityUrl: string;
-  lang: 'pt' | 'br' | 'en';
 }
 
 export default Props;

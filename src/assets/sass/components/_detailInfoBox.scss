@@ -1,11 +1,13 @@
 .detail-info-box {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
   border: 1px solid map-get($neutrals, 400);
   border-radius: $border-radius-1;
-  max-width: 500px;
+  max-width: 600px;
+  width: 100%;
   overflow: hidden;
+  background-color: white;
 
   &__header {
     border-bottom: 1px solid map-get($neutrals, 400);
@@ -15,15 +17,19 @@
   }
 
   &__body {
-    padding: $distance-2;
+    margin: $distance-3;
+    margin-bottom: 0;
   }
 
   &__organized {
     margin-top: auto;
-    padding: $distance-1 $distance-2;
+    margin: 0 $distance-3;
+    padding-top: $distance-3;
+    padding-bottom: $distance-4;
 
     & p {
-      margin-bottom: $distance-1;
+      color: map-get($neutrals, 700);
+      margin-bottom: $distance-2;
     }
   }
 
@@ -31,7 +37,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 70px;
-    padding: $distance-2;
+    height: 96px;
+    margin: 0 $distance-3 $distance-3 $distance-3;
+    padding-top: $distance-4;
+    border-top: 1px solid map-get($neutrals, 200);
   }
 }

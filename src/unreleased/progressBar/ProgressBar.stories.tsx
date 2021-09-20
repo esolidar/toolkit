@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react';
-import { format, addDays, subDays } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import ProgressBar from './ProgressBar';
 import Props from './ProgressBar.types';
-import { today, dateFormat } from '../../constants/date';
+import { getToday, dateFormat } from '../../constants/date';
 
 export default {
   title: 'Unreleased/ProgressBar',
@@ -43,12 +43,21 @@ Crowdfunding.args = {
   currency: 'EUR',
   showLabel: true,
   showRaisedOf: true,
-  numberContributors: 22,
+  numberContributors: 0,
   onClickContributors: () => {
     alert('You clicked contributors button!');
   },
-  startDate: format(subDays(today, 1), dateFormat),
-  endDate: format(addDays(today, 15), dateFormat),
+  countdown: {
+    startDate: format(addDays(getToday(), 1), dateFormat),
+    endDate: format(addDays(getToday(), 3), dateFormat),
+    onStart: () => {
+      console.log('Started!');
+    },
+    onExpiry: () => {
+      console.log('Ended!');
+    },
+  },
+  hasStarted: false,
 };
 
 Minimal.args = {

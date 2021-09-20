@@ -3,61 +3,45 @@ import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../../__customQueries__/test-utils';
 import Meta, {
-  PublicTitlePt as PublicPt,
-  PublicTitleEn as PublicEn,
+  Default as DefaultStory,
   PublicZeroRaised as PublicZero,
   Private,
   PrivateZeroRaised as PrivateZero,
-} from '../../crowdfunfing/CardCrowdfunding.stories';
+} from '../../crowdfunding/CardCrowdfunding.stories';
 import crowdfunding from '../../../../../__mocks__/crowdfunding';
 import campaign from '../../../../../__mocks__/campaign';
 
-const DefaultPT = composeStory(PublicPt, Meta);
-const DefaultEn = composeStory(PublicEn, Meta);
+const Default = composeStory(DefaultStory, Meta);
 const PrivateTemplate = composeStory(Private, Meta);
 const PublicZeroRaised = composeStory(PublicZero, Meta);
 const PrivateZeroRaised = composeStory(PrivateZero, Meta);
 
-it('renders Crowdfunding public with title PT', () => {
-  const { getAllByClass, getByClass } = render(<DefaultPT />);
+it('renders Crowdfunding public', () => {
+  const { getAllByClass, getByClass } = render(<Default />);
 
   expect(getAllByClass('card-component')).toBeTruthy();
-  expect(getAllByClass('card-component-image')).toHaveLength(1);
+  expect(getAllByClass('card-component__image')).toHaveLength(1);
   expect(getAllByClass('bg-image')).toHaveLength(1);
-  expect(getAllByClass('card-component-body')).toHaveLength(1);
-  expect(getAllByClass('card-component-title')).toHaveLength(1);
-  expect(getByClass('card-component-title')).toHaveTextContent(crowdfunding.title);
-  expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
+  expect(getAllByClass('card-component__body')).toHaveLength(1);
+  expect(getAllByClass('card-component__title')).toHaveLength(1);
+  expect(getByClass('card-component__title')).toHaveTextContent(crowdfunding.title_en);
+  expect(getAllByClass('card-component__body-middle')).toHaveLength(1);
   expect(getAllByClass('countdown-component border')).toHaveLength(1);
-  expect(getAllByClass('card-component-support')).toHaveLength(1);
-});
-
-it('renders Crowdfunding public with title En', () => {
-  const { getAllByClass, getByClass } = render(<DefaultEn />);
-
-  expect(getAllByClass('card-component')).toBeTruthy();
-  expect(getAllByClass('card-component-image')).toHaveLength(1);
-  expect(getAllByClass('bg-image')).toHaveLength(1);
-  expect(getAllByClass('card-component-body')).toHaveLength(1);
-  expect(getAllByClass('card-component-title')).toHaveLength(1);
-  expect(getByClass('card-component-title')).toHaveTextContent(crowdfunding.title_en);
-  expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
-  expect(getAllByClass('countdown-component border')).toHaveLength(1);
-  expect(getAllByClass('card-component-support')).toHaveLength(1);
+  expect(getAllByClass('card-component__support')).toHaveLength(1);
 });
 
 it('renders Crowdfunding private', () => {
   const { queryByTestId, getAllByClass, getByClass } = render(<PrivateTemplate />);
 
   expect(getAllByClass('card-component')).toBeTruthy();
-  expect(getAllByClass('card-component-image')).toHaveLength(1);
+  expect(getAllByClass('card-component__image')).toHaveLength(1);
   expect(getAllByClass('bg-image')).toHaveLength(1);
-  expect(getAllByClass('card-component-body')).toHaveLength(1);
-  expect(getAllByClass('card-component-title')).toHaveLength(1);
-  expect(getByClass('card-component-title')).toHaveTextContent(campaign.title);
-  expect(getAllByClass('card-component-body-middle')).toHaveLength(1);
+  expect(getAllByClass('card-component__body')).toHaveLength(1);
+  expect(getAllByClass('card-component__title')).toHaveLength(1);
+  expect(getByClass('card-component__title')).toHaveTextContent(campaign.title);
+  expect(getAllByClass('card-component__body-middle')).toHaveLength(1);
   expect(getAllByClass('countdown-component border')).toHaveLength(1);
-  expect(getAllByClass('card-component-support')).toHaveLength(1);
+  expect(getAllByClass('card-component__support')).toHaveLength(1);
   expect(queryByTestId('supporting-name')).toBeTruthy();
 });
 

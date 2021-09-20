@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import classnames from 'classnames';
 import Props from './ShareNetwork.types';
 import Icon from '../../components/icon';
 
@@ -10,6 +11,7 @@ const ShareNetwork: FC<Props> = ({
   showWhatsapp = true,
   showCopyToClipboard = true,
   windowLocationHref = window.location.href,
+  blackIcons = false,
 }: Props): JSX.Element => {
   const [showTooltip, setShowTooltip] = useState(false);
   const intl = useIntl();
@@ -41,7 +43,7 @@ const ShareNetwork: FC<Props> = ({
           onClick={fbShare}
           aria-label="facebook"
           title="Facebook"
-          className="share-icon share-facebook"
+          className={classnames('share-icon share-facebook', { black: blackIcons })}
           data-testid="share-facebook"
         >
           <Icon iconClass="icon-facebook" />
@@ -54,7 +56,7 @@ const ShareNetwork: FC<Props> = ({
           rel="noopener noreferrer"
           aria-label="twitter"
           title="Twitter"
-          className="share-icon share-twitter"
+          className={classnames('share-icon share-twitter', { black: blackIcons })}
           data-testid="share-twitter"
         >
           <Icon iconClass="icon-twitter" />
@@ -68,7 +70,7 @@ const ShareNetwork: FC<Props> = ({
           target="_blank"
           rel="noopener noreferrer"
           title="Whatsapp"
-          className="share-icon share-whatsapp"
+          className={classnames('share-icon share-whatsapp', { black: blackIcons })}
           data-testid="share-whatsapp"
         >
           <Icon iconClass="icon-whatsapp" />
@@ -80,7 +82,7 @@ const ShareNetwork: FC<Props> = ({
           title={intl.formatMessage({
             id: 'copy.link',
           })}
-          className="share-icon share-link"
+          className={classnames('share-icon share-link', { black: blackIcons })}
           data-testid="share-link"
           onClick={copyToClipboard}
         >

@@ -3,6 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import TextareaField from '../../elements/textareaField';
 import DropZoneBox from '../../elements/dropZoneBox';
 import Loading from '../loading';
+import LoginToInteract from '../loginToInteract';
 import Button from '../../elements/button';
 import ProfileAvatar from '../profileAvatar';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
@@ -189,182 +190,171 @@ const NewPostBox: FC<Props> = ({
   };
 
   return (
-    <div
-      className="feed-create-post"
-      id="feed-create-post"
-      data-testid="feed-create-post"
-      onClick={handleEditMode}
-      onKeyPress={handleEditMode}
-    >
-      {!user && (
-        <div className="feed-create-post-header">
-          <span>
-            <FormattedMessage id="feed.create.post.without.login" />
-          </span>
-          <Button
-            dataTestId="login-button"
-            extraClass="link"
-            fullWidth={false}
-            onClick={loginAction}
-            rounded={true}
-            size="md"
-            text={<FormattedMessage id="login" />}
-            type="button"
-          />
-        </div>
-      )}
-      {user && (
-        <>
-          {isLoading && (
-            <div className="feed-create-post-loading">
-              <Loading />
-            </div>
-          )}
-          <ProfileAvatar
-            thumb={user.thumbs.thumb}
-            name={editMode ? user.name : intl.formatMessage({ id: 'feed.create.post.with.login' })}
-          />
-          {editMode && (
-            <>
-              <div className="feed-create-post-body" data-testid="body">
-                <TextareaField
-                  field="text"
-                  id="text"
-                  resize={true}
-                  cssClass="no-border"
-                  onChange={handleChange}
-                  placeholder={intl.formatMessage({
-                    id: 'feed.create.post.with.login',
-                  })}
-                  value={text}
-                  onPaste={handdlePaste}
-                  dataTestId="text"
-                  autofocus={true}
-                />
-                {shareLink && (
-                  <div className="share-link-preview" data-testid="share-link-preview">
-                    <button
-                      type="button"
-                      onClick={deleteShareLink}
-                      className="delete-share-link"
-                      data-testid="share-link-preview-btn"
-                    >
-                      <Icon iconClass="icon-close" />
-                    </button>
-                    {shareLink.og_image && (
-                      <Picture
-                        src={shareLink.og_image}
-                        alt={shareLink.og_title}
-                        className="w-100"
-                      />
-                    )}
-                    <div className="share-link-preview-domain">{shareLink.domain}</div>
-                    <div className="share-link-preview-title">{shareLink.title}</div>
-                    <div className="share-link-preview-og_description">
-                      {shareLink.og_description}
-                    </div>
-                  </div>
-                )}
-                {images.length > 0 && (
-                  <div className="images-preview" data-testid="images-preview">
-                    {images.map((image, i) => {
-                      let width = 100;
-                      const { length } = images;
-
-                      if (length === 2) {
-                        width = 50;
-                      }
-
-                      if (length === 3) {
-                        if (i < 1) width = 100;
-                        if (i >= 1) width = 50;
-                      }
-
-                      if (length === 4) {
-                        width = 100 / (length / 2);
-                      }
-
-                      if (length > 4) {
-                        if (i <= 1) width = 50;
-                        if (i > 1) width = 33;
-                      }
-
-                      if (length === 6) {
-                        width = 33;
-                      }
-
-                      if (length > 6) {
-                        if (i <= 1) width = 50;
-                        if (i > 1) width = 50;
-                        if (i > 3) width = 33;
-                        if (i >= 7) width = 100;
-                      }
-
-                      return (
-                        <div
-                          key={image.id}
-                          style={{ backgroundImage: `url("${image.image}")` }}
-                          className={`post-image-box w-${JSON.stringify(width)}`}
-                          data-testid="post-image-box"
-                        >
-                          &nbsp;
-                          <button
-                            type="button"
-                            onClick={() => deleteImage(image.id)}
-                            className="delete-image"
-                            data-testid="delete-image"
-                          >
-                            <Icon iconClass="icon-close" />
-                          </button>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
+    <>
+      {!user ? (
+        <LoginToInteract text="feed.create.post.without.login" onClick={loginAction} />
+      ) : (
+        <div
+          className="feed-create-post"
+          id="feed-create-post"
+          data-testid="feed-create-post"
+          onClick={handleEditMode}
+          onKeyPress={handleEditMode}
+        >
+          <>
+            {isLoading && (
+              <div className="feed-create-post-loading">
+                <Loading />
               </div>
-              <div className="footer">
-                <div className="add-image">
-                  <DropZoneBox
-                    accept=".jpg, .jpeg, .png"
-                    onSelect={handleSelectFile}
-                    showImagesPreviews={false}
-                    showDropArea={false}
-                    multiple={false}
-                  >
+            )}
+            <ProfileAvatar
+              thumb={user.thumbs.thumb}
+              name={
+                editMode ? user.name : intl.formatMessage({ id: 'feed.create.post.with.login' })
+              }
+            />
+            {editMode && (
+              <>
+                <div className="feed-create-post-body" data-testid="body">
+                  <TextareaField
+                    field="text"
+                    id="text"
+                    resize={true}
+                    cssClass="no-border"
+                    onChange={handleChange}
+                    placeholder={intl.formatMessage({
+                      id: 'feed.create.post.with.login',
+                    })}
+                    value={text}
+                    onPaste={handdlePaste}
+                    dataTestId="text"
+                    autofocus={true}
+                  />
+                  {shareLink && (
+                    <div className="share-link-preview" data-testid="share-link-preview">
+                      <button
+                        type="button"
+                        onClick={deleteShareLink}
+                        className="delete-share-link"
+                        data-testid="share-link-preview-btn"
+                      >
+                        <Icon iconClass="icon-close" />
+                      </button>
+                      {shareLink.og_image && (
+                        <Picture
+                          src={shareLink.og_image}
+                          alt={shareLink.og_title}
+                          className="w-100"
+                        />
+                      )}
+                      <div className="share-link-preview-domain">{shareLink.domain}</div>
+                      <div className="share-link-preview-title">{shareLink.title}</div>
+                      <div className="share-link-preview-og_description">
+                        {shareLink.og_description}
+                      </div>
+                    </div>
+                  )}
+                  {images.length > 0 && (
+                    <div className="images-preview" data-testid="images-preview">
+                      {images.map((image, i) => {
+                        let width = 100;
+                        const { length } = images;
+
+                        if (length === 2) {
+                          width = 50;
+                        }
+
+                        if (length === 3) {
+                          if (i < 1) width = 100;
+                          if (i >= 1) width = 50;
+                        }
+
+                        if (length === 4) {
+                          width = 100 / (length / 2);
+                        }
+
+                        if (length > 4) {
+                          if (i <= 1) width = 50;
+                          if (i > 1) width = 33;
+                        }
+
+                        if (length === 6) {
+                          width = 33;
+                        }
+
+                        if (length > 6) {
+                          if (i <= 1) width = 50;
+                          if (i > 1) width = 50;
+                          if (i > 3) width = 33;
+                          if (i >= 7) width = 100;
+                        }
+
+                        return (
+                          <div
+                            key={image.id}
+                            style={{ backgroundImage: `url("${image.image}")` }}
+                            className={`post-image-box w-${JSON.stringify(width)}`}
+                            data-testid="post-image-box"
+                          >
+                            &nbsp;
+                            <button
+                              type="button"
+                              onClick={() => deleteImage(image.id)}
+                              className="delete-image"
+                              data-testid="delete-image"
+                            >
+                              <Icon iconClass="icon-close" />
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+                <div className="footer">
+                  <div className="add-image">
+                    <DropZoneBox
+                      accept=".jpg, .jpeg, .png"
+                      onSelect={handleSelectFile}
+                      showImagesPreviews={false}
+                      showDropArea={false}
+                      multiple={false}
+                    >
+                      <Button
+                        extraClass="dark"
+                        className="d-flex align-items-center"
+                        fullWidth={false}
+                        rounded={true}
+                        size="md"
+                        icon={
+                          <>
+                            <Icon iconClass="icon-camera2" style={{ fontSize: '24px' }} />
+                            <Icon iconClass="icon-plus ml-2" style={{ fontSize: '10px' }} />
+                          </>
+                        }
+                        type="button"
+                      />
+                    </DropZoneBox>
+                  </div>
+                  <div className="add-post">
                     <Button
-                      extraClass="dark"
-                      className="d-flex align-items-center"
+                      extraClass="primary-full"
                       fullWidth={false}
+                      onClick={handleSubmitPost}
                       rounded={true}
                       size="md"
-                      icon={
-                        <>
-                          <Icon iconClass="icon-camera2" style={{ fontSize: '24px' }} />
-                          <Icon iconClass="icon-plus ml-2" style={{ fontSize: '10px' }} />
-                        </>
-                      }
+                      text={<FormattedMessage id="feed.create.post" />}
                       type="button"
+                      disabled={text.length === 0}
                     />
-                  </DropZoneBox>
+                  </div>
                 </div>
-                <div className="add-post">
-                  <Button
-                    extraClass="primary-full"
-                    fullWidth={false}
-                    onClick={handleSubmitPost}
-                    rounded={true}
-                    size="md"
-                    text={<FormattedMessage id="feed.create.post" />}
-                    type="button"
-                    disabled={text.length === 0}
-                  />
-                </div>
-              </div>
-            </>
-          )}
-        </>
+              </>
+            )}
+          </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -12,6 +12,7 @@ interface Props {
   title: string;
   body: any;
   support: Support;
+  isPrivate?: boolean;
 }
 
 export default Props;

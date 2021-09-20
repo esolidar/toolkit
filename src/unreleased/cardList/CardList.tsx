@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { IntlShape } from 'react-intl/src/types';
 import { Col, Row } from 'react-bootstrap';
 import { Props, List } from './CardList.types';
-import CardCrowdfunding from '../card/crowdfunfing/CardCrowdfunding';
+import CardCrowdfunding from '../card/crowdfunding/CardCrowdfunding';
 import CardAuction from '../card/auction/CardAuction';
 import Button from '../../elements/button';
 import isDefined from '../../utils/isDefined';

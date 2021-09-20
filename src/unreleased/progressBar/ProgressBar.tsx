@@ -1,21 +1,11 @@
-import React, { FC, useState } from 'react';
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { FC } from 'react';
 import { FormattedMessage, FormattedNumber, IntlShape, useIntl } from 'react-intl';
-import Button from '../../elements/button';
-import useInterval from '../../hooks/useInterval';
+import classnames from 'classnames';
+import isDefined from '../../utils/isDefined';
 import Countdown from '../countdown';
 import Props from './ProgressBar.types';
-import { today } from '../../constants/date';
-
-// TODO: colocar hasStarted e checkHasStarted na view detail do crowdfunding
-
-const interval: number = 60000;
-
-const checkHasStarted = (startDate: string): boolean => {
-  const start: Date | null = startDate ? new Date(startDate.replace(/-/g, '/')) : null;
-
-  if (start > today) return true;
-  return false;
-};
 
 const ProgressBar: FC<Props> = ({
   contributesSum,
@@ -25,13 +15,10 @@ const ProgressBar: FC<Props> = ({
   showRaisedOf,
   numberContributors,
   onClickContributors,
-  startDate,
-  endDate,
+  hasStarted = false,
+  countdown,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
-  const [hasStarted, setHasStarted] = useState<boolean>(checkHasStarted(startDate));
-
-  useInterval(() => setHasStarted(checkHasStarted(startDate)), hasStarted ? interval : null);
 
   const progressBarWidth: string = `${String((contributesSum / goal) * 100)}%`;
 
@@ -71,20 +58,22 @@ const ProgressBar: FC<Props> = ({
         </div>
       </div>
       <div className="progress-bar-component__info">
-        {numberContributors && (
-          <Button
-            className="contributors"
-            extraClass="link"
-            text={`${numberContributors} ${intl.formatMessage({ id: 'toolkit.donors' })}`}
-            onClick={onClickContributors}
-          />
+        {isDefined(numberContributors) && (
+          <div
+            className={classnames('contributors', { click: numberContributors > 0 })}
+            onClick={() => {
+              if (numberContributors === 0) return;
+              onClickContributors();
+            }}
+          >
+            {intl.formatMessage({ id: 'toolkit.numberOfDonors' }, { value: numberContributors })}
+          </div>
         )}
-        {endDate && (
+        {countdown && (
           <div className="time-left">
             <Countdown
-              startDate={startDate}
-              endDate={endDate}
-              mode={hasStarted ? 'date' : 'timer-left'}
+              {...countdown}
+              mode={hasStarted ? 'timer-left' : 'detail'}
               minimal
               showBorder={false}
             />
