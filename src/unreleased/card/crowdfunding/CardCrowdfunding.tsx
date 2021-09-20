@@ -75,6 +75,7 @@ const CardCrowdfunding: FC<Props> = ({
 
   return (
     <Card
+      isPrivate={!!campaign}
       clickThumb={clickThumb}
       image={getImage()}
       title={campaignTitle()}

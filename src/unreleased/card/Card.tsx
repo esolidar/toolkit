@@ -36,6 +36,7 @@ const Card: FC<Props> = ({
             href={support.url}
             title={support.name}
             target={support.target}
+            data-testid="supporting-url"
           >
             {support.name}
           </a>

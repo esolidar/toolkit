@@ -2,9 +2,7 @@ import Bid from './bid.types';
 import Currency from './currency.types';
 import ImageThumbs from './imageThumbs.types';
 import User from './user.types';
-import Institution from './institution.types';
-import Language from './language.types';
-import Thumbs from './thumbs.types';
+import Recipient from './recipient.types';
 import AuctionProject from './auctionProject.types';
 
 interface AuctionImage {
@@ -22,19 +20,6 @@ interface AuctionImage {
   dateAdded: string;
   thumbs: ImageThumbs;
   s3_key: string;
-}
-
-interface Recipient {
-  currency: Currency;
-  id: number;
-  image: any;
-  institution: Institution;
-  institution_id: number;
-  language: Language;
-  name: string | null;
-  phones: any[];
-  s3_key: number | null;
-  thumbs: Thumbs;
 }
 
 interface Auction {

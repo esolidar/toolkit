@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import CardAuction from './CardAuction';
 import Props from './CardAuction.types';
 import auction from '../../../../__mocks__/auction';
+import recipient from '../../../../__mocks__/recipient';
 
 export default {
   title: 'Unreleased/Card/auction',
@@ -27,6 +28,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 export const Private: Story<Props> = Template.bind({});
 export const NoBids: Story<Props> = Template.bind({});
+export const SupportingInstitution: Story<Props> = Template.bind({});
 
 Default.args = {
   auction,
@@ -50,6 +52,17 @@ auctionNoBids.last_bid = null;
 
 NoBids.args = {
   auction: auctionNoBids,
+  clickThumb: () => alert('clicked'),
+  communityUrl: 'https://community.testesolidar.com/',
+  currency: 'EUR',
+};
+
+const auctionSupportingInstitution = { ...auction };
+auctionSupportingInstitution.project = null;
+auctionSupportingInstitution.recipient = recipient;
+
+SupportingInstitution.args = {
+  auction: auctionSupportingInstitution,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',
   currency: 'EUR',

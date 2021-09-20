@@ -93,6 +93,7 @@ const auction = {
   cause: null,
   currency,
   project: auctionProject,
+  recipient: null,
 };
 
 export default auction;
