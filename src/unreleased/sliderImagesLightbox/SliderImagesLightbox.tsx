@@ -105,7 +105,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
                 title="video"
                 frameBorder="0"
                 key={image.id}
-                src={`${YOUTUBE_URL}${videoUrl[0]}?autoplay=0&rel=0`}
+                src={`${YOUTUBE_URL}${videoUrl[0]}?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1`}
               />
             );
           }
@@ -117,7 +117,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
               className="slick-slide"
               frameBorder="0"
               key={image.id}
-              src={`${YOUTUBE_URL}${image.video}?autoplay=1&rel=0`}
+              src={`${YOUTUBE_URL}${image.video}?rel=0&amp;controls=0&amp;showinfo=0&amp;modestbranding=1`}
             />
           );
         }
