@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631887845740" clover="3.2.0">
-  <project timestamp="1631887845740" name="All files">
-    <metrics statements="3382" coveredstatements="2268" conditionals="2882" coveredconditionals="1794" methods="898" coveredmethods="443" elements="7162" coveredelements="4505" complexity="0" loc="3382" ncloc="3382" packages="117" files="283" classes="283"/>
+<coverage generated="1632132363498" clover="3.2.0">
+  <project timestamp="1632132363498" name="All files">
+    <metrics statements="3442" coveredstatements="2323" conditionals="2902" coveredconditionals="1811" methods="909" coveredmethods="451" elements="7253" coveredelements="4585" complexity="0" loc="3442" ncloc="3442" packages="118" files="285" classes="285"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="3" count="123" type="stmt"/>
-        <line num="5" count="33" type="stmt"/>
+        <line num="5" count="34" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="33" type="stmt"/>
+        <line num="7" count="34" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="33" type="stmt"/>
+        <line num="10" count="34" type="stmt"/>
       </file>
       <file name="queryById.js" path="D:\projects\toolkit\__customQueries__\queryById.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="3" count="33" type="stmt"/>
-        <line num="5" count="33" type="stmt"/>
+        <line num="3" count="34" type="stmt"/>
+        <line num="5" count="34" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="33" type="stmt"/>
+        <line num="7" count="34" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="33" type="stmt"/>
+        <line num="10" count="34" type="stmt"/>
       </file>
       <file name="test-utils.js" path="D:\projects\toolkit\__customQueries__\test-utils.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="8" count="33" type="stmt"/>
-        <line num="10" count="33" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="33" type="stmt"/>
-        <line num="16" count="33" type="stmt"/>
-        <line num="17" count="123" type="stmt"/>
+        <line num="8" count="34" type="stmt"/>
+        <line num="10" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="34" type="stmt"/>
+        <line num="16" count="34" type="stmt"/>
+        <line num="17" count="128" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -4363,6 +4363,75 @@
       </file>
       <file name="index.ts" path="D:\projects\toolkit\src\unreleased\shareNetwork\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.unreleased.sliderImagesLightbox">
+      <metrics statements="60" coveredstatements="55" conditionals="20" coveredconditionals="17" methods="11" coveredmethods="8"/>
+      <file name="SliderImagesLightbox.stories.tsx" path="D:\projects\toolkit\src\unreleased\sliderImagesLightbox\SliderImagesLightbox.stories.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+      </file>
+      <file name="SliderImagesLightbox.tsx" path="D:\projects\toolkit\src\unreleased\sliderImagesLightbox\SliderImagesLightbox.tsx">
+        <metrics statements="50" coveredstatements="45" conditionals="20" coveredconditionals="17" methods="10" coveredmethods="7"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="10" type="stmt"/>
+        <line num="32" count="10" type="stmt"/>
+        <line num="33" count="10" type="stmt"/>
+        <line num="35" count="10" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="59" count="10" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="10" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="10" type="stmt"/>
+        <line num="68" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="4" type="stmt"/>
+        <line num="70" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="75" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="91" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="95" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="124" count="5" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="143" count="6" type="stmt"/>
+        <line num="153" count="10" type="stmt"/>
+        <line num="154" count="10" type="stmt"/>
+        <line num="156" count="4" type="stmt"/>
+        <line num="180" count="10" type="stmt"/>
+        <line num="181" count="10" type="stmt"/>
+        <line num="183" count="10" type="stmt"/>
+        <line num="184" count="10" type="stmt"/>
+        <line num="191" count="10" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.title">
