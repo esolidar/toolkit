@@ -9,10 +9,10 @@ const Card: FC<Props> = ({
   title,
   body,
   support,
-  isPrivate,
+  isPrivate = false,
 }: Props): JSX.Element => (
   <div className="card-component" onClick={() => clickThumb()} onKeyDown={() => clickThumb()}>
-    {isPrivate && <Badge text="auctionPrivate" className="card-component__badge" />}
+    {isPrivate && <Badge text="toolkit.private" className="card-component__badge" />}
     <div className="card-component__image">
       <div
         className="bg-image"

@@ -26,6 +26,7 @@ const CardAuction: FC<Props> = ({
       }
       return title;
     }
+    return '';
   };
 
   const renderSupporting = () => {

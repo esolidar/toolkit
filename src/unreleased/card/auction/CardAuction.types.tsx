@@ -5,7 +5,7 @@ interface Props {
   auction?: Auction;
   clickThumb(): void;
   communityUrl: string;
-  currency?: CurrencySmall;
+  currency: CurrencySmall;
 }
 
 export default Props;
