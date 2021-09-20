@@ -1,101 +1,81 @@
 .request-comment {
   margin-bottom: 20px;
-  margin-left: 30px;
   overflow-wrap: break-word;
 
   .header {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
 
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      float: left;
-      margin-right: 15px;
-    }
+    .date-dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
 
-    .company-name {
-      font-size: 15px;
-      color: map-get($main-text-colors, dark);
-      letter-spacing: 0;
-      line-height: 38px;
-      float: left;
-
-      span {
+      .date {
         font-size: 12px;
-      }
-    }
-
-    .date {
-      float: right;
-      font-size: 12px;
-      color: map-get($main-text-colors, dark);
-      letter-spacing: 0;
-      line-height: 36px;
-    }
-
-    .options-reply {
-      float: right;
-
-      .options-dropdown {
-        border: none;
-        float: right;
-        margin-left: 10px;
-        padding: 10px;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-
-        .caret {
-          display: none;
-        }
-
-        img {
-          width: 10px;
-          height: 8px;
-          border-radius: 0;
-          margin: 0;
-        }
-
-        &:hover {
-          background: transparent;
-        }
-
-        &:focus {
-          background: transparent;
-        }
-
-        &::after {
-          display: none;
-        }
+        color: map-get($main-text-colors, dark);
+        letter-spacing: 0;
+        line-height: 36px;
       }
 
-      .options-dropdown.btn-primary {
-        background-color: transparent;
-      }
-
-      .dropdown-menu {
-        button {
-          background: transparent;
+      .options-reply {
+        .options-dropdown {
           border: none;
-          cursor: pointer;
-        }
-      }
+          padding: $distance-1;
+          -webkit-box-shadow: none;
+          box-shadow: none;
 
-      .dropdown-menu {
-        &.show {
-          left: auto !important;
-          right: -4px;
-          top: 1px !important;
+          .caret {
+            display: none;
+          }
+
+          img {
+            width: 10px;
+            height: 8px;
+            border-radius: 0;
+            margin: 0;
+          }
+
+          &:hover {
+            background: transparent;
+          }
+
+          &:focus {
+            background: transparent;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .options-dropdown.btn-primary {
+          background-color: transparent;
+        }
+
+        .dropdown-menu {
+          button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+          }
+        }
+
+        .dropdown-menu {
+          &.show {
+            left: auto !important;
+            right: -4px;
+            top: 1px !important;
+          }
         }
       }
     }
   }
 
   .content {
-    margin-left: 20px;
-    padding-left: 35px;
-    border-left: 1px solid map-get($grays, 400);
+    margin-left: $distance-6;
     font-size: 15px;
     color: map-get($main-text-colors, dark);
     letter-spacing: 0;
@@ -103,9 +83,11 @@
   }
 
   .content-reply {
-    margin-left: 20px;
-    padding-left: 35px;
-    border-left: 1px solid map-get($grays, 400);
+    margin-left: $distance-6;
+
+    .btn-esolidar {
+      padding: $distance-2 0 0 0;
+    }
 
     .btn-add-comment-reply {
       padding: 0;

@@ -26,8 +26,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default: Story<Props> = Template.bind({});
 export const Private: Story<Props> = Template.bind({});
-// export const PublicZeroRaised: Story<Props> = Template.bind({});
-// export const PrivateZeroRaised: Story<Props> = Template.bind({});
+export const NoBids: Story<Props> = Template.bind({});
 
 Default.args = {
   auction,
@@ -36,23 +35,22 @@ Default.args = {
   currency: 'EUR',
 };
 
+const auctionPrivate = { ...auction };
+auctionPrivate.private = 1;
+
 Private.args = {
-  auction,
+  auction: auctionPrivate,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',
   currency: 'EUR',
 };
 
-// const auctionZero = { ...auction };
-// auctionZero.contributes_sum = 0;
-// PublicZeroRaised.args = {
-//   auction: auctionZero,
-//   clickThumb: () => alert('clicked'),
-// };
+const auctionNoBids = { ...auction };
+auctionNoBids.last_bid = null;
 
-// const campaignZero = { ...campaign };
-// campaignZero.contribution_raised = 0;
-// PrivateZeroRaised.args = {
-//   campaign: campaignZero,
-//   clickThumb: () => alert('clicked'),
-// };
+NoBids.args = {
+  auction: auctionNoBids,
+  clickThumb: () => alert('clicked'),
+  communityUrl: 'https://community.testesolidar.com/',
+  currency: 'EUR',
+};

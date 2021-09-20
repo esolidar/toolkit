@@ -14,7 +14,7 @@
     }
   }
 
-  .card-component-image {
+  &__image {
     overflow: hidden;
     position: relative;
     .bg-image {
@@ -35,74 +35,90 @@
     }
   }
 
-  .card-component-body {
+  &__body {
     margin-left: $distance-2;
     margin-right: $distance-2;
     height: 310px;
     position: relative;
+  }
 
-    .card-component-countdown {
-      margin-top: -50px;
-      position: relative;
-      z-index: 9;
-    }
+  &__countdown {
+    margin-top: -50px;
+    position: relative;
+    z-index: 9;
+  }
 
-    .card-component-title {
-      margin-top: $distance-2;
-      margin-bottom: $distance-1;
-      font-size: 16px;
-      font-weight: 700;
+  &__title {
+    margin-top: $distance-2;
+    margin-bottom: $distance-1;
+    font-size: 16px;
+    font-weight: 700;
+    color: map-get($grays, 900);
+    letter-spacing: -0.3px;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__body-middle {
+    height: 95px;
+  }
+
+  &__progressbar {
+    padding-bottom: $distance-5;
+  }
+
+  &__support {
+    padding-bottom: $distance-2;
+    padding-top: $distance-4;
+    border-top: 1px solid map-get($grays, 300);
+    font-size: 15px;
+    color: map-get($grays, 900);
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    a {
       color: map-get($grays, 900);
-      letter-spacing: -0.3px;
-      line-height: 22px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      text-decoration: underline;
+      white-space: nowrap;
       overflow: hidden;
-      height: 45px;
+      text-overflow: ellipsis;
+      display: block;
     }
 
-    .card-component-body-middle {
-      height: 95px;
-
-      .card-component-progressbar {
-        padding-bottom: $distance-5;
-      }
-    }
-
-    .card-component-support {
-      padding-bottom: $distance-2;
-      padding-top: $distance-4;
-      border-top: 1px solid map-get($grays, 300);
-      font-size: 15px;
-      color: map-get($grays, 900);
-      letter-spacing: -0.3px;
-      line-height: 22px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      a {
-        color: map-get($grays, 900);
-        text-decoration: underline;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-      }
-
-      .receipient-name {
-        color: map-get($main-text-colors, dark);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-      }
+    .receipient-name {
+      color: map-get($main-text-colors, dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
     }
   }
 
-  .card-supporting-label {
+  &__supporting-label {
     font-weight: 600;
+  }
+
+  &__badge {
+    position: absolute;
+    z-index: 1;
+    top: $distance-4;
+    left: $distance-4;
+  }
+
+  .card-auction-subtitle {
+    font-size: 12px;
+    color: map-get($main-text-colors, dark);
+  }
+  .card-auction-bid {
+    font-size: 16px;
+    font-weight: 700;
+    color: map-get($colors, black);
   }
 }

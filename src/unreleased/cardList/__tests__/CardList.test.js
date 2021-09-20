@@ -37,5 +37,5 @@ it('renders list crowdfunding with button See All', () => {
 
   expect(getAllByClass('card-component')).toBeTruthy();
   expect(queryByTestId('list-footer')).not.toBeInTheDocument();
-  expect(getByClass('cardList__see-all text-center')).toBeTruthy();
+  expect(getByClass('cardList__see-all')).toBeTruthy();
 });

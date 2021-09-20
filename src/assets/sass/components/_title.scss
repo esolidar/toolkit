@@ -1,12 +1,19 @@
 .component-title {
   &-back {
     color: map-get($turquoise, 500);
-    text-decoration: underline;
+    font-size: 14px;
+    width: fit-content;
+
+    &:hover {
+      color: map-get($turquoise, 500);
+      text-decoration: underline;
+    }
   }
 
   &-h1 {
-    font-size: 36px;
+    font-size: 26px;
     color: map-get($grays, 900);
+    font-weight: 600;
     margin: 0;
     padding: 0;
   }
@@ -21,9 +28,13 @@
 
     &-href {
       margin-left: $distance-1;
-      color: map-get($turquoise, 500);
-      font-weight: 700;
+      color: map-get($grays, 700);
+      font-weight: 600;
       font-size: 15px;
+
+      &:hover {
+        color: map-get($turquoise, 500);
+      }
     }
 
     &-name {

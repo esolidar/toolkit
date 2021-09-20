@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TabsBts from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
+import isDefined from '../../utils/isDefined';
 
 const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
   const [activeTab, setActiveTab] = useState(null);
@@ -13,29 +14,31 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
 
   const onSelect = key => {
     setActiveTab(key);
-    onChange();
+    if (isDefined(onChange)) onChange();
   };
 
   return (
-    <TabsBts
-      activeKey={activeTab}
-      defaultActiveKey={defaultActiveKey}
-      id={id}
-      onSelect={onSelect}
-      className="esolidar-tabs"
-    >
-      {tabsList.map(tab => (
-        <Tab
-          key={tab.key}
-          eventKey={tab.key}
-          title={tab.title}
-          disabled={tab.disabled}
-          tabClassName={tab.className}
-        >
-          {tab.content}
-        </Tab>
-      ))}
-    </TabsBts>
+    <div className="esolidar-tabs">
+      <TabsBts
+        activeKey={activeTab}
+        defaultActiveKey={defaultActiveKey}
+        id={id}
+        onSelect={onSelect}
+        className="esolidar-tabs__header"
+      >
+        {tabsList.map(tab => (
+          <Tab
+            key={tab.key}
+            eventKey={tab.key}
+            title={tab.title}
+            disabled={tab.disabled}
+            tabClassName={tab.className}
+          >
+            {tab.content}
+          </Tab>
+        ))}
+      </TabsBts>
+    </div>
   );
 };
 

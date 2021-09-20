@@ -20,6 +20,7 @@ const auction = {
   payment_description_en: null,
   tags: 'null,lol',
   bid_start: 6,
+  bids_count: 10,
   buy_now: 0,
   goal: null,
   video: null,

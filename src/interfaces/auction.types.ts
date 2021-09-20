@@ -86,6 +86,7 @@ interface Auction {
   last_bid_value?: Bid;
   type?: string;
   recipient?: Recipient;
+  bids_count?: number;
 }
 
 export default Auction;

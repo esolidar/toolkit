@@ -60,6 +60,7 @@ const CardAuction: FC<Props> = ({
 
   return (
     <Card
+      isPrivate={auction.private === 1}
       clickThumb={clickThumb}
       image={auction.images && auction.images.length > 0 ? auction.images[0].thumbs.detail : ''}
       title={auctionTitle()}
@@ -68,11 +69,18 @@ const CardAuction: FC<Props> = ({
       }
       body={
         <div>
-          {auction.last_bid && <FormattedMessage id="auction.last.bid" />}
-          {!auction.last_bid && (
-            <FormattedMessage id="homepage.toolsbox.charityAuctions.startBid" />
-          )}
-          <span>
+          <div className="card-auction-subtitle">
+            {!auction.last_bid && (
+              <FormattedMessage id="homepage.toolsbox.charityAuctions.startBid" />
+            )}
+            {!!auction.last_bid && auction.bids_count > 0 && (
+              <FormattedMessage
+                id="toolkit.auction.last.bid"
+                values={{ value: auction.bids_count }}
+              />
+            )}
+          </div>
+          <div className="card-auction-bid">
             <FormattedNumber
               value={auction.last_bid ? auction.last_bid.value : auction.bid_start}
               style="currency"
@@ -80,7 +88,7 @@ const CardAuction: FC<Props> = ({
               minimumFractionDigits={0}
               maximumFractionDigits={0}
             />
-          </span>
+          </div>
         </div>
       }
       support={renderSupporting()}

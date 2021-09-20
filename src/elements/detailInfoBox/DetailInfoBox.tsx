@@ -42,14 +42,14 @@ const DetailInfoBox: FC<Props> = ({
           data-testid={dataTestIdOrganized || 'detail-info-box-organized'}
         >
           <p>{intl.formatMessage({ id: 'toolkit.organizedBy' })}</p>
-          <ProfileAvatar {...organizedBy} />
+          <ProfileAvatar {...organizedBy} isNameBold />
         </div>
       )}
       <div
         className="detail-info-box__footer"
         data-testid={dataTestIdFooter || 'detail-info-box-footer'}
       >
-        <ShareNetwork {...shareNetwork} />
+        <ShareNetwork {...shareNetwork} blackIcons />
       </div>
     </div>
   );

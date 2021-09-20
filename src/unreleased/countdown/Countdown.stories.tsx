@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { format, addDays, subDays, addMinutes, addSeconds } from 'date-fns';
 import Countdown from './Countdown';
 import Props from './Countdown.types';
-import { today, dateFormat } from '../../constants/date';
+import { getToday, dateFormat } from '../../constants/date';
 
 export default {
   title: 'Unreleased/Countdown',
@@ -31,6 +31,7 @@ const Template: Story<Props> = (args: Props) => (
   </div>
 );
 
+const today = getToday();
 const onStart = () => alert('Started');
 const onExpiry = () => alert('Ended');
 

@@ -12,8 +12,8 @@
 
     &.thumb {
       &-lg {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
       }
 
       &-md {
@@ -29,7 +29,7 @@
   }
 
   &__name {
-    color: map-get($neutrals, 700);
+    color: map-get($base, black);
     @include text-overflow-ellipsis();
 
     &.margin {
@@ -38,7 +38,6 @@
 
     &.click:hover {
       cursor: pointer;
-      text-decoration: underline;
       color: map-get($theme-colors, primary);
     }
 
@@ -47,7 +46,7 @@
     }
 
     &.bold {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
 }
