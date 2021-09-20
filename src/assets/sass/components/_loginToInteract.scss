@@ -1,0 +1,14 @@
+.login-to-interact {
+  position: relative;
+  border: 1px solid map-get($neutrals, 400);
+  border-radius: $distance-1;
+  padding: $distance-3;
+  margin-bottom: $distance-3;
+
+  &__button {
+    text-decoration: underline;
+    padding: 0;
+    display: inline-flex;
+    padding-left: $distance-1;
+  }
+}

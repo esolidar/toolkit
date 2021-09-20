@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { FC } from 'react';
 import Pagination from '../../elements/pagination';
 import SelectPerPage from '../../elements/selectPerPage';
@@ -7,20 +8,22 @@ const ListFooter: FC<Props> = ({
   labelResultText,
   onChangeSelectPerPage,
   onChangePagination,
-  data,
+  total,
+  current_page,
+  per_page,
   perPageOptions = [6, 12, 18, 24],
 }: Props): JSX.Element => {
   return (
-    <div className="component-list-footer">
-      <div className="component-list-footer-results">{`${data.total} ${labelResultText}`}</div>
+    <div className="component-list-footer" data-testid="list-footer">
+      <div className="component-list-footer-results">{`${total} ${labelResultText}`}</div>
       <div>
         <Pagination
-          activePage={data.current_page}
+          activePage={current_page}
           arrowType={0}
           dataTestId="pagination"
-          itemsCountPerPage={+data.per_page}
+          itemsCountPerPage={+per_page}
           onChange={onChangePagination}
-          totalItemsCount={data.total}
+          totalItemsCount={total}
         />
       </div>
       <div className="component-list-footer-perpage">

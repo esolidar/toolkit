@@ -47,6 +47,7 @@ interface Crowdfunding {
   projects?: Project[];
   images: Image[];
   currency: Currency;
+  type?: string;
 }
 
 export default Crowdfunding;
