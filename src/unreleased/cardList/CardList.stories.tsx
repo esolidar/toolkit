@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import CardList from './CardList';
-import Props from './CardList.types';
+import { Props } from './CardList.types';
 import crowdfunding from '../../../__mocks__/crowdfunding';
 import auction from '../../../__mocks__/auction';
 
@@ -12,15 +12,12 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div className="mt-5">
-    <CardList {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => <CardList {...args} />;
 
 export const Default = Template.bind({});
 export const WithoutTitleAndSubtitle = Template.bind({});
 export const SeeAll = Template.bind({});
+export const ListAuctions = Template.bind({});
 
 Default.args = {
   title: 'Initiatives',
@@ -32,8 +29,12 @@ Default.args = {
     last_page: 1,
     data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding, auction],
   },
-  hasListFooter: true,
-  perPageOptions: [6],
+  footer: {
+    perPageOptions: [6],
+  },
+  onClickThumb: () => {
+    alert('You clicked donate!');
+  },
 };
 
 WithoutTitleAndSubtitle.args = {
@@ -44,8 +45,12 @@ WithoutTitleAndSubtitle.args = {
     last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
-  hasListFooter: true,
-  perPageOptions: [6],
+  footer: {
+    perPageOptions: [6],
+  },
+  onClickThumb: () => {
+    alert('You clicked donate!');
+  },
 };
 
 SeeAll.args = {
@@ -58,8 +63,29 @@ SeeAll.args = {
     last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
-  seeAll: {
+  button: {
     url: 'https://joel.testesolidar.com/pt/crowdfunding/list',
+    text: 'see.all',
   },
-  perPageOptions: [6],
+  onClickThumb: () => {
+    alert('You clicked donate!');
+  },
+};
+
+ListAuctions.args = {
+  title: 'Initiatives',
+  subtitle: 'Initiatives supporting the project',
+  list: {
+    total: 4,
+    per_page: 6,
+    current_page: 1,
+    last_page: 1,
+    data: [auction, auction, auction, auction],
+  },
+  footer: {
+    perPageOptions: [6],
+  },
+  onClickThumb: () => {
+    alert('You clicked donate!');
+  },
 };
