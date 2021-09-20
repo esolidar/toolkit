@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, IntlShape, useIntl } from 'react-intl';
 import ProgressBar from '../../progressBar/ProgressBar';
 import Props from './CardCrowdfunding.types';
 import Card from '../Card';
@@ -12,8 +12,9 @@ const CardCrowdfunding: FC<Props> = ({
   campaign = null,
   clickThumb,
   communityUrl,
-  lang = 'en',
 }: Props): JSX.Element => {
+  const intl: IntlShape = useIntl();
+
   const getImage = () => {
     const item = crowdfunding || campaign;
     if (item.images.length > 0) {
@@ -26,7 +27,7 @@ const CardCrowdfunding: FC<Props> = ({
   const campaignTitle = () => {
     let title;
     if (crowdfunding) {
-      if (lang === 'pt' || lang === 'br') {
+      if (intl.locale === 'pt' || intl.locale === 'br') {
         title = crowdfunding.title;
       } else if (!crowdfunding.title_en) {
         title = crowdfunding.title;
@@ -56,10 +57,10 @@ const CardCrowdfunding: FC<Props> = ({
         supportTarget = '_blanc';
       }
 
-      if (crowdfunding?.projects?.length > 0) {
-        supportRecipient = crowdfunding?.projects[0].title;
-        supportUrl = `${communityUrl}npo/detail/${crowdfunding?.projects[0].id}-${slugify(
-          crowdfunding?.projects[0].title
+      if (crowdfunding.projects.length > 0) {
+        supportRecipient = crowdfunding.projects[0].title;
+        supportUrl = `${intl.locale}/projects/detail/${crowdfunding.projects[0].id}-${slugify(
+          crowdfunding.projects[0].title
         )}`;
       }
     }
@@ -74,6 +75,7 @@ const CardCrowdfunding: FC<Props> = ({
 
   return (
     <Card
+      isPrivate={!!campaign}
       clickThumb={clickThumb}
       image={getImage()}
       title={campaignTitle()}

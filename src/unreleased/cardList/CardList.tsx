@@ -5,6 +5,7 @@ import { IntlShape } from 'react-intl/src/types';
 import { Col, Row } from 'react-bootstrap';
 import { Props, List } from './CardList.types';
 import CardCrowdfunding from '../card/crowdfunding/CardCrowdfunding';
+import CardAuction from '../card/auction/CardAuction';
 import Button from '../../elements/button';
 import isDefined from '../../utils/isDefined';
 import ListFooter from '../listFooter/ListFooter';
@@ -29,7 +30,7 @@ const getListFooterLabel = ({ crowdfunding, auction, project }: Types, intl: Int
   if (crowdfunding === 0 && auction > 0 && project === 0) {
     return intl.formatMessage(
       {
-        id: 'toolkit.list.footer.crowdfunding',
+        id: 'toolkit.list.footer.auction',
       },
       { count: auction }
     );
@@ -54,7 +55,6 @@ const CardList: FC<Props> = ({
   list,
   button,
   communityUrl,
-  lang,
   footer,
   onClickThumb,
 }: Props): JSX.Element => {
@@ -99,7 +99,14 @@ const CardList: FC<Props> = ({
                 crowdfunding={card}
                 clickThumb={() => onClickThumb(card.id)}
                 communityUrl={communityUrl}
-                lang={lang}
+              />
+            )}
+            {card?.type === 'auction' && (
+              <CardAuction
+                auction={card}
+                clickThumb={() => onClickThumb(card.id)}
+                communityUrl={communityUrl}
+                currency={card.currency.small}
               />
             )}
           </Col>

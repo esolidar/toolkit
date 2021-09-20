@@ -12,7 +12,7 @@ interface Image {
 
 interface Crowdfunding {
   id: number;
-  user_id: number;
+  user_id?: number;
   institution_id?: number;
   company_id: number;
   sub_category_id: null;
@@ -27,7 +27,7 @@ interface Crowdfunding {
   video?: string;
   reward: number;
   reward_description: string;
-  goal: number;
+  goal?: number;
   minimum_contribution: number;
   currency_id: number;
   start_date: string;
