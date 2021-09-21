@@ -136,7 +136,6 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
             className="open-lightbox"
           >
             <img
-              // key={image.id}
               data-testid="image"
               src={`${
                 image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
