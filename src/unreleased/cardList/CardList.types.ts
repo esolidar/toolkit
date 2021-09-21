@@ -1,5 +1,8 @@
 /* eslint-disable camelcase */
 import Crowdfunding from '../../interfaces/crowdfunding.types';
+import Auction from '../../interfaces/auction.types';
+import ImageThumbs from '../../interfaces/imageThumbs.types';
+import Currency from '../../interfaces/currency.types';
 
 interface Button {
   url?: string;
@@ -12,10 +15,35 @@ interface Footer {
   perPageOptions?: number[];
 }
 
-interface Card extends Crowdfunding {
-  bid_start?: number;
-  project_category?: object;
-  type: 'crowdfunding' | 'auction' | 'project';
+interface AuctionImage {
+  id: number;
+  auction_id: number;
+  streamImage: string;
+  image_name: string;
+  image_type: string;
+  image_size: string | number;
+  default: number;
+  thumb: number;
+  position: number;
+  fb_image: number;
+  lastUpdated: string;
+  dateAdded: string;
+  thumbs: ImageThumbs;
+  s3_key: string;
+}
+
+interface Image extends AuctionImage {
+  id: number;
+  crowdfunding_id: number;
+  image: string;
+}
+
+interface Card
+  extends Omit<Auction, 'sub_category_id' | 'images' | 'currency'>,
+    Omit<Crowdfunding, 'sub_category_id' | 'images' | 'currency'> {
+  sub_category_id: null;
+  images: Image[];
+  currency: Currency;
 }
 
 export interface List {
