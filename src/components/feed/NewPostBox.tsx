@@ -192,7 +192,9 @@ const NewPostBox: FC<Props> = ({
   return (
     <>
       {!user ? (
-        <LoginToInteract text="feed.create.post.without.login" onClick={loginAction} />
+        <div>
+          <LoginToInteract text="feed.create.post.without.login" onClick={loginAction} />
+        </div>
       ) : (
         <div
           className="feed-create-post"

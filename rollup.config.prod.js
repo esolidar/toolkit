@@ -2,6 +2,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
+import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import bundleScss from 'rollup-plugin-bundle-scss';
 import copy from 'rollup-plugin-copy-assets';
@@ -58,6 +59,9 @@ export default {
     json(),
     copy({
       assets: ['src/assets/'],
+    }),
+    postcss({
+      plugins: [],
     }),
     bundleScss(),
     terser({ keep_fnames: true }),
