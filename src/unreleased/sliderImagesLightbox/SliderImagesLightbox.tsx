@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
 import React, { FC, useState, useEffect, MouseEvent } from 'react';
 import Slider from 'react-slick';
-import Carousel, { Modal, ModalGateway } from 'react-images';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 import { Props, Images } from './sliderImagesLightbox.types';
 
 const YOUTUBE_URL = 'https://www.youtube.com/embed/';
@@ -30,7 +31,18 @@ const SliderPrevArrow: FC<SliderPrevArrowInterface> = ({
 const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props): JSX.Element => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
   const [imagesArray, setImagesArray] = useState<Images>([]);
+  const [photoIndex, setPhotoIndex] = useState(0);
   const { serverlessResizeImage } = env;
+
+  const imagesSlide = [];
+  imagesArray.map(image => {
+    if (!image.video)
+      imagesSlide.push(
+        image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
+      );
+  });
+
+  const videos = imagesArray.filter(image => image.video);
 
   useEffect(() => {
     let imagesData = [];
@@ -56,17 +68,9 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
     }
   }, []);
 
-  const toggleModal = () => {
-    setLightboxIsOpen(!lightboxIsOpen);
-  };
-
-  const openLightbox = () => {
-    setLightboxIsOpen(true);
-  };
-
   const renderImages = () => {
     if (imagesArray.length) {
-      return imagesArray.map(image => {
+      return imagesArray.map((image, idx) => {
         if (image.video) {
           const vimeo = /(?:http?s?:\/\/)?(?:www\.)?(?:vimeo\.com)\/?(.+)/g;
           const youtube =
@@ -124,7 +128,10 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
         return (
           <button
             type="button"
-            onClick={() => openLightbox()}
+            onClick={() => {
+              setLightboxIsOpen(true);
+              setPhotoIndex(idx - videos.length);
+            }}
             key={image.id}
             className="open-lightbox"
           >
@@ -145,7 +152,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
         data-testid="no-image"
         src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
         style={{ width: '100%' }}
-        alt="teste"
+        alt="no-pic"
       />
     );
   };
@@ -191,13 +198,19 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
   return (
     <div>
       <Slider {...settings}>{renderImages()}</Slider>
-      <ModalGateway>
-        {lightboxIsOpen ? (
-          <Modal onClose={toggleModal}>
-            <Carousel views={arrayImages} />
-          </Modal>
-        ) : null}
-      </ModalGateway>
+      {lightboxIsOpen ? (
+        <Lightbox
+          mainSrc={imagesSlide[photoIndex]}
+          nextSrc={imagesSlide[(photoIndex + 1) % imagesSlide.length]}
+          prevSrc={imagesSlide[(photoIndex + imagesSlide.length - 1) % imagesSlide.length]}
+          onCloseRequest={() => setLightboxIsOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex((photoIndex + imagesSlide.length - 1) % imagesSlide.length)
+          }
+          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % imagesSlide.length)}
+          enableZoom={false}
+        />
+      ) : null}
     </div>
   );
 };
