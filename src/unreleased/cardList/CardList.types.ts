@@ -50,10 +50,7 @@ interface Card
 }
 
 export interface List {
-  current_page?: number;
   from?: number;
-  last_page?: number;
-  per_page: number | string;
   to?: number;
   total: number;
   data: Card[];
