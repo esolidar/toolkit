@@ -17,6 +17,7 @@ const Template: Story<Props> = (args: Props) => <CardList {...args} />;
 export const Default = Template.bind({});
 export const WithoutTitleAndSubtitle = Template.bind({});
 export const SeeAll = Template.bind({});
+export const ListAuctions = Template.bind({});
 
 Default.args = {
   title: 'Initiatives',
@@ -65,6 +66,24 @@ SeeAll.args = {
   button: {
     url: 'https://joel.testesolidar.com/pt/crowdfunding/list',
     text: 'see.all',
+  },
+  onClickThumb: () => {
+    alert('You clicked donate!');
+  },
+};
+
+ListAuctions.args = {
+  title: 'Initiatives',
+  subtitle: 'Initiatives supporting the project',
+  list: {
+    total: 4,
+    per_page: 6,
+    current_page: 1,
+    last_page: 1,
+    data: [auction, auction, auction, auction],
+  },
+  footer: {
+    perPageOptions: [6],
   },
   onClickThumb: () => {
     alert('You clicked donate!');
