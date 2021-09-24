@@ -13,6 +13,9 @@ interface Footer {
   onChangeSelectPerPage(): void;
   onChangePagination(): void;
   perPageOptions?: number[];
+  total: number;
+  current_page: number;
+  per_page: number;
 }
 
 interface AuctionImage {

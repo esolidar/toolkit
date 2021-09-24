@@ -115,12 +115,12 @@ const CardList: FC<Props> = ({
       {isDefined(footer) && (
         <ListFooter
           labelResultText={getListFooterLabel(types, intl)}
-          onChangePagination={footer?.onChangePagination}
-          onChangeSelectPerPage={footer?.onChangeSelectPerPage}
-          total={cardList.total}
-          current_page={cardList.current_page}
-          per_page={cardList.per_page}
-          perPageOptions={footer?.perPageOptions}
+          onChangePagination={footer.onChangePagination}
+          onChangeSelectPerPage={footer.onChangeSelectPerPage}
+          total={footer.total}
+          current_page={footer.current_page}
+          per_page={footer.per_page}
+          perPageOptions={footer.perPageOptions}
         />
       )}
       {isDefined(button) && (

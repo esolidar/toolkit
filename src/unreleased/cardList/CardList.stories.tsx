@@ -23,14 +23,13 @@ Default.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {
-    total: 4,
-    per_page: 6,
-    current_page: 1,
-    last_page: 1,
     data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding, auction],
   },
   footer: {
     perPageOptions: [6],
+    total: 4,
+    per_page: 6,
+    current_page: 1,
   },
   onClickThumb: () => {
     alert('You clicked donate!');
@@ -39,14 +38,13 @@ Default.args = {
 
 WithoutTitleAndSubtitle.args = {
   list: {
-    total: 2,
-    per_page: 6,
-    current_page: 1,
-    last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
   footer: {
     perPageOptions: [6],
+    per_page: 6,
+    current_page: 1,
+    total: 2,
   },
   onClickThumb: () => {
     alert('You clicked donate!');
@@ -57,10 +55,6 @@ SeeAll.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {
-    total: 2,
-    per_page: 6,
-    current_page: 1,
-    last_page: 1,
     data: [crowdfunding, crowdfunding],
   },
   button: {
@@ -76,14 +70,13 @@ ListAuctions.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {
-    total: 4,
-    per_page: 6,
-    current_page: 1,
-    last_page: 1,
     data: [auction, auction, auction, auction],
   },
   footer: {
     perPageOptions: [6],
+    total: 4,
+    per_page: 6,
+    current_page: 1,
   },
   onClickThumb: () => {
     alert('You clicked donate!');
