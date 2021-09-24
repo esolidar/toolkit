@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Button from './Button';
+import Icon from '../../components/icon';
+import Badge from '../badge';
 
 export default {
   title: 'Elements/Button',
@@ -7,26 +10,24 @@ export default {
 };
 
 const Template = args => (
-  <div>
-    <div className="p-2">
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Squared" rounded={false} />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Rounded" />
+  <>
+    <ButtonGrid>
+      <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
       <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
-    </div>
-    <div className="p-2">
-      <Button {...args} text="Squared" rounded={false} />
-      <Button {...args} text="Rounded" />
+    </ButtonGrid>
+    <ButtonGrid>
+      <Button {...args} text="Enabled" />
       <Button {...args} text="Disabled" disabled />
       <Button {...args} text="Size XL" size="xl" />
       <Button {...args} text="Size LG" size="lg" />
       <Button {...args} text="Size MD" size="md" />
       <Button {...args} text="Size SM" size="sm" />
-    </div>
-  </div>
+    </ButtonGrid>
+  </>
 );
 
 export const Primary = Template.bind({});
@@ -72,18 +73,58 @@ Dark.args = {
 };
 
 export const Link = args => (
-  <div className="p-2">
-    <Button {...args} text="Squared" />
-    <Button {...args} text="Rounded" />
+  <ButtonGrid>
+    <Button {...args} text="Enabled" />
     <Button {...args} text="Disabled" disabled />
     <Button {...args} text="Size XL" size="xl" />
     <Button {...args} text="Size LG" size="lg" />
     <Button {...args} text="Size MD" size="md" />
     <Button {...args} text="Size SM" size="sm" />
-  </div>
+  </ButtonGrid>
 );
 Link.args = {
   extraClass: 'link',
   target: '_blank',
   href: '#',
+};
+
+export const WithIcon = args => (
+  <ButtonGrid>
+    <Button {...args} text="Enabled" />
+    <Button {...args} text="Disabled" disabled />
+    <Button {...args} text="Size XL" size="xl" />
+    <Button {...args} text="Size LG" size="lg" />
+    <Button {...args} text="Size MD" size="md" />
+    <Button {...args} text="Size SM" size="sm" />
+  </ButtonGrid>
+);
+WithIcon.args = {
+  extraClass: 'primary-full',
+  iconLeft: <Icon iconClass="icon-left-arrow" />,
+  iconRight: <Icon iconClass="icon-chevron-down" />,
+};
+
+export const WithBadge = args => (
+  <ButtonGrid>
+    <Button {...args} text="Enabled" />
+    <Button {...args} text="Disabled" disabled />
+    <Button {...args} text="Size XL" size="xl" />
+    <Button {...args} text="Size LG" size="lg" />
+    <Button {...args} text="Size MD" size="md" />
+    <Button {...args} text="Size SM" size="sm" />
+  </ButtonGrid>
+);
+WithBadge.args = {
+  extraClass: 'primary-full',
+  badge: <Badge text="2" size="xs" />,
+};
+
+const ButtonGrid = ({ children }) => (
+  <div className="p-2 d-flex align-items-center flex-wrap" style={{ gap: '4px' }}>
+    {children}
+  </div>
+);
+
+ButtonGrid.propTypes = {
+  children: PropTypes.node,
 };

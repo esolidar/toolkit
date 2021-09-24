@@ -1,0 +1,44 @@
+.comment-create {
+  margin-top: $distance-2;
+  border: 1px solid map-get($neutrals, 100);
+  padding: $distance-1;
+  border-radius: $distance-1;
+  display: flex;
+
+  & .profile-avatar {
+    align-self: baseline;
+  }
+
+  &__textarea {
+    height: 40px;
+
+    &.form-group {
+      width: 100%;
+      margin: 0;
+    }
+
+    & textarea {
+      resize: none !important;
+      border: none !important;
+      // height: 100% !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &__submit {
+    height: 36px;
+    align-self: flex-end;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.error {
+    border-color: map-get($negative, 500);
+  }
+}
+
+.error-label {
+  color: map-get($negative, 500);
+  font-size: 12px;
+}

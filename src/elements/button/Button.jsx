@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Link } from 'react-router-dom';
+
+// TODO: tests for the new props: iconLeft, iconRight and badge
 
 const Button = ({
   className,
@@ -10,16 +13,18 @@ const Button = ({
   fullWidth,
   href,
   icon,
+  iconLeft,
+  iconRight,
   id,
   onClick,
   rel,
-  rounded,
   size,
   style,
   target,
   text,
   to,
   type,
+  badge,
 }) => {
   let getType;
   if (onClick) {
@@ -30,15 +35,31 @@ const Button = ({
     getType = 'link';
   }
 
-  const classes = [
+  const classes = classnames(
     'btn-esolidar',
     `btn-${extraClass}`,
     `btn-${size}`,
-    rounded ? 'rounded' : '',
-    fullWidth ? 'full-width' : '',
-    disabled ? 'disabled' : '',
+    { 'full-width': fullWidth },
+    { disabled },
     className,
-  ];
+    {
+      'client__primary--background-color client__primary--border-color client__primary--background-color-hover client__primary--border-color-hover':
+        extraClass === 'primary-full',
+    },
+    {
+      'client__primary--border-color client__primary--border-color-hover client__primary--background-color-hover':
+        extraClass === 'primary',
+    },
+    {
+      'client__secondary--background-color client__secondary--border-color client__secondary--background-color-hover client__secondary--border-color-hover':
+        extraClass === 'info-full',
+    },
+    {
+      'client__secondary--border-color client__secondary--border-color-hover client__secondary--background-color-hover':
+        extraClass === 'info',
+    },
+    { 'client__primary--color client__primary--color-hover': extraClass === 'link' }
+  );
 
   const renderButton = () => {
     switch (getType) {
@@ -49,12 +70,19 @@ const Button = ({
             id={id}
             type="button"
             onClick={onClick}
-            className={classes.join(' ')}
+            className={classes}
             disabled={disabled}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
         );
 
@@ -64,26 +92,34 @@ const Button = ({
             data-testid={dataTestId}
             id={id}
             type="submit"
-            className={classes.join(' ')}
+            className={classes}
             disabled={disabled}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
         );
 
       case 'link':
         return (
-          <Link
-            data-testid={dataTestId}
-            id={id}
-            to={to}
-            className={classes.join(' ')}
-            style={style}
-          >
-            {icon}
+          <Link data-testid={dataTestId} id={id} to={to} className={classes} style={style}>
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </Link>
         );
 
@@ -95,11 +131,18 @@ const Button = ({
             href={href}
             target={target || '_self'}
             rel={rel}
-            className={classes.join(' ')}
+            className={classes}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </a>
         );
     }
@@ -116,6 +159,8 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   href: PropTypes.string,
   icon: PropTypes.node,
+  iconLeft: PropTypes.node,
+  iconRight: PropTypes.node,
   id: PropTypes.string,
   onClick: PropTypes.func,
   rel: PropTypes.string,
@@ -126,12 +171,12 @@ Button.propTypes = {
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,
   type: PropTypes.string,
+  badge: PropTypes.node,
 };
 
 Button.defaultProps = {
   className: '',
   fullWidth: false,
-  rounded: true,
   size: 'md',
   type: 'button',
 };

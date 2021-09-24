@@ -1,5 +1,6 @@
 import React from 'react';
 import CustomModal from './CustomModal';
+import Button from '../button';
 
 export default {
   title: 'Elements/CustomModal',
@@ -15,8 +16,8 @@ Default.parameters = {
 Default.args = {
   actionsChildren: (
     <>
-      <button className="btn btn-secondary">Cancelar</button>
-      <button className="btn btn-primary">Guardar</button>
+      <Button extraClass="dark" className="mr-2" text="Cancel" />
+      <Button extraClass="primary-full" text="Save" />
     </>
   ),
   bodyChildren: <p>Hello world!</p>,

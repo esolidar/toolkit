@@ -19,7 +19,7 @@ const PasswordField: FC<Props> = ({
   };
 
   return (
-    <div className="password-field" data-testId={dataTestId}>
+    <div className="password-field" data-testid={dataTestId}>
       <TextField
         label={label}
         onChange={onChange}

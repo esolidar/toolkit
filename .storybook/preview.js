@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '!style-loader!css-loader!sass-loader!../src/index.scss';
+import '!style-loader!css-loader!sass-loader!../src/assets/sass/_storybook-body.scss';
 
 import '@storybook/addon-console';
 import 'storybook-addon-intl/register';
@@ -42,5 +43,8 @@ export const parameters = {
   },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
+  },
+  themes: {
+    list: [{ name: 'Whitelabel client', class: 'whitelabel-client-theme' }],
   },
 };

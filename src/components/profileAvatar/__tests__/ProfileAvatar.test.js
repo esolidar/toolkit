@@ -4,13 +4,13 @@ import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   WithLink as WithLinkStory,
-  WithoutThumb as WithoutThumbStory,
+  WithDefaultThumb as WithDefaultThumbStory,
   WithoutName as WithoutNameStory,
 } from '../ProfileAvatar.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 const WithLink = composeStory(WithLinkStory, Meta);
-const WithoutThumb = composeStory(WithoutThumbStory, Meta);
+const WithDefaultThumb = composeStory(WithDefaultThumbStory, Meta);
 const WithoutName = composeStory(WithoutNameStory, Meta);
 
 it('renders ProfileAvatar default', () => {
@@ -20,7 +20,9 @@ it('renders ProfileAvatar default', () => {
   expect(getByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__name margin')).toBeInTheDocument();
+  expect(
+    getByClass('profile-avatar__name client__primary--color-hover margin')
+  ).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
 });
 
@@ -31,20 +33,24 @@ it('renders ProfileAvatar with link', () => {
   expect(getByClass('profile-avatar__thumb thumb-lg click')).toBeInTheDocument();
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__name margin click')).toBeInTheDocument();
+  expect(
+    getByClass('profile-avatar__name client__primary--color-hover margin click')
+  ).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
 });
 
 it('renders ProfileAvatar without thumb', () => {
   const { getByTestId, getByClass, queryByClass, getByText, queryByAltText } = render(
-    <WithoutThumb />
+    <WithDefaultThumb />
   );
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
 
-  expect(queryByClass('profile-avatar__thumb thumb-lg')).not.toBeInTheDocument();
-  expect(queryByAltText('Joel F. Calheiros')).not.toBeInTheDocument();
+  expect(queryByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
+  expect(queryByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
-  expect(getByClass('profile-avatar__name')).toBeInTheDocument();
+  expect(
+    getByClass('profile-avatar__name client__primary--color-hover margin')
+  ).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
 });
 

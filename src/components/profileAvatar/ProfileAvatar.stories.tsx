@@ -14,7 +14,7 @@ const Template: Story<Props> = (args: Props) => <ProfileAvatar {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 export const WithLink: Story<Props> = Template.bind({});
-export const WithoutThumb: Story<Props> = Template.bind({});
+export const WithDefaultThumb: Story<Props> = Template.bind({});
 export const WithoutName: Story<Props> = Template.bind({});
 
 Default.args = {
@@ -28,7 +28,7 @@ WithLink.args = {
   href: 'https://www.esolidar.com/',
 };
 
-WithoutThumb.args = {
+WithDefaultThumb.args = {
   name: 'Joel F. Calheiros',
 };
 

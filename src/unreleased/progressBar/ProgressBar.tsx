@@ -54,13 +54,18 @@ const ProgressBar: FC<Props> = ({
       )}
       <div className="progress-bar-component__bars">
         <div className="full-bar" data-testid="bar">
-          <div className="raised-bar" style={{ width: progressBarWidth }} />
+          <div
+            className="raised-bar client__primary--background-color"
+            style={{ width: progressBarWidth }}
+          />
         </div>
       </div>
       <div className="progress-bar-component__info">
         {isDefined(numberContributors) && (
           <div
-            className={classnames('contributors', { click: numberContributors > 0 })}
+            className={classnames('contributors', 'client__primary--color-hover', {
+              click: numberContributors > 0,
+            })}
             onClick={() => {
               if (numberContributors === 0) return;
               onClickContributors();

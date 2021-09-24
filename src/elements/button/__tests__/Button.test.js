@@ -14,7 +14,7 @@ describe('Button component', () => {
 
   it('renders Button with prop extraClass', () => {
     const component = shallow(<Button extraClass="danger" />);
-    expect(component.props().className).toEqual('btn-esolidar btn-danger btn-md rounded   ');
+    expect(component.props().className).toEqual('btn-esolidar btn-danger btn-md');
   });
 
   it('renders Button with prop onClick', () => {
@@ -48,11 +48,6 @@ describe('Button component', () => {
       />
     );
     expect(component.find('FontAwesomeIcon').length).toBe(1);
-  });
-
-  it('renders Button classes from rounded prop', () => {
-    const component = shallow(<Button extraClass="danger" to="login" rounded={true} />);
-    expect(component.find('.rounded').length).toBe(1);
   });
 
   it('renders Button classes from fullWidth prop', () => {
