@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
-import variables from '../../assets/sass/_export.module.scss';
+import Icon from '../../components/icon';
 
 const CustomModal = ({
   actionsChildren,
@@ -30,7 +30,6 @@ const CustomModal = ({
   subtitleClassName,
   title,
   titleClassName,
-  titleColor,
 }) => {
   const border = '1px solid #dee2e6';
 
@@ -63,23 +62,18 @@ const CustomModal = ({
       {showHeader && (
         <Modal.Header
           className={headerClassName}
-          closeButton={closeButton}
           closeLabel="Close"
-          onHide={onHide}
           style={headerStyle}
           data-testid="header"
         >
           <Modal.Title>
-            <span
-              className={`mr-2 ${titleClassName}`}
-              data-testid="title"
-              style={{ color: titleColor }}
-            >
+            <span className={`custom-modal__title${titleClassName}`} data-testid="title">
               {title}
             </span>
             <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
               {subtitle}
             </span>
+            {closeButton && <Icon iconClass="icon-close" onClick={onHide} />}
           </Modal.Title>
         </Modal.Header>
       )}
@@ -124,7 +118,6 @@ CustomModal.propTypes = {
   subtitleClassName: PropTypes.string,
   title: PropTypes.string,
   titleClassName: PropTypes.string,
-  titleColor: PropTypes.string,
 };
 
 CustomModal.defaultProps = {
@@ -145,7 +138,6 @@ CustomModal.defaultProps = {
   subtitle: '',
   subtitleClassName: '',
   titleClassName: '',
-  titleColor: variables['theme-colors-primary'],
 };
 
 export default CustomModal;

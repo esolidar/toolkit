@@ -8,7 +8,7 @@ import Props from './ProfileAvatar.types';
 const ProfileAvatar: FC<Props> = ({
   isNameBold = false,
   name,
-  thumb,
+  thumb = 'https://static.testesolidar.com/frontend/assets/no-image.png',
   thumbSize = 'lg',
   href,
 }: Props): JSX.Element => {
@@ -34,6 +34,7 @@ const ProfileAvatar: FC<Props> = ({
         <div
           className={classnames(
             'profile-avatar__name',
+            'client__primary--color-hover',
             { margin: thumb },
             { bold: isNameBold },
             { click: href }

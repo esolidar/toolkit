@@ -37,6 +37,7 @@ const NewPostBox: FC<Props> = ({
   companyId,
   feedWebScrapter,
   feedPostResponse,
+  isLoggedIn,
 }: Props): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -191,10 +192,11 @@ const NewPostBox: FC<Props> = ({
 
   return (
     <>
-      {!user ? (
-        <div>
-          <LoginToInteract text="feed.create.post.without.login" onClick={loginAction} />
-        </div>
+      {!isLoggedIn ? (
+        <LoginToInteract
+          text={intl.formatMessage({ id: 'feed.create.post.without.login' })}
+          onClick={loginAction}
+        />
       ) : (
         <div
           className="feed-create-post"
@@ -210,9 +212,9 @@ const NewPostBox: FC<Props> = ({
               </div>
             )}
             <ProfileAvatar
-              thumb={user.thumbs.thumb}
+              thumb={user?.thumbs?.thumb}
               name={
-                editMode ? user.name : intl.formatMessage({ id: 'feed.create.post.with.login' })
+                editMode ? user?.name : intl.formatMessage({ id: 'feed.create.post.with.login' })
               }
             />
             {editMode && (

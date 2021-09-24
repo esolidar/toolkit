@@ -1,0 +1,184 @@
+$primary: red;
+$primary-hover: rgb(255, 134, 134);
+$secondary: green;
+$secondary-hover: rgb(117, 207, 117);
+
+body {
+  font-family: 'basic-sans';
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4 {
+  color: #1a1b1c !important;
+  font-weight: 700 !important;
+}
+
+.whitelabel-client-theme {
+  .client {
+    // PRIMARY
+    &__primary {
+      // COLOR
+      &--color {
+        color: $primary !important;
+
+        &-hover:hover {
+          color: $primary-hover !important;
+        }
+
+        &-active {
+          &.active {
+            color: $primary !important;
+          }
+        }
+      }
+
+      // BACKGROUND COLOR
+      &--background-color {
+        background-color: $primary !important;
+
+        &-hover:hover {
+          background-color: $primary-hover !important;
+        }
+      }
+
+      // BORDER COLOR
+      &--border-color {
+        border-color: $primary !important;
+
+        &-hover:hover {
+          border-color: $primary-hover !important;
+        }
+      }
+
+      // BORDER TOP COLOR
+      &--border-top-color {
+        border-top-color: $primary !important;
+
+        &-hover:hover {
+          border-top-color: $primary-hover !important;
+        }
+      }
+
+      // BORDER BOTTOM COLOR
+      &--border-bottom-color {
+        border-bottom-color: $primary !important;
+
+        &-hover:hover {
+          border-bottom-color: $primary-hover !important;
+        }
+
+        &-active {
+          &.active {
+            border-bottom-color: $primary !important;
+          }
+        }
+      }
+
+      // BORDER LEFT COLOR
+      &--border-left-color {
+        border-left-color: $primary !important;
+
+        &-hover:hover {
+          border-left-color: $primary-hover !important;
+        }
+      }
+
+      // BORDER RIGHT COLOR
+      &--border-right-color {
+        border-right-color: $primary !important;
+
+        &-hover:hover {
+          border-right-color: $primary-hover !important;
+        }
+      }
+
+      // OUTLINE COLOR
+      &--outline-color {
+        outline-color: $primary !important;
+
+        &-hover:hover {
+          outline-color: $primary-hover !important;
+        }
+      }
+    }
+
+    // SECONDARY
+    &__secondary {
+      // COLOR
+      &--color {
+        color: $secondary !important;
+
+        &-hover:hover {
+          color: $secondary-hover !important;
+        }
+      }
+
+      // BACKGROUND COLOR
+      &--background-color {
+        background-color: $secondary !important;
+
+        &-hover:hover {
+          background-color: $secondary-hover !important;
+        }
+      }
+
+      // BORDER COLOR
+      &--border-color {
+        border-color: $secondary !important;
+
+        &-hover:hover {
+          border-color: $secondary-hover !important;
+        }
+      }
+
+      // BORDER TOP COLOR
+      &--border-top-color {
+        border-top-color: $secondary !important;
+
+        &-hover:hover {
+          border-top-color: $secondary-hover !important;
+        }
+      }
+
+      // BORDER BOTTOM COLOR
+      &--border-bottom-color {
+        border-bottom-color: $secondary !important;
+
+        &-hover:hover {
+          border-bottom-color: $secondary-hover !important;
+        }
+      }
+
+      // BORDER LEFT COLOR
+      &--border-left-color {
+        border-left-color: $secondary !important;
+
+        &-hover:hover {
+          border-left-color: $secondary-hover !important;
+        }
+      }
+
+      // BORDER RIGHT COLOR
+      &--border-right-color {
+        border-right-color: $secondary !important;
+
+        &-hover:hover {
+          border-right-color: $secondary-hover !important;
+        }
+      }
+
+      // OUTLINE COLOR
+      &--outline-color {
+        outline-color: $secondary !important;
+
+        &-hover:hover {
+          outline-color: $secondary-hover !important;
+        }
+      }
+    }
+  }
+}

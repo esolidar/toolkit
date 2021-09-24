@@ -1,0 +1,88 @@
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: map-get($neutrals, 700);
+    font-size: 13px;
+
+    & > * {
+      padding-left: $distance-1;
+      padding-top: $distance-1 / 2;
+    }
+
+    &--highlighted {
+      color: map-get($colors, 'amber');
+    }
+
+    &--public {
+      color: map-get($neutrals, 400);
+    }
+
+    &--options {
+      &.show {
+        & .btn-primary.dropdown-toggle {
+          box-shadow: none !important;
+          border: none !important;
+          background-color: transparent !important;
+          color: map-get($neutrals, 700) !important;
+        }
+      }
+
+      & .dropdown-toggle {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        color: map-get($neutrals, 700);
+
+        &:focus {
+          box-shadow: none !important;
+          border: none !important;
+          background-color: transparent !important;
+          color: map-get($neutrals, 700) !important;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+
+      .dropdown-menu {
+        padding: 0;
+        margin: 0;
+
+        .options-item {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          cursor: pointer;
+
+          &:active {
+            background-color: map-get($neutrals, 100);
+          }
+
+          button,
+          span {
+            padding: $distance-1 $distance-2;
+            border: none;
+            background: transparent;
+            color: map-get($neutrals, 700);
+            width: 100%;
+            text-align: left;
+
+            &:hover {
+              background-color: map-get($neutrals, 100);
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

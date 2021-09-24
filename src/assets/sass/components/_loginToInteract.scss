@@ -5,10 +5,13 @@
   padding: $distance-3;
   margin-bottom: $distance-3;
 
+  &__text {
+    padding-right: $distance-1;
+  }
+
   &__button {
     text-decoration: underline;
     padding: 0;
     display: inline-flex;
-    padding-left: $distance-1;
   }
 }

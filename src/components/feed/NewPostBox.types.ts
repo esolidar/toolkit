@@ -32,6 +32,7 @@ interface Props {
   feedWebScrapter(companyId: number, url: string): void;
   scraper?: Scraper;
   feedPostResponse: any;
+  isLoggedIn: boolean;
 }
 
 export default Props;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button as BootstrapButton } from 'react-bootstrap';
+import { Button as BootstrapButton } from 'react-bootstrap';
 import Button from '../button';
+import CustomModal from '../customModal';
 
 const ConfirmModal = props => {
   const border = '1px solid #dee2e6';
@@ -48,41 +49,34 @@ const ConfirmModal = props => {
     <Button extraClass="dark" onClick={onClose} text={props.cancelText} />
   ) : null;
   const modal = (
-    <Modal
-      show={isOpened}
-      onHide={onClose}
-      className={props.className}
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      data-testid="modal"
-    >
-      <Modal.Header
-        className={props.headerClassName}
-        closeButton={true}
-        closeLabel="Close"
-        onHide={props.onHide}
-        style={headerStyle}
-        data-testid="header"
-      >
-        <Modal.Title>
-          <span className={`mr-2 ${props.titleClassName}`} data-testid="title">
-            {props.title}
-          </span>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className={props.bodyClassName} style={bodyStyle} data-testid="body">
-        {props.body}
-      </Modal.Body>
-      <Modal.Footer className={props.footerClassName} style={footerStyle} data-testid="footer">
-        {cancelButton}
-        <Button
-          extraClass={props.confirmClass}
-          onClick={onConfirm}
-          text={props.confirmText}
-          dataTestId="btn-confirm"
-        />
-      </Modal.Footer>
-    </Modal>
+    <>
+      <CustomModal
+        show={isOpened}
+        dialogClassName={props.className}
+        headerClassName={props.headerClassName}
+        titleClassName={props.titleClassName}
+        bodyClassName={props.bodyClassName}
+        footerClassName={props.footerClassName}
+        onHide={onClose}
+        headerStyle={headerStyle}
+        bodyStyle={bodyStyle}
+        footerStyle={footerStyle}
+        title={props.title}
+        bodyChildren={props.body}
+        actionsChildren={
+          <>
+            {cancelButton}
+            <Button
+              extraClass={props.confirmClass}
+              className="ml-2"
+              onClick={onConfirm}
+              text={props.confirmText}
+              dataTestId="btn-confirm"
+            />
+          </>
+        }
+      />
+    </>
   );
   let content;
   if (props.children) {

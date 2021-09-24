@@ -3,19 +3,48 @@
   z-index: 9999;
 }
 
+.modal-backdrop.show {
+  opacity: 75%;
+}
+
 .custom-modal {
+  &__title {
+    font-weight: 700;
+    color: map-get($base, black);
+    margin-right: $distance-1;
+  }
+
   .modal-content {
     padding: $distance-1;
+    border-radius: $border-radius-2;
+    box-shadow: 0px 0px 16px 0px #00000026;
+    border: 1px solid map-get($neutrals, 200);
 
     .modal-header {
       padding: $distance-2;
+
+      & .modal-title {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        & .icon-close {
+          margin-left: auto;
+          cursor: pointer;
+          font-size: 12px;
+        }
+      }
     }
     .modal-body {
-      padding: 0 $distance-2;
+      padding: 0 $distance-2 $distance-1 $distance-2;
     }
 
     .modal-footer {
       padding: $distance-2;
+
+      & > * {
+        margin: 0;
+      }
     }
   }
 }

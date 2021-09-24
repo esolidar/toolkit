@@ -10,45 +10,33 @@ const DetailInfoBox: FC<Props> = ({
   className = '',
   organizedBy,
   shareNetwork,
-  dataTestId,
-  dataTestIdHeader,
-  dataTestIdBody,
-  dataTestIdOrganized,
-  dataTestIdFooter,
+  dataTestId = 'detail-info-box',
+  dataTestIdHeader = 'detail-info-box-header',
+  dataTestIdBody = 'detail-info-box-body',
+  dataTestIdOrganized = 'detail-info-box-organized',
+  dataTestIdFooter = 'detail-info-box-footer',
 }: Props): JSX.Element => {
   const intl = useIntl();
 
   return (
-    <div className={`detail-info-box ${className}`} data-testid={dataTestId || 'detail-info-box'}>
+    <div className={`detail-info-box ${className}`} data-testid={dataTestId}>
       {headerChildren && (
-        <div
-          className="detail-info-box__header "
-          data-testid={dataTestIdHeader || 'detail-info-box-header'}
-        >
+        <div className="detail-info-box__header " data-testid={dataTestIdHeader}>
           {headerChildren}
         </div>
       )}
       {bodyChildren && (
-        <div
-          className="detail-info-box__body"
-          data-testid={dataTestIdBody || 'detail-info-box-body'}
-        >
+        <div className="detail-info-box__body" data-testid={dataTestIdBody}>
           {bodyChildren}
         </div>
       )}
       {organizedBy && (
-        <div
-          className="detail-info-box__organized"
-          data-testid={dataTestIdOrganized || 'detail-info-box-organized'}
-        >
+        <div className="detail-info-box__organized" data-testid={dataTestIdOrganized}>
           <p>{intl.formatMessage({ id: 'toolkit.organizedBy' })}</p>
           <ProfileAvatar {...organizedBy} isNameBold />
         </div>
       )}
-      <div
-        className="detail-info-box__footer"
-        data-testid={dataTestIdFooter || 'detail-info-box-footer'}
-      >
+      <div className="detail-info-box__footer" data-testid={dataTestIdFooter}>
         <ShareNetwork {...shareNetwork} blackIcons />
       </div>
     </div>
