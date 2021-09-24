@@ -3,19 +3,11 @@ import Crowdfunding from '../../interfaces/crowdfunding.types';
 import Auction from '../../interfaces/auction.types';
 import ImageThumbs from '../../interfaces/imageThumbs.types';
 import Currency from '../../interfaces/currency.types';
+import Footer from '../listFooter/ListFooter.types';
 
 interface Button {
   url?: string;
   text?: string;
-}
-
-interface Footer {
-  onChangeSelectPerPage(): void;
-  onChangePagination(): void;
-  perPageOptions?: number[];
-  total: number;
-  current_page: number;
-  per_page: number;
 }
 
 interface AuctionImage {
