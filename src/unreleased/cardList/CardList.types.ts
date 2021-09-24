@@ -52,7 +52,6 @@ interface Card
 export interface List {
   from?: number;
   to?: number;
-  total: number;
   data: Card[];
 }
 
