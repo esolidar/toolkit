@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
+// TODO: tests for the new props: iconLeft, iconRight and badge
+
 const Button = ({
   className,
   dataTestId,
@@ -11,16 +13,18 @@ const Button = ({
   fullWidth,
   href,
   icon,
+  iconLeft,
+  iconRight,
   id,
   onClick,
   rel,
-  rounded,
   size,
   style,
   target,
   text,
   to,
   type,
+  badge,
 }) => {
   let getType;
   if (onClick) {
@@ -35,7 +39,6 @@ const Button = ({
     'btn-esolidar',
     `btn-${extraClass}`,
     `btn-${size}`,
-    { rounded },
     { 'full-width': fullWidth },
     { disabled },
     className,
@@ -71,8 +74,15 @@ const Button = ({
             disabled={disabled}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
         );
 
@@ -86,16 +96,30 @@ const Button = ({
             disabled={disabled}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
         );
 
       case 'link':
         return (
           <Link data-testid={dataTestId} id={id} to={to} className={classes} style={style}>
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </Link>
         );
 
@@ -110,8 +134,15 @@ const Button = ({
             className={classes}
             style={style}
           >
-            {icon}
+            {(icon || iconLeft) && (
+              <span className="btn-esolidar__icon-left">
+                {icon}
+                {iconLeft}
+              </span>
+            )}
             {text}
+            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+            {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </a>
         );
     }
@@ -128,6 +159,8 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   href: PropTypes.string,
   icon: PropTypes.node,
+  iconLeft: PropTypes.node,
+  iconRight: PropTypes.node,
   id: PropTypes.string,
   onClick: PropTypes.func,
   rel: PropTypes.string,
@@ -138,12 +171,12 @@ Button.propTypes = {
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   to: PropTypes.string,
   type: PropTypes.string,
+  badge: PropTypes.node,
 };
 
 Button.defaultProps = {
   className: '',
   fullWidth: false,
-  rounded: true,
   size: 'md',
   type: 'button',
 };

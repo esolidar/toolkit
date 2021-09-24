@@ -20,7 +20,8 @@ Default.args = {
   onConfirm: () => {
     alert('Confirmed');
   },
-  body: 'Are you sure you want to delete this?',
-  confirmText: 'Confirm Delete',
-  title: 'Deleting Stuff',
+  body: 'You’ll lose all tasks, conversations, and documents.',
+  confirmText: 'Delete project',
+  title: 'Delete project?',
+  visible: false,
 };

@@ -8,7 +8,7 @@ import Props from './ProfileAvatar.types';
 const ProfileAvatar: FC<Props> = ({
   isNameBold = false,
   name,
-  thumb,
+  thumb = 'https://static.testesolidar.com/frontend/assets/no-image.png',
   thumbSize = 'lg',
   href,
 }: Props): JSX.Element => {

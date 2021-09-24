@@ -18,14 +18,20 @@ it('renders Title default component', () => {
   const { getAllByClass, getByClass } = render(<Default />);
 
   expect(getAllByClass('component-title')).toBeTruthy();
-  expect(getAllByClass('component-title-back')).toBeTruthy();
+  expect(
+    getAllByClass('component-title-back client__primary--color client__primary--color-hover')
+  ).toBeTruthy();
   expect(getAllByClass('icon-chevron-left')).toBeTruthy();
 
   expect(getAllByClass('component-title-h1')).toHaveLength(1);
   expect(getByClass('component-title-h1')).toHaveTextContent('Crowdfunding title');
   expect(getAllByClass('component-title-supporting')).toHaveLength(1);
-  expect(getAllByClass('component-title-supporting-href')).toHaveLength(1);
-  expect(getByClass('component-title-supporting-href')).toHaveTextContent('Helpo');
+  expect(
+    getAllByClass('component-title-supporting-href client__primary--color-hover')
+  ).toHaveLength(1);
+  expect(
+    getByClass('component-title-supporting-href client__primary--color-hover')
+  ).toHaveTextContent('Helpo');
 });
 
 it('renders Title only', () => {
@@ -48,7 +54,9 @@ it('renders Title without support url', () => {
   const { getAllByClass, getByClass } = render(<WithoutSupportUrl />);
 
   expect(getAllByClass('component-title')).toBeTruthy();
-  expect(getAllByClass('component-title-back')).toBeTruthy();
+  expect(
+    getAllByClass('component-title-back client__primary--color client__primary--color-hover')
+  ).toBeTruthy();
   expect(getAllByClass('icon-chevron-left')).toBeTruthy();
 
   expect(getAllByClass('component-title-h1')).toHaveLength(1);

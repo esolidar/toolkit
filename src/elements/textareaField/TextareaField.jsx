@@ -47,6 +47,7 @@ const TextareaField = ({
   return (
     <div
       className={classnames(
+        'text-area-field',
         'form-group',
         { 'has-error': error || message },
         { required },

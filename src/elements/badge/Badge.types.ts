@@ -3,7 +3,7 @@ interface Props {
   dataTestId?: string;
   extraClass?: 'default' | 'primary' | 'info' | 'success' | 'danger' | 'warning' | 'dark';
   fullWidth?: boolean;
-  style?: any;
+  style?: React.CSSProperties;
   text?: string;
   plaintext?: string;
   icon?: string;

@@ -47,8 +47,8 @@ describe('CustomModal component', () => {
     expect(component.find('[data-testid="modal"]').props().show).toEqual(true);
   });
 
-  it('renders closeButton if prop "onHide" is defined', () => {
-    const component = shallow(<CustomModal {...props} onHide={() => {}} />);
-    expect(component.find('[data-testid="header"]').props().closeButton).toEqual(true);
+  it('renders closeButton if prop "closeButton" is false', () => {
+    const component = shallow(<CustomModal {...props} closeButton={false} />);
+    expect(component.find('.icon-close')).toHaveLength(0);
   });
 });

@@ -29,7 +29,7 @@ export const FullWidth: Story<Props> = Template.bind({});
 export const Button: Story<Props> = Template.bind({});
 
 Default.args = {
-  text: 'auctionPrivate',
+  text: 'toolkit.private',
 };
 
 PlainText.args = {
@@ -38,13 +38,13 @@ PlainText.args = {
 };
 
 Icon.args = {
-  text: 'auctionPrivate',
+  text: 'toolkit.private',
   icon: 'icon-httpslock',
   iconDataTestId: 'badge-icon',
 };
 
 FullWidth.args = {
-  text: 'auctionPrivate',
+  text: 'toolkit.private',
   fullWidth: true,
 };
 

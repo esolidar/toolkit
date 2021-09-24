@@ -53,6 +53,7 @@ WithLogin.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };
 
 FocusBox.args = {
@@ -67,6 +68,7 @@ FocusBox.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };
 
 FocusBoxWithShare.args = {
@@ -93,6 +95,7 @@ FocusBoxWithShare.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };
 
 FocusBoxWithImages.args = {
@@ -136,6 +139,7 @@ FocusBoxWithImages.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };
 
 FocusBoxWithShareAndImages.args = {
@@ -181,6 +185,7 @@ FocusBoxWithShareAndImages.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };
 
 WithoutLogin.args = {
@@ -194,6 +199,7 @@ WithoutLogin.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: false,
 };
 
 EditPost.args = {
@@ -208,4 +214,5 @@ EditPost.args = {
   feedWebScrapter: (a, b) => {
     alert(`get scrapter ${b}`);
   },
+  isLoggedIn: true,
 };

@@ -1,5 +1,7 @@
 .badge {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  width: fit-content;
   border-radius: 100px;
   border: 0px;
 
@@ -55,7 +57,7 @@
     font-size: 12px;
     padding: 2px 6px;
     min-height: 18px;
-    line-height: 17px;
+    // line-height: 17px;
   }
 
   &__sm {
@@ -63,7 +65,7 @@
     font-size: 14px;
     padding: $distance-1 / 2 $distance-1;
     min-height: 24px;
-    line-height: 20px;
+    // line-height: 20px;
   }
 
   &__md {
@@ -80,7 +82,7 @@
 
   i {
     margin-right: $distance-1;
-    top: 1px;
-    position: relative;
+    // top: 1px;
+    // position: relative;
   }
 }
