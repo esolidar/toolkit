@@ -12,7 +12,7 @@ const LoginToInteract: FC<Props> = ({
 
   return (
     <div className="login-to-interact" data-testid={dataTestId}>
-      <span className="login-to-interact__text">{text}</span>
+      <span className="login-to-interact__text">{intl.formatMessage({ id: text })}</span>
       <Button
         dataTestId="login-button"
         extraClass="link"
