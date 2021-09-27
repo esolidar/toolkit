@@ -22,6 +22,8 @@ const NewPostBoxEditPost = composeStory(EditPost, Meta);
 it('Without Login', () => {
   render(<NewPostBoxWithoutLogin />);
 
+  console.log(screen.debug);
+
   const loginButton = screen.queryByTestId('login-button');
   const header = screen.queryByTestId('profile-avatar');
   const body = screen.queryByTestId('body');

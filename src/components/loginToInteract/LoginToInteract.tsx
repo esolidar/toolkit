@@ -4,7 +4,7 @@ import Button from '../../elements/button';
 import Props from './LoginToInteract.types';
 
 const LoginToInteract: FC<Props> = ({
-  text,
+  text = 'feed.create.post.without.login',
   onClick,
   dataTestId = 'login-to-interact',
 }: Props): JSX.Element => {
