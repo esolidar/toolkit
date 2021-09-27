@@ -58,9 +58,9 @@ const CardList: FC<Props> = ({
   footer,
   onClickThumb,
 }: Props): JSX.Element => {
-  const intl = useIntl();
+  const intl: IntlShape = useIntl();
   const [cardList, setCardList] = useState<List>(list);
-  const [types, setTypes] = useState({
+  const [types, setTypes] = useState<Types>({
     crowdfunding: 0,
     auction: 0,
     project: 0,
@@ -84,6 +84,7 @@ const CardList: FC<Props> = ({
         tempTypes.project += 1;
       }
     });
+
     setTypes(tempTypes);
     setCardList(tempList);
   }, [list]);
@@ -113,28 +114,16 @@ const CardList: FC<Props> = ({
         ))}
       </Row>
       {isDefined(footer) && (
-        <ListFooter
-          labelResultText={getListFooterLabel(types, intl)}
-          onChangePagination={footer.onChangePagination}
-          onChangeSelectPerPage={footer.onChangeSelectPerPage}
-          total={footer.total}
-          current_page={footer.current_page}
-          per_page={footer.per_page}
-          perPageOptions={footer.perPageOptions}
-        />
+        <ListFooter {...footer} labelResultText={getListFooterLabel(types, intl)} />
       )}
       {isDefined(button) && (
-        <div className="cardList__see-all">
-          <Button
-            extraClass="primary"
-            rounded={false}
-            href={button.url}
-            target="_blank"
-            text={intl.formatMessage({
-              id: button.text || 'see.all',
-            })}
-          />
-        </div>
+        <Button
+          extraClass="primary"
+          className="cardList__button"
+          href={button.url}
+          target="_blank"
+          text={intl.formatMessage({ id: button.text || 'see.all' })}
+        />
       )}
     </>
   );

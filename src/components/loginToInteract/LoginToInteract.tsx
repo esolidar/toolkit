@@ -4,7 +4,7 @@ import Button from '../../elements/button';
 import Props from './LoginToInteract.types';
 
 const LoginToInteract: FC<Props> = ({
-  text,
+  text = 'feed.create.post.without.login',
   onClick,
   dataTestId = 'login-to-interact',
 }: Props): JSX.Element => {
@@ -12,7 +12,7 @@ const LoginToInteract: FC<Props> = ({
 
   return (
     <div className="login-to-interact" data-testid={dataTestId}>
-      <span className="login-to-interact__text">{text}</span>
+      <span className="login-to-interact__text">{intl.formatMessage({ id: text })}</span>
       <Button
         dataTestId="login-button"
         extraClass="link"

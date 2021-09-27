@@ -1,5 +1,5 @@
 interface Props {
-  text: string;
+  text?: string;
   dataTestId?: string;
   onClick(): void;
 }

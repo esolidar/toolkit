@@ -16,7 +16,7 @@ const Template: Story<Props> = (args: Props) => <CardList {...args} />;
 
 export const Default = Template.bind({});
 export const WithoutTitleAndSubtitle = Template.bind({});
-export const SeeAll = Template.bind({});
+export const WithButton = Template.bind({});
 export const ListAuctions = Template.bind({});
 
 Default.args = {
@@ -51,7 +51,7 @@ WithoutTitleAndSubtitle.args = {
   },
 };
 
-SeeAll.args = {
+WithButton.args = {
   title: 'Initiatives',
   subtitle: 'Initiatives supporting the project',
   list: {

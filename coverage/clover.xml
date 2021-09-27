@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632478214916" clover="3.2.0">
-  <project timestamp="1632478214916" name="All files">
-    <metrics statements="3502" coveredstatements="2374" conditionals="2953" coveredconditionals="1843" methods="922" coveredmethods="458" elements="7377" coveredelements="4675" complexity="0" loc="3502" ncloc="3502" packages="119" files="289" classes="289"/>
+<coverage generated="1632740421650" clover="3.2.0">
+  <project timestamp="1632740421650" name="All files">
+    <metrics statements="3501" coveredstatements="2367" conditionals="2954" coveredconditionals="1841" methods="922" coveredmethods="457" elements="7377" coveredelements="4665" complexity="0" loc="3501" ncloc="3501" packages="119" files="289" classes="289"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
-      <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
+      <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="3" count="152" type="stmt"/>
         <line num="5" count="35" type="stmt"/>
@@ -13,7 +13,7 @@
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="35" type="stmt"/>
       </file>
-      <file name="queryById.js" path="D:\projects\toolkit\__customQueries__\queryById.js">
+      <file name="queryById.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryById.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="35" type="stmt"/>
         <line num="5" count="35" type="stmt"/>
@@ -22,7 +22,7 @@
         <line num="8" count="0" type="stmt"/>
         <line num="10" count="35" type="stmt"/>
       </file>
-      <file name="test-utils.js" path="D:\projects\toolkit\__customQueries__\test-utils.js">
+      <file name="test-utils.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/test-utils.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="8" count="35" type="stmt"/>
         <line num="10" count="35" type="cond" truecount="2" falsecount="0"/>
@@ -33,7 +33,7 @@
     </package>
     <package name="src.components.auctionAddForm">
       <metrics statements="297" coveredstatements="127" conditionals="283" coveredconditionals="141" methods="71" coveredmethods="18"/>
-      <file name="AuctionAddForm.jsx" path="D:\projects\toolkit\src\components\auctionAddForm\AuctionAddForm.jsx">
+      <file name="AuctionAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/AuctionAddForm.jsx">
         <metrics statements="255" coveredstatements="85" conditionals="226" coveredconditionals="85" methods="70" coveredmethods="17"/>
         <line num="36" count="2" type="stmt"/>
         <line num="74" count="2" type="cond" truecount="1" falsecount="1"/>
@@ -291,10 +291,10 @@
         <line num="1267" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="1283" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\auctionAddForm\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="validations.js" path="D:\projects\toolkit\src\components\auctionAddForm\validations.js">
+      <file name="validations.js" path="/Users/pedroguia/Projects/toolkit/src/components/auctionAddForm/validations.js">
         <metrics statements="42" coveredstatements="42" conditionals="57" coveredconditionals="56" methods="1" coveredmethods="1"/>
         <line num="9" count="10" type="stmt"/>
         <line num="11" count="10" type="cond" truecount="5" falsecount="0"/>
@@ -342,7 +342,7 @@
     </package>
     <package name="src.components.auctionDetail">
       <metrics statements="458" coveredstatements="207" conditionals="341" coveredconditionals="134" methods="78" coveredmethods="32"/>
-      <file name="AuctionDetail.jsx" path="D:\projects\toolkit\src\components\auctionDetail\AuctionDetail.jsx">
+      <file name="AuctionDetail.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/AuctionDetail.jsx">
         <metrics statements="416" coveredstatements="177" conditionals="287" coveredconditionals="96" methods="73" coveredmethods="27"/>
         <line num="32" count="1" type="stmt"/>
         <line num="76" count="24" type="stmt"/>
@@ -761,7 +761,7 @@
         <line num="1336" count="0" type="stmt"/>
         <line num="1345" count="1" type="stmt"/>
       </file>
-      <file name="AuctionDetailRigth.jsx" path="D:\projects\toolkit\src\components\auctionDetail\AuctionDetailRigth.jsx">
+      <file name="AuctionDetailRigth.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/AuctionDetailRigth.jsx">
         <metrics statements="31" coveredstatements="19" conditionals="41" coveredconditionals="28" methods="2" coveredmethods="2"/>
         <line num="10" count="2" type="stmt"/>
         <line num="28" count="18" type="stmt"/>
@@ -795,7 +795,7 @@
         <line num="164" count="4" type="stmt"/>
         <line num="225" count="2" type="stmt"/>
       </file>
-      <file name="AuctionLastBid.jsx" path="D:\projects\toolkit\src\components\auctionDetail\AuctionLastBid.jsx">
+      <file name="AuctionLastBid.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/AuctionLastBid.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="8" count="2" type="stmt"/>
         <line num="19" count="13" type="stmt"/>
@@ -804,7 +804,7 @@
         <line num="86" count="1" type="stmt"/>
         <line num="98" count="2" type="stmt"/>
       </file>
-      <file name="AuctionSupport.jsx" path="D:\projects\toolkit\src\components\auctionDetail\AuctionSupport.jsx">
+      <file name="AuctionSupport.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/AuctionSupport.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
@@ -812,26 +812,26 @@
         <line num="11" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\auctionDetail\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.auctionDetail.auctionsList">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="AuctionsList.jsx" path="D:\projects\toolkit\src\components\auctionDetail\auctionsList\AuctionsList.jsx">
+      <file name="AuctionsList.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/auctionsList/AuctionsList.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="13" type="cond" truecount="2" falsecount="0"/>
         <line num="22" count="21" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\auctionDetail\auctionsList\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/auctionDetail/auctionsList/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.auctionThumb">
       <metrics statements="20" coveredstatements="15" conditionals="40" coveredconditionals="28" methods="2" coveredmethods="1"/>
-      <file name="AuctionThumb.jsx" path="D:\projects\toolkit\src\components\auctionThumb\AuctionThumb.jsx">
+      <file name="AuctionThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/auctionThumb/AuctionThumb.jsx">
         <metrics statements="20" coveredstatements="15" conditionals="40" coveredconditionals="28" methods="2" coveredmethods="1"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="25" type="stmt"/>
@@ -854,13 +854,13 @@
         <line num="130" count="3" type="stmt"/>
         <line num="170" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\auctionThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/auctionThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.bankAccounts">
       <metrics statements="124" coveredstatements="76" conditionals="137" coveredconditionals="89" methods="50" coveredmethods="18"/>
-      <file name="BankAccount.jsx" path="D:\projects\toolkit\src\components\bankAccounts\BankAccount.jsx">
+      <file name="BankAccount.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/bankAccounts/BankAccount.jsx">
         <metrics statements="124" coveredstatements="76" conditionals="137" coveredconditionals="89" methods="50" coveredmethods="18"/>
         <line num="14" count="3" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
@@ -987,39 +987,39 @@
         <line num="718" count="3" type="stmt"/>
         <line num="723" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\bankAccounts\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/bankAccounts/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.boxInfo">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="BoxInfo.jsx" path="D:\projects\toolkit\src\components\boxInfo\BoxInfo.jsx">
+      <file name="BoxInfo.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/boxInfo/BoxInfo.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\boxInfo\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/boxInfo/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.changeCurrency">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="ChangeCurrency.jsx" path="D:\projects\toolkit\src\components\changeCurrency\ChangeCurrency.jsx">
+      <file name="ChangeCurrency.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/changeCurrency/ChangeCurrency.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\changeCurrency\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/changeCurrency/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.changeLanguage">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="ChangeLanguage.jsx" path="D:\projects\toolkit\src\components\changeLanguage\ChangeLanguage.jsx">
+      <file name="ChangeLanguage.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/changeLanguage/ChangeLanguage.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="5" type="stmt"/>
@@ -1027,13 +1027,13 @@
         <line num="10" count="1" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\changeLanguage\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/changeLanguage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.changeProfileUserImage">
       <metrics statements="9" coveredstatements="6" conditionals="8" coveredconditionals="2" methods="2" coveredmethods="1"/>
-      <file name="ChangeProfileUserImage.jsx" path="D:\projects\toolkit\src\components\changeProfileUserImage\ChangeProfileUserImage.jsx">
+      <file name="ChangeProfileUserImage.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/changeProfileUserImage/ChangeProfileUserImage.jsx">
         <metrics statements="9" coveredstatements="6" conditionals="8" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="5" type="stmt"/>
@@ -1045,13 +1045,13 @@
         <line num="74" count="1" type="stmt"/>
         <line num="82" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\changeProfileUserImage\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/changeProfileUserImage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.checkout.invoicing">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="InvoicingData.jsx" path="D:\projects\toolkit\src\components\checkout\invoicing\InvoicingData.jsx">
+      <file name="InvoicingData.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/invoicing/InvoicingData.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -1062,7 +1062,7 @@
     </package>
     <package name="src.components.checkout.products">
       <metrics statements="16" coveredstatements="10" conditionals="24" coveredconditionals="20" methods="6" coveredmethods="2"/>
-      <file name="CrowdfundingItem.jsx" path="D:\projects\toolkit\src\components\checkout\products\CrowdfundingItem.jsx">
+      <file name="CrowdfundingItem.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/products/CrowdfundingItem.jsx">
         <metrics statements="16" coveredstatements="10" conditionals="24" coveredconditionals="20" methods="6" coveredmethods="2"/>
         <line num="10" count="2" type="stmt"/>
         <line num="20" count="9" type="stmt"/>
@@ -1084,7 +1084,7 @@
     </package>
     <package name="src.components.checkout.step1">
       <metrics statements="14" coveredstatements="13" conditionals="16" coveredconditionals="12" methods="4" coveredmethods="3"/>
-      <file name="Step1.jsx" path="D:\projects\toolkit\src\components\checkout\step1\Step1.jsx">
+      <file name="Step1.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/step1/Step1.jsx">
         <metrics statements="14" coveredstatements="13" conditionals="16" coveredconditionals="12" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
@@ -1101,13 +1101,13 @@
         <line num="64" count="0" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\checkout\step1\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/step1/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.checkout.step2">
       <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="1"/>
-      <file name="Step2.jsx" path="D:\projects\toolkit\src\components\checkout\step2\Step2.jsx">
+      <file name="Step2.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/step2/Step2.jsx">
         <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
@@ -1116,13 +1116,13 @@
         <line num="46" count="0" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\checkout\step2\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/checkout/step2/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.commentPost">
       <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-      <file name="CommentPost.jsx" path="D:\projects\toolkit\src\components\commentPost\CommentPost.jsx">
+      <file name="CommentPost.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/commentPost/CommentPost.jsx">
         <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="10" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
@@ -1131,27 +1131,27 @@
         <line num="28" count="0" type="stmt"/>
         <line num="60" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\commentPost\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/commentPost/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.comments">
       <metrics statements="72" coveredstatements="38" conditionals="68" coveredconditionals="25" methods="19" coveredmethods="8"/>
-      <file name="CommentContent.jsx" path="D:\projects\toolkit\src\components\comments\CommentContent.jsx">
+      <file name="CommentContent.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/comments/CommentContent.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
       </file>
-      <file name="CommentHeader.jsx" path="D:\projects\toolkit\src\components\comments\CommentHeader.jsx">
+      <file name="CommentHeader.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/comments/CommentHeader.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
         <line num="42" count="3" type="stmt"/>
       </file>
-      <file name="Comments.jsx" path="D:\projects\toolkit\src\components\comments\Comments.jsx">
+      <file name="Comments.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/comments/Comments.jsx">
         <metrics statements="64" coveredstatements="30" conditionals="65" coveredconditionals="22" methods="16" coveredmethods="5"/>
         <line num="12" count="2" type="stmt"/>
         <line num="31" count="35" type="stmt"/>
@@ -1218,13 +1218,13 @@
         <line num="209" count="35" type="stmt"/>
         <line num="231" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\comments\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/comments/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.comments.createComment">
       <metrics statements="12" coveredstatements="6" conditionals="14" coveredconditionals="2" methods="4" coveredmethods="1"/>
-      <file name="CreateComment.jsx" path="D:\projects\toolkit\src\components\comments\createComment\CreateComment.jsx">
+      <file name="CreateComment.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/comments/createComment/CreateComment.jsx">
         <metrics statements="12" coveredstatements="6" conditionals="14" coveredconditionals="2" methods="4" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="16" count="11" type="stmt"/>
@@ -1239,13 +1239,13 @@
         <line num="59" count="0" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\comments\createComment\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/comments/createComment/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.contributesListBox">
       <metrics statements="20" coveredstatements="20" conditionals="55" coveredconditionals="45" methods="5" coveredmethods="5"/>
-      <file name="ContributeRow.jsx" path="D:\projects\toolkit\src\components\contributesListBox\ContributeRow.jsx">
+      <file name="ContributeRow.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/ContributeRow.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="32" coveredconditionals="24" methods="1" coveredmethods="1"/>
         <line num="6" count="4" type="stmt"/>
         <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
@@ -1256,7 +1256,7 @@
         <line num="23" count="3" type="stmt"/>
         <line num="56" count="4" type="stmt"/>
       </file>
-      <file name="ContributesList.jsx" path="D:\projects\toolkit\src\components\contributesListBox\ContributesList.jsx">
+      <file name="ContributesList.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/ContributesList.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="15" coveredconditionals="13" methods="3" coveredmethods="3"/>
         <line num="6" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
@@ -1267,45 +1267,45 @@
         <line num="31" count="3" type="stmt"/>
         <line num="48" count="3" type="stmt"/>
       </file>
-      <file name="ContributesListBox.jsx" path="D:\projects\toolkit\src\components\contributesListBox\ContributesListBox.jsx">
+      <file name="ContributesListBox.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/ContributesListBox.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
         <line num="18" count="14" type="stmt"/>
         <line num="46" count="2" type="stmt"/>
         <line num="60" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\contributesListBox\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.convertToMyTimezone">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="ConvertToMyTimezone.jsx" path="D:\projects\toolkit\src\components\convertToMyTimezone\ConvertToMyTimezone.jsx">
+      <file name="ConvertToMyTimezone.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/convertToMyTimezone/ConvertToMyTimezone.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="12" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\convertToMyTimezone\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/convertToMyTimezone/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.cookiesMessage">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="CookiesMessage.jsx" path="D:\projects\toolkit\src\components\cookiesMessage\CookiesMessage.jsx">
+      <file name="CookiesMessage.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/cookiesMessage/CookiesMessage.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\cookiesMessage\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/cookiesMessage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.countdown">
       <metrics statements="71" coveredstatements="70" conditionals="41" coveredconditionals="36" methods="10" coveredmethods="9"/>
-      <file name="Countdown.jsx" path="D:\projects\toolkit\src\components\countdown\Countdown.jsx">
+      <file name="Countdown.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/countdown/Countdown.jsx">
         <metrics statements="71" coveredstatements="70" conditionals="41" coveredconditionals="36" methods="10" coveredmethods="9"/>
         <line num="8" count="4" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
@@ -1379,13 +1379,13 @@
         <line num="220" count="4" type="stmt"/>
         <line num="229" count="4" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\countdown\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/countdown/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.creditCardList">
       <metrics statements="54" coveredstatements="18" conditionals="29" coveredconditionals="4" methods="11" coveredmethods="1"/>
-      <file name="CreditCardList.jsx" path="D:\projects\toolkit\src\components\creditCardList\CreditCardList.jsx">
+      <file name="CreditCardList.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/creditCardList/CreditCardList.jsx">
         <metrics statements="54" coveredstatements="18" conditionals="29" coveredconditionals="4" methods="11" coveredmethods="1"/>
         <line num="14" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
@@ -1442,13 +1442,13 @@
         <line num="163" count="0" type="stmt"/>
         <line num="192" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\creditCardList\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/creditCardList/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingContributeBtn">
       <metrics statements="56" coveredstatements="48" conditionals="28" coveredconditionals="24" methods="10" coveredmethods="5"/>
-      <file name="CrowdfundingContributeBtn.jsx" path="D:\projects\toolkit\src\components\crowdfundingContributeBtn\CrowdfundingContributeBtn.jsx">
+      <file name="CrowdfundingContributeBtn.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingContributeBtn/CrowdfundingContributeBtn.jsx">
         <metrics statements="56" coveredstatements="48" conditionals="28" coveredconditionals="24" methods="10" coveredmethods="5"/>
         <line num="13" count="2" type="stmt"/>
         <line num="18" count="14" type="stmt"/>
@@ -1507,13 +1507,13 @@
         <line num="220" count="0" type="stmt"/>
         <line num="255" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingContributeBtn\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingContributeBtn/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingDescription">
       <metrics statements="26" coveredstatements="18" conditionals="40" coveredconditionals="22" methods="8" coveredmethods="5"/>
-      <file name="CrowdfundingDescription.jsx" path="D:\projects\toolkit\src\components\crowdfundingDescription\CrowdfundingDescription.jsx">
+      <file name="CrowdfundingDescription.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingDescription/CrowdfundingDescription.jsx">
         <metrics statements="26" coveredstatements="18" conditionals="40" coveredconditionals="22" methods="8" coveredmethods="5"/>
         <line num="8" count="4" type="stmt"/>
         <line num="18" count="4" type="stmt"/>
@@ -1542,38 +1542,38 @@
         <line num="160" count="8" type="stmt"/>
         <line num="188" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingDescription\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingDescription/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingHeader">
       <metrics statements="4" coveredstatements="4" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
-      <file name="CrowdfundingHeaderRigth.jsx" path="D:\projects\toolkit\src\components\crowdfundingHeader\CrowdfundingHeaderRigth.jsx">
+      <file name="CrowdfundingHeaderRigth.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingHeader/CrowdfundingHeaderRigth.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
         <line num="79" count="1" type="stmt"/>
         <line num="115" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingHeader\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingHeader/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingPaymentMethod">
       <metrics statements="3" coveredstatements="3" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
-      <file name="CrowdfundingPaymentMethod.jsx" path="D:\projects\toolkit\src\components\crowdfundingPaymentMethod\CrowdfundingPaymentMethod.jsx">
+      <file name="CrowdfundingPaymentMethod.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingPaymentMethod/CrowdfundingPaymentMethod.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingPaymentMethod\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingPaymentMethod/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingPrivateThumb">
       <metrics statements="30" coveredstatements="27" conditionals="24" coveredconditionals="17" methods="4" coveredmethods="4"/>
-      <file name="CrowdfundingPrivateThumb.jsx" path="D:\projects\toolkit\src\components\crowdfundingPrivateThumb\CrowdfundingPrivateThumb.jsx">
+      <file name="CrowdfundingPrivateThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingPrivateThumb/CrowdfundingPrivateThumb.jsx">
         <metrics statements="30" coveredstatements="27" conditionals="24" coveredconditionals="17" methods="4" coveredmethods="4"/>
         <line num="11" count="6" type="stmt"/>
         <line num="12" count="6" type="stmt"/>
@@ -1606,13 +1606,13 @@
         <line num="102" count="12" type="stmt"/>
         <line num="162" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingPrivateThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingPrivateThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.crowdfundingThumb">
       <metrics statements="30" coveredstatements="27" conditionals="24" coveredconditionals="17" methods="4" coveredmethods="4"/>
-      <file name="CrowdfundingThumb.jsx" path="D:\projects\toolkit\src\components\crowdfundingThumb\CrowdfundingThumb.jsx">
+      <file name="CrowdfundingThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingThumb/CrowdfundingThumb.jsx">
         <metrics statements="30" coveredstatements="27" conditionals="24" coveredconditionals="17" methods="4" coveredmethods="4"/>
         <line num="12" count="6" type="stmt"/>
         <line num="13" count="6" type="stmt"/>
@@ -1645,13 +1645,13 @@
         <line num="97" count="12" type="stmt"/>
         <line num="150" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\crowdfundingThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/crowdfundingThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.descriptionDetail">
       <metrics statements="9" coveredstatements="7" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="2"/>
-      <file name="DescriptionDetail.jsx" path="D:\projects\toolkit\src\components\descriptionDetail\DescriptionDetail.jsx">
+      <file name="DescriptionDetail.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/descriptionDetail/DescriptionDetail.jsx">
         <metrics statements="9" coveredstatements="7" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="2"/>
         <line num="6" count="2" type="stmt"/>
         <line num="13" count="37" type="stmt"/>
@@ -1663,13 +1663,13 @@
         <line num="38" count="36" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\descriptionDetail\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/descriptionDetail/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.documents">
       <metrics statements="26" coveredstatements="17" conditionals="27" coveredconditionals="15" methods="5" coveredmethods="4"/>
-      <file name="Documents.jsx" path="D:\projects\toolkit\src\components\documents\Documents.jsx">
+      <file name="Documents.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/documents/Documents.jsx">
         <metrics statements="26" coveredstatements="17" conditionals="27" coveredconditionals="15" methods="5" coveredmethods="4"/>
         <line num="13" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
@@ -1698,13 +1698,13 @@
         <line num="102" count="1" type="stmt"/>
         <line num="161" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\documents\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/documents/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.errorBoundary">
       <metrics statements="25" coveredstatements="10" conditionals="12" coveredconditionals="4" methods="5" coveredmethods="1"/>
-      <file name="ErrorBoundary.jsx" path="D:\projects\toolkit\src\components\errorBoundary\ErrorBoundary.jsx">
+      <file name="ErrorBoundary.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/errorBoundary/ErrorBoundary.jsx">
         <metrics statements="25" coveredstatements="10" conditionals="12" coveredconditionals="4" methods="5" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -1732,13 +1732,13 @@
         <line num="76" count="2" type="stmt"/>
         <line num="83" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\errorBoundary\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/errorBoundary/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.faqs">
       <metrics statements="30" coveredstatements="25" conditionals="28" coveredconditionals="17" methods="10" coveredmethods="9"/>
-      <file name="Faqs.jsx" path="D:\projects\toolkit\src\components\faqs\Faqs.jsx">
+      <file name="Faqs.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/faqs/Faqs.jsx">
         <metrics statements="16" coveredstatements="12" conditionals="22" coveredconditionals="11" methods="3" coveredmethods="3"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
@@ -1757,7 +1757,7 @@
         <line num="62" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
       </file>
-      <file name="FaqsItem.jsx" path="D:\projects\toolkit\src\components\faqs\FaqsItem.jsx">
+      <file name="FaqsItem.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/faqs/FaqsItem.jsx">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
@@ -1769,7 +1769,7 @@
         <line num="19" count="2" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
       </file>
-      <file name="FaqsTabs.jsx" path="D:\projects\toolkit\src\components\faqs\FaqsTabs.jsx">
+      <file name="FaqsTabs.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/faqs/FaqsTabs.jsx">
         <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
@@ -1777,13 +1777,13 @@
         <line num="14" count="0" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\faqs\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/faqs/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.featuresMenu">
       <metrics statements="136" coveredstatements="132" conditionals="118" coveredconditionals="96" methods="13" coveredmethods="11"/>
-      <file name="FeaturesMenu.jsx" path="D:\projects\toolkit\src\components\featuresMenu\FeaturesMenu.jsx">
+      <file name="FeaturesMenu.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/featuresMenu/FeaturesMenu.jsx">
         <metrics statements="136" coveredstatements="132" conditionals="118" coveredconditionals="96" methods="13" coveredmethods="11"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="6" type="stmt"/>
@@ -1922,13 +1922,13 @@
         <line num="677" count="6" type="stmt"/>
         <line num="689" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\featuresMenu\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/featuresMenu/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.feed">
       <metrics statements="147" coveredstatements="96" conditionals="105" coveredconditionals="70" methods="57" coveredmethods="18"/>
-      <file name="NewPostBox.stories.tsx" path="D:\projects\toolkit\src\components\feed\NewPostBox.stories.tsx">
+      <file name="NewPostBox.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/feed/NewPostBox.stories.tsx">
         <metrics statements="35" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="38" coveredmethods="3"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
@@ -1966,7 +1966,7 @@
         <line num="212" count="0" type="stmt"/>
         <line num="215" count="0" type="stmt"/>
       </file>
-      <file name="NewPostBox.tsx" path="D:\projects\toolkit\src\components\feed\NewPostBox.tsx">
+      <file name="NewPostBox.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/feed/NewPostBox.tsx">
         <metrics statements="112" coveredstatements="75" conditionals="105" coveredconditionals="70" methods="19" coveredmethods="15"/>
         <line num="14" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
@@ -2059,32 +2059,32 @@
         <line num="187" count="0" type="stmt"/>
         <line num="188" count="0" type="stmt"/>
         <line num="193" count="23" type="stmt"/>
-        <line num="264" count="47" type="stmt"/>
-        <line num="265" count="47" type="stmt"/>
-        <line num="267" count="47" type="cond" truecount="1" falsecount="1"/>
-        <line num="268" count="0" type="stmt"/>
-        <line num="271" count="47" type="cond" truecount="2" falsecount="0"/>
-        <line num="272" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="273" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="276" count="47" type="cond" truecount="2" falsecount="0"/>
-        <line num="277" count="8" type="stmt"/>
-        <line num="280" count="47" type="cond" truecount="2" falsecount="0"/>
-        <line num="281" count="30" type="cond" truecount="2" falsecount="0"/>
-        <line num="282" count="30" type="cond" truecount="2" falsecount="0"/>
-        <line num="285" count="47" type="cond" truecount="1" falsecount="1"/>
-        <line num="286" count="0" type="stmt"/>
-        <line num="289" count="47" type="cond" truecount="1" falsecount="1"/>
+        <line num="261" count="47" type="stmt"/>
+        <line num="262" count="47" type="stmt"/>
+        <line num="264" count="47" type="cond" truecount="1" falsecount="1"/>
+        <line num="265" count="0" type="stmt"/>
+        <line num="268" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="269" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="270" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="273" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="274" count="8" type="stmt"/>
+        <line num="277" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="278" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="279" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="282" count="47" type="cond" truecount="1" falsecount="1"/>
+        <line num="283" count="0" type="stmt"/>
+        <line num="286" count="47" type="cond" truecount="1" falsecount="1"/>
+        <line num="287" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="288" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="289" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="290" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="291" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="292" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="293" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="296" count="47" type="stmt"/>
-        <line num="306" count="1" type="stmt"/>
+        <line num="293" count="47" type="stmt"/>
+        <line num="303" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.footer">
       <metrics statements="29" coveredstatements="11" conditionals="28" coveredconditionals="15" methods="7" coveredmethods="3"/>
-      <file name="Footer.jsx" path="D:\projects\toolkit\src\components\footer\Footer.jsx">
+      <file name="Footer.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/footer/Footer.jsx">
         <metrics statements="29" coveredstatements="11" conditionals="28" coveredconditionals="15" methods="7" coveredmethods="3"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
@@ -2116,13 +2116,13 @@
         <line num="104" count="8" type="stmt"/>
         <line num="147" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\footer\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/footer/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.formQuestionsGenerator">
       <metrics statements="12" coveredstatements="8" conditionals="16" coveredconditionals="7" methods="4" coveredmethods="2"/>
-      <file name="FormQuestionValueRow.jsx" path="D:\projects\toolkit\src\components\formQuestionsGenerator\FormQuestionValueRow.jsx">
+      <file name="FormQuestionValueRow.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/formQuestionsGenerator/FormQuestionValueRow.jsx">
         <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
@@ -2131,7 +2131,7 @@
         <line num="25" count="0" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
       </file>
-      <file name="FormQuestionsGenerator.jsx" path="D:\projects\toolkit\src\components\formQuestionsGenerator\FormQuestionsGenerator.jsx">
+      <file name="FormQuestionsGenerator.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/formQuestionsGenerator/FormQuestionsGenerator.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="16" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="9" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
@@ -2140,25 +2140,25 @@
         <line num="64" count="1" type="stmt"/>
         <line num="67" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\formQuestionsGenerator\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/formQuestionsGenerator/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.giftCardThumb">
       <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
-      <file name="GiftCardThumb.jsx" path="D:\projects\toolkit\src\components\giftCardThumb\GiftCardThumb.jsx">
+      <file name="GiftCardThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/giftCardThumb/GiftCardThumb.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\giftCardThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/giftCardThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.giftcards">
       <metrics statements="7" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
-      <file name="Giftcards.jsx" path="D:\projects\toolkit\src\components\giftcards\Giftcards.jsx">
+      <file name="Giftcards.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/giftcards/Giftcards.jsx">
         <metrics statements="7" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
@@ -2168,26 +2168,26 @@
         <line num="52" count="1" type="stmt"/>
         <line num="116" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\giftcards\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/giftcards/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.googleMapsView">
       <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="GoogleMapsView.jsx" path="D:\projects\toolkit\src\components\googleMapsView\GoogleMapsView.jsx">
+      <file name="GoogleMapsView.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/googleMapsView/GoogleMapsView.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="1" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\googleMapsView\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/googleMapsView/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.header">
       <metrics statements="36" coveredstatements="18" conditionals="42" coveredconditionals="24" methods="17" coveredmethods="2"/>
-      <file name="Header.jsx" path="D:\projects\toolkit\src\components\header\Header.jsx">
+      <file name="Header.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/header/Header.jsx">
         <metrics statements="36" coveredstatements="18" conditionals="42" coveredconditionals="24" methods="17" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
@@ -2226,13 +2226,13 @@
         <line num="217" count="0" type="stmt"/>
         <line num="252" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\header\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/header/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.headerCompany">
       <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-      <file name="HeaderCompany.stories.tsx" path="D:\projects\toolkit\src\components\headerCompany\HeaderCompany.stories.tsx">
+      <file name="HeaderCompany.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/headerCompany/HeaderCompany.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
@@ -2243,7 +2243,7 @@
         <line num="30" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
       </file>
-      <file name="HeaderCompany.tsx" path="D:\projects\toolkit\src\components\headerCompany\HeaderCompany.tsx">
+      <file name="HeaderCompany.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/headerCompany/HeaderCompany.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="cond" truecount="1" falsecount="1"/>
@@ -2253,18 +2253,18 @@
     </package>
     <package name="src.components.heartSeparator">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="HeartSeparator.jsx" path="D:\projects\toolkit\src\components\heartSeparator\HeartSeparator.jsx">
+      <file name="HeartSeparator.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/heartSeparator/HeartSeparator.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\heartSeparator\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/heartSeparator/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.htmlEditor">
       <metrics statements="70" coveredstatements="42" conditionals="34" coveredconditionals="16" methods="19" coveredmethods="6"/>
-      <file name="Dropdown.jsx" path="D:\projects\toolkit\src\components\htmlEditor\Dropdown.jsx">
+      <file name="Dropdown.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/htmlEditor/Dropdown.jsx">
         <metrics statements="12" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="6" coveredmethods="3"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="10" type="stmt"/>
@@ -2279,7 +2279,7 @@
         <line num="54" count="0" type="stmt"/>
         <line num="62" count="2" type="stmt"/>
       </file>
-      <file name="HtmlEditor.jsx" path="D:\projects\toolkit\src\components\htmlEditor\HtmlEditor.jsx">
+      <file name="HtmlEditor.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/htmlEditor/HtmlEditor.jsx">
         <metrics statements="58" coveredstatements="31" conditionals="28" coveredconditionals="12" methods="13" coveredmethods="3"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -2340,25 +2340,25 @@
         <line num="184" count="1" type="stmt"/>
         <line num="199" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\htmlEditor\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/htmlEditor/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.icon">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Icon.jsx" path="D:\projects\toolkit\src\components\icon\Icon.jsx">
+      <file name="Icon.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/icon/Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="40" type="stmt"/>
         <line num="6" count="126" type="stmt"/>
         <line num="9" count="40" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\icon\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/icon/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.institutionListSelect">
       <metrics statements="16" coveredstatements="8" conditionals="30" coveredconditionals="12" methods="4" coveredmethods="2"/>
-      <file name="InstitutionListSelect.jsx" path="D:\projects\toolkit\src\components\institutionListSelect\InstitutionListSelect.jsx">
+      <file name="InstitutionListSelect.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/institutionListSelect/InstitutionListSelect.jsx">
         <metrics statements="16" coveredstatements="8" conditionals="30" coveredconditionals="12" methods="4" coveredmethods="2"/>
         <line num="13" count="3" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
@@ -2377,26 +2377,26 @@
         <line num="154" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="162" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\institutionListSelect\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/institutionListSelect/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.inviteLink">
       <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-      <file name="InviteLink.jsx" path="D:\projects\toolkit\src\components\inviteLink\InviteLink.jsx">
+      <file name="InviteLink.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/inviteLink/InviteLink.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\inviteLink\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/inviteLink/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.lightboxGallery">
       <metrics statements="15" coveredstatements="13" conditionals="18" coveredconditionals="11" methods="8" coveredmethods="5"/>
-      <file name="LightboxGallery.jsx" path="D:\projects\toolkit\src\components\lightboxGallery\LightboxGallery.jsx">
+      <file name="LightboxGallery.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/lightboxGallery/LightboxGallery.jsx">
         <metrics statements="15" coveredstatements="13" conditionals="18" coveredconditionals="11" methods="8" coveredmethods="5"/>
         <line num="8" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
@@ -2414,58 +2414,57 @@
         <line num="79" count="4" type="stmt"/>
         <line num="85" count="4" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\lightboxGallery\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/lightboxGallery/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.loading">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-      <file name="Loading.jsx" path="D:\projects\toolkit\src\components\loading\Loading.jsx">
+      <file name="Loading.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/loading/Loading.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="6" count="20" type="stmt"/>
         <line num="7" count="26" type="stmt"/>
         <line num="21" count="20" type="stmt"/>
         <line num="27" count="20" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\loading\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/loading/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.loginToInteract">
-      <metrics statements="8" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="2"/>
-      <file name="LoginToInteract.stories.tsx" path="D:\projects\toolkit\src\components\loginToInteract\LoginToInteract.stories.tsx">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
+      <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+      <file name="LoginToInteract.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/loginToInteract/LoginToInteract.stories.tsx">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
       </file>
-      <file name="LoginToInteract.tsx" path="D:\projects\toolkit\src\components\loginToInteract\LoginToInteract.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="LoginToInteract.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/loginToInteract/LoginToInteract.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\components\loginToInteract\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/loginToInteract/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.noMatch">
       <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
-      <file name="NoMatch.jsx" path="D:\projects\toolkit\src\components\noMatch\NoMatch.jsx">
+      <file name="NoMatch.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/noMatch/NoMatch.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\noMatch\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/noMatch/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.noticationsBell">
       <metrics statements="55" coveredstatements="38" conditionals="29" coveredconditionals="24" methods="26" coveredmethods="9"/>
-      <file name="NotificationsBell.jsx" path="D:\projects\toolkit\src\components\noticationsBell\NotificationsBell.jsx">
+      <file name="NotificationsBell.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/noticationsBell/NotificationsBell.jsx">
         <metrics statements="21" coveredstatements="20" conditionals="29" coveredconditionals="24" methods="5" coveredmethods="4"/>
         <line num="12" count="1" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
@@ -2489,7 +2488,7 @@
         <line num="83" count="4" type="stmt"/>
         <line num="155" count="1" type="stmt"/>
       </file>
-      <file name="NotificationsBell.stories.js" path="D:\projects\toolkit\src\components\noticationsBell\NotificationsBell.stories.js">
+      <file name="NotificationsBell.stories.js" path="/Users/pedroguia/Projects/toolkit/src/components/noticationsBell/NotificationsBell.stories.js">
         <metrics statements="34" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="5"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="8" type="stmt"/>
@@ -2529,7 +2528,7 @@
     </package>
     <package name="src.components.noticationsMobile">
       <metrics statements="10" coveredstatements="9" conditionals="12" coveredconditionals="7" methods="3" coveredmethods="2"/>
-      <file name="NotificationsMobile.jsx" path="D:\projects\toolkit\src\components\noticationsMobile\NotificationsMobile.jsx">
+      <file name="NotificationsMobile.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/noticationsMobile/NotificationsMobile.jsx">
         <metrics statements="10" coveredstatements="9" conditionals="12" coveredconditionals="7" methods="3" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
         <line num="19" count="3" type="stmt"/>
@@ -2542,13 +2541,13 @@
         <line num="59" count="3" type="stmt"/>
         <line num="100" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\noticationsMobile\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/noticationsMobile/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.passwordField">
       <metrics statements="11" coveredstatements="11" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="3"/>
-      <file name="PasswordField.stories.tsx" path="D:\projects\toolkit\src\components\passwordField\PasswordField.stories.tsx">
+      <file name="PasswordField.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/passwordField/PasswordField.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
@@ -2557,7 +2556,7 @@
         <line num="22" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
       </file>
-      <file name="PasswordField.tsx" path="D:\projects\toolkit\src\components\passwordField\PasswordField.tsx">
+      <file name="PasswordField.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/passwordField/PasswordField.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="15" count="5" type="stmt"/>
@@ -2568,27 +2567,27 @@
     </package>
     <package name="src.components.picture">
       <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="4"/>
-      <file name="Picture.stories.tsx" path="D:\projects\toolkit\src\components\picture\Picture.stories.tsx">
+      <file name="Picture.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/picture/Picture.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
-      <file name="Picture.tsx" path="D:\projects\toolkit\src\components\picture\Picture.tsx">
+      <file name="Picture.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/picture/Picture.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
         <line num="4" count="2" type="stmt"/>
         <line num="10" count="5" type="stmt"/>
         <line num="13" count="20" type="stmt"/>
         <line num="15" count="25" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\components\picture\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/picture/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.post">
       <metrics statements="43" coveredstatements="12" conditionals="34" coveredconditionals="6" methods="17" coveredmethods="3"/>
-      <file name="Post.jsx" path="D:\projects\toolkit\src\components\post\Post.jsx">
+      <file name="Post.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/post/Post.jsx">
         <metrics statements="43" coveredstatements="12" conditionals="34" coveredconditionals="6" methods="17" coveredmethods="3"/>
         <line num="14" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
@@ -2634,13 +2633,13 @@
         <line num="314" count="0" type="stmt"/>
         <line num="369" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\post\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/post/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.profileAvatar">
       <metrics statements="16" coveredstatements="14" conditionals="11" coveredconditionals="9" methods="3" coveredmethods="2"/>
-      <file name="ProfileAvatar.stories.tsx" path="D:\projects\toolkit\src\components\profileAvatar\ProfileAvatar.stories.tsx">
+      <file name="ProfileAvatar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.stories.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="4" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
@@ -2652,7 +2651,7 @@
         <line num="31" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
       </file>
-      <file name="ProfileAvatar.tsx" path="D:\projects\toolkit\src\components\profileAvatar\ProfileAvatar.tsx">
+      <file name="ProfileAvatar.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/ProfileAvatar.tsx">
         <metrics statements="7" coveredstatements="5" conditionals="11" coveredconditionals="9" methods="2" coveredmethods="1"/>
         <line num="8" count="6" type="stmt"/>
         <line num="15" count="26" type="stmt"/>
@@ -2662,13 +2661,13 @@
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="26" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\components\profileAvatar\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/profileAvatar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectAddForm">
       <metrics statements="26" coveredstatements="19" conditionals="33" coveredconditionals="18" methods="12" coveredmethods="5"/>
-      <file name="ProjectAddForm.jsx" path="D:\projects\toolkit\src\components\projectAddForm\ProjectAddForm.jsx">
+      <file name="ProjectAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectAddForm/ProjectAddForm.jsx">
         <metrics statements="26" coveredstatements="19" conditionals="33" coveredconditionals="18" methods="12" coveredmethods="5"/>
         <line num="17" count="1" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
@@ -2697,26 +2696,26 @@
         <line num="292" count="1" type="stmt"/>
         <line num="312" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectAddForm\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectAddForm/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectDetail">
       <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-      <file name="ProjectDetail.jsx" path="D:\projects\toolkit\src\components\projectDetail\ProjectDetail.jsx">
+      <file name="ProjectDetail.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetail/ProjectDetail.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectDetail\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetail/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectDetailInfo">
       <metrics statements="27" coveredstatements="25" conditionals="61" coveredconditionals="57" methods="10" coveredmethods="8"/>
-      <file name="ProjectDetailInfo.jsx" path="D:\projects\toolkit\src\components\projectDetailInfo\ProjectDetailInfo.jsx">
+      <file name="ProjectDetailInfo.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetailInfo/ProjectDetailInfo.jsx">
         <metrics statements="27" coveredstatements="25" conditionals="61" coveredconditionals="57" methods="10" coveredmethods="8"/>
         <line num="12" count="2" type="stmt"/>
         <line num="23" count="6" type="stmt"/>
@@ -2746,13 +2745,13 @@
         <line num="198" count="0" type="stmt"/>
         <line num="213" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectDetailInfo\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetailInfo/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectDetailThumb">
       <metrics statements="12" coveredstatements="9" conditionals="22" coveredconditionals="8" methods="4" coveredmethods="2"/>
-      <file name="ProjectDetailThumb.jsx" path="D:\projects\toolkit\src\components\projectDetailThumb\ProjectDetailThumb.jsx">
+      <file name="ProjectDetailThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetailThumb/ProjectDetailThumb.jsx">
         <metrics statements="12" coveredstatements="9" conditionals="22" coveredconditionals="8" methods="4" coveredmethods="2"/>
         <line num="16" count="2" type="stmt"/>
         <line num="26" count="8" type="stmt"/>
@@ -2767,13 +2766,13 @@
         <line num="142" count="2" type="stmt"/>
         <line num="161" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectDetailThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectDetailThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectFilters">
       <metrics statements="8" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="1"/>
-      <file name="ProjectFilters.jsx" path="D:\projects\toolkit\src\components\projectFilters\ProjectFilters.jsx">
+      <file name="ProjectFilters.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectFilters/ProjectFilters.jsx">
         <metrics statements="8" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
@@ -2784,13 +2783,13 @@
         <line num="118" count="1" type="stmt"/>
         <line num="141" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectFilters\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectFilters/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.projectThumb">
       <metrics statements="25" coveredstatements="16" conditionals="55" coveredconditionals="31" methods="7" coveredmethods="2"/>
-      <file name="ProjectThumb.jsx" path="D:\projects\toolkit\src\components\projectThumb\ProjectThumb.jsx">
+      <file name="ProjectThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectThumb/ProjectThumb.jsx">
         <metrics statements="25" coveredstatements="16" conditionals="55" coveredconditionals="31" methods="7" coveredmethods="2"/>
         <line num="15" count="4" type="stmt"/>
         <line num="31" count="15" type="stmt"/>
@@ -2818,13 +2817,13 @@
         <line num="179" count="4" type="stmt"/>
         <line num="211" count="4" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\projectThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.readMoreText">
       <metrics statements="13" coveredstatements="9" conditionals="6" coveredconditionals="1" methods="3" coveredmethods="1"/>
-      <file name="ReadMoreText.jsx" path="D:\projects\toolkit\src\components\readMoreText\ReadMoreText.jsx">
+      <file name="ReadMoreText.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/readMoreText/ReadMoreText.jsx">
         <metrics statements="13" coveredstatements="9" conditionals="6" coveredconditionals="1" methods="3" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
@@ -2840,13 +2839,13 @@
         <line num="56" count="1" type="stmt"/>
         <line num="63" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\readMoreText\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/readMoreText/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.requestDetail.requestDetailInfo">
       <metrics statements="9" coveredstatements="7" conditionals="32" coveredconditionals="26" methods="7" coveredmethods="5"/>
-      <file name="RequestDetailInfo.jsx" path="D:\projects\toolkit\src\components\requestDetail\requestDetailInfo\RequestDetailInfo.jsx">
+      <file name="RequestDetailInfo.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/requestDetail/requestDetailInfo/RequestDetailInfo.jsx">
         <metrics statements="9" coveredstatements="7" conditionals="32" coveredconditionals="26" methods="7" coveredmethods="5"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
@@ -2858,13 +2857,13 @@
         <line num="144" count="0" type="stmt"/>
         <line num="178" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\requestDetail\requestDetailInfo\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/requestDetail/requestDetailInfo/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.requestDetail.requestDetailThumb">
       <metrics statements="59" coveredstatements="38" conditionals="30" coveredconditionals="22" methods="11" coveredmethods="2"/>
-      <file name="RequestDetailThumb.jsx" path="D:\projects\toolkit\src\components\requestDetail\requestDetailThumb\RequestDetailThumb.jsx">
+      <file name="RequestDetailThumb.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/requestDetail/requestDetailThumb/RequestDetailThumb.jsx">
         <metrics statements="59" coveredstatements="38" conditionals="30" coveredconditionals="22" methods="11" coveredmethods="2"/>
         <line num="12" count="1" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
@@ -2926,13 +2925,13 @@
         <line num="248" count="1" type="stmt"/>
         <line num="282" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\requestDetail\requestDetailThumb\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/requestDetail/requestDetailThumb/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.reviews">
       <metrics statements="14" coveredstatements="13" conditionals="30" coveredconditionals="24" methods="7" coveredmethods="6"/>
-      <file name="Reviews.jsx" path="D:\projects\toolkit\src\components\reviews\Reviews.jsx">
+      <file name="Reviews.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/reviews/Reviews.jsx">
         <metrics statements="14" coveredstatements="13" conditionals="30" coveredconditionals="24" methods="7" coveredmethods="6"/>
         <line num="14" count="1" type="stmt"/>
         <line num="32" count="4" type="stmt"/>
@@ -2949,25 +2948,25 @@
         <line num="198" count="1" type="stmt"/>
         <line num="217" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\reviews\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/reviews/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.shareNetwork">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="ShareNetwork.jsx" path="D:\projects\toolkit\src\components\shareNetwork\ShareNetwork.jsx">
+      <file name="ShareNetwork.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/shareNetwork/ShareNetwork.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="12" type="stmt"/>
         <line num="90" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\shareNetwork\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/shareNetwork/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.sliderImagesLanding">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="SliderImagesLanding.jsx" path="D:\projects\toolkit\src\components\sliderImagesLanding\SliderImagesLanding.jsx">
+      <file name="SliderImagesLanding.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/sliderImagesLanding/SliderImagesLanding.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
@@ -2976,13 +2975,13 @@
         <line num="52" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\sliderImagesLanding\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/sliderImagesLanding/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.sliderImagesLightbox">
       <metrics statements="56" coveredstatements="47" conditionals="18" coveredconditionals="13" methods="13" coveredmethods="9"/>
-      <file name="SliderImagesLightbox.jsx" path="D:\projects\toolkit\src\components\sliderImagesLightbox\SliderImagesLightbox.jsx">
+      <file name="SliderImagesLightbox.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/sliderImagesLightbox/SliderImagesLightbox.jsx">
         <metrics statements="56" coveredstatements="47" conditionals="18" coveredconditionals="13" methods="13" coveredmethods="9"/>
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="11" type="stmt"/>
@@ -3041,26 +3040,26 @@
         <line num="218" count="2" type="stmt"/>
         <line num="222" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\sliderImagesLightbox\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/sliderImagesLightbox/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.socialNetworks">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="SocialNetworks.jsx" path="D:\projects\toolkit\src\components\socialNetworks\SocialNetworks.jsx">
+      <file name="SocialNetworks.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/socialNetworks/SocialNetworks.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
         <line num="10" count="26" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\socialNetworks\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/socialNetworks/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.statisticsBox">
       <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
-      <file name="StatisticsBox.jsx" path="D:\projects\toolkit\src\components\statisticsBox\StatisticsBox.jsx">
+      <file name="StatisticsBox.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/statisticsBox/StatisticsBox.jsx">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="5" type="stmt"/>
@@ -3072,13 +3071,13 @@
         <line num="30" count="5" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\statisticsBox\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/statisticsBox/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.stripe">
       <metrics statements="108" coveredstatements="58" conditionals="66" coveredconditionals="16" methods="21" coveredmethods="9"/>
-      <file name="StripeCheckoutFormSca.jsx" path="D:\projects\toolkit\src\components\stripe\StripeCheckoutFormSca.jsx">
+      <file name="StripeCheckoutFormSca.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/stripe/StripeCheckoutFormSca.jsx">
         <metrics statements="9" coveredstatements="3" conditionals="20" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="16" count="4" type="stmt"/>
         <line num="33" count="4" type="stmt"/>
@@ -3090,7 +3089,7 @@
         <line num="82" count="0" type="stmt"/>
         <line num="90" count="4" type="stmt"/>
       </file>
-      <file name="StripeCreditCard.jsx" path="D:\projects\toolkit\src\components\stripe\StripeCreditCard.jsx">
+      <file name="StripeCreditCard.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/stripe/StripeCreditCard.jsx">
         <metrics statements="99" coveredstatements="55" conditionals="46" coveredconditionals="16" methods="14" coveredmethods="9"/>
         <line num="9" count="7" type="stmt"/>
         <line num="15" count="8" type="stmt"/>
@@ -3192,55 +3191,55 @@
         <line num="253" count="14" type="stmt"/>
         <line num="272" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\stripe\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/stripe/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.supportBox">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="SupportBox.stories.tsx" path="D:\projects\toolkit\src\components\supportBox\SupportBox.stories.tsx">
+      <file name="SupportBox.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/supportBox/SupportBox.stories.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
       </file>
-      <file name="SupportBox.tsx" path="D:\projects\toolkit\src\components\supportBox\SupportBox.tsx">
+      <file name="SupportBox.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/supportBox/SupportBox.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\components\supportBox\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/supportBox/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.supportedSection">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="SupportedSection.jsx" path="D:\projects\toolkit\src\components\supportedSection\SupportedSection.jsx">
+      <file name="SupportedSection.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/supportedSection/SupportedSection.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="4" type="stmt"/>
         <line num="6" count="22" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\supportedSection\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/supportedSection/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.survey">
       <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-      <file name="Survey.jsx" path="D:\projects\toolkit\src\components\survey\Survey.jsx">
+      <file name="Survey.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/survey/Survey.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="70" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\survey\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/survey/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.switchAccountsModal">
       <metrics statements="16" coveredstatements="11" conditionals="8" coveredconditionals="7" methods="9" coveredmethods="4"/>
-      <file name="SwitchAccountsModal.stories.tsx" path="D:\projects\toolkit\src\components\switchAccountsModal\SwitchAccountsModal.stories.tsx">
+      <file name="SwitchAccountsModal.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/switchAccountsModal/SwitchAccountsModal.stories.tsx">
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="16" count="4" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -3252,7 +3251,7 @@
         <line num="41" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
       </file>
-      <file name="SwitchAccountsModal.tsx" path="D:\projects\toolkit\src\components\switchAccountsModal\SwitchAccountsModal.tsx">
+      <file name="SwitchAccountsModal.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/switchAccountsModal/SwitchAccountsModal.tsx">
         <metrics statements="7" coveredstatements="6" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="3"/>
         <line num="7" count="1" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
@@ -3265,7 +3264,7 @@
     </package>
     <package name="src.components.ticketsComments">
       <metrics statements="20" coveredstatements="17" conditionals="21" coveredconditionals="12" methods="9" coveredmethods="5"/>
-      <file name="TicketsComments.jsx" path="D:\projects\toolkit\src\components\ticketsComments\TicketsComments.jsx">
+      <file name="TicketsComments.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/ticketsComments/TicketsComments.jsx">
         <metrics statements="20" coveredstatements="17" conditionals="21" coveredconditionals="12" methods="9" coveredmethods="5"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
@@ -3288,13 +3287,13 @@
         <line num="109" count="0" type="stmt"/>
         <line num="119" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\ticketsComments\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/ticketsComments/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.ticketsForm">
       <metrics statements="19" coveredstatements="13" conditionals="46" coveredconditionals="29" methods="7" coveredmethods="4"/>
-      <file name="TicketsForm.jsx" path="D:\projects\toolkit\src\components\ticketsForm\TicketsForm.jsx">
+      <file name="TicketsForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/ticketsForm/TicketsForm.jsx">
         <metrics statements="19" coveredstatements="13" conditionals="46" coveredconditionals="29" methods="7" coveredmethods="4"/>
         <line num="17" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
@@ -3316,20 +3315,20 @@
         <line num="149" count="7" type="stmt"/>
         <line num="469" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\ticketsForm\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/ticketsForm/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.userMenu">
       <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="3"/>
-      <file name="UserMenu.stories.tsx" path="D:\projects\toolkit\src\components\userMenu\UserMenu.stories.tsx">
+      <file name="UserMenu.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/userMenu/UserMenu.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
-      <file name="UserMenu.tsx" path="D:\projects\toolkit\src\components\userMenu\UserMenu.tsx">
+      <file name="UserMenu.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/userMenu/UserMenu.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
@@ -3339,7 +3338,7 @@
     </package>
     <package name="src.components.validateTelephone">
       <metrics statements="50" coveredstatements="28" conditionals="30" coveredconditionals="17" methods="9" coveredmethods="4"/>
-      <file name="ValidateTelephone.jsx" path="D:\projects\toolkit\src\components\validateTelephone\ValidateTelephone.jsx">
+      <file name="ValidateTelephone.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/validateTelephone/ValidateTelephone.jsx">
         <metrics statements="50" coveredstatements="28" conditionals="30" coveredconditionals="17" methods="9" coveredmethods="4"/>
         <line num="9" count="2" type="stmt"/>
         <line num="18" count="4" type="stmt"/>
@@ -3392,13 +3391,13 @@
         <line num="96" count="4" type="stmt"/>
         <line num="191" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\components\validateTelephone\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/validateTelephone/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.constants">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="date.ts" path="D:\projects\toolkit\src\constants\date.ts">
+      <file name="date.ts" path="/Users/pedroguia/Projects/toolkit/src/constants/date.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="8" type="stmt"/>
         <line num="6" count="8" type="stmt"/>
@@ -3406,17 +3405,17 @@
         <line num="9" count="8" type="stmt"/>
         <line num="11" count="36" type="stmt"/>
       </file>
-      <file name="env.js" path="D:\projects\toolkit\src\constants\env.js">
+      <file name="env.js" path="/Users/pedroguia/Projects/toolkit/src/constants/env.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="23" type="stmt"/>
         <line num="2" count="23" type="stmt"/>
         <line num="4" count="23" type="stmt"/>
       </file>
-      <file name="months.ts" path="D:\projects\toolkit\src\constants\months.ts">
+      <file name="months.ts" path="/Users/pedroguia/Projects/toolkit/src/constants/months.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
       </file>
-      <file name="regex.js" path="D:\projects\toolkit\src\constants\regex.js">
+      <file name="regex.js" path="/Users/pedroguia/Projects/toolkit/src/constants/regex.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -3424,7 +3423,7 @@
     </package>
     <package name="src.elements.badge">
       <metrics statements="16" coveredstatements="15" conditionals="19" coveredconditionals="17" methods="3" coveredmethods="2"/>
-      <file name="Badge.stories.tsx" path="D:\projects\toolkit\src\elements\badge\Badge.stories.tsx">
+      <file name="Badge.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/badge/Badge.stories.tsx">
         <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="23" count="5" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
@@ -3439,20 +3438,20 @@
         <line num="51" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
       </file>
-      <file name="Badge.tsx" path="D:\projects\toolkit\src\elements\badge\Badge.tsx">
+      <file name="Badge.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/badge/Badge.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="19" coveredconditionals="17" methods="1" coveredmethods="1"/>
         <line num="7" count="4" type="stmt"/>
         <line num="21" count="8" type="stmt"/>
         <line num="22" count="8" type="stmt"/>
         <line num="31" count="8" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\elements\badge\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/badge/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.button">
       <metrics statements="17" coveredstatements="15" conditionals="40" coveredconditionals="24" methods="2" coveredmethods="2"/>
-      <file name="Button.jsx" path="D:\projects\toolkit\src\elements\button\Button.jsx">
+      <file name="Button.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/button/Button.jsx">
         <metrics statements="17" coveredstatements="15" conditionals="40" coveredconditionals="24" methods="2" coveredmethods="2"/>
         <line num="8" count="44" type="stmt"/>
         <line num="30" count="188" type="cond" truecount="2" falsecount="0"/>
@@ -3472,13 +3471,13 @@
         <line num="154" count="44" type="stmt"/>
         <line num="177" count="44" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\button\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/button/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.buttonGroup">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <file name="ButtonGroup.jsx" path="D:\projects\toolkit\src\elements\buttonGroup\ButtonGroup.jsx">
+      <file name="ButtonGroup.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/buttonGroup/ButtonGroup.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="4" type="stmt"/>
@@ -3486,38 +3485,38 @@
         <line num="23" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\buttonGroup\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/buttonGroup/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.checkboxField">
       <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-      <file name="CheckboxField.jsx" path="D:\projects\toolkit\src\elements\checkboxField\CheckboxField.jsx">
+      <file name="CheckboxField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxField/CheckboxField.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="4" count="6" type="stmt"/>
         <line num="16" count="52" type="stmt"/>
         <line num="37" count="6" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\checkboxField\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.checkboxImage">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="CheckboxImage.jsx" path="D:\projects\toolkit\src\elements\checkboxImage\CheckboxImage.jsx">
+      <file name="CheckboxImage.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxImage/CheckboxImage.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\checkboxImage\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxImage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.confirmModal">
       <metrics statements="28" coveredstatements="20" conditionals="16" coveredconditionals="9" methods="4" coveredmethods="2"/>
-      <file name="ConfirmModal.jsx" path="D:\projects\toolkit\src\elements\confirmModal\ConfirmModal.jsx">
+      <file name="ConfirmModal.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/confirmModal/ConfirmModal.jsx">
         <metrics statements="28" coveredstatements="20" conditionals="16" coveredconditionals="9" methods="4" coveredmethods="2"/>
         <line num="7" count="4" type="stmt"/>
         <line num="8" count="20" type="stmt"/>
@@ -3548,13 +3547,13 @@
         <line num="108" count="4" type="stmt"/>
         <line num="126" count="4" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\confirmModal\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/confirmModal/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.customModal">
       <metrics statements="8" coveredstatements="8" conditionals="18" coveredconditionals="16" methods="1" coveredmethods="1"/>
-      <file name="CustomModal.jsx" path="D:\projects\toolkit\src\elements\customModal\CustomModal.jsx">
+      <file name="CustomModal.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/customModal/CustomModal.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="18" coveredconditionals="16" methods="1" coveredmethods="1"/>
         <line num="6" count="11" type="stmt"/>
         <line num="34" count="52" type="stmt"/>
@@ -3565,13 +3564,13 @@
         <line num="94" count="11" type="stmt"/>
         <line num="123" count="11" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\customModal\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/customModal/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.datePicker">
       <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-      <file name="DatePicker.jsx" path="D:\projects\toolkit\src\elements\datePicker\DatePicker.jsx">
+      <file name="DatePicker.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/datePicker/DatePicker.jsx">
         <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
@@ -3581,13 +3580,13 @@
         <line num="57" count="3" type="stmt"/>
         <line num="75" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\datePicker\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/datePicker/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.detailInfoBox">
       <metrics statements="13" coveredstatements="13" conditionals="12" coveredconditionals="12" methods="2" coveredmethods="2"/>
-      <file name="DetailInfoBox.stories.tsx" path="D:\projects\toolkit\src\elements\detailInfoBox\DetailInfoBox.stories.tsx">
+      <file name="DetailInfoBox.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/detailInfoBox/DetailInfoBox.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
@@ -3600,7 +3599,7 @@
         <line num="43" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
       </file>
-      <file name="DetailInfoBox.tsx" path="D:\projects\toolkit\src\elements\detailInfoBox\DetailInfoBox.tsx">
+      <file name="DetailInfoBox.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/detailInfoBox/DetailInfoBox.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
@@ -3609,7 +3608,7 @@
     </package>
     <package name="src.elements.dropZoneBox">
       <metrics statements="78" coveredstatements="23" conditionals="62" coveredconditionals="29" methods="29" coveredmethods="2"/>
-      <file name="DropZoneBox.jsx" path="D:\projects\toolkit\src\elements\dropZoneBox\DropZoneBox.jsx">
+      <file name="DropZoneBox.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/dropZoneBox/DropZoneBox.jsx">
         <metrics statements="78" coveredstatements="23" conditionals="62" coveredconditionals="29" methods="29" coveredmethods="2"/>
         <line num="12" count="6" type="stmt"/>
         <line num="14" count="6" type="stmt"/>
@@ -3690,13 +3689,13 @@
         <line num="337" count="6" type="stmt"/>
         <line num="373" count="6" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\dropZoneBox\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/dropZoneBox/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.fileInput">
       <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="2"/>
-      <file name="FileInput.jsx" path="D:\projects\toolkit\src\elements\fileInput\FileInput.jsx">
+      <file name="FileInput.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/fileInput/FileInput.jsx">
         <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
@@ -3706,25 +3705,25 @@
         <line num="15" count="7" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\fileInput\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/fileInput/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.inputLabel">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="InputLabel.jsx" path="D:\projects\toolkit\src\elements\inputLabel\InputLabel.jsx">
+      <file name="InputLabel.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/InputLabel.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="5" count="37" type="stmt"/>
         <line num="6" count="126" type="stmt"/>
         <line num="16" count="37" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\inputLabel\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.listElement">
       <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
-      <file name="ListElement.stories.tsx" path="D:\projects\toolkit\src\elements\listElement\ListElement.stories.tsx">
+      <file name="ListElement.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/listElement/ListElement.stories.tsx">
         <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -3734,18 +3733,18 @@
         <line num="29" count="1" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
       </file>
-      <file name="ListElement.tsx" path="D:\projects\toolkit\src\elements\listElement\ListElement.tsx">
+      <file name="ListElement.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/listElement/ListElement.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="11" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\elements\listElement\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/listElement/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.pagination">
       <metrics statements="14" coveredstatements="14" conditionals="7" coveredconditionals="7" methods="8" coveredmethods="4"/>
-      <file name="Pagination.stories.tsx" path="D:\projects\toolkit\src\elements\pagination\Pagination.stories.tsx">
+      <file name="Pagination.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.stories.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
@@ -3757,7 +3756,7 @@
         <line num="46" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
       </file>
-      <file name="Pagination.tsx" path="D:\projects\toolkit\src\elements\pagination\Pagination.tsx">
+      <file name="Pagination.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <line num="5" count="8" type="stmt"/>
         <line num="7" count="8" type="stmt"/>
@@ -3765,13 +3764,13 @@
         <line num="14" count="8" type="stmt"/>
         <line num="24" count="8" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\elements\pagination\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.passwordField">
       <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="3"/>
-      <file name="PasswordField.stories.tsx" path="D:\projects\toolkit\src\elements\passwordField\PasswordField.stories.tsx">
+      <file name="PasswordField.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/passwordField/PasswordField.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
@@ -3780,7 +3779,7 @@
         <line num="22" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
       </file>
-      <file name="PasswordField.tsx" path="D:\projects\toolkit\src\elements\passwordField\PasswordField.tsx">
+      <file name="PasswordField.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/passwordField/PasswordField.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="17" count="5" type="stmt"/>
@@ -3791,7 +3790,7 @@
     </package>
     <package name="src.elements.progressBar">
       <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-      <file name="ProgressBar.stories.tsx" path="D:\projects\toolkit\src\elements\progressBar\ProgressBar.stories.tsx">
+      <file name="ProgressBar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/progressBar/ProgressBar.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
@@ -3804,32 +3803,32 @@
         <line num="48" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
       </file>
-      <file name="ProgressBar.tsx" path="D:\projects\toolkit\src\elements\progressBar\ProgressBar.tsx">
+      <file name="ProgressBar.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/progressBar/ProgressBar.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="5" count="3" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
         <line num="14" count="7" type="stmt"/>
         <line num="16" count="7" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\elements\progressBar\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/progressBar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.radioField">
       <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-      <file name="RadioField.jsx" path="D:\projects\toolkit\src\elements\radioField\RadioField.jsx">
+      <file name="RadioField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/radioField/RadioField.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="4" count="6" type="stmt"/>
         <line num="5" count="10" type="stmt"/>
         <line num="26" count="6" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\radioField\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/radioField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.selectField">
       <metrics statements="13" coveredstatements="13" conditionals="20" coveredconditionals="18" methods="6" coveredmethods="4"/>
-      <file name="SelectField.jsx" path="D:\projects\toolkit\src\elements\selectField\SelectField.jsx">
+      <file name="SelectField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/SelectField.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="20" coveredconditionals="18" methods="3" coveredmethods="3"/>
         <line num="6" count="10" type="stmt"/>
         <line num="25" count="11" type="stmt"/>
@@ -3840,7 +3839,7 @@
         <line num="77" count="10" type="stmt"/>
         <line num="97" count="10" type="stmt"/>
       </file>
-      <file name="SelectField.stories.js" path="D:\projects\toolkit\src\elements\selectField\SelectField.stories.js">
+      <file name="SelectField.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/SelectField.stories.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="12" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
@@ -3848,13 +3847,13 @@
         <line num="16" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\selectField\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.selectPerPage">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="SelectPerPage.jsx" path="D:\projects\toolkit\src\elements\selectPerPage\SelectPerPage.jsx">
+      <file name="SelectPerPage.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/selectPerPage/SelectPerPage.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="7" type="stmt"/>
@@ -3863,13 +3862,13 @@
         <line num="28" count="3" type="stmt"/>
         <line num="34" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\selectPerPage\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/selectPerPage/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.tabs">
       <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="6"/>
-      <file name="Tabs.jsx" path="D:\projects\toolkit\src\elements\tabs\Tabs.jsx">
+      <file name="Tabs.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/tabs/Tabs.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="11" type="stmt"/>
@@ -3882,7 +3881,7 @@
         <line num="31" count="33" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
       </file>
-      <file name="Tabs.stories.js" path="D:\projects\toolkit\src\elements\tabs\Tabs.stories.js">
+      <file name="Tabs.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/tabs/Tabs.stories.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="9" count="5" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
@@ -3892,20 +3891,20 @@
     </package>
     <package name="src.elements.textField">
       <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="31" methods="1" coveredmethods="1"/>
-      <file name="TextField.jsx" path="D:\projects\toolkit\src\elements\textField\TextField.jsx">
+      <file name="TextField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/TextField.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="31" methods="1" coveredmethods="1"/>
         <line num="8" count="22" type="stmt"/>
         <line num="35" count="129" type="stmt"/>
         <line num="91" count="22" type="stmt"/>
         <line num="127" count="22" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\textField\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.textFieldCurrency">
       <metrics statements="34" coveredstatements="11" conditionals="8" coveredconditionals="1" methods="6" coveredmethods="1"/>
-      <file name="TextFieldCurrency.jsx" path="D:\projects\toolkit\src\elements\textFieldCurrency\TextFieldCurrency.jsx">
+      <file name="TextFieldCurrency.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldCurrency/TextFieldCurrency.jsx">
         <metrics statements="34" coveredstatements="11" conditionals="8" coveredconditionals="1" methods="6" coveredmethods="1"/>
         <line num="9" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
@@ -3942,61 +3941,61 @@
         <line num="103" count="1" type="stmt"/>
         <line num="117" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\textFieldCurrency\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldCurrency/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.textFieldGroup">
       <metrics statements="4" coveredstatements="4" conditionals="22" coveredconditionals="21" methods="1" coveredmethods="1"/>
-      <file name="TextFieldGroup.jsx" path="D:\projects\toolkit\src\elements\textFieldGroup\TextFieldGroup.jsx">
+      <file name="TextFieldGroup.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldGroup/TextFieldGroup.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="22" coveredconditionals="21" methods="1" coveredmethods="1"/>
         <line num="6" count="3" type="stmt"/>
         <line num="22" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="54" count="3" type="stmt"/>
         <line num="71" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\textFieldGroup\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldGroup/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.textFieldNumber">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="TextFieldNumber.jsx" path="D:\projects\toolkit\src\elements\textFieldNumber\TextFieldNumber.jsx">
+      <file name="TextFieldNumber.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/TextFieldNumber.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="8" count="1" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\textFieldNumber\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
-      <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="8" count="18" type="stmt"/>
         <line num="32" count="43" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="36" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="36" type="stmt"/>
-        <line num="35" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
-        <line num="42" count="4" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="47" count="43" type="stmt"/>
         <line num="82" count="18" type="stmt"/>
         <line num="107" count="18" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\elements\textareaField\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.hooks">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="6"/>
-      <file name="useInterval.ts" path="D:\projects\toolkit\src\hooks\useInterval.ts">
+      <file name="useInterval.ts" path="/Users/pedroguia/Projects/toolkit/src/hooks/useInterval.ts">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
         <line num="4" count="58" type="stmt"/>
         <line num="6" count="58" type="stmt"/>
@@ -4007,7 +4006,7 @@
         <line num="17" count="31" type="stmt"/>
         <line num="19" count="31" type="stmt"/>
       </file>
-      <file name="useIsFirstRender.js" path="D:\projects\toolkit\src\hooks\useIsFirstRender.js">
+      <file name="useIsFirstRender.js" path="/Users/pedroguia/Projects/toolkit/src/hooks/useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="23" type="stmt"/>
@@ -4018,7 +4017,7 @@
     </package>
     <package name="src.unreleased.card">
       <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="1"/>
-      <file name="Card.tsx" path="D:\projects\toolkit\src\unreleased\card\Card.tsx">
+      <file name="Card.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/Card.tsx">
         <metrics statements="3" coveredstatements="2" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="1"/>
         <line num="5" count="3" type="stmt"/>
         <line num="14" count="17" type="stmt"/>
@@ -4027,7 +4026,7 @@
     </package>
     <package name="src.unreleased.card.auction">
       <metrics statements="46" coveredstatements="39" conditionals="28" coveredconditionals="22" methods="8" coveredmethods="4"/>
-      <file name="CardAuction.stories.tsx" path="D:\projects\toolkit\src\unreleased\card\auction\CardAuction.stories.tsx">
+      <file name="CardAuction.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/auction/CardAuction.stories.tsx">
         <metrics statements="21" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
@@ -4051,7 +4050,7 @@
         <line num="64" count="1" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
       </file>
-      <file name="CardAuction.tsx" path="D:\projects\toolkit\src\unreleased\card\auction\CardAuction.tsx">
+      <file name="CardAuction.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/auction/CardAuction.tsx">
         <metrics statements="25" coveredstatements="22" conditionals="28" coveredconditionals="22" methods="3" coveredmethods="3"/>
         <line num="9" count="2" type="stmt"/>
         <line num="15" count="5" type="stmt"/>
@@ -4082,7 +4081,7 @@
     </package>
     <package name="src.unreleased.card.crowdfunding">
       <metrics statements="50" coveredstatements="40" conditionals="40" coveredconditionals="33" methods="9" coveredmethods="5"/>
-      <file name="CardCrowdfunding.stories.tsx" path="D:\projects\toolkit\src\unreleased\card\crowdfunding\CardCrowdfunding.stories.tsx">
+      <file name="CardCrowdfunding.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/crowdfunding/CardCrowdfunding.stories.tsx">
         <metrics statements="18" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="4" type="stmt"/>
@@ -4103,7 +4102,7 @@
         <line num="47" count="1" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
       </file>
-      <file name="CardCrowdfunding.tsx" path="D:\projects\toolkit\src\unreleased\card\crowdfunding\CardCrowdfunding.tsx">
+      <file name="CardCrowdfunding.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/crowdfunding/CardCrowdfunding.tsx">
         <metrics statements="32" coveredstatements="26" conditionals="40" coveredconditionals="33" methods="4" coveredmethods="4"/>
         <line num="10" count="2" type="stmt"/>
         <line num="16" count="12" type="stmt"/>
@@ -4141,7 +4140,7 @@
     </package>
     <package name="src.unreleased.cardList">
       <metrics statements="44" coveredstatements="34" conditionals="31" coveredconditionals="26" methods="12" coveredmethods="6"/>
-      <file name="CardList.stories.tsx" path="D:\projects\toolkit\src\unreleased\cardList\CardList.stories.tsx">
+      <file name="CardList.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/cardList/CardList.stories.tsx">
         <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="15" count="5" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -4157,7 +4156,7 @@
         <line num="69" count="1" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
       </file>
-      <file name="CardList.tsx" path="D:\projects\toolkit\src\unreleased\cardList\CardList.tsx">
+      <file name="CardList.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/cardList/CardList.tsx">
         <metrics statements="31" coveredstatements="25" conditionals="31" coveredconditionals="26" methods="7" coveredmethods="5"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="4" type="cond" truecount="5" falsecount="0"/>
@@ -4184,17 +4183,17 @@
         <line num="82" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="83" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
-        <line num="87" count="3" type="stmt"/>
         <line num="88" count="3" type="stmt"/>
-        <line num="91" count="6" type="stmt"/>
-        <line num="96" count="18" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="107" count="0" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="92" count="6" type="stmt"/>
+        <line num="97" count="18" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.countdown">
       <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="75" methods="12" coveredmethods="9"/>
-      <file name="Countdown.stories.tsx" path="D:\projects\toolkit\src\unreleased\countdown\Countdown.stories.tsx">
+      <file name="Countdown.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/countdown/Countdown.stories.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="11" type="stmt"/>
@@ -4225,7 +4224,7 @@
         <line num="147" count="1" type="stmt"/>
         <line num="155" count="1" type="stmt"/>
       </file>
-      <file name="Countdown.tsx" path="D:\projects\toolkit\src\unreleased\countdown\Countdown.tsx">
+      <file name="Countdown.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/countdown/Countdown.tsx">
         <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="75" methods="9" coveredmethods="8"/>
         <line num="9" count="5" type="stmt"/>
         <line num="18" count="58" type="stmt"/>
@@ -4321,13 +4320,13 @@
         <line num="222" count="2" type="stmt"/>
         <line num="243" count="58" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\unreleased\countdown\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/unreleased/countdown/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.unreleased.listFilter">
       <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
-      <file name="ListFilter.stories.tsx" path="D:\projects\toolkit\src\unreleased\listFilter\ListFilter.stories.tsx">
+      <file name="ListFilter.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/listFilter/ListFilter.stories.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="15" count="3" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -4335,7 +4334,7 @@
         <line num="20" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
       </file>
-      <file name="ListFilter.tsx" path="D:\projects\toolkit\src\unreleased\listFilter\ListFilter.tsx">
+      <file name="ListFilter.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/listFilter/ListFilter.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
@@ -4345,14 +4344,14 @@
     </package>
     <package name="src.unreleased.listFooter">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="2"/>
-      <file name="ListFooter.stories.tsx" path="D:\projects\toolkit\src\unreleased\listFooter\ListFooter.stories.tsx">
+      <file name="ListFooter.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/listFooter/ListFooter.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
-      <file name="ListFooter.tsx" path="D:\projects\toolkit\src\unreleased\listFooter\ListFooter.tsx">
+      <file name="ListFooter.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/listFooter/ListFooter.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
         <line num="16" count="5" type="stmt"/>
@@ -4360,7 +4359,7 @@
     </package>
     <package name="src.unreleased.progressBar">
       <metrics statements="19" coveredstatements="14" conditionals="13" coveredconditionals="10" methods="6" coveredmethods="2"/>
-      <file name="ProgressBar.stories.tsx" path="D:\projects\toolkit\src\unreleased\progressBar\ProgressBar.stories.tsx">
+      <file name="ProgressBar.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/progressBar/ProgressBar.stories.tsx">
         <metrics statements="13" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
@@ -4376,7 +4375,7 @@
         <line num="63" count="1" type="stmt"/>
         <line num="71" count="1" type="stmt"/>
       </file>
-      <file name="ProgressBar.tsx" path="D:\projects\toolkit\src\unreleased\progressBar\ProgressBar.tsx">
+      <file name="ProgressBar.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/progressBar/ProgressBar.tsx">
         <metrics statements="6" coveredstatements="4" conditionals="13" coveredconditionals="10" methods="2" coveredmethods="1"/>
         <line num="10" count="3" type="stmt"/>
         <line num="21" count="16" type="stmt"/>
@@ -4388,7 +4387,7 @@
     </package>
     <package name="src.unreleased.shareNetwork">
       <metrics statements="28" coveredstatements="21" conditionals="18" coveredconditionals="15" methods="7" coveredmethods="4"/>
-      <file name="ShareNetwork.stories.tsx" path="D:\projects\toolkit\src\unreleased\shareNetwork\ShareNetwork.stories.tsx">
+      <file name="ShareNetwork.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/shareNetwork/ShareNetwork.stories.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="5" type="stmt"/>
@@ -4403,7 +4402,7 @@
         <line num="45" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
       </file>
-      <file name="ShareNetwork.tsx" path="D:\projects\toolkit\src\unreleased\shareNetwork\ShareNetwork.tsx">
+      <file name="ShareNetwork.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/shareNetwork/ShareNetwork.tsx">
         <metrics statements="16" coveredstatements="9" conditionals="18" coveredconditionals="15" methods="6" coveredmethods="3"/>
         <line num="7" count="2" type="stmt"/>
         <line num="16" count="9" type="stmt"/>
@@ -4422,13 +4421,13 @@
         <line num="36" count="9" type="stmt"/>
         <line num="39" count="9" type="stmt"/>
       </file>
-      <file name="index.ts" path="D:\projects\toolkit\src\unreleased\shareNetwork\index.ts">
+      <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/unreleased/shareNetwork/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.unreleased.sliderImagesLightbox">
       <metrics statements="66" coveredstatements="59" conditionals="24" coveredconditionals="21" methods="14" coveredmethods="10"/>
-      <file name="SliderImagesLightbox.stories.tsx" path="D:\projects\toolkit\src\unreleased\sliderImagesLightbox\SliderImagesLightbox.stories.tsx">
+      <file name="SliderImagesLightbox.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/sliderImagesLightbox/SliderImagesLightbox.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="5" type="stmt"/>
@@ -4441,7 +4440,7 @@
         <line num="76" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
       </file>
-      <file name="SliderImagesLightbox.tsx" path="D:\projects\toolkit\src\unreleased\sliderImagesLightbox\SliderImagesLightbox.tsx">
+      <file name="SliderImagesLightbox.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/sliderImagesLightbox/SliderImagesLightbox.tsx">
         <metrics statements="56" coveredstatements="49" conditionals="24" coveredconditionals="21" methods="13" coveredmethods="9"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -4503,7 +4502,7 @@
     </package>
     <package name="src.unreleased.title">
       <metrics statements="12" coveredstatements="12" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
-      <file name="title.stories.tsx" path="D:\projects\toolkit\src\unreleased\title\title.stories.tsx">
+      <file name="title.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/title/title.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
@@ -4516,7 +4515,7 @@
         <line num="36" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
       </file>
-      <file name="title.tsx" path="D:\projects\toolkit\src\unreleased\title\title.tsx">
+      <file name="title.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/title/title.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="13" count="10" type="stmt"/>
@@ -4524,14 +4523,14 @@
     </package>
     <package name="src.utils">
       <metrics statements="116" coveredstatements="98" conditionals="72" coveredconditionals="57" methods="40" coveredmethods="34"/>
-      <file name="addUrlParam.js" path="D:\projects\toolkit\src\utils\addUrlParam.js">
+      <file name="addUrlParam.js" path="/Users/pedroguia/Projects/toolkit/src/utils/addUrlParam.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
         <line num="4" count="5" type="stmt"/>
       </file>
-      <file name="blinkElement.js" path="D:\projects\toolkit\src\utils\blinkElement.js">
+      <file name="blinkElement.js" path="/Users/pedroguia/Projects/toolkit/src/utils/blinkElement.js">
         <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="3" count="27" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -4540,11 +4539,11 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
       </file>
-      <file name="clone.js" path="D:\projects\toolkit\src\utils\clone.js">
+      <file name="clone.js" path="/Users/pedroguia/Projects/toolkit/src/utils/clone.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="28" type="stmt"/>
       </file>
-      <file name="convertToMyCurrency.js" path="D:\projects\toolkit\src\utils\convertToMyCurrency.js">
+      <file name="convertToMyCurrency.js" path="/Users/pedroguia/Projects/toolkit/src/utils/convertToMyCurrency.js">
         <metrics statements="7" coveredstatements="7" conditionals="9" coveredconditionals="8" methods="1" coveredmethods="1"/>
         <line num="5" count="27" type="stmt"/>
         <line num="6" count="10" type="stmt"/>
@@ -4554,12 +4553,12 @@
         <line num="14" count="2" type="stmt"/>
         <line num="17" count="10" type="stmt"/>
       </file>
-      <file name="convertToUtc.js" path="D:\projects\toolkit\src\utils\convertToUtc.js">
+      <file name="convertToUtc.js" path="/Users/pedroguia/Projects/toolkit/src/utils/convertToUtc.js">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="27" type="cond" truecount="1" falsecount="0"/>
         <line num="4" count="4" type="stmt"/>
       </file>
-      <file name="cursorFocus.js" path="D:\projects\toolkit\src\utils\cursorFocus.js">
+      <file name="cursorFocus.js" path="/Users/pedroguia/Projects/toolkit/src/utils/cursorFocus.js">
         <metrics statements="5" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -4567,7 +4566,7 @@
         <line num="4" count="0" type="stmt"/>
         <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
-      <file name="debounce.js" path="D:\projects\toolkit\src\utils\debounce.js">
+      <file name="debounce.js" path="/Users/pedroguia/Projects/toolkit/src/utils/debounce.js">
         <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="27" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -4575,7 +4574,7 @@
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
       </file>
-      <file name="downloadExcel.js" path="D:\projects\toolkit\src\utils\downloadExcel.js">
+      <file name="downloadExcel.js" path="/Users/pedroguia/Projects/toolkit/src/utils/downloadExcel.js">
         <metrics statements="16" coveredstatements="11" conditionals="9" coveredconditionals="5" methods="3" coveredmethods="3"/>
         <line num="3" count="27" type="cond" truecount="0" falsecount="1"/>
         <line num="4" count="1" type="stmt"/>
@@ -4594,16 +4593,16 @@
         <line num="25" count="0" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
       </file>
-      <file name="filterUnique.js" path="D:\projects\toolkit\src\utils\filterUnique.js">
+      <file name="filterUnique.js" path="/Users/pedroguia/Projects/toolkit/src/utils/filterUnique.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="8" type="stmt"/>
       </file>
-      <file name="firstElemOf.js" path="D:\projects\toolkit\src\utils\firstElemOf.js">
+      <file name="firstElemOf.js" path="/Users/pedroguia/Projects/toolkit/src/utils/firstElemOf.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
       </file>
-      <file name="getEmployeeName.js" path="D:\projects\toolkit\src\utils\getEmployeeName.js">
+      <file name="getEmployeeName.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getEmployeeName.js">
         <metrics statements="8" coveredstatements="8" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="2"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="29" type="cond" truecount="4" falsecount="0"/>
@@ -4614,7 +4613,7 @@
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="5" type="stmt"/>
       </file>
-      <file name="getFNSDateLocale.js" path="D:\projects\toolkit\src\utils\getFNSDateLocale.js">
+      <file name="getFNSDateLocale.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getFNSDateLocale.js">
         <metrics statements="6" coveredstatements="3" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="3" count="28" type="stmt"/>
         <line num="4" count="4" type="cond" truecount="1" falsecount="3"/>
@@ -4623,7 +4622,7 @@
         <line num="10" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
-      <file name="getLocalStorage.js" path="D:\projects\toolkit\src\utils\getLocalStorage.js">
+      <file name="getLocalStorage.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getLocalStorage.js">
         <metrics statements="11" coveredstatements="11" conditionals="11" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="4" count="27" type="cond" truecount="1" falsecount="0"/>
         <line num="6" count="5" type="stmt"/>
@@ -4637,7 +4636,7 @@
         <line num="24" count="1" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
       </file>
-      <file name="getLocalStorageAuctionPrivateCode.js" path="D:\projects\toolkit\src\utils\getLocalStorageAuctionPrivateCode.js">
+      <file name="getLocalStorageAuctionPrivateCode.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getLocalStorageAuctionPrivateCode.js">
         <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
@@ -4646,7 +4645,7 @@
         <line num="5" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="7" count="1" type="stmt"/>
       </file>
-      <file name="getUrlParam.js" path="D:\projects\toolkit\src\utils\getUrlParam.js">
+      <file name="getUrlParam.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getUrlParam.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="1" type="cond" truecount="1" falsecount="1"/>
@@ -4654,47 +4653,47 @@
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\projects\toolkit\src\utils\index.js">
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/utils/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="isArray.js" path="D:\projects\toolkit\src\utils\isArray.js">
+      <file name="isArray.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isArray.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
       </file>
-      <file name="isCompanyAdmin.js" path="D:\projects\toolkit\src\utils\isCompanyAdmin.js">
+      <file name="isCompanyAdmin.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isCompanyAdmin.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="6" type="stmt"/>
         <line num="3" count="9" type="cond" truecount="3" falsecount="0"/>
         <line num="5" count="6" type="stmt"/>
       </file>
-      <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
+      <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="82" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
       </file>
-      <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
+      <file name="isEmpty.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="200" type="stmt"/>
       </file>
-      <file name="isObject.js" path="D:\projects\toolkit\src\utils\isObject.js">
+      <file name="isObject.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isObject.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="3" count="27" type="cond" truecount="3" falsecount="0"/>
       </file>
-      <file name="isValidURL.js" path="D:\projects\toolkit\src\utils\isValidURL.js">
+      <file name="isValidURL.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isValidURL.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
       </file>
-      <file name="lastElemOf.js" path="D:\projects\toolkit\src\utils\lastElemOf.js">
+      <file name="lastElemOf.js" path="/Users/pedroguia/Projects/toolkit/src/utils/lastElemOf.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="29" type="stmt"/>
       </file>
-      <file name="regex.js" path="D:\projects\toolkit\src\utils\regex.js">
+      <file name="regex.js" path="/Users/pedroguia/Projects/toolkit/src/utils/regex.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
       </file>
-      <file name="removeAllButLast.js" path="D:\projects\toolkit\src\utils\removeAllButLast.js">
+      <file name="removeAllButLast.js" path="/Users/pedroguia/Projects/toolkit/src/utils/removeAllButLast.js">
         <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="1"/>
         <line num="1" count="28" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
@@ -4704,24 +4703,24 @@
         <line num="9" count="1" type="stmt"/>
         <line num="12" count="2" type="cond" truecount="1" falsecount="1"/>
       </file>
-      <file name="removeAllUrlParams.js" path="D:\projects\toolkit\src\utils\removeAllUrlParams.js">
+      <file name="removeAllUrlParams.js" path="/Users/pedroguia/Projects/toolkit/src/utils/removeAllUrlParams.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
       </file>
-      <file name="removeUrlParam.js" path="D:\projects\toolkit\src\utils\removeUrlParam.js">
+      <file name="removeUrlParam.js" path="/Users/pedroguia/Projects/toolkit/src/utils/removeUrlParam.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="27" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
-      <file name="slugify.js" path="D:\projects\toolkit\src\utils\slugify.js">
+      <file name="slugify.js" path="/Users/pedroguia/Projects/toolkit/src/utils/slugify.js">
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="3" count="32" type="cond" truecount="1" falsecount="0"/>
         <line num="4" count="121" type="cond" truecount="3" falsecount="0"/>
         <line num="6" count="121" type="stmt"/>
       </file>
-      <file name="sortBy.js" path="D:\projects\toolkit\src\utils\sortBy.js">
+      <file name="sortBy.js" path="/Users/pedroguia/Projects/toolkit/src/utils/sortBy.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="28" type="stmt"/>
         <line num="2" count="9" type="stmt"/>

@@ -21,7 +21,16 @@ const Comment: FC<Props> = ({
 }: Props): JSX.Element => {
   const intl = useIntl();
 
-  const { created_at, public: isPublic, highlighted, user_id, text, id, responses_count } = comment;
+  const {
+    created_at,
+    public: isPublic,
+    highlighted,
+    user_id,
+    text,
+    comment: commentText,
+    id,
+    responses_count,
+  } = comment;
 
   return (
     <div className="component-comment">
@@ -35,7 +44,7 @@ const Comment: FC<Props> = ({
       />
       <div className="component-comment__body">
         <ReadMoreText
-          text={text}
+          text={text || commentText}
           readMoreTextTranslation={intl.formatMessage({
             id: 'readmore',
           })}
