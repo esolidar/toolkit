@@ -5,12 +5,12 @@ import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultListTitle,
   WithoutTitleAndSubtitle as WithoutTitleAndSubtitleStory,
-  SeeAll as SeeAllStory,
+  WithButton as WithButtonStory,
 } from '../CardList.stories';
 
 const Default = composeStory(DefaultListTitle, Meta);
 const WithoutTitleAndSubtitle = composeStory(WithoutTitleAndSubtitleStory, Meta);
-const SeeAll = composeStory(SeeAllStory, Meta);
+const WithButton = composeStory(WithButtonStory, Meta);
 
 it('renders list crowdfunding with title and Subtitle', () => {
   const { getAllByClass, getByClass } = render(<Default />);
@@ -33,9 +33,9 @@ it('renders list crowdfunding without title and Subtitle', () => {
 });
 
 it('renders list crowdfunding with button See All', () => {
-  const { getByClass, getAllByClass, queryByTestId } = render(<SeeAll />);
+  const { getByClass, getAllByClass, queryByTestId } = render(<WithButton />);
 
   expect(getAllByClass('card-component')).toBeTruthy();
   expect(queryByTestId('list-footer')).not.toBeInTheDocument();
-  expect(getByClass('cardList__see-all')).toBeTruthy();
+  expect(getByClass(/cardList__button/)).toBeTruthy();
 });
