@@ -75,7 +75,7 @@ const CardList: FC<Props> = ({
         card.type = 'crowdfunding';
         tempTypes.crowdfunding += 1;
       }
-      if (card.bid_start !== undefined) {
+      if (card.bids_count !== undefined) {
         card.type = 'auction';
         tempTypes.auction += 1;
       }

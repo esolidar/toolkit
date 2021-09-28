@@ -27,7 +27,11 @@ const ListFooter: FC<Props> = ({
         />
       </div>
       <div className="component-list-footer-perpage">
-        <SelectPerPage onChange={onChangeSelectPerPage} options={perPageOptions} value={10} />
+        <SelectPerPage
+          onChange={onChangeSelectPerPage}
+          options={perPageOptions}
+          value={+per_page}
+        />
       </div>
     </div>
   );
