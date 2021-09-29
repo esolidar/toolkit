@@ -26,9 +26,9 @@ Default.args = {
     data: [crowdfunding, crowdfunding, crowdfunding, crowdfunding, auction],
   },
   footer: {
-    perPageOptions: [6],
+    perPageOptions: [6, 12, 18, 24],
     total: 4,
-    per_page: 6,
+    per_page: 18,
     current_page: 1,
   },
   onClickThumb: () => {

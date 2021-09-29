@@ -65,22 +65,22 @@ const RequestDetailThumb = ({
           joinedStatusText = intl.formatMessage({ id: 'statusReviewed' });
         } else {
           status = 'status-box status-ended';
-          statusText = intl.formatMessage({ id: 'ended' });
+          statusText = intl.formatMessage({ id: 'toolkit.ended' });
           joinedStatus = 'joined-finished';
-          joinedStatusText = intl.formatMessage({ id: 'ended' });
+          joinedStatusText = intl.formatMessage({ id: 'toolkit.ended' });
         }
       } else {
         status = 'status-box status-ended';
-        statusText = intl.formatMessage({ id: 'ended' });
+        statusText = intl.formatMessage({ id: 'toolkit.ended' });
         joinedStatus = 'joined-finished';
-        joinedStatusText = intl.formatMessage({ id: 'ended' });
+        joinedStatusText = intl.formatMessage({ id: 'toolkit.ended' });
       }
       break;
     case 'D':
       status = 'status-box status-deleted';
-      statusText = intl.formatMessage({ id: 'ended' });
+      statusText = intl.formatMessage({ id: 'toolkit.ended' });
       joinedStatus = 'joined-declined';
-      joinedStatusText = intl.formatMessage({ id: 'ended' });
+      joinedStatusText = intl.formatMessage({ id: 'toolkit.ended' });
       break;
     default:
       status = 'status-box';

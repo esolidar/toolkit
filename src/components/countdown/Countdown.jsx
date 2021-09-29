@@ -23,7 +23,7 @@ const statusMap = {
     translation: 'thumb.countdown.eightHoursLeft',
   },
   [statusOptions.ENDED]: {
-    translation: 'ended',
+    translation: 'toolkit.ended',
   },
 };
 

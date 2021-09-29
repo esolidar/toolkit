@@ -185,7 +185,7 @@ const AuctionDetailRigth = ({
                   data-testid="label-ended"
                   style={{ color: primaryColor }}
                 >
-                  <FormattedMessage id="ended" />
+                  <FormattedMessage id="toolkit.ended" />
                 </Col>
               </Row>
               <Row>
