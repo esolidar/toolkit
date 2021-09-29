@@ -9,15 +9,14 @@ import Props from './CommentHeader.types';
 import { getToday } from '../../constants/date';
 import getFNSDateLocale from '../../utils/getFNSDateLocale';
 
-// TODO: testing
-
 const CommentHeader: FC<Props> = ({
   createdDate,
-  isHighlighted,
-  isPublic,
+  isHighlighted = false,
+  isPublic = false,
   isUserOwner,
   onClickDelete,
   profileAvatar,
+  isPost = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -29,12 +28,12 @@ const CommentHeader: FC<Props> = ({
           addSuffix: true,
           locale: getFNSDateLocale(intl.locale),
         })}
-        {!isPublic && (
+        {isPost && !isPublic && (
           <span className="comment-header__right--public">
             <Icon iconClass="icon-lock1" />
           </span>
         )}
-        {isHighlighted && (
+        {isPost && isHighlighted && (
           <span className="comment-header__right--highlighted">
             <Icon iconClass="icon-star-full" />
           </span>

@@ -8,21 +8,20 @@
 
   & .profile-avatar {
     align-self: baseline;
+    margin-top: 4px;
   }
 
   &__textarea {
-    height: 40px;
-
     &.form-group {
       width: 100%;
       margin: 0;
     }
 
     & textarea {
-      resize: none !important;
-      border: none !important;
-      // height: 100% !important;
-      box-shadow: none !important;
+      height: 40px;
+      resize: none;
+      border: none;
+      // box-shadow: none;
     }
   }
 

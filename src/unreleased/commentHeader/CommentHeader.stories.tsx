@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react';
+import { format, subDays } from 'date-fns';
 import CommentHeader from './CommentHeader';
 import Props from './CommentHeader.types';
+import { getToday, dateFormat } from '../../constants/date';
 
 export default {
   title: 'Unreleased/Comment/CommentHeader',
@@ -10,11 +12,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div>
-    <CommentHeader {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => <CommentHeader {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 
@@ -24,7 +22,7 @@ Default.args = {
     thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
     name: 'Joel F. Calheiros',
   },
-  createdDate: '2021-09-15 17:35:29',
+  createdDate: format(subDays(getToday(), 14), dateFormat),
   isPublic: true,
   isHighlighted: true,
   isUserOwner: true,
