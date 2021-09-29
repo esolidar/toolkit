@@ -3,6 +3,10 @@ $primary-hover: rgb(255, 134, 134);
 $secondary: green;
 $secondary-hover: rgb(117, 207, 117);
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'basic-sans';
   font-weight: 400;

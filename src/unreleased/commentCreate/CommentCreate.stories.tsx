@@ -10,11 +10,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div>
-    <CommentCreate {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => <CommentCreate {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 

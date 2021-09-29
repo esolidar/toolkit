@@ -1,17 +1,20 @@
+/* eslint-disable camelcase */
 import PostResponses from '../../interfaces/postResponses.types';
 import ProfileAvatar from '../../components/profileAvatar/ProfileAvatar.types';
+import CommentCrowdfunding from '../../interfaces/commentCrowdfunding';
+import User from '../../interfaces/user.types';
 
 interface Props {
-  comment: any;
-  onClickShowResponses?(comment: any): void;
-  onClickShowCreateResponse?(id: number): void;
-  userId?: number;
+  comment: CommentCrowdfunding;
+  onClickLoadReplies?(comment: any): void;
+  onClickToggleLoginModal?(): void;
+  user?: User;
   responsesList?: PostResponses;
-  showCount?: boolean;
-  onClickDelete(): void;
-  onClickCopy(): void;
-  postUrl: string;
+  onClickDelete(id: number): void;
+  onSubmitComment(): void;
   profileAvatar: ProfileAvatar;
+  isLoggedIn: boolean;
+  isReply: boolean;
 }
 
 export default Props;
