@@ -5,13 +5,13 @@ import Button from '../../elements/button';
 import TextareaField from '../../elements/textareaField';
 import Props from './CommentCreate.types';
 
-// TODO: testing
-
 const CommentCreate: FC<Props> = ({
-  placeholder = 'toolkit.create.comment',
+  placeholder = 'toolkit.comment.create',
   userThumb,
   onSubmitComment,
   id,
+  textAreaId,
+  startsHidden = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [comment, setComment] = useState('');
@@ -33,11 +33,16 @@ const CommentCreate: FC<Props> = ({
 
   return (
     <>
-      <div className={`comment-create ${error ? 'error' : ''}`}>
+      <div
+        id={id}
+        className={`comment-create ${error ? 'error' : ''}`}
+        style={{ display: startsHidden ? 'none' : 'flex' }}
+        data-testid="comment-create"
+      >
         <ProfileAvatar thumb={userThumb} thumbSize="md" />
         <TextareaField
           field="text"
-          id={id}
+          id={textAreaId}
           resize={true}
           className="comment-create__textarea"
           onChange={handleOnChange}

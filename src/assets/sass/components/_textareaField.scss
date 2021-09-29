@@ -1,5 +1,11 @@
 .text-area-field {
   & .form-control {
-    // line-height: 1.8;
+    resize: none;
+    box-shadow: none;
+    line-height: 1.8;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 }

@@ -6,9 +6,10 @@ interface Props {
   profileAvatar: ProfileAvatar;
   onClickDelete(): void;
   createdDate: string;
-  isPublic: boolean;
-  isHighlighted: boolean;
+  isPublic?: boolean;
+  isHighlighted?: boolean;
   isUserOwner: boolean;
+  isPost?: boolean;
 }
 
 export default Props;
