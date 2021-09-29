@@ -20,7 +20,6 @@ export const WithResponses: Story<Props> = Template.bind({});
 Default.args = {
   comment: userComment,
   onClickLoadReplies: () => {},
-  // onClickToggleLoginModal: () => {},
   onClickDelete: () => {},
   profileAvatar: {
     thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
@@ -33,7 +32,6 @@ Default.args = {
 WithResponses.args = {
   comment: userCommentWithResponses,
   onClickLoadReplies: () => {},
-  // onClickToggleLoginModal: () => {},
   onClickDelete: () => {},
   profileAvatar: {
     thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',

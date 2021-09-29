@@ -1,4 +1,3 @@
-// import PostResponses from '../../interfaces/postResponses.types';
 import CommentCrowdfunding from '../../interfaces/commentCrowdfunding';
 import User from '../../interfaces/user.types';
 
