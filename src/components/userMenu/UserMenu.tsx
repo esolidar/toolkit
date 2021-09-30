@@ -19,11 +19,10 @@ const UserMenu: FC<Props> = ({
       {items.map((item, i) => {
         if (item.isVisible === false) return;
         if (item.isDivider) return <Dropdown.Divider />;
-        const option = item.option ? 'user-top-menu-option' : '';
         return (
           <Dropdown.Item
             key={i}
-            className={`${item.className} ${option}`}
+            className={item.className}
             eventKey={item.eventKey}
             href={item.href}
             onClick={item.onClick}

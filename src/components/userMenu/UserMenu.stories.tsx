@@ -33,10 +33,10 @@ Default.args = {
       text: 'Acme inc',
     },
     {
+      className: 'user-top-menu-option',
       href: '#',
       text: 'Switch Menu',
       onClick: () => {},
-      option: true,
     },
     {
       href: '#',
