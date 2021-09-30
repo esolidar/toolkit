@@ -1225,52 +1225,50 @@ const AuctionAddForm = ({
                 </Row>
               </Col>
               <Col md={8} className="box-lbr">
-                <Row>
-                  <Col sm={12} className="text-center">
+                <div className="d-flex justify-content-between">
+                  <Button
+                    dataTestId="btn-cancel"
+                    extraClass="dark"
+                    href="/needs/auctions"
+                    text={intl.formatMessage({ id: 'cancel' })}
+                  />
+                  {!isEmpty(hasWhitelabel) && userRole === 'company' && (
                     <Button
-                      dataTestId="btn-cancel"
-                      extraClass="dark"
-                      href="/auctions"
-                      text={intl.formatMessage({ id: 'cancel' })}
+                      dataTestId="btn-submit-draft"
+                      extraClass="info-full"
+                      onClick={() => handleSubmit('P')}
+                      text={intl.formatMessage({ id: 'auctions.add.submit.draft' })}
+                      disabled={disabled}
                     />
-                    {!isEmpty(hasWhitelabel) && userRole === 'company' && (
-                      <Button
-                        dataTestId="btn-submit-draft"
-                        extraClass="info-full mt-4 mr-2 ml-2"
-                        onClick={() => handleSubmit('P')}
-                        text={intl.formatMessage({ id: 'auctions.add.submit.draft' })}
-                        disabled={disabled}
-                      />
-                    )}
-                    {action === null && (
-                      <Button
-                        dataTestId="btn-submit"
-                        extraClass="success-full btn-submit mt-4"
-                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
-                        text={intl.formatMessage({ id: 'auctions.add.submitAuction' })}
-                        disabled={disabled}
-                      />
-                    )}
-                    {action === 'edit' && (
-                      <Button
-                        dataTestId="btn-submit-edit"
-                        extraClass="success-full btn-submit"
-                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
-                        text={intl.formatMessage({ id: 'auctions.edit.submitAuction' })}
-                        disabled={disabled}
-                      />
-                    )}
-                    {action === 'clone' && (
-                      <Button
-                        dataTestId="btn-submit-clone"
-                        extraClass="success-full btn-submit"
-                        onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
-                        text={intl.formatMessage({ id: 'auctions.clone.title' })}
-                        disabled={disabled}
-                      />
-                    )}
-                  </Col>
-                </Row>
+                  )}
+                  {action === null && (
+                    <Button
+                      dataTestId="btn-submit"
+                      extraClass="success-full btn-submit"
+                      onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
+                      text={intl.formatMessage({ id: 'auctions.add.submitAuction' })}
+                      disabled={disabled}
+                    />
+                  )}
+                  {action === 'edit' && (
+                    <Button
+                      dataTestId="btn-submit-edit"
+                      extraClass="success-full btn-submit"
+                      onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
+                      text={intl.formatMessage({ id: 'auctions.edit.submitAuction' })}
+                      disabled={disabled}
+                    />
+                  )}
+                  {action === 'clone' && (
+                    <Button
+                      dataTestId="btn-submit-clone"
+                      extraClass="success-full btn-submit"
+                      onClick={() => handleSubmit(isEmpty(hasWhitelabel) ? 'P' : 'A')}
+                      text={intl.formatMessage({ id: 'auctions.clone.title' })}
+                      disabled={disabled}
+                    />
+                  )}
+                </div>
               </Col>
             </Row>
           </Col>
