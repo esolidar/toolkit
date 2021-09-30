@@ -28,12 +28,31 @@ Default.args = {
       isVisible: false,
     },
     {
+      className: 'font-weight-bold',
+      href: '#',
+      text: 'Acme inc',
+    },
+    {
+      href: '#',
+      text: 'Switch Menu',
+      onClick: () => {},
+      option: true,
+    },
+    {
+      href: '#',
+      isDivider: true,
+    },
+    {
       href: '/company-settings',
       text: 'topMenu.settings',
     },
     {
       href: '/user/settings',
       text: 'topMenu.usersettings',
+    },
+    {
+      href: '#',
+      isDivider: true,
     },
     {
       href: '/company-payments',

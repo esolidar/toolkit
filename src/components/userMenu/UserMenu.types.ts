@@ -7,6 +7,8 @@ interface Items {
   onClick?(): any;
   text?: string;
   plainText?: string;
+  isDivider?: boolean;
+  option?: boolean;
 }
 
 interface Props {

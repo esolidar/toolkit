@@ -57,7 +57,7 @@
 
     .dropdown-item {
       padding: $distance-1 $distance-2;
-      font-size: 14px;
+      font-size: $distance-2;
       border-radius: 8px;
       color: map-get($main-text-colors, title);
 
@@ -65,6 +65,12 @@
         background-color: map-get($background, secondary);
         color: map-get($main-text-colors, title);
       }
+    }
+
+    .user-top-menu-option {
+      margin-top: -13px;
+      font-size: 14px;
+      color: map-get($turquoise, 500);
     }
   }
 }
