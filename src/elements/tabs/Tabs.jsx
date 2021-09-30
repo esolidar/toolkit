@@ -15,7 +15,7 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
 
   const onSelect = key => {
     setActiveTab(key);
-    if (isDefined(onChange)) onChange();
+    if (isDefined(onChange)) onChange(key);
   };
 
   return (
