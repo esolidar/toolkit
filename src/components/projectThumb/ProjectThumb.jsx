@@ -27,6 +27,7 @@ const ProjectThumb = ({
   selectProject,
   selectedText,
   whitelabelUrl,
+  url,
 }) => {
   const intl = useIntl();
 
@@ -35,7 +36,7 @@ const ProjectThumb = ({
   const link =
     project.status === 'DRAFT'
       ? `/${lang}/user/projects/edit/${project.id}`
-      : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${
+      : `/${lang}${url}${project.id}-${slugify(project.title)}${
           myProject ? `?owner=${myProject}` : ''
         }`;
 
@@ -206,10 +207,12 @@ ProjectThumb.propTypes = {
   selectedIds: PropTypes.array,
   selectProject: PropTypes.func,
   whitelabelUrl: PropTypes.string,
+  url: PropTypes.string,
 };
 
 ProjectThumb.defaultProps = {
   cols: 4,
+  url: '/projects/detail/',
 };
 
 export default ProjectThumb;
