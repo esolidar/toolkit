@@ -1,4 +1,5 @@
 interface Items {
+  title?: string;
   className?: string;
   eventKey?: string;
   href: string;
@@ -7,6 +8,7 @@ interface Items {
   onClick?(): any;
   text?: string;
   plainText?: string;
+  isDivider?: boolean;
 }
 
 interface Props {

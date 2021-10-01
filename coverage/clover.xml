@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633001076516" clover="3.2.0">
-  <project timestamp="1633001076517" name="All files">
-    <metrics statements="3561" coveredstatements="2416" conditionals="3014" coveredconditionals="1888" methods="951" coveredmethods="469" elements="7526" coveredelements="4773" complexity="0" loc="3561" ncloc="3561" packages="123" files="301" classes="301"/>
+<coverage generated="1633020451955" clover="3.2.0">
+  <project timestamp="1633020451955" name="All files">
+    <metrics statements="3563" coveredstatements="2412" conditionals="3018" coveredconditionals="1889" methods="952" coveredmethods="468" elements="7533" coveredelements="4769" complexity="0" loc="3563" ncloc="3563" packages="123" files="301" classes="301"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -3320,20 +3320,22 @@
       </file>
     </package>
     <package name="src.components.userMenu">
-      <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="6" methods="5" coveredmethods="3"/>
+      <metrics statements="10" coveredstatements="10" conditionals="12" coveredconditionals="10" methods="6" coveredmethods="3"/>
       <file name="UserMenu.stories.tsx" path="D:\projects\toolkit\src\components\userMenu\UserMenu.stories.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
       </file>
       <file name="UserMenu.tsx" path="D:\projects\toolkit\src\components\userMenu\UserMenu.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <metrics statements="6" coveredstatements="6" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="20" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="16" type="stmt"/>
+        <line num="20" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="20" type="stmt"/>
       </file>
     </package>
     <package name="src.components.validateTelephone">
@@ -3972,19 +3974,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="8" count="21" type="stmt"/>
         <line num="32" count="52" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="45" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="45" type="stmt"/>
-        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="47" count="52" type="stmt"/>
         <line num="82" count="21" type="stmt"/>
         <line num="107" count="21" type="stmt"/>
@@ -4414,7 +4416,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="4" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4777,7 +4779,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="81" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>

@@ -18,21 +18,24 @@ const UserMenu: FC<Props> = ({
     <Dropdown.Menu flip={flip} align={align}>
       {items.map((item, i) => {
         if (item.isVisible === false) return;
+        if (item.isDivider) return <Dropdown.Divider />;
         return (
-          <Dropdown.Item
-            key={i}
-            // id={item.id}
-            className={item.className}
-            eventKey={item.eventKey}
-            href={item.href}
-            onClick={item.onClick}
-          >
-            {item.plainText ? (
-              <div>{item.plainText}</div>
-            ) : (
-              <FormattedMessage id={item.text || ' '} />
-            )}
-          </Dropdown.Item>
+          <>
+            {item.title && <div className="esolidar-user-menu-title">{item.title}</div>}
+            <Dropdown.Item
+              key={i}
+              className={item.className}
+              eventKey={item.eventKey}
+              href={item.href}
+              onClick={item.onClick}
+            >
+              {item.plainText ? (
+                <div>{item.plainText}</div>
+              ) : (
+                <FormattedMessage id={item.text || ' '} />
+              )}
+            </Dropdown.Item>
+          </>
         );
       })}
     </Dropdown.Menu>
