@@ -28,14 +28,10 @@ Default.args = {
       isVisible: false,
     },
     {
-      className: 'font-weight-bold',
-      href: '#',
-      text: 'Acme inc',
-    },
-    {
+      title: 'Rocha Company',
       className: 'user-top-menu-option',
       href: '#',
-      text: 'Switch Menu',
+      text: 'Switch accounts',
       onClick: () => {},
     },
     {

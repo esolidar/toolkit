@@ -1,6 +1,11 @@
 .esolidar-user-menu {
   margin-left: $distance-1;
 
+  &-title {
+    font-weight: bold;
+    padding: $distance-1 $distance-3 $distance-1 $distance-3;
+  }
+
   .dropdown-toggle {
     color: map-get($theme-colors, primary) !important;
     background-color: transparent !important;
@@ -47,14 +52,6 @@
     margin: 0px !important;
     transform: translate(-129px, 46px) !important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-    &:before {
-      @include dropdown-arrow-before(84%, 81%);
-    }
-
-    &:after {
-      @include dropdown-arrow-after(84%, 81%);
-    }
 
     .dropdown-item {
       padding: $distance-1 $distance-3 $distance-1 $distance-3;

@@ -1,4 +1,5 @@
 interface Items {
+  title?: string;
   className?: string;
   eventKey?: string;
   href: string;
