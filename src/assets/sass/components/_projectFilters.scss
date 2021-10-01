@@ -5,12 +5,6 @@
     line-height: 39px;
   }
 
-  input.form-control {
-    background: map-get($colors, white) url('#{$cdn-static-url}/frontend/icons/icon-search.svg')
-      no-repeat 10px 50%;
-    padding-left: 35px;
-  }
-
   .filters {
     .filter-button {
       border: none;
