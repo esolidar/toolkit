@@ -106,7 +106,7 @@ const ProjectFilters = ({
                 selectText="- -"
               />
             </Col>
-            <Col sm={12} className="text-right">
+            <Col sm={12} className="d-flex justify-content-end">
               <Button extraClass="success-full" onClick={applyFilter} text={applyButtonLabel} />
             </Col>
           </Row>
