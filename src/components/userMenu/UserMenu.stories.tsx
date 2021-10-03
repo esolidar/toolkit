@@ -28,12 +28,27 @@ Default.args = {
       isVisible: false,
     },
     {
+      title: 'Rocha Company',
+      className: 'user-top-menu-option',
+      href: '#',
+      text: 'Switch accounts',
+      onClick: () => {},
+    },
+    {
+      href: '#',
+      isDivider: true,
+    },
+    {
       href: '/company-settings',
       text: 'topMenu.settings',
     },
     {
       href: '/user/settings',
       text: 'topMenu.usersettings',
+    },
+    {
+      href: '#',
+      isDivider: true,
     },
     {
       href: '/company-payments',

@@ -256,7 +256,7 @@ const Countdown: FC<Props> = ({
       {!isPlaying && (
         <div className="countdown-days-left">
           <div className="countdown-days-left-values countdown-ended" data-testid="ended">
-            <FormattedMessage id="ended" />
+            <FormattedMessage id="toolkit.ended" />
           </div>
         </div>
       )}

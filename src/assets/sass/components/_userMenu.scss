@@ -1,6 +1,11 @@
 .esolidar-user-menu {
   margin-left: $distance-1;
 
+  &-title {
+    font-weight: bold;
+    padding: $distance-1 $distance-3 $distance-1 $distance-3;
+  }
+
   .dropdown-toggle {
     color: map-get($theme-colors, primary) !important;
     background-color: transparent !important;
@@ -40,24 +45,17 @@
   .dropdown-menu {
     border-radius: 18px;
     text-align: left;
-    padding: $distance-1;
+    padding: $distance-2 0px;
     top: 20px !important;
     position: absolute !important;
     inset: 0px auto auto 0px;
     margin: 0px !important;
     transform: translate(-129px, 46px) !important;
-
-    &:before {
-      @include dropdown-arrow-before(84%, 81%);
-    }
-
-    &:after {
-      @include dropdown-arrow-after(84%, 81%);
-    }
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     .dropdown-item {
-      padding: $distance-1 $distance-2;
-      font-size: 14px;
+      padding: $distance-1 $distance-3 $distance-1 $distance-3;
+      font-size: 16px;
       border-radius: 8px;
       color: map-get($main-text-colors, title);
 
@@ -65,6 +63,16 @@
         background-color: map-get($background, secondary);
         color: map-get($main-text-colors, title);
       }
+    }
+
+    .dropdown-divider {
+      margin: $distance-1 $distance-3;
+    }
+
+    .user-top-menu-option {
+      margin-top: -13px;
+      font-size: 14px;
+      color: map-get($turquoise, 500);
     }
   }
 }
