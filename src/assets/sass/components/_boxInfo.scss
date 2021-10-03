@@ -16,7 +16,7 @@
       flex-direction: column;
     }
 
-    & .text {
+    &__text {
       color: map-get($main-text-colors, dark);
       font-size: 15px;
       letter-spacing: 0;

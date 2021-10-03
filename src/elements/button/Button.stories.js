@@ -86,6 +86,7 @@ Link.args = {
   extraClass: 'link',
   target: '_blank',
   href: '#',
+  iconLeft: <Icon iconClass="icon-left-arrow" />,
 };
 
 export const WithIcon = args => (

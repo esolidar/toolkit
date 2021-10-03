@@ -728,7 +728,7 @@ test('simulate auction ended', async () => {
   await waitFor(() => {
     const titleEnded = screen.getByTestId('label-ended');
     expect(titleEnded).toBeInTheDocument();
-    expect(titleEnded).toHaveTextContent('Ended');
+    expect(titleEnded).toHaveTextContent('ended');
     const messageEnded = screen.getByTestId('label-ended-message');
     expect(messageEnded).toBeInTheDocument();
     expect(messageEnded).toHaveTextContent('This auction is ended.');

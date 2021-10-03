@@ -219,8 +219,6 @@
       }
     }
 
-    //#bff6f0
-
     &-dark-full {
       border: 1px solid map-get($theme-colors-dark, dark);
       color: map-get($colors, white) !important;
@@ -240,9 +238,13 @@
 
       &:hover {
         color: map-get($theme-colors-dark, primary);
-        text-decoration: underline;
         background-color: transparent;
         border-color: transparent;
+        text-decoration: none;
+
+        & .text {
+          text-decoration: underline;
+        }
       }
     }
   }

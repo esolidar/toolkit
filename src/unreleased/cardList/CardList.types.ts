@@ -56,4 +56,5 @@ export interface Props {
   lang: 'pt' | 'br' | 'en';
   footer?: Footer;
   onClickThumb(id: number): void;
+  emptyState?: JSX.Element;
 }

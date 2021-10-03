@@ -10,7 +10,7 @@ const ShareNetwork: FC<Props> = ({
   showTwitter = true,
   showWhatsapp = true,
   showCopyToClipboard = true,
-  windowLocationHref = window.location.href,
+  windowLocationHref,
   blackIcons = false,
 }: Props): JSX.Element => {
   const [showTooltip, setShowTooltip] = useState(false);
