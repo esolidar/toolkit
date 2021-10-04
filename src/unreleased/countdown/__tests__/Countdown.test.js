@@ -38,7 +38,7 @@ it('renders countdown ended', () => {
 
   expect(queryByClass('countdown-component border')).toBeInTheDocument();
   expect(queryByTestId('ended')).toBeInTheDocument();
-  expect(queryByTestId('ended')).toHaveTextContent('ended');
+  expect(queryByTestId('ended')).toHaveTextContent('Ended');
 });
 
 it('renders countdown soon', () => {

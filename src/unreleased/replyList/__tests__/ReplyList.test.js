@@ -8,7 +8,7 @@ const LoggedOut = composeStory(LoggedOutStory, Meta);
 const LoggedIn = composeStory(LoggedInStory, Meta);
 
 it('renders comment component', () => {
-  const { getByClass, getByText, queryAllByClass } = render(<LoggedOut />);
+  const { getByText, queryAllByClass } = render(<LoggedOut />);
 
   expect(queryAllByClass('component-comment')).toHaveLength(2);
   expect(
