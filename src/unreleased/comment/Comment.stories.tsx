@@ -33,6 +33,7 @@ WithResponses.args = {
   comment: userCommentWithResponses,
   onClickLoadReplies: () => {},
   onClickDelete: () => {},
+  onSubmitComment: () => {},
   profileAvatar: {
     thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
     name: 'Joel F. Calheiros',

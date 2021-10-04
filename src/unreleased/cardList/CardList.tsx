@@ -57,6 +57,7 @@ const CardList: FC<Props> = ({
   communityUrl,
   footer,
   onClickThumb,
+  emptyState,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const [cardList, setCardList] = useState<List>(list);
@@ -92,27 +93,33 @@ const CardList: FC<Props> = ({
   return (
     <>
       <Title title={title} subtitle={subtitle} />
-      <Row className="cardList__content">
-        {cardList?.data?.map((card, indx) => (
-          <Col key={indx} xs={12} sm={6} md={4}>
-            {card?.type === 'crowdfunding' && (
-              <CardCrowdfunding
-                crowdfunding={card}
-                clickThumb={() => onClickThumb(card.id)}
-                communityUrl={communityUrl}
-              />
-            )}
-            {card?.type === 'auction' && (
-              <CardAuction
-                auction={card}
-                clickThumb={() => onClickThumb(card.id)}
-                communityUrl={communityUrl}
-                currency={card.currency.small}
-              />
-            )}
-          </Col>
-        ))}
-      </Row>
+      {cardList?.data.length > 0 ? (
+        <Row className="cardList__content">
+          {cardList?.data?.map((card, indx) => (
+            <Col key={indx} xs={12} sm={6} md={4}>
+              {card?.type === 'crowdfunding' && (
+                <CardCrowdfunding
+                  crowdfunding={card}
+                  clickThumb={() => onClickThumb(card.id)}
+                  communityUrl={communityUrl}
+                />
+              )}
+              {card?.type === 'auction' && (
+                <CardAuction
+                  auction={card}
+                  clickThumb={() => onClickThumb(card.id)}
+                  communityUrl={communityUrl}
+                  currency={card.currency.small}
+                />
+              )}
+            </Col>
+          ))}
+        </Row>
+      ) : (
+        <div className="cardList__content">
+          <p className="cardList__content--empty-state">{emptyState}</p>
+        </div>
+      )}
       {isDefined(footer) && (
         <ListFooter {...footer} labelResultText={getListFooterLabel(types, intl)} />
       )}

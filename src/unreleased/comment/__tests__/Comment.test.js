@@ -11,7 +11,7 @@ const Default = composeStory(DefaultListTitle, Meta);
 const WithResponses = composeStory(WithResponsesStory, Meta);
 
 it('renders comment component', () => {
-  const { getByClass, getByText, getByTestId } = render(<Default />);
+  const { getByClass, getByText } = render(<Default />);
 
   expect(getByClass('component-comment')).toBeInTheDocument();
   expect(getByClass('comment-header')).toBeInTheDocument();
@@ -20,7 +20,6 @@ it('renders comment component', () => {
     getByText('Este comentário foi escrito pelo user loggado e não tem respostas')
   ).toBeInTheDocument();
   expect(getByClass('component-comment__footer')).toBeInTheDocument();
-  expect(getByTestId('comment-create')).toBeInTheDocument();
 });
 
 it('renders comment component with responses', async () => {

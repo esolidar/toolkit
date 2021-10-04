@@ -89,7 +89,7 @@ class TextFieldCurrency extends Component {
       onBlur: this.onBlur,
       onKeyDown: this.onKeyDown,
       error,
-      value: value ? formattedValue : '',
+      value: value ? formattedValue : null,
       placeholder,
       disabled,
       className,
@@ -116,7 +116,7 @@ TextFieldCurrency.propTypes = {
 
 TextFieldCurrency.defaultProps = {
   decimalScale: 2,
-  value: '',
+  value: null,
 };
 
 export default injectIntl(TextFieldCurrency);

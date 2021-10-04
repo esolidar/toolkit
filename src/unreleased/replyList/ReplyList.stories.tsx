@@ -1,18 +1,18 @@
 import { Story, Meta } from '@storybook/react';
-import CommentList from './CommentList';
+import ReplyList from './ReplyList';
 import user from '../../../__mocks__/user';
 import { otherUserComment, userComment } from '../../../__mocks__/commentCrowdfunding';
-import Props from './CommentList.types';
+import Props from './ReplyList.types';
 
 export default {
-  title: 'Unreleased/Comment/CommentList',
-  component: CommentList,
+  title: 'Unreleased/Comment/ReplyList',
+  component: ReplyList,
   parameters: {
-    jest: ['CommentList.test.tsx'],
+    jest: ['ReplyList.test.tsx'],
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <CommentList {...args} />;
+const Template: Story<Props> = (args: Props) => <ReplyList {...args} />;
 
 export const LoggedOut: Story<Props> = Template.bind({});
 export const LoggedIn: Story<Props> = Template.bind({});
@@ -23,22 +23,13 @@ LoggedOut.args = {
   toggleLoginModal: () => {
     alert('Launching login modal');
   },
-  totalCommentsLength: 4,
   onClickDeleteComment: () => {},
-  onClickLoadMoreComments: () => {
-    alert('Loading more comments');
-  },
 };
 
 LoggedIn.args = {
   commentList: [userComment, otherUserComment],
   user,
   isLoggedIn: true,
-  totalCommentsLength: 4,
   toggleLoginModal: () => {},
   onClickDeleteComment: () => {},
-  onClickLoadMoreComments: () => {
-    alert('Loading more comments');
-  },
-  onSubmitComment: () => {},
 };

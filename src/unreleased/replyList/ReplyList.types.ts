@@ -6,12 +6,7 @@ interface Props {
   user: User;
   isLoggedIn?: boolean;
   toggleLoginModal?(): void;
-  isResponseList?: boolean;
-  totalCommentsLength?: number;
-  onClickLoadMoreComments?(): void;
   onClickDeleteComment(id: number): void;
-  onSubmitComment(): void;
-  onClickLoadReplies(commentId: number, responsesCount: number): void;
 }
 
 export default Props;

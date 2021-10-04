@@ -27,9 +27,6 @@ const CommentList: FC<Props> = ({
     cursorFocus(el);
   };
 
-  const commentsRemaining =
-    totalCommentsLength - commentList.length > 10 ? 10 : totalCommentsLength - commentList.length;
-
   return (
     <>
       {!isResponseList && !isLoggedIn && <LoginToInteract onClick={toggleLoginModal} />}
@@ -63,12 +60,7 @@ const CommentList: FC<Props> = ({
           extraClass="link"
           className="component-comment-list__button"
           onClick={onClickLoadMoreComments}
-          text={intl.formatMessage(
-            {
-              id: 'toolkit.view.comments',
-            },
-            { value: commentsRemaining }
-          )}
+          text={intl.formatMessage({ id: 'toolkit.view.comments' })}
         />
       )}
       {isLoggedIn && commentList.length > 1 && !isResponseList && (

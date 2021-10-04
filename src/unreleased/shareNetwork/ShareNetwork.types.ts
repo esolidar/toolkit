@@ -4,7 +4,7 @@ interface Props {
   showTwitter?: boolean;
   showWhatsapp?: boolean;
   showCopyToClipboard?: boolean;
-  windowLocationHref?: string;
+  windowLocationHref: string;
   blackIcons?: boolean;
 }
 

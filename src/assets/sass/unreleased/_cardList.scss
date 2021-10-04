@@ -1,6 +1,10 @@
 .cardList {
   &__content {
     margin-top: $distance-2;
+
+    &--empty-state {
+      margin-bottom: $distance-3;
+    }
   }
   &__button {
     justify-content: center;

@@ -18,8 +18,9 @@ Default.args = {
   type: 'text',
   onChange: () => {},
   error: '',
-  placeholder: '€ 0,00',
+  placeholder: '€ 10',
   defaultValue: 'defaultValue',
   disabled: false,
   className: 'teste',
+  value: null,
 };

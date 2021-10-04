@@ -63,6 +63,7 @@ const ConfirmModal = props => {
         footerStyle={footerStyle}
         title={props.title}
         bodyChildren={props.body}
+        size={props.size || 'sm'}
         actionsChildren={
           <>
             {cancelButton}
