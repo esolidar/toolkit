@@ -26,3 +26,4 @@ export { default as isValidRegex } from './regex';
 export { default as convertToUtc } from './convertToUtc';
 export { default as getFNSDateLocale } from './getFNSDateLocale';
 export { default as cursorFocus } from './cursorFocus';
+export { default as hasThisFeature } from './hasThisFeature';
