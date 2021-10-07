@@ -277,7 +277,6 @@ const AuctionDetail = ({
         alertBox: {
           alertVisible: true,
           alertClass: 'success',
-          message: 'You successfully bid!',
           messageId: 'toolkit.auctions.modal.success.newBid',
         },
       });
