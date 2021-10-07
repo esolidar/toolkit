@@ -278,7 +278,7 @@ const AuctionDetail = ({
           alertVisible: true,
           alertClass: 'success',
           message: 'Your bid was successful',
-          messageId: 'auctions.modal.success.newBid',
+          messageId: 'toolkit.auctions.modal.success.newBid',
         },
       });
     } else if (newBid.status === 400) {
