@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1633680662115" clover="3.2.0">
-  <project timestamp="1633680662115" name="All files">
-    <metrics statements="3596" coveredstatements="2434" conditionals="3032" coveredconditionals="1899" methods="976" coveredmethods="476" elements="7604" coveredelements="4809" complexity="0" loc="3596" ncloc="3596" packages="125" files="307" classes="307"/>
+<coverage generated="1633710805514" clover="3.2.0">
+  <project timestamp="1633710805514" name="All files">
+    <metrics statements="3596" coveredstatements="2440" conditionals="3038" coveredconditionals="1905" methods="976" coveredmethods="477" elements="7610" coveredelements="4822" complexity="0" loc="3596" ncloc="3596" packages="125" files="307" classes="307"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -1142,7 +1142,7 @@
       </file>
     </package>
     <package name="src.components.comments">
-      <metrics statements="72" coveredstatements="38" conditionals="68" coveredconditionals="25" methods="19" coveredmethods="8"/>
+      <metrics statements="72" coveredstatements="38" conditionals="70" coveredconditionals="26" methods="19" coveredmethods="8"/>
       <file name="CommentContent.jsx" path="D:\projects\toolkit\src\components\comments\CommentContent.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="3" type="stmt"/>
@@ -1151,7 +1151,7 @@
         <line num="15" count="3" type="stmt"/>
       </file>
       <file name="CommentHeader.jsx" path="D:\projects\toolkit\src\components\comments\CommentHeader.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
@@ -3979,19 +3979,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="21" type="stmt"/>
         <line num="32" count="49" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="42" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="42" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="35" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
         <line num="47" count="49" type="stmt"/>
         <line num="82" count="21" type="stmt"/>
         <line num="107" count="21" type="stmt"/>
@@ -4199,7 +4199,7 @@
       </file>
     </package>
     <package name="src.unreleased.comment">
-      <metrics statements="22" coveredstatements="14" conditionals="18" coveredconditionals="14" methods="12" coveredmethods="4"/>
+      <metrics statements="22" coveredstatements="14" conditionals="20" coveredconditionals="15" methods="12" coveredmethods="4"/>
       <file name="Comment.stories.tsx" path="D:\projects\toolkit\src\unreleased\comment\Comment.stories.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
         <line num="15" count="2" type="stmt"/>
@@ -4209,24 +4209,24 @@
         <line num="32" count="1" type="stmt"/>
       </file>
       <file name="Comment.tsx" path="D:\projects\toolkit\src\unreleased\comment\Comment.tsx">
-        <metrics statements="17" coveredstatements="9" conditionals="18" coveredconditionals="14" methods="6" coveredmethods="2"/>
+        <metrics statements="17" coveredstatements="9" conditionals="20" coveredconditionals="15" methods="6" coveredmethods="2"/>
         <line num="13" count="2" type="stmt"/>
         <line num="24" count="7" type="stmt"/>
         <line num="25" count="7" type="stmt"/>
-        <line num="35" count="7" type="stmt"/>
-        <line num="37" count="7" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="42" count="7" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="54" count="7" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="7" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
       </file>
       <file name="index.ts" path="D:\projects\toolkit\src\unreleased\comment\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4418,7 +4418,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="4" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4498,7 +4498,7 @@
       </file>
     </package>
     <package name="src.unreleased.reply">
-      <metrics statements="15" coveredstatements="8" conditionals="8" coveredconditionals="4" methods="6" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="8" conditionals="10" coveredconditionals="5" methods="6" coveredmethods="2"/>
       <file name="Reply.stories.tsx" path="D:\projects\toolkit\src\unreleased\reply\Reply.stories.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="15" count="1" type="stmt"/>
@@ -4506,7 +4506,7 @@
         <line num="19" count="1" type="stmt"/>
       </file>
       <file name="Reply.tsx" path="D:\projects\toolkit\src\unreleased\reply\Reply.tsx">
-        <metrics statements="12" coveredstatements="5" conditionals="8" coveredconditionals="4" methods="4" coveredmethods="1"/>
+        <metrics statements="12" coveredstatements="5" conditionals="10" coveredconditionals="5" methods="4" coveredmethods="1"/>
         <line num="11" count="4" type="stmt"/>
         <line num="20" count="7" type="stmt"/>
         <line num="22" count="7" type="stmt"/>
@@ -4836,7 +4836,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="82" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="D:\projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
