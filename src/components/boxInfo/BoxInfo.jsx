@@ -4,10 +4,10 @@ import isDefined from '../../utils/isDefined';
 
 const BoxInfo = ({ button, className, style, text }) => (
   <div className={`box box-info ${className}`} style={style}>
-    <div>
+    <div className="box-info__div-text">
       <p className={`box-info__text ${isDefined(button) ? 'small' : ''}`}>{text}</p>
     </div>
-    <div>{button}</div>
+    <div className="box-info__button">{button}</div>
   </div>
 );
 
