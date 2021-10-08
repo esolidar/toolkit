@@ -19,7 +19,7 @@ const Reply: FC<Props> = ({
 }: Props): JSX.Element => {
   const intl = useIntl();
 
-  const { created_at, user_id, comment: text, id, comment_id } = comment;
+  const { created_at, dateAdded, user_id, comment: text, id, comment_id } = comment;
 
   const handleClickReply = () => {
     if (!isLoggedIn) onClickToggleLoginModal();
@@ -38,7 +38,7 @@ const Reply: FC<Props> = ({
       <CommentHeader
         onClickDelete={() => onClickDelete(id)}
         profileAvatar={profileAvatar}
-        createdDate={created_at}
+        createdDate={created_at || dateAdded}
         isUserOwner={user_id === user.id}
       />
       <div className="component-comment__body">

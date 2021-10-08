@@ -26,6 +26,7 @@ const Comment: FC<Props> = ({
 
   const {
     created_at,
+    dateAdded,
     user_id,
     comment: text,
     id,
@@ -56,7 +57,7 @@ const Comment: FC<Props> = ({
       <CommentHeader
         onClickDelete={() => onClickDelete(id)}
         profileAvatar={profileAvatar}
-        createdDate={created_at}
+        createdDate={created_at || dateAdded}
         isUserOwner={user_id === user.id}
       />
       <div className="component-comment__body">

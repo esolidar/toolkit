@@ -1,4 +1,5 @@
 import ods from './ods';
+import user from './user';
 
 const auctionProject = {
   id: 72,
@@ -21,6 +22,7 @@ const auctionProject = {
       created_at: '2021-04-01 10:31:29',
     },
   ],
+  user,
 };
 
 export default auctionProject;

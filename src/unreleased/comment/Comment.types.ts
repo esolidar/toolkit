@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import PostResponses from '../../interfaces/postResponses.types';
 import ProfileAvatar from '../../components/profileAvatar/ProfileAvatar.types';
-import CommentCrowdfunding from '../../interfaces/commentCrowdfunding';
+import Comment from '../../interfaces/comment';
 import User from '../../interfaces/user.types';
 
 interface Props {
-  comment: CommentCrowdfunding;
+  comment: Comment;
   onClickLoadReplies?(commentId: any, responsesCount: number): void;
   onClickToggleLoginModal?(): void;
   user?: User;
