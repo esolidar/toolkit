@@ -11,7 +11,7 @@ interface Props {
   onClickLoadMoreComments?(): void;
   onClickDeleteComment(id: number): void;
   onSubmitComment(): void;
-  onClickLoadReplies(id: number): void;
+  onClickLoadReplies(commentId: number, responsesCount: number): void;
 }
 
 export default Props;

@@ -28,7 +28,9 @@ import {
   lastElemOf,
   clone,
   sortBy,
+  hasThisFeature,
 } from '../index';
+import subscription from '../../../__mocks__/subscription';
 
 describe('test utils functions', () => {
   test('should return getEmployeeName', () => {
@@ -356,7 +358,6 @@ describe('test utils functions', () => {
   test('getLocalStorage function', () => {
     const token = 'exemplo de token';
     const user = { nome: 'Nome do user' };
-    const subscription = ['subscription'];
 
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
@@ -457,5 +458,12 @@ describe('test utils functions', () => {
       { a: 3, b: 2 },
       { a: 1, b: 3 },
     ]);
+  });
+
+  test('test hasThisFeature', () => {
+    localStorage.setItem('subscription', JSON.stringify(subscription));
+
+    expect(hasThisFeature('feed')).toBe(true);
+    expect(hasThisFeature('no-feature')).toBe(false);
   });
 });

@@ -80,7 +80,7 @@ const Button = ({
                 {iconLeft}
               </span>
             )}
-            {text}
+            <span className="text">{text}</span>
             {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
             {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
@@ -102,7 +102,7 @@ const Button = ({
                 {iconLeft}
               </span>
             )}
-            {text}
+            <span className="text">{text}</span>
             {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
             {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </button>
@@ -117,7 +117,7 @@ const Button = ({
                 {iconLeft}
               </span>
             )}
-            {text}
+            <span className="text">{text}</span>
             {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
             {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </Link>
@@ -140,7 +140,7 @@ const Button = ({
                 {iconLeft}
               </span>
             )}
-            {text}
+            <span className="text">{text}</span>
             {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
             {badge && <span className="btn-esolidar__badge">{badge}</span>}
           </a>

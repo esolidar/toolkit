@@ -15,7 +15,7 @@ const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => {
       <ProfileAvatar thumb={newThumb} name={newName} isNameBold thumbSize="md" />
       <div className="date-dropdown">
         <div className="date">
-          {formatDistance(new Date(comment.created_at), getToday(), {
+          {formatDistance(new Date(comment.created_at || comment.dateAdded), getToday(), {
             addSuffix: true,
             locale: getFNSDateLocale(intl.locale),
           })}

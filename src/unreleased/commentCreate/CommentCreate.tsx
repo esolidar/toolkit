@@ -20,6 +20,7 @@ const CommentCreate: FC<Props> = ({
   const handleSubmitComment = e => {
     e.preventDefault();
     onSubmitComment(comment);
+    setComment('');
   };
 
   const handleOnChange = e => {
