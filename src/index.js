@@ -66,7 +66,6 @@ export { default as ErrorBoundary } from './components/errorBoundary';
 export { default as supportedSection } from './components/supportedSection';
 export { default as UserMenu } from './components/userMenu';
 export { default as SupportBox } from './components/supportBox';
-export { default as NewPostBox } from './components/feed';
 export { default as Picture } from './components/picture';
 export { default as HeaderCompany } from './components/headerCompany';
 export { default as SwitchAccountsModal } from './components/switchAccountsModal';
