@@ -1,8 +1,8 @@
-import CommentCrowdfunding from '../../interfaces/commentCrowdfunding';
+import Comment from '../../interfaces/comment';
 import User from '../../interfaces/user.types';
 
 interface Props {
-  commentList: CommentCrowdfunding[];
+  commentList: Comment[];
   user: User;
   isLoggedIn?: boolean;
   toggleLoginModal?(): void;

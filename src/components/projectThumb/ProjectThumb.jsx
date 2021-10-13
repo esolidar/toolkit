@@ -35,8 +35,8 @@ const ProjectThumb = ({
   const thumbImage = project.cover ? project.cover : hasImages;
   const link =
     project.status === 'DRAFT'
-      ? `/${lang}/user/projects/edit/${project.id}`
-      : `/${lang}${url}${project.id}-${slugify(project.title)}${
+      ? `/${lang}/user${url}/edit/${project.id}`
+      : `/${lang}${url}/detail/${project.id}-${slugify(project.title)}${
           myProject ? `?owner=${myProject}` : ''
         }`;
 
@@ -53,8 +53,8 @@ const ProjectThumb = ({
   const editThumb = () => {
     window.location.href =
       project.status === 'DRAFT' || project.status === 'PENDING'
-        ? `/${lang}/user/projects/edit/${project.id}`
-        : `/${lang}/projects/detail/${project.id}-${slugify(project.title)}${
+        ? `/${lang}/user${url}/edit/${project.id}`
+        : `/${lang}${url}/detail/${project.id}-${slugify(project.title)}${
             myProject ? `?owner=${myProject}` : ''
           }`;
   };
@@ -212,7 +212,7 @@ ProjectThumb.propTypes = {
 
 ProjectThumb.defaultProps = {
   cols: 4,
-  url: '/projects/detail/',
+  url: '/projects',
 };
 
 export default ProjectThumb;
