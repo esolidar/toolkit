@@ -1,4 +1,7 @@
 .cardList {
+  display: flex;
+  flex-direction: column;
+
   &__content {
     margin-top: $distance-2;
 
@@ -8,5 +11,7 @@
   }
   &__button {
     justify-content: center;
+    align-self: center;
+    width: fit-content;
   }
 }
