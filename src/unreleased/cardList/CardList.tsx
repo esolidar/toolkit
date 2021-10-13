@@ -91,7 +91,7 @@ const CardList: FC<Props> = ({
   }, [list]);
 
   return (
-    <>
+    <div className="cardList">
       <Title title={title} subtitle={subtitle} />
       {cardList?.data.length > 0 ? (
         <Row className="cardList__content">
@@ -132,7 +132,7 @@ const CardList: FC<Props> = ({
           text={intl.formatMessage({ id: button.text || 'see.all' })}
         />
       )}
-    </>
+    </div>
   );
 };
 

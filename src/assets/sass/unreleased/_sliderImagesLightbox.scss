@@ -287,9 +287,10 @@ $slick-opacity-not-active: 0.25;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  margin-bottom: 60px;
 
   @media (max-width: map-get($breakpoints, xs)) {
-    margin-bottom: 0;
+    margin-bottom: 60px;
     display: grid;
 
     .slick-thumb {
