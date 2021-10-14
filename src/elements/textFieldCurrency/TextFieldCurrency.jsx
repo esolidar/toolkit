@@ -15,6 +15,33 @@ class TextFieldCurrency extends Component {
     }),
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.value !== this.props.value) {
+      this.updateState(
+        {
+          formattedValue: this.props.intl.formatNumber(this.props.value, {
+            style: 'currency',
+            currency: this.state.prefix,
+            minimumFractionDigits: this.props.decimalScale,
+            maximumFractionDigits: this.props.decimalScale,
+          }),
+          value: this.props.value
+            ? removeAllButLast(this.props.value.replace(/[^\d,.]/g, '').replace(',', '.'), '.')
+            : '',
+        },
+        () => {
+          const el = document.getElementById(this.props.id);
+          el.value = this.props.intl.formatNumber(this.props.value, {
+            style: 'currency',
+            currency: this.state.prefix,
+            minimumFractionDigits: this.props.decimalScale,
+            maximumFractionDigits: this.props.decimalScale,
+          });
+        }
+      );
+    }
+  }
+
   onChange = e => {
     e.persist();
     const el = e.target;
@@ -78,9 +105,13 @@ class TextFieldCurrency extends Component {
     );
   };
 
+  updateState = (state, callback) => {
+    this.setState(state, callback);
+  };
+
   render() {
     const { value, formattedValue } = this.state;
-    const { label, placeholder, className, disabled, error, message } = this.props;
+    const { label, placeholder, className, disabled, error, message, id } = this.props;
 
     const inputProps = {
       label,
@@ -94,6 +125,7 @@ class TextFieldCurrency extends Component {
       disabled,
       className,
       message,
+      id,
     };
 
     return <TextField {...inputProps} />;
@@ -102,7 +134,7 @@ class TextFieldCurrency extends Component {
 
 TextFieldCurrency.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  value: PropTypes.string,
   prefix: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
@@ -112,6 +144,7 @@ TextFieldCurrency.propTypes = {
   error: PropTypes.string,
   message: PropTypes.string,
   decimalScale: PropTypes.number,
+  id: PropTypes.string,
 };
 
 TextFieldCurrency.defaultProps = {

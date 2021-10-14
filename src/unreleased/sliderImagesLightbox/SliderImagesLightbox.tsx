@@ -135,14 +135,22 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
             key={image.id}
             className="open-lightbox"
           >
-            <img
-              data-testid="image"
-              src={`${
-                image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
-              }`}
-              style={{ width: '100%' }}
-              alt={image.image}
-            />
+            <div
+              style={{
+                backgroundImage: `url("${`${env.serverlessResizeImage}/${image.image}`}")`,
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <img
+                data-testid="image"
+                src={`${
+                  image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
+                }`}
+                style={{ width: '100%' }}
+                alt={image.image}
+              />
+            </div>
           </button>
         );
       });

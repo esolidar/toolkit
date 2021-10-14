@@ -9,7 +9,7 @@ interface Props {
   onClickToggleLoginModal?(): void;
   user?: User;
   responsesList?: PostResponses;
-  onClickDelete(id: number): void;
+  onClickDelete(commentId: number, id: number): void;
   profileAvatar: ProfileAvatar;
   isLoggedIn: boolean;
   isReply: boolean;

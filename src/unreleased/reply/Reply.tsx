@@ -36,7 +36,7 @@ const Reply: FC<Props> = ({
   return (
     <div className="component-comment">
       <CommentHeader
-        onClickDelete={() => onClickDelete(id)}
+        onClickDelete={() => onClickDelete(comment_id, id)}
         profileAvatar={profileAvatar}
         createdDate={created_at || dateAdded}
         isUserOwner={user_id === user.id}
