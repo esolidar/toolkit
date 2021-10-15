@@ -40,7 +40,7 @@ const Step2 = props => {
                   text={intl.formatMessage({ id: 'crowdfunding.donation.checkout.prev' })}
                 />
               </Col>
-              <Col sm={6} className="text-right">
+              <Col sm={6} className="d-flex justify-content-end">
                 <Button
                   extraClass="success-full btn-next-step"
                   onClick={() => props.nextStep(2)}

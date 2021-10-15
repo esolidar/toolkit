@@ -39,7 +39,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
         </Col>
       </Row>
       <Row>
-        <Col sm={5} md={4} className="mx-auto text-center">
+        <Col sm={5} md={4} className="mx-auto d-flex justify-content-center">
           <Button
             dataTestId="see-all-auctions"
             className="see-all-auctions"

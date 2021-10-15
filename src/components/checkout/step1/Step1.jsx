@@ -58,7 +58,7 @@ const Step1 = props => {
       {cartItems.length > 0 && (
         <Row>
           <Col sm={12} className="text-right">
-            <div className="box">
+            <div className="box d-flex justify-content-end">
               <Button
                 extraClass="success-full next-step"
                 onClick={() => nextStep(1)}

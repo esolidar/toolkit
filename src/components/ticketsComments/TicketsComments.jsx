@@ -103,7 +103,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
       {renderComments()}
       <Col sm={{ span: 6, offset: 3 }}>
         {ticketComments.length < total && (
-          <div className="text-center">
+          <div className="d-flex justify-content-center">
             <Button
               extraClass="dark"
               onClick={() => handlePageChange(activePage)}

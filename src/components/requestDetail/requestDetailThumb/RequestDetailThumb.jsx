@@ -105,7 +105,7 @@ const RequestDetailThumb = ({
         </Col>
         <Col sm={12}>
           {statusPivot === 'A' && (
-            <div className="pt-3 text-center">
+            <div className="pt-3 d-flex justify-content-center">
               <Button
                 extraClass={`info-full ${joinedStatus}`}
                 onClick={() => setShowModal(true)}
@@ -115,7 +115,7 @@ const RequestDetailThumb = ({
             </div>
           )}
           {request.pivot && statusPivot === 'A' && (
-            <div className="pt-3 text-center">
+            <div className="pt-3 d-flex justify-content-center">
               <Button
                 extraClass="dark"
                 onClick={() => onCloseRequest}
@@ -124,7 +124,7 @@ const RequestDetailThumb = ({
             </div>
           )}
           {request.pivot && statusPivot === 'F' && !request.pivot.review && (
-            <div className="pt-3 text-center">
+            <div className="pt-3 d-flex justify-content-center">
               <Button
                 extraClass="dark"
                 onClick={() => onReviewRequest}

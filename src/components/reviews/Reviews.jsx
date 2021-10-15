@@ -130,12 +130,13 @@ const Reviews = ({
                 <>
                   <div className="body">
                     {isDefined(userReview) && <p>{userReview.review}</p>}
-                    <Button
-                      extraClass="info"
-                      className="edit-button"
-                      onClick={onClickEdit}
-                      text={texts.editReviewButton}
-                    />
+                    <div className="d-flex justify-content-end">
+                      <Button
+                        extraClass="info"
+                        onClick={onClickEdit}
+                        text={texts.editReviewButton}
+                      />
+                    </div>
                   </div>
                 </>
               )}

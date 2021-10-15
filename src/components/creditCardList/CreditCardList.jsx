@@ -157,7 +157,7 @@ const CreditCardList = ({
           </>
           {showAddBtnCreditCard && (
             <li className="list-group-item">
-              <div className="text-right">
+              <div className="d-flex justify-content-end">
                 <Button
                   extraClass="link"
                   onClick={() => setShowCreditCardForm(!showCreditCardForm)}
