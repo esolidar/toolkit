@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import { removeAllButLast } from '../../utils/removeAllButLast';
+import isDefined from '../../utils/isDefined';
 import TextField from '../textField';
 
 class TextFieldCurrency extends Component {
@@ -31,12 +31,13 @@ class TextFieldCurrency extends Component {
         },
         () => {
           const el = document.getElementById(this.props.id);
-          el.value = this.props.intl.formatNumber(this.props.value, {
-            style: 'currency',
-            currency: this.state.prefix,
-            minimumFractionDigits: this.props.decimalScale,
-            maximumFractionDigits: this.props.decimalScale,
-          });
+          if (isDefined(el))
+            el.value = this.props.intl.formatNumber(this.props.value, {
+              style: 'currency',
+              currency: this.state.prefix,
+              minimumFractionDigits: this.props.decimalScale,
+              maximumFractionDigits: this.props.decimalScale,
+            });
         }
       );
     }

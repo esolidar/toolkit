@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634253607817" clover="3.2.0">
-  <project timestamp="1634253607817" name="All files">
-    <metrics statements="3457" coveredstatements="2341" conditionals="2937" coveredconditionals="1832" methods="923" coveredmethods="459" elements="7317" coveredelements="4632" complexity="0" loc="3457" ncloc="3457" packages="125" files="304" classes="304"/>
+<coverage generated="1634309094043" clover="3.2.0">
+  <project timestamp="1634309094044" name="All files">
+    <metrics statements="3458" coveredstatements="2341" conditionals="2939" coveredconditionals="1832" methods="923" coveredmethods="459" elements="7320" coveredelements="4632" complexity="0" loc="3458" ncloc="3458" packages="125" files="304" classes="304"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -1254,13 +1254,13 @@
       <file name="ContributeRow.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/ContributeRow.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="32" coveredconditionals="24" methods="1" coveredmethods="1"/>
         <line num="6" count="4" type="stmt"/>
-        <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="3" type="cond" truecount="2" falsecount="2"/>
-        <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
       </file>
       <file name="ContributesList.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/contributesListBox/ContributesList.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="15" coveredconditionals="13" methods="3" coveredmethods="3"/>
@@ -3748,49 +3748,50 @@
       </file>
     </package>
     <package name="src.elements.textFieldCurrency">
-      <metrics statements="40" coveredstatements="12" conditionals="12" coveredconditionals="1" methods="9" coveredmethods="1"/>
+      <metrics statements="41" coveredstatements="12" conditionals="14" coveredconditionals="1" methods="9" coveredmethods="1"/>
       <file name="TextFieldCurrency.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldCurrency/TextFieldCurrency.jsx">
-        <metrics statements="40" coveredstatements="12" conditionals="12" coveredconditionals="1" methods="9" coveredmethods="1"/>
+        <metrics statements="41" coveredstatements="12" conditionals="14" coveredconditionals="1" methods="9" coveredmethods="1"/>
         <line num="9" count="2" type="stmt"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="20" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
         <line num="69" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="73" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
-        <line num="80" count="2" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="108" count="2" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="113" count="2" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
         <line num="114" count="2" type="stmt"/>
-        <line num="116" count="2" type="stmt"/>
-        <line num="131" count="2" type="stmt"/>
-        <line num="135" count="1" type="stmt"/>
-        <line num="150" count="1" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="117" count="2" type="stmt"/>
+        <line num="132" count="2" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldCurrency/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4270,7 +4271,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="4" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
