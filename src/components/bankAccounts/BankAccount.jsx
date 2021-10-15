@@ -619,8 +619,10 @@ const BankAccount = ({
     }
     return (
       <Col sm={12} className="bank-account" data-testid="no-national-accounts">
-        <div className="box text-center no-bank-accounts">
-          <FormattedMessage id="bank.account.empty" />
+        <div className="box no-bank-accounts d-flex align-items-center flex-column">
+          <div>
+            <FormattedMessage id="bank.account.empty" />
+          </div>
           <br />
           <br />
           <Button
@@ -687,7 +689,7 @@ const BankAccount = ({
           <Col sm={12}>
             <hr />
           </Col>
-          <Col sm={12} className="text-right" data-testid="submit-button">
+          <Col sm={12} className="d-flex justify-content-end" data-testid="submit-button">
             <Button
               extraClass="success-full"
               onClick={handleSubmit}

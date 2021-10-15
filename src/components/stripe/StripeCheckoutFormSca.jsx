@@ -75,7 +75,7 @@ const StripeCheckoutFormSca = ({
         </label>
         {!!errors.cvc && <span className="help-block">{errors.cvc?.incomplete_cvc}</span>}
       </Col>
-      <Col sm={12} className="text-right mt-3">
+      <Col sm={12} className="d-flex justify-content-end mt-3">
         <Button
           disabled={disableButton}
           extraClass="success-full"
