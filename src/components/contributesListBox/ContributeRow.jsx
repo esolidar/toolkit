@@ -4,7 +4,8 @@ import Moment from 'react-moment';
 import { FormattedNumber, FormattedMessage } from 'react-intl';
 
 const ContributeRow = ({ contribute, env, currency }) => {
-  const contributorThumb = contribute.contributor ? contribute.contributor.thumbs.thumb : null;
+  const contributorThumb =
+    contribute?.contributor?.thumbs?.thumb || contribute?.contributor?.user?.thumbs.thumb;
   const userThumb =
     contribute.user && contribute.hidden === 0 ? contribute.user.thumbs.thumb : null;
   const contributorName = contribute.contributor ? contribute.contributor.name : null;
