@@ -199,17 +199,24 @@ $slick-opacity-not-active: 0.25;
     cursor: hand;
   }
 
-  img {
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-  }
-
   iframe {
     height: fit-content;
+  }
+
+  .slick-slide.slick-active.slick-current {
+    div > button > div {
+      background-size: cover;
+
+      img {
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        backdrop-filter: blur(50px);
+      }
+    }
   }
 }
 .slick-slider .slick-track,

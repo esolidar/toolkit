@@ -63,8 +63,7 @@ SliderOneImage.args = {
     {
       crowdfunding_id: 61,
       id: 159,
-      image:
-        'crowdfundings/1-4372bb2b-b9d7-44b6-b2da-ae0c6af81daf-c7c2c853-0853-4c96-8cac-1ae51da7f1c2.jpg',
+      image: 'companies/1/campaigns/756191e3-d684-44d9-ba0e-0b4f317ff0a6-DETAIL.jpeg',
     },
   ],
   env: {

@@ -45,7 +45,7 @@ const Survey = ({
               NotAtAllText={NotAtAllText}
               AbsolutelyText={AbsolutelyText}
             />
-            <div className="text-right">
+            <div className="d-flex justify-content-end">
               <Button
                 extraClass="primary-full"
                 text={SubmitSurveyText}
