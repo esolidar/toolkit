@@ -46,8 +46,8 @@ const CommentList: FC<Props> = ({
           onClickDelete={onClickDeleteComment}
           onSubmitComment={onSubmitComment}
           profileAvatar={{
-            thumb: comment.user.thumbs.thumb,
-            name: comment.user.name,
+            thumb: comment.user?.thumbs.thumb || comment.company?.thumbs.thumb,
+            name: comment.user?.name || comment.company?.name,
             thumbSize: 'md',
           }}
           user={user}
