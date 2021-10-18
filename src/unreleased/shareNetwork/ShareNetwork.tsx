@@ -13,7 +13,7 @@ const ShareNetwork: FC<Props> = ({
   windowLocationHref,
   blackIcons = false,
 }: Props): JSX.Element => {
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [classTooltip, setClassTooltip] = useState('');
   const intl = useIntl();
   const fbShare = () => {
     const url = `https://www.facebook.com/sharer/sharer.php?display=popup&u=${windowLocationHref}&quote=${title}`;
@@ -24,17 +24,17 @@ const ShareNetwork: FC<Props> = ({
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(windowLocationHref);
-    setShowTooltip(true);
+    setClassTooltip('show-opacity');
   };
 
   useEffect(() => {
-    const timeout = setInterval(() => {
-      if (showTooltip) {
-        setShowTooltip(false);
-      }
-    }, 500);
-    return () => clearInterval(timeout);
-  }, [showTooltip]);
+    if (classTooltip === 'show-opacity') {
+      const timeout = setInterval(() => {
+        setClassTooltip('hide-opacity');
+      }, 500);
+      return () => clearInterval(timeout);
+    }
+  }, [classTooltip]);
 
   return (
     <div className="share-network" data-testid="btn-share">
@@ -87,7 +87,7 @@ const ShareNetwork: FC<Props> = ({
           onClick={copyToClipboard}
         >
           <Icon iconClass="icon-link" />
-          <span className={`tooltiptext ${showTooltip ? 'show-opacity' : 'hide-opacity'}`}>
+          <span className={`tooltiptext ${classTooltip}`}>
             <FormattedMessage id="copied.link" />
           </span>
         </button>
