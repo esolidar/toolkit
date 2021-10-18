@@ -82,12 +82,13 @@ class TextFieldCurrency extends Component {
     const el = e.target;
     const { value, prefix } = this.state;
 
-    el.value = this.props.intl.formatNumber(value, {
-      style: 'currency',
-      currency: prefix,
-      minimumFractionDigits: this.props.decimalScale,
-      maximumFractionDigits: this.props.decimalScale,
-    });
+    if (isDefined(value) && value > 0)
+      el.value = this.props.intl.formatNumber(value, {
+        style: 'currency',
+        currency: prefix,
+        minimumFractionDigits: this.props.decimalScale,
+        maximumFractionDigits: this.props.decimalScale,
+      });
 
     this.setState(
       {

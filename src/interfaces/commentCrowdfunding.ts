@@ -1,9 +1,11 @@
 import User from './user.types';
+import Company from './company.types';
 
 interface CommentCrowdfunding {
   id: number;
   crowdfunding_id: number;
   user_id: number;
+  company?: Company;
   company_id?: number;
   comment_id?: number;
   comment: string;
