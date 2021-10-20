@@ -8,7 +8,7 @@ const SetPassword: FC<Props> = ({ type, onClickSend }: Props): JSX.Element => {
   const intl = useIntl();
   const [email, setEmail] = useState('');
 
-  const handleChangeEmail = ({ target }) => setEmail(target.value);
+  const handleChangeEmail = ({ target: { value } }) => setEmail(value);
 
   return (
     <div className="set-password">
@@ -19,7 +19,6 @@ const SetPassword: FC<Props> = ({ type, onClickSend }: Props): JSX.Element => {
           })}
         </h1>
       </div>
-
       <div className="set-password__form">
         <div className="set-password__form--description">
           <div>
