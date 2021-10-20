@@ -12,6 +12,12 @@
     font-weight: 700;
     color: map-get($base, black);
     margin-right: $distance-1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-title {
+    margin-right: $distance-3;
   }
 
   .modal-content {
