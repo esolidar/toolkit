@@ -23,6 +23,7 @@ export default {
     ...getFiles('src/unreleased', extensions, excludedExtensions),
     ...getFiles('src/hooks', extensions, excludedExtensions),
     ...getFiles('src/utils', extensions, excludedExtensions),
+    ...getFiles('src/user', extensions, excludedExtensions),
     ...getFiles('__mocks__', extensions, excludedExtensions),
     ...getFiles('__customQueries__', extensions, excludedExtensions),
   ],

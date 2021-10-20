@@ -30,6 +30,7 @@ const CustomModal = ({
   subtitleClassName,
   title,
   titleClassName,
+  iconTitle,
 }) => {
   const border = '1px solid #dee2e6';
 
@@ -68,6 +69,9 @@ const CustomModal = ({
         >
           <Modal.Title>
             <span className={`custom-modal__title${titleClassName}`} data-testid="title">
+              {iconTitle && (
+                <img className="custom-modal__icon-title" src={iconTitle} alt={title} />
+              )}
               {title}
             </span>
             <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
@@ -118,6 +122,7 @@ CustomModal.propTypes = {
   subtitleClassName: PropTypes.string,
   title: PropTypes.string,
   titleClassName: PropTypes.string,
+  iconTitle: PropTypes.string,
 };
 
 CustomModal.defaultProps = {
