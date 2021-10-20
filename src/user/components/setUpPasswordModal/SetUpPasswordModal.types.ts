@@ -1,5 +1,5 @@
 interface Props {
-  showModal: Boolean;
+  showModal: boolean;
   buttonUrl: string;
   cdnStaticUrl: string;
 }

@@ -6,20 +6,16 @@ export default {
   title: 'User/Components/SetUpPasswordModal',
   component: SetUpPasswordModal,
   parameters: {
-    jest: ['SetUpPasswordModal.test.tsx'],
+    jest: ['SetUpPasswordModal.test.js'],
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div>
-    <SetUpPasswordModal {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => <SetUpPasswordModal {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   showModal: true,
-  buttonUrl: '/auth/set-password',
+  buttonUrl: '/set-password',
   cdnStaticUrl: 'https://static.esolidar.com',
 };
