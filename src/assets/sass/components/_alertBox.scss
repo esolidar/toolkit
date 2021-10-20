@@ -1,0 +1,56 @@
+.alertBox {
+  width: 100%;
+  position: relative;
+  padding: $distance-2 $distance-2 $distance-2 52px;
+
+  i {
+    position: absolute;
+    left: 19px;
+    top: 19px;
+    font-size: 18px;
+  }
+
+  p {
+    color: map-get($main-text-colors, title);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: $distance-1;
+  }
+
+  span {
+    color: map-get($main-text-colors, title);
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  &__info {
+    background-color: map-get($blue, 0);
+
+    i {
+      color: map-get($neutrals, 700);
+    }
+  }
+  &__success {
+    background-color: map-get($positive, 0);
+
+    i {
+      color: map-get($positive, 500);
+    }
+  }
+  &__warning {
+    background-color: map-get($warning, 0);
+
+    i {
+      color: map-get($golden-tainoi, 500);
+    }
+  }
+
+  &__danger {
+    background-color: map-get($negative, 0);
+
+    i {
+      color: map-get($negative, 500);
+    }
+  }
+}
