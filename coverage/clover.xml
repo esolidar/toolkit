@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634806861591" clover="3.2.0">
-  <project timestamp="1634806861592" name="All files">
+<coverage generated="1634807792719" clover="3.2.0">
+  <project timestamp="1634807792720" name="All files">
     <metrics statements="3516" coveredstatements="2383" conditionals="2980" coveredconditionals="1856" methods="938" coveredmethods="466" elements="7434" coveredelements="4705" complexity="0" loc="3516" ncloc="3516" packages="128" files="311" classes="311"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
@@ -3896,10 +3896,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="44" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="13" type="stmt"/>
-        <line num="17" count="34" type="stmt"/>
-        <line num="19" count="34" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="19" count="31" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.card">
@@ -4261,8 +4261,8 @@
         <line num="80" count="10" type="stmt"/>
         <line num="81" count="10" type="stmt"/>
         <line num="83" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="10" type="stmt"/>
-        <line num="85" count="10" type="stmt"/>
+        <line num="84" count="14" type="stmt"/>
+        <line num="85" count="14" type="stmt"/>
         <line num="88" count="16" type="stmt"/>
         <line num="90" count="16" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="16" type="cond" truecount="4" falsecount="0"/>
@@ -4298,7 +4298,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="10" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>

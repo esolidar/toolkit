@@ -21,7 +21,7 @@ interface Actions {
 interface Props {
   company: string;
   actions: Actions;
-  type: 'set' | 'recover';
+  type?: 'set' | 'recover';
   userId: number;
   code: number;
 }

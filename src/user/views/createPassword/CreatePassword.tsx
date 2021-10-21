@@ -18,7 +18,7 @@ const CreatePassword: FC<Props> = ({
   type = 'recover',
 }: Props): JSX.Element => {
   const [errors, setErrors] = useState<Form>({});
-  const [disabledButton, setDisabledButton] = useState(true);
+  const [disabledButton, setDisabledButton] = useState<boolean>(true);
   const [form, setForm] = useState<Form>({
     password: '',
     confirmPassword: '',
@@ -26,19 +26,19 @@ const CreatePassword: FC<Props> = ({
 
   const intl = useIntl();
 
-  const handleChange = e => {
+  const handleChange = ({ target: { value, name } }: React.ChangeEvent<HTMLInputElement>) => {
     const frm = clone(form);
-    frm[e.target.name] = e.target.value;
+    frm[name] = value;
 
     setForm(frm);
   };
 
-  const handleBlur = ({ target }) => {
+  const handleBlur = ({ target: { value, name } }: React.ChangeEvent<HTMLInputElement>) => {
     const frm = clone(errors);
-    if (target.value.length < 6) {
-      frm[target.name] = intl.formatMessage({ id: 'user.register.error.Min_6' });
+    if (value.length < 6) {
+      frm[name] = intl.formatMessage({ id: 'user.register.error.Min_6' });
     } else {
-      frm[target.name] = '';
+      frm[name] = '';
     }
     setErrors(frm);
   };
