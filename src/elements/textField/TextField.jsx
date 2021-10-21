@@ -36,9 +36,14 @@ const TextField = ({
     className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
   >
     {label && (
-      <InputLabel field={id || field} label={label} showOptionalLabel={showOptionalLabel} />
+      <InputLabel
+        field={id || field}
+        label={label}
+        showOptionalLabel={showOptionalLabel}
+        help={help}
+        style={help ? { marginBottom: 0 } : {}}
+      />
     )}
-    {help && <p className="help">{help}</p>}
     {!children && (
       <div className="input">
         {leftIcon?.show && (
