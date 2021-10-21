@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { Row, Col } from 'react-bootstrap';
 import PasswordField from '../../../elements/passwordField';
 import Button from '../../../elements/button';
 import clone from '../../../utils/clone';
@@ -82,25 +81,21 @@ const CreatePassword: FC<Props> = ({
 
   return (
     <div className="create-password">
-      <div className="create-password__header">
-        <Row>
-          <Col sm={12} className="text-center">
-            <h1>
-              {intl.formatMessage({
-                id: type === 'set' ? 'user.createPassword.title' : 'user.recoverPassword.title',
-              })}
-            </h1>
-          </Col>
-        </Row>
+      <div className="create-password__title">
+        <h1>
+          {intl.formatMessage({
+            id: type === 'set' ? 'user.createPassword.title' : 'user.recoverPassword.title',
+          })}
+        </h1>
       </div>
-      <div className="create-password__body">
-        <div className="create-password__body__subtitle">
+      <div className="create-password__form">
+        <div className="create-password__form__description">
           {type === 'set' && (
             <FormattedMessage id="user.createPassword.subtitle" values={{ company }} />
           )}
           {type === 'recover' && <FormattedMessage id="user.recoverPassword.subtitle" />}
         </div>
-        <div>
+        <div className="create-password__form__input">
           <PasswordField
             label={intl.formatMessage({ id: 'user.createPassword.new.password' })}
             onChange={handleChange}
@@ -110,8 +105,7 @@ const CreatePassword: FC<Props> = ({
             field="password"
             id="password"
           />
-        </div>
-        <div>
+
           <PasswordField
             label={intl.formatMessage({ id: 'user.createPassword.confirm.new.password' })}
             onChange={handleChange}
@@ -122,16 +116,14 @@ const CreatePassword: FC<Props> = ({
             id="confirmPassword"
           />
         </div>
-        <div className="d-flex justify-content-center">
-          <Button
-            extraClass="success-full"
-            onClick={handleSubmit}
-            disabled={disabledButton}
-            text={intl.formatMessage({
-              id: type === 'set' ? 'save' : 'user.recoverPassword.update',
-            })}
-          />
-        </div>
+        <Button
+          extraClass="success-full"
+          onClick={handleSubmit}
+          disabled={disabledButton}
+          text={intl.formatMessage({
+            id: type === 'set' ? 'save' : 'user.recoverPassword.update',
+          })}
+        />
       </div>
     </div>
   );
