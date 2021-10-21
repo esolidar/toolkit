@@ -7,7 +7,8 @@ interface Props {
   showPassword?: boolean;
   help?: string;
   dataTestId?: string;
-  onChange: () => void;
+  onChange(e: any): void;
+  onBlur?(e: any): void;
 }
 
 export default Props;

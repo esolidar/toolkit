@@ -1,11 +1,12 @@
 .form-group {
   position: relative;
+  margin-bottom: $distance-4;
 
   .help {
     font-size: 13px;
     color: map-get($main-text-colors, dark);
     line-height: 19px;
-    margin-bottom: 0.5rem;
+    margin-bottom: $distance-2;
     letter-spacing: 0;
     display: block;
   }
@@ -61,13 +62,13 @@
   }
 
   .control-label {
-    font-size: 12px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 19px;
-    color: map-get($input, label-color);
-    text-transform: uppercase;
+    color: map-get($base, 'black');
     letter-spacing: 0;
     display: block;
+    margin-bottom: $distance-2;
   }
 
   &.required {

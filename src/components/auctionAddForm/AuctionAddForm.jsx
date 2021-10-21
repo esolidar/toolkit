@@ -679,10 +679,9 @@ const AuctionAddForm = ({
                       <InputLabel
                         label={intl.formatMessage({ id: 'auction.tags' })}
                         showOptionalLabel={true}
+                        help={<FormattedMessage id="auction.tags.help" />}
+                        style={{ marginBottom: 0 }}
                       />
-                      <p className="help">
-                        <FormattedMessage id="auction.tags.help" />
-                      </p>
                       <ReactTags
                         tags={form.tagsArray}
                         handleInputBlur={handleAddition}
