@@ -8,12 +8,6 @@ export default {
   parameters: {
     jest: ['CheckEmail.test.js'],
   },
-  argTypes: {
-    type: {
-      options: ['set', 'recover'],
-      control: { type: 'radio' },
-    },
-  },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => <CheckEmail {...args} />;
