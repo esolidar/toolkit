@@ -30,7 +30,10 @@ const SetPassword: FC<Props> = ({
   const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
     setEmail(value);
 
-  const handleSubmit = () => postRecoverPassword({ email, origin });
+  const handleSubmit = () => {
+    setError('');
+    postRecoverPassword({ email, origin });
+  };
 
   return (
     <div className="set-password">
