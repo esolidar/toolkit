@@ -31,7 +31,7 @@ it('renders ProgressBar crowdfunding', () => {
   expect(getByTestId('goal-label')).toBeInTheDocument();
   expect(getByText('0 donors')).toBeInTheDocument();
   expect(getByClass('time-left')).toBeInTheDocument();
-  expect(getByText('Starts in 1 day')).toBeInTheDocument();
+  expect(getByClass('countdown-days-left-values')).toBeInTheDocument();
 });
 
 it('renders ProgressBar Minimal', () => {

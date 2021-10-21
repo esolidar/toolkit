@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "3.55.0",
+  "version": "3.56.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -218,6 +218,7 @@
     "terser-webpack-plugin": "^5.1.1",
     "ts-loader": "^8.0.16",
     "typescript": "^4.3.5",
+    "validator": "^13.6.0",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "xlsx": "^0.17.0"
