@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface Props {
   id: string;
   label: string;
@@ -7,7 +9,8 @@ interface Props {
   showPassword?: boolean;
   help?: string;
   dataTestId?: string;
-  onChange: () => void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
+  onBlur?(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export default Props;

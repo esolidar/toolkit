@@ -54,8 +54,15 @@ const TextareaField = ({
         className
       )}
     >
-      {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
-      {help && <p className="help">{help}</p>}
+      {label && (
+        <InputLabel
+          field={field}
+          label={label}
+          showOptionalLabel={showOptionalLabel}
+          help={help}
+          style={help ? { marginBottom: 0 } : {}}
+        />
+      )}
       <textarea
         id={id || field}
         disabled={disabled}
