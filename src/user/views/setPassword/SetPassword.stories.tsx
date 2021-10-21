@@ -35,6 +35,7 @@ Set.args = {
 
 Reset.args = {
   type: 'reset',
+  origin: 'esolidar',
   onSuccess: () => {},
   actions: {
     postRecoverPassword: () => {},

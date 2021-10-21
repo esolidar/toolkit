@@ -23,7 +23,7 @@ const SetPassword: FC<Props> = ({
 
     const { code, data } = recoverPassword;
 
-    if (code === 200) onSuccess();
+    if (code === 200) onSuccess(email);
     else if (code === 400) setError(data[0].message);
   }, [recoverPassword]);
 
