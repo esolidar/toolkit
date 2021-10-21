@@ -1,14 +1,36 @@
-import React, { FC, useState } from 'react';
-import { useIntl } from 'react-intl';
+import React, { FC, useState, useEffect } from 'react';
+import { useIntl, IntlShape } from 'react-intl';
+import Validator from 'validator';
+import isEmpty from '../../../utils/isEmpty';
 import TextField from '../../../elements/textField';
 import Button from '../../../elements/button';
 import Props from './SetPassword.types';
 
-const SetPassword: FC<Props> = ({ type, onClickSend }: Props): JSX.Element => {
-  const intl = useIntl();
-  const [email, setEmail] = useState('');
+const SetPassword: FC<Props> = ({
+  type,
+  origin,
+  onSuccess,
+  actions: { postRecoverPassword },
+  reducers: { recoverPassword },
+}: Props): JSX.Element => {
+  const intl: IntlShape = useIntl();
 
-  const handleChangeEmail = ({ target: { value } }) => setEmail(value);
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+    if (isEmpty(recoverPassword)) return;
+
+    const { code, data } = recoverPassword;
+
+    if (code === 200) onSuccess();
+    else if (code === 400) setError(data[0].message);
+  }, [recoverPassword]);
+
+  const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
+    setEmail(value);
+
+  const handleSubmit = () => postRecoverPassword({ email, origin });
 
   return (
     <div className="set-password">
@@ -44,12 +66,13 @@ const SetPassword: FC<Props> = ({ type, onClickSend }: Props): JSX.Element => {
           label={intl.formatMessage({ id: 'user.setPassword.set.email' })}
           value={email}
           onChange={handleChangeEmail}
+          error={error}
         />
         <Button
           extraClass="primary-full"
           text={intl.formatMessage({ id: 'user.setPassword.set.send' })}
-          onClick={() => onClickSend(email)}
-          disabled={email === ''}
+          onClick={handleSubmit}
+          disabled={!Validator.isEmail(email)}
         />
       </div>
     </div>

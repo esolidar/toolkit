@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634750686184" clover="3.2.0">
-  <project timestamp="1634750686184" name="All files">
-    <metrics statements="3490" coveredstatements="2368" conditionals="2961" coveredconditionals="1847" methods="933" coveredmethods="464" elements="7384" coveredelements="4679" complexity="0" loc="3490" ncloc="3490" packages="128" files="310" classes="310"/>
+<coverage generated="1634809930402" clover="3.2.0">
+  <project timestamp="1634809930402" name="All files">
+    <metrics statements="3495" coveredstatements="2372" conditionals="2967" coveredconditionals="1848" methods="936" coveredmethods="465" elements="7398" coveredelements="4685" complexity="0" loc="3495" ncloc="3495" packages="128" files="310" classes="310"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="3" count="207" type="stmt"/>
+        <line num="3" count="208" type="stmt"/>
         <line num="5" count="44" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="44" type="stmt"/>
@@ -4572,25 +4572,30 @@
       </file>
     </package>
     <package name="src.user.views.setPassword">
-      <metrics statements="13" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="2"/>
+      <metrics statements="18" coveredstatements="14" conditionals="12" coveredconditionals="7" methods="9" coveredmethods="3"/>
       <file name="SetPassword.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/setPassword/SetPassword.stories.tsx">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
       </file>
       <file name="SetPassword.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/setPassword/SetPassword.tsx">
-        <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <metrics statements="13" coveredstatements="9" conditionals="12" coveredconditionals="7" methods="4" coveredmethods="2"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">
@@ -4752,7 +4757,7 @@
       </file>
       <file name="isEmpty.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="200" type="stmt"/>
+        <line num="1" count="202" type="stmt"/>
       </file>
       <file name="isObject.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isObject.js">
         <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>

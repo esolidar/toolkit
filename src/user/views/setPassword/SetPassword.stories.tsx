@@ -8,6 +8,12 @@ export default {
   parameters: {
     jest: ['SetPassword.test.js'],
   },
+  argTypes: {
+    type: {
+      options: ['set', 'reset'],
+      control: { type: 'radio' },
+    },
+  },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => <SetPassword {...args} />;
@@ -17,10 +23,23 @@ export const Reset: Story<Props> = Template.bind({});
 
 Set.args = {
   type: 'set',
-  onClickSend: email => alert(`Sending email: ${email}`),
+  origin: 'esolidar',
+  onSuccess: () => {},
+  actions: {
+    postRecoverPassword: () => {},
+  },
+  reducers: {
+    recoverPassword: {},
+  },
 };
 
 Reset.args = {
   type: 'reset',
-  onClickSend: email => alert(`Sending email: ${email}`),
+  onSuccess: () => {},
+  actions: {
+    postRecoverPassword: () => {},
+  },
+  reducers: {
+    recoverPassword: {},
+  },
 };
