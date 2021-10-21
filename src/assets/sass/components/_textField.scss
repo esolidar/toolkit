@@ -62,7 +62,7 @@
   }
 
   .control-label {
-    font-size: 16px;
+    font-size: $distance-2;
     font-weight: 600;
     line-height: 19px;
     color: map-get($base, 'black');
