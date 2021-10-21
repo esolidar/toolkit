@@ -23,14 +23,17 @@ const SetPassword: FC<Props> = ({
 
     const { code, data } = recoverPassword;
 
-    if (code === 200) onSuccess();
+    if (code === 200) onSuccess(email);
     else if (code === 400) setError(data[0].message);
   }, [recoverPassword]);
 
   const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
     setEmail(value);
 
-  const handleSubmit = () => postRecoverPassword({ email, origin });
+  const handleSubmit = () => {
+    setError('');
+    postRecoverPassword({ email, origin });
+  };
 
   return (
     <div className="set-password">

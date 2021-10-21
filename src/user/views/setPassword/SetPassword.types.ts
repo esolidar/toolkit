@@ -14,7 +14,7 @@ interface Reducers {
 interface Props {
   type: 'set' | 'reset';
   origin: 'esolidar' | 'whitelabel';
-  onSuccess(): void;
+  onSuccess(email: string): void;
   actions: Actions;
   reducers: Reducers;
 }
