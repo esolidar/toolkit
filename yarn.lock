@@ -13944,6 +13944,13 @@ react-tiny-virtual-list@^2.1.4:
   dependencies:
     prop-types "^15.5.7"
 
+react-toggle@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/react-toggle/-/react-toggle-4.1.2.tgz#b00500832f925ad524356d909821821ae39f6c52"
+  integrity sha512-4Ohw31TuYQdhWfA6qlKafeXx3IOH7t4ZHhmRdwsm1fQREwOBGxJT+I22sgHqR/w8JRdk+AeMCJXPImEFSrNXow==
+  dependencies:
+    classnames "^2.2.5"
+
 react-tooltip@^4.2.5:
   version "4.2.19"
   resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.2.19.tgz#a865fffdb62154c6079bcb273e238de6b3c57366"
