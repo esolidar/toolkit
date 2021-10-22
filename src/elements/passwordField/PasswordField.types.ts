@@ -11,6 +11,7 @@ interface Props {
   dataTestId?: string;
   onChange(e: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(e: React.ChangeEvent<HTMLInputElement>): void;
+  style?: object;
 }
 
 export default Props;

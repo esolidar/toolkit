@@ -31,9 +31,15 @@ const TextField = ({
   showOptionalLabel,
   leftIcon,
   rightIcon,
+  password,
 }) => (
   <div
-    className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
+    className={classnames(
+      { 'form-group': !password },
+      { 'has-error': error || message },
+      { required },
+      className
+    )}
   >
     {label && (
       <InputLabel
@@ -117,6 +123,7 @@ TextField.propTypes = {
   inputRef: PropTypes.object,
   children: PropTypes.node,
   showOptionalLabel: PropTypes.bool,
+  password: PropTypes.bool,
   leftIcon: PropTypes.shape({
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func,
