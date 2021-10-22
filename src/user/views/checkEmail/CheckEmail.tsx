@@ -29,23 +29,21 @@ const CheckEmail: FC<Props> = ({ email, actions }: Props): JSX.Element => {
               <FormattedMessage id="user.checkEmail.subtitle2" />
             </div>
           </div>
-          <div className="form-group set-password__form--email-input">
-            <div className="d-flex justify-content-between">
-              <Button
-                extraClass="link"
-                onClick={actions.handleChangeEmail}
-                text={intl.formatMessage({
-                  id: 'user.checkEmail.change.email',
-                })}
-              />
-              <Button
-                extraClass="link"
-                onClick={() => setShowModal(true)}
-                text={intl.formatMessage({
-                  id: 'user.checkEmail.resend',
-                })}
-              />
-            </div>
+          <div className="form-group set-password__form--email-input-link">
+            <Button
+              extraClass="link"
+              onClick={actions.handleChangeEmail}
+              text={intl.formatMessage({
+                id: 'user.checkEmail.change.email',
+              })}
+            />
+            <Button
+              extraClass="link"
+              onClick={() => setShowModal(true)}
+              text={intl.formatMessage({
+                id: 'user.checkEmail.resend',
+              })}
+            />
           </div>
         </div>
       </div>

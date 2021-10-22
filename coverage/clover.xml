@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634901119625" clover="3.2.0">
-  <project timestamp="1634901119626" name="All files">
+<coverage generated="1634903072328" clover="3.2.0">
+  <project timestamp="1634903072329" name="All files">
     <metrics statements="3561" coveredstatements="2406" conditionals="2993" coveredconditionals="1860" methods="957" coveredmethods="472" elements="7511" coveredelements="4738" complexity="0" loc="3561" ncloc="3561" packages="131" files="318" classes="318"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
@@ -4611,7 +4611,7 @@
         <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.user.views.createPassword">
