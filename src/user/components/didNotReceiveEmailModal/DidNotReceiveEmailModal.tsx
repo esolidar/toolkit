@@ -8,6 +8,7 @@ const SetUpPasswordModal: FC<Props> = ({
   buttonUrl,
   showModal,
   handleCloseModal,
+  handleResendEmail,
 }: Props): JSX.Element => {
   const intl = useIntl();
   return (
@@ -42,8 +43,8 @@ const SetUpPasswordModal: FC<Props> = ({
                     a: (
                       <Button
                         extraClass="link"
-                        onClick={buttonUrl}
-                        text={intl.formatMessage({ id: 'user.didNotReceiveEmailModal.text.3.a' })}
+                        onClick={handleResendEmail}
+                        text={intl.formatMessage({ id: 'user.didNotReceiveEmailModal.text.4.a' })}
                       />
                     ),
                   }}

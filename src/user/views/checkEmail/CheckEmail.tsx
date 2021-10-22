@@ -51,6 +51,7 @@ const CheckEmail: FC<Props> = ({ email, actions }: Props): JSX.Element => {
         showModal={showModal}
         buttonUrl={actions.handleChangeEmail}
         handleCloseModal={handleCloseModal}
+        handleResendEmail={actions.handleResendEmail}
       />
     </>
   );

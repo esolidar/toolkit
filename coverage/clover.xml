@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634903072328" clover="3.2.0">
-  <project timestamp="1634903072329" name="All files">
-    <metrics statements="3561" coveredstatements="2406" conditionals="2993" coveredconditionals="1860" methods="957" coveredmethods="472" elements="7511" coveredelements="4738" complexity="0" loc="3561" ncloc="3561" packages="131" files="318" classes="318"/>
+<coverage generated="1634910364946" clover="3.2.0">
+  <project timestamp="1634910364947" name="All files">
+    <metrics statements="3561" coveredstatements="2406" conditionals="2993" coveredconditionals="1860" methods="958" coveredmethods="472" elements="7512" coveredelements="4738" complexity="0" loc="3561" ncloc="3561" packages="131" files="318" classes="318"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -4298,7 +4298,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="9" type="stmt"/>
+        <line num="154" count="14" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4562,9 +4562,9 @@
       </file>
     </package>
     <package name="src.user.components.didNotReceiveEmailModal">
-      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
       <file name="DidNotReceiveEmailModal.stories.tsx" path="C:\Projects\toolkit\src\user\components\didNotReceiveEmailModal\DidNotReceiveEmailModal.stories.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
@@ -4572,8 +4572,8 @@
       <file name="DidNotReceiveEmailModal.tsx" path="C:\Projects\toolkit\src\user\components\didNotReceiveEmailModal\DidNotReceiveEmailModal.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\user\components\didNotReceiveEmailModal\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

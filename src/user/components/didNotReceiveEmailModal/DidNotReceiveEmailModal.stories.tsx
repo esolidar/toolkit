@@ -18,4 +18,5 @@ Default.args = {
   showModal: true,
   buttonUrl: () => {},
   handleCloseModal: () => {},
+  handleResendEmail: () => {},
 };
