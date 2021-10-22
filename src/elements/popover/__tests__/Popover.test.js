@@ -9,7 +9,7 @@ const WithHeader = composeStory(WithHeaderStory, Meta);
 it('renders Popover default', () => {
   const { getByTestId, getByText, getByClass } = render(<Default />);
 
-  expect(getByClass(/popover/)).toBeInTheDocument();
+  expect(getByClass(/popover-component/)).toBeInTheDocument();
   expect(getByText('Joel Calheiros')).toBeInTheDocument();
   fireEvent.mouseOver(getByText('Joel Calheiros'));
   expect(getByTestId('bootstrap-popover')).toBeInTheDocument();
@@ -21,7 +21,7 @@ it('renders Popover default', () => {
 it('renders Popover WithHeader', () => {
   const { getByTestId, getByText, getByClass } = render(<WithHeader />);
 
-  expect(getByClass(/popover/)).toBeInTheDocument();
+  expect(getByClass(/popover-component/)).toBeInTheDocument();
   expect(getByText('Joel Calheiros')).toBeInTheDocument();
   fireEvent.mouseOver(getByText('Joel Calheiros'));
   expect(getByTestId('bootstrap-popover')).toBeInTheDocument();
