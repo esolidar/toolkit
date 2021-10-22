@@ -33,9 +33,7 @@ UnChecked.args = {
   isChecked: false,
   name: 'toggle',
   value: 'A',
-  onChange: e => {
-    alert(e.target.name);
-  },
+  onChange: () => {},
 };
 
 Disable.args = {
