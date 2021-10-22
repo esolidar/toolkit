@@ -12,15 +12,43 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="w-25 mt-5">
+  <div className="mt-5">
     <Toggle {...args} />
   </div>
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const UnChecked: Story<Props> = Template.bind({});
+export const Disable: Story<Props> = Template.bind({});
+export const WithIcons: Story<Props> = Template.bind({});
 
 Default.args = {
   isChecked: true,
-  status: true,
+  name: 'toggle',
+  value: 'A',
   onChange: () => {},
+};
+
+UnChecked.args = {
+  isChecked: false,
+  name: 'toggle',
+  value: 'A',
+  onChange: () => {},
+};
+
+Disable.args = {
+  isChecked: false,
+  name: 'toggle',
+  value: 'A',
+  onChange: () => {},
+  disabled: true,
+};
+
+WithIcons.args = {
+  isChecked: false,
+  hasIcons: true,
+  name: 'toggle',
+  value: 'A',
+  onChange: () => {},
+  disabled: true,
 };
