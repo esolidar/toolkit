@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classNames from 'classnames';
 import Toggle from 'react-toggle';
 import Props from './Toggle.types';
 
@@ -11,8 +12,10 @@ const Toogle: FC<Props> = ({
   onChange,
   disabled,
 }: Props): JSX.Element => {
+  const classes = classNames('toggle', className);
+
   return (
-    <div className={className}>
+    <div className={classes}>
       <Toggle
         defaultChecked={isChecked}
         icons={hasIcons}
