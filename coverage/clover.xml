@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634915257377" clover="3.2.0">
-  <project timestamp="1634915257380" name="All files">
-    <metrics statements="3571" coveredstatements="2422" conditionals="2997" coveredconditionals="1865" methods="960" coveredmethods="475" elements="7528" coveredelements="4762" complexity="0" loc="3571" ncloc="3571" packages="132" files="320" classes="320"/>
+<coverage generated="1634918303403" clover="3.2.0">
+  <project timestamp="1634918303404" name="All files">
+    <metrics statements="3584" coveredstatements="2429" conditionals="3000" coveredconditionals="1864" methods="966" coveredmethods="476" elements="7550" coveredelements="4769" complexity="0" loc="3584" ncloc="3584" packages="133" files="322" classes="322"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="3" count="215" type="stmt"/>
-        <line num="5" count="48" type="stmt"/>
+        <line num="3" count="221" type="stmt"/>
+        <line num="5" count="49" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="48" type="stmt"/>
+        <line num="7" count="49" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="48" type="stmt"/>
+        <line num="10" count="49" type="stmt"/>
       </file>
       <file name="queryById.js" path="C:\Projects\toolkit\__customQueries__\queryById.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="3" count="48" type="stmt"/>
-        <line num="5" count="48" type="stmt"/>
+        <line num="3" count="49" type="stmt"/>
+        <line num="5" count="49" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="7" count="48" type="stmt"/>
+        <line num="7" count="49" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="10" count="48" type="stmt"/>
+        <line num="10" count="49" type="stmt"/>
       </file>
       <file name="test-utils.js" path="C:\Projects\toolkit\__customQueries__\test-utils.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="8" count="48" type="stmt"/>
-        <line num="10" count="48" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="48" type="stmt"/>
-        <line num="16" count="48" type="stmt"/>
-        <line num="17" count="146" type="stmt"/>
+        <line num="8" count="49" type="stmt"/>
+        <line num="10" count="49" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="49" type="stmt"/>
+        <line num="16" count="49" type="stmt"/>
+        <line num="17" count="151" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -3886,25 +3886,47 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="8" count="20" type="stmt"/>
         <line num="32" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="30" type="stmt"/>
-        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="3" type="stmt"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="47" count="37" type="stmt"/>
         <line num="89" count="20" type="stmt"/>
         <line num="114" count="20" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\textareaField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.elements.toogle">
+      <metrics statements="13" coveredstatements="13" conditionals="3" coveredconditionals="2" methods="6" coveredmethods="2"/>
+      <file name="Toggle.stories.tsx" path="C:\Projects\toolkit\src\elements\toogle\Toggle.stories.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+      <file name="Toggle.tsx" path="C:\Projects\toolkit\src\elements\toogle\Toggle.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.hooks">
@@ -4317,7 +4339,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="14" type="stmt"/>
+        <line num="154" count="19" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4871,7 +4893,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="81" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
