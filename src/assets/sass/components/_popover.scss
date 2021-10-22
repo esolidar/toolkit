@@ -2,6 +2,7 @@
   padding: $distance-2;
   border-color: map-get($base, black);
   min-width: 280px;
+  border-radius: 0px;
 
   header {
     padding-bottom: $distance-1;
