@@ -11,8 +11,9 @@ const Toggle: FC<Props> = ({
   value,
   onChange,
   disabled = false,
+  isNeutral = false,
 }: Props): JSX.Element => {
-  const classes = classNames('toggle', className);
+  const classes = classNames('toggle', className, isNeutral && `toggle__neutral`);
 
   return (
     <div className={classes}>
