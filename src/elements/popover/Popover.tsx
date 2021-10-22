@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+import BootstrapPopover from 'react-bootstrap/Popover';
 
 import Props from './Popover.types';
 
-const PopoverC: FC<Props> = ({
+const Popover: FC<Props> = ({
   placement = 'top',
   trigger = ['hover', 'focus'],
   popoverHeaderChildren,
@@ -12,16 +12,16 @@ const PopoverC: FC<Props> = ({
   triggerChildren,
 }: Props): JSX.Element => {
   const popover = (
-    <Popover id="popoverComponent" data-testid="popoverComponent">
+    <BootstrapPopover id="bootstrap-popover" data-testid="bootstrap-popover">
       {popoverHeaderChildren && (
-        <header data-testid="popoverComponent-header">{popoverHeaderChildren}</header>
+        <header data-testid="bootstrap-popover-header">{popoverHeaderChildren}</header>
       )}
-      <body data-testid="popoverComponent-body">{popoverBodyChildren}</body>
-    </Popover>
+      <body data-testid="bootstrap-popover-body">{popoverBodyChildren}</body>
+    </BootstrapPopover>
   );
 
   return (
-    <div className="popoverOverlayTrigger">
+    <div className="popover">
       <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
         <span>{triggerChildren}</span>
       </OverlayTrigger>
@@ -29,4 +29,4 @@ const PopoverC: FC<Props> = ({
   );
 };
 
-export default PopoverC;
+export default Popover;

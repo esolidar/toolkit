@@ -9,11 +9,11 @@ const WithHeader = composeStory(WithHeaderStory, Meta);
 it('renders Popover default', () => {
   const { getByTestId, getByText, getByClass } = render(<Default />);
 
-  expect(getByClass(/popoverOverlayTrigger/)).toBeInTheDocument();
+  expect(getByClass(/popover/)).toBeInTheDocument();
   expect(getByText('Joel Calheiros')).toBeInTheDocument();
   fireEvent.mouseOver(getByText('Joel Calheiros'));
-  expect(getByTestId('popoverComponent')).toBeInTheDocument();
-  expect(getByTestId('popoverComponent-body')).toBeInTheDocument();
+  expect(getByTestId('bootstrap-popover')).toBeInTheDocument();
+  expect(getByTestId('bootstrap-popover-body')).toBeInTheDocument();
   expect(getByText('name@email.com')).toBeInTheDocument();
   expect(getByText('Tel. +351 345 354 234')).toBeInTheDocument();
 });
@@ -21,11 +21,11 @@ it('renders Popover default', () => {
 it('renders Popover WithHeader', () => {
   const { getByTestId, getByText, getByClass } = render(<WithHeader />);
 
-  expect(getByClass(/popoverOverlayTrigger/)).toBeInTheDocument();
+  expect(getByClass(/popover/)).toBeInTheDocument();
   expect(getByText('Joel Calheiros')).toBeInTheDocument();
   fireEvent.mouseOver(getByText('Joel Calheiros'));
-  expect(getByTestId('popoverComponent')).toBeInTheDocument();
-  expect(getByTestId('popoverComponent-header')).toBeInTheDocument();
-  expect(getByTestId('popoverComponent-body')).toBeInTheDocument();
+  expect(getByTestId('bootstrap-popover')).toBeInTheDocument();
+  expect(getByTestId('bootstrap-popover-header')).toBeInTheDocument();
+  expect(getByTestId('bootstrap-popover-body')).toBeInTheDocument();
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
 });

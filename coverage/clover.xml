@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634912677566" clover="3.2.0">
-  <project timestamp="1634912677567" name="All files">
+<coverage generated="1634915257377" clover="3.2.0">
+  <project timestamp="1634915257380" name="All files">
     <metrics statements="3571" coveredstatements="2422" conditionals="2997" coveredconditionals="1865" methods="960" coveredmethods="475" elements="7528" coveredelements="4762" complexity="0" loc="3571" ncloc="3571" packages="132" files="320" classes="320"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
@@ -3915,10 +3915,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="44" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="13" type="stmt"/>
-        <line num="17" count="34" type="stmt"/>
-        <line num="19" count="34" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="19" count="31" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.card">
@@ -4280,8 +4280,8 @@
         <line num="80" count="10" type="stmt"/>
         <line num="81" count="10" type="stmt"/>
         <line num="83" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="11" type="stmt"/>
-        <line num="85" count="11" type="stmt"/>
+        <line num="84" count="14" type="stmt"/>
+        <line num="85" count="14" type="stmt"/>
         <line num="88" count="16" type="stmt"/>
         <line num="90" count="16" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="16" type="cond" truecount="4" falsecount="0"/>
