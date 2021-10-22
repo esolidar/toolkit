@@ -14,23 +14,29 @@ const UnChecked = composeStory(UnCheckedStory, Meta);
 const Disable = composeStory(DisableStory, Meta);
 const WithIcons = composeStory(WithIconsStory, Meta);
 
+it('renders Toggle', () => {
+  const { getByClass } = render(<Default />);
+
+  expect(getByClass('toggle')).toBeTruthy();
+});
+
 it('renders Toggle Checked', () => {
   const { getByClass } = render(<Default />);
 
-  expect(getByClass('react-toggle react-toggle--checked')).toBeTruthy();
+  expect(getByClass(/react-toggle--checked/)).toBeTruthy();
   expect(getByClass('react-toggle-screenreader-only')).toHaveAttribute('value', 'A');
 });
 
 it('renders Toggle unChecked', () => {
   const { queryByClass } = render(<UnChecked />);
 
-  expect(queryByClass('react-toggle react-toggle--checked')).not.toBeTruthy();
+  expect(queryByClass(/react-toggle--checked/)).not.toBeTruthy();
 });
 
 it('renders Toggle disable', () => {
   const { getByClass } = render(<Disable />);
 
-  expect(getByClass('react-toggle react-toggle--disabled')).toBeTruthy();
+  expect(getByClass(/react-toggle--disabled/)).toBeTruthy();
 });
 
 it('renders Toggle with icons', () => {
