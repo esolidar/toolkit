@@ -13,6 +13,7 @@ const PasswordField: FC<Props> = ({
   showPassword = false,
   dataTestId = 'passwordField',
   help,
+  style,
   onChange,
   onBlur,
 }: Props): JSX.Element => {
@@ -23,10 +24,11 @@ const PasswordField: FC<Props> = ({
   };
 
   return (
-    <div className="form-group">
+    <div className="form-group" style={style}>
       <InputLabel field={field} label={label} help={help} style={help ? { marginBottom: 0 } : {}} />
       <div className={`password-field ${help ? 'no-margin' : ''}`} data-testid={dataTestId}>
         <TextField
+          password={true}
           id={id}
           onChange={onChange}
           onBlur={onBlur}
