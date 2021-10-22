@@ -3,6 +3,7 @@ import Toggle from 'react-toggle';
 import Props from './Toggle.types';
 
 const Toogle: FC<Props> = ({
+  className,
   isChecked = false,
   hasIcons = false,
   name = 'status',
@@ -11,14 +12,16 @@ const Toogle: FC<Props> = ({
   disabled,
 }: Props): JSX.Element => {
   return (
-    <Toggle
-      defaultChecked={isChecked}
-      icons={hasIcons}
-      name={name}
-      value={value}
-      onChange={onChange}
-      disabled={disabled}
-    />
+    <div className={className}>
+      <Toggle
+        defaultChecked={isChecked}
+        icons={hasIcons}
+        name={name}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+      />
+    </div>
   );
 };
 export default Toogle;

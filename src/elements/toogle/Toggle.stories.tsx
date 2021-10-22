@@ -3,7 +3,7 @@ import Toggle from './Toggle';
 import Props from './Toggle.types';
 
 export default {
-  title: 'Unreleased/Toogle',
+  title: 'Elements/Toogle',
   component: Toggle,
   argTypes: {},
   parameters: {

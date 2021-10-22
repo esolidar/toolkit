@@ -1,4 +1,5 @@
 interface Props {
+  className?: string;
   isChecked: boolean;
   hasIcons?: boolean;
   name?: string;
