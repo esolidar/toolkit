@@ -21,7 +21,6 @@ export const Default: Story<Props> = Template.bind({});
 export const UnChecked: Story<Props> = Template.bind({});
 export const Disable: Story<Props> = Template.bind({});
 export const WithIcons: Story<Props> = Template.bind({});
-export const Neutral: Story<Props> = Template.bind({});
 
 Default.args = {
   isChecked: true,
@@ -52,12 +51,4 @@ WithIcons.args = {
   value: 'A',
   onChange: () => {},
   disabled: true,
-};
-
-Neutral.args = {
-  isChecked: true,
-  name: 'toggle',
-  value: 'A',
-  onChange: () => {},
-  isNeutral: true,
 };

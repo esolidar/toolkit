@@ -6,7 +6,6 @@ interface Props {
   value: string;
   onChange(): void;
   disabled?: boolean;
-  isNeutral?: boolean;
 }
 
 export default Props;

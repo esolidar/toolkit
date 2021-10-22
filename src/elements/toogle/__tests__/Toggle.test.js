@@ -7,14 +7,12 @@ import Meta, {
   UnChecked as UnCheckedStory,
   Disable as DisableStory,
   WithIcons as WithIconsStory,
-  Neutral as NeutralStory,
 } from '../Toggle.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 const UnChecked = composeStory(UnCheckedStory, Meta);
 const Disable = composeStory(DisableStory, Meta);
 const WithIcons = composeStory(WithIconsStory, Meta);
-const Neutral = composeStory(NeutralStory, Meta);
 
 it('renders Toggle', () => {
   const { getByClass } = render(<Default />);
@@ -45,10 +43,4 @@ it('renders Toggle with icons', () => {
   const { getByClass } = render(<WithIcons />);
 
   expect(getByClass('react-toggle-track-x')).toBeTruthy();
-});
-
-it('renders Toggle neutral', () => {
-  const { getByClass } = render(<Neutral />);
-
-  expect(getByClass(/toggle__neutral/)).toBeTruthy();
 });

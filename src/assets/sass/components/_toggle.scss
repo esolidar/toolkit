@@ -31,11 +31,19 @@
     width: 1px;
   }
 
-  .react-toggle--disabled {
+  .react-toggle--checked.react-toggle--disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 1;
     -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
+
+    .react-toggle-track {
+      background-color: map-get($neutrals, 400) !important;
+    }
+
+    .react-toggle-thumb {
+      background-color: map-get($background, secondary) !important;
+    }
   }
 
   .react-toggle-track {
@@ -117,24 +125,6 @@
 
   .react-toggle--checked .react-toggle-thumb {
     left: 22px;
-    border-color: transparent;
-  }
-}
-
-.toggle__neutral {
-  .react-toggle-thumb {
-    background-color: map-get($background, secondary);
-  }
-
-  .react-toggle--checked .react-toggle-track {
-    background-color: map-get($neutrals, 400);
-  }
-
-  .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-    background-color: map-get($neutrals, 400);
-  }
-
-  .react-toggle--checked .react-toggle-thumb {
     border-color: transparent;
   }
 }
