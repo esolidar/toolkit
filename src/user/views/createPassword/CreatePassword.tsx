@@ -44,11 +44,7 @@ const CreatePassword: FC<Props> = ({
   };
 
   const handleSubmit = () => {
-    if (
-      form.password.length > 0 &&
-      form.confirmPassword.length &&
-      form.password === form.confirmPassword
-    ) {
+    if (form.password.length >= 6 && form.password === form.confirmPassword) {
       setErrors({});
       setDisabledButton(true);
       if (type === 'set') {
@@ -65,7 +61,7 @@ const CreatePassword: FC<Props> = ({
           password_confirmation: form.confirmPassword,
         });
       }
-    } else {
+    } else if (form.password !== form.confirmPassword) {
       const error = {
         password: intl.formatMessage({ id: 'user.register.error.password.match' }),
         confirmPassword: intl.formatMessage({ id: 'user.register.error.password.match' }),
