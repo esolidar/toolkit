@@ -26,9 +26,9 @@
   &.bs-popover-auto[x-placement^='top'] > .arrow::before {
     border-top-color: map-get($base, black);
   }
-  .bs-popover-bottom > .arrow::after,
-  .bs-popover-auto[x-placement^='bottom'] > .arrow::after {
-    top: 1.52px;
+  &.bs-popover-top > .arrow::after,
+  &.bs-popover-auto[x-placement^='top'] > .arrow::after {
+    bottom: 1.52px;
   }
 
   // Right
@@ -36,8 +36,8 @@
   &.bs-popover-auto[x-placement^='right'] > .arrow::before {
     border-right-color: map-get($base, black);
   }
-  .bs-popover-right > .arrow::after,
-  .bs-popover-auto[x-placement^='right'] > .arrow::after {
+  &.bs-popover-right > .arrow::after,
+  &.bs-popover-auto[x-placement^='right'] > .arrow::after {
     left: 1.52px;
   }
 
@@ -46,9 +46,9 @@
   &.bs-popover-auto[x-placement^='bottom'] > .arrow::before {
     border-bottom-color: map-get($base, black);
   }
-  .bs-popover-top > .arrow::after,
-  .bs-popover-auto[x-placement^='top'] > .arrow::after {
-    bottom: 1.52px;
+  &.bs-popover-bottom > .arrow::after,
+  &.bs-popover-auto[x-placement^='bottom'] > .arrow::after {
+    top: 1.52px;
   }
 
   //Left
