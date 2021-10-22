@@ -2,12 +2,16 @@
   padding: $distance-2;
   border-color: map-get($base, black);
   min-width: 280px;
-  border-radius: 0px;
+  border-radius: 8px;
 
   header {
     padding-bottom: $distance-1;
     margin-bottom: $distance-2;
     border-bottom: 1px solid map-get($base, black);
+
+    .profile-avatar__name {
+      font-weight: bold;
+    }
   }
   body {
     color: map-get($base, black);
