@@ -21,6 +21,7 @@ export const PasswordFieldShowPassword: Story<Props> = Template.bind({});
 export const PasswordWithoutFieldShowPassword: Story<Props> = Template.bind({});
 
 PasswordFieldHiddenPassword.args = {
+  style: { marginBottom: '0' },
   label: 'Password',
   error: '',
   value: 'passwordTest123',

@@ -17,21 +17,31 @@ const SetPassword: FC<Props> = ({
 
   const [email, setEmail] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
   useEffect(() => {
     if (isEmpty(recoverPassword)) return;
 
     const { code, data } = recoverPassword;
 
-    if (code === 200) onSuccess(email);
-    else if (code === 400) setError(data[0].message);
+    if (code === 200) {
+      onSuccess(email);
+    } else if (code === 400) {
+      setIsDisabled(false);
+      setError(data[0].message);
+    } else {
+      setIsDisabled(false);
+    }
   }, [recoverPassword]);
 
-  const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) =>
+  const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(value);
+    setIsDisabled(!Validator.isEmail(email));
+  };
 
   const handleSubmit = () => {
     setError('');
+    setIsDisabled(true);
     postRecoverPassword({ email, origin });
   };
 
@@ -75,7 +85,7 @@ const SetPassword: FC<Props> = ({
           extraClass="primary-full"
           text={intl.formatMessage({ id: 'user.setPassword.set.send' })}
           onClick={handleSubmit}
-          disabled={!Validator.isEmail(email)}
+          disabled={isDisabled}
         />
       </div>
     </div>
