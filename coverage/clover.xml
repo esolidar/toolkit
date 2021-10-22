@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634910802765" clover="3.2.0">
-  <project timestamp="1634910802765" name="All files">
-    <metrics statements="3573" coveredstatements="2418" conditionals="2996" coveredconditionals="1861" methods="964" coveredmethods="474" elements="7533" coveredelements="4753" complexity="0" loc="3573" ncloc="3573" packages="132" files="320" classes="320"/>
+<coverage generated="1634922962953" clover="3.2.0">
+  <project timestamp="1634922962953" name="All files">
+    <metrics statements="3576" coveredstatements="2421" conditionals="2999" coveredconditionals="1865" methods="965" coveredmethods="474" elements="7540" coveredelements="4760" complexity="0" loc="3576" ncloc="3576" packages="132" files="320" classes="320"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="3" count="218" type="stmt"/>
+        <line num="3" count="220" type="stmt"/>
         <line num="5" count="48" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="48" type="stmt"/>
@@ -28,7 +28,7 @@
         <line num="10" count="48" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="48" type="stmt"/>
         <line num="16" count="48" type="stmt"/>
-        <line num="17" count="148" type="stmt"/>
+        <line num="17" count="150" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -3888,6 +3888,30 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.elements.toogle">
+      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="7" coveredmethods="2"/>
+      <file name="Toggle.stories.tsx" path="D:\projects\toolkit\src\elements\toogle\Toggle.stories.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+      </file>
+      <file name="Toggle.tsx" path="D:\projects\toolkit\src\elements\toogle\Toggle.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="16" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="6" type="stmt"/>
+      </file>
+    </package>
     <package name="src.hooks">
       <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="4"/>
       <file name="useInterval.ts" path="D:\projects\toolkit\src\hooks\useInterval.ts">
@@ -4298,7 +4322,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="19" type="stmt"/>
+        <line num="154" count="14" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4559,27 +4583,6 @@
         <metrics statements="2" coveredstatements="2" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="13" count="10" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.unreleased.toogle">
-      <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="1" methods="6" coveredmethods="2"/>
-      <file name="Toggle.stories.tsx" path="D:\projects\toolkit\src\unreleased\toogle\Toggle.stories.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-      </file>
-      <file name="Toggle.tsx" path="D:\projects\toolkit\src\unreleased\toogle\Toggle.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.user.components.didNotReceiveEmailModal">
