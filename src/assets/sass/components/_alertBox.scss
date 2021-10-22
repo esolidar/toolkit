@@ -1,7 +1,11 @@
 .alertBox {
   width: 100%;
-  position: relative;
+  position: absolute;
   padding: $distance-2 $distance-2 $distance-2 52px;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  right: 0;
 
   i {
     position: absolute;

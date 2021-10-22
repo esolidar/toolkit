@@ -16,7 +16,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <AlertBox {...args} />;
+const Template: Story<Props> = (args: Props) => (
+  <div className="m-1 position-relative">
+    <AlertBox {...args} />
+  </div>
+);
 
 export const Info: Story<Props> = Template.bind({});
 export const Success: Story<Props> = Template.bind({});

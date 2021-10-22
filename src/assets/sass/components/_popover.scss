@@ -1,0 +1,51 @@
+#popoverComponent {
+  padding: $distance-2;
+  border-color: map-get($base, black);
+  min-width: 280px;
+
+  header {
+    padding-bottom: $distance-1;
+    margin-bottom: $distance-2;
+    border-bottom: 1px solid map-get($base, black);
+  }
+  body {
+    color: map-get($base, black);
+    font-size: 13px;
+    line-height: 16px;
+
+    p {
+      margin-bottom: $distance-1;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  // TOP
+  &.bs-popover-top > .arrow::before,
+  &.bs-popover-auto[x-placement^='top'] > .arrow::before {
+    border-top-color: map-get($base, black);
+  }
+
+  // Right
+  &.bs-popover-right > .arrow::before,
+  &.bs-popover-auto[x-placement^='right'] > .arrow::before {
+    border-right-color: map-get($base, black);
+  }
+
+  //Bottom
+  &.bs-popover-bottom > .arrow::before,
+  &.bs-popover-auto[x-placement^='bottom'] > .arrow::before {
+    border-bottom-color: map-get($base, black);
+  }
+
+  //Left
+  &.bs-popover-left > .arrow::before,
+  &.bs-popover-auto[x-placement^='left'] > .arrow::before {
+    border-left-color: map-get($base, black);
+  }
+  &.bs-popover-left > .arrow::after,
+  &.bs-popover-auto[x-placement^='left'] > .arrow::after {
+    right: 1.52px;
+  }
+}
