@@ -23,7 +23,7 @@ const Popover: FC<Props> = ({
   return (
     <div className="popover-component">
       <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
-        <>{triggerChildren}</>
+        <span>{triggerChildren}</span>
       </OverlayTrigger>
     </div>
   );
