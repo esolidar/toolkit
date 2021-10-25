@@ -11,7 +11,23 @@ export default {
   },
   argTypes: {
     placement: {
-      options: ['top', 'right', 'bottom', 'left'],
+      options: [
+        'auto-start',
+        'auto',
+        'auto-end',
+        'top-start',
+        'top',
+        'top-end',
+        'right-start',
+        'right',
+        'right-end',
+        'bottom-end',
+        'bottom',
+        'bottom-start',
+        'left-end',
+        'left',
+        'left-start',
+      ],
       control: { type: 'radio' },
     },
     trigger: {
@@ -22,7 +38,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div style={{ paddingTop: '150px', textAlign: 'center' }}>
+  <div style={{ paddingTop: '180px', textAlign: 'center' }}>
     <Popover {...args} />
   </div>
 );
@@ -31,20 +47,16 @@ export const Default: Story<Props> = Template.bind({});
 export const WithHeader: Story<Props> = Template.bind({});
 
 Default.args = {
-  placement: 'top',
-  trigger: ['hover', 'focus'],
   popoverBodyChildren: (
     <div>
       <p>name@email.com</p>
       <p>Tel. +351 345 354 234</p>
     </div>
   ),
-  triggerChildren: <span>Joel Calheiros</span>,
+  children: <span>Joel Calheiros</span>,
 };
 
 WithHeader.args = {
-  placement: 'top',
-  trigger: ['hover', 'focus'],
   popoverHeaderChildren: (
     <ProfileAvatar
       thumb="https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg"
@@ -57,5 +69,5 @@ WithHeader.args = {
       <p>Tel. +351 345 354 234</p>
     </div>
   ),
-  triggerChildren: <span>Joel Calheiros</span>,
+  children: <span>Joel Calheiros</span>,
 };

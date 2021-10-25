@@ -12,12 +12,22 @@ const AlertBox: FC<Props> = ({
   style,
   icon,
 }: Props): JSX.Element => {
+  let statusIcon = '';
+  if (status === 'info') {
+    statusIcon = 'info';
+  } else if (status === 'success') {
+    statusIcon = 'check-circle';
+  } else if (status === 'warning') {
+    statusIcon = 'alert-triangle';
+  } else {
+    statusIcon = 'x-square';
+  }
   const classes = classNames('alertBox', `alertBox__${status}`, `alertBox__${extraClass}`);
 
   return (
     <>
       <div data-testid={dataTestId} className={classes} style={style} role="alert">
-        <Icon iconClass={icon || `icon-${status}`} />
+        <Icon iconClass={icon || `icon-${statusIcon}`} />
         <p>{title}</p>
         <span>{subtitle}</span>
       </div>

@@ -1,13 +1,24 @@
+.popover-component-trigger {
+  &:hover,
+  &:active,
+  &:focus,
+  & > span[aria-describedby='bootstrap-popover'] {
+    cursor: pointer;
+    text-decoration: underline;
+    color: map-get($theme-colors, primary);
+  }
+}
 #bootstrap-popover {
-  padding: $distance-2;
-  border-color: map-get($base, black);
-  min-width: 280px;
-  border-radius: 8px;
+  min-width: 250px;
+  padding: $distance-3;
+  border-color: map-get($neutrals, 200);
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(26, 27, 28, 0.04);
 
   header {
     padding-bottom: $distance-1;
     margin-bottom: $distance-2;
-    border-bottom: 1px solid map-get($base, black);
+    border-bottom: 1px solid map-get($neutrals, 200);
 
     .profile-avatar__name {
       font-weight: bold;
@@ -26,43 +37,7 @@
     }
   }
 
-  // TOP
-  &.bs-popover-top > .arrow::before,
-  &.bs-popover-auto[x-placement^='top'] > .arrow::before {
-    border-top-color: map-get($base, black);
-  }
-  &.bs-popover-top > .arrow::after,
-  &.bs-popover-auto[x-placement^='top'] > .arrow::after {
-    bottom: 1.52px;
-  }
-
-  // Right
-  &.bs-popover-right > .arrow::before,
-  &.bs-popover-auto[x-placement^='right'] > .arrow::before {
-    border-right-color: map-get($base, black);
-  }
-  &.bs-popover-right > .arrow::after,
-  &.bs-popover-auto[x-placement^='right'] > .arrow::after {
-    left: 1.52px;
-  }
-
-  //Bottom
-  &.bs-popover-bottom > .arrow::before,
-  &.bs-popover-auto[x-placement^='bottom'] > .arrow::before {
-    border-bottom-color: map-get($base, black);
-  }
-  &.bs-popover-bottom > .arrow::after,
-  &.bs-popover-auto[x-placement^='bottom'] > .arrow::after {
-    top: 1.52px;
-  }
-
-  //Left
-  &.bs-popover-left > .arrow::before,
-  &.bs-popover-auto[x-placement^='left'] > .arrow::before {
-    border-left-color: map-get($base, black);
-  }
-  &.bs-popover-left > .arrow::after,
-  &.bs-popover-auto[x-placement^='left'] > .arrow::after {
-    right: 1.52px;
+  & > .arrow {
+    display: none !important;
   }
 }

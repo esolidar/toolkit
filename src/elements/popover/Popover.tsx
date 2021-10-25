@@ -1,31 +1,29 @@
 import React, { FC } from 'react';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import BootstrapPopover from 'react-bootstrap/Popover';
+import PopoverBootstrap from 'react-bootstrap/Popover';
 
 import Props from './Popover.types';
 
 const Popover: FC<Props> = ({
-  placement = 'top',
+  placement = 'top-start',
   trigger = ['hover', 'focus'],
+  children,
   popoverHeaderChildren,
   popoverBodyChildren,
-  triggerChildren,
 }: Props): JSX.Element => {
   const popover = (
-    <BootstrapPopover id="bootstrap-popover" data-testid="bootstrap-popover">
+    <PopoverBootstrap id="bootstrap-popover">
       {popoverHeaderChildren && (
         <header data-testid="bootstrap-popover-header">{popoverHeaderChildren}</header>
       )}
       <body data-testid="bootstrap-popover-body">{popoverBodyChildren}</body>
-    </BootstrapPopover>
+    </PopoverBootstrap>
   );
 
   return (
-    <div className="popover-component">
-      <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
-        <span>{triggerChildren}</span>
-      </OverlayTrigger>
-    </div>
+    <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
+      <span className="popover-component-trigger">{children}</span>
+    </OverlayTrigger>
   );
 };
 

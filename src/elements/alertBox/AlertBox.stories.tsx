@@ -31,26 +31,22 @@ Info.args = {
   title: 'Undergoing maintenance',
   subtitle: 'Thank you for your patience, we’ll be back soon.',
   status: 'info',
-  icon: 'icon-clock',
 };
 
 Success.args = {
   title: 'Account created',
   subtitle: 'You may now log in with the username you’ve chosen.',
   status: 'success',
-  icon: 'icon-check-circle',
 };
 
 Warning.args = {
   title: 'Your credit card is about to expire',
   subtitle: 'Update your payment information or contact support.',
   status: 'warning',
-  icon: 'icon-lock1',
 };
 
 Danger.args = {
   title: 'Could not connect',
   subtitle: 'Make sure your network connection is active and try again.',
   status: 'danger',
-  icon: 'icon-x-circle',
 };

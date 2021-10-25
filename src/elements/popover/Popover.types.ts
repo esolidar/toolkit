@@ -1,9 +1,8 @@
-interface Props {
-  placement?: 'top' | 'right' | 'bottom' | 'left';
-  trigger?: 'hover' | 'click' | 'focus' | Array<'hover' | 'click' | 'focus'>;
+import { OverlayTriggerProps } from 'react-bootstrap/OverlayTrigger';
+
+interface Props extends OverlayTriggerProps {
   popoverHeaderChildren?: JSX.Element;
   popoverBodyChildren: JSX.Element;
-  triggerChildren: JSX.Element;
 }
 
 export default Props;
