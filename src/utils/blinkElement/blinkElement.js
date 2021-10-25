@@ -1,4 +1,4 @@
-import isDefined from './isDefined';
+import isDefined from '../isDefined/isDefined';
 
 const blinkElement = (elmId, className) => {
   const element = document.getElementById(elmId);

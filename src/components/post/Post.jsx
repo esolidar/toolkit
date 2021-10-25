@@ -6,7 +6,7 @@ import Moment from 'react-moment';
 import { FormattedMessage } from 'react-intl';
 import Truncate from 'react-truncate';
 import CommentPost from '../commentPost';
-import { getEmployeeName } from '../../utils';
+import getEmployeeName from '../../utils/getEmployeeName';
 import TextareaField from '../../elements/textareaField';
 
 class Post extends Component {

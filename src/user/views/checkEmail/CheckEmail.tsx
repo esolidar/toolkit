@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import Button from '../../../elements/button';
-import isEmpty from '../../../utils/isEmpty';
+import isEmpty from '../../../utils/isEmpty/isEmpty';
 import DidNotReceiveEmailModal from '../../components/didNotReceiveEmailModal';
 import Props from './CheckEmail.types';
 

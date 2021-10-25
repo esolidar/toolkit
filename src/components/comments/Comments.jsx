@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import CommentHeader from './CommentHeader';
 import CommentContent from './CommentContent';
-import { getEmployeeName } from '../../utils';
+import getEmployeeName from '../../utils/getEmployeeName';
 import Icon from '../icon';
 import Button from '../../elements/button';
 

@@ -3,7 +3,7 @@ import { useIntl, FormattedMessage } from 'react-intl';
 import PasswordField from '../../../elements/passwordField';
 import Button from '../../../elements/button';
 import CodeExpiredModal from '../../components/codeExpiredModal';
-import clone from '../../../utils/clone';
+import clone from '../../../utils/clone/clone';
 import Props from './CreatePassword.types';
 
 interface Form {

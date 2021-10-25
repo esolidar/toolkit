@@ -1,5 +1,5 @@
-import isArray from './isArray';
-import isDefined from './isDefined';
+import isArray from '../isArray/isArray';
+import isDefined from '../isDefined/isDefined';
 
 const getLocalStorage = (key, defaultValue = {}) => {
   let type;

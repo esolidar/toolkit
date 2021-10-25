@@ -6,7 +6,7 @@ import Button from '../../elements/button';
 import Comment from '../comment';
 import CommentCreate from '../commentCreate';
 import LoginToInteract from '../../components/loginToInteract/LoginToInteract';
-import cursorFocus from '../../utils/cursorFocus';
+import cursorFocus from '../../utils/cursorFocus/cursorFocus';
 
 const CommentList: FC<Props> = ({
   commentList,

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { FormattedMessage, FormattedNumber, IntlShape, useIntl } from 'react-intl';
-import isEmpty from '../../../utils/isEmpty';
+import isEmpty from '../../../utils/isEmpty/isEmpty';
 import Props from './CardAuction.types';
 import Card from '../Card';
 import Countdown from '../../countdown/Countdown';
-import slugify from '../../../utils/slugify';
+import slugify from '../../../utils/slugify/slugify';
 
 const CardAuction: FC<Props> = ({
   auction = null,

@@ -10,7 +10,7 @@ import SelectField from '../../elements/selectField';
 import CheckboxImage from '../../elements/checkboxImage';
 import CheckboxField from '../../elements/checkboxField';
 import RadioField from '../../elements/radioField';
-import { slugify } from '../../utils/index';
+import slugify from '../../utils/slugify';
 import Loading from '../loading';
 import { cdnStaticUrl } from '../../constants/env';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import Button from '../../../elements/button';
-import { slugify } from '../../../utils/index';
+import slugify from '../../../utils/slugify/slugify';
 import AuctionThumb from '../../auctionThumb/AuctionThumb';
 
 const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =>

@@ -1,4 +1,4 @@
-import { downloadExcel } from '../index';
+import downloadExcel from '.';
 
 const fileName = 'downloadExcel';
 const isDownloadFile = false;
@@ -89,15 +89,7 @@ const institutions = [
   },
 ];
 
-describe('Excel data values ', () => {
-  it('Comparison of values ​​sent and received', () => {
-    const fileData = downloadExcel(
-      translateMessage,
-      institutions,
-      columns,
-      fileName,
-      isDownloadFile
-    );
-    expect(fileData).toEqual(institutions);
-  });
+it('Comparison of values ​​sent and received', () => {
+  const fileData = downloadExcel(translateMessage, institutions, columns, fileName, isDownloadFile);
+  expect(fileData).toEqual(institutions);
 });

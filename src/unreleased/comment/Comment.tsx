@@ -8,7 +8,7 @@ import Props from './Comment.types';
 import CommentHeader from '../commentHeader';
 import CommentCreate from '../commentCreate';
 import ReplyList from '../replyList';
-import cursorFocus from '../../utils/cursorFocus';
+import cursorFocus from '../../utils/cursorFocus/cursorFocus';
 
 const Comment: FC<Props> = ({
   comment,

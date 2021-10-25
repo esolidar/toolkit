@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons/faPen';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
 import Button from '../../elements/button';
-import slugify from '../../utils/slugify';
+import slugify from '../../utils/slugify/slugify';
 import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectThumb = ({

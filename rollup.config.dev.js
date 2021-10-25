@@ -8,7 +8,7 @@ import bundleScss from 'rollup-plugin-bundle-scss';
 import copy from 'rollup-plugin-copy-assets';
 import json from '@rollup/plugin-json';
 // import { visualizer } from 'rollup-plugin-visualizer';
-import getFiles from './src/utils/getFiles';
+import getFiles from './src/utils/getFiles/getFiles';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -16,7 +16,6 @@ const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.ts
 
 export default {
   input: [
-    'src/index.js',
     ...getFiles('src/components', extensions, excludedExtensions),
     ...getFiles('src/constants', extensions, excludedExtensions),
     ...getFiles('src/elements', extensions, excludedExtensions),

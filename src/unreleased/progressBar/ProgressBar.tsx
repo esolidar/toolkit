@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import { FormattedMessage, FormattedNumber, IntlShape, useIntl } from 'react-intl';
 import classnames from 'classnames';
-import isDefined from '../../utils/isDefined';
+import isDefined from '../../utils/isDefined/isDefined';
 import Countdown from '../countdown';
 import Props from './ProgressBar.types';
 
