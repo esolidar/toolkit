@@ -4,8 +4,13 @@ interface Actions {
   showAlert(): void;
 }
 
+interface RecoverPass {
+  data: boolean;
+  code: number;
+}
+
 interface Reducers {
-  recoverPass: any;
+  recoverPass: RecoverPass;
 }
 
 interface Props {

@@ -3,12 +3,17 @@ interface PostRecoverPassword {
   origin: string;
 }
 
+interface RecoverPass {
+  data: boolean;
+  code: number;
+}
+
 interface Actions {
   postRecoverPassword(data: PostRecoverPassword): void;
 }
 
 interface Reducers {
-  recoverPassword: any;
+  recoverPassword: RecoverPass;
 }
 
 interface Props {
