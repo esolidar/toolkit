@@ -17,7 +17,6 @@ it('renders Toggle Checked', () => {
   const { getByClass } = render(<Default />);
 
   expect(getByClass(/react-toggle--checked/)).toBeTruthy();
-  expect(getByClass('react-toggle-screenreader-only')).toHaveAttribute('value', 'true');
 });
 
 it('renders Toggle disable', () => {

@@ -18,7 +18,6 @@ const Toggle: FC<Props> = ({
         checked={isChecked}
         icons={false}
         name={name}
-        value={`${isChecked}`}
         onChange={onChange}
         disabled={isDisabled}
       />
