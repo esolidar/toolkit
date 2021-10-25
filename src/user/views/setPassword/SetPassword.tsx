@@ -8,7 +8,6 @@ import Props from './SetPassword.types';
 
 const SetPassword: FC<Props> = ({
   type,
-  origin,
   onSuccess,
   actions: { postRecoverPassword },
   reducers: { recoverPassword },
@@ -39,10 +38,11 @@ const SetPassword: FC<Props> = ({
     setIsDisabled(!Validator.isEmail(email));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     setError('');
     setIsDisabled(true);
-    postRecoverPassword({ email, origin });
+    postRecoverPassword({ email, origin: 'esolidar' });
   };
 
   return (
@@ -54,40 +54,42 @@ const SetPassword: FC<Props> = ({
           })}
         </h1>
       </div>
-      <div className="set-password__form">
-        <div className="set-password__form--description">
-          <div>
-            {intl.formatMessage({
-              id:
-                type === 'set'
-                  ? 'user.setPassword.set.subtitle1'
-                  : 'user.setPassword.reset.subtitle1',
-            })}
+      <form onSubmit={handleSubmit} method="post">
+        <div className="set-password__form">
+          <div className="set-password__form--description">
+            <div>
+              {intl.formatMessage({
+                id:
+                  type === 'set'
+                    ? 'user.setPassword.set.subtitle1'
+                    : 'user.setPassword.reset.subtitle1',
+              })}
+            </div>
+            <div>
+              {intl.formatMessage({
+                id:
+                  type === 'set'
+                    ? 'user.setPassword.set.subtitle2'
+                    : 'user.setPassword.reset.subtitle2',
+              })}
+            </div>
           </div>
-          <div>
-            {intl.formatMessage({
-              id:
-                type === 'set'
-                  ? 'user.setPassword.set.subtitle2'
-                  : 'user.setPassword.reset.subtitle2',
-            })}
-          </div>
+          <TextField
+            className="set-password__form--email-input"
+            type="text"
+            label={intl.formatMessage({ id: 'user.setPassword.set.email' })}
+            value={email}
+            onChange={handleChangeEmail}
+            error={error}
+          />
+          <Button
+            extraClass="primary-full"
+            text={intl.formatMessage({ id: 'user.setPassword.set.send' })}
+            type="submit"
+            disabled={isDisabled}
+          />
         </div>
-        <TextField
-          className="set-password__form--email-input"
-          type="text"
-          label={intl.formatMessage({ id: 'user.setPassword.set.email' })}
-          value={email}
-          onChange={handleChangeEmail}
-          error={error}
-        />
-        <Button
-          extraClass="primary-full"
-          text={intl.formatMessage({ id: 'user.setPassword.set.send' })}
-          onClick={handleSubmit}
-          disabled={isDisabled}
-        />
-      </div>
+      </form>
     </div>
   );
 };

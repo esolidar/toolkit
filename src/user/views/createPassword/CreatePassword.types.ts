@@ -18,9 +18,14 @@ interface Actions {
   postRecoverPassword?(data: RecoverData): void;
 }
 
+interface Reducers {
+  setNewPasswordResponse: any;
+}
+
 interface Props {
   company: string;
   actions: Actions;
+  reducers: Reducers;
   type?: 'set' | 'recover';
   userId: number;
   code: number;

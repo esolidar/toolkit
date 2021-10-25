@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1634910364946" clover="3.2.0">
-  <project timestamp="1634910364947" name="All files">
-    <metrics statements="3561" coveredstatements="2406" conditionals="2993" coveredconditionals="1860" methods="958" coveredmethods="472" elements="7512" coveredelements="4738" complexity="0" loc="3561" ncloc="3561" packages="131" files="318" classes="318"/>
+<coverage generated="1634922221337" clover="3.2.0">
+  <project timestamp="1634922221337" name="All files">
+    <metrics statements="3575" coveredstatements="2410" conditionals="2999" coveredconditionals="1869" methods="962" coveredmethods="472" elements="7536" coveredelements="4751" complexity="0" loc="3575" ncloc="3575" packages="131" files="318" classes="318"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="3" count="213" type="stmt"/>
+        <line num="3" count="212" type="stmt"/>
         <line num="5" count="47" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="47" type="stmt"/>
@@ -3316,24 +3316,24 @@
       </file>
     </package>
     <package name="src.elements.button">
-      <metrics statements="17" coveredstatements="15" conditionals="40" coveredconditionals="25" methods="2" coveredmethods="2"/>
+      <metrics statements="17" coveredstatements="17" conditionals="40" coveredconditionals="31" methods="2" coveredmethods="2"/>
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
-        <metrics statements="17" coveredstatements="15" conditionals="40" coveredconditionals="25" methods="2" coveredmethods="2"/>
+        <metrics statements="17" coveredstatements="17" conditionals="40" coveredconditionals="31" methods="2" coveredmethods="2"/>
         <line num="8" count="54" type="stmt"/>
-        <line num="30" count="191" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="147" type="stmt"/>
-        <line num="32" count="44" type="cond" truecount="1" falsecount="1"/>
-        <line num="33" count="0" type="stmt"/>
+        <line num="30" count="189" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="141" type="stmt"/>
+        <line num="32" count="48" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="4" type="stmt"/>
         <line num="34" count="44" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="6" type="stmt"/>
-        <line num="38" count="191" type="stmt"/>
-        <line num="64" count="191" type="stmt"/>
-        <line num="65" count="191" type="cond" truecount="3" falsecount="1"/>
-        <line num="67" count="147" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
+        <line num="38" count="189" type="stmt"/>
+        <line num="64" count="189" type="stmt"/>
+        <line num="65" count="189" type="cond" truecount="4" falsecount="0"/>
+        <line num="67" count="141" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
         <line num="112" count="6" type="stmt"/>
         <line num="127" count="38" type="stmt"/>
-        <line num="151" count="191" type="stmt"/>
+        <line num="151" count="189" type="stmt"/>
         <line num="154" count="54" type="stmt"/>
         <line num="177" count="54" type="stmt"/>
       </file>
@@ -3422,11 +3422,11 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="20" coveredconditionals="18" methods="1" coveredmethods="1"/>
         <line num="6" count="18" type="stmt"/>
-        <line num="35" count="55" type="stmt"/>
-        <line num="37" count="55" type="stmt"/>
-        <line num="42" count="55" type="stmt"/>
-        <line num="46" count="55" type="stmt"/>
-        <line num="51" count="55" type="stmt"/>
+        <line num="35" count="54" type="stmt"/>
+        <line num="37" count="54" type="stmt"/>
+        <line num="42" count="54" type="stmt"/>
+        <line num="46" count="54" type="stmt"/>
+        <line num="51" count="54" type="stmt"/>
         <line num="98" count="18" type="stmt"/>
         <line num="128" count="18" type="stmt"/>
       </file>
@@ -3867,19 +3867,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="20" type="stmt"/>
         <line num="32" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="30" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="35" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
         <line num="47" count="37" type="stmt"/>
         <line num="89" count="20" type="stmt"/>
         <line num="114" count="20" type="stmt"/>
@@ -4572,8 +4572,8 @@
       <file name="DidNotReceiveEmailModal.tsx" path="C:\Projects\toolkit\src\user\components\didNotReceiveEmailModal\DidNotReceiveEmailModal.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\user\components\didNotReceiveEmailModal\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4595,27 +4595,39 @@
       </file>
     </package>
     <package name="src.user.views.checkEmail">
-      <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+      <metrics statements="23" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="10" coveredmethods="1"/>
       <file name="CheckEmail.stories.tsx" path="C:\Projects\toolkit\src\user\views\checkEmail\CheckEmail.stories.tsx">
-        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="13" count="1" type="stmt"/>
+        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="13" count="2" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
       </file>
       <file name="CheckEmail.tsx" path="C:\Projects\toolkit\src\user\views\checkEmail\CheckEmail.tsx">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
+        <metrics statements="17" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.user.views.createPassword">
-      <metrics statements="38" coveredstatements="17" conditionals="23" coveredconditionals="10" methods="10" coveredmethods="3"/>
+      <metrics statements="39" coveredstatements="17" conditionals="23" coveredconditionals="10" methods="10" coveredmethods="3"/>
       <file name="CreatePassword.stories.tsx" path="C:\Projects\toolkit\src\user\views\createPassword\CreatePassword.stories.tsx">
         <metrics statements="9" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="19" count="2" type="stmt"/>
@@ -4629,7 +4641,7 @@
         <line num="45" count="0" type="stmt"/>
       </file>
       <file name="CreatePassword.tsx" path="C:\Projects\toolkit\src\user\views\createPassword\CreatePassword.tsx">
-        <metrics statements="29" coveredstatements="12" conditionals="23" coveredconditionals="10" methods="5" coveredmethods="2"/>
+        <metrics statements="30" coveredstatements="12" conditionals="23" coveredconditionals="10" methods="5" coveredmethods="2"/>
         <line num="13" count="1" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
@@ -4646,51 +4658,53 @@
         <line num="41" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="46" count="2" type="stmt"/>
-        <line num="47" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="74" count="2" type="cond" truecount="2" falsecount="2"/>
-        <line num="75" count="2" type="stmt"/>
-        <line num="78" count="2" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="2" type="cond" truecount="2" falsecount="2"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.user.views.setPassword">
-      <metrics statements="27" coveredstatements="15" conditionals="12" coveredconditionals="7" methods="9" coveredmethods="3"/>
+      <metrics statements="28" coveredstatements="15" conditionals="12" coveredconditionals="7" methods="9" coveredmethods="3"/>
       <file name="SetPassword.stories.tsx" path="C:\Projects\toolkit\src\user\views\setPassword\SetPassword.stories.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="19" count="2" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
       <file name="SetPassword.tsx" path="C:\Projects\toolkit\src\user\views\setPassword\SetPassword.tsx">
-        <metrics statements="22" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="4" coveredmethods="2"/>
+        <metrics statements="23" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="4" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
@@ -4852,7 +4866,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="81" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="isEmpty.js" path="C:\Projects\toolkit\src\utils\isEmpty.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
