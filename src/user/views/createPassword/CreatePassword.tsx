@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import PasswordField from '../../../elements/passwordField';
 import Button from '../../../elements/button';
+import CodeExpiredModal from '../../components/codeExpiredModal';
 import clone from '../../../utils/clone';
 import Props from './CreatePassword.types';
 
@@ -19,6 +20,7 @@ const CreatePassword: FC<Props> = ({
   type = 'recover',
 }: Props): JSX.Element => {
   const [errors, setErrors] = useState<Form>({});
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
   const [form, setForm] = useState<Form>({
     password: '',
@@ -78,10 +80,14 @@ const CreatePassword: FC<Props> = ({
   }, [form]);
 
   useEffect(() => {
-    if (setNewPasswordResponse.code === 404) {
-      console.log('setNewPasswordResponse', setNewPasswordResponse.code);
+    if (setNewPasswordResponse?.status === 404) {
+      setShowModal(true);
     }
   }, [setNewPasswordResponse]);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="create-password">
@@ -131,6 +137,11 @@ const CreatePassword: FC<Props> = ({
           />
         </div>
       </form>
+      <CodeExpiredModal
+        buttonUrl="/en/auth/recover-password"
+        handleCloseModal={handleCloseModal}
+        showModal={showModal}
+      />
     </div>
   );
 };

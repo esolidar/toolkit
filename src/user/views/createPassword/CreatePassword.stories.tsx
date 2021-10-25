@@ -35,7 +35,7 @@ SetPassword.args = {
     },
   },
   reducers: {
-    setNewPasswordResponse: {},
+    setNewPasswordResponse: null,
   },
 };
 
@@ -67,6 +67,6 @@ RecoverPassword.args = {
     },
   },
   reducers: {
-    setNewPasswordResponse: {},
+    setNewPasswordResponse: null,
   },
 };
