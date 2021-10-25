@@ -15,7 +15,6 @@ const CodeExpiredModal: FC<Props> = ({
     <>
       <CustomModal
         show={showModal}
-        backdrop="static"
         onHide={handleCloseModal}
         bodyChildren={
           <div className="codeExpiredModal">
@@ -31,14 +30,7 @@ const CodeExpiredModal: FC<Props> = ({
             />
           </div>
         }
-        closeButton={true}
-        dialogClassName=""
-        dividerBottom={false}
-        dividerTop={false}
-        showBody
         showFooter={false}
-        showHeader
-        size="md"
         title={intl.formatMessage({ id: 'user.codeExpiredModal.title' })}
       />
     </>
