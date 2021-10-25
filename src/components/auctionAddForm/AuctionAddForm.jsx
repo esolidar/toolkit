@@ -25,7 +25,7 @@ import BankAccount from '../bankAccounts';
 import InputLabel from '../../elements/inputLabel';
 import RadioField from '../../elements/radioField';
 import validateAuctionForm from './validations';
-import { isEmpty } from '../../utils';
+import isEmpty from '../../utils/isEmpty';
 
 /**
  * Auction add form.

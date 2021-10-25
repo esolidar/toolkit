@@ -6,7 +6,7 @@ import Icon from '../../components/icon';
 import ReadMoreText from '../../components/readMoreText';
 import Props from './Reply.types';
 import CommentHeader from '../commentHeader';
-import cursorFocus from '../../utils/cursorFocus';
+import cursorFocus from '../../utils/cursorFocus/cursorFocus';
 
 const Reply: FC<Props> = ({
   comment,

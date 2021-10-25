@@ -6,7 +6,7 @@ import formatDistance from 'date-fns/formatDistance';
 import ProfileAvatar from '../profileAvatar';
 import { cdnStaticUrl } from '../../constants/env';
 import { getToday } from '../../constants/date';
-import getFNSDateLocale from '../../utils/getFNSDateLocale';
+import getFNSDateLocale from '../../utils/getFNSDateLocale/getFNSDateLocale';
 
 const CommentHeader = ({ comment, deleteComment, newThumb, newName, user }) => {
   const intl = useIntl();

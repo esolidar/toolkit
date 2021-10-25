@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { useIntl, IntlShape } from 'react-intl';
 import Validator from 'validator';
-import isEmpty from '../../../utils/isEmpty';
+import isEmpty from '../../../utils/isEmpty/isEmpty';
 import TextField from '../../../elements/textField';
 import Button from '../../../elements/button';
 import Props from './SetPassword.types';

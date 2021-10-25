@@ -7,7 +7,7 @@ import Icon from '../../components/icon';
 import ProfileAvatar from '../../components/profileAvatar';
 import Props from './CommentHeader.types';
 import { getToday } from '../../constants/date';
-import getFNSDateLocale from '../../utils/getFNSDateLocale';
+import getFNSDateLocale from '../../utils/getFNSDateLocale/getFNSDateLocale';
 
 const CommentHeader: FC<Props> = ({
   createdDate,

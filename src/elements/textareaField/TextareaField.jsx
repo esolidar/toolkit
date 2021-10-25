@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
 import InputLabel from '../inputLabel';
-import { isDefined } from '../../utils';
+import isDefined from '../../utils/isDefined';
 
 const TextareaField = ({
   field,

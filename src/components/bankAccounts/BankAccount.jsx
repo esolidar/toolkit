@@ -9,7 +9,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import TextField from '../../elements/textField';
 import ConfirmModal from '../../elements/confirmModal';
 import Button from '../../elements/button';
-import { isEmpty } from '../../utils';
+import isEmpty from '../../utils/isEmpty';
 
 const DeleteButton = ({ handleDeleteClick, idx }) => {
   const intl = useIntl();
