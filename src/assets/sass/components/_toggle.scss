@@ -31,18 +31,24 @@
     width: 1px;
   }
 
-  .react-toggle--checked.react-toggle--disabled {
+  .react-toggle--disabled {
     cursor: not-allowed;
     opacity: 1;
     -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
 
     .react-toggle-track {
-      background-color: map-get($neutrals, 400) !important;
+      background-color: map-get($neutrals, 100) !important;
     }
 
     .react-toggle-thumb {
       background-color: map-get($background, secondary) !important;
+    }
+  }
+
+  .react-toggle--checked.react-toggle--disabled {
+    .react-toggle-track {
+      background-color: map-get($neutrals, 400) !important;
     }
   }
 
@@ -112,7 +118,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: map-get($grays, 50);
+    background-color: map-get($base, white);
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
