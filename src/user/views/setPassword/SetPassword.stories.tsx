@@ -23,7 +23,6 @@ export const Reset: Story<Props> = Template.bind({});
 
 Set.args = {
   type: 'set',
-  origin: 'esolidar',
   onSuccess: () => {},
   actions: {
     postRecoverPassword: () => {},
@@ -35,7 +34,6 @@ Set.args = {
 
 Reset.args = {
   type: 'reset',
-  origin: 'esolidar',
   onSuccess: () => {},
   actions: {
     postRecoverPassword: () => {},

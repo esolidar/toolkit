@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import PasswordField from '../../../elements/passwordField';
 import Button from '../../../elements/button';
+import CodeExpiredModal from '../../components/codeExpiredModal';
 import clone from '../../../utils/clone';
 import Props from './CreatePassword.types';
 
@@ -13,11 +14,13 @@ interface Form {
 const CreatePassword: FC<Props> = ({
   userId,
   code,
-  actions,
+  actions: { postNewPassword, postRecoverPassword },
+  reducers: { setNewPasswordResponse },
   company,
   type = 'recover',
 }: Props): JSX.Element => {
   const [errors, setErrors] = useState<Form>({});
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
   const [form, setForm] = useState<Form>({
     password: '',
@@ -43,18 +46,19 @@ const CreatePassword: FC<Props> = ({
     setErrors(frm);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     if (form.password.length >= 6 && form.password === form.confirmPassword) {
       setErrors({});
       setDisabledButton(true);
       if (type === 'set') {
-        actions.postNewPassword({
+        postNewPassword({
           user_id: userId,
           password: form.password,
           password_confirmation: form.confirmPassword,
         });
       } else {
-        actions.postRecoverPassword({
+        postRecoverPassword({
           user_id: userId,
           code,
           password: form.password,
@@ -75,6 +79,16 @@ const CreatePassword: FC<Props> = ({
     else setDisabledButton(true);
   }, [form]);
 
+  useEffect(() => {
+    if (setNewPasswordResponse?.status === 404) {
+      setShowModal(true);
+    }
+  }, [setNewPasswordResponse]);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="create-password">
       <div className="create-password__title">
@@ -84,43 +98,50 @@ const CreatePassword: FC<Props> = ({
           })}
         </h1>
       </div>
-      <div className="create-password__form">
-        <div className="create-password__form__description">
-          {type === 'set' && (
-            <FormattedMessage id="user.createPassword.subtitle" values={{ company }} />
-          )}
-          {type === 'recover' && <FormattedMessage id="user.recoverPassword.subtitle" />}
-        </div>
-        <div className="create-password__form__input">
-          <PasswordField
-            label={intl.formatMessage({ id: 'user.createPassword.new.password' })}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.password}
-            value={form.password}
-            field="password"
-            id="password"
-          />
+      <form onSubmit={handleSubmit} method="post">
+        <div className="create-password__form">
+          <div className="create-password__form__description">
+            {type === 'set' && (
+              <FormattedMessage id="user.createPassword.subtitle" values={{ company }} />
+            )}
+            {type === 'recover' && <FormattedMessage id="user.recoverPassword.subtitle" />}
+          </div>
+          <div className="create-password__form__input">
+            <PasswordField
+              label={intl.formatMessage({ id: 'user.createPassword.new.password' })}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.password}
+              value={form.password}
+              field="password"
+              id="password"
+            />
 
-          <PasswordField
-            label={intl.formatMessage({ id: 'user.createPassword.confirm.new.password' })}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.confirmPassword}
-            value={form.confirmPassword}
-            field="confirmPassword"
-            id="confirmPassword"
+            <PasswordField
+              label={intl.formatMessage({ id: 'user.createPassword.confirm.new.password' })}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.confirmPassword}
+              value={form.confirmPassword}
+              field="confirmPassword"
+              id="confirmPassword"
+            />
+          </div>
+          <Button
+            extraClass="success-full"
+            type="submit"
+            disabled={disabledButton}
+            text={intl.formatMessage({
+              id: type === 'set' ? 'save' : 'user.recoverPassword.update',
+            })}
           />
         </div>
-        <Button
-          extraClass="success-full"
-          onClick={handleSubmit}
-          disabled={disabledButton}
-          text={intl.formatMessage({
-            id: type === 'set' ? 'save' : 'user.recoverPassword.update',
-          })}
-        />
-      </div>
+      </form>
+      <CodeExpiredModal
+        buttonUrl="/en/auth/recover-password"
+        handleCloseModal={handleCloseModal}
+        showModal={showModal}
+      />
     </div>
   );
 };
