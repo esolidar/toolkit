@@ -85,6 +85,7 @@
 @import './loginToInteract';
 @import './badge';
 @import './alertBox';
+@import './toggle';
 
 // Unreleased
 @import '../unreleased/countdown';
@@ -100,3 +101,4 @@
 @import '../user/setPassword';
 @import '../user/create-password';
 @import '../user/didNotReceiveEmailModal';
+@import '../user/codeExpiredModal';

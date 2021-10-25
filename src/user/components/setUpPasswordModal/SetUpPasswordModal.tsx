@@ -25,7 +25,6 @@ const SetUpPasswordModal: FC<Props> = ({
             />
           </>
         }
-        backdrop="static"
         bodyChildren={
           <>
             <p>
@@ -38,13 +37,6 @@ const SetUpPasswordModal: FC<Props> = ({
           </>
         }
         closeButton={false}
-        dialogClassName=""
-        dividerBottom={false}
-        dividerTop={false}
-        showBody
-        showFooter
-        showHeader
-        size="md"
         title={intl.formatMessage({ id: 'user.setUpPasswordModal.title' })}
         iconTitle={`${cdnStaticUrl}/frontend/icons/ic_alert_triangle.svg`}
       />
