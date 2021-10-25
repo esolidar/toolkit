@@ -3,7 +3,7 @@ interface Props {
   isChecked: boolean;
   name?: string;
   onChange(): void;
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 
 export default Props;

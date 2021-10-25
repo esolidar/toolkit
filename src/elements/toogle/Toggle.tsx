@@ -8,7 +8,7 @@ const Toggle: FC<Props> = ({
   isChecked,
   name = 'toggle',
   onChange,
-  disabled = false,
+  isDisabled = false,
 }: Props): JSX.Element => {
   const classes = classNames('toggle', className);
 
@@ -20,7 +20,7 @@ const Toggle: FC<Props> = ({
         name={name}
         value={`${isChecked}`}
         onChange={onChange}
-        disabled={disabled}
+        disabled={isDisabled}
       />
     </div>
   );

@@ -29,5 +29,5 @@ Disable.args = {
   isChecked: false,
   name: 'toggle',
   onChange: () => {},
-  disabled: true,
+  isDisabled: true,
 };
