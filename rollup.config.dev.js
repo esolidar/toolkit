@@ -16,7 +16,6 @@ const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.ts
 
 export default {
   input: [
-    'src/index.js',
     ...getFiles('src/components', extensions, excludedExtensions),
     ...getFiles('src/constants', extensions, excludedExtensions),
     ...getFiles('src/elements', extensions, excludedExtensions),
