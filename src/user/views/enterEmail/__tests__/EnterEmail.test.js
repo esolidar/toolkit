@@ -2,12 +2,12 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../../__customQueries__/test-utils';
-import Meta, { Set as SetStory, Reset as ResetStory } from '../SetPassword.stories';
+import Meta, { Set as SetStory, Reset as ResetStory } from '../EnterEmail.stories';
 
 const Set = composeStory(SetStory, Meta);
 const Reset = composeStory(ResetStory, Meta);
 
-it('renders SetPassword component with set password copy', () => {
+it('renders EnterEmail component with set password copy', () => {
   const { getByText, getByClass } = render(<Set />);
 
   expect(getByClass('set-password')).toBeInTheDocument();
@@ -28,7 +28,7 @@ it('renders SetPassword component with set password copy', () => {
   expect(getByText('Send instructions')).toBeInTheDocument();
 });
 
-it('renders SetPassword component with reset password copy', () => {
+it('renders EnterEmail component with reset password copy', () => {
   const { getByText, getByClass } = render(<Reset />);
 
   expect(getByClass('set-password')).toBeInTheDocument();

@@ -4,9 +4,9 @@ import Validator from 'validator';
 import isEmpty from '../../../utils/isEmpty/isEmpty';
 import TextField from '../../../elements/textField';
 import Button from '../../../elements/button';
-import Props from './SetPassword.types';
+import Props from './EnterEmail.types';
 
-const SetPassword: FC<Props> = ({
+const EnterEmail: FC<Props> = ({
   type,
   onSuccess,
   actions: { postRecoverPassword },
@@ -50,7 +50,7 @@ const SetPassword: FC<Props> = ({
       <div className="set-password__title">
         <h1>
           {intl.formatMessage({
-            id: type === 'set' ? 'user.setUpPasswordModal.button' : 'user.setPassword.reset.title',
+            id: type === 'set' ? 'user.setUpPasswordModal.button' : 'user.enterEmail.reset.title',
           })}
         </h1>
       </div>
@@ -61,30 +61,30 @@ const SetPassword: FC<Props> = ({
               {intl.formatMessage({
                 id:
                   type === 'set'
-                    ? 'user.setPassword.set.subtitle1'
-                    : 'user.setPassword.reset.subtitle1',
+                    ? 'user.enterEmail.set.subtitle1'
+                    : 'user.enterEmail.reset.subtitle1',
               })}
             </div>
             <div>
               {intl.formatMessage({
                 id:
                   type === 'set'
-                    ? 'user.setPassword.set.subtitle2'
-                    : 'user.setPassword.reset.subtitle2',
+                    ? 'user.enterEmail.set.subtitle2'
+                    : 'user.enterEmail.reset.subtitle2',
               })}
             </div>
           </div>
           <TextField
             className="set-password__form--email-input"
             type="text"
-            label={intl.formatMessage({ id: 'user.setPassword.set.email' })}
+            label={intl.formatMessage({ id: 'user.enterEmail.set.email' })}
             value={email}
             onChange={handleChangeEmail}
             error={error}
           />
           <Button
             extraClass="primary-full"
-            text={intl.formatMessage({ id: 'user.setPassword.set.send' })}
+            text={intl.formatMessage({ id: 'user.enterEmail.set.send' })}
             type="submit"
             disabled={isDisabled}
           />
@@ -94,4 +94,4 @@ const SetPassword: FC<Props> = ({
   );
 };
 
-export default SetPassword;
+export default EnterEmail;
