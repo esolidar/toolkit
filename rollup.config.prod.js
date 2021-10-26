@@ -8,7 +8,7 @@ import bundleScss from 'rollup-plugin-bundle-scss';
 import copy from 'rollup-plugin-copy-assets';
 import json from '@rollup/plugin-json';
 import { terser } from 'rollup-plugin-terser';
-import getFiles from './src/utils/getFiles';
+import getFiles from './src/utils/getFiles/getFiles';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];

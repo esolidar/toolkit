@@ -7,10 +7,10 @@ import { Props, List } from './CardList.types';
 import CardCrowdfunding from '../card/crowdfunding/CardCrowdfunding';
 import CardAuction from '../card/auction/CardAuction';
 import Button from '../../elements/button';
-import isDefined from '../../utils/isDefined';
+import isDefined from '../../utils/isDefined/isDefined';
 import ListFooter from '../listFooter/ListFooter';
 import Title from '../title/title';
-import clone from '../../utils/clone';
+import clone from '../../utils/clone/clone';
 
 interface Types {
   crowdfunding: number;

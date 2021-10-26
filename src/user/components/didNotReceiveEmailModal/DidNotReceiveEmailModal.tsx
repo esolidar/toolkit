@@ -15,7 +15,6 @@ const SetUpPasswordModal: FC<Props> = ({
     <>
       <CustomModal
         show={showModal}
-        backdrop="static"
         onHide={handleCloseModal}
         bodyChildren={
           <div className="didNotReceiveEmailModal">
@@ -62,14 +61,7 @@ const SetUpPasswordModal: FC<Props> = ({
             </p>
           </div>
         }
-        closeButton={true}
-        dialogClassName=""
-        dividerBottom={false}
-        dividerTop={false}
-        showBody
         showFooter={false}
-        showHeader
-        size="md"
         title={intl.formatMessage({ id: 'user.checkEmail.resend' })}
       />
     </>

@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import isEmpty from '../../utils/isEmpty';
 import isDefined from '../../utils/isDefined';
-import isValidRegex from '../../utils/regex';
+import isValidRegex from '../../utils/isValidRegex';
 import { youtubeUrl } from '../../constants/regex';
 
 export default function validateAuctionForm(data) {

@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
 
+import SetNewPasswordResponse from '../../../interfaces/setNewPasswordResponse';
+
 interface SetPassword {
   user_id: number;
   password: string;
@@ -18,9 +20,14 @@ interface Actions {
   postRecoverPassword?(data: RecoverData): void;
 }
 
+interface Reducers {
+  setNewPasswordResponse: SetNewPasswordResponse;
+}
+
 interface Props {
   company: string;
   actions: Actions;
+  reducers: Reducers;
   type?: 'set' | 'recover';
   userId: number;
   code: number;

@@ -9,7 +9,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import TextareaField from '../../elements/textareaField';
 import Button from '../../elements/button';
-import { getEmployeeName, isDefined } from '../../utils';
+import getEmployeeName from '../../utils/getEmployeeName';
+import isDefined from '../../utils/isDefined';
 
 const Reviews = ({
   averageRate,
