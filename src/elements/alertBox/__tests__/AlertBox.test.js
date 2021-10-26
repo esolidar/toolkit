@@ -18,7 +18,7 @@ it('renders AlertBox Info', () => {
 
   expect(getByTestId('alertBox-component')).toBeInTheDocument();
   expect(getByClass(/alertBox__info/)).toBeInTheDocument();
-  expect(getByClass('icon-clock')).toBeInTheDocument();
+  expect(getByClass('icon-info')).toBeInTheDocument();
   expect(getByText('Undergoing maintenance')).toBeInTheDocument();
   expect(getByText('Thank you for your patience, we’ll be back soon.')).toBeInTheDocument();
 });
@@ -38,7 +38,7 @@ it('renders AlertBox Warning', () => {
 
   expect(getByTestId('alertBox-component')).toBeInTheDocument();
   expect(getByClass(/alertBox__warning/)).toBeInTheDocument();
-  expect(getByClass('icon-lock1')).toBeInTheDocument();
+  expect(getByClass('icon-alert-triangle')).toBeInTheDocument();
   expect(getByText('Your credit card is about to expire')).toBeInTheDocument();
   expect(getByText('Update your payment information or contact support.')).toBeInTheDocument();
 });
@@ -48,7 +48,7 @@ it('renders AlertBox Danger', () => {
 
   expect(getByTestId('alertBox-component')).toBeInTheDocument();
   expect(getByClass(/alertBox__danger/)).toBeInTheDocument();
-  expect(getByClass('icon-x-circle')).toBeInTheDocument();
+  expect(getByClass('icon-x-square')).toBeInTheDocument();
   expect(getByText('Could not connect')).toBeInTheDocument();
   expect(
     getByText('Make sure your network connection is active and try again.')

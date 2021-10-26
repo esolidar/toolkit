@@ -1,0 +1,43 @@
+.popover-component-trigger {
+  &:hover,
+  &:active,
+  &:focus,
+  & > span[aria-describedby='bootstrap-popover'] {
+    cursor: pointer;
+    text-decoration: underline;
+    color: map-get($theme-colors, primary);
+  }
+}
+#bootstrap-popover {
+  min-width: 250px;
+  padding: $distance-3;
+  border-color: map-get($neutrals, 200);
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(26, 27, 28, 0.04);
+
+  header {
+    padding-bottom: $distance-1;
+    margin-bottom: $distance-2;
+    border-bottom: 1px solid map-get($neutrals, 200);
+
+    .profile-avatar__name {
+      font-weight: bold;
+    }
+  }
+  body {
+    color: map-get($base, black);
+    font-size: 13px;
+    line-height: 16px;
+
+    p {
+      margin-bottom: $distance-1;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  & > .arrow {
+    display: none !important;
+  }
+}

@@ -14,6 +14,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-alert-triangle:before {
+  content: '\e9ab';
+}
 .icon-bell:before {
   content: '\e967';
 }
@@ -23,7 +26,7 @@
 .icon-calendar:before {
   content: '\e969';
 }
-.icon-camera-outline:before {
+.icon-camera1:before {
   content: '\e96a';
 }
 .icon-camera-off:before {
@@ -125,6 +128,9 @@
 .icon-heart2:before {
   content: '\e98b';
 }
+.icon-info:before {
+  content: '\e9ae';
+}
 .icon-list:before {
   content: '\e98c';
 }
@@ -196,6 +202,9 @@
 }
 .icon-x-circle:before {
   content: '\e9a8';
+}
+.icon-x-square:before {
+  content: '\e9af';
 }
 .icon-plus2:before {
   content: '\e9a9';
@@ -482,6 +491,12 @@
 }
 .icon-youtube:before {
   content: '\e958';
+}
+.icon-times-rectangle-o:before {
+  content: '\e9b0';
+}
+.icon-window-close-o:before {
+  content: '\e9b0';
 }
 .icon-user-plus:before {
   content: '\e95f';

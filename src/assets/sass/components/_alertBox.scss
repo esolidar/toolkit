@@ -1,7 +1,11 @@
 .alertBox {
   width: 100%;
-  position: relative;
+  position: absolute;
   padding: $distance-2 $distance-2 $distance-2 52px;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  right: 0;
 
   i {
     position: absolute;
@@ -14,12 +18,13 @@
     color: map-get($main-text-colors, title);
     font-weight: 700;
     font-size: 18px;
-    margin-bottom: $distance-1;
+    margin-bottom: 0px;
   }
 
   span {
     color: map-get($main-text-colors, title);
     display: block;
+    margin-top: $distance-1;
     font-weight: 400;
     font-size: 16px;
   }
