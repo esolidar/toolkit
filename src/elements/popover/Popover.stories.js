@@ -1,6 +1,4 @@
-import { Story, Meta } from '@storybook/react';
 import Popover from './Popover';
-import Props from './Popover.types';
 import ProfileAvatar from '../../components/profileAvatar';
 
 export default {
@@ -35,16 +33,16 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as Meta;
+};
 
-const Template: Story<Props> = (args: Props) => (
+const Template = args => (
   <div style={{ paddingTop: '180px', textAlign: 'center' }}>
     <Popover {...args} />
   </div>
 );
 
-export const Default: Story<Props> = Template.bind({});
-export const WithHeader: Story<Props> = Template.bind({});
+export const Default = Template.bind({});
+export const WithHeader = Template.bind({});
 
 Default.args = {
   popoverBodyChildren: (

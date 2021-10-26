@@ -1,16 +1,14 @@
-import React, { FC } from 'react';
+import PropTypes from 'prop-types';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import PopoverBootstrap from 'react-bootstrap/Popover';
 
-import Props from './Popover.types';
-
-const Popover: FC<Props> = ({
-  placement = 'top-start',
+const Popover = ({
+  placement = 'auto',
   trigger = ['hover', 'focus'],
   children,
   popoverHeaderChildren,
   popoverBodyChildren,
-}: Props): JSX.Element => {
+}) => {
   const popover = (
     <PopoverBootstrap id="bootstrap-popover">
       {popoverHeaderChildren && (
@@ -25,6 +23,14 @@ const Popover: FC<Props> = ({
       <span className="popover-component-trigger">{children}</span>
     </OverlayTrigger>
   );
+};
+
+Popover.propTypes = {
+  placement: PropTypes.string,
+  trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  children: PropTypes.element,
+  popoverHeaderChildren: PropTypes.element,
+  popoverBodyChildren: PropTypes.element,
 };
 
 export default Popover;
