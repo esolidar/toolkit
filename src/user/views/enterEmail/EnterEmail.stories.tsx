@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react';
-import SetPassword from './SetPassword';
-import Props from './SetPassword.types';
+import EnterEmail from './EnterEmail';
+import Props from './EnterEmail.types';
 
 export default {
-  title: 'User/Views/SetPassword',
-  component: SetPassword,
+  title: 'User/Views/EnterEmail',
+  component: EnterEmail,
   parameters: {
-    jest: ['SetPassword.test.js'],
+    jest: ['EnterEmail.test.js'],
   },
   argTypes: {
     type: {
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => <SetPassword {...args} />;
+const Template: Story<Props> = (args: Props) => <EnterEmail {...args} />;
 
 export const Set: Story<Props> = Template.bind({});
 export const Reset: Story<Props> = Template.bind({});
@@ -28,7 +28,7 @@ Set.args = {
     postRecoverPassword: () => {},
   },
   reducers: {
-    recoverPassword: {},
+    recoverPassword: { code: 200, data: false },
   },
 };
 
@@ -39,6 +39,6 @@ Reset.args = {
     postRecoverPassword: () => {},
   },
   reducers: {
-    recoverPassword: {},
+    recoverPassword: { code: 200, data: false },
   },
 };

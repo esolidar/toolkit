@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635181587397" clover="3.2.0">
-  <project timestamp="1635181587397" name="All files">
-    <metrics statements="3594" coveredstatements="2432" conditionals="3003" coveredconditionals="1870" methods="968" coveredmethods="479" elements="7565" coveredelements="4781" complexity="0" loc="3594" ncloc="3594" packages="160" files="347" classes="347"/>
+<coverage generated="1635243156814" clover="3.2.0">
+  <project timestamp="1635243156814" name="All files">
+    <metrics statements="3594" coveredstatements="2435" conditionals="3003" coveredconditionals="1871" methods="968" coveredmethods="481" elements="7565" coveredelements="4787" complexity="0" loc="3594" ncloc="3594" packages="160" files="347" classes="347"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="2"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -4316,7 +4316,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="14" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4719,18 +4719,18 @@
         <line num="92" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="src.user.views.setPassword">
-      <metrics statements="28" coveredstatements="15" conditionals="12" coveredconditionals="7" methods="9" coveredmethods="3"/>
-      <file name="SetPassword.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/setPassword/SetPassword.stories.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+    <package name="src.user.views.enterEmail">
+      <metrics statements="28" coveredstatements="18" conditionals="12" coveredconditionals="8" methods="9" coveredmethods="5"/>
+      <file name="EnterEmail.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/enterEmail/EnterEmail.stories.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
         <line num="19" count="2" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
       </file>
-      <file name="SetPassword.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/setPassword/SetPassword.tsx">
-        <metrics statements="23" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="4" coveredmethods="2"/>
+      <file name="EnterEmail.tsx" path="/Users/pedroguia/Projects/toolkit/src/user/views/enterEmail/EnterEmail.tsx">
+        <metrics statements="23" coveredstatements="13" conditionals="12" coveredconditionals="8" methods="4" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
@@ -4738,9 +4738,9 @@
         <line num="19" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="2" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
