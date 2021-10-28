@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import PopoverBootstrap from 'react-bootstrap/Popover';
@@ -5,22 +6,26 @@ import PopoverBootstrap from 'react-bootstrap/Popover';
 const Popover = ({
   placement = 'auto',
   trigger = ['hover', 'focus'],
-  children,
+  overlayTrigger,
   popoverHeaderChildren,
   popoverBodyChildren,
 }) => {
   const popover = (
     <PopoverBootstrap id="bootstrap-popover">
       {popoverHeaderChildren && (
-        <header data-testid="bootstrap-popover-header">{popoverHeaderChildren}</header>
+        <div className="bootstrap-popover-header" data-testid="bootstrap-popover-header">
+          {popoverHeaderChildren}
+        </div>
       )}
-      <body data-testid="bootstrap-popover-body">{popoverBodyChildren}</body>
+      <div className="bootstrap-popover-body" data-testid="bootstrap-popover-body">
+        {popoverBodyChildren}
+      </div>
     </PopoverBootstrap>
   );
 
   return (
     <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
-      <span className="popover-component-trigger">{children}</span>
+      <span className="popover-component-trigger">{overlayTrigger}</span>
     </OverlayTrigger>
   );
 };
@@ -28,7 +33,7 @@ const Popover = ({
 Popover.propTypes = {
   placement: PropTypes.string,
   trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  children: PropTypes.element,
+  overlayTrigger: PropTypes.element,
   popoverHeaderChildren: PropTypes.element,
   popoverBodyChildren: PropTypes.element,
 };

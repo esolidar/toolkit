@@ -15,7 +15,7 @@
   border-radius: 16px;
   box-shadow: 0px 4px 8px rgba(26, 27, 28, 0.04);
 
-  header {
+  .bootstrap-popover-header {
     padding-bottom: $distance-1;
     margin-bottom: $distance-2;
     border-bottom: 1px solid map-get($neutrals, 200);
@@ -24,7 +24,7 @@
       font-weight: bold;
     }
   }
-  body {
+  .bootstrap-popover-body {
     color: map-get($base, black);
     font-size: 13px;
     line-height: 16px;
@@ -34,6 +34,11 @@
       &:last-child {
         margin-bottom: 0px;
       }
+    }
+
+    .form-group {
+      margin-bottom: 0px;
+      display: inline;
     }
   }
 
