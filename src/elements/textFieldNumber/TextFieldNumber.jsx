@@ -52,7 +52,7 @@ const TextFieldNumber = ({
         isAllowed={isAllowed}
         renderText={renderText}
         disabled={disabled}
-        className={error ? 'form-control required-field' : 'form-control'}
+        className={`${!displayType ? 'form-control' : ''} ${error ? 'required-field' : ''}`}
       />
     </TextField>
   );
@@ -62,7 +62,7 @@ TextFieldNumber.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
   type: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   error: PropTypes.string,
   placeholder: PropTypes.string,
   message: PropTypes.string,
