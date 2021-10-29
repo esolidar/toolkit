@@ -6,6 +6,7 @@ import PopoverBootstrap from 'react-bootstrap/Popover';
 const Popover = ({
   placement = 'auto',
   trigger = ['hover', 'focus'],
+  delay,
   overlayTrigger,
   popoverHeaderChildren,
   popoverBodyChildren,
@@ -24,7 +25,7 @@ const Popover = ({
   );
 
   return (
-    <OverlayTrigger trigger={trigger} placement={placement} overlay={popover}>
+    <OverlayTrigger trigger={trigger} placement={placement} overlay={popover} delay={delay}>
       <span className="popover-component-trigger">{overlayTrigger}</span>
     </OverlayTrigger>
   );
@@ -33,6 +34,7 @@ const Popover = ({
 Popover.propTypes = {
   placement: PropTypes.string,
   trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  delay: PropTypes.oneOfType([PropTypes.number, PropTypes.shape]),
   overlayTrigger: PropTypes.element,
   popoverHeaderChildren: PropTypes.element,
   popoverBodyChildren: PropTypes.element,
