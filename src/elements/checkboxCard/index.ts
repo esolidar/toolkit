@@ -1,1 +1,1 @@
-export { default } from './CheckboxImage';
+export { default } from './CheckboxCard';
