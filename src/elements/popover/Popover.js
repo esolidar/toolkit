@@ -15,7 +15,6 @@ const Popover = ({
   const popover = (
     <PopoverBootstrap
       id="bootstrap-popover"
-      isopen={isShow}
       onMouseOver={() => setShow(true)}
       onMouseOut={() => setShow(undefined)}
     >

@@ -1,23 +1,20 @@
+/* eslint-disable react/prop-types */
 import React, { FC } from 'react';
+import { useIntl } from 'react-intl';
 import Paginator from 'react-js-pagination';
 import Props from './Pagination.types';
 
-const PrevPage = () => (
+const PrevPage = ({ intl }) => (
   <div className="prev-page" data-testid="prev-page">
-    <strong>Prev</strong>
+    <strong>{intl.formatMessage({ id: 'toolkit.prev' })}</strong>
   </div>
 );
 
-const NextPage = () => (
+const NextPage = ({ intl }) => (
   <div className="next-page" data-testid="next-page">
-    <strong>Next</strong>
+    <strong>{intl.formatMessage({ id: 'toolkit.next' })}</strong>
   </div>
 );
-
-const arrowList = [
-  { prev: undefined, next: undefined },
-  { prev: <PrevPage />, next: <NextPage /> },
-];
 
 const Pagination: FC<Props> = ({
   innerClass,
@@ -29,10 +26,17 @@ const Pagination: FC<Props> = ({
   dataTestId = 'pagination',
   onChange,
 }: Props): JSX.Element => {
+  const intl = useIntl();
+
   const handleChangePage = value => {
     if (value === activePage) return;
     onChange(value);
   };
+
+  const arrowList = [
+    { prev: undefined, next: undefined },
+    { prev: <PrevPage intl={intl} />, next: <NextPage intl={intl} /> },
+  ];
 
   return (
     <>
@@ -47,8 +51,6 @@ const Pagination: FC<Props> = ({
             totalItemsCount={totalItemsCount}
             pageRangeDisplayed={pageRangeDisplayed}
             onChange={handleChangePage}
-            // hideDisabled
-            // hideNavigation
           />
         </div>
       )}

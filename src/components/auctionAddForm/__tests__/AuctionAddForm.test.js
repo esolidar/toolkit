@@ -176,7 +176,7 @@ test('simulate add auction form', async () => {
     const btnSubmit = screen.getByTestId('btn-submit');
     const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Basic information');
+    expect(auctionInformation).toHaveTextContent('General details');
     expect(btnSubmit).toHaveTextContent('Submit auction');
     expect(btnCancel).toHaveTextContent('Cancel');
   });
@@ -191,7 +191,7 @@ test('simulate edit auction form', async () => {
     const btnCancel = screen.getByTestId('btn-cancel');
     expect(auctionTitle).toBeInTheDocument();
     expect(auctionInformation).toBeInTheDocument();
-    expect(auctionInformation).toHaveTextContent('Basic information');
+    expect(auctionInformation).toHaveTextContent('General details');
     expect(btnSubmit).toHaveTextContent('Update auction');
     expect(btnCancel).toHaveTextContent('Cancel');
   });
