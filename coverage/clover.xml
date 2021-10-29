@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635518994237" clover="3.2.0">
-  <project timestamp="1635518994237" name="All files">
-    <metrics statements="3635" coveredstatements="2472" conditionals="3025" coveredconditionals="1891" methods="979" coveredmethods="488" elements="7639" coveredelements="4851" complexity="0" loc="3635" ncloc="3635" packages="162" files="351" classes="351"/>
+<coverage generated="1635519152878" clover="3.2.0">
+  <project timestamp="1635519152878" name="All files">
+    <metrics statements="3645" coveredstatements="2481" conditionals="3034" coveredconditionals="1899" methods="981" coveredmethods="490" elements="7660" coveredelements="4870" complexity="0" loc="3645" ncloc="3645" packages="164" files="355" classes="355"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3699,9 +3699,9 @@
       <file name="Popover.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.js">
         <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
       </file>
       <file name="Popover.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.stories.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -4937,6 +4937,22 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.utils.formatPhoneNumber">
+      <metrics statements="7" coveredstatements="6" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="formatPhoneNumber.js" path="/Users/pedroguia/Projects/toolkit/src/utils/formatPhoneNumber/formatPhoneNumber.js">
+        <metrics statements="7" coveredstatements="6" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="4" type="cond" truecount="4" falsecount="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/utils/formatPhoneNumber/index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
     <package name="src.utils.getEmployeeName">
       <metrics statements="8" coveredstatements="8" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="2"/>
       <file name="getEmployeeName.js" path="/Users/pedroguia/Projects/toolkit/src/utils/getEmployeeName/getEmployeeName.js">
@@ -5150,6 +5166,18 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils.setLocaleTitle">
+      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/utils/setLocaleTitle/index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="setLocaleTitle.js" path="/Users/pedroguia/Projects/toolkit/src/utils/setLocaleTitle/setLocaleTitle.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils.slugify">
