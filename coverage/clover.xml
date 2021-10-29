@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< Updated upstream
 <coverage generated="1635521536776" clover="3.2.0">
   <project timestamp="1635521536776" name="All files">
     <metrics statements="3647" coveredstatements="2484" conditionals="3036" coveredconditionals="1900" methods="980" coveredmethods="490" elements="7663" coveredelements="4874" complexity="0" loc="3647" ncloc="3647" packages="164" files="355" classes="355"/>
+=======
+<coverage generated="1635524779257" clover="3.2.0">
+  <project timestamp="1635524779257" name="All files">
+    <metrics statements="3632" coveredstatements="2467" conditionals="3032" coveredconditionals="1894" methods="973" coveredmethods="486" elements="7637" coveredelements="4847" complexity="0" loc="3632" ncloc="3632" packages="163" files="353" classes="353"/>
+>>>>>>> Stashed changes
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -24,11 +30,19 @@
       </file>
       <file name="test-utils.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/test-utils.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+<<<<<<< Updated upstream
         <line num="8" count="51" type="stmt"/>
         <line num="10" count="51" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="51" type="stmt"/>
         <line num="16" count="51" type="stmt"/>
         <line num="17" count="155" type="stmt"/>
+=======
+        <line num="8" count="50" type="stmt"/>
+        <line num="10" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="50" type="stmt"/>
+        <line num="16" count="50" type="stmt"/>
+        <line num="17" count="151" type="stmt"/>
+>>>>>>> Stashed changes
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -3643,26 +3657,40 @@
       </file>
     </package>
     <package name="src.elements.pagination">
+<<<<<<< Updated upstream
       <metrics statements="14" coveredstatements="14" conditionals="7" coveredconditionals="7" methods="8" coveredmethods="4"/>
       <file name="Pagination.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.stories.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+=======
+      <metrics statements="18" coveredstatements="14" conditionals="9" coveredconditionals="6" methods="7" coveredmethods="4"/>
+      <file name="Pagination.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.stories.tsx">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+>>>>>>> Stashed changes
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
       </file>
       <file name="Pagination.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.tsx">
+<<<<<<< Updated upstream
         <metrics statements="5" coveredstatements="5" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+=======
+        <metrics statements="10" coveredstatements="8" conditionals="9" coveredconditionals="6" methods="4" coveredmethods="3"/>
+>>>>>>> Stashed changes
         <line num="5" count="8" type="stmt"/>
-        <line num="7" count="8" type="stmt"/>
-        <line num="9" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="24" count="8" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="32" count="7" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3694,9 +3722,15 @@
       </file>
     </package>
     <package name="src.elements.popover">
+<<<<<<< Updated upstream
       <metrics statements="13" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="2"/>
       <file name="Popover.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.js">
         <metrics statements="7" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
+=======
+      <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="Popover.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+>>>>>>> Stashed changes
         <line num="6" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>

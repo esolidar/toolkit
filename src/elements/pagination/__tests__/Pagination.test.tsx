@@ -1,11 +1,10 @@
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render, screen } from '../../../../__customQueries__/test-utils';
-import Meta, { WithArrowType0, WithArrowType1, WithoutPagination } from '../Pagination.stories';
+import Meta, { WithArrowType0, WithArrowType1 } from '../Pagination.stories';
 
 const WithArrowType0Component = composeStory(WithArrowType0, Meta);
 const WithArrowType1Component = composeStory(WithArrowType1, Meta);
-const WithoutPaginationComponent = composeStory(WithoutPagination, Meta);
 
 it('renders Pagination with arrow type 0', () => {
   render(<WithArrowType0Component />);
@@ -31,11 +30,4 @@ it('renders Pagination with arrow type 1', () => {
   expect(prev).toBeInTheDocument();
   expect(next).toBeInTheDocument();
   expect(activePage.children[0].textContent).toBe('2');
-});
-
-it('Without Pagination', () => {
-  render(<WithoutPaginationComponent />);
-
-  const paginationComponent = screen.queryByTestId('pagination');
-  expect(paginationComponent).not.toBeInTheDocument();
 });

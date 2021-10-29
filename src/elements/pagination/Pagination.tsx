@@ -2,9 +2,17 @@ import React, { FC } from 'react';
 import Paginator from 'react-js-pagination';
 import Props from './Pagination.types';
 
-const PrevPage = () => <div className="prev-page" data-testid="prev-page" />;
+const PrevPage = () => (
+  <div className="prev-page" data-testid="prev-page">
+    <strong>Prev</strong>
+  </div>
+);
 
-const NextPage = () => <div className="next-page" data-testid="next-page" />;
+const NextPage = () => (
+  <div className="next-page" data-testid="next-page">
+    <strong>Next</strong>
+  </div>
+);
 
 const arrowList = [
   { prev: undefined, next: undefined },
@@ -21,6 +29,11 @@ const Pagination: FC<Props> = ({
   dataTestId = 'pagination',
   onChange,
 }: Props): JSX.Element => {
+  const handleChangePage = value => {
+    if (value === activePage) return;
+    onChange(value);
+  };
+
   return (
     <>
       {totalItemsCount > 0 && (
@@ -33,7 +46,9 @@ const Pagination: FC<Props> = ({
             itemsCountPerPage={itemsCountPerPage}
             totalItemsCount={totalItemsCount}
             pageRangeDisplayed={pageRangeDisplayed}
-            onChange={onChange}
+            onChange={handleChangePage}
+            // hideDisabled
+            // hideNavigation
           />
         </div>
       )}

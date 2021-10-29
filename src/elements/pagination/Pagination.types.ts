@@ -6,7 +6,7 @@ interface Props {
   pageRangeDisplayed?: number;
   arrowType: number;
   dataTestId?: string;
-  onChange: () => void;
+  onChange: (newPage: number) => void;
 }
 
 export default Props;
