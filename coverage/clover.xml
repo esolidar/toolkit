@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635521413393" clover="3.2.0">
-  <project timestamp="1635521413393" name="All files">
-    <metrics statements="3644" coveredstatements="2489" conditionals="3036" coveredconditionals="1903" methods="978" coveredmethods="491" elements="7658" coveredelements="4883" complexity="0" loc="3644" ncloc="3644" packages="164" files="355" classes="355"/>
+<coverage generated="1635521536776" clover="3.2.0">
+  <project timestamp="1635521536776" name="All files">
+    <metrics statements="3647" coveredstatements="2484" conditionals="3036" coveredconditionals="1900" methods="980" coveredmethods="490" elements="7663" coveredelements="4874" complexity="0" loc="3647" ncloc="3647" packages="164" files="355" classes="355"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3694,13 +3694,16 @@
       </file>
     </package>
     <package name="src.elements.popover">
-      <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="11" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="2"/>
       <file name="Popover.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.js">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
       <file name="Popover.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.stories.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -3920,19 +3923,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
         <line num="8" count="20" type="stmt"/>
         <line num="32" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="30" type="stmt"/>
-        <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="47" count="37" type="stmt"/>
         <line num="89" count="20" type="stmt"/>
         <line num="114" count="20" type="stmt"/>
@@ -5073,7 +5076,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="80" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
