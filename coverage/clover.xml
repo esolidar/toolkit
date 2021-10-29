@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635430066325" clover="3.2.0">
-  <project timestamp="1635430066325" name="All files">
-    <metrics statements="3618" coveredstatements="2464" conditionals="3021" coveredconditionals="1891" methods="972" coveredmethods="485" elements="7611" coveredelements="4840" complexity="0" loc="3618" ncloc="3618" packages="161" files="349" classes="349"/>
+<coverage generated="1635505356094" clover="3.2.0">
+  <project timestamp="1635505356094" name="All files">
+    <metrics statements="3628" coveredstatements="2473" conditionals="3030" coveredconditionals="1902" methods="974" coveredmethods="487" elements="7632" coveredelements="4862" complexity="0" loc="3628" ncloc="3628" packages="163" files="353" classes="353"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -3942,10 +3942,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="47" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="44" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="13" type="stmt"/>
-        <line num="17" count="34" type="stmt"/>
-        <line num="19" count="34" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="19" count="31" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.card">
@@ -4230,7 +4230,7 @@
       </file>
     </package>
     <package name="src.unreleased.countdown">
-      <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="74" methods="12" coveredmethods="9"/>
+      <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="77" methods="12" coveredmethods="9"/>
       <file name="Countdown.stories.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.stories.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="28" count="1" type="stmt"/>
@@ -4263,7 +4263,7 @@
         <line num="155" count="1" type="stmt"/>
       </file>
       <file name="Countdown.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.tsx">
-        <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="74" methods="9" coveredmethods="8"/>
+        <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="77" methods="9" coveredmethods="8"/>
         <line num="9" count="5" type="stmt"/>
         <line num="18" count="58" type="stmt"/>
         <line num="19" count="58" type="stmt"/>
@@ -4301,14 +4301,14 @@
         <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="12" type="stmt"/>
-        <line num="77" count="12" type="stmt"/>
+        <line num="76" count="7" type="stmt"/>
+        <line num="77" count="7" type="stmt"/>
         <line num="79" count="16" type="cond" truecount="2" falsecount="0"/>
         <line num="80" count="10" type="stmt"/>
         <line num="81" count="10" type="stmt"/>
         <line num="83" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="11" type="stmt"/>
-        <line num="85" count="11" type="stmt"/>
+        <line num="84" count="14" type="stmt"/>
+        <line num="85" count="14" type="stmt"/>
         <line num="88" count="16" type="stmt"/>
         <line num="90" count="16" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="16" type="cond" truecount="4" falsecount="0"/>
@@ -4344,7 +4344,7 @@
         <line num="150" count="58" type="stmt"/>
         <line num="151" count="21" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
-        <line num="154" count="14" type="stmt"/>
+        <line num="154" count="9" type="stmt"/>
         <line num="156" count="21" type="stmt"/>
         <line num="159" count="58" type="stmt"/>
         <line num="160" count="14" type="cond" truecount="2" falsecount="0"/>
@@ -4911,6 +4911,22 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.utils.formatPhoneNumber">
+      <metrics statements="7" coveredstatements="6" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="formatPhoneNumber.js" path="C:\Projects\toolkit\src\utils\formatPhoneNumber\formatPhoneNumber.js">
+        <metrics statements="7" coveredstatements="6" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="4" type="cond" truecount="4" falsecount="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Projects\toolkit\src\utils\formatPhoneNumber\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
     <package name="src.utils.getEmployeeName">
       <metrics statements="8" coveredstatements="8" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="2"/>
       <file name="getEmployeeName.js" path="C:\Projects\toolkit\src\utils\getEmployeeName\getEmployeeName.js">
@@ -5124,6 +5140,18 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils.setLocaleTitle">
+      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="index.js" path="C:\Projects\toolkit\src\utils\setLocaleTitle\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="setLocaleTitle.js" path="C:\Projects\toolkit\src\utils\setLocaleTitle\setLocaleTitle.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils.slugify">
