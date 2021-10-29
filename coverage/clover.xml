@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635519152878" clover="3.2.0">
-  <project timestamp="1635519152878" name="All files">
-    <metrics statements="3645" coveredstatements="2481" conditionals="3034" coveredconditionals="1899" methods="981" coveredmethods="490" elements="7660" coveredelements="4870" complexity="0" loc="3645" ncloc="3645" packages="164" files="355" classes="355"/>
+<coverage generated="1635521413393" clover="3.2.0">
+  <project timestamp="1635521413393" name="All files">
+    <metrics statements="3644" coveredstatements="2489" conditionals="3036" coveredconditionals="1903" methods="978" coveredmethods="491" elements="7658" coveredelements="4883" complexity="0" loc="3644" ncloc="3644" packages="164" files="355" classes="355"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3365,9 +3365,9 @@
       </file>
     </package>
     <package name="src.elements.checkboxCard">
-      <metrics statements="17" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
       <file name="CheckboxCard.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxCard/CheckboxCard.stories.tsx">
-        <metrics statements="13" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="6" type="stmt"/>
         <line num="24" count="6" type="stmt"/>
@@ -3376,18 +3376,17 @@
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
       </file>
       <file name="CheckboxCard.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/checkboxCard/CheckboxCard.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="19" count="6" type="stmt"/>
         <line num="26" count="6" type="stmt"/>
-        <line num="28" count="6" type="stmt"/>
+        <line num="27" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.checkboxField">
@@ -3921,19 +3920,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="26" coveredconditionals="20" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="26" coveredconditionals="23" methods="2" coveredmethods="2"/>
         <line num="8" count="20" type="stmt"/>
         <line num="32" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="34" count="30" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
         <line num="47" count="37" type="stmt"/>
         <line num="89" count="20" type="stmt"/>
         <line num="114" count="20" type="stmt"/>
@@ -5074,7 +5073,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="80" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">

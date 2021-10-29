@@ -23,7 +23,10 @@ const CheckboxCard: FC<Props> = ({
     { [size]: size }
   );
 
-  const handleOnClick = () => onChange(!isChecked);
+  const handleOnClick = () => {
+    if (disabled) return;
+    onChange(!isChecked);
+  };
 
   return (
     <button className={classes} onClick={handleOnClick} id={id}>

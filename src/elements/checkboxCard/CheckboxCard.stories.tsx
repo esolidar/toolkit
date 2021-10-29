@@ -33,8 +33,6 @@ export const Large = Template.bind({});
 Small.args = {
   id: 'checkboxCard-sm',
   img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
-  isChecked: false,
-  onChange: value => alert(`New value: ${value}`),
   size: 'sm',
   title: 'Animals & Wildlife',
 };
@@ -42,8 +40,6 @@ Small.args = {
 Medium.args = {
   id: 'checkboxCard-md',
   img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
-  isChecked: false,
-  onChange: value => alert(`New value: ${value}`),
   subtitle: 'Subtitle',
   title: 'Title',
 };
@@ -51,8 +47,6 @@ Medium.args = {
 Large.args = {
   id: 'checkboxCard-lg',
   img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
-  isChecked: false,
-  onChange: value => alert(`New value: ${value}`),
   size: 'lg',
   subtitle:
     'End hunger, achieve food security and improved nutrition and promote sustainable agriculture',

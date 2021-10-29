@@ -113,7 +113,9 @@
   }
 
   &:hover {
-    border: 1px solid map-get($turquoise, 500);
+    &:not(.disabled) {
+      border: 1px solid map-get($turquoise, 500);
+    }
   }
 
   &.active {
@@ -132,9 +134,19 @@
 
   &.disabled {
     background-color: map-get($background, secondary);
+    cursor: default;
 
     & .checkbox-card__info--title {
       color: map-get($neutrals, 700);
+    }
+
+    &:not(.active) {
+      & .checkbox-card__icon {
+        display: none;
+      }
+      & .checkbox-card__icon {
+        display: none;
+      }
     }
   }
 
