@@ -51,7 +51,7 @@ Default.args = {
       <p>Tel. +351 345 354 234</p>
     </div>
   ),
-  children: <span>Joel Calheiros</span>,
+  overlayTrigger: <span>Joel Calheiros</span>,
 };
 
 WithHeader.args = {
@@ -67,5 +67,5 @@ WithHeader.args = {
       <p>Tel. +351 345 354 234</p>
     </div>
   ),
-  children: <span>Joel Calheiros</span>,
+  overlayTrigger: <span>Joel Calheiros</span>,
 };

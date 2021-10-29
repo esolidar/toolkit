@@ -19,6 +19,8 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 export const WithSubtitle: Story<Props> = Template.bind({});
 export const WithoutSupportUrl: Story<Props> = Template.bind({});
+export const WithoutGoBackFunc: Story<Props> = Template.bind({});
+export const TitleWithIcon: Story<Props> = Template.bind({});
 export const TitleOnly: Story<Props> = Template.bind({});
 
 Default.args = {
@@ -37,6 +39,20 @@ WithoutSupportUrl.args = {
   title: 'Crowdfunding title',
   supportingName: 'Joel Calheiros',
   goBackUrl: '#',
+};
+
+WithoutGoBackFunc.args = {
+  title: 'Crowdfunding title',
+  supportingName: 'Joel Calheiros',
+  onClickGoBack: () => {},
+};
+
+TitleWithIcon.args = {
+  title: 'Crowdfunding title',
+  icon: {
+    class: 'icon-external-link',
+    href: '/',
+  },
 };
 
 TitleOnly.args = {
