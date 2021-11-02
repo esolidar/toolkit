@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635521536776" clover="3.2.0">
-  <project timestamp="1635521536776" name="All files">
-    <metrics statements="3647" coveredstatements="2484" conditionals="3036" coveredconditionals="1900" methods="980" coveredmethods="490" elements="7663" coveredelements="4874" complexity="0" loc="3647" ncloc="3647" packages="164" files="355" classes="355"/>
+<coverage generated="1635527218587" clover="3.2.0">
+  <project timestamp="1635527218587" name="All files">
+    <metrics statements="3652" coveredstatements="2485" conditionals="3038" coveredconditionals="1899" methods="979" coveredmethods="490" elements="7669" coveredelements="4874" complexity="0" loc="3652" ncloc="3652" packages="164" files="355" classes="355"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -28,7 +28,7 @@
         <line num="10" count="51" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="51" type="stmt"/>
         <line num="16" count="51" type="stmt"/>
-        <line num="17" count="155" type="stmt"/>
+        <line num="17" count="154" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -3643,26 +3643,31 @@
       </file>
     </package>
     <package name="src.elements.pagination">
-      <metrics statements="14" coveredstatements="14" conditionals="7" coveredconditionals="7" methods="8" coveredmethods="4"/>
+      <metrics statements="19" coveredstatements="15" conditionals="9" coveredconditionals="6" methods="7" coveredmethods="4"/>
       <file name="Pagination.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.stories.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
       </file>
       <file name="Pagination.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/Pagination.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
-        <line num="5" count="8" type="stmt"/>
+        <metrics statements="11" coveredstatements="9" conditionals="9" coveredconditionals="6" methods="4" coveredmethods="3"/>
         <line num="7" count="8" type="stmt"/>
-        <line num="9" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
-        <line num="24" count="8" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="41" count="7" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/pagination/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3700,10 +3705,10 @@
         <line num="6" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
       <file name="Popover.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/popover/Popover.stories.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
