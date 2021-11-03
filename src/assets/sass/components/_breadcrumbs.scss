@@ -1,0 +1,49 @@
+.esolidar-breadcrumbs {
+  display: flex;
+
+  &__item {
+    padding: 0 $distance-3;
+    position: relative;
+
+    &:not(:last-child) {
+      &:after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        width: 4px;
+        height: 4px;
+        background-color: map-get($neutrals, 700);
+        right: 0;
+        top: 10px;
+      }
+    }
+  }
+
+  &__button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 900);
+
+    &.disabled {
+      color: map-get($neutrals, 400);
+      cursor: default;
+
+      &:hover {
+        color: map-get($neutrals, 400);
+      }
+    }
+
+    &:hover {
+      color: map-get($turquoise, 500);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
