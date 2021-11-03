@@ -11,7 +11,7 @@ const Breadcrumbs: FC<Props> = ({ breadcrumbs }: Props): JSX.Element => {
             type="button"
             onClick={item.handleClick}
             className={classnames('esolidar-breadcrumbs__button', {
-              disabled: breadcrumbs.length === i + 1,
+              'disabled-item': breadcrumbs.length === i + 1,
             })}
             disabled={breadcrumbs.length === i + 1}
           >

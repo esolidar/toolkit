@@ -5,6 +5,10 @@
     padding: 0 $distance-3;
     position: relative;
 
+    &:first-child {
+      padding-left: 0;
+    }
+
     &:not(:last-child) {
       &:after {
         content: '';
@@ -29,7 +33,7 @@
     line-height: 20px;
     color: map-get($neutrals, 900);
 
-    &.disabled {
+    &.disabled-item {
       color: map-get($neutrals, 400);
       cursor: default;
 

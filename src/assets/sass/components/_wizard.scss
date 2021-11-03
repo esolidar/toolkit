@@ -7,6 +7,7 @@
   overflow: auto;
   transition-duration: 0.2s;
   transition-delay: 0s;
+  z-index: 9999;
 
   &.open {
     left: 0;
@@ -47,11 +48,11 @@
   }
 
   h1 {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
+    font-size: 24px !important;
+    line-height: 32px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: flex;
     align-items: center;
 
