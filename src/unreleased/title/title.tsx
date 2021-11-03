@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
 import Props from './title.types';
 import Icon from '../../components/icon';
 
@@ -35,14 +36,27 @@ const Title: FC<Props> = ({
     <h1 className="component-title__h1">
       {title}
       {icon && (
-        <a
-          className="component-title__icon"
-          href={icon.href}
-          target={icon.target || '_self'}
-          rel="noopener"
-        >
-          <Icon iconClass={icon.class} />
-        </a>
+        <>
+          {icon.disabled ? (
+            <span
+              data-tip={icon.disabledText}
+              className="component-title__icon--disabled"
+              data-place={icon.tooltipPlacement || 'top'}
+            >
+              <Icon iconClass={icon.class} />
+              <ReactTooltip effect="solid" />
+            </span>
+          ) : (
+            <a
+              className="component-title__icon"
+              href={icon.href}
+              target={icon.target || '_self'}
+              rel="noopener"
+            >
+              <Icon iconClass={icon.class} />
+            </a>
+          )}
+        </>
       )}
     </h1>
     <span className="component-title__subtitle">{subtitle}</span>

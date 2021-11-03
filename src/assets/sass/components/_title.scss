@@ -24,7 +24,8 @@
     padding: 0;
   }
 
-  &__icon {
+  &__icon,
+  &__icon--disabled {
     color: map-get($theme-colors, primary);
     text-decoration: none;
     position: absolute;
@@ -37,6 +38,16 @@
     &:active {
       color: map-get($theme-colors, primary);
       text-decoration: none;
+    }
+
+    &--disabled {
+      color: map-get($neutrals, 700);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($neutrals, 700);
+      }
     }
   }
 
