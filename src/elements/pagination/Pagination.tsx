@@ -1,15 +1,20 @@
+/* eslint-disable react/prop-types */
 import React, { FC } from 'react';
+import { useIntl } from 'react-intl';
 import Paginator from 'react-js-pagination';
 import Props from './Pagination.types';
 
-const PrevPage = () => <div className="prev-page" data-testid="prev-page" />;
+const PrevPage = ({ intl }) => (
+  <div className="prev-page" data-testid="prev-page">
+    <strong>{intl.formatMessage({ id: 'toolkit.prev' })}</strong>
+  </div>
+);
 
-const NextPage = () => <div className="next-page" data-testid="next-page" />;
-
-const arrowList = [
-  { prev: undefined, next: undefined },
-  { prev: <PrevPage />, next: <NextPage /> },
-];
+const NextPage = ({ intl }) => (
+  <div className="next-page" data-testid="next-page">
+    <strong>{intl.formatMessage({ id: 'toolkit.next' })}</strong>
+  </div>
+);
 
 const Pagination: FC<Props> = ({
   innerClass,
@@ -21,6 +26,18 @@ const Pagination: FC<Props> = ({
   dataTestId = 'pagination',
   onChange,
 }: Props): JSX.Element => {
+  const intl = useIntl();
+
+  const handleChangePage = value => {
+    if (value === activePage) return;
+    onChange(value);
+  };
+
+  const arrowList = [
+    { prev: undefined, next: undefined },
+    { prev: <PrevPage intl={intl} />, next: <NextPage intl={intl} /> },
+  ];
+
   return (
     <>
       {totalItemsCount > 0 && (
@@ -33,7 +50,7 @@ const Pagination: FC<Props> = ({
             itemsCountPerPage={itemsCountPerPage}
             totalItemsCount={totalItemsCount}
             pageRangeDisplayed={pageRangeDisplayed}
-            onChange={onChange}
+            onChange={handleChangePage}
           />
         </div>
       )}

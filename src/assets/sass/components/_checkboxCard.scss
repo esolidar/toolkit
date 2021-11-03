@@ -1,0 +1,163 @@
+.checkbox-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: map-get($background, primary);
+  border: 1px solid map-get($neutrals, 100);
+  border-radius: $border-radius-1;
+  box-shadow: 0px 2px 4px rgba(26, 27, 28, 0.04);
+
+  &.sm {
+    min-height: 152px;
+    max-width: 182px;
+    width: 100%;
+    padding: $distance-3;
+
+    & .checkbox-card__img {
+      width: 48px;
+      height: 48px;
+      border-radius: $border-radius-1;
+    }
+
+    & .checkbox-card__info {
+      margin-top: $distance-2;
+      text-align: center;
+
+      & .checkbox-card__info--title {
+        color: map-get($base, black);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &.md {
+    min-height: 232px;
+    max-width: 208px;
+    width: 100%;
+    padding: $distance-4;
+
+    & .checkbox-card__img {
+      width: 70px;
+      height: 70px;
+      border-radius: $border-radius-1;
+    }
+
+    & .checkbox-card__info {
+      margin-top: $distance-2;
+      text-align: center;
+
+      & .checkbox-card__info--title {
+        color: map-get($base, black);
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      & .checkbox-card__info--subtitle {
+        margin-top: $distance-1;
+        color: map-get($neutrals, 700);
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &.lg {
+    min-height: 90px;
+    max-width: 480px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    padding: $distance-2;
+
+    & .checkbox-card__img {
+      width: 56px;
+      height: 56px;
+      border-radius: $border-radius-1;
+    }
+
+    & .checkbox-card__info {
+      margin: 0 $distance-2;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      & .checkbox-card__info--title {
+        color: map-get($base, black);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+      }
+
+      & .checkbox-card__info--subtitle {
+        color: map-get($neutrals, 700);
+        font-size: 14px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+
+    & .checkbox-card__icon {
+      background-position: 98% 11%;
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:hover {
+    &:not(.disabled) {
+      border: 1px solid map-get($turquoise, 500);
+    }
+  }
+
+  &.active {
+    &:not(.disabled) {
+      border: 1px solid map-get($turquoise, 500);
+    }
+  }
+
+  &:not(.active) {
+    &:not(:hover) {
+      & .checkbox-card__icon {
+        display: none;
+      }
+    }
+  }
+
+  &.disabled {
+    background-color: map-get($background, secondary);
+    cursor: default;
+
+    & .checkbox-card__info--title {
+      color: map-get($neutrals, 700);
+    }
+
+    &:not(.active) {
+      & .checkbox-card__icon {
+        display: none;
+      }
+      & .checkbox-card__icon {
+        display: none;
+      }
+    }
+  }
+
+  & .checkbox-card__icon {
+    position: absolute;
+    right: $distance-1;
+    top: $distance-1;
+    width: 24px;
+    height: 24px;
+    background: url('#{$cdn-static-url}/whitelabel-frontend/icons/ic-success-selected.svg')
+      no-repeat 50% 50%;
+    background-size: 24px;
+  }
+}

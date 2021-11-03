@@ -6,16 +6,15 @@
     position: relative;
     float: left;
     padding: 6px 12px;
-    line-height: 1.42857143;
     text-decoration: none;
     color: map-get($main-text-colors, dark);
     background-color: transparent;
-    border: none;
-    margin-left: -1px;
-
-    &:hover {
-      color: map-get($theme-colors, primary);
-    }
+    border: 1px solid map-get($neutrals, 100);
+    border-radius: $border-radius-1;
+    margin: 0 $distance-1/2;
+    color: map-get($base, black);
+    min-width: 40px;
+    height: 40px;
   }
 
   > .active > a,
@@ -25,11 +24,11 @@
   > .active > a:focus,
   > .active > span:focus {
     z-index: 3;
-    background-color: transparent;
-    border-color: transparent;
-    color: map-get($theme-colors, primary);
-    border-bottom: 2px solid map-get($theme-colors, primary);
     cursor: default;
+    border: 1px solid map-get($turquoise, 500);
+    background-color: map-get($turquoise, 500);
+    color: white;
+    border-radius: $border-radius-1;
   }
 
   .go-first {
@@ -37,6 +36,12 @@
       #pag-left-arrow {
         stroke: map-get($theme-colors, primary);
       }
+    }
+  }
+
+  li {
+    &.disabled {
+      display: none;
     }
   }
 
@@ -57,17 +62,21 @@
 
   > li > a .next-page,
   > li > a .prev-page {
-    width: 20px;
+    width: 60px;
     height: 20px;
   }
 
   > li > a .next-page,
   > li > span .next-page {
-    background: url('#{$cdn-static-url}/frontend/icons/icon-next-page.svg') 50% 50% no-repeat;
+    background: url('#{$cdn-static-url}/frontend/icons/icon-next-page.svg') 100% 50% no-repeat;
+    display: flex;
+    justify-content: flex-start;
   }
 
   > li > a .prev-page,
   > li > span .prev-page {
-    background: url('#{$cdn-static-url}/frontend/icons/icon-prev-page.svg') 50% 50% no-repeat;
+    background: url('#{$cdn-static-url}/frontend/icons/icon-prev-page.svg') 0 50% no-repeat;
+    display: flex;
+    justify-content: flex-end;
   }
 }

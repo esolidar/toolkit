@@ -9,6 +9,7 @@ import Meta, {
   WithoutGoBackFunc as WithoutGoBackFuncStory,
   WithSubtitle as WithSubtitleStory,
   TitleWithIcon as TitleWithIconStory,
+  TitleWithIconDisabled as TitleWithIconDisabledStory,
 } from '../title.stories';
 
 const Default = composeStory(DefaultStory, Meta);
@@ -17,6 +18,7 @@ const WithoutSupportUrl = composeStory(WithoutSupportUrlStory, Meta);
 const WithoutGoBackFunc = composeStory(WithoutGoBackFuncStory, Meta);
 const WithSubtitle = composeStory(WithSubtitleStory, Meta);
 const TitleWithIcon = composeStory(TitleWithIconStory, Meta);
+const TitleWithIconDisabled = composeStory(TitleWithIconDisabledStory, Meta);
 
 it('renders Title default component', () => {
   const { getAllByClass, getByClass } = render(<Default />);
@@ -85,4 +87,14 @@ it('renders Title with Icon', () => {
   expect(getAllByClass('component-title__h1')).toHaveLength(1);
   expect(getByClass('component-title__h1')).toHaveTextContent('Crowdfunding title');
   expect(getAllByClass('icon-external-link')).toBeTruthy();
+});
+
+it('renders Title with Icon Disabled', () => {
+  const { getAllByClass, getByClass } = render(<TitleWithIconDisabled />);
+
+  expect(getAllByClass('component-title')).toBeTruthy();
+  expect(getAllByClass('component-title__h1')).toHaveLength(1);
+  expect(getByClass('component-title__h1')).toHaveTextContent('Crowdfunding title');
+  expect(getAllByClass('icon-external-link')).toBeTruthy();
+  expect(getAllByClass('component-title__icon--disabled')).toBeTruthy();
 });
