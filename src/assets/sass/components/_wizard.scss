@@ -1,0 +1,143 @@
+.wizard {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  transition-duration: 0.2s;
+  transition-delay: 0s;
+
+  &.open {
+    left: 0;
+  }
+
+  &.closed {
+    left: 100%;
+  }
+}
+.wizard__header {
+  padding: $distance-2 $distance-4;
+  border-bottom: 1px solid map-get($neutrals, 100);
+  display: flex;
+
+  &__image {
+    justify-content: start;
+    margin-right: $distance-3;
+    align-items: center;
+    display: flex;
+
+    button {
+      padding: 0;
+      margin: 0;
+      display: contents;
+    }
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+
+    &__subtitle {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: map-get($neutrals, 900);
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    .badge {
+      margin-left: $distance-4;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    .saved-status {
+      font-size: 16px;
+      line-height: 24px;
+      color: map-get($neutrals, 700);
+
+      img {
+        margin-left: $distance-2;
+      }
+    }
+
+    .btn-save-close {
+      margin: 0 $distance-3;
+    }
+  }
+}
+
+.wizard__paginator {
+  display: flex;
+  text-align: center;
+
+  &__item {
+    padding: $distance-2;
+
+    &:not(:last-child) {
+      border-right: 1px solid map-get($neutrals, 100);
+    }
+
+    &__title {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+    &__subtitle {
+      color: map-get($neutrals, 700);
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+
+      img {
+        margin-right: $distance-1;
+        margin-top: -1px;
+      }
+    }
+
+    &.active {
+      color: map-get($turquoise, 500);
+      border-bottom: 4px solid map-get($turquoise, 500);
+    }
+
+    &.inactive {
+      color: map-get($neutrals, 700);
+      border-bottom: 1px solid map-get($neutrals, 100);
+    }
+  }
+}
+
+.wizard__body {
+  margin-top: 72px;
+  margin-bottom: 72px;
+}
+
+.wizard__footer {
+  display: flex;
+  border-top: 1px solid map-get($neutrals, 100);
+  padding-top: $distance-3;
+
+  &__continue {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    button {
+      margin-left: $distance-3;
+    }
+  }
+}
