@@ -13,7 +13,9 @@ export default {
 
 const Template: Story<Props> = (args: Props) => (
   <div>
-    <Wizard {...args} />
+    <Wizard {...args}>
+      <div style={{ textAlign: 'center' }}>Body Content Here</div>
+    </Wizard>
   </div>
 );
 
@@ -52,7 +54,6 @@ Open.args = {
       active: false,
     },
   ],
-  body: <div style={{ textAlign: 'center' }}>Body Content Here</div>,
   disabledDarkButton: false,
   disabledPrimaryButton: true,
   handleClickBack: () => {},
@@ -94,7 +95,6 @@ Close.args = {
       active: false,
     },
   ],
-  body: <div style={{ textAlign: 'center' }}>Body Content Here</div>,
   disabledDarkButton: false,
   disabledPrimaryButton: true,
   handleClickBack: () => {},

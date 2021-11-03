@@ -15,7 +15,7 @@ interface Props {
   cdnStaticUrl: string;
   saved?: boolean;
   pages: Pages[];
-  body: JSX.Element;
+  children: JSX.Element;
   handleDarkButton(): void;
   handlePrimaryButton(): void;
   disabledDarkButton: boolean;

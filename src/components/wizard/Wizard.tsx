@@ -15,7 +15,6 @@ const Wizard: FC<Props> = ({
   cdnStaticUrl,
   saved,
   pages,
-  body,
   handleDarkButton,
   handlePrimaryButton,
   disabledDarkButton,
@@ -25,6 +24,7 @@ const Wizard: FC<Props> = ({
   totalPages,
   currentPage,
   disableClickNext,
+  children,
 }: Props): JSX.Element => {
   return (
     <div className={`wizard ${showWizard ? 'open' : 'closed'} `}>
@@ -45,7 +45,7 @@ const Wizard: FC<Props> = ({
       <div>
         <WizardPaginator pages={pages} cdnStaticUrl={cdnStaticUrl} />
       </div>
-      <div className="container wizard__body">{body}</div>
+      <div className="container wizard__body">{children}</div>
       <div className="container">
         <WizardFooter
           handleClickBack={handleClickBack}
