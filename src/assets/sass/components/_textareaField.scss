@@ -1,11 +1,70 @@
 .text-area-field {
-  & .form-control {
-    resize: none;
-    box-shadow: none;
-    line-height: 1.8;
+  .relative {
+    position: relative;
 
-    &:focus {
+    .footer-maxlength {
+      display: none;
+      position: absolute;
+      bottom: $distance-1;
+      right: $distance-2;
+    }
+
+    & .form-control {
+      color: map-get($base, black) !important;
+      min-height: 160px;
+      resize: none;
       box-shadow: none;
+      line-height: 1.8;
+      border: 2px solid map-get($neutrals, 200);
+      border-radius: $border-radius-1 !important;
+
+      &:hover {
+        border: 2px solid map-get($turquoise, 500) !important;
+      }
+
+      &:disabled {
+        color: map-get($neutrals, 700) !important;
+        border: 2px solid map-get($neutrals, 100) !important;
+        background-color: map-get($background, secondary);
+      }
+
+      &:focus {
+        box-sizing: border-box;
+        border: 2px solid map-get($turquoise, 500) !important;
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+
+        ~ .footer-maxlength {
+          display: block;
+          color: map-get($neutrals, 400);
+        }
+      }
+
+      &.footer {
+        padding-bottom: 40px;
+      }
+    }
+  }
+
+  &.has-error {
+    .form-control {
+      border: 2px solid map-get($negative, 500) !important;
+    }
+    .help-block {
+      color: map-get($negative, 500) !important;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      font-weight: 400 !important;
+      padding-top: $distance-1;
+    }
+
+    .footer-maxlength {
+      display: block;
+
+      color: map-get($negative, 500);
+    }
+
+    .footer-maxlength {
+      color: map-get($negative, 500);
     }
   }
 }

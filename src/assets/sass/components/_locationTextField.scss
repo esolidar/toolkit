@@ -1,0 +1,83 @@
+.locationTextField {
+  .geosuggest {
+    .geosuggest__input {
+      font-size: 16px;
+      font-weight: 400;
+      width: 100%;
+      color: map-get($neutrals, 900);
+      height: 40px;
+      resize: none;
+      box-shadow: none;
+      line-height: 1.8;
+      border: 2px solid map-get($neutrals, 200);
+      border-radius: $border-radius-1 !important;
+      padding-left: $distance-2;
+
+      &:hover {
+        border: 2px solid map-get($turquoise, 500);
+      }
+
+      &:disabled {
+        color: map-get($neutrals, 700) !important;
+        border: 2px solid map-get($neutrals, 100) !important;
+        background-color: map-get($background, secondary);
+      }
+
+      &:focus {
+        box-sizing: border-box;
+        border: 2px solid map-get($turquoise, 500) !important;
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
+
+      &:focus-visible {
+        box-sizing: border-box;
+        border: 2px solid map-get($turquoise, 500) !important;
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+        outline: none;
+      }
+    }
+
+    &.left-icon {
+      .geosuggest__input {
+        padding-left: $distance-4;
+      }
+    }
+
+    .geosuggest__suggests--hidden {
+      display: none;
+    }
+
+    .geosuggest__suggests-wrapper {
+      .geosuggest__suggests {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 25em;
+        padding: 0;
+        margin-top: -1px;
+        background: map-get($colors, white);
+        border: 2px solid map-get($grays, 400);
+        border-radius: $border-radius-1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        list-style: none;
+        z-index: 5;
+        -webkit-transition: max-height 0.2s, border 0.2s;
+        transition: max-height 0.2s, border 0.2s;
+
+        .geosuggest__item {
+          font-size: 14px;
+          padding: 0.5em 0.65em;
+          cursor: pointer;
+
+          color: map-get($main-text-colors, dark);
+
+          &:hover {
+            background: map-get($grays, 100);
+          }
+        }
+      }
+    }
+  }
+}

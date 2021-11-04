@@ -1,15 +1,15 @@
 import React from 'react';
-import TextField from './TextField';
+import LocationTextField from './LocationTextField';
 
 export default {
-  title: 'Elements/TextField',
-  component: TextField,
+  title: 'Elements/LocationTextField',
+  component: LocationTextField,
   parameters: {
-    jest: ['TextField.test.tsx'],
+    jest: ['LocationTextField.test.tsx'],
   },
 };
 
-const Template = args => <TextField {...args} />;
+const Template = args => <LocationTextField {...args} />;
 
 export const Default = Template.bind({});
 export const WithHelper = Template.bind({});
@@ -45,6 +45,6 @@ WithIcons.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
-  leftIcon: { name: 'icon-search', show: true },
+  leftIcon: { name: 'icon-ic-location', show: true },
   rightIcon: { name: 'icon-x', onClick: () => alert('right-button'), show: true },
 };

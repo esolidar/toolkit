@@ -7,8 +7,7 @@ import Meta, { Default as DefaultStory } from '../BoxInfo.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 it('renders BoxInfo default component', () => {
-  const { getByClass, getAllByClass } = render(<Default />);
+  const { getByClass } = render(<Default />);
 
-  expect(getByClass('esolidar-breadcrumbs')).toBeTruthy();
-  expect(getAllByClass('esolidar-breadcrumbs__item')).toHaveLength(3);
+  expect(getByClass('esolidar-box-info')).toBeTruthy();
 });

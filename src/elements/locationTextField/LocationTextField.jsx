@@ -1,6 +1,8 @@
-/* eslint-disable jsx-a11y/no-autofocus */
+/* global google */
+
 import React from 'react';
 import PropTypes from 'prop-types';
+import Geosuggest from 'react-geosuggest';
 import classnames from 'classnames';
 import InputLabel from '../inputLabel';
 import Icon from '../../components/icon';
@@ -8,16 +10,8 @@ import Icon from '../../components/icon';
 const TextField = ({
   field,
   id,
-  value,
-  defaultValue,
   label,
-  type,
-  onChange,
   error,
-  maxLength,
-  onBlur,
-  onFocus,
-  autofocus,
   placeholder,
   message,
   disabled,
@@ -32,9 +26,15 @@ const TextField = ({
   leftIcon,
   rightIcon,
   password,
+  onSuggestSelect,
+  onSuggestNoResults,
+  local,
+  latitude,
+  longitude,
 }) => (
   <div
     className={classnames(
+      'locationTextField',
       { 'form-group': !password },
       { 'has-error': error || message },
       { required },
@@ -60,27 +60,17 @@ const TextField = ({
             dataTestId="input-left-icon"
           />
         )}
-        <input
+        <Geosuggest
           data-testid={dataTestId}
-          autoComplete="off"
-          onChange={onChange}
-          onFocus={onFocus}
-          autoFocus={autofocus}
-          onBlur={onBlur}
-          value={value}
-          defaultValue={defaultValue}
-          type={type}
-          name={field}
-          id={id || field}
           placeholder={placeholder}
-          maxLength={maxLength}
+          onSuggestSelect={onSuggestSelect}
+          onSuggestNoResults={onSuggestNoResults}
+          initialValue={local}
+          location={new google.maps.LatLng(latitude, longitude)}
+          radius="20"
+          className={classnames({ 'left-icon': leftIcon })}
           disabled={disabled}
-          className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
-          style={{
-            paddingLeft: leftIcon?.show ? '36px' : '12px',
-            paddingRight: rightIcon?.show ? '36px' : '12px',
-          }}
         />
         {rightIcon?.show && (
           <Icon
@@ -104,16 +94,8 @@ TextField.propTypes = {
   info: PropTypes.string,
   field: PropTypes.string,
   id: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string,
-  type: PropTypes.string,
-  onChange: PropTypes.func,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  maxLength: PropTypes.string,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  autofocus: PropTypes.bool,
   placeholder: PropTypes.string,
   message: PropTypes.string,
   disabled: PropTypes.bool,
@@ -134,6 +116,11 @@ TextField.propTypes = {
     onClick: PropTypes.func,
     show: PropTypes.bool.isRequired,
   }),
+  onSuggestSelect: PropTypes.func,
+  onSuggestNoResults: PropTypes.func,
+  local: PropTypes.string,
+  latitude: PropTypes.string,
+  longitude: PropTypes.string,
 };
 
 TextField.defaultProps = {

@@ -6,11 +6,16 @@ export default {
   component: InputLabel,
 };
 
-const Template = args => <InputLabel {...args} />;
-
+const Template = args => (
+  <div className="form-group">
+    <InputLabel {...args} />
+  </div>
+);
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Lorem Ipsum',
   field: 'Textarea_name',
+  help: 'Textarea_name',
   showOptionalLabel: true,
+  style: { marginBottom: '8px' },
 };
