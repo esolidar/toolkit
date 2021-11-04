@@ -1,5 +1,6 @@
 .toolkit-pagination {
   justify-content: center;
+  text-align: center;
 
   > li > a,
   > li > span {
@@ -8,7 +9,7 @@
     padding: 6px 12px;
     text-decoration: none;
     color: map-get($main-text-colors, dark);
-    background-color: transparent;
+    background-color: white;
     border: 1px solid map-get($neutrals, 100);
     border-radius: $border-radius-1;
     margin: 0 $distance-1/2;
