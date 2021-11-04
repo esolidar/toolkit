@@ -41,7 +41,7 @@ const Pagination: FC<Props> = ({
   return (
     <>
       {totalItemsCount > 0 && (
-        <div className="text-center w-100 mt-2" data-testid={dataTestId}>
+        <div data-testid={dataTestId}>
           <Paginator
             innerClass={`pagination toolkit-pagination ${innerClass || ''}`}
             prevPageText={arrowList[arrowType].prev}
