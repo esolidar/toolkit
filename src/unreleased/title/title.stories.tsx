@@ -21,6 +21,7 @@ export const WithSubtitle: Story<Props> = Template.bind({});
 export const WithoutSupportUrl: Story<Props> = Template.bind({});
 export const WithoutGoBackFunc: Story<Props> = Template.bind({});
 export const TitleWithIcon: Story<Props> = Template.bind({});
+export const TitleWithIconDisabled: Story<Props> = Template.bind({});
 export const TitleOnly: Story<Props> = Template.bind({});
 
 Default.args = {
@@ -52,6 +53,16 @@ TitleWithIcon.args = {
   icon: {
     class: 'icon-external-link',
     href: '/',
+  },
+};
+
+TitleWithIconDisabled.args = {
+  title: 'Crowdfunding title',
+  icon: {
+    class: 'icon-external-link',
+    href: '/',
+    disabled: true,
+    disabledText: 'Unavailable',
   },
 };
 
