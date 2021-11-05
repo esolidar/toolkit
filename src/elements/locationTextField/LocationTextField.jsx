@@ -31,10 +31,14 @@ const TextField = ({
   local,
   latitude,
   longitude,
+  size,
 }) => (
   <div
     className={classnames(
       'locationTextField',
+      { 'width-sm': size === 'sm' },
+      { 'width-md': size === 'md' },
+      { 'width-lg': size === 'lg' },
       { 'form-group': !password },
       { 'has-error': error || message },
       { required },
@@ -121,11 +125,13 @@ TextField.propTypes = {
   local: PropTypes.string,
   latitude: PropTypes.string,
   longitude: PropTypes.string,
+  size: PropTypes.string,
 };
 
 TextField.defaultProps = {
   children: null,
   showOptionalLabel: false,
+  size: 'lg',
 };
 
 export default TextField;

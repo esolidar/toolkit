@@ -39,13 +39,6 @@ describe('DatePicker component', () => {
     expect(wrapper.find('.control-label').length).toBe(0);
   });
 
-  it('renders DatePicker with label', () => {
-    advanceTo(new Date(2021, 1, 3, 0, 0, 0));
-
-    const wrapper = shallow(<DatePicker {...props} label="Start Date" />);
-    expect(wrapper.find('.control-label').length).toBe(1);
-  });
-
   it('renders DatePicker with error', () => {
     advanceTo(new Date(2021, 1, 3, 0, 0, 0));
 

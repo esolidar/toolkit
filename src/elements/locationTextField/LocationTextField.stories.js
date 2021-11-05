@@ -23,6 +23,7 @@ Default.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
+  size: 'lg',
 };
 
 WithHelper.args = {
@@ -35,6 +36,7 @@ WithHelper.args = {
   field: 'forCompanies',
   help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
   showOptionalLabel: true,
+  size: 'lg',
 };
 
 WithIcons.args = {
@@ -47,4 +49,5 @@ WithIcons.args = {
   field: 'forCompanies',
   leftIcon: { name: 'icon-ic-location', show: true },
   rightIcon: { name: 'icon-x', onClick: () => alert('right-button'), show: true },
+  size: 'lg',
 };

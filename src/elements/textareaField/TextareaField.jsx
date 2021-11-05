@@ -29,6 +29,7 @@ const TextareaField = ({
   autofocus,
   onKeyDown,
   onBlur,
+  size,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -48,6 +49,9 @@ const TextareaField = ({
   return (
     <div
       className={classnames(
+        { 'width-sm': size === 'sm' },
+        { 'width-md': size === 'md' },
+        { 'width-lg': size === 'lg' },
         'text-area-field',
         'form-group',
         { 'has-error': error || message },
@@ -124,11 +128,13 @@ TextareaField.propTypes = {
   autofocus: PropTypes.bool,
   onKeyDown: PropTypes.func,
   onBlur: PropTypes.func,
+  size: PropTypes.string,
 };
 
 TextareaField.defaultProps = {
   showOptionalLabel: false,
   cssClass: '',
+  size: 'lg',
 };
 
 export default TextareaField;

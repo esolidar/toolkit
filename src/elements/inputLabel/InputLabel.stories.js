@@ -11,11 +11,27 @@ const Template = args => (
     <InputLabel {...args} />
   </div>
 );
+
 export const Primary = Template.bind({});
+export const Weight600 = Template.bind({});
+export const Weight400 = Template.bind({});
+
 Primary.args = {
   label: 'Lorem Ipsum',
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
   style: { marginBottom: '8px' },
+};
+
+Weight600.args = {
+  label: 'Lorem Ipsum',
+  field: 'Textarea_name',
+  fontWeight: 600,
+};
+
+Weight400.args = {
+  label: 'Lorem Ipsum',
+  field: 'Textarea_name',
+  fontWeight: 400,
 };

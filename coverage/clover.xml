@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636023112766" clover="3.2.0">
-  <project timestamp="1636023112766" name="All files">
-    <metrics statements="3719" coveredstatements="2555" conditionals="3084" coveredconditionals="1940" methods="1013" coveredmethods="510" elements="7816" coveredelements="5005" complexity="0" loc="3719" ncloc="3719" packages="172" files="374" classes="374"/>
+<coverage generated="1636137503056" clover="3.2.0">
+  <project timestamp="1636137503056" name="All files">
+    <metrics statements="3720" coveredstatements="2550" conditionals="3097" coveredconditionals="1943" methods="1013" coveredmethods="509" elements="7830" coveredelements="5002" complexity="0" loc="3720" ncloc="3720" packages="172" files="374" classes="374"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -2198,9 +2198,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="C:\Projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="54" type="stmt"/>
+        <line num="5" count="55" type="stmt"/>
         <line num="6" count="103" type="stmt"/>
-        <line num="9" count="54" type="stmt"/>
+        <line num="9" count="55" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3589,16 +3589,16 @@
       </file>
     </package>
     <package name="src.elements.datePicker">
-      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <metrics statements="7" coveredstatements="7" conditionals="16" coveredconditionals="9" methods="1" coveredmethods="1"/>
       <file name="DatePicker.jsx" path="C:\Projects\toolkit\src\elements\datePicker\DatePicker.jsx">
-        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="16" coveredconditionals="9" methods="1" coveredmethods="1"/>
         <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
-        <line num="32" count="9" type="stmt"/>
-        <line num="57" count="3" type="stmt"/>
-        <line num="75" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="41" count="8" type="stmt"/>
+        <line num="106" count="3" type="stmt"/>
+        <line num="139" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\datePicker\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3730,12 +3730,13 @@
       </file>
     </package>
     <package name="src.elements.inputLabel">
-      <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="InputLabel.jsx" path="C:\Projects\toolkit\src\elements\inputLabel\InputLabel.jsx">
-        <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="5" count="43" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="136" type="stmt"/>
-        <line num="20" count="43" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="6" count="44" type="stmt"/>
+        <line num="15" count="140" type="stmt"/>
+        <line num="17" count="140" type="stmt"/>
+        <line num="33" count="44" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\inputLabel\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3767,9 +3768,9 @@
       <file name="LocationTextField.jsx" path="C:\Projects\toolkit\src\elements\locationTextField\LocationTextField.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="26" coveredconditionals="21" methods="1" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="35" count="7" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="126" count="1" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\locationTextField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3959,9 +3960,9 @@
       <file name="TextField.jsx" path="C:\Projects\toolkit\src\elements\textField\TextField.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="30" methods="1" coveredmethods="1"/>
         <line num="8" count="24" type="stmt"/>
-        <line num="36" count="135" type="stmt"/>
-        <line num="102" count="24" type="stmt"/>
-        <line num="139" count="24" type="stmt"/>
+        <line num="37" count="135" type="stmt"/>
+        <line num="106" count="24" type="stmt"/>
+        <line num="144" count="24" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\textField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4061,22 +4062,22 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="27" coveredconditionals="24" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="27" coveredconditionals="21" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="27" coveredconditionals="24" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="27" coveredconditionals="21" methods="2" coveredmethods="1"/>
         <line num="8" count="20" type="stmt"/>
-        <line num="33" count="37" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="30" type="cond" truecount="1" falsecount="1"/>
-        <line num="35" count="30" type="stmt"/>
-        <line num="36" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="48" count="37" type="stmt"/>
-        <line num="103" count="20" type="stmt"/>
-        <line num="129" count="20" type="stmt"/>
+        <line num="34" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="30" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="37" type="stmt"/>
+        <line num="107" count="20" type="stmt"/>
+        <line num="134" count="20" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\textareaField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5229,7 +5230,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="79" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
