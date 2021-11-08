@@ -14,12 +14,32 @@
 
   &.closed {
     left: 100%;
+    .wizard__header,
+    .wizard__paginator {
+      @include animate();
+      left: 100%;
+    }
+  }
+
+  .wizard-container {
+    position: relative;
+    clip-path: inset(0 0 0 0);
+    padding-top: 155px;
+    padding-bottom: 98px;
   }
 }
+
 .wizard__header {
   padding: $distance-2 $distance-4;
   border-bottom: 1px solid map-get($neutrals, 100);
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+  @include animate();
 
   &__image {
     justify-content: start;
@@ -84,6 +104,18 @@
 .wizard__paginator {
   display: flex;
   text-align: center;
+  background: white;
+  position: fixed;
+  top: 71px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  @include animate();
+
+  &.fix-on-scrool-down {
+    top: -15px !important;
+    @include animate();
+  }
 
   &__item {
     padding: $distance-2;

@@ -14,7 +14,55 @@ export default {
 const Template: Story<Props> = (args: Props) => (
   <div>
     <Wizard {...args}>
-      <div style={{ textAlign: 'center' }}>Body Content Here</div>
+      <>
+        <div style={{ textAlign: 'center' }}>Body Content Here</div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style={{ textAlign: 'center' }}>Body Content Here</div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style={{ textAlign: 'center' }}>Body Content Here</div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style={{ textAlign: 'center' }}>Body Content Here</div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div style={{ textAlign: 'center' }}>Body Content Here</div>
+      </>
     </Wizard>
   </div>
 );
@@ -26,7 +74,7 @@ Open.args = {
   showWizard: true,
   closeWizard: () => {},
   title: 'A title',
-  subtitle: 'Volunteering',
+  // subtitle: 'Volunteering',
   status: 'draft',
   buttonDarkText: 'Save & Close',
   buttonPrimaryText: 'Publish',
