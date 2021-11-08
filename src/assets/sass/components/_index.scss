@@ -88,6 +88,11 @@
 @import './alertBox';
 @import './popover';
 @import './toggle';
+@import './wizard';
+@import './container';
+@import './breadcrumbs';
+@import './locationTextField';
+@import './datepicker';
 
 // Unreleased
 @import '../unreleased/countdown';
@@ -98,7 +103,7 @@
 @import '../unreleased/commentCreate';
 @import '../unreleased/comment';
 @import '../unreleased/commentList';
-@import '../unreleased/dragAndDrop';
+@import '../unreleased/boxinfo';
 
 // User
 @import '../user/setPassword';

@@ -187,3 +187,43 @@
     background: transparent;
   }
 }
+
+@mixin border($color: $turquoise) {
+  border: 2px solid map-get($color, 500);
+}
+
+@mixin input-focus() {
+  box-sizing: border-box;
+  border: 2px solid map-get($turquoise, 500) !important;
+  box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+  @include animate();
+}
+
+@mixin input-hover() {
+  border: 2px solid map-get($turquoise, 500);
+  @include animate();
+}
+
+@mixin input-disabled() {
+  color: map-get($neutrals, 700) !important;
+  border: 2px solid map-get($neutrals, 100) !important;
+  background-color: map-get($background, secondary);
+  @include animate();
+}
+
+@mixin input-form() {
+  font-size: 16px;
+  font-weight: 400;
+  color: map-get($neutrals, 900);
+  resize: none;
+  box-shadow: none;
+  line-height: 1.8;
+  border: 2px solid map-get($neutrals, 200);
+  border-radius: $border-radius-1 !important;
+  @include animate();
+}
+
+@mixin input-form-error() {
+  border: 2px solid map-get($negative, 500) !important;
+  @include animate();
+}

@@ -1,11 +1,71 @@
 .text-area-field {
-  & .form-control {
-    resize: none;
-    box-shadow: none;
-    line-height: 1.8;
+  &.width-sm {
+    max-width: 320px;
+  }
+  &.width-md {
+    max-width: 420px;
+  }
+  &.width-lg {
+    max-width: 720px;
+  }
 
-    &:focus {
-      box-shadow: none;
+  .relative {
+    position: relative;
+
+    .footer-maxlength {
+      display: none;
+      position: absolute;
+      bottom: $distance-1;
+      right: $distance-2;
+    }
+
+    & .form-control {
+      @include input-form();
+      min-height: 160px;
+
+      &:hover {
+        @include input-hover();
+      }
+
+      &:disabled {
+        @include input-disabled();
+      }
+
+      &:focus {
+        @include input-focus();
+
+        ~ .footer-maxlength {
+          display: block;
+          color: map-get($neutrals, 400);
+        }
+      }
+
+      &.footer {
+        padding-bottom: 40px;
+      }
+    }
+  }
+
+  &.has-error {
+    .form-control {
+      @include input-form-error();
+    }
+    .help-block {
+      color: map-get($negative, 500) !important;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      font-weight: 400 !important;
+      padding-top: $distance-1;
+    }
+
+    .footer-maxlength {
+      display: block;
+
+      color: map-get($negative, 500);
+    }
+
+    .footer-maxlength {
+      color: map-get($negative, 500);
     }
   }
 }

@@ -1505,10 +1505,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.104.0":
-  version "0.104.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.104.0/de32e39c68f4dd9f7913c052ea3a28ffde8d2475ffc40cbc789dfb171fd6c28a#45319990f8549cb1c481cd7f087631a09520f11a"
-  integrity sha512-sf+ZcbFIUhFuwP7TQVgsh3rBS9SbTUorRMjAo2ksNn1Jsx+ZKR/OnrtD4gB2ntcspdFWT2zVOvG0x8EPkCNGWg==
+"@esolidar/i18n@^0.112.0":
+  version "0.112.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.112.0/306f8d029d6904e79be716f1fff15c45a83c1a52f2521925b551f7c85b7df08d#1624608e3ce31a2309fc558cfb28a4f2b7ef4d0b"
+  integrity sha512-/Uqjm9UyAUNEeuaIsFyDlI4O0USXrIE1P7w0zlL/wbf9NxtUpWK8TRauevdwFKW+arBYt0t4J1UYPpygLnbQvw==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -10760,7 +10760,7 @@ lodash.clonedeep@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.debounce@^4.0.8:
+lodash.debounce@^4.0.6, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
@@ -13663,6 +13663,14 @@ react-ga@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.3.0.tgz#c91f407198adcb3b49e2bc5c12b3fe460039b3ca"
   integrity sha512-o8RScHj6Lb8cwy3GMrVH6NJvL+y0zpJvKtc0+wmH7Bt23rszJmnqEQxRbyrqUzk9DTJIHoP42bfO5rswC9SWBQ==
+
+react-geosuggest@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/react-geosuggest/-/react-geosuggest-2.14.1.tgz#1e127b24d3c8b4ffb353bb0b74370ddc6806e8b8"
+  integrity sha512-gaAEZfDEHHWEMn9y8UNH+nJzu5Kc3LvK8CAFD6dFZmn69TJ/4GgoXLCLzUunbPK/Nqs08mpDsryK5ceFFmVhVg==
+  dependencies:
+    classnames "^2.2.6"
+    lodash.debounce "^4.0.6"
 
 react-google-maps@^9.4.5:
   version "9.4.5"

@@ -2,10 +2,12 @@
 import React, { FC } from 'react';
 import { useIntl } from 'react-intl';
 import Paginator from 'react-js-pagination';
+import Icon from '../../components/icon';
 import Props from './Pagination.types';
 
 const PrevPage = ({ intl }) => (
   <div className="prev-page" data-testid="prev-page">
+    <Icon iconClass="icon-left-arrow" />
     <strong>{intl.formatMessage({ id: 'toolkit.prev' })}</strong>
   </div>
 );
@@ -13,6 +15,7 @@ const PrevPage = ({ intl }) => (
 const NextPage = ({ intl }) => (
   <div className="next-page" data-testid="next-page">
     <strong>{intl.formatMessage({ id: 'toolkit.next' })}</strong>
+    <Icon iconClass="icon-right-arrow" />
   </div>
 );
 
