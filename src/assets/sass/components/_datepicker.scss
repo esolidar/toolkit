@@ -1,0 +1,186 @@
+.datepicker-component {
+  &.width-xs {
+    max-width: 155px;
+  }
+  &.width-sm {
+    max-width: 320px;
+  }
+  &.width-md {
+    max-width: 420px;
+  }
+  &.width-lg {
+    max-width: 720px;
+  }
+
+  .icon {
+    z-index: 9;
+  }
+
+  .with-icon {
+    .form-control {
+      padding-left: $distance-4;
+    }
+  }
+
+  .form-control {
+    @include input-form();
+
+    &:hover {
+      @include input-hover();
+    }
+
+    &:disabled {
+      @include input-disabled();
+    }
+
+    &:focus {
+      @include input-focus();
+    }
+  }
+
+  .with-time {
+    .react-datepicker {
+      width: 395px;
+      padding-right: 0;
+
+      &__navigation--previous {
+        right: 140px;
+      }
+    }
+  }
+
+  .react-datepicker-popper[data-placement^='bottom'] {
+    margin-top: 5px;
+  }
+
+  .react-datepicker {
+    box-shadow: map-get($elevation, 100);
+    font-family: map-get($fonts, main);
+    font-size: 0.8rem;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid map-get($neutrals, 200);
+    border-radius: $border-radius-1;
+    display: inline-block;
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: hidden;
+
+    &__triangle {
+      display: none;
+    }
+
+    &__header {
+      background-color: white;
+      border: none;
+      padding: 0;
+      font-size: 24px;
+      line-height: 32px;
+      text-transform: capitalize;
+    }
+
+    &__month {
+      margin: 0;
+      margin-top: $distance-1;
+      padding-bottom: 16px;
+    }
+
+    &__time-container {
+      border-left: 1px solid map-get($neutrals, 200);
+    }
+
+    &__navigation--previous {
+      left: auto;
+      right: 50px;
+      top: 20px;
+      background: url('#{$cdn-static-url}/frontend/icons/ic-prev-arrow.svg') 50% 50% no-repeat;
+      border: none;
+      width: 22px;
+      height: 22px;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &__navigation--next {
+      right: 25px;
+      top: 20px;
+      border: none;
+      width: 22px;
+      height: 22px;
+      background: url('#{$cdn-static-url}/frontend/icons/ic-next-arrow.svg') 50% 50% no-repeat;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &__navigation--next--with-time:not(.react-datepicker__navigation--previous--with-today-button),
+    &__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {
+      right: 110px;
+    }
+
+    &__current-month {
+      text-align: left;
+      padding: $distance-2;
+      padding-left: 10px;
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    &__day {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      margin: 0;
+
+      &:hover {
+        border-radius: $border-radius-1;
+      }
+    }
+
+    &__day-names {
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+    }
+
+    &__day-name {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: 40px;
+      color: map-get($neutrals, 700);
+      margin: 0;
+    }
+
+    &__day--outside-month {
+      color: map-get($neutrals, 400);
+    }
+
+    &__day--selected,
+    &__day--keyboard-selected {
+      background-color: map-get($turquoise, 500);
+      border-radius: $border-radius-1;
+      &:focus-visible {
+        border: none;
+      }
+    }
+
+    &__time-list-item--selected {
+      background-color: map-get($turquoise, 500) !important;
+    }
+  }
+
+  .react-datepicker__time-box {
+    @include thin-scroll-bar();
+  }
+}

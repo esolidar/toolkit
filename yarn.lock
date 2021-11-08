@@ -10605,7 +10605,7 @@ lodash.clonedeep@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.debounce@^4.0.8:
+lodash.debounce@^4.0.6, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
@@ -13489,6 +13489,14 @@ react-ga@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.3.0.tgz#c91f407198adcb3b49e2bc5c12b3fe460039b3ca"
   integrity sha512-o8RScHj6Lb8cwy3GMrVH6NJvL+y0zpJvKtc0+wmH7Bt23rszJmnqEQxRbyrqUzk9DTJIHoP42bfO5rswC9SWBQ==
+
+react-geosuggest@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/react-geosuggest/-/react-geosuggest-2.14.1.tgz#1e127b24d3c8b4ffb353bb0b74370ddc6806e8b8"
+  integrity sha512-gaAEZfDEHHWEMn9y8UNH+nJzu5Kc3LvK8CAFD6dFZmn69TJ/4GgoXLCLzUunbPK/Nqs08mpDsryK5ceFFmVhVg==
+  dependencies:
+    classnames "^2.2.6"
+    lodash.debounce "^4.0.6"
 
 react-google-maps@^9.4.5:
   version "9.4.5"

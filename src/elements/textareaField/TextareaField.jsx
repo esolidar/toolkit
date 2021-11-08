@@ -28,6 +28,8 @@ const TextareaField = ({
   dataTestId,
   autofocus,
   onKeyDown,
+  onBlur,
+  size,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -47,6 +49,9 @@ const TextareaField = ({
   return (
     <div
       className={classnames(
+        { 'width-sm': size === 'sm' },
+        { 'width-md': size === 'md' },
+        { 'width-lg': size === 'lg' },
         'text-area-field',
         'form-group',
         { 'has-error': error || message },
@@ -60,25 +65,38 @@ const TextareaField = ({
           label={label}
           showOptionalLabel={showOptionalLabel}
           help={help}
-          style={help ? { marginBottom: 0 } : {}}
+          style={help ? { marginBottom: '8px' } : {}}
         />
       )}
-      <textarea
-        id={id || field}
-        disabled={disabled}
-        onChange={onChange}
-        value={value}
-        defaultValue={defaultValue}
-        name={field}
-        maxLength={maxLength || ''}
-        placeholder={placeholder}
-        className={error ? `${cssClass} form-control required-field` : `${cssClass} form-control`}
-        onPaste={onPaste}
-        onKeyDown={onKeyDown}
-        data-testid={dataTestId}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={autofocus}
-      />
+      <div className="relative">
+        <textarea
+          id={id || field}
+          disabled={disabled}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
+          defaultValue={defaultValue}
+          name={field}
+          maxLength={maxLength || ''}
+          placeholder={placeholder}
+          className={classnames(
+            'form-control',
+            { footer: maxLength },
+            { 'required-field': error },
+            { cssClass }
+          )}
+          onPaste={onPaste}
+          onKeyDown={onKeyDown}
+          data-testid={dataTestId}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus={autofocus}
+        />
+        {maxLength && !disabled && (
+          <div className="footer-maxlength">
+            {value?.length}/{maxLength}
+          </div>
+        )}
+      </div>
       {info && <span className="footer-label-info">{info}</span>}
       {error && <span className="help-block">{error}</span>}
       {message && <span className="help-block">{message}</span>}
@@ -109,10 +127,14 @@ TextareaField.propTypes = {
   dataTestId: PropTypes.string,
   autofocus: PropTypes.bool,
   onKeyDown: PropTypes.func,
+  onBlur: PropTypes.func,
+  size: PropTypes.string,
 };
 
 TextareaField.defaultProps = {
   showOptionalLabel: false,
+  cssClass: '',
+  size: 'lg',
 };
 
 export default TextareaField;

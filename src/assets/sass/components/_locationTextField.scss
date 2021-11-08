@@ -1,0 +1,80 @@
+.locationTextField {
+  &.width-sm {
+    max-width: 320px;
+  }
+  &.width-md {
+    max-width: 420px;
+  }
+  &.width-lg {
+    max-width: 720px;
+  }
+
+  .geosuggest {
+    .geosuggest__input {
+      @include input-form();
+      width: 100%;
+      height: 40px;
+      padding-left: $distance-2;
+
+      &:hover {
+        @include input-hover();
+      }
+
+      &:disabled {
+        @include input-disabled();
+      }
+
+      &:focus {
+        @include input-focus();
+      }
+
+      &:focus-visible {
+        @include input-focus();
+        outline: none;
+      }
+    }
+
+    &.left-icon {
+      .geosuggest__input {
+        padding-left: $distance-4;
+      }
+    }
+
+    .geosuggest__suggests--hidden {
+      display: none;
+    }
+
+    .geosuggest__suggests-wrapper {
+      .geosuggest__suggests {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 25em;
+        padding: 0;
+        margin-top: -1px;
+        background: map-get($colors, white);
+        border: 2px solid map-get($grays, 400);
+        border-radius: $border-radius-1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        list-style: none;
+        z-index: 5;
+        -webkit-transition: max-height 0.2s, border 0.2s;
+        transition: max-height 0.2s, border 0.2s;
+
+        .geosuggest__item {
+          font-size: 14px;
+          padding: 0.5em 0.65em;
+          cursor: pointer;
+
+          color: map-get($main-text-colors, dark);
+
+          &:hover {
+            background: map-get($grays, 100);
+          }
+        }
+      }
+    }
+  }
+}

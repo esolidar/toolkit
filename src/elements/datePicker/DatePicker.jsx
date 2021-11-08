@@ -7,6 +7,8 @@ import DatePick, { registerLocale } from 'react-datepicker';
 import pt from 'date-fns/locale/pt';
 import en from 'date-fns/locale/en-US';
 import br from 'date-fns/locale/pt-BR';
+import InputLabel from '../inputLabel';
+import Icon from '../../components/icon';
 
 registerLocale('pt', pt);
 registerLocale('en', en);
@@ -28,28 +30,75 @@ const DatePicker = ({
   errors,
   minDate,
   maxDate,
+  size,
+  showOptionalLabel,
+  help,
+  id,
+  field,
+  leftIcon,
+  rightIcon,
 }) => (
   <div
-    className={classnames('form-group', {
-      'has-error': !!errors,
-    })}
+    className={classnames(
+      'datepicker-component',
+      { 'width-xs': size === 'xs' },
+      { 'width-sm': size === 'sm' },
+      { 'width-md': size === 'md' },
+      { 'width-lg': size === 'lg' },
+      'form-group',
+      {
+        'has-error': !!errors,
+      }
+    )}
   >
-    {!!label && <label className="control-label">{label}</label>}
-    <DatePick
-      locale={locale}
-      selected={selected}
-      selectsStart={selectsStart}
-      startDate={startDate}
-      endDate={endDate}
-      showTimeSelect={showTimeSelect}
-      onChange={onChange}
-      className={className}
-      placeholderText={placeholderText}
-      timeCaption={timeCaption}
-      dateFormat={dateFormat}
-      minDate={minDate}
-      maxDate={maxDate}
-    />
+    {label && (
+      <InputLabel
+        field={id || field}
+        label={label}
+        showOptionalLabel={showOptionalLabel}
+        help={help}
+        style={help ? { marginBottom: '8px' } : {}}
+      />
+    )}
+    <div
+      className={classnames(
+        'input',
+        { 'with-icon': leftIcon?.show },
+        { 'with-time': showTimeSelect }
+      )}
+    >
+      {leftIcon?.show && (
+        <Icon
+          iconClass={`icon left ${leftIcon?.name}`}
+          onClick={leftIcon?.onClick}
+          style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+          dataTestId="input-left-icon"
+        />
+      )}
+      <DatePick
+        locale={locale}
+        selected={selected}
+        selectsStart={selectsStart}
+        startDate={startDate}
+        endDate={endDate}
+        showTimeSelect={showTimeSelect}
+        onChange={onChange}
+        className={className}
+        placeholderText={placeholderText}
+        timeCaption={timeCaption}
+        dateFormat={dateFormat}
+        minDate={minDate}
+        maxDate={maxDate}
+      />
+      {rightIcon?.show && (
+        <Icon
+          iconClass={`icon right ${rightIcon?.name}`}
+          onClick={rightIcon?.onClick}
+          style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+          dataTestId="input-right-icon"
+        />
+      )}
+    </div>
     {!!errors && <span className="help-block">{errors}</span>}
   </div>
 );
@@ -70,6 +119,21 @@ DatePicker.propTypes = {
   errors: PropTypes.string,
   minDate: PropTypes.instanceOf(Date),
   maxDate: PropTypes.instanceOf(Date),
+  size: PropTypes.string,
+  showOptionalLabel: PropTypes.bool,
+  help: PropTypes.string,
+  id: PropTypes.string,
+  field: PropTypes.string,
+  leftIcon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+  }),
+  rightIcon: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    show: PropTypes.bool.isRequired,
+  }),
 };
 
 DatePicker.defaultProps = {
@@ -78,6 +142,7 @@ DatePicker.defaultProps = {
   placeholderText: 'DD-MM-YYYY',
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
+  size: 'xs',
 };
 
 export default DatePicker;

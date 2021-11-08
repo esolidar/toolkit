@@ -32,9 +32,13 @@ const TextField = ({
   leftIcon,
   rightIcon,
   password,
+  size,
 }) => (
   <div
     className={classnames(
+      { 'width-sm': size === 'sm' },
+      { 'width-md': size === 'md' },
+      { 'width-lg': size === 'lg' },
       { 'form-group': !password },
       { 'has-error': error || message },
       { required },
@@ -47,7 +51,7 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
-        style={help ? { marginBottom: 0 } : {}}
+        style={help ? { marginBottom: '8px' } : {}}
       />
     )}
     {!children && (
@@ -134,11 +138,13 @@ TextField.propTypes = {
     onClick: PropTypes.func,
     show: PropTypes.bool.isRequired,
   }),
+  size: PropTypes.string,
 };
 
 TextField.defaultProps = {
   children: null,
   showOptionalLabel: false,
+  size: 'lg',
 };
 
 export default TextField;
