@@ -1,5 +1,6 @@
 .toolkit-pagination {
   justify-content: center;
+  text-align: center;
 
   > li > a,
   > li > span {
@@ -8,13 +9,16 @@
     padding: 6px 12px;
     text-decoration: none;
     color: map-get($main-text-colors, dark);
-    background-color: transparent;
+    background-color: white;
     border: 1px solid map-get($neutrals, 100);
     border-radius: $border-radius-1;
     margin: 0 $distance-1/2;
     color: map-get($base, black);
     min-width: 40px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   > .active > a,
@@ -62,21 +66,22 @@
 
   > li > a .next-page,
   > li > a .prev-page {
-    width: 60px;
     height: 20px;
   }
 
   > li > a .next-page,
   > li > span .next-page {
-    background: url('#{$cdn-static-url}/frontend/icons/icon-next-page.svg') 100% 50% no-repeat;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    gap: $distance-1;
   }
 
   > li > a .prev-page,
   > li > span .prev-page {
-    background: url('#{$cdn-static-url}/frontend/icons/icon-prev-page.svg') 0 50% no-repeat;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: $distance-1;
   }
 }
