@@ -41,7 +41,7 @@ const DatePicker = ({
   <div
     className={classnames(
       'datepicker-component',
-      { 'width-sm': size === 'xs' },
+      { 'width-xs': size === 'xs' },
       { 'width-sm': size === 'sm' },
       { 'width-md': size === 'md' },
       { 'width-lg': size === 'lg' },

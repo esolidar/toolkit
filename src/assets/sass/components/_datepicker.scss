@@ -1,4 +1,17 @@
 .datepicker-component {
+  &.width-xs {
+    max-width: 155px;
+  }
+  &.width-sm {
+    max-width: 320px;
+  }
+  &.width-md {
+    max-width: 420px;
+  }
+  &.width-lg {
+    max-width: 720px;
+  }
+
   .icon {
     z-index: 9;
   }

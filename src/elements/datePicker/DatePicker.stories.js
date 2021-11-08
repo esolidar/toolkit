@@ -10,7 +10,7 @@ const Template = args => <DatePicker {...args} />;
 
 export const Default = Template.bind({});
 export const DateOnly = Template.bind({});
-export const PT = Template.bind({});
+export const InputOnly = Template.bind({});
 
 Default.parameters = {
   jest: ['DatePicker.test.js'],
@@ -29,6 +29,7 @@ Default.args = {
   showOptionalLabel: true,
   help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   leftIcon: { name: 'icon-calendar', show: true },
+  size: 'sm',
 };
 
 DateOnly.args = {
@@ -43,11 +44,11 @@ DateOnly.args = {
   errors: '',
   showTimeSelect: false,
   dateFormat: 'dd-MM-yyyy',
+  leftIcon: { name: 'icon-calendar', show: true },
 };
 
-PT.args = {
+InputOnly.args = {
   classnames: () => {},
-  label: 'Start Date',
   locale: 'pt',
   selected: new Date('2021-03-05'),
   startDate: '',
@@ -56,5 +57,6 @@ PT.args = {
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
+  leftIcon: { name: 'icon-calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
 };
