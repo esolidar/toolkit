@@ -296,7 +296,7 @@ const DropZoneBox = ({
                     }
                   },
                   'image/jpeg',
-                  1
+                  0.7
                 );
               }}
               text={textSaveCropModal}
