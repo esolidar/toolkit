@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636137503056" clover="3.2.0">
-  <project timestamp="1636137503056" name="All files">
-    <metrics statements="3720" coveredstatements="2550" conditionals="3097" coveredconditionals="1943" methods="1013" coveredmethods="509" elements="7830" coveredelements="5002" complexity="0" loc="3720" ncloc="3720" packages="172" files="374" classes="374"/>
+<coverage generated="1636361732852" clover="3.2.0">
+  <project timestamp="1636361732852" name="All files">
+    <metrics statements="3720" coveredstatements="2556" conditionals="3097" coveredconditionals="1946" methods="1013" coveredmethods="510" elements="7830" coveredelements="5012" complexity="0" loc="3720" ncloc="3720" packages="172" files="374" classes="374"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -4062,19 +4062,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="7" conditionals="27" coveredconditionals="21" methods="2" coveredmethods="1"/>
+      <metrics statements="13" coveredstatements="13" conditionals="27" coveredconditionals="24" methods="2" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="7" conditionals="27" coveredconditionals="21" methods="2" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="13" conditionals="27" coveredconditionals="24" methods="2" coveredmethods="2"/>
         <line num="8" count="20" type="stmt"/>
         <line num="34" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="30" type="stmt"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="37" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
         <line num="49" count="37" type="stmt"/>
         <line num="107" count="20" type="stmt"/>
         <line num="134" count="20" type="stmt"/>
@@ -5230,7 +5230,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="78" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="79" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
