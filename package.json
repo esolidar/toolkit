@@ -231,5 +231,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-beautiful-dnd": "10.0.4",
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
+  }
 }
