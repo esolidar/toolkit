@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
+import Props from './SelectField.types';
 import InputLabel from '../inputLabel';
+import Icon from '../../components/icon';
 
-const SelectField = ({
+const SelectField: FC<Props> = ({
   options,
   value,
   label,
@@ -13,15 +14,16 @@ const SelectField = ({
   selectText,
   error,
   defaultValue,
-  className,
-  hiddenSelectText,
+  className = '',
+  hiddenSelectText = false,
   dataTestId,
   optionTestId,
   info,
   help,
   showOptionalLabel,
-  isLabelLeft,
-}) => {
+  isLabelLeft = false,
+  leftIcon,
+}: Props): JSX.Element => {
   const optionsList = options => {
     if (options) {
       return options.map((option, i) => (
@@ -47,10 +49,25 @@ const SelectField = ({
       )}
     >
       <div className="select-field__info">
-        {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
-        {help && <span className="label-help">{help}</span>}
+        {label && (
+          <InputLabel
+            field={field}
+            label={label}
+            showOptionalLabel={showOptionalLabel}
+            help={help}
+            style={help ? { marginBottom: '8px' } : {}}
+          />
+        )}
       </div>
       <div className="select-field__input">
+        {leftIcon?.show && (
+          <Icon
+            iconClass={`icon left ${leftIcon?.name}`}
+            onClick={leftIcon?.onClick}
+            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+            dataTestId="input-left-icon"
+          />
+        )}
         <select
           data-testid={dataTestId}
           name={field}
@@ -61,6 +78,9 @@ const SelectField = ({
           defaultValue={defaultValue}
           onChange={onChange}
           disabled={disabled}
+          style={{
+            paddingLeft: leftIcon?.show ? '36px' : '12px',
+          }}
         >
           {!hiddenSelectText && <option value="">{selectText}</option>}
           {optionsList(options)}
@@ -73,29 +93,3 @@ const SelectField = ({
 };
 
 export default SelectField;
-
-SelectField.propTypes = {
-  dataTestId: PropTypes.string,
-  optionTestId: PropTypes.string,
-  options: PropTypes.array,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  label: PropTypes.string,
-  onChange: PropTypes.func,
-  field: PropTypes.string,
-  disabled: PropTypes.bool,
-  selectText: PropTypes.string,
-  className: PropTypes.string,
-  hiddenSelectText: PropTypes.bool,
-  info: PropTypes.string,
-  help: PropTypes.string,
-  showOptionalLabel: PropTypes.bool,
-  isLabelLeft: PropTypes.bool,
-};
-
-SelectField.defaultProps = {
-  hiddenSelectText: false,
-  isLabelLeft: false,
-  className: '',
-};

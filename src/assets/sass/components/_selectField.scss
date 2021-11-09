@@ -12,7 +12,57 @@
 
       label {
         align-self: center;
+        margin-bottom: 8px;
       }
+    }
+  }
+
+  .select-field__input {
+    position: relative;
+
+    & .icon {
+      position: absolute;
+      top: 0.2rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: map-get($theme-colors, dark);
+
+      &.left {
+        left: 0.2rem;
+      }
+    }
+
+    select {
+      background: url('#{$cdn-static-url}/frontend/icons/caret.png') no-repeat;
+      background-position: right 17px top 14px; /* Change the px value here to change the distance */
+      -moz-appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 4px 20px;
+    }
+
+    .form-control {
+      @include input-form();
+
+      &:hover {
+        @include input-hover();
+      }
+
+      &:focus {
+        @include input-focus();
+      }
+    }
+
+    .form-control[disabled] {
+      @include input-disabled();
+    }
+
+    .required-field {
+      border-color: map-get($theme-colors, danger) !important;
     }
   }
 
