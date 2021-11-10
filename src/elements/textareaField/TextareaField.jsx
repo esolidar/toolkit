@@ -60,13 +60,7 @@ const TextareaField = ({
       )}
     >
       {label && (
-        <InputLabel
-          field={field}
-          label={label}
-          showOptionalLabel={showOptionalLabel}
-          help={help}
-          style={help ? { marginBottom: '8px' } : {}}
-        />
+        <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
       )}
       <div className="relative">
         <textarea

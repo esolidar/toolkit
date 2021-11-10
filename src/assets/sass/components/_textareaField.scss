@@ -47,17 +47,6 @@
   }
 
   &.has-error {
-    .form-control {
-      @include input-form-error();
-    }
-    .help-block {
-      color: map-get($negative, 500) !important;
-      font-size: 14px !important;
-      line-height: 20px !important;
-      font-weight: 400 !important;
-      padding-top: $distance-1;
-    }
-
     .footer-maxlength {
       display: block;
 
