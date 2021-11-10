@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
+import InputLabel from '../../elements/inputLabel';
 import { cdnStaticUrl } from '../../constants/env';
 
 const ValidateTelephone = ({
+  showOptionalLabel,
   phone,
   localStorage,
   mobileValidatePost,
@@ -96,8 +98,12 @@ const ValidateTelephone = ({
   return (
     <Col className="validate-telephone box mb-3">
       <Row>
-        <Col className="title-add-contact">
-          <FormattedMessage id="user.settings.title.addContact" />
+        <Col sm={12}>
+          <InputLabel
+            label={<FormattedMessage id="toolkit.phone.number" />}
+            showOptionalLabel={showOptionalLabel}
+            help={<FormattedMessage id="user.settings.phone.message" />}
+          />
         </Col>
       </Row>
       <Row className="phone-box">
@@ -139,12 +145,6 @@ const ValidateTelephone = ({
             </div>
           </>
         )}
-        <div className="col-sm-12 sms-message">
-          <FormattedMessage
-            id="user.settings.phone.message"
-            // eslint-disable-next-line max-len
-          />
-        </div>
         {showVerifyCode && (
           <Col sm={12}>
             <div className="verify-box">
@@ -189,6 +189,7 @@ const ValidateTelephone = ({
 };
 
 ValidateTelephone.propTypes = {
+  showOptionalLabel: PropTypes.bool,
   phone: PropTypes.number,
   mobileValidatePost: PropTypes.func,
   mobileConfirmPost: PropTypes.func,

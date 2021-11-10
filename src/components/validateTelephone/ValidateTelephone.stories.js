@@ -13,6 +13,7 @@ Default.parameters = {
   jest: ['ValidateTelephone.test.js'],
 };
 Default.args = {
+  showOptionalLabel: true,
   localStorage: {
     lang: 'pt',
     user: JSON.stringify({ id: '51792', phones: [] }),
