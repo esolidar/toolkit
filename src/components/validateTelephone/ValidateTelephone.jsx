@@ -210,4 +210,8 @@ ValidateTelephone.propTypes = {
   hasError: PropTypes.bool,
 };
 
+ValidateTelephone.defaultProps = {
+  showOptionalLabel: false,
+};
+
 export default ValidateTelephone;
