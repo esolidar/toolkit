@@ -25,6 +25,7 @@ interface Props {
   totalPages: number;
   currentPage: number;
   disableClickNext: boolean;
+  handleChangeTab(): void;
 }
 
 export default Props;
