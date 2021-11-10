@@ -7,13 +7,13 @@ interface LefIcon {
 interface Props {
   options: [];
   value: number | string;
-  label: string;
+  label?: string;
   field: string;
   onChange(): void;
   disabled: boolean;
-  selectText: string;
+  selectText?: string;
   error: object | string;
-  defaultValue: number | string;
+  defaultValue?: number | string;
   className?: string;
   hiddenSelectText?: boolean;
   dataTestId?: string;

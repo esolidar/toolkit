@@ -10,7 +10,7 @@ const SelectField: FC<Props> = ({
   label,
   field,
   onChange,
-  disabled,
+  disabled = false,
   selectText,
   error,
   defaultValue,
@@ -59,7 +59,6 @@ const SelectField: FC<Props> = ({
             label={label}
             showOptionalLabel={showOptionalLabel}
             help={help}
-            style={help ? { marginBottom: '8px' } : {}}
           />
         )}
       </div>
