@@ -4,9 +4,11 @@ import { composeStory } from '@storybook/testing-react';
 import SelectField from '../index';
 import '@testing-library/jest-dom';
 import { render } from '../../../../__customQueries__/test-utils';
-import Meta, { LeftLabel } from '../SelectField.stories';
+import Meta, { LeftLabel, WithHelper, WithIcons } from '../SelectField.stories';
 
 const LeftLabelComponent = composeStory(LeftLabel, Meta);
+const WithHelperComponent = composeStory(WithHelper, Meta);
+const WithIconsComponent = composeStory(WithIcons, Meta);
 
 const changed = jest.fn();
 
@@ -98,6 +100,18 @@ describe('SelectField component', () => {
     const { getByText, getByClass } = render(<LeftLabelComponent />);
 
     expect(getByText('Select left')).toBeInTheDocument();
-    expect(getByClass('select-field form-group left-label')).toBeInTheDocument();
+    expect(getByClass('select-field form-group width-lg left-label')).toBeInTheDocument();
+  });
+
+  it('renders Select Field with label help', () => {
+    const { getByClass } = render(<WithHelperComponent />);
+
+    expect(getByClass('help')).toBeInTheDocument();
+  });
+
+  it('renders Select Field with icon', () => {
+    const { getByClass } = render(<WithIconsComponent />);
+
+    expect(getByClass('icon left icon-search')).toBeInTheDocument();
   });
 });

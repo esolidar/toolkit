@@ -27,19 +27,34 @@
     padding-top: 155px;
     padding-bottom: 98px;
   }
+
+  .wizard__header {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .wizard__paginator {
+    position: fixed;
+    top: 71px;
+    left: 0;
+    z-index: 1;
+  }
 }
 
 .wizard__header {
   padding: $distance-2 $distance-4;
   border-bottom: 1px solid map-get($neutrals, 100);
   display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   background: white;
-  z-index: 2;
   @include animate();
+
+  &.fix-on-scrool-down {
+    border-color: white !important;
+    @include animate();
+  }
 
   &__image {
     justify-content: start;
@@ -105,20 +120,53 @@
   display: flex;
   text-align: center;
   background: white;
-  position: fixed;
-  top: 71px;
-  left: 0;
   width: 100%;
-  z-index: 1;
   @include animate();
 
   &.fix-on-scrool-down {
-    top: -15px !important;
+    top: -5px !important;
     @include animate();
+
+    .wizard__paginator__item {
+      border-right: none !important;
+    }
   }
 
   &__item {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     padding: $distance-2;
+    height: 80px;
+    background: white;
+    border: none;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      right: 0;
+      background: map-get($neutrals, 100);
+      @include animate();
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:hover {
+      color: map-get($turquoise, 500) !important;
+      border-bottom: none !important;
+      @include animate();
+
+      &:after {
+        height: 4px;
+        background: map-get($turquoise, 500);
+      }
+    }
 
     &:not(:last-child) {
       border-right: 1px solid map-get($neutrals, 100);
@@ -143,12 +191,21 @@
 
     &.active {
       color: map-get($turquoise, 500);
-      border-bottom: 4px solid map-get($turquoise, 500);
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        right: 0;
+        background: map-get($turquoise, 500);
+      }
     }
 
     &.inactive {
       color: map-get($neutrals, 700);
-      border-bottom: 1px solid map-get($neutrals, 100);
+      // border-bottom: 1px solid map-get($neutrals, 100);
     }
   }
 }

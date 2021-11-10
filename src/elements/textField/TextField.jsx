@@ -51,7 +51,6 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
-        style={help ? { marginBottom: '8px' } : {}}
       />
     )}
     {!children && (

@@ -28,15 +28,19 @@ const Wizard: FC<Props> = ({
   currentPage,
   disableClickNext,
   children,
+  handleChangeTab,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
       const { scrollTop } = e.target;
       const paginatorDiv = document.getElementsByClassName('wizard__paginator')[0];
+      const headerDiv = document.getElementsByClassName('wizard__header')[0];
       if (y > scrollTop) {
         paginatorDiv.classList.remove('fix-on-scrool-down');
+        headerDiv.classList.remove('fix-on-scrool-down');
       } else if (y < scrollTop) {
         paginatorDiv.classList.add('fix-on-scrool-down');
+        headerDiv.classList.add('fix-on-scrool-down');
       }
       y = scrollTop;
     },
@@ -65,7 +69,11 @@ const Wizard: FC<Props> = ({
           disabledDarkButton={disabledDarkButton}
           disabledPrimaryButton={disabledPrimaryButton}
         />
-        <WizardPaginator pages={pages} cdnStaticUrl={cdnStaticUrl} />
+        <WizardPaginator
+          pages={pages}
+          cdnStaticUrl={cdnStaticUrl}
+          handleChangeTab={handleChangeTab}
+        />
         <div className="container wizard__body">{children}</div>
         <div className="container">
           <WizardFooter

@@ -57,7 +57,6 @@ const DatePicker = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
-        style={help ? { marginBottom: '8px' } : {}}
       />
     )}
     <div
