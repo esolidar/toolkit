@@ -9,6 +9,7 @@ import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTM
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
+import InputLabel from '../../elements/inputLabel';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const getInitialRawContent = initialContent => {
@@ -59,6 +60,7 @@ const HtmlEditor = ({
   showAddUrlBtn,
   disabled,
   className,
+  inputLabelProps,
 }) => {
   const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
@@ -116,6 +118,14 @@ const HtmlEditor = ({
 
   return (
     <div className={className}>
+      {inputLabelProps && (
+        <InputLabel
+          {...inputLabelProps}
+          style={{
+            marginBottom: '8px',
+          }}
+        />
+      )}
       <Editor
         wrapperClassName={wrapperClassName.join(' ')}
         editorState={editorState}
@@ -170,6 +180,7 @@ HtmlEditor.propTypes = {
   showAddUrlBtn: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
+  inputLabelProps: PropTypes.object,
 };
 
 HtmlEditor.defaultProps = {

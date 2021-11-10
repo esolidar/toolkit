@@ -1,12 +1,12 @@
 $border-radius: 3px;
-$border-color: #ddd;
-$background-color: #eee;
+$border-color: map-get($neutrals, 100);
+$background-color: map-get($base, white);
 $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238, 238, 238, 1) 100%);
 
 .rdw {
   &-editor {
     &-wrapper {
-      border: 1px solid $border-color !important;
+      border: 2px solid $border-color !important;
       background-color: white !important;
       border-radius: $border-radius-1;
       overflow: hidden;
