@@ -7,19 +7,12 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'basic-sans';
-  font-weight: 400;
-}
-
-h1,
-h2,
-h3,
-h4,
-h4 {
-  color: #1a1b1c !important;
-  font-weight: 700 !important;
-}
+// App Global Styles
+@import './variables';
+@import './fonts';
+@import './mixins';
+@import './main';
+@import './main';
 
 .whitelabel-client-theme {
   .client {

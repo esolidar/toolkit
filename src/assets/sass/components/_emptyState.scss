@@ -4,7 +4,6 @@
   &__title,
   &__body,
   &__buttons {
-    display: flex;
     justify-content: center;
     text-align: center;
   }
@@ -18,25 +17,13 @@
     font-size: 64px;
   }
 
-  &__title {
-    h4 {
-      font-size: 18px;
-      line-height: 24px;
-      color: map-get($base, black);
-      margin-bottom: $distance-1;
-    }
-  }
-  &__body {
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      color: map-get($neutrals, 700);
-      padding: 0;
-      margin: 0;
-    }
+  p.body-regular {
+    padding: 0;
+    margin: 0;
   }
 
   &__buttons {
+    display: flex;
     margin-top: $distance-5;
 
     button {

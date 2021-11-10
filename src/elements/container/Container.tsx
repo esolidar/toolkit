@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 import Props from './Container.types';
 
-const WizardFooter: FC<Props> = ({
+const Container: FC<Props> = ({
   children,
   rounded = true,
   shadow = true,
@@ -32,4 +32,4 @@ const WizardFooter: FC<Props> = ({
   );
 };
 
-export default WizardFooter;
+export default Container;

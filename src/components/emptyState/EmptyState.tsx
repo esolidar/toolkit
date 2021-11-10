@@ -13,12 +13,7 @@ const EmptyState: FC<Props> = ({
   altImage,
   buttons,
 }: Props): JSX.Element => (
-  <Container
-    rounded={container?.rounded}
-    borderSize={container?.borderSize}
-    shadow={container?.shadow}
-    background={container?.background}
-  >
+  <Container {...container}>
     <div className="empty-state">
       {icon && (
         <div className="empty-state__icon">
@@ -34,7 +29,7 @@ const EmptyState: FC<Props> = ({
         <h4>{title}</h4>
       </div>
       <div className="empty-state__body">
-        <p>{body}</p>
+        <p className="body-regular">{body}</p>
       </div>
       {buttons && <div className="empty-state__buttons">{buttons}</div>}
     </div>
