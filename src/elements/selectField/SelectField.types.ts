@@ -23,6 +23,7 @@ interface Props {
   showOptionalLabel?: boolean;
   isLabelLeft?: boolean;
   leftIcon?: LefIcon;
+  size?: string;
 }
 
 export default Props;

@@ -17,6 +17,21 @@
     }
   }
 
+  &.form-group {
+    position: relative;
+    margin-bottom: $distance-4;
+
+    &.width-sm {
+      max-width: 320px;
+    }
+    &.width-md {
+      max-width: 420px;
+    }
+    &.width-lg {
+      max-width: 720px;
+    }
+  }
+
   .select-field__input {
     position: relative;
 

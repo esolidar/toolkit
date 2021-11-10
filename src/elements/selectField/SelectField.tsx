@@ -23,6 +23,7 @@ const SelectField: FC<Props> = ({
   showOptionalLabel,
   isLabelLeft = false,
   leftIcon,
+  size = 'lg',
 }: Props): JSX.Element => {
   const optionsList = options => {
     if (options) {
@@ -44,6 +45,9 @@ const SelectField: FC<Props> = ({
       className={classnames(
         'select-field',
         'form-group',
+        { 'width-sm': size === 'sm' },
+        { 'width-md': size === 'md' },
+        { 'width-lg': size === 'lg' },
         { 'has-error': error },
         { 'left-label': isLabelLeft }
       )}
