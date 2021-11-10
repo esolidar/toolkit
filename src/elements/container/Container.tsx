@@ -4,10 +4,10 @@ import Props from './Container.types';
 
 const WizardFooter: FC<Props> = ({
   children,
-  rounded,
-  shadow,
-  background,
-  borderSize = 0,
+  rounded = true,
+  shadow = true,
+  background = false,
+  borderSize = 1,
 }: Props): JSX.Element => {
   const classes = classnames(
     'esolidar-container',
