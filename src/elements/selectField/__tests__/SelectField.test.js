@@ -100,7 +100,7 @@ describe('SelectField component', () => {
     const { getByText, getByClass } = render(<LeftLabelComponent />);
 
     expect(getByText('Select left')).toBeInTheDocument();
-    expect(getByClass('select-field form-group left-label')).toBeInTheDocument();
+    expect(getByClass('select-field form-group width-lg left-label')).toBeInTheDocument();
   });
 
   it('renders Select Field with label help', () => {
