@@ -59,6 +59,20 @@
       .Loading {
         min-height: 122px;
       }
+
+      &.disabled {
+        background-color: map-get($background, secondary);
+        border-color: map-get($neutrals, 200) !important;
+        color: map-get($neutrals, 400);
+
+        a {
+          color: map-get($neutrals, 400);
+        }
+
+        &:hover {
+          cursor: no-drop;
+        }
+      }
     }
 
     & .rejected-files {
@@ -68,12 +82,6 @@
 
     &:hover {
       cursor: pointer;
-    }
-
-    &.disabled {
-      &:hover {
-        cursor: no-drop;
-      }
     }
   }
 

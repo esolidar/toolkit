@@ -209,15 +209,17 @@ const DropZoneBox = ({
       )}
       {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
-        <div
-          {...getRootProps({ className: 'dropZone' })}
-          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
-        >
+        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
           <input name="dropzone" {...getInputProps()} disabled={isLoading} />
           <div
-            className={classnames({ 'required-field': hasError }, 'drop-zone-box', {
-              'with-icon': icon,
-            })}
+            className={classnames(
+              { 'required-field': hasError },
+              'drop-zone-box',
+              {
+                'with-icon': icon,
+              },
+              { disabled }
+            )}
           >
             {isLoading && <Loading />}
             {!isLoading && (
