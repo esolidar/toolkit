@@ -3,8 +3,11 @@ import React, { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, useIntl } from 'react-intl';
+import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
+import InputLabel from '../inputLabel';
+import Icon from '../../components/icon';
 import CustomModal from '../customModal';
 import Button from '../button';
 import lastElemOf from '../../utils/lastElemOf';
@@ -36,8 +39,9 @@ const DropZoneBox = ({
   textSaveCropModal,
   modalClassName,
   isLoading,
-  label,
   hasError,
+  icon,
+  inputLabelProps,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -199,37 +203,41 @@ const DropZoneBox = ({
   };
 
   return (
-    <div className="dropzone-box">
+    <div className="dropzone-box form-group">
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-      {label && (
-        <label htmlFor="dropzone" className="control-label">
-          {label}
-        </label>
-      )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
-        <div
-          {...getRootProps({ className: 'dropZone' })}
-          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
-        >
+        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
           <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          <div className={hasError ? 'required-field' : ''}>
+          <div
+            className={classnames(
+              { 'required-field': hasError },
+              'drop-zone-box',
+              {
+                'with-icon': icon,
+              },
+              { disabled }
+            )}
+          >
             {isLoading && <Loading />}
             {!isLoading && (
-              <p>
-                <strong>
-                  <FormattedMessage id="document.files.modal.drop" />
-                </strong>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.acceptedFiles" values={{ accept }} />
-                </small>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.maxSize" />
-                </small>
-              </p>
+              <>
+                {icon && (
+                  <div className="drop-icon">
+                    <Icon iconClass={icon} />
+                  </div>
+                )}
+                <div>
+                  <FormattedMessage
+                    id="dropzonebox.text"
+                    values={{
+                      a: <a href="#">{intl.formatMessage({ id: 'dropzonebox.a' })}</a>,
+                    }}
+                  />
+                </div>
+              </>
             )}
           </div>
           {errorList.length > 0 && (
@@ -368,6 +376,8 @@ DropZoneBox.propTypes = {
   modalClassName: PropTypes.string,
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
+  inputLabelProps: PropTypes.object,
+  icon: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {

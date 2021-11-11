@@ -1,33 +1,77 @@
 .dropzone-box {
+  max-width: 720px;
+
   & .upload-file {
-    & > div:first-of-type {
+    .drop-zone-box {
       text-align: center;
-      padding: 20px 25px;
       margin: 0;
-      background-color: #fafafa;
-      color: #bdbdbd;
-      border-color: #eeeeee;
+      background-color: white;
+      color: map-get($neutrals, 700);
+      border-color: map-get($neutrals, 200);
       border-style: dashed;
+      border-width: 2px;
       transition: all 0.2s ease;
-      display: block !important;
+      border-radius: $border-radius-1;
+      min-height: 160px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      &.with-icon {
+        min-height: 240px;
+      }
+
+      .drop-icon {
+        margin-bottom: $distance-2;
+      }
+
+      i {
+        margin-bottom: $distance-2;
+        font-size: 60px;
+      }
+
+      a {
+        color: map-get($blue, 500);
+        text-decoration: underline;
+      }
 
       &:focus {
         outline: none !important;
+        border-color: #81cce5;
+      }
+
+      &:hover {
+        border-color: #81cce5;
+        color: map-get($blue, 500);
+        @include animate();
       }
 
       p {
+        color: map-get($neutrals, 700);
+        margin: 0;
+
         .error {
           font-size: 12px;
-        }
-
-        &:hover {
-          border-color: #d9d9d9;
-          transition: all 0.2s ease;
         }
       }
 
       .Loading {
         min-height: 122px;
+      }
+
+      &.disabled {
+        background-color: map-get($background, secondary);
+        border-color: map-get($neutrals, 200) !important;
+        color: map-get($neutrals, 400);
+
+        a {
+          color: map-get($neutrals, 400);
+        }
+
+        &:hover {
+          cursor: no-drop;
+        }
       }
     }
 
@@ -38,12 +82,6 @@
 
     &:hover {
       cursor: pointer;
-    }
-
-    &.disabled {
-      &:hover {
-        cursor: no-drop;
-      }
     }
   }
 
