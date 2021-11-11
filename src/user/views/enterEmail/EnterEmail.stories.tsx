@@ -30,6 +30,7 @@ Set.args = {
   reducers: {
     recoverPassword: { code: 200, data: false },
   },
+  helpLabel: 'The configuration email will only be valid for the next 30m',
 };
 
 Reset.args = {

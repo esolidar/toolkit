@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.15.0",
+  "version": "4.18.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -50,7 +50,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.14.9",
+    "@pedroguia/react-draft-wysiwyg": "^1.14.12",
     "classnames": "^2.2.6",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
@@ -100,7 +100,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.14.8",
+    "@pedroguia/react-draft-wysiwyg": "^1.14.12",
     "@react-mock/state": "^0.1.8",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
