@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
 import InputLabel from '../inputLabel';
+import Button from '../button';
 import { cdnStaticUrl } from '../../constants/env';
 
 const ValidateTelephone = ({
@@ -121,16 +122,13 @@ const ValidateTelephone = ({
         </div>
         {verified === 0 && (
           <>
-            <div>
-              <button
-                type="button"
-                onClick={mobileValidate}
-                disabled={isLoading}
-                className="btn btn-validate-phone"
-              >
-                <FormattedMessage id="validate" />
-              </button>
-            </div>
+            <Button
+              extraClass="primary"
+              onClick={mobileValidate}
+              text={<FormattedMessage id="validate" />}
+              disabled={isLoading}
+              fullWidth={false}
+            />
           </>
         )}
       </div>
@@ -164,9 +162,12 @@ const ValidateTelephone = ({
             )}
           </div>
           <div>
-            <button type="button" onClick={mobileVerify} className="btn btn-verify-phone">
-              <FormattedMessage id="validate" />
-            </button>
+            <Button
+              extraClass="primary"
+              onClick={mobileVerify}
+              text={<FormattedMessage id="validate" />}
+              fullWidth={true}
+            />
           </div>
         </div>
       )}
