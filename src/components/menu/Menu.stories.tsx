@@ -29,32 +29,14 @@ export const FullWidth: Story<Props> = Template.bind({});
 export const Button: Story<Props> = Template.bind({});
 
 Default.args = {
-  text: 'toolkit.private',
-};
-
-PlainText.args = {
-  plaintext: 'Plaintext',
-  extraClass: 'success',
-};
-
-Icon.args = {
-  text: 'toolkit.private',
-  icon: 'icon-httpslock',
-  iconDataTestId: 'badge-icon',
-};
-
-FullWidth.args = {
-  text: 'toolkit.private',
-  fullWidth: true,
-};
-
-Button.args = {
-  plaintext: 'Button',
-  type: 'button',
-  dataTestId: 'badge-button',
-  className: 'btn-badge',
-  onClick: () => {
-    // eslint-disable-next-line no-alert
-    alert('you clicked');
-  },
+  items: [
+    {
+      icon: '',
+      text: '',
+      href: '',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: false,
+    },
+  ],
 };
