@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636648558227" clover="3.2.0">
-  <project timestamp="1636648558228" name="All files">
-    <metrics statements="3752" coveredstatements="2589" conditionals="3122" coveredconditionals="1968" methods="1028" coveredmethods="518" elements="7902" coveredelements="5075" complexity="0" loc="3752" ncloc="3752" packages="174" files="379" classes="379"/>
+<coverage generated="1636648991573" clover="3.2.0">
+  <project timestamp="1636648991573" name="All files">
+    <metrics statements="3753" coveredstatements="2590" conditionals="3123" coveredconditionals="1969" methods="1028" coveredmethods="518" elements="7904" coveredelements="5077" complexity="0" loc="3753" ncloc="3753" packages="174" files="379" classes="379"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -4120,12 +4120,12 @@
         <line num="34" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="30" type="stmt"/>
-        <line num="37" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
         <line num="49" count="37" type="stmt"/>
         <line num="101" count="20" type="stmt"/>
         <line num="128" count="20" type="stmt"/>
@@ -4930,7 +4930,7 @@
       </file>
     </package>
     <package name="src.user.views.createPassword">
-      <metrics statements="49" coveredstatements="24" conditionals="26" coveredconditionals="13" methods="14" coveredmethods="4"/>
+      <metrics statements="50" coveredstatements="25" conditionals="27" coveredconditionals="14" methods="14" coveredmethods="4"/>
       <file name="CreatePassword.stories.tsx" path="C:\Projects\toolkit\src\user\views\createPassword\CreatePassword.stories.tsx">
         <metrics statements="13" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="20" count="3" type="stmt"/>
@@ -4948,43 +4948,44 @@
         <line num="67" count="0" type="stmt"/>
       </file>
       <file name="CreatePassword.tsx" path="C:\Projects\toolkit\src\user\views\createPassword\CreatePassword.tsx">
-        <metrics statements="36" coveredstatements="17" conditionals="26" coveredconditionals="13" methods="7" coveredmethods="3"/>
+        <metrics statements="37" coveredstatements="18" conditionals="27" coveredconditionals="14" methods="7" coveredmethods="3"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="4" type="stmt"/>
         <line num="27" count="4" type="stmt"/>
         <line num="28" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="53" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="78" count="4" type="stmt"/>
-        <line num="79" count="3" type="cond" truecount="2" falsecount="2"/>
-        <line num="80" count="3" type="stmt"/>
-        <line num="83" count="4" type="stmt"/>
-        <line num="84" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="89" count="4" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="93" count="4" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="70" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="79" count="4" type="stmt"/>
+        <line num="80" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="84" count="4" type="stmt"/>
+        <line num="85" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="90" count="4" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="94" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.user.views.enterEmail">
@@ -5283,7 +5284,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="79" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="81" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
