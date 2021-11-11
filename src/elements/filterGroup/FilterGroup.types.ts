@@ -1,6 +1,6 @@
 interface Items {
   title: string;
-  counter?: string | number;
+  counter?: string;
   disabled?: boolean;
   checked?: boolean;
 }

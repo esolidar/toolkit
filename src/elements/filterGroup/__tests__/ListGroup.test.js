@@ -18,5 +18,5 @@ it('renders FilterGroup with counter', () => {
   const { getByClass, getAllByClass } = render(<WithCounterComponent />);
 
   expect(getByClass('filter-group')).toBeTruthy();
-  expect(getAllByClass('counter')).toHaveLength(4);
+  expect(getAllByClass(/counter/)).toHaveLength(4);
 });

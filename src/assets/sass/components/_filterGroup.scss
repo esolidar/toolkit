@@ -23,11 +23,11 @@
       border-radius: 10px;
       height: 18px;
       min-width: 18px;
-      font-size: 12px;
-      line-height: 20px;
-      text-align: center;
       margin-left: $distance-1;
       padding: 0 5px;
+      color: map-get($neutrals, 700);
+      line-height: 18px;
+      text-align: center;
       @include animate();
     }
 

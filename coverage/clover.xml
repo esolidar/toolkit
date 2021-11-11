@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636648991573" clover="3.2.0">
-  <project timestamp="1636648991573" name="All files">
+<coverage generated="1636653728328" clover="3.2.0">
+  <project timestamp="1636653728328" name="All files">
     <metrics statements="3753" coveredstatements="2590" conditionals="3123" coveredconditionals="1969" methods="1028" coveredmethods="518" elements="7904" coveredelements="5077" complexity="0" loc="3753" ncloc="3753" packages="174" files="379" classes="379"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
@@ -2210,9 +2210,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="C:\Projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="63" type="stmt"/>
+        <line num="5" count="64" type="stmt"/>
         <line num="6" count="113" type="stmt"/>
-        <line num="9" count="63" type="stmt"/>
+        <line num="9" count="64" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3431,10 +3431,10 @@
       </file>
       <file name="Badge.tsx" path="C:\Projects\toolkit\src\elements\badge\Badge.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="19" coveredconditionals="17" methods="1" coveredmethods="1"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
-        <line num="22" count="11" type="stmt"/>
-        <line num="31" count="11" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="22" count="15" type="stmt"/>
+        <line num="31" count="15" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\elements\badge\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

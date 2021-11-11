@@ -44,15 +44,15 @@ WithCounter.args = {
   items: [
     {
       title: 'All',
-      counter: 1,
+      counter: '3',
     },
     {
       title: 'Environment ',
-      counter: 7,
+      counter: '7',
     },
     {
       title: 'Social',
-      counter: 3,
+      counter: '3',
     },
     {
       title: 'Governance',
