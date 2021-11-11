@@ -18,7 +18,8 @@
     font-weight: 100;
   }
 
-  .help {
+  .help,
+  .sms-message {
     font-size: 13px;
     color: map-get($main-text-colors, dark);
     line-height: 19px;
@@ -28,6 +29,14 @@
   }
 
   .phone-box {
+    display: flex;
+    gap: $distance-2;
+
+    .input-phone-validation {
+      display: flex;
+      gap: 10px;
+    }
+
     .react-tel-input input[type='tel'] {
       height: 40px;
       background-color: map-get($colors, white);
@@ -50,19 +59,10 @@
     }
 
     .phone-verified {
-      position: absolute;
-      right: 25px;
-      top: 9px;
+      margin-top: 7px;
       width: 24px;
       height: 24px;
       background: url('#{$cdn-static-url}/frontend/icons/ic-verified.svg') 50% 50% no-repeat;
-    }
-
-    .sms-message {
-      font-size: 12px;
-      color: map-get($main-text-colors, dark);
-      letter-spacing: -0.25px;
-      margin-top: 15px;
     }
 
     .btn-validate-phone {
@@ -91,57 +91,57 @@
         color: map-get($colors, white) !important;
       }
     }
+  }
 
-    .verify-box {
-      display: inline-block;
-      padding: 15px;
-      margin-top: 20px;
-      background: map-get($grays, 100);
+  .verify-box {
+    display: inline-block;
+    padding: 15px;
+    margin-top: 20px;
+    background: map-get($grays, 100);
 
-      h3 {
-        padding: 0;
-        margin: 0;
+    h3 {
+      padding: 0;
+      margin: 0;
 
-        font-size: 15px;
-        letter-spacing: 0;
-        margin-bottom: 15px;
+      font-size: 15px;
+      letter-spacing: 0;
+      margin-bottom: 15px;
 
-        img {
-          margin-right: 15px;
-        }
+      img {
+        margin-right: 15px;
       }
+    }
 
-      input {
-        text-align: center;
+    input {
+      text-align: center;
 
-        font-size: 21px;
-        color: map-get($grays, 500);
-        letter-spacing: 2.8px;
-        line-height: 26px;
-      }
+      font-size: 21px;
+      color: map-get($grays, 500);
+      letter-spacing: 2.8px;
+      line-height: 26px;
+    }
 
-      .btn-verify-phone {
-        border: 2px solid map-get($colors, green);
-        color: map-get($colors, green) !important;
-        background: map-get($colors, white);
-        border-radius: 100px;
-        padding-left: 30px;
-        padding-right: 30px;
+    .btn-verify-phone {
+      border: 2px solid map-get($colors, green);
+      color: map-get($colors, green) !important;
+      background: map-get($colors, white);
+      border-radius: 100px;
+      padding-left: 30px;
+      padding-right: 30px;
 
-        font-size: 17px;
-        -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
-        -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
-        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        margin-top: 15px;
-        width: 100%;
-      }
+      font-size: 17px;
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
+      -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+      margin-top: 15px;
+      width: 100%;
     }
   }
 
