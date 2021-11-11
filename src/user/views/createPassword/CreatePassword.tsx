@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { useIntl, FormattedMessage } from 'react-intl';
+import { FormattedMessage, IntlShape, useIntl } from 'react-intl';
 import PasswordField from '../../../elements/passwordField';
 import Button from '../../../elements/button';
 import CodeExpiredModal from '../../components/codeExpiredModal';
@@ -11,6 +11,8 @@ interface Form {
   confirmPassword?: string;
 }
 
+const intl: IntlShape = useIntl();
+
 const CreatePassword: FC<Props> = ({
   userId,
   code,
@@ -18,7 +20,7 @@ const CreatePassword: FC<Props> = ({
   reducers: { setNewPasswordResponse },
   company,
   type = 'recover',
-  codeExpiredButtonUrl = '/en/auth/recover-password',
+  codeExpiredButtonUrl = `${intl.locale}/auth/recover-password`,
 }: Props): JSX.Element => {
   const [errors, setErrors] = useState<Form>({});
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -27,8 +29,6 @@ const CreatePassword: FC<Props> = ({
     password: '',
     confirmPassword: '',
   });
-
-  const intl = useIntl();
 
   const handleChange = ({ target: { value, name } }: React.ChangeEvent<HTMLInputElement>) => {
     const frm = clone(form);

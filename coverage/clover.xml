@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636631339393" clover="3.2.0">
-  <project timestamp="1636631339394" name="All files">
+<coverage generated="1636642775755" clover="3.2.0">
+  <project timestamp="1636642775756" name="All files">
     <metrics statements="3743" coveredstatements="2574" conditionals="3120" coveredconditionals="1963" methods="1023" coveredmethods="514" elements="7886" coveredelements="5051" complexity="0" loc="3743" ncloc="3743" packages="173" files="377" classes="377"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
@@ -4932,11 +4932,11 @@
       <file name="CreatePassword.tsx" path="C:\Projects\toolkit\src\user\views\createPassword\CreatePassword.tsx">
         <metrics statements="36" coveredstatements="17" conditionals="26" coveredconditionals="13" methods="7" coveredmethods="3"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
         <line num="26" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
         <line num="33" count="4" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>

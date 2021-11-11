@@ -53,7 +53,7 @@ SetPassword404.args = {
   reducers: {
     setNewPasswordResponse: setPassword404,
   },
-  codeExpiredButtonUrl: '/en/auth/configure-password',
+  codeExpiredButtonUrl: '/auth/configure-password',
 };
 
 RecoverPassword.args = {

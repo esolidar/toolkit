@@ -47,5 +47,5 @@ it('renders setPassword default component with 404 api', () => {
   expect(getByText('Configuration email expired')).toBeTruthy();
   expect(
     getByClass('btn-esolidar btn-link btn-md client__primary--color client__primary--color-hover')
-  ).toHaveAttribute('href', '/en/auth/configure-password');
+  ).toHaveAttribute('href', '/auth/configure-password');
 });
