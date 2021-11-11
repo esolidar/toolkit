@@ -11,8 +11,6 @@ interface Form {
   confirmPassword?: string;
 }
 
-const intl: IntlShape = useIntl();
-
 const CreatePassword: FC<Props> = ({
   userId,
   code,
@@ -20,8 +18,11 @@ const CreatePassword: FC<Props> = ({
   reducers: { setNewPasswordResponse },
   company,
   type = 'recover',
-  codeExpiredButtonUrl = `${intl.locale}/auth/recover-password`,
+  codeExpiredButtonUrl,
 }: Props): JSX.Element => {
+  const intl: IntlShape = useIntl();
+  const buttonUrl = codeExpiredButtonUrl || `${intl.locale}/auth/recover-password`;
+
   const [errors, setErrors] = useState<Form>({});
   const [showModal, setShowModal] = useState<boolean>(false);
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
@@ -139,7 +140,7 @@ const CreatePassword: FC<Props> = ({
         </div>
       </form>
       <CodeExpiredModal
-        buttonUrl={codeExpiredButtonUrl}
+        buttonUrl={buttonUrl}
         handleCloseModal={handleCloseModal}
         showModal={showModal}
       />
