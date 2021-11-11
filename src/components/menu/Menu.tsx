@@ -8,7 +8,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
 
   const renderMenu = () =>
     items.map((item, index) => {
-      const { icon, text, href } = item;
+      const { icon, text, href, showNotificationsIcon, disabled, onClick, isActive } = item;
 
       return (
         <li key={index}>
@@ -20,11 +20,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
       );
     });
 
-  return (
-    <div className={classes}>
-      <ul>{renderMenu}</ul>
-    </div>
-  );
+  return <div className={classes}>{items && <ul>{renderMenu()}</ul>}</div>;
 };
 
 export default Menu;
