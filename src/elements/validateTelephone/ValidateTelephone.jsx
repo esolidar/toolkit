@@ -97,7 +97,7 @@ const ValidateTelephone = ({
 
   return (
     <div className="validate-telephone mb-3">
-      <InputLabel {...inputLabelProps} />
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className="phone-box">
         <div className="input-phone-validation">
           <ReactTelephoneInput

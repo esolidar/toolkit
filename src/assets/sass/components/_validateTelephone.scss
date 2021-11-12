@@ -1,4 +1,16 @@
 .validate-telephone {
+  .form-control {
+    @include input-form();
+
+    &:hover {
+      @include input-hover();
+    }
+
+    &:focus {
+      @include input-focus();
+    }
+  }
+
   label {
     font-size: 16px;
     font-weight: 600;
@@ -46,7 +58,7 @@
       height: 40px;
       background-color: map-get($colors, white);
       border: 2px solid map-get($grays, 400);
-      border-radius: 3px;
+      border-radius: 8px;
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-appearance: none;
@@ -57,9 +69,14 @@
       padding-top: 10px;
       padding-left: 80px;
 
+      @include input-form();
+
+      &:hover {
+        @include input-hover();
+      }
+
       &:focus {
-        border: 2px solid map-get($main-text-colors, dark);
-        box-shadow: none;
+        @include input-focus();
       }
     }
 
@@ -118,7 +135,7 @@
 
     input {
       text-align: center;
-
+      border-radius: 8px;
       font-size: 21px;
       color: map-get($grays, 500);
       letter-spacing: 2.8px;
@@ -136,6 +153,10 @@
       margin-top: $distance-2;
       width: 100%;
       @include animate();
+    }
+
+    .has-error {
+      margin: $distance-2 0px;
     }
   }
 
