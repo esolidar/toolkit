@@ -51,6 +51,26 @@
 
       button {
         outline: transparent !important;
+        background-color: transparent;
+      }
+    }
+
+    .react-tel-input {
+      .selected-flag {
+        border-radius: $border-radius-1 0 0 $border-radius-1;
+      }
+
+      .flag-dropdown.open-dropdown,
+      .country-list {
+        border-radius: $border-radius-1;
+      }
+
+      .flag-dropdown {
+        border-radius: $border-radius-1;
+
+        .selected-flag {
+          background: transparent;
+        }
       }
     }
 
@@ -58,16 +78,16 @@
       height: 40px;
       background-color: map-get($colors, white);
       border: 2px solid map-get($grays, 400);
-      border-radius: 8px;
+      border-radius: $border-radius-1;
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-appearance: none;
-
       font-size: 15px;
       letter-spacing: -0.31px;
       line-height: 24px;
       padding-top: 10px;
       padding-left: 80px;
+      padding-left: 70px;
 
       @include input-form();
 
@@ -161,7 +181,6 @@
   }
 
   .thumb-box {
-    float: left;
     width: 100%;
     display: inline-block;
 
