@@ -21,7 +21,7 @@ const CreatePassword: FC<Props> = ({
   codeExpiredButtonUrl,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
-  const buttonUrl = codeExpiredButtonUrl || `${intl.locale}/auth/recover-password`;
+  const buttonUrl = codeExpiredButtonUrl || `/${intl.locale}/auth/recover-password`;
 
   const [errors, setErrors] = useState<Form>({});
   const [showModal, setShowModal] = useState<boolean>(false);
