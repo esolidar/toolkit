@@ -11,6 +11,7 @@ const EnterEmail: FC<Props> = ({
   onSuccess,
   actions: { postRecoverPassword },
   reducers: { recoverPassword },
+  helpLabel,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -78,6 +79,7 @@ const EnterEmail: FC<Props> = ({
             className="set-password__form--email-input"
             type="text"
             label={intl.formatMessage({ id: 'user.enterEmail.set.email' })}
+            help={helpLabel}
             value={email}
             onChange={handleChangeEmail}
             error={error}

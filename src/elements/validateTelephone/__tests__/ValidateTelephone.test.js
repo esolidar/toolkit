@@ -52,6 +52,6 @@ test('Should exist Validate button, insert phone number and appear box confirm c
   render(<ValidateTelephone {...propsWithoutValidatePhone} />);
 
   const validateButtons = screen.getAllByText(/Validate/i);
-  expect(validateButtons).toHaveLength(3);
+  expect(validateButtons).toHaveLength(2);
   expect(screen.getByText(/Insert your validation code/i)).toBeInTheDocument();
 });

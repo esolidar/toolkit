@@ -11,6 +11,7 @@ const Template = args => <DatePicker {...args} />;
 export const Default = Template.bind({});
 export const DateOnly = Template.bind({});
 export const InputOnly = Template.bind({});
+export const WithError = Template.bind({});
 
 Default.parameters = {
   jest: ['DatePicker.test.js'],
@@ -20,9 +21,9 @@ Default.args = {
   classnames: () => {},
   label: 'Start Date',
   locale: 'en',
-  selected: new Date('2021-03-05'),
-  startDate: null,
-  endDate: null,
+  selected: new Date('2021-03-05 00:00:00'),
+  startDate: new Date('2021-03-15 00:00:00'),
+  endDate: new Date('2021-03-25 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',
@@ -36,9 +37,9 @@ DateOnly.args = {
   classnames: () => {},
   label: 'Start Date',
   locale: 'en',
-  selected: new Date('2021-03-05'),
-  startDate: '',
-  endDate: '',
+  startDate: new Date('2021-03-05 00:00:00'),
+  selected: new Date('2021-03-15 00:00:00'),
+  endDate: new Date('2021-03-25 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',
@@ -50,13 +51,27 @@ DateOnly.args = {
 InputOnly.args = {
   classnames: () => {},
   locale: 'pt',
-  selected: new Date('2021-03-05'),
-  startDate: '',
-  endDate: '',
+  selected: new Date('2021-03-05 00:00:00'),
+  startDate: new Date('2021-03-15 00:00:00'),
+  endDate: new Date('2021-03-25 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
   leftIcon: { name: 'icon-calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
+};
+
+WithError.args = {
+  classnames: () => {},
+  locale: 'pt',
+  selected: new Date('2021-03-05 00:00:00'),
+  startDate: new Date('2021-03-15 00:00:00'),
+  endDate: new Date('2021-03-25 00:00:00'),
+  onChange: () => {},
+  className: 'form-control',
+  showTimeSelect: false,
+  leftIcon: { name: 'icon-calendar', show: true },
+  dateFormat: 'dd-MM-yyyy',
+  errors: 'Invalid date',
 };

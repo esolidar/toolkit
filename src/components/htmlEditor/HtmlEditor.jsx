@@ -9,6 +9,7 @@ import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTM
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
+import InputLabel from '../../elements/inputLabel';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const getInitialRawContent = initialContent => {
@@ -47,7 +48,6 @@ const translations = {
 
 const HtmlEditor = ({
   dataTestId,
-  onFileUpload,
   initialContent,
   onChange,
   columns,
@@ -58,6 +58,9 @@ const HtmlEditor = ({
   showColumnsBtn,
   showAddImageBtn,
   showAddUrlBtn,
+  disabled,
+  className,
+  inputLabelProps,
 }) => {
   const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
@@ -82,22 +85,6 @@ const HtmlEditor = ({
     setWrapperClassName(newClassArray);
   }, [muiStyle, error]);
 
-  const handleFileUpload = file =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
-      reader.onload = async () => {
-        const imageUrl = await onFileUpload(reader.result);
-        const result = { data: { link: imageUrl } };
-        resolve(result);
-      };
-      reader.onerror = async () => {
-        const imageUrl = await onFileUpload(reader.result);
-        const err = { data: { link: imageUrl } };
-        reject(err);
-      };
-    });
-
   const handleEditorStateChange = editorState => {
     if (onChange) onChange(convertToRaw(editorState.getCurrentContent()));
     setEditorState(editorState);
@@ -112,16 +99,7 @@ const HtmlEditor = ({
     setWrapperClassName(wrapperClassName.filter(item => item !== focusClass));
   };
 
-  const options = [
-    'inline',
-    'blockType',
-    'fontSize',
-    'colorPicker',
-    'list',
-    'textAlign',
-    'remove',
-    'history',
-  ];
+  const options = ['inline', 'list'];
   if (showAddImageBtn) options.push('image');
   if (showAddUrlBtn) options.push('link');
 
@@ -139,7 +117,15 @@ const HtmlEditor = ({
   }
 
   return (
-    <>
+    <div className={className}>
+      {inputLabelProps && (
+        <InputLabel
+          {...inputLabelProps}
+          style={{
+            marginBottom: '8px',
+          }}
+        />
+      )}
       <Editor
         wrapperClassName={wrapperClassName.join(' ')}
         editorState={editorState}
@@ -153,16 +139,12 @@ const HtmlEditor = ({
           inline: {
             options: ['bold', 'italic', 'underline', 'strikethrough'],
           },
-          blockType: {
-            options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'],
+          list: {
+            options: ['unordered', 'ordered'],
           },
           link: {
             defaultTargetOption: '_blank',
-          },
-          image: {
-            uploadCallback: handleFileUpload,
-            alt: { present: true, mandatory: false },
-            previewImage: true,
+            options: ['link'],
           },
         }}
         toolbarCustomButtons={toolbarCustomButtons}
@@ -171,19 +153,21 @@ const HtmlEditor = ({
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
         data-testid={dataTestId}
+        editorClassName={disabled ? 'disabled' : ''}
+        toolbarClassName={disabled ? 'disabled' : ''}
+        readOnly={disabled}
       />
       {!!helperText && (
         <p aria-label="html-helper-text" className="helper-text__error">
           {helperText}
         </p>
       )}
-    </>
+    </div>
   );
 };
 
 HtmlEditor.propTypes = {
   dataTestId: PropTypes.string,
-  onFileUpload: PropTypes.func,
   initialContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onChange: PropTypes.func,
   columns: PropTypes.number,
@@ -194,6 +178,9 @@ HtmlEditor.propTypes = {
   showColumnsBtn: PropTypes.bool,
   showAddImageBtn: PropTypes.bool,
   showAddUrlBtn: PropTypes.bool,
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  inputLabelProps: PropTypes.object,
 };
 
 HtmlEditor.defaultProps = {
@@ -201,9 +188,10 @@ HtmlEditor.defaultProps = {
   columns: 1,
   error: false,
   muiStyle: false,
-  showColumnsBtn: true,
-  showAddImageBtn: true,
+  showColumnsBtn: false,
+  showAddImageBtn: false,
   showAddUrlBtn: true,
+  disabled: false,
 };
 
 export default HtmlEditor;

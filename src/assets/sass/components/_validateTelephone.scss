@@ -1,46 +1,109 @@
 .validate-telephone {
-  .title-add-contact {
-    font-size: 15px;
-    color: map-get($theme-colors, primary);
-    letter-spacing: -0.31px;
-    line-height: 65px;
+  .form-control {
+    @include input-form();
+
+    &:hover {
+      @include input-hover();
+    }
+
+    &:focus {
+      @include input-focus();
+    }
   }
+
+  label {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    color: map-get($base, black);
+    letter-spacing: 0;
+    display: block;
+    margin-bottom: $distance-1;
+    text-transform: none;
+  }
+
+  .label-optional {
+    padding-left: 5px;
+    font-size: 11px;
+    color: map-get($main-text-colors, dark);
+    text-transform: lowercase;
+    font-weight: 100;
+  }
+
+  .help,
+  .sms-message {
+    font-size: 13px;
+    color: map-get($main-text-colors, dark);
+    line-height: 19px;
+    margin-bottom: $distance-2;
+    letter-spacing: 0;
+    display: block;
+  }
+
   .phone-box {
+    display: flex;
+    gap: $distance-2;
+
+    .input-phone-validation {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      button {
+        outline: transparent !important;
+        background-color: transparent;
+      }
+    }
+
+    .react-tel-input {
+      .selected-flag {
+        border-radius: $border-radius-1 0 0 $border-radius-1;
+      }
+
+      .flag-dropdown.open-dropdown,
+      .country-list {
+        border-radius: $border-radius-1;
+      }
+
+      .flag-dropdown {
+        border-radius: $border-radius-1;
+
+        .selected-flag {
+          background: transparent;
+        }
+      }
+    }
+
     .react-tel-input input[type='tel'] {
       height: 40px;
       background-color: map-get($colors, white);
       border: 2px solid map-get($grays, 400);
-      border-radius: 3px;
+      border-radius: $border-radius-1;
       box-shadow: none;
       -webkit-box-shadow: none;
       -moz-appearance: none;
-
       font-size: 15px;
       letter-spacing: -0.31px;
       line-height: 24px;
       padding-top: 10px;
       padding-left: 80px;
+      padding-left: 70px;
+
+      @include input-form();
+
+      &:hover {
+        @include input-hover();
+      }
 
       &:focus {
-        border: 2px solid map-get($main-text-colors, dark);
-        box-shadow: none;
+        @include input-focus();
       }
     }
 
     .phone-verified {
-      position: absolute;
-      right: 25px;
-      top: 9px;
       width: 24px;
       height: 24px;
       background: url('#{$cdn-static-url}/frontend/icons/ic-verified.svg') 50% 50% no-repeat;
-    }
-
-    .sms-message {
-      font-size: 12px;
-      color: map-get($main-text-colors, dark);
-      letter-spacing: -0.25px;
-      margin-top: 15px;
     }
 
     .btn-validate-phone {
@@ -69,62 +132,55 @@
         color: map-get($colors, white) !important;
       }
     }
+  }
 
-    .verify-box {
-      display: inline-block;
-      padding: 15px;
-      margin-top: 20px;
-      background: map-get($grays, 100);
+  .verify-box {
+    display: inline-block;
+    padding: 15px;
+    margin-top: 20px;
+    background: map-get($grays, 100);
 
-      h3 {
-        padding: 0;
-        margin: 0;
+    h3 {
+      padding: 0;
+      margin: 0;
 
-        font-size: 15px;
-        letter-spacing: 0;
-        margin-bottom: 15px;
+      font-size: 15px;
+      letter-spacing: 0;
+      margin-bottom: 15px;
 
-        img {
-          margin-right: 15px;
-        }
+      img {
+        margin-right: 15px;
       }
+    }
 
-      input {
-        text-align: center;
+    input {
+      text-align: center;
+      border-radius: 8px;
+      font-size: 21px;
+      color: map-get($grays, 500);
+      letter-spacing: 2.8px;
+      line-height: 26px;
+    }
 
-        font-size: 21px;
-        color: map-get($grays, 500);
-        letter-spacing: 2.8px;
-        line-height: 26px;
-      }
+    .btn-verify-phone {
+      border: 2px solid map-get($colors, green);
+      color: map-get($colors, green) !important;
+      background: map-get($colors, white);
+      border-radius: 100px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-size: 17px;
+      margin-top: $distance-2;
+      width: 100%;
+      @include animate();
+    }
 
-      .btn-verify-phone {
-        border: 2px solid map-get($colors, green);
-        color: map-get($colors, green) !important;
-        background: map-get($colors, white);
-        border-radius: 100px;
-        padding-left: 30px;
-        padding-right: 30px;
-
-        font-size: 17px;
-        -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
-        -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
-        -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-        margin-top: 15px;
-        width: 100%;
-      }
+    .has-error {
+      margin: $distance-2 0px;
     }
   }
 
   .thumb-box {
-    float: left;
     width: 100%;
     display: inline-block;
 

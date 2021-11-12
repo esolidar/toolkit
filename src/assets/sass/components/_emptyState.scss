@@ -1,0 +1,34 @@
+.empty-state {
+  &__icon,
+  &__image,
+  &__title,
+  &__body,
+  &__buttons {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__icon,
+  &__image {
+    margin-bottom: $distance-2;
+  }
+
+  &__icon {
+    font-size: 64px;
+  }
+
+  p.body-regular {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: $distance-5;
+
+    button {
+      margin-right: $distance-1;
+      margin-left: $distance-1;
+    }
+  }
+}
