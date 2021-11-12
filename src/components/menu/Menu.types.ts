@@ -6,6 +6,7 @@ interface Item {
   disabled?: boolean;
   onClick?(): void;
   isActive?: boolean;
+  separator?: true;
 }
 
 interface Props {
