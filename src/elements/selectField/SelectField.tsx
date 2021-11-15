@@ -45,9 +45,7 @@ const SelectField: FC<Props> = ({
       className={classnames(
         'select-field',
         'form-group',
-        { 'size-sm': size === 'sm' },
-        { 'size-md': size === 'md' },
-        { 'size-lg': size === 'lg' },
+        `size-${size}`,
         { 'has-error': error },
         { 'left-label': isLabelLeft }
       )}

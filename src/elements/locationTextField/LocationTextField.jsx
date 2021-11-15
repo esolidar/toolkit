@@ -53,14 +53,7 @@ const TextField = ({
       />
     )}
     {!children && (
-      <div
-        className={classnames(
-          { 'size-sm': size === 'sm' },
-          { 'size-md': size === 'md' },
-          { 'size-lg': size === 'lg' },
-          'input'
-        )}
-      >
+      <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
           <Icon
             iconClass={`icon left ${leftIcon?.name}`}

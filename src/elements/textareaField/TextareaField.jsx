@@ -59,14 +59,7 @@ const TextareaField = ({
       {label && (
         <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
       )}
-      <div
-        className={classnames(
-          { 'size-sm': size === 'sm' },
-          { 'size-md': size === 'md' },
-          { 'size-lg': size === 'lg' },
-          ' relative'
-        )}
-      >
+      <div className={classnames(`size-${size}`, ' relative')}>
         <textarea
           id={id || field}
           disabled={disabled}

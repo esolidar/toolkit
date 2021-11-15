@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636976862464" clover="3.2.0">
-  <project timestamp="1636976862464" name="All files">
+<coverage generated="1636977948506" clover="3.2.0">
+  <project timestamp="1636977948506" name="All files">
     <metrics statements="3762" coveredstatements="2593" conditionals="3151" coveredconditionals="1993" methods="1030" coveredmethods="518" elements="7943" coveredelements="5104" complexity="0" loc="3762" ncloc="3762" packages="174" files="379" classes="379"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
@@ -3577,8 +3577,8 @@
         <line num="15" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="41" count="8" type="stmt"/>
-        <line num="101" count="3" type="stmt"/>
-        <line num="134" count="3" type="stmt"/>
+        <line num="98" count="3" type="stmt"/>
+        <line num="131" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\datePicker\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3767,8 +3767,8 @@
         <metrics statements="4" coveredstatements="4" conditionals="24" coveredconditionals="20" methods="1" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
         <line num="38" count="7" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
-        <line num="140" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\locationTextField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4076,8 +4076,8 @@
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="49" count="37" type="stmt"/>
-        <line num="105" count="20" type="stmt"/>
-        <line num="132" count="20" type="stmt"/>
+        <line num="98" count="20" type="stmt"/>
+        <line num="125" count="20" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\textareaField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
