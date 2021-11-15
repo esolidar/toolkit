@@ -61,9 +61,9 @@ const TextareaField = ({
       )}
       <div
         className={classnames(
-          { 'width-sm': size === 'sm' },
-          { 'width-md': size === 'md' },
-          { 'width-lg': size === 'lg' },
+          { 'size-sm': size === 'sm' },
+          { 'size-md': size === 'md' },
+          { 'size-lg': size === 'lg' },
           ' relative'
         )}
       >

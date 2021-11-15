@@ -53,10 +53,10 @@ const DatePicker = ({
     )}
     <div
       className={classnames(
-        { 'width-xs': size === 'xs' },
-        { 'width-sm': size === 'sm' },
-        { 'width-md': size === 'md' },
-        { 'width-lg': size === 'lg' },
+        { 'size-xs': size === 'xs' },
+        { 'size-sm': size === 'sm' },
+        { 'size-md': size === 'md' },
+        { 'size-lg': size === 'lg' },
         'input',
         { 'with-icon': leftIcon?.show },
         { 'with-time': showTimeSelect }
