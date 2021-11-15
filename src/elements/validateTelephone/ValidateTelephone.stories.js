@@ -17,7 +17,6 @@ Default.parameters = {
 };
 
 Default.args = {
-  hasError: true,
   inputLabelProps: {
     label: 'Phone number',
     showOptionalLabel: true,
