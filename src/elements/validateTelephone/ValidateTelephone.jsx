@@ -16,8 +16,10 @@ const ValidateTelephone = ({
   confirmPhone,
   hasError,
   inputLabelProps,
+  defaultCountry,
+  verifiedPhone,
 }) => {
-  const [verified, setVerified] = useState(0);
+  const [verified, setVerified] = useState(verifiedPhone);
   const [isLoading, setIsLoading] = useState(false);
   const [showVerifyCode, setShowVerifyCode] = useState(false);
   const [code, setCode] = useState('');
@@ -90,10 +92,6 @@ const ValidateTelephone = ({
     const userId = JSON.parse(localStorage.user).id;
     mobileConfirmPost(userId, { code });
   };
-
-  let defaultCountry = 'gb';
-  if (localStorage.lang !== 'en') defaultCountry = 'pt';
-  else if (localStorage.lang === 'br') defaultCountry = 'br';
 
   return (
     <div className="validate-telephone mb-3">
@@ -180,7 +178,7 @@ const ValidateTelephone = ({
 };
 
 ValidateTelephone.propTypes = {
-  phone: PropTypes.number,
+  phone: PropTypes.string,
   mobileValidatePost: PropTypes.func,
   mobileConfirmPost: PropTypes.func,
   localStorage: PropTypes.shape({
@@ -203,12 +201,15 @@ ValidateTelephone.propTypes = {
     showOptionalLabel: PropTypes.bool,
     help: PropTypes.string,
   }),
+  defaultCountry: PropTypes.string,
+  verifiedPhone: PropTypes.number,
 };
 
 ValidateTelephone.defaultProps = {
   inputLabelProps: PropTypes.shape({
     showOptionalLabel: false,
   }),
+  defaultCountry: 'gb',
 };
 
 export default ValidateTelephone;

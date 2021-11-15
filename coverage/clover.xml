@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636977948506" clover="3.2.0">
-  <project timestamp="1636977948506" name="All files">
-    <metrics statements="3762" coveredstatements="2593" conditionals="3151" coveredconditionals="1993" methods="1030" coveredmethods="518" elements="7943" coveredelements="5104" complexity="0" loc="3762" ncloc="3762" packages="174" files="379" classes="379"/>
+<coverage generated="1637002307360" clover="3.2.0">
+  <project timestamp="1637002307360" name="All files">
+    <metrics statements="3759" coveredstatements="2591" conditionals="3147" coveredconditionals="1990" methods="1030" coveredmethods="518" elements="7936" coveredelements="5099" complexity="0" loc="3759" ncloc="3759" packages="174" files="379" classes="379"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -3410,20 +3410,20 @@
       <file name="Button.jsx" path="D:\projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="40" coveredconditionals="31" methods="2" coveredmethods="2"/>
         <line num="8" count="61" type="stmt"/>
-        <line num="30" count="222" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="164" type="stmt"/>
+        <line num="30" count="218" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="160" type="stmt"/>
         <line num="32" count="58" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="6" type="stmt"/>
         <line num="34" count="52" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="6" type="stmt"/>
-        <line num="38" count="222" type="stmt"/>
-        <line num="64" count="222" type="stmt"/>
-        <line num="65" count="222" type="cond" truecount="4" falsecount="0"/>
-        <line num="67" count="164" type="stmt"/>
+        <line num="38" count="218" type="stmt"/>
+        <line num="64" count="218" type="stmt"/>
+        <line num="65" count="218" type="cond" truecount="4" falsecount="0"/>
+        <line num="67" count="160" type="stmt"/>
         <line num="90" count="6" type="stmt"/>
         <line num="112" count="6" type="stmt"/>
         <line num="127" count="46" type="stmt"/>
-        <line num="151" count="222" type="stmt"/>
+        <line num="151" count="218" type="stmt"/>
         <line num="154" count="61" type="stmt"/>
         <line num="177" count="61" type="stmt"/>
       </file>
@@ -3961,8 +3961,8 @@
         <metrics statements="4" coveredstatements="4" conditionals="32" coveredconditionals="29" methods="1" coveredmethods="1"/>
         <line num="8" count="23" type="stmt"/>
         <line num="37" count="134" type="stmt"/>
-        <line num="109" count="23" type="stmt"/>
-        <line num="147" count="23" type="stmt"/>
+        <line num="102" count="23" type="stmt"/>
+        <line num="140" count="23" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\textField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4102,59 +4102,56 @@
       </file>
     </package>
     <package name="src.elements.validateTelephone">
-      <metrics statements="51" coveredstatements="29" conditionals="34" coveredconditionals="21" methods="9" coveredmethods="4"/>
+      <metrics statements="48" coveredstatements="27" conditionals="30" coveredconditionals="18" methods="9" coveredmethods="4"/>
       <file name="ValidateTelephone.jsx" path="D:\projects\toolkit\src\elements\validateTelephone\ValidateTelephone.jsx">
-        <metrics statements="51" coveredstatements="29" conditionals="34" coveredconditionals="21" methods="9" coveredmethods="4"/>
+        <metrics statements="48" coveredstatements="27" conditionals="30" coveredconditionals="18" methods="9" coveredmethods="4"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
         <line num="26" count="4" type="stmt"/>
         <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
         <line num="29" count="4" type="stmt"/>
-        <line num="30" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="2" type="cond" truecount="3" falsecount="1"/>
         <line num="33" count="2" type="stmt"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
-        <line num="42" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="65" count="4" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="69" count="4" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
-        <line num="74" count="4" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
-        <line num="79" count="4" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="83" count="4" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
+        <line num="61" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="71" count="4" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="81" count="4" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="85" count="4" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="89" count="4" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="94" count="4" type="stmt"/>
-        <line num="95" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="96" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="98" count="4" type="stmt"/>
-        <line num="182" count="2" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
+        <line num="180" count="2" type="stmt"/>
         <line num="208" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\validateTelephone\index.js">
