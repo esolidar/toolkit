@@ -39,17 +39,9 @@ const DatePicker = ({
   rightIcon,
 }) => (
   <div
-    className={classnames(
-      'datepicker-component',
-      { 'width-xs': size === 'xs' },
-      { 'width-sm': size === 'sm' },
-      { 'width-md': size === 'md' },
-      { 'width-lg': size === 'lg' },
-      'form-group',
-      {
-        'has-error': !!errors,
-      }
-    )}
+    className={classnames('datepicker-component', 'form-group', {
+      'has-error': !!errors,
+    })}
   >
     {label && (
       <InputLabel
@@ -61,6 +53,10 @@ const DatePicker = ({
     )}
     <div
       className={classnames(
+        { 'width-xs': size === 'xs' },
+        { 'width-sm': size === 'sm' },
+        { 'width-md': size === 'md' },
+        { 'width-lg': size === 'lg' },
         'input',
         { 'with-icon': leftIcon?.show },
         { 'with-time': showTimeSelect }

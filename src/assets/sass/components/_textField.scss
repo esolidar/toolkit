@@ -2,13 +2,13 @@
   position: relative;
   margin-bottom: $distance-4;
 
-  &.width-sm {
+  .width-sm {
     max-width: 320px;
   }
-  &.width-md {
+  .width-md {
     max-width: 420px;
   }
-  &.width-lg {
+  .width-lg {
     max-width: 720px;
   }
 
