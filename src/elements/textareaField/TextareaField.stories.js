@@ -7,9 +7,9 @@ export default {
 };
 
 const Template = args => (
-  <div style={{ maxWidth: '550px' }}>
-    <TextareaField {...args} />
-  </div>
+  // <div style={{ maxWidth: '550px' }}>
+  <TextareaField {...args} />
+  // </div>
 );
 export const Default = Template.bind({});
 export const MaxLength = Template.bind({});

@@ -109,15 +109,7 @@ const ValidateTelephone = ({
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             disabled={verified === 1}
-            id="teste"
           />
-          {errors && (
-            <div className="has-error">
-              <span className="help-block">
-                <FormattedMessage id="user.settings.phone.errorNumber" />
-              </span>
-            </div>
-          )}
           {verified === 1 && <div className="phone-verified" data-testid="verified-number" />}
         </div>
         {verified === 0 && (
@@ -132,6 +124,13 @@ const ValidateTelephone = ({
           </>
         )}
       </div>
+      {errors && (
+        <div className="has-error">
+          <span className="help-block">
+            <FormattedMessage id="user.settings.phone.errorNumber" />
+          </span>
+        </div>
+      )}
       {showVerifyCode && (
         <div className="verify-box">
           <div>

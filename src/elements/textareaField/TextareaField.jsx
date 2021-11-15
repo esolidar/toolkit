@@ -49,9 +49,6 @@ const TextareaField = ({
   return (
     <div
       className={classnames(
-        { 'width-sm': size === 'sm' },
-        { 'width-md': size === 'md' },
-        { 'width-lg': size === 'lg' },
         'text-area-field',
         'form-group',
         { 'has-error': error || message },
@@ -62,7 +59,14 @@ const TextareaField = ({
       {label && (
         <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
       )}
-      <div className="relative">
+      <div
+        className={classnames(
+          { 'width-sm': size === 'sm' },
+          { 'width-md': size === 'md' },
+          { 'width-lg': size === 'lg' },
+          ' relative'
+        )}
+      >
         <textarea
           id={id || field}
           disabled={disabled}
