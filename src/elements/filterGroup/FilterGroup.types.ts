@@ -1,5 +1,6 @@
 interface Items {
   title: string;
+  value: string;
   counter?: string;
   disabled?: boolean;
   checked?: boolean;
