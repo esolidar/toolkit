@@ -40,6 +40,10 @@
     display: block;
   }
 
+  .help-block {
+    color: map-get($negative, 500);
+  }
+
   .phone-box {
     display: flex;
     gap: $distance-2;
