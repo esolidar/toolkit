@@ -1,3 +1,5 @@
+/* global google */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Geosuggest from 'react-geosuggest';
@@ -27,7 +29,8 @@ const TextField = ({
   onSuggestSelect,
   onSuggestNoResults,
   local,
-  location,
+  latitude,
+  longitude,
   size,
   onBlur,
   onChange,
@@ -65,7 +68,7 @@ const TextField = ({
           onSuggestSelect={onSuggestSelect}
           onSuggestNoResults={onSuggestNoResults}
           initialValue={local}
-          location={location}
+          location={new google.maps.LatLng(latitude, longitude)}
           radius="20"
           className={classnames({ 'left-icon': leftIcon })}
           disabled={disabled}
@@ -120,7 +123,8 @@ TextField.propTypes = {
   onSuggestSelect: PropTypes.func,
   onSuggestNoResults: PropTypes.func,
   local: PropTypes.string,
-  location: PropTypes.any,
+  latitude: PropTypes.string,
+  longitude: PropTypes.string,
   size: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
