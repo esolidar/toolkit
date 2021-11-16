@@ -169,27 +169,27 @@ const DropZoneBox = ({
       const onDropErrorFileList = [];
 
       rejectedFiles.forEach(rejectedFile => {
-        const extension = fileExtensionOf(rejectedFile.name);
+        const extension = fileExtensionOf(rejectedFile.file.name);
         const errors = [];
         const acceptExtensionArray = accept.split(',').map(item => item.trim().toLocaleLowerCase());
         const extensionExist = acceptExtensionArray.includes(`.${extension}`);
 
         if (!extensionExist)
           errors.push(errorMessages.find(messageObj => messageObj.id === 'extensionError').message);
-        if (rejectedFile.size > maxSize)
+        if (rejectedFile.file.size > maxSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'maxSizeError').message
             } ${convertToMb(maxSize)}`
           );
-        if (rejectedFile.size < minSize)
+        if (rejectedFile.file.size < minSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'minSizeError').message
             } ${convertToMb(minSize)}`
           );
 
-        const fileErrorObject = { name: rejectedFile.name, errors };
+        const fileErrorObject = { name: rejectedFile.file.name, errors };
         if (errors.length) onDropErrorFileList.push(fileErrorObject);
       });
 
@@ -240,37 +240,28 @@ const DropZoneBox = ({
               </>
             )}
           </div>
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
         </div>
       )}
       {!showDropArea && (
-        <span onClick={open} onKeyPress={() => {}} className={className}>
-          <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          {children}
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
-        </span>
+        <>
+          <span onClick={open} onKeyPress={() => {}} className={className}>
+            <input name="dropzone" {...getInputProps()} disabled={isLoading} />
+            {children}
+          </span>
+        </>
+      )}
+
+      {errorList.length > 0 && (
+        <div className="text-left error-files">
+          <div className="error">
+            <FormattedMessage id="document.files.modal.error.files" />
+          </div>
+          {errorList.map((file, idx) => (
+            <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
+              ', '
+            )}.`}</div>
+          ))}
+        </div>
       )}
 
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
