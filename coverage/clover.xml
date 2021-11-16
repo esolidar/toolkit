@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1636653728328" clover="3.2.0">
-  <project timestamp="1636653728328" name="All files">
-    <metrics statements="3753" coveredstatements="2590" conditionals="3123" coveredconditionals="1969" methods="1028" coveredmethods="518" elements="7904" coveredelements="5077" complexity="0" loc="3753" ncloc="3753" packages="174" files="379" classes="379"/>
+<coverage generated="1637082210921" clover="3.2.0">
+  <project timestamp="1637082210921" name="All files">
+    <metrics statements="3754" coveredstatements="2591" conditionals="3123" coveredconditionals="1969" methods="1028" coveredmethods="518" elements="7905" coveredelements="5078" complexity="0" loc="3754" ncloc="3754" packages="174" files="379" classes="379"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -3253,7 +3253,7 @@
       </file>
     </package>
     <package name="src.components.wizard">
-      <metrics statements="23" coveredstatements="13" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
+      <metrics statements="24" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
       <file name="Wizard.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -3264,7 +3264,7 @@
         <line num="114" count="1" type="stmt"/>
       </file>
       <file name="Wizard.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.tsx">
-        <metrics statements="17" coveredstatements="7" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
@@ -3281,7 +3281,8 @@
         <line num="50" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
         <line num="52" count="2" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
@@ -3765,11 +3766,11 @@
       <file name="FilterGroup.stories.tsx" path="C:\Projects\toolkit\src\elements\filterGroup\FilterGroup.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
       <file name="FilterGroup.tsx" path="C:\Projects\toolkit\src\elements\filterGroup\FilterGroup.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>

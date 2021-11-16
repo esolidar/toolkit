@@ -4,6 +4,10 @@
     visibility: hidden;
   }
 
+  &__label:not(:first-child) {
+    margin-left: $distance-1;
+  }
+
   &-btn-label {
     display: flex;
     align-items: center;
@@ -13,7 +17,6 @@
     font-weight: 600;
     padding: $distance-1 $distance-2;
     background-color: white;
-    margin-left: $distance-1;
     border-radius: $border-radius-1;
     cursor: pointer;
     @include animate();

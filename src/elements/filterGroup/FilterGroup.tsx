@@ -5,14 +5,14 @@ import Badge from '../badge';
 const FilterGroup: FC<Props> = ({ groupName, items, onChange }: Props): JSX.Element => (
   <div className="filter-group">
     {items.map(item => (
-      <label htmlFor={item.title}>
+      <label htmlFor={item.value} key={item.value} className="filter-group__label">
         <input
           className="filter-group__radio"
           type="radio"
-          id={item.title}
+          id={item.value}
           onChange={onChange}
           name={groupName}
-          value={item.title}
+          value={item.value}
           disabled={item.disabled}
           checked={item.checked}
         />
