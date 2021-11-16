@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import { FormattedMessage } from 'react-intl';
-import { Row, Col } from 'react-bootstrap';
+import InputLabel from '../inputLabel';
+import Button from '../button';
 import { cdnStaticUrl } from '../../constants/env';
 
 const ValidateTelephone = ({
@@ -14,8 +15,11 @@ const ValidateTelephone = ({
   mobileConfirmPost,
   confirmPhone,
   hasError,
+  inputLabelProps,
+  defaultCountry,
+  verifiedPhone,
 }) => {
-  const [verified, setVerified] = useState(0);
+  const [verified, setVerified] = useState(verifiedPhone);
   const [isLoading, setIsLoading] = useState(false);
   const [showVerifyCode, setShowVerifyCode] = useState(false);
   const [code, setCode] = useState('');
@@ -89,19 +93,11 @@ const ValidateTelephone = ({
     mobileConfirmPost(userId, { code });
   };
 
-  let defaultCountry = 'gb';
-  if (localStorage.lang !== 'en') defaultCountry = 'pt';
-  else if (localStorage.lang === 'br') defaultCountry = 'br';
-
   return (
-    <Col className="validate-telephone box mb-3">
-      <Row>
-        <Col className="title-add-contact">
-          <FormattedMessage id="user.settings.title.addContact" />
-        </Col>
-      </Row>
-      <Row className="phone-box">
-        <Col sm={8}>
+    <div className="validate-telephone mb-3">
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
+      <div className="phone-box">
+        <div className="input-phone-validation">
           <ReactTelephoneInput
             // eslint-disable-next-line no-nested-ternary
             defaultCountry={defaultCountry}
@@ -111,85 +107,78 @@ const ValidateTelephone = ({
             onChange={handleInputChange}
             onBlur={handleInputBlur}
             disabled={verified === 1}
-            id="teste"
           />
-          {errors && (
-            <div className="has-error">
-              <span className="help-block">
-                <FormattedMessage id="user.settings.phone.errorNumber" />
-              </span>
-            </div>
-          )}
           {verified === 1 && <div className="phone-verified" data-testid="verified-number" />}
-        </Col>
+        </div>
         {verified === 0 && (
           <>
-            <div className="col-sm-4">
-              <button
-                type="button"
-                onClick={mobileValidate}
-                disabled={isLoading}
-                className="btn btn-validate-phone"
-              >
-                <FormattedMessage id="validate" />
-              </button>
-            </div>
-            <div className="col-sm-12 sms-message">
-              <FormattedMessage id="user.settings.validate.phone.sms.message" />
-            </div>
+            <Button
+              extraClass="primary"
+              onClick={mobileValidate}
+              text={<FormattedMessage id="validate" />}
+              disabled={isLoading}
+              fullWidth={false}
+            />
           </>
         )}
-        <div className="col-sm-12 sms-message">
-          <FormattedMessage
-            id="user.settings.phone.message"
-            // eslint-disable-next-line max-len
-          />
+      </div>
+      {errors && (
+        <div className="has-error">
+          <span className="help-block">
+            <FormattedMessage id="user.settings.phone.errorNumber" />
+          </span>
         </div>
-        {showVerifyCode && (
-          <Col sm={12}>
-            <div className="verify-box">
-              <Col sm={12}>
-                <h3>
-                  <img
-                    alt="phone"
-                    src={`${cdnStaticUrl}/frontend/icons/ic-verification-phone-code.svg`}
-                  />
-                  <FormattedMessage id="user.settings.validate.phone.insert.verification.code" />
-                </h3>
-              </Col>
-              <Col sm={12}>
-                <input
-                  onChange={onChangeCode}
-                  onBlur={onChangeCode}
-                  value={code}
-                  type="text"
-                  name="code"
-                  maxLength="4"
-                  className="form-control"
-                />
-                {errorCode && (
-                  <div className="has-error">
-                    <span className="help-block">
-                      <FormattedMessage id="user.settings.phone.errorCode" />
-                    </span>
-                  </div>
-                )}
-              </Col>
-              <Col sm={12}>
-                <button type="button" onClick={mobileVerify} className="btn btn-verify-phone">
-                  <FormattedMessage id="validate" />
-                </button>
-              </Col>
-            </div>
-          </Col>
-        )}
-      </Row>
-    </Col>
+      )}
+      {showVerifyCode && (
+        <div className="verify-box">
+          <div>
+            <h3>
+              <img
+                alt="phone"
+                src={`${cdnStaticUrl}/frontend/icons/ic-verification-phone-code.svg`}
+              />
+              <FormattedMessage id="user.settings.validate.phone.insert.verification.code" />
+            </h3>
+          </div>
+          <div>
+            <input
+              onChange={onChangeCode}
+              onBlur={onChangeCode}
+              value={code}
+              type="text"
+              name="code"
+              maxLength="4"
+              className="form-control"
+            />
+            {errorCode && (
+              <div className="has-error">
+                <span className="help-block">
+                  <FormattedMessage id="user.settings.phone.errorCode" />
+                </span>
+              </div>
+            )}
+          </div>
+          <div>
+            <Button
+              extraClass="primary"
+              onClick={mobileVerify}
+              text={<FormattedMessage id="validate" />}
+              fullWidth={true}
+            />
+          </div>
+        </div>
+      )}
+      {verified === 0 && (
+        <div className="sms-message">
+          <FormattedMessage id="user.settings.validate.phone.sms.message" />
+        </div>
+      )}
+    </div>
   );
 };
 
 ValidateTelephone.propTypes = {
-  phone: PropTypes.number,
+  phone: PropTypes.string,
   mobileValidatePost: PropTypes.func,
   mobileConfirmPost: PropTypes.func,
   localStorage: PropTypes.shape({
@@ -207,6 +196,20 @@ ValidateTelephone.propTypes = {
     }),
   }),
   hasError: PropTypes.bool,
+  inputLabelProps: PropTypes.shape({
+    label: PropTypes.string,
+    showOptionalLabel: PropTypes.bool,
+    help: PropTypes.string,
+  }),
+  defaultCountry: PropTypes.string,
+  verifiedPhone: PropTypes.number,
+};
+
+ValidateTelephone.defaultProps = {
+  inputLabelProps: PropTypes.shape({
+    showOptionalLabel: false,
+  }),
+  defaultCountry: 'gb',
 };
 
 export default ValidateTelephone;
