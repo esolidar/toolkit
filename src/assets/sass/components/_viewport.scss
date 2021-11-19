@@ -1,0 +1,19 @@
+.esolidar-viewport {
+  &.size-sm {
+    max-width: map-get($widths, sm);
+  }
+  &.size-md {
+    max-width: map-get($widths, md);
+  }
+  &.size-lg {
+    max-width: map-get($widths, lg);
+  }
+  &.size-xl {
+    max-width: map-get($widths, xl);
+  }
+
+  &.centred {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

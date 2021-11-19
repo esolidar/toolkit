@@ -1,6 +1,7 @@
 interface Props {
+  editMode?: boolean;
   closeWizard(): void;
-  title: string;
+  title?: string;
   subtitle?: string;
   status: string;
   buttonDarkText: string;
@@ -9,6 +10,8 @@ interface Props {
   saved?: boolean;
   handleDarkButton(): void;
   handlePrimaryButton(): void;
+  handleChangeTitle?(): void;
+  handleBlurTitle?(): void;
   disabledDarkButton: boolean;
   disabledPrimaryButton: boolean;
 }
