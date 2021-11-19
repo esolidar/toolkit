@@ -38,9 +38,6 @@ const TextField = ({
   <div
     className={classnames(
       'locationTextField',
-      { 'width-sm': size === 'sm' },
-      { 'width-md': size === 'md' },
-      { 'width-lg': size === 'lg' },
       { 'form-group': !password },
       { 'has-error': error || message },
       { required },
@@ -56,7 +53,7 @@ const TextField = ({
       />
     )}
     {!children && (
-      <div className="input">
+      <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
           <Icon
             iconClass={`icon left ${leftIcon?.name}`}

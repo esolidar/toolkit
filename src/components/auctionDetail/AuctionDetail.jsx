@@ -28,7 +28,7 @@ import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
 import isEmpty from '../../utils/isEmpty/isEmpty';
-import ValidateTelephone from '../validateTelephone';
+import ValidateTelephone from '../../elements/validateTelephone';
 import SupportBox from '../supportBox';
 
 const AuctionDetail = ({
