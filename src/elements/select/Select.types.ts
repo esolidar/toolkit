@@ -1,6 +1,6 @@
 export interface Option {
   description?: string;
-  disabled?: boolean;
+  isDisabled?: boolean;
   label: string;
   leftIcon?: JSX.Element;
   show: boolean;
@@ -41,5 +41,7 @@ export interface CustomOptionProps {
   isDisabled: boolean;
   isSelected: boolean;
 }
+
+export interface FormatOptionLabelProps extends Option {}
 
 export default Props;

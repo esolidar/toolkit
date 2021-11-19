@@ -11,6 +11,7 @@ import Meta, {
   WithHelperText as WithHelperTextStory,
   WithError as WithErrorStory,
   WithPlaceholderIcon as WithPlaceholderIconStory,
+  WithoutOptions as WithoutOptionStory,
 } from '../Select.stories';
 
 const Default = composeStory(DefaultStory, Meta);
@@ -21,6 +22,7 @@ const WithInputLabel = composeStory(WithInputLabelStory, Meta);
 const WithHelperText = composeStory(WithHelperTextStory, Meta);
 const WithError = composeStory(WithErrorStory, Meta);
 const WithPlaceholderIcon = composeStory(WithPlaceholderIconStory, Meta);
+const WithoutOptions = composeStory(WithoutOptionStory, Meta);
 window.alert = jest.fn();
 
 it('renders select with default props', () => {
@@ -121,4 +123,13 @@ it('renders select with placeholder icon', () => {
 
   expect(getByClass(/icon-search/)).toBeInTheDocument();
   expect(getByText('Select an option')).toBeInTheDocument();
+});
+
+it('renders select with options', () => {
+  const { getByText, queryByClass } = render(<WithoutOptions />);
+
+  const toggle = queryByClass(/esolidar-select__control/);
+  userEvent.click(toggle);
+
+  expect(getByText('There are no options')).toBeInTheDocument();
 });

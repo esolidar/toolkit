@@ -4,7 +4,7 @@ import ReactSelect, { components } from 'react-select';
 import classNames from 'classnames';
 import InputLabel from '../inputLabel';
 import isDefined from '../../utils/isDefined';
-import Props, { CustomOptionProps, Option } from './Select.types';
+import Props, { CustomOptionProps, Option, FormatOptionLabelProps } from './Select.types';
 
 const Select: FC<Props> = ({
   error,
@@ -42,58 +42,56 @@ const Select: FC<Props> = ({
   const helper: string = typeof error === 'string' ? error : helperText;
 
   return (
-    <>
-      <div className="form-group">
-        {inputLabelProps && (
-          <InputLabel
-            {...inputLabelProps}
-            style={{
-              marginBottom: '8px',
-            }}
-          />
-        )}
-        <ReactSelect
-          className={classes}
-          classNamePrefix="esolidar-select"
-          components={{
-            IndicatorSeparator: () => null,
-            DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
-            Option: CustomOption,
+    <div className="form-group">
+      {inputLabelProps && (
+        <InputLabel
+          {...inputLabelProps}
+          style={{
+            marginBottom: '8px',
           }}
-          formatOptionLabel={option => (
-            <>
-              {option.leftIcon && (
-                <div className="esolidar-select__option--icon">{option.leftIcon}</div>
-              )}
-              {option.label}
-            </>
-          )}
-          getOptionLabel={option => option.value}
-          getOptionValue={option => option.value}
-          isClearable={isClearable}
-          isDisabled={isDisabled}
-          isMulti={false}
-          isOptionDisabled={option => option.disabled}
-          isSearchable={isSearchable}
-          name={name}
-          noOptionsMessage={() => intl.formatMessage({ id: 'toolkit.select.noOptions' })}
-          onChange={(option: Option) => {
-            handleChange(option);
-          }}
-          options={filteredOptions}
-          placeholder={
-            <>
-              {placeholderLeftIcon}
-              <span>{placeholder || intl.formatMessage({ id: 'toolkit.select.placeholder' })}</span>
-            </>
-          }
-          value={options.find((option: Option) => option.value === value)}
         />
-        {!!helper && <div className={helperTextClasses}>{helper}</div>}
-      </div>
-    </>
+      )}
+      <ReactSelect
+        className={classes}
+        classNamePrefix="esolidar-select"
+        components={{
+          IndicatorSeparator: () => null,
+          DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
+          Option: CustomOption,
+        }}
+        formatOptionLabel={FormatOptionLabel}
+        isClearable={isClearable}
+        isDisabled={isDisabled}
+        isMulti={false}
+        isSearchable={isSearchable}
+        name={name}
+        noOptionsMessage={() => intl.formatMessage({ id: 'toolkit.select.noOptions' })}
+        onChange={(option: Option) => {
+          handleChange(option);
+        }}
+        options={filteredOptions}
+        placeholder={
+          <>
+            {placeholderLeftIcon}
+            <span>{placeholder || intl.formatMessage({ id: 'toolkit.select.placeholder' })}</span>
+          </>
+        }
+        value={options.find((option: Option) => option.value === value)}
+      />
+      {!!helper && <div className={helperTextClasses}>{helper}</div>}
+    </div>
   );
 };
+
+const FormatOptionLabel: FC<FormatOptionLabelProps> = ({
+  label,
+  leftIcon,
+}: FormatOptionLabelProps): JSX.Element => (
+  <>
+    {leftIcon && <div className="esolidar-select__option--icon">{leftIcon}</div>}
+    {label}
+  </>
+);
 
 const CustomOption: FC<CustomOptionProps> = ({
   data,

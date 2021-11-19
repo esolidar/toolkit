@@ -34,14 +34,14 @@ const options = [
     value: 'fourth',
     label: 'This disabled option has no icon nor description',
     show: true,
-    disabled: true,
+    isDisabled: true,
   },
   {
     value: 'fifth',
     label: 'This disabled option has an icon',
     leftIcon: <Icon iconClass="icon-httpslock" />,
     show: true,
-    disabled: true,
+    isDisabled: true,
   },
   {
     value: 'sixth',
@@ -49,7 +49,7 @@ const options = [
     description: 'Only visible to Acme Inc admins',
     leftIcon: <Icon iconClass="icon-httpslock" />,
     show: true,
-    disabled: true,
+    isDisabled: true,
   },
 ];
 
@@ -63,6 +63,7 @@ export const WithInputLabel: Story<Props> = Template.bind({});
 export const WithHelperText: Story<Props> = Template.bind({});
 export const WithError: Story<Props> = Template.bind({});
 export const WithPlaceholderIcon: Story<Props> = Template.bind({});
+export const WithoutOptions: Story<Props> = Template.bind({});
 
 Default.args = {
   onChange: value => alert(`New value: ${value}`),
@@ -118,5 +119,9 @@ WithPlaceholderIcon.args = {
   onChange: value => alert(`New value: ${value}`),
   options,
   placeholderLeftIcon: <Icon iconClass="icon-search" />,
+  value: '',
+};
+
+WithoutOptions.args = {
   value: '',
 };
