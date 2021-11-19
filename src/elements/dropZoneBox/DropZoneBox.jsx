@@ -42,6 +42,7 @@ const DropZoneBox = ({
   hasError,
   icon,
   inputLabelProps,
+  label,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -207,6 +208,7 @@ const DropZoneBox = ({
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
+      {label && <InputLabel label={label} field="dropzone" />}
       {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
         <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
