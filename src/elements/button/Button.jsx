@@ -27,18 +27,16 @@ const Button = ({
   badge,
 }) => {
   let getType;
-  if (onClick) {
-    getType = 'button';
-  } else if (type === 'submit') {
-    getType = 'submit';
-  } else if (to) {
-    getType = 'link';
-  }
+  if (type === 'icon') getType = 'icon';
+  else if (onClick) getType = 'button';
+  else if (type === 'submit') getType = 'submit';
+  else if (to) getType = 'link';
 
   const classes = classnames(
     'btn-esolidar',
     `btn-${extraClass}`,
     `btn-${size}`,
+    { 'btn-icon': type === 'icon' },
     { 'full-width': fullWidth },
     { disabled },
     className,
@@ -83,6 +81,20 @@ const Button = ({
             <span className="text">{text}</span>
             {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
             {badge && <span className="btn-esolidar__badge">{badge}</span>}
+          </button>
+        );
+      case 'icon':
+        return (
+          <button
+            data-testid={dataTestId}
+            id={id}
+            type="button"
+            onClick={onClick}
+            className={classes}
+            disabled={disabled}
+            style={style}
+          >
+            {icon && <span className="btn-esolidar__icon">{icon}</span>}
           </button>
         );
 

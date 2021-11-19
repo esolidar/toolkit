@@ -10,6 +10,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       background-color: white !important;
       border-radius: $border-radius-1;
       overflow: hidden;
+      @include animate();
 
       &-error {
         border: 1px solid red !important;
@@ -17,8 +18,13 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
       &-focus {
         &:not(.rdw-editor-wrapper-mui) {
-          box-shadow: 0 0 0 1px $border-color;
-          border-color: $border-color !important;
+          @include input-focus();
+        }
+      }
+
+      &:hover {
+        &:not(.rdw-editor-wrapper-disabled) {
+          border: 2px solid map-get($turquoise, 500) !important;
         }
       }
 
@@ -28,7 +34,6 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
         &:hover {
           &:not(.rdw-editor-wrapper-focus):not(.rdw-editor-wrapper-error) {
             border-color: rgba(0, 0, 0, 0.87) !important;
-            @include animate();
           }
         }
 
@@ -52,8 +57,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       overflow: hidden !important;
 
       &.disabled {
-        background-color: map-get($background, secondary);
-        color: map-get($neutrals, 400);
+        @include input-disabled();
+        border-bottom: none !important;
       }
     }
 
@@ -75,8 +80,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       }
 
       &.disabled {
-        background-color: map-get($background, secondary);
-        color: map-get($neutrals, 400);
+        @include input-disabled();
+        border-top: none !important;
 
         .rdw-option {
           &-wrapper {
