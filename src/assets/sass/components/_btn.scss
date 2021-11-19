@@ -6,24 +6,16 @@ a.btn-esolidar {
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
-  padding: 6px 16px;
+  padding: 8px 16px;
   min-width: 64px;
   border-radius: $border-radius-1;
   display: flex;
   justify-content: center;
   align-items: center;
-
   white-space: nowrap;
-  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
-  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
-  -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  gap: 12px;
+
+  @include animate();
 
   &.btn &:hover,
   &:focus,
@@ -32,32 +24,22 @@ a.btn-esolidar {
     outline: none;
   }
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
+  &:disabled,
   &.disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  &__icon-left {
+  &__icon {
     display: flex;
     align-items: center;
-    margin-right: 12px;
   }
 
-  &__icon-right {
-    display: flex;
-    align-items: center;
-    margin-left: 12px;
-  }
-
+  &__icon-left,
+  &__icon-right,
   &__badge {
     display: flex;
     align-items: center;
-    margin-left: 12px;
   }
 
   &.full-width {
@@ -71,7 +53,7 @@ a.btn-esolidar {
     }
 
     &-md {
-      height: 38px;
+      height: 40px;
       font-size: 16px;
     }
 
@@ -86,37 +68,76 @@ a.btn-esolidar {
       font-size: 20px;
     }
 
-    &-primary {
+    &-icon {
+      min-width: 40px;
+      width: 40px;
+    }
+
+    &-primary,
+    &-success {
       color: map-get($base, black);
       background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors, primary);
+      border: 2px solid map-get($theme-colors, primary);
       box-shadow: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: map-get($theme-colors, primary);
         background-color: map-get($turquoise, 100);
         border-color: map-get($turquoise, 100);
       }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
     }
 
-    &-primary-full {
-      border: 1px solid map-get($theme-colors, primary);
-      color: map-get($colors, white) !important;
+    &-primary-full,
+    &-success-full {
+      color: map-get($base, white) !important;
+      border: 2px solid map-get($theme-colors, primary);
       background-color: map-get($theme-colors, primary);
 
-      &:hover {
-        background-color: map-get($theme-colors-light, primary);
-        border-color: map-get($theme-colors-light, primary);
+      &:hover:not(.disabled) {
+        background-color: map-get($turquoise, 400);
+        border-color: map-get($turquoise, 400);
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
+
+      &.disabled {
+        opacity: 0.32;
+      }
+    }
+
+    &-secondary {
+      color: map-get($base, black);
+      background-color: map-get($background, primary);
+      border: 2px solid map-get($neutrals, 100);
+      box-shadow: none;
+
+      &:hover:not(.disabled) {
+        border-color: map-get($neutrals, 900);
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
+
+      &.disabled {
+        color: map-get($neutrals, 400);
+        background-color: map-get($background, secondary);
       }
     }
 
     &-info {
       color: map-get($base, black);
       background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors, secondary);
+      border: 2px solid map-get($theme-colors, secondary);
       box-shadow: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: white;
         background-color: map-get($theme-colors-light, secondary);
         border-color: map-get($theme-colors-light, secondary);
@@ -124,47 +145,23 @@ a.btn-esolidar {
     }
 
     &-info-full {
-      border: 1px solid map-get($theme-colors, secondary);
+      border: 2px solid map-get($theme-colors, secondary);
       color: map-get($colors, white) !important;
       background-color: map-get($theme-colors, secondary);
 
-      &:hover {
+      &:hover:not(.disabled) {
         background-color: map-get($theme-colors-light, secondary);
         border-color: map-get($theme-colors-light, secondary);
-      }
-    }
-
-    &-success {
-      color: map-get($base, black);
-      background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors, success);
-      box-shadow: none;
-
-      &:hover {
-        color: white;
-        background-color: map-get($theme-colors-light, primary);
-        border-color: map-get($theme-colors-light, primary);
-      }
-    }
-
-    &-success-full {
-      border: 1px solid map-get($theme-colors, success);
-      color: map-get($colors, white) !important;
-      background-color: map-get($theme-colors, success);
-
-      &:hover {
-        background-color: map-get($theme-colors-light, primary);
-        border-color: map-get($theme-colors-light, primary);
       }
     }
 
     &-danger {
       color: map-get($base, black);
       background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors, danger);
+      border: 2px solid map-get($theme-colors, danger);
       box-shadow: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: white;
         background-color: map-get($theme-colors-light, danger);
         border-color: map-get($theme-colors-light, danger);
@@ -172,11 +169,11 @@ a.btn-esolidar {
     }
 
     &-danger-full {
-      border: 1px solid map-get($theme-colors, danger);
+      border: 2px solid map-get($theme-colors, danger);
       color: map-get($colors, white) !important;
       background-color: map-get($theme-colors, danger);
 
-      &:hover {
+      &:hover:not(.disabled) {
         background-color: map-get($theme-colors-light, danger);
         border-color: map-get($theme-colors-light, danger);
       }
@@ -185,10 +182,10 @@ a.btn-esolidar {
     &-warning {
       color: map-get($base, black);
       background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors, warning);
+      border: 2px solid map-get($theme-colors, warning);
       box-shadow: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: white;
         background-color: map-get($theme-colors-light, warning);
         border-color: map-get($theme-colors-light, warning);
@@ -196,11 +193,11 @@ a.btn-esolidar {
     }
 
     &-warning-full {
-      border: 1px solid map-get($theme-colors, warning);
+      border: 2px solid map-get($theme-colors, warning);
       color: map-get($colors, white) !important;
       background-color: map-get($theme-colors, warning);
 
-      &:hover {
+      &:hover:not(.disabled) {
         background-color: map-get($theme-colors-light, warning);
         border-color: map-get($theme-colors-light, warning);
       }
@@ -209,10 +206,10 @@ a.btn-esolidar {
     &-dark {
       color: map-get($base, black);
       background-color: map-get($colors, white);
-      border: 1px solid map-get($theme-colors-light, dark);
+      border: 2px solid map-get($theme-colors-light, dark);
       box-shadow: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: map-get($base, black);
         background-color: map-get($theme-colors-light, dark);
         border-color: map-get($theme-colors-light, dark);
@@ -225,11 +222,11 @@ a.btn-esolidar {
     }
 
     &-dark-full {
-      border: 1px solid map-get($theme-colors-dark, dark);
+      border: 2px solid map-get($theme-colors-dark, dark);
       color: map-get($colors, white) !important;
       background-color: map-get($theme-colors-dark, dark);
 
-      &:hover {
+      &:hover:not(.disabled) {
         background-color: map-get($theme-colors-dark, dark);
         border-color: map-get($theme-colors-dark, dark);
       }
@@ -241,7 +238,7 @@ a.btn-esolidar {
       box-shadow: none;
       border: none;
 
-      &:hover {
+      &:hover:not(.disabled) {
         color: map-get($theme-colors-dark, primary);
         background-color: transparent;
         border-color: transparent;
@@ -250,6 +247,25 @@ a.btn-esolidar {
         & .text {
           text-decoration: underline;
         }
+      }
+    }
+
+    &-ghost {
+      color: map-get($neutrals, 700);
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+
+      &:hover:not(.disabled) {
+        color: map-get($theme-colors, primary);
+        background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+        border-color: transparent;
+        text-decoration: none;
+      }
+
+      &.disabled {
+        color: map-get($neutrals, 400);
+        background-color: map-get($background, secondary);
       }
     }
   }
