@@ -18,5 +18,6 @@ Default.args = {};
 WithInputLabel.args = {
   inputLabelProps: {
     label: 'Description',
+    showOptionalLabel: true,
   },
 };
