@@ -375,7 +375,6 @@ DropZoneBox.propTypes = {
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
   icon: PropTypes.string,
-  label: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {
