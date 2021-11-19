@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637336418747" clover="3.2.0">
-  <project timestamp="1637336418747" name="All files">
-    <metrics statements="3840" coveredstatements="2662" conditionals="3195" coveredconditionals="2029" methods="1059" coveredmethods="540" elements="8094" coveredelements="5231" complexity="0" loc="3840" ncloc="3840" packages="176" files="385" classes="385"/>
+<coverage generated="1637336881406" clover="3.2.0">
+  <project timestamp="1637336881406" name="All files">
+    <metrics statements="3844" coveredstatements="2663" conditionals="3195" coveredconditionals="2029" methods="1061" coveredmethods="540" elements="8100" coveredelements="5232" complexity="0" loc="3844" ncloc="3844" packages="176" files="385" classes="385"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="3"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3707,7 +3707,7 @@
       </file>
     </package>
     <package name="src.elements.dropdown">
-      <metrics statements="13" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="5"/>
+      <metrics statements="17" coveredstatements="13" conditionals="6" coveredconditionals="6" methods="8" coveredmethods="5"/>
       <file name="CustomToggle.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/dropdown/CustomToggle.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="1" type="stmt"/>
@@ -3724,11 +3724,15 @@
         <line num="22" count="0" type="stmt"/>
       </file>
       <file name="Dropdown.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/dropdown/Dropdown.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="5" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="15" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="3" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="21" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.fileInput">
@@ -4263,10 +4267,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="49" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="18" type="stmt"/>
-        <line num="17" count="34" type="stmt"/>
-        <line num="19" count="34" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="19" count="31" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="/Users/pedroguia/Projects/toolkit/src/hooks/useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4651,8 +4655,8 @@
         <line num="80" count="5" type="stmt"/>
         <line num="81" count="5" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="6" type="stmt"/>
-        <line num="85" count="6" type="stmt"/>
+        <line num="84" count="9" type="stmt"/>
+        <line num="85" count="9" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
