@@ -208,11 +208,7 @@ const DropZoneBox = ({
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-      {label && (
-        <label htmlFor="dropzone" className="control-label">
-          {label}
-        </label>
-      )}
+      {label && <InputLabel label={label} field="dropzone" />}
       {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
         <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
