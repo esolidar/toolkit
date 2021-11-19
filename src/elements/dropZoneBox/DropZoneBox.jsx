@@ -42,6 +42,7 @@ const DropZoneBox = ({
   hasError,
   icon,
   inputLabelProps,
+  label,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -206,6 +207,11 @@ const DropZoneBox = ({
     <div className="dropzone-box form-group">
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
+      )}
+      {label && (
+        <label htmlFor="dropzone" className="control-label">
+          {label}
+        </label>
       )}
       {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
@@ -378,6 +384,7 @@ DropZoneBox.propTypes = {
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
   icon: PropTypes.string,
+  label: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {

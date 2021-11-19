@@ -3,7 +3,7 @@ import PasswordField from './PasswordField';
 import Props from './PasswordField.types';
 
 export default {
-  title: 'Elements/PasswordField',
+  title: 'Components/PasswordField',
   component: PasswordField,
   parameters: {
     jest: ['PasswordField.test.tsx'],
