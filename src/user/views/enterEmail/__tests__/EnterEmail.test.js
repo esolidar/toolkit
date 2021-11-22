@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render } from '../../../../../__customQueries__/test-utils';
+import { render, fireEvent } from '../../../../../__customQueries__/test-utils';
 import Meta, { Set as SetStory, Reset as ResetStory } from '../EnterEmail.stories';
 
 const Set = composeStory(SetStory, Meta);
@@ -47,4 +47,20 @@ it('renders EnterEmail component with reset password copy', () => {
 
   expect(getByClass(/btn-esolidar/)).toBeInTheDocument();
   expect(getByText('Send instructions')).toBeInTheDocument();
+});
+
+it('renders EnterEmail component with valid email', () => {
+  const setup = () => {
+    const utils = render(<Reset />);
+    const input = utils.queryByTestId('enter-email');
+    return {
+      input,
+      ...utils,
+    };
+  };
+
+  const { input } = setup();
+
+  fireEvent.change(input, { target: { value: 'email@esolidar.com.pt' } });
+  expect(input.value).toBe('email@esolidar.com.pt');
 });
