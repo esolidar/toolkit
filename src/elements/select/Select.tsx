@@ -22,6 +22,7 @@ const Select: FC<Props> = ({
   size = 'lg',
   showDropdownArrow = true,
   value,
+  menuWidth,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const classes: string = classNames(
@@ -29,6 +30,14 @@ const Select: FC<Props> = ({
     { 'esolidar-select-error': !!error },
     `size-${size}`
   );
+
+  const customStyles = {
+    menu: provided => ({
+      ...provided,
+      width: menuWidth || 'auto',
+    }),
+  };
+
   const helperTextClasses: string = classNames('esolidar-select__helper-text', {
     'esolidar-select__helper-text--error': !!error,
   });
@@ -76,6 +85,7 @@ const Select: FC<Props> = ({
             <span>{placeholder || intl.formatMessage({ id: 'toolkit.select.placeholder' })}</span>
           </>
         }
+        styles={customStyles}
         value={options.find((option: Option) => option.value === value)}
       />
       {!!helper && <div className={helperTextClasses}>{helper}</div>}
