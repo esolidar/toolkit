@@ -36,7 +36,8 @@ const EnterEmail: FC<Props> = ({
 
   const handleChangeEmail = ({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(value);
-    setIsDisabled(!Validator.isEmail(email));
+
+    setIsDisabled(!Validator.isEmail(value));
   };
 
   const handleSubmit = e => {
@@ -83,6 +84,7 @@ const EnterEmail: FC<Props> = ({
             value={email}
             onChange={handleChangeEmail}
             error={error}
+            dataTestId="enter-email"
           />
           <Button
             extraClass="primary-full"
