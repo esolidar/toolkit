@@ -57,6 +57,7 @@ WithLabel.args = {
 };
 
 WithCropper.args = {
+  showFooterCropper: false,
   hasCropper: {
     showCropper: true,
     aspectRatioW: 16,

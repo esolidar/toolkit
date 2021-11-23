@@ -44,6 +44,7 @@ const DropZoneBox = ({
   icon,
   inputLabelProps,
   label,
+  showFooterCropper = false,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -327,31 +328,33 @@ const DropZoneBox = ({
                   ', '
                 )}.`}</div>
               ))}
-              <div className="d-flex">
-                <Button
-                  extraClass="ghost"
-                  onClick={() => {
-                    cropper.current.rotate(90);
-                  }}
-                  icon={<Icon iconClass="icon-corner-up-left" />}
-                />
-                <Button
-                  extraClass="ghost"
-                  onClick={() => {
-                    cropper.current.rotate(-90);
-                  }}
-                  icon={<Icon iconClass="icon-corner-up-right" />}
-                />
-                <div className="flex-grow-1">
-                  <Slider
-                    min={0}
-                    max={100}
-                    defaultValue={0}
-                    showButtons={true}
-                    onChange={onSliderMoves}
+              {showFooterCropper && (
+                <div className="d-flex">
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-left" />}
                   />
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(-90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-right" />}
+                  />
+                  <div className="flex-grow-1">
+                    <Slider
+                      min={0}
+                      max={100}
+                      defaultValue={0}
+                      showButtons={true}
+                      onChange={onSliderMoves}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </>
           }
           dividerBottom={true}
@@ -402,6 +405,7 @@ DropZoneBox.propTypes = {
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
   icon: PropTypes.string,
+  showFooterCropper: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {
