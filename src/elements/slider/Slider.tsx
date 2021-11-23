@@ -18,8 +18,6 @@ const SliderComponent: FC<Props> = ({
 }: Props): JSX.Element => {
   const classes = classNames('esolidar-slider', className);
   const [value, setValue] = useState<number>(defaultValue);
-  const [isMinusDisable, setIsMinusDisable] = useState<boolean>(false);
-  const [isPlusDisable, setIsPlusDisable] = useState<boolean>(false);
 
   useEffect(() => {
     setValue(defaultValue);
@@ -27,53 +25,29 @@ const SliderComponent: FC<Props> = ({
 
   const handleClickPlus = () => {
     const val = value + step > max ? max : value + step;
-    setValue(val);
-    onChange(val, 'right');
-
-    if (val === max) {
-      setIsPlusDisable(true);
-      setIsMinusDisable(false);
-    } else {
-      setIsMinusDisable(false);
-      setIsPlusDisable(false);
-    }
+    handleChange(val);
   };
 
   const handleClickMinus = () => {
     const val = value - step < min ? min : value - step;
-    setValue(val);
-    onChange(val, 'left');
-
-    if (val === min) {
-      setIsMinusDisable(true);
-      setIsPlusDisable(false);
-    } else {
-      setIsMinusDisable(false);
-      setIsPlusDisable(false);
-    }
+    handleChange(val);
   };
 
   const handleChange = val => {
     setValue(val);
-    if (val === min) {
-      setIsMinusDisable(true);
-      setIsPlusDisable(false);
-    } else if (val === max) {
-      setIsMinusDisable(false);
-      setIsPlusDisable(true);
-    } else {
-      setIsMinusDisable(false);
-      setIsPlusDisable(false);
-    }
+
     if (value > val) onChange(val, 'left');
     else onChange(val, 'right');
   };
+
+  const isMinusDisabled: boolean = value <= min;
+  const isPlusDisabled: boolean = value >= max;
 
   return (
     <div className={classes}>
       {showButtons && (
         <Button
-          disabled={isMinusDisable}
+          disabled={isMinusDisabled}
           extraClass="ghost"
           onClick={handleClickMinus}
           icon={<Icon iconClass="icon-minus" />}
@@ -89,7 +63,7 @@ const SliderComponent: FC<Props> = ({
       />
       {showButtons && (
         <Button
-          disabled={isPlusDisable}
+          disabled={isPlusDisabled}
           extraClass="ghost"
           onClick={handleClickPlus}
           icon={<Icon iconClass="icon-plus1" />}

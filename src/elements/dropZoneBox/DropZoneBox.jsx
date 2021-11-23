@@ -348,6 +348,7 @@ const DropZoneBox = ({
                     <Slider
                       min={0}
                       max={100}
+                      step={10}
                       defaultValue={0}
                       showButtons={true}
                       onChange={onSliderMoves}
