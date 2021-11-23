@@ -12,6 +12,7 @@ export default {
 const Template = args => <TextField {...args} />;
 
 export const Default = Template.bind({});
+export const WithHelper = Template.bind({});
 export const WithIcons = Template.bind({});
 
 Default.args = {
@@ -22,6 +23,18 @@ Default.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
+};
+
+WithHelper.args = {
+  label: 'Lorem Ipsum',
+  type: 'text',
+  onChange: () => {},
+  error: '',
+  placeholder: '',
+  defaultValue: 'defaultValue',
+  field: 'forCompanies',
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
+  showOptionalLabel: true,
 };
 
 WithIcons.args = {

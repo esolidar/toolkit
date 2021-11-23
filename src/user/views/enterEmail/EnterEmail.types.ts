@@ -21,6 +21,7 @@ interface Props {
   onSuccess(email: string): void;
   actions: Actions;
   reducers: Reducers;
+  helpLabel?: string;
 }
 
 export default Props;

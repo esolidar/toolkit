@@ -2,6 +2,9 @@ interface Icon {
   class: string;
   href: string;
   target?: string;
+  disabled?: boolean;
+  disabledText?: string;
+  tooltipPlacement?: string;
 }
 interface Props {
   title: string;

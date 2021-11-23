@@ -1,13 +1,15 @@
 $border-radius: 3px;
-$border-color: #ddd;
-$background-color: #eee;
+$border-color: map-get($neutrals, 100);
+$background-color: map-get($base, white);
 $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238, 238, 238, 1) 100%);
 
 .rdw {
   &-editor {
     &-wrapper {
-      border: 1px solid $border-color !important;
+      border: 2px solid $border-color !important;
       background-color: white !important;
+      border-radius: $border-radius-1;
+      overflow: hidden;
 
       &-error {
         border: 1px solid red !important;
@@ -26,6 +28,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
         &:hover {
           &:not(.rdw-editor-wrapper-focus):not(.rdw-editor-wrapper-error) {
             border-color: rgba(0, 0, 0, 0.87) !important;
+            @include animate();
           }
         }
 
@@ -45,22 +48,82 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
     &-main {
       padding: 10px 15px !important;
-      height: 350px !important;
+      height: 264px !important;
       overflow: hidden !important;
+
+      &.disabled {
+        background-color: map-get($background, secondary);
+        color: map-get($neutrals, 400);
+      }
     }
 
     &-toolbar {
-      padding: 10px 0 0 0 !important;
-      margin: 0 10px !important;
       border: unset !important;
-      border-bottom: 1px solid $border-color !important;
+      margin: 0 !important;
+      padding: $distance-1 !important;
+
+      & .rdw-inline-wrapper {
+        margin-bottom: 0 !important;
+      }
+
+      & .rdw-list-wrapper {
+        margin-bottom: 0 !important;
+      }
+
+      & .rdw-link-wrapper {
+        margin-bottom: 0 !important;
+      }
+
+      &.disabled {
+        background-color: map-get($background, secondary);
+        color: map-get($neutrals, 400);
+
+        .rdw-option {
+          &-wrapper {
+            &:hover,
+            &:active,
+            &:focus-visible {
+              box-shadow: none !important;
+              outline: none !important;
+              cursor: default;
+            }
+          }
+        }
+      }
+
+      &:not(.disabled) {
+        .rdw-option {
+          &-wrapper {
+            &:hover {
+              box-shadow: none !important;
+              border: 2px solid map-get($neutrals, 700) !important;
+            }
+          }
+        }
+      }
+
+      .rdw-option {
+        &-wrapper {
+          border: none !important;
+          padding: 0 !important;
+          width: 30px !important;
+          height: 30px !important;
+          border-radius: $border-radius !important;
+          background-color: transparent !important;
+        }
+
+        &-active {
+          box-shadow: none !important;
+          background-color: map-get($turquoise, 100) !important;
+        }
+      }
     }
   }
 
   &-embedded {
     &-modal {
       width: 265px !important;
-      height: 210px !important;
+      height: 250px !important;
 
       &-header-label:first-of-type {
         width: 110px !important;
@@ -88,26 +151,6 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
     &-modal {
       width: 265px !important;
       height: 240px !important;
-    }
-  }
-
-  &-option {
-    &-wrapper {
-      border: none !important;
-      padding: 0 !important;
-      width: 30px !important;
-      height: 30px !important;
-      border-radius: $border-radius !important;
-
-      &:hover {
-        box-shadow: none !important;
-        background: $background-gradient !important;
-      }
-    }
-
-    &-active {
-      box-shadow: none !important;
-      background-color: $background-color !important;
     }
   }
 
@@ -209,7 +252,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 }
 
 .public-Draft.Editor-content {
-  max-height: 340px !important;
+  max-height: 264px !important;
   overflow-y: auto !important;
 
   h1 {
@@ -217,12 +260,23 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   }
 }
 
+.rdw-link-modal {
+  border-radius: $border-radius-1 !important;
+  box-shadow: map-get($elevation, 200) !important;
+  bottom: 35px !important;
+  top: auto !important;
+  padding: $distance-2 !important;
+}
+
 .rdw-image-modal-alt-input,
 .rdw-image-modal-size-input,
-.rdw-link-modal-input,
-.rdw-embedded-modal-size-input {
-  height: 30px !important;
+.rdw-embedded-modal-size-input,
+.rdw-link-modal-input {
+  height: 32px !important;
   padding: 0 7px !important;
+  margin: 0 !important;
+  margin-bottom: $distance-1 !important;
+  border-radius: 4px !important;
 }
 
 .rdw-image-modal-btn,
@@ -230,14 +284,17 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 .rdw-link-modal-btn {
   min-width: 80px !important;
   height: unset !important;
-  border-radius: $border-radius !important;
+  border-radius: $border-radius-1 !important;
   padding: 5px 10px !important;
 
   &:hover {
     box-shadow: none !important;
-
     &:enabled {
-      background: $background-gradient !important;
+      border: 1px solid map-get($neutrals, 700) !important;
+    }
+
+    &:disabled {
+      cursor: default !important;
     }
   }
 }

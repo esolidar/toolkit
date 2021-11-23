@@ -170,12 +170,24 @@ $warning: (
 );
 
 $elevation: (
-  0: #eaebec,
-  100: #eaebec,
-  200: #eaebec,
-  300: #eaebec,
-  400: #eaebec,
-  500: #eaebec,
+  50: 0px 2px 4px rgba(26, 27, 28, 0.04),
+  100: 0px 4px 8px rgba(26, 27, 28, 0.04),
+  200: (
+    0px 4px 16px rgba(26, 27, 28, 0.04),
+    0px 2px 4px rgba(26, 27, 28, 0.04),
+  ),
+  300: (
+    0px 8px 24px rgba(26, 27, 28, 0.04),
+    0px 2px 4px rgba(26, 27, 28, 0.04),
+  ),
+  400: (
+    0px 16px 32px rgba(26, 27, 28, 0.04),
+    0px 4px 16px rgba(26, 27, 28, 0.04),
+  ),
+  500: (
+    0px 16px 48px rgba(26, 27, 28, 0.04),
+    0px 4px 24px rgba(26, 27, 28, 0.04),
+  ),
 );
 
 //Text Colors
