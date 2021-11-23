@@ -33,6 +33,7 @@ interface Props {
   showDropdownArrow?: boolean;
   size?: 'sm' | 'md' | 'lg';
   value: string;
+  menuWidth?: string;
 }
 
 export interface CustomOptionProps {

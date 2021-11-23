@@ -26,6 +26,9 @@ interface Props {
   currentPage: number;
   disableClickNext: boolean;
   handleChangeTab(): void;
+  editMode: boolean;
+  handleChangeTitle(): void;
+  handleBlurTitle(): void;
 }
 
 export default Props;

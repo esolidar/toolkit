@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
@@ -17,8 +17,12 @@ const WizardHeader: FC<Props> = ({
   handlePrimaryButton,
   disabledDarkButton,
   disabledPrimaryButton,
+  editMode = false,
+  handleChangeTitle,
+  handleBlurTitle,
 }: Props): JSX.Element => {
   const [showSaved, setShowSaved] = useState<boolean>(false);
+  const intl = useIntl();
 
   useEffect(() => {
     if (saved) {
@@ -40,9 +44,22 @@ const WizardHeader: FC<Props> = ({
       </div>
       <div className="wizard__header__title">
         <div>
-          {subtitle && <span className="wizard__header__title__subtitle">{subtitle}</span>}
+          {subtitle && !editMode && (
+            <span className="wizard__header__title__subtitle">{subtitle}</span>
+          )}
+
           <h1>
-            {title}
+            {editMode && (
+              <input
+                type="text"
+                onChange={handleChangeTitle}
+                value={title}
+                onBlur={handleBlurTitle}
+                placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
+                maxLength={32}
+              />
+            )}
+            {!editMode && <>{title}</>}
             <Badge text={status} className="btn-badge" size="md" />
           </h1>
         </div>

@@ -11,13 +11,13 @@
 
   &.sm {
     min-height: 152px;
-    max-width: 182px;
-    width: 100%;
-    padding: $distance-3;
+    width: 191px;
+    padding: $distance-3 $distance-2 $distance-2 $distance-2;
+    justify-content: start;
 
     & .checkbox-card__img {
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
       border-radius: $border-radius-1;
     }
 
@@ -29,7 +29,9 @@
         color: map-get($base, black);
         font-size: 14px;
         font-weight: 400;
-        line-height: 24px;
+        line-height: 16px;
+        height: 32px;
+        @include text-multiline-ellipsis(2);
       }
     }
   }
@@ -115,6 +117,7 @@
   &:hover {
     &:not(.disabled) {
       border: 1px solid map-get($turquoise, 500);
+      @include animate();
     }
   }
 
@@ -160,4 +163,6 @@
       no-repeat 50% 50%;
     background-size: 24px;
   }
+
+  @include animate();
 }

@@ -3,7 +3,7 @@ import WizardHeader from './header';
 import WizardPaginator from './paginator';
 import WizardFooter from './footer';
 import Props from './Wizard.types';
-// import isDefined from '../../utils/isDefined';
+import Viewport from '../viewport';
 
 let y = window.scrollY;
 
@@ -29,6 +29,9 @@ const Wizard: FC<Props> = ({
   disableClickNext,
   children,
   handleChangeTab,
+  editMode,
+  handleChangeTitle,
+  handleBlurTitle,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -69,14 +72,17 @@ const Wizard: FC<Props> = ({
           handlePrimaryButton={handlePrimaryButton}
           disabledDarkButton={disabledDarkButton}
           disabledPrimaryButton={disabledPrimaryButton}
+          editMode={editMode}
+          handleChangeTitle={handleChangeTitle}
+          handleBlurTitle={handleBlurTitle}
         />
         <WizardPaginator
           pages={pages}
           cdnStaticUrl={cdnStaticUrl}
           handleChangeTab={handleChangeTab}
         />
-        <div className="container wizard__body">{children}</div>
-        <div className="container">
+        <Viewport className="wizard__body">{children}</Viewport>
+        <Viewport>
           <WizardFooter
             handleClickBack={handleClickBack}
             handleClickNext={handleClickNext}
@@ -84,7 +90,7 @@ const Wizard: FC<Props> = ({
             currentPage={currentPage}
             disableClickNext={disableClickNext}
           />
-        </div>
+        </Viewport>
       </div>
     </div>
   );
