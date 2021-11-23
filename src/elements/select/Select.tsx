@@ -34,7 +34,7 @@ const Select: FC<Props> = ({
   const customStyles = {
     menu: provided =>
       // eslint-disable-next-line prefer-object-spread
-      Object.assign({}, provided, { width: menuWidth || 'auto' }),
+      Object.assign({}, provided, { width: menuWidth || '100%' }),
   };
 
   const helperTextClasses: string = classNames('esolidar-select__helper-text', {
