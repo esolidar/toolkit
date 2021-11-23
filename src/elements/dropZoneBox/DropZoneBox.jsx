@@ -312,8 +312,8 @@ const DropZoneBox = ({
                 src={croppedFile}
                 style={{ height: 400, width: '100%' }}
                 guides={true}
-                zoomable={false}
-                viewMode={1}
+                zoomable={true}
+                viewMode={2}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
               />
               {errorList.map((file, idx) => (
@@ -321,6 +321,22 @@ const DropZoneBox = ({
                   ', '
                 )}.`}</div>
               ))}
+              <div className="d-flex">
+                <Button
+                  extraClass="ghost"
+                  onClick={() => {
+                    cropper.current.rotate(90);
+                  }}
+                  icon={<Icon iconClass="icon-corner-up-left" />}
+                />
+                <Button
+                  extraClass="ghost"
+                  onClick={() => {
+                    cropper.current.rotate(-90);
+                  }}
+                  icon={<Icon iconClass="icon-corner-up-right" />}
+                />
+              </div>
             </>
           }
           dividerBottom={true}
