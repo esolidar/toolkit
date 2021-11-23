@@ -10,6 +10,7 @@ import { Editor } from '@pedroguia/react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import InputLabel from '../../elements/inputLabel';
+import useIsFirstRender from '../../hooks/useIsFirstRender';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const getInitialRawContent = initialContent => {
@@ -35,6 +36,7 @@ const getInitialRawContent = initialContent => {
 const errorClass = 'rdw-editor-wrapper-error';
 const muiStyleClass = 'rdw-editor-wrapper-mui';
 const focusClass = 'rdw-editor-wrapper-focus';
+const disabledClass = 'rdw-editor-wrapper-disabled';
 
 const translations = {
   pt: {
@@ -61,6 +63,7 @@ const HtmlEditor = ({
   disabled,
   className,
   inputLabelProps,
+  placeholder,
 }) => {
   const [wrapperClassName, setWrapperClassName] = useState([]);
   const [editorState, setEditorState] = useState(
@@ -70,6 +73,29 @@ const HtmlEditor = ({
   );
 
   const intl = useIntl();
+  const isFirstRender = useIsFirstRender();
+
+  useEffect(() => {
+    if (isFirstRender) return;
+
+    if (typeof initialContent === 'string') {
+      const content = initialContent
+        ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
+        : EditorState.createEmpty();
+
+      setEditorState(content);
+    }
+  }, [initialContent]);
+
+  useEffect(() => {
+    let newClassArray = [...wrapperClassName];
+
+    if (disabled) {
+      if (!newClassArray.includes(disabledClass)) newClassArray.push(disabledClass);
+    } else newClassArray = newClassArray.filter(item => item !== disabledClass);
+
+    setWrapperClassName(newClassArray);
+  }, [disabled]);
 
   useEffect(() => {
     let newClassArray = [...wrapperClassName];
@@ -117,7 +143,7 @@ const HtmlEditor = ({
   }
 
   return (
-    <div className={className}>
+    <div className={`form-group ${className}`}>
       {inputLabelProps && (
         <InputLabel
           {...inputLabelProps}
@@ -156,6 +182,7 @@ const HtmlEditor = ({
         editorClassName={disabled ? 'disabled' : ''}
         toolbarClassName={disabled ? 'disabled' : ''}
         readOnly={disabled}
+        placeholder={placeholder}
       />
       {!!helperText && (
         <p aria-label="html-helper-text" className="helper-text__error">
@@ -181,6 +208,7 @@ HtmlEditor.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   inputLabelProps: PropTypes.object,
+  placeholder: PropTypes.string,
 };
 
 HtmlEditor.defaultProps = {

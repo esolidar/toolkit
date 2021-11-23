@@ -49,7 +49,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
           ) : href ? (
             <Tooltip
               tooltipBodyChild={
-                <a type="media_type" href={href} className={itemClasses}>
+                <a href={href} className={itemClasses}>
                   {icon && <Icon iconClass={icon} />}
                   <span>{!isCollapsed && text}</span>
                 </a>

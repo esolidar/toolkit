@@ -25,15 +25,19 @@ Default.args = {
   items: [
     {
       title: 'All',
+      value: 'all',
     },
     {
       title: 'Environment ',
+      value: 'environment ',
     },
     {
       title: 'Social',
+      value: 'social',
     },
     {
       title: 'Governance',
+      value: 'governance',
     },
   ],
 };
@@ -44,18 +48,22 @@ WithCounter.args = {
   items: [
     {
       title: 'All',
+      value: 'all',
       counter: '3',
     },
     {
       title: 'Environment ',
+      value: 'environment ',
       counter: '7',
     },
     {
       title: 'Social',
+      value: 'social',
       counter: '3',
     },
     {
       title: 'Governance',
+      value: 'governance',
       counter: '2',
       disabled: true,
     },

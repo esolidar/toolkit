@@ -1,0 +1,110 @@
+.tag-component {
+  label {
+    margin: 0;
+  }
+
+  input[type='checkbox'] {
+    position: absolute;
+    visibility: hidden;
+    margin: 0;
+  }
+
+  &__item {
+    border: 2px solid map-get($neutrals, 100);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 100px;
+    padding: 6px 12px;
+    color: map-get($neutrals, 900);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    @include animate();
+
+    &.not-rounded {
+      border-radius: $border-radius-1 !important;
+    }
+
+    &.with-image {
+      padding-top: 4px;
+      padding-left: 4px;
+      padding-bottom: 4px;
+
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+        margin-right: $distance-1;
+      }
+    }
+
+    &-left-icon {
+      margin-right: $distance-1;
+    }
+
+    &-right-icon {
+      position: relative;
+      margin-left: 12px;
+      width: 14px;
+      height: 14px;
+      .unchecked {
+        position: absolute;
+        opacity: 0;
+        @include animate();
+      }
+      .checked {
+        position: absolute;
+        opacity: 0;
+        @include animate();
+      }
+
+      .fixed {
+        position: absolute;
+        opacity: 1;
+        @include animate();
+      }
+    }
+
+    &:hover {
+      @include animate();
+      color: map-get($turquoise, 500);
+      border: 2px solid map-get($turquoise, 500);
+      background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+    }
+  }
+
+  input[type='checkbox']:checked ~ .tag-component__item {
+    background-color: map-get($turquoise, 500);
+    color: white;
+    border: 2px solid map-get($turquoise, 500);
+
+    .tag-component__item-right-icon {
+      .unchecked {
+        opacity: 0;
+        @include animate();
+      }
+      .checked {
+        opacity: 1;
+        @include animate();
+      }
+      .fixed {
+        opacity: 0;
+        @include animate();
+      }
+    }
+
+    &:hover {
+      @include animate();
+
+      .tag-component__item-right-icon {
+        .unchecked {
+          opacity: 1;
+        }
+        .checked {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

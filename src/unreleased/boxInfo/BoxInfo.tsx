@@ -13,9 +13,11 @@ const Breadcrumbs: FC<Props> = ({
       <div>
         <p>{text}</p>
       </div>
-      <div>
-        <Button text={buttonText} extraClass={buttonClass} onClick={handleClickButton} />
-      </div>
+      {buttonText && (
+        <div className="esolidar-box-info__button">
+          <Button text={buttonText} extraClass={buttonClass} onClick={handleClickButton} />
+        </div>
+      )}
     </div>
   );
 };

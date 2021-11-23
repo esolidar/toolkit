@@ -11,7 +11,7 @@ const CheckboxField = ({
   disabled,
   id,
   dataTestId,
-  size = 'md',
+  size,
 }) => (
   <div className="checkbox-inline">
     <div className="form-group">
@@ -26,8 +26,8 @@ const CheckboxField = ({
           checked={checked}
           disabled={disabled}
         />
-        <div className={`label ${size}`}>{label}</div>
         <div className="checkbox" />
+        {label && <div className={`label ${size}`}>{label}</div>}
       </label>
     </div>
     {error && <span className="help-block">{error}</span>}
@@ -45,6 +45,10 @@ CheckboxField.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
   size: PropTypes.string,
+};
+
+CheckboxField.defaultValues = {
+  size: 'md',
 };
 
 export default CheckboxField;

@@ -1,25 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RadioField = ({ value, name, onChange, checked, label, error, disabled, message, id }) => (
+const RadioField = ({
+  value,
+  name,
+  onChange,
+  checked,
+  label,
+  error,
+  disabled,
+  message,
+  id,
+  dataTestId,
+  size,
+}) => (
   <div className="radio-inline">
     <div className="form-group">
-      <label htmlFor={name}>
+      <label htmlFor={id}>
         <input
+          data-testid={dataTestId}
           type="radio"
-          id={id || name}
+          id={id}
           name={name}
           value={value}
           onChange={onChange}
           checked={checked}
           disabled={disabled}
         />
-        {label}
-        <div className="checkbox" />
+        <div className="radio" />
+        {label && <div className={`label ${size}`}>{label}</div>}
       </label>
-      {message && <div className="message">{message}</div>}
-      {error && <span className="help-block">{error}</span>}
     </div>
+    {message && <div className="message">{message}</div>}
+    {error && <span className="help-block">{error}</span>}
   </div>
 );
 
@@ -33,6 +46,12 @@ RadioField.propTypes = {
   error: PropTypes.string,
   disabled: PropTypes.bool,
   message: PropTypes.string,
+  dataTestId: PropTypes.string,
+  size: PropTypes.string,
+};
+
+RadioField.defaultValues = {
+  size: 'md',
 };
 
 export default RadioField;

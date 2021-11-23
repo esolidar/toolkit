@@ -159,6 +159,7 @@
     _400: map-get($elevation, 400);
     _500: map-get($elevation, 500);
   }
+
   main-text-colors: {
     light: map-get($main-text-colors, light);
     dark: map-get($main-text-colors, dark);

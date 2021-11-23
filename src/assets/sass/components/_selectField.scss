@@ -20,14 +20,14 @@
     position: relative;
     margin-bottom: $distance-4;
 
-    &.width-sm {
-      max-width: 320px;
+    &.size-sm {
+      max-width: map-get($widths, sm);
     }
-    &.width-md {
-      max-width: 420px;
+    &.size-md {
+      max-width: map-get($widths, md);
     }
-    &.width-lg {
-      max-width: 720px;
+    &.size-lg {
+      max-width: map-get($widths, lg);
     }
   }
 

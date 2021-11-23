@@ -9,19 +9,79 @@ export default {
   component: Button,
 };
 
+const extraClassesWithoutFull = ['secondary', 'link', 'ghost'];
+
 const Template = args => (
   <>
-    <ButtonGrid>
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
-      <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
-    </ButtonGrid>
+    {!extraClassesWithoutFull.includes(args.extraClass) && (
+      <>
+        <ButtonGrid>
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
+          <Button
+            {...args}
+            extraClass={`${args.extraClass}-full`}
+            text="Left Icon"
+            iconLeft={<Icon iconClass="icon-left-arrow" />}
+          />
+          <Button
+            {...args}
+            extraClass={`${args.extraClass}-full`}
+            text="2 Icons"
+            iconLeft={<Icon iconClass="icon-left-arrow" />}
+            iconRight={<Icon iconClass="icon-chevron-down" />}
+          />
+          <Button
+            {...args}
+            extraClass={`${args.extraClass}-full`}
+            text="Right Icon"
+            iconRight={<Icon iconClass="icon-right-arrow" />}
+          />
+          <Button
+            {...args}
+            type="icon"
+            extraClass={`${args.extraClass}-full`}
+            icon={<Icon iconClass="icon-left-arrow" />}
+          />
+          <Button
+            {...args}
+            extraClass={`${args.extraClass}-full`}
+            text="With Badge"
+            iconLeft={<Icon iconClass="icon-left-arrow" />}
+            badge={<Badge text="2" size="xs" />}
+          />
+        </ButtonGrid>
+
+        <ButtonGrid>
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
+          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
+        </ButtonGrid>
+      </>
+    )}
+
     <ButtonGrid>
       <Button {...args} text="Enabled" />
       <Button {...args} text="Disabled" disabled />
+      <Button {...args} text="Left Icon" iconLeft={<Icon iconClass="icon-left-arrow" />} />
+      <Button
+        {...args}
+        text="2 Icons"
+        iconLeft={<Icon iconClass="icon-left-arrow" />}
+        iconRight={<Icon iconClass="icon-chevron-down" />}
+      />
+      <Button {...args} text="Right Icon" iconRight={<Icon iconClass="icon-right-arrow" />} />
+      <Button {...args} type="icon" icon={<Icon iconClass="icon-left-arrow" />} />
+      <Button
+        {...args}
+        text="With Badge"
+        iconLeft={<Icon iconClass="icon-left-arrow" />}
+        badge={<Badge text="2" size="xs" />}
+      />
+    </ButtonGrid>
+
+    <ButtonGrid>
       <Button {...args} text="Size XL" size="xl" />
       <Button {...args} text="Size LG" size="lg" />
       <Button {...args} text="Size MD" size="md" />
@@ -33,13 +93,24 @@ const Template = args => (
 export const Primary = Template.bind({});
 Primary.args = {
   extraClass: 'primary',
-  target: '_blank',
-  href: '#',
+  onClick: () => {},
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  extraClass: 'info',
+  extraClass: 'secondary',
+  onClick: () => {},
+};
+
+export const Ghost = Template.bind({});
+Ghost.args = {
+  extraClass: 'ghost',
+  onClick: () => {},
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  extraClass: 'link',
   target: '_blank',
   href: '#',
 };
@@ -47,81 +118,35 @@ Secondary.args = {
 export const Success = Template.bind({});
 Success.args = {
   extraClass: 'success',
-  target: '_blank',
-  href: '#',
-};
-
-export const Danger = Template.bind({});
-Danger.args = {
-  extraClass: 'danger',
-  target: '_blank',
-  href: '#',
+  onClick: () => {},
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   extraClass: 'warning',
-  target: '_blank',
-  href: '#',
+  onClick: () => {},
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  extraClass: 'danger',
+  onClick: () => {},
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  extraClass: 'info',
+  onClick: () => {},
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
   extraClass: 'dark',
-  target: '_blank',
-  href: '#',
-};
-
-export const Link = args => (
-  <ButtonGrid>
-    <Button {...args} text="Enabled" />
-    <Button {...args} text="Disabled" disabled />
-    <Button {...args} text="Size XL" size="xl" />
-    <Button {...args} text="Size LG" size="lg" />
-    <Button {...args} text="Size MD" size="md" />
-    <Button {...args} text="Size SM" size="sm" />
-  </ButtonGrid>
-);
-Link.args = {
-  extraClass: 'link',
-  target: '_blank',
-  href: '#',
-  iconLeft: <Icon iconClass="icon-left-arrow" />,
-};
-
-export const WithIcon = args => (
-  <ButtonGrid>
-    <Button {...args} text="Enabled" />
-    <Button {...args} text="Disabled" disabled />
-    <Button {...args} text="Size XL" size="xl" />
-    <Button {...args} text="Size LG" size="lg" />
-    <Button {...args} text="Size MD" size="md" />
-    <Button {...args} text="Size SM" size="sm" />
-  </ButtonGrid>
-);
-WithIcon.args = {
-  extraClass: 'primary-full',
-  iconLeft: <Icon iconClass="icon-left-arrow" />,
-  iconRight: <Icon iconClass="icon-chevron-down" />,
-};
-
-export const WithBadge = args => (
-  <ButtonGrid>
-    <Button {...args} text="Enabled" />
-    <Button {...args} text="Disabled" disabled />
-    <Button {...args} text="Size XL" size="xl" />
-    <Button {...args} text="Size LG" size="lg" />
-    <Button {...args} text="Size MD" size="md" />
-    <Button {...args} text="Size SM" size="sm" />
-  </ButtonGrid>
-);
-WithBadge.args = {
-  extraClass: 'primary-full',
-  badge: <Badge text="2" size="xs" />,
+  onClick: () => {},
 };
 
 const ButtonGrid = ({ children }) => (
-  <div className="p-2 d-flex align-items-center flex-wrap" style={{ gap: '4px' }}>
+  <div className="p-1 d-flex align-items-center flex-wrap" style={{ gap: '8px' }}>
     {children}
   </div>
 );

@@ -13,7 +13,7 @@ it('renders Wizard default component open', () => {
   expect(getByClass('wizard open')).toBeTruthy();
   expect(getByClass('wizard__header')).toBeTruthy();
   expect(getByClass('wizard__paginator')).toBeTruthy();
-  expect(getByClass('container wizard__body')).toBeTruthy();
+  expect(getByClass('esolidar-viewport size-xl centred wizard__body')).toBeTruthy();
 });
 
 it('renders Wizard default component closed', () => {

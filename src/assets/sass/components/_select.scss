@@ -1,0 +1,192 @@
+.esolidar-select {
+  &.size-sm {
+    max-width: 320px;
+  }
+  &.size-md {
+    max-width: 420px;
+  }
+  &.size-lg {
+    max-width: 720px;
+  }
+
+  &-error {
+    & .esolidar-select__control {
+      border: 2px solid map-get($negative, 500) !important;
+
+      &:hover {
+        border: 2px solid map-get($negative, 500) !important;
+      }
+
+      &--is-focused {
+        box-shadow: 0px 0px 0px 4px change-color(map-get($negative, 500), $alpha: 0.08) !important;
+      }
+    }
+  }
+
+  &__control {
+    border-radius: $border-radius-1 !important;
+    background: map-get($base, white) !important;
+    border: 2px solid map-get($neutrals, 200) !important;
+    cursor: pointer !important;
+
+    &:hover {
+      border: 2px solid map-get($turquoise, 500) !important;
+    }
+
+    & .esolidar-select__value-container {
+      padding: 2px $distance-2;
+
+      & .esolidar-select__single-value {
+        display: flex;
+        align-items: center;
+        gap: $distance-1;
+        color: map-get($neutrals, 900);
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+
+    & .esolidar-select__placeholder {
+      display: flex;
+      align-items: center;
+      gap: $distance-1;
+      font-size: 16px !important;
+      line-height: 19px !important;
+      color: map-get($neutrals, 400) !important;
+
+      & > i {
+        color: map-get($neutrals, 700) !important;
+      }
+    }
+
+    & .esolidar-select__indicator {
+      color: map-get($neutrals, 700) !important;
+    }
+
+    & .esolidar-select__dropdown-indicator {
+      padding-right: $distance-2 !important;
+    }
+
+    &--is-focused {
+      background: map-get($background, primary) !important;
+      border: 2px solid map-get($turquoise, 500) !important;
+      box-shadow: 0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08) !important;
+
+      & .esolidar-select__single-value {
+        color: map-get($base, black) !important;
+      }
+    }
+
+    &--is-disabled {
+      background: map-get($background, secondary) !important;
+      border: 2px solid map-get($neutrals, 100) !important;
+
+      & .esolidar-select__indicator,
+      & .esolidar-select__placeholder > i {
+        color: map-get($neutrals, 400) !important;
+      }
+    }
+  }
+
+  &__menu {
+    background-color: map-get($background, primary) !important;
+    border: 1px solid map-get($neutrals, 200) !important;
+    border-radius: $border-radius-2 !important;
+    box-shadow: map-get($elevation, 100);
+    @include thin-scroll-bar();
+
+    &-list {
+      padding: $distance-2 !important;
+
+      & .esolidar-select__option {
+        display: flex;
+        gap: $distance-1;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($neutrals, 700);
+        border-radius: $border-radius-1;
+        cursor: pointer;
+        padding: $distance-1 !important;
+
+        &--icon {
+          font-size: 20px !important;
+        }
+
+        &--text {
+          display: flex;
+          flex-direction: column;
+
+          & > span:first-of-type {
+            font-size: 16px;
+            line-height: 24px;
+            color: map-get($neutrals, 900);
+            font-weight: 600;
+          }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: unset;
+          color: map-get($turquoise, 500);
+
+          & .esolidar-select__option--text {
+            & > span:first-of-type {
+              color: map-get($turquoise, 500);
+            }
+          }
+        }
+
+        &--is-selected {
+          background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+          color: map-get($turquoise, 500);
+
+          & .esolidar-select__option--text {
+            & > span:first-of-type {
+              color: map-get($turquoise, 500);
+            }
+          }
+
+          &:hover {
+            background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+            color: map-get($turquoise, 500);
+          }
+        }
+
+        &--is-disabled,
+        &:disabled {
+          background-color: unset !important;
+          color: map-get($neutrals, 400) !important;
+          cursor: default !important;
+
+          &:hover,
+          &:focus,
+          &:active {
+            & .esolidar-select__option--text {
+              & > span:first-of-type {
+                color: map-get($neutrals, 400);
+              }
+            }
+          }
+
+          & .esolidar-select__option--text {
+            & > span:first-of-type {
+              color: map-get($neutrals, 400);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__helper-text {
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 700);
+    margin-top: $distance-1;
+
+    &--error {
+      color: map-get($negative, 500);
+    }
+  }
+}

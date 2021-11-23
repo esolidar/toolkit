@@ -4,8 +4,10 @@
 
   p {
     margin: 0;
-    margin-right: $distance-5;
     font-size: 16px;
     line-height: 24px;
+  }
+  &__button {
+    margin-left: $distance-5;
   }
 }
