@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
+import Slider from '../slider';
 import Icon from '../../components/icon';
 import CustomModal from '../customModal';
 import Button from '../button';
@@ -43,6 +44,7 @@ const DropZoneBox = ({
   icon,
   inputLabelProps,
   label,
+  showFooterCropper = false,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -203,6 +205,11 @@ const DropZoneBox = ({
     toggleModalCropper();
   };
 
+  const onSliderMoves = (value, direction) => {
+    if (direction === 'right') cropper.current.zoom(0.1);
+    if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
   return (
     <div className="dropzone-box form-group">
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
@@ -312,8 +319,8 @@ const DropZoneBox = ({
                 src={croppedFile}
                 style={{ height: 400, width: '100%' }}
                 guides={true}
-                zoomable={false}
-                viewMode={1}
+                zoomable={true}
+                viewMode={2}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
               />
               {errorList.map((file, idx) => (
@@ -321,6 +328,34 @@ const DropZoneBox = ({
                   ', '
                 )}.`}</div>
               ))}
+              {showFooterCropper && (
+                <div className="d-flex">
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-left" />}
+                  />
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(-90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-right" />}
+                  />
+                  <div className="flex-grow-1">
+                    <Slider
+                      min={0}
+                      max={100}
+                      step={10}
+                      defaultValue={0}
+                      showButtons={true}
+                      onChange={onSliderMoves}
+                    />
+                  </div>
+                </div>
+              )}
             </>
           }
           dividerBottom={true}
@@ -371,6 +406,7 @@ DropZoneBox.propTypes = {
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
   icon: PropTypes.string,
+  showFooterCropper: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {
