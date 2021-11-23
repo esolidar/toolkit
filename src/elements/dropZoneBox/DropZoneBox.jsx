@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
+import Slider from '../slider';
 import Icon from '../../components/icon';
 import CustomModal from '../customModal';
 import Button from '../button';
@@ -203,6 +204,11 @@ const DropZoneBox = ({
     toggleModalCropper();
   };
 
+  const onSliderMoves = (value, direction) => {
+    if (direction === 'right') cropper.current.zoom(0.1);
+    if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
   return (
     <div className="dropzone-box form-group">
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
@@ -336,6 +342,15 @@ const DropZoneBox = ({
                   }}
                   icon={<Icon iconClass="icon-corner-up-right" />}
                 />
+                <div className="flex-grow-1">
+                  <Slider
+                    min={0}
+                    max={100}
+                    defaultValue={0}
+                    showButtons={true}
+                    onChange={onSliderMoves}
+                  />
+                </div>
               </div>
             </>
           }

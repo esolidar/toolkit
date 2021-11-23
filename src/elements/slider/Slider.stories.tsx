@@ -17,20 +17,34 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
-// export const Disable: Story<Props> = Template.bind({});
+export const WithButtons: Story<Props> = Template.bind({});
+export const Disable: Story<Props> = Template.bind({});
 
 Default.args = {
   min: 0,
   max: 100,
   defaultValue: 50,
-  handleChange: value => {
+  step: 10,
+  onChange: value => {
     console.log('value', value);
   },
 };
 
-// Disable.args = {
-//   isChecked: false,
-//   name: 'toggle',
-//   onChange: () => {},
-//   isDisabled: true,
-// };
+WithButtons.args = {
+  min: 0,
+  max: 100,
+  defaultValue: 50,
+  step: 10,
+  onChange: value => {
+    console.log('value', value);
+  },
+  showButtons: true,
+};
+
+Disable.args = {
+  min: 0,
+  max: 100,
+  step: 10,
+  defaultValue: 50,
+  disabled: true,
+};

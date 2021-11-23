@@ -59,8 +59,8 @@ WithLabel.args = {
 WithCropper.args = {
   hasCropper: {
     showCropper: true,
-    aspectRatioW: 1,
-    aspectRatioH: 1,
+    aspectRatioW: 16,
+    aspectRatioH: 9,
     minWidth: 1200,
     minHeight: 680,
   },

@@ -9,5 +9,5 @@ const Default = composeStory(DefaultStory, Meta);
 it('renders Slider', () => {
   const { getByClass } = render(<Default />);
 
-  expect(getByClass('toggle')).toBeTruthy();
+  expect(getByClass('esolidar-slider')).toBeTruthy();
 });
