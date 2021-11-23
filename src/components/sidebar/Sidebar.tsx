@@ -22,6 +22,7 @@ const Sidebar: FC<Props> = ({
   const classes = classnames(
     'sidebarNavigation',
     isCollapsed && `sidebarNavigation--isCollapsed`,
+    isOpenSubMenu && `sidebarNavigation--isOpenSubMenu`,
     className
   );
   const { esolidarLogo, name } = companyInfo;
@@ -99,7 +100,7 @@ const Sidebar: FC<Props> = ({
                 'icon-equalizer2 sidebarNavigation__collapsed--button',
                 isOpenSubMenu && 'sidebarNavigation__collapsed--button--disabled'
               )}
-              onClick={() => collapseSidebar(!isCollapsed)}
+              onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
             />
           </div>
         </div>

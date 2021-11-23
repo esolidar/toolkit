@@ -19,7 +19,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
         onClick,
         isActive,
         separator,
-        hide,
+        isVisible = true,
       } = item;
 
       const listClasses = classNames('menu__listItem', separator && 'menu__listItem--separator');
@@ -29,7 +29,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
         showNotificationsIcon && 'menu__item--notification',
         disabled && 'menu__item--disabled'
       );
-      if (hide === 1) {
+      if (!isVisible) {
         return '';
       }
       return (
@@ -40,7 +40,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
               tooltipBodyChild={
                 <button type="button" onClick={onClick} className={itemClasses} disabled={disabled}>
                   {icon && <Icon iconClass={icon} />}
-                  {!isCollapsed && <span>{text}</span>}
+                  <span>{!isCollapsed && text}</span>
                 </button>
               }
               overlay={<span>{text}</span>}
@@ -51,7 +51,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
               tooltipBodyChild={
                 <a type="media_type" href={href} className={itemClasses}>
                   {icon && <Icon iconClass={icon} />}
-                  {!isCollapsed && <span>{text}</span>}
+                  <span>{!isCollapsed && text}</span>
                 </a>
               }
               overlay={<span>{text}</span>}
@@ -63,7 +63,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
                 tooltipBodyChild={
                   <div className={itemClasses}>
                     {icon && <Icon iconClass={icon} />}
-                    {!isCollapsed && <span>{text}</span>}
+                    <span>{!isCollapsed && text}</span>
                   </div>
                 }
                 overlay={<span>{text}</span>}

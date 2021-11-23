@@ -26,6 +26,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
+  collapsed: false,
   companyInfo: {
     logo: 'https://cdn.esolidar.com/companies/1112/whitelabels/1/5906ee2e-af17-45e0-88c5-57d4488c411e.jpg',
     name: 'Esolidar',
@@ -39,7 +40,7 @@ Default.args = {
       showNotificationsIcon: true,
       disabled: false,
       isActive: true,
-      hide: 0,
+      isVisible: true,
       onClick: () => true,
     },
     {
@@ -49,7 +50,7 @@ Default.args = {
       showNotificationsIcon: true,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
       submenu: [
         {
           icon: 'icon-check-circle',
@@ -58,7 +59,7 @@ Default.args = {
           showNotificationsIcon: true,
           disabled: false,
           isActive: false,
-          hide: 0,
+          isVisible: true,
         },
         {
           icon: 'icon-check-circle',
@@ -67,7 +68,7 @@ Default.args = {
           showNotificationsIcon: false,
           disabled: false,
           isActive: false,
-          hide: 0,
+          isVisible: true,
         },
       ],
     },
@@ -78,7 +79,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
     {
       icon: 'icon-check-circle',
@@ -87,7 +88,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
     {
       icon: 'icon-check-circle',
@@ -96,7 +97,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
     {
       icon: 'icon-check-circle',
@@ -105,7 +106,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: true,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
     { separator: true },
     {
@@ -115,7 +116,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: false,
       isActive: true,
-      hide: 0,
+      isVisible: true,
     },
     {
       icon: 'icon-check-circle',
@@ -124,7 +125,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
   ],
   bottomMenu: [
@@ -135,7 +136,7 @@ Default.args = {
       showNotificationsIcon: true,
       disabled: false,
       isActive: false,
-      hide: 0,
+      isVisible: true,
       submenu: [
         {
           icon: 'icon-check-circle',
@@ -144,7 +145,7 @@ Default.args = {
           showNotificationsIcon: true,
           disabled: false,
           isActive: false,
-          hide: 0,
+          isVisible: true,
         },
         {
           icon: 'icon-check-circle',
@@ -153,7 +154,7 @@ Default.args = {
           showNotificationsIcon: false,
           disabled: false,
           isActive: false,
-          hide: 0,
+          isVisible: true,
         },
         { separator: true },
         {
@@ -163,7 +164,7 @@ Default.args = {
           showNotificationsIcon: false,
           disabled: false,
           isActive: true,
-          hide: 0,
+          isVisible: true,
         },
         {
           icon: 'icon-check-circle',
@@ -172,7 +173,7 @@ Default.args = {
           showNotificationsIcon: false,
           disabled: false,
           isActive: false,
-          hide: 0,
+          isVisible: true,
         },
       ],
     },
@@ -183,7 +184,7 @@ Default.args = {
       showNotificationsIcon: false,
       disabled: true,
       isActive: false,
-      hide: 0,
+      isVisible: true,
     },
   ],
 };

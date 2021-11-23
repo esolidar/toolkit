@@ -6,8 +6,8 @@ export interface Item {
   disabled?: boolean;
   onClick?(): void;
   isActive?: boolean;
-  separator?: true;
-  hide?: 0 | 1;
+  separator?: boolean;
+  isVisible?: boolean;
 }
 
 interface Props {
