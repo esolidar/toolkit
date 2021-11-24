@@ -93,11 +93,13 @@ const ValidateTelephone = ({
     mobileConfirmPost(userId, { code });
   };
 
+  const isDisbaled = verified === 1;
+
   return (
     <div className="validate-telephone mb-3">
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className="phone-box">
-        <div className="input-phone-validation">
+        <div className={`input-phone-validation ${isDisbaled && 'input-phone-disabled'}`}>
           <ReactTelephoneInput
             // eslint-disable-next-line no-nested-ternary
             defaultCountry={defaultCountry}
@@ -106,9 +108,9 @@ const ValidateTelephone = ({
             initialValue={phone}
             onChange={handleInputChange}
             onBlur={handleInputBlur}
-            disabled={verified === 1}
+            disabled={isDisbaled}
           />
-          {verified === 1 && <div className="phone-verified" data-testid="verified-number" />}
+          {isDisbaled && <div className="phone-verified" data-testid="verified-number" />}
         </div>
         {verified === 0 && (
           <>
