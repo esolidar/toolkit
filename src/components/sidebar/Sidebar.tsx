@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 import cookie from 'react-cookies';
 import Menu from '../menu';
@@ -27,21 +27,25 @@ const Sidebar: FC<Props> = ({
   );
   const { esolidarLogo, name } = companyInfo;
 
+  useEffect(() => {
+    if (isOpenSubMenu) {
+      setIsOpenSubMenu(false);
+      collapseSidebar(collapsed || !isCollapsed);
+      setSubMenuTitle('');
+      const menus = [...bottomMenu, ...mainMenu];
+      const openMenu = menus.find(item => item.text === subMenuTitle);
+      setSubMenu(openMenu.submenu);
+    }
+  }, [bottomMenu, mainMenu]);
+
   const openSubMenu = item => {
-    if (JSON.stringify(subMenu) !== JSON.stringify(item.submenu)) {
+    if (item.text !== subMenuTitle) {
       setSubMenuTitle(item.text);
       setSubMenu(item.submenu);
-      if (isOpenSubMenu) {
-        setIsOpenSubMenu(false);
-        setTimeout(() => {
-          setIsOpenSubMenu(true);
-        }, 500);
-      } else {
-        setTimeout(() => {
-          setIsOpenSubMenu(true);
-        }, 500);
-      }
-      localStorage.setItem('sidebar_collapsed', 'yes');
+      setIsOpenSubMenu(false);
+      setTimeout(() => {
+        setIsOpenSubMenu(true);
+      }, 500);
       setIsCollapsed(true);
     }
   };

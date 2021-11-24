@@ -4,6 +4,7 @@
   &-title {
     font-weight: bold;
     padding: $distance-1 $distance-3 $distance-1 $distance-3;
+    white-space: nowrap;
   }
 
   .dropdown-toggle {

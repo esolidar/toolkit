@@ -6,19 +6,31 @@ import Meta, { Default as DefaultStory } from '../Sidebar.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 it('renders Sidebar default', () => {
-  const { getByTestId, getByText, getByClass, queryAllByClass } = render(<Default />);
+  const { getByTestId, getByClass, queryAllByClass } = render(<Default />);
 
   expect(getByTestId('sidebar-component')).toBeInTheDocument();
   expect(getByClass(/sidebarNavigation__submenu--open/)).toBeInTheDocument();
-  expect(queryAllByClass(/menu__item /)).toHaveLength(6);
-  expect(queryAllByClass(/menu__item--notification/)).toHaveLength(3);
-  expect(queryAllByClass(/menu__item--active/)).toHaveLength(2);
-  expect(queryAllByClass(/menu__item--active menu__item--notification/)).toHaveLength(1);
+  expect(queryAllByClass(/menu__item/)).toHaveLength(8);
+  expect(queryAllByClass(/menu__item--notification/)).toHaveLength(2);
+  expect(queryAllByClass(/menu__item--active/)).toHaveLength(0);
+});
 
-  fireEvent.click(getByText('Submenu option'));
+it('renders Sidebar collapse', () => {
+  const { getByTestId, getByClass } = render(<Default />);
+  expect(getByTestId('sidebar-component')).toBeInTheDocument();
+  fireEvent.click(getByClass(/sidebarNavigation__collapsed--button/));
+  waitFor(() => {
+    expect(getByClass(/sidebarNavigation--isCollapsed/)).toBeInTheDocument();
+  });
+});
 
+it('renders Sidebar open subMenu', () => {
+  const { getByTestId, getByText, getByClass, queryAllByClass } = render(<Default />);
+  expect(getByTestId('sidebar-component')).toBeInTheDocument();
+  fireEvent.click(getByText('Settings'));
   waitFor(() => {
     expect(getByClass(/sidebarNavigation--isOpenSubMenu/)).toBeInTheDocument();
     expect(getByClass(/sidebarNavigation--isCollapsed/)).toBeInTheDocument();
+    expect(queryAllByClass(/menu__item--notification/)).toHaveLength(3);
   });
 });

@@ -35,7 +35,6 @@
         outline: none;
       }
     }
-
     &--active {
       background-color: get-rgba(map-get($turquoise, 500), 8);
       color: map-get($theme-colors, primary);

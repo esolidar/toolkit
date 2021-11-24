@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Props from './Sidebar.types';
 
@@ -10,18 +11,152 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div
-    style={{
-      marginLeft: '-1rem',
-      marginBottom: '-1rem',
-      minHeight: '1000px',
-      position: 'relative',
-    }}
-  >
-    <Sidebar {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => {
+  const [isActiveFeed, setIsActiveFeed] = useState(false);
+  const [isActiveAuction, setIsActiveAuction] = useState(false);
+  const [isActiveCrowdfunding, setIsActiveCrowdfunding] = useState(false);
+  const [isActiveDocuments, setIsActiveDocuments] = useState(false);
+  const [isActiveSurvey, setIsActiveSurvey] = useState(false);
+  const [isActiveProjects, setIsActiveProjects] = useState(false);
+
+  const [isActiveAccount, setIsActiveAccount] = useState(false);
+  const [isActivePreferences, setIsActivePreferences] = useState(false);
+  const [isActiveBilling, setIsActiveBilling] = useState(false);
+
+  const clickOption = (state, setState) => {
+    setIsActiveFeed(false);
+    setIsActiveAuction(false);
+    setIsActiveCrowdfunding(false);
+    setIsActiveDocuments(false);
+    setIsActiveSurvey(false);
+    setIsActiveProjects(false);
+    setIsActiveAccount(false);
+    setIsActivePreferences(false);
+    setIsActiveBilling(false);
+    setState(state);
+  };
+
+  const mainMenu = [
+    {
+      icon: 'icon-check-circle',
+      text: 'Social Feed',
+      showNotificationsIcon: true,
+      disabled: false,
+      isActive: isActiveFeed,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveFeed, setIsActiveFeed),
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Auctions',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: isActiveAuction,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveAuction, setIsActiveAuction),
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Crowdfunding',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: isActiveCrowdfunding,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveCrowdfunding, setIsActiveCrowdfunding),
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Documents',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: isActiveDocuments,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveDocuments, setIsActiveDocuments),
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Survey',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: isActiveSurvey,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveSurvey, setIsActiveSurvey),
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Projects',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: isActiveProjects,
+      isVisible: true,
+      onClick: () => clickOption(!isActiveProjects, setIsActiveProjects),
+    },
+  ];
+
+  const bottomMenu = [
+    {
+      icon: 'icon-check-circle',
+      text: 'Activity',
+      href: '#',
+      showNotificationsIcon: true,
+      disabled: true,
+      isActive: false,
+      isVisible: true,
+    },
+    {
+      icon: 'icon-check-circle',
+      text: 'Settings',
+      href: '#',
+      showNotificationsIcon: false,
+      disabled: false,
+      isActive: false,
+      isVisible: true,
+      submenu: [
+        {
+          icon: 'icon-check-circle',
+          text: 'Account',
+          showNotificationsIcon: true,
+          disabled: false,
+          isActive: isActiveAccount,
+          isVisible: true,
+          onClick: () => clickOption(!isActiveAccount, setIsActiveAccount),
+        },
+        {
+          icon: 'icon-check-circle',
+          text: 'Preferences',
+          showNotificationsIcon: false,
+          disabled: false,
+          isActive: isActivePreferences,
+          isVisible: true,
+          onClick: () => clickOption(!isActivePreferences, setIsActivePreferences),
+        },
+        { separator: true },
+        {
+          icon: 'icon-check-circle',
+          text: 'Billing',
+          showNotificationsIcon: false,
+          disabled: false,
+          isActive: isActiveBilling,
+          isVisible: true,
+          onClick: () => clickOption(!isActiveBilling, setIsActiveBilling),
+        },
+      ],
+    },
+  ];
+
+  return (
+    <div
+      style={{
+        marginLeft: '-1rem',
+        marginBottom: '-1rem',
+        minHeight: '1000px',
+        position: 'relative',
+      }}
+    >
+      <Sidebar {...args} mainMenu={mainMenu} bottomMenu={bottomMenu} />
+    </div>
+  );
+};
 
 export const Default: Story<Props> = Template.bind({});
 
@@ -32,159 +167,4 @@ Default.args = {
     name: 'Esolidar',
     esolidarLogo: 'https://static.esolidar.com/frontend/logo/esolidar/logo-xsmall.svg',
   },
-  mainMenu: [
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: true,
-      disabled: false,
-      isActive: true,
-      isVisible: true,
-      onClick: () => true,
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Submenu option',
-      href: '#',
-      showNotificationsIcon: true,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-      submenu: [
-        {
-          icon: 'icon-check-circle',
-          text: 'Submenu option',
-          href: '#',
-          showNotificationsIcon: true,
-          disabled: false,
-          isActive: false,
-          isVisible: true,
-        },
-        {
-          icon: 'icon-check-circle',
-          text: 'Submenu option',
-          href: '#',
-          showNotificationsIcon: false,
-          disabled: false,
-          isActive: false,
-          isVisible: true,
-        },
-      ],
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: true,
-      isActive: false,
-      isVisible: true,
-    },
-    { separator: true },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: true,
-      isVisible: true,
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Menu option',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-    },
-  ],
-  bottomMenu: [
-    {
-      icon: 'icon-check-circle',
-      text: 'Activity',
-      href: '#',
-      showNotificationsIcon: true,
-      disabled: false,
-      isActive: false,
-      isVisible: true,
-      submenu: [
-        {
-          icon: 'icon-check-circle',
-          text: 'Menu option',
-          href: '#',
-          showNotificationsIcon: true,
-          disabled: false,
-          isActive: false,
-          isVisible: true,
-        },
-        {
-          icon: 'icon-check-circle',
-          text: 'Menu option',
-          href: '#',
-          showNotificationsIcon: false,
-          disabled: false,
-          isActive: false,
-          isVisible: true,
-        },
-        { separator: true },
-        {
-          icon: 'icon-check-circle',
-          text: 'Menu option',
-          href: '#',
-          showNotificationsIcon: false,
-          disabled: false,
-          isActive: true,
-          isVisible: true,
-        },
-        {
-          icon: 'icon-check-circle',
-          text: 'Menu option',
-          href: '#',
-          showNotificationsIcon: false,
-          disabled: false,
-          isActive: false,
-          isVisible: true,
-        },
-      ],
-    },
-    {
-      icon: 'icon-check-circle',
-      text: 'Settings',
-      href: '#',
-      showNotificationsIcon: false,
-      disabled: true,
-      isActive: false,
-      isVisible: true,
-    },
-  ],
 };
