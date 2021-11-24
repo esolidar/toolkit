@@ -234,7 +234,7 @@
 }
 
 @mixin input-form-error() {
-  border: 2px solid map-get($negative, 500) !important;
+  border: 2px solid map-get($negative, 500);
   @include animate();
 }
 

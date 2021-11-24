@@ -61,6 +61,12 @@
         outline: transparent !important;
         background-color: transparent;
       }
+
+      &.input-phone-disabled {
+        .selected-flag {
+          cursor: default;
+        }
+      }
     }
 
     .react-tel-input {
