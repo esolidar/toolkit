@@ -19,6 +19,7 @@ const Sidebar: FC<Props> = ({
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
   const [subMenu, setSubMenu] = useState([]);
   const [subMenuTitle, setSubMenuTitle] = useState('');
+  const [totalMenus, setTotalMenus] = useState([]);
   const classes = classnames(
     'sidebarNavigation',
     isCollapsed && `sidebarNavigation--isCollapsed`,
@@ -28,13 +29,18 @@ const Sidebar: FC<Props> = ({
   const { esolidarLogo, name } = companyInfo;
 
   useEffect(() => {
+    const menus = [...bottomMenu, ...mainMenu];
+    setTotalMenus(menus);
+    const activeMenus = menus.filter(item => item.isActive === true);
     if (isOpenSubMenu) {
-      setIsOpenSubMenu(false);
-      collapseSidebar(collapsed || !isCollapsed);
-      setSubMenuTitle('');
-      const menus = [...bottomMenu, ...mainMenu];
       const openMenu = menus.find(item => item.text === subMenuTitle);
       setSubMenu(openMenu.submenu);
+      const activeMenu = activeMenus.find(item => item.text !== subMenuTitle);
+      if (activeMenu && subMenuTitle !== activeMenu.text) {
+        setIsOpenSubMenu(false);
+        collapseSidebar(collapsed || !isCollapsed);
+        setSubMenuTitle('');
+      }
     }
   }, [bottomMenu, mainMenu]);
 
@@ -51,12 +57,29 @@ const Sidebar: FC<Props> = ({
   };
 
   const renderMenus = items => {
+    const activeMenus = totalMenus.filter(item => item.isActive === true);
+
     items.map(item => {
       const { submenu } = item;
       if (submenu) {
         item.onClick = () => openSubMenu(item);
         if (subMenuTitle === item.text && isOpenSubMenu) {
           item.isActive = true;
+        }
+      }
+
+      if (subMenuTitle !== '') {
+        const activeMenu = activeMenus.filter(item => item.text !== subMenuTitle);
+        const withSubmenusActive = activeMenus.find(item => item.text === subMenuTitle);
+        if (activeMenu.length > 0 && isOpenSubMenu) {
+          if (item.text === activeMenu[0].text) {
+            item.isActive = false;
+          }
+        }
+        if (withSubmenusActive && isOpenSubMenu) {
+          if (item.text === withSubmenusActive.text) {
+            item.isActive = false;
+          }
         }
       }
     });

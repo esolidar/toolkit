@@ -25,6 +25,7 @@
     display: inline-flex;
     vertical-align: middle;
     flex-wrap: wrap;
+    @include animate(background-color);
 
     &:not(div) {
       &:hover,
