@@ -1,0 +1,24 @@
+.tooltip {
+  &--displayNone {
+    display: none;
+  }
+
+  .rc-tooltip-inner {
+    padding: 6px 12px;
+    background-color: map-get($base, black);
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: $border-radius-1;
+  }
+
+  .rc-tooltip-arrow {
+    display: none;
+  }
+
+  &.rc-tooltip-placement-right,
+  &.rc-tooltip-placement-rightTop,
+  &.rc-tooltip-placement-rightBottom {
+    padding: 0 5px 0 $distance-2;
+    margin-left: -4px;
+  }
+}
