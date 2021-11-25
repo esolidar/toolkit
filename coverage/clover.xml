@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1637766609019" clover="3.2.0">
-  <project timestamp="1637766609019" name="All files">
-    <metrics statements="4012" coveredstatements="2793" conditionals="3296" coveredconditionals="2092" methods="1107" coveredmethods="565" elements="8415" coveredelements="5450" complexity="0" loc="4012" ncloc="4012" packages="181" files="399" classes="399"/>
+<coverage generated="1637838189693" clover="3.2.0">
+  <project timestamp="1637838189693" name="All files">
+    <metrics statements="4012" coveredstatements="2787" conditionals="3292" coveredconditionals="2085" methods="1105" coveredmethods="564" elements="8409" coveredelements="5436" complexity="0" loc="4012" ncloc="4012" packages="181" files="399" classes="399"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -1032,7 +1032,7 @@
       </file>
     </package>
     <package name="src.components.changeProfileUserImage">
-      <metrics statements="15" coveredstatements="11" conditionals="10" coveredconditionals="5" methods="8" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="11" conditionals="6" coveredconditionals="1" methods="6" coveredmethods="2"/>
       <file name="ChangeProfileUserImage.stories.tsx" path="D:\projects\toolkit\src\components\changeProfileUserImage\ChangeProfileUserImage.stories.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="4" type="stmt"/>
@@ -1042,7 +1042,7 @@
         <line num="27" count="1" type="stmt"/>
       </file>
       <file name="ChangeProfileUserImage.tsx" path="D:\projects\toolkit\src\components\changeProfileUserImage\ChangeProfileUserImage.tsx">
-        <metrics statements="10" coveredstatements="6" conditionals="10" coveredconditionals="5" methods="5" coveredmethods="1"/>
+        <metrics statements="10" coveredstatements="6" conditionals="6" coveredconditionals="1" methods="3" coveredmethods="1"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="4" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
@@ -4367,19 +4367,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="13" coveredstatements="13" conditionals="25" coveredconditionals="22" methods="2" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="25" coveredconditionals="19" methods="2" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="13" coveredstatements="13" conditionals="25" coveredconditionals="22" methods="2" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="25" coveredconditionals="19" methods="2" coveredmethods="1"/>
         <line num="8" count="20" type="stmt"/>
         <line num="34" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="30" type="stmt"/>
-        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
         <line num="49" count="37" type="stmt"/>
         <line num="98" count="20" type="stmt"/>
         <line num="125" count="20" type="stmt"/>
@@ -4490,10 +4490,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="49" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="52" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="18" type="stmt"/>
-        <line num="17" count="31" type="stmt"/>
-        <line num="19" count="31" type="stmt"/>
+        <line num="17" count="34" type="stmt"/>
+        <line num="19" count="34" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="D:\projects\toolkit\src\hooks\useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4880,8 +4880,8 @@
         <line num="80" count="5" type="stmt"/>
         <line num="81" count="5" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="9" type="stmt"/>
-        <line num="85" count="9" type="stmt"/>
+        <line num="84" count="6" type="stmt"/>
+        <line num="85" count="6" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
@@ -5624,7 +5624,7 @@
       </file>
       <file name="isDefined.js" path="D:\projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="81" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
