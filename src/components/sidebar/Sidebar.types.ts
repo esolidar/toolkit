@@ -2,6 +2,7 @@ import { Item } from '../menu/Menu.types';
 
 interface SidebarItem extends Item {
   submenu?: Item[];
+  keepSubMenuOpen?: boolean;
 }
 
 interface companyInfo {
