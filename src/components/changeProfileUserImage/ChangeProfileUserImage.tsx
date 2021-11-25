@@ -40,8 +40,8 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
       >
         <div className="thumb-box">
           <div
-            onKeyPress={thumb === noImage ? onClick : () => {}}
-            onClick={thumb === noImage ? onClick : () => {}}
+            onKeyPress={onClick}
+            onClick={onClick}
             className="thumb"
             data-testid="thumb-change-profile-user-image"
             style={{ backgroundImage: `url(${thumb})` }}
