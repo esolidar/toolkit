@@ -12,7 +12,7 @@ interface Props {
   onChange(): void;
   disabled: boolean;
   selectText?: string;
-  error: object | string;
+  error: object | string | boolean;
   defaultValue?: number | string;
   className?: string;
   hiddenSelectText?: boolean;
