@@ -2,6 +2,10 @@
   .form-control {
     @include input-form();
 
+    &[disabled] {
+      @include input-disabled();
+    }
+
     &:hover {
       @include input-hover();
     }
@@ -56,6 +60,12 @@
       button {
         outline: transparent !important;
         background-color: transparent;
+      }
+
+      &.input-phone-disabled {
+        .selected-flag {
+          cursor: default;
+        }
       }
     }
 

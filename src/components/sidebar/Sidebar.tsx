@@ -66,6 +66,9 @@ const Sidebar: FC<Props> = ({
         if (subMenuTitle === item.text && isOpenSubMenu) {
           item.isActive = true;
         }
+        if (item.keepSubMenuOpen) {
+          openSubMenu(item);
+        }
       }
 
       if (subMenuTitle !== '') {
