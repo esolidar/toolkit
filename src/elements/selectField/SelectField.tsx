@@ -87,7 +87,7 @@ const SelectField: FC<Props> = ({
           {optionsList(options)}
         </select>
         {info && <span className="footer-label-info">{info}</span>}
-        {typeof error === 'string' && <span className="help-block">{error}</span>}
+        {error && typeof error !== 'boolean' && <span className="help-block">{error}</span>}
       </div>
     </div>
   );
