@@ -63,18 +63,17 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             titleCropModal={intl.formatMessage({ id: 'modal.crop.title' })}
             textSaveCropModal={intl.formatMessage({ id: 'modal.crop.button.save' })}
           >
-            <>
-              {!hasNoImage && (
-                <Button
-                  id="change-profile-user-image__button-upload"
-                  extraClass="dark"
-                  type="file"
-                  text=""
-                  dataTestId="button-change-profile-user-image"
-                  icon={<Icon iconClass="icon-edit-2" />}
-                />
-              )}
-            </>
+            <Button
+              id="change-profile-user-image__button-upload"
+              extraClass="dark"
+              className={classnames({
+                'change-profile-user-image__no-button': hasNoImage,
+              })}
+              type="file"
+              text=""
+              dataTestId="button-change-profile-user-image"
+              icon={<Icon iconClass="icon-edit-2" />}
+            />
           </DropZoneBox>
         </div>
         {errors.image && <span className="help-block">{errors.image}</span>}
