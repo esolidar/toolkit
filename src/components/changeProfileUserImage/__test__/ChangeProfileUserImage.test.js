@@ -40,10 +40,8 @@ describe('ChangeProfileUserImage component', () => {
   });
 
   it('should have exist class change-profile-user-image__no-button', () => {
-    const { getByClass } = render(<NoProfilePicture />);
+    const { queryByTestId } = render(<NoProfilePicture />);
 
-    expect(
-      getByClass('btn-esolidar btn-dark btn-md change-profile-user-image__no-button')
-    ).toBeTruthy();
+    expect(queryByTestId('button-change-profile-user-image')).not.toBeInTheDocument();
   });
 });
