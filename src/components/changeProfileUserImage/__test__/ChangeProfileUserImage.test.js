@@ -35,7 +35,7 @@ describe('ChangeProfileUserImage component', () => {
 
     expect(getByTestId('thumb-change-profile-user-image')).toBeInTheDocument();
     expect(getByTestId('thumb-change-profile-user-image')).toHaveStyle(
-      'background-image: url(https://static.testesolidar.com/frontend/assets/no-image/upload.svg);'
+      'background-image: url(https://static.esolidar.com/frontend/assets/no-image/upload.svg);'
     );
   });
 

@@ -6,29 +6,25 @@ import InputLabel from '../../elements/inputLabel';
 import Button from '../../elements/button';
 import DropZoneBox from '../../elements/dropZoneBox';
 import isDefined from '../../utils/isDefined';
+import { cdnStaticUrl } from '../../constants/env';
 import Icon from '../icon';
 import { Props } from './ChangeProfileUserImage.types';
+
+const placeholderImage: string = `${cdnStaticUrl}/frontend/assets/no-image/upload.svg`;
 
 const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
-  const noImageDefault = `${env.cdnStatic}/frontend/assets/no-image/upload.svg`;
-
-  const noImage = thumb?.includes('no-image') || thumb === '' || !isDefined(thumb);
+  const hasNoImage: boolean = thumb?.includes('no-image') || thumb === '' || !isDefined(thumb);
 
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
     const thumb = type === 'blob' ? URL.createObjectURL(file[0]) : file[0].preview;
 
-    onDrop({
-      image: file,
-      thumb,
-    });
+    onDrop({ image: file, thumb });
   };
 
-  const onClick = () => {
-    document.getElementById('change-profile-user-image__button-upload').click();
-  };
+  const onClick = () => document.getElementById('change-profile-user-image__button-upload').click();
 
   return (
     <div className="change-profile-user-image">
@@ -47,7 +43,7 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             onClick={onClick}
             className="thumb"
             data-testid="thumb-change-profile-user-image"
-            style={{ backgroundImage: `url(${noImage ? noImageDefault : thumb})` }}
+            style={{ backgroundImage: `url(${hasNoImage ? placeholderImage : thumb})` }}
           />
           <DropZoneBox
             accept=".jpg, .jpeg, .png"
@@ -68,7 +64,7 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             textSaveCropModal={intl.formatMessage({ id: 'modal.crop.button.save' })}
           >
             <>
-              {!noImage && (
+              {!hasNoImage && (
                 <Button
                   id="change-profile-user-image__button-upload"
                   extraClass="dark"
