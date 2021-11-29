@@ -1102,10 +1102,12 @@ $border_left_color_1: #cacaca;
         background: url('#{$cdn-static-url}/frontend/icons/caret.png') no-repeat 50% 50%;
         height: 7px;
         width: 10px;
+        border: none;
       }
 
       .arrow.up {
         border-top: none;
+        border: none;
       }
     }
 

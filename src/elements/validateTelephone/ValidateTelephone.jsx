@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import InputLabel from '../inputLabel';
 import Button from '../button';
 import { cdnStaticUrl } from '../../constants/env';
+import 'react-telephone-input/css/default.css';
 
 const ValidateTelephone = ({
   phone,

@@ -56,7 +56,7 @@
       -moz-appearance: none;
       -webkit-appearance: none;
       appearance: none;
-      padding: 4px 42px;
+      padding: 0 34px;
     }
 
     .form-control {
@@ -90,5 +90,20 @@
 
   &__input {
     width: 100%;
+
+    &::after {
+      content: ' ';
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 1)
+      );
+      height: 33px;
+      width: 40px;
+      position: absolute;
+      right: 29px;
+      top: 2px;
+    }
   }
 }

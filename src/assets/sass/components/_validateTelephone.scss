@@ -65,6 +65,10 @@
       &.input-phone-disabled {
         .selected-flag {
           cursor: default;
+
+          .arrow {
+            display: none;
+          }
         }
       }
     }
