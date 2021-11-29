@@ -4,6 +4,7 @@
   &-title {
     font-weight: bold;
     padding: $distance-1 $distance-3 $distance-1 $distance-3;
+    white-space: nowrap;
   }
 
   .dropdown-toggle {
@@ -32,7 +33,7 @@
     }
 
     > img {
-      height: 40px;
+      height: 48px;
       border-radius: 50%;
 
       @media (max-width: map-get($breakpoints, xs)) {

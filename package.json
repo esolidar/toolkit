@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.27.0",
+  "version": "4.30.2",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -162,11 +162,12 @@
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "rc-slider": "^9.7.4",
-    "rc-tooltip": "^4.0.3",
+    "rc-tooltip": "^5.1.1",
     "react": "^17.0.2",
     "react-async-script-loader": "^0.3.0",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-table": "^4.3.1",
+    "react-cookies": "^0.1.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-cropper": "1.0.1",
     "react-datepicker": "^3.3.0",
