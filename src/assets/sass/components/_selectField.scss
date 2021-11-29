@@ -91,22 +91,20 @@
   &__input {
     width: 100%;
 
-    &::after {
-      content: ' ';
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 1)
-      );
-      height: 33px;
-      width: 40px;
-      position: absolute;
-      right: 29px;
-      top: 2px;
-
-      @media (max-width: map-get($widths, sm)) {
-        background: none;
+    &.after {
+      &::after {
+        content: ' ';
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 1)
+        );
+        height: 33px;
+        width: 40px;
+        position: absolute;
+        right: 29px;
+        top: 2px;
       }
     }
   }
