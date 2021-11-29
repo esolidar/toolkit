@@ -104,6 +104,10 @@
       position: absolute;
       right: 29px;
       top: 2px;
+
+      @media (max-width: map-get($widths, sm)) {
+        background: none;
+      }
     }
   }
 }
