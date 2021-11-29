@@ -109,7 +109,7 @@ const project = {
       created_at: '2021-02-01 12:02:01',
     },
   ],
-  ods: [ods],
+  ods: [ods, ods, ods, ods, ods],
   project_category: {
     created_at: '2020-08-06 15:56:39',
     id: 9,
@@ -122,7 +122,7 @@ const project = {
     updated_at: '2021-05-04 13:56:32',
     whitelabel_id: 5,
   },
-  review_average: null,
+  review_average: 4,
   status: 'PENDING',
   status_reason: null,
   title: 'PROJECT TITLE',

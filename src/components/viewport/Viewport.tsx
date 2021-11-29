@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 import Props from './Viewport.types';
 
-const Container: FC<Props> = ({
+const Viewport: FC<Props> = ({
   children,
   size = 'xl',
   centred = true,
@@ -18,4 +18,4 @@ const Container: FC<Props> = ({
   return <div className={classes}>{children}</div>;
 };
 
-export default Container;
+export default Viewport;

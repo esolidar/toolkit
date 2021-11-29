@@ -10,6 +10,7 @@ const Card: FC<Props> = ({
   body,
   support,
   isPrivate = false,
+  average,
 }: Props): JSX.Element => (
   <div className="card-component" onClick={() => clickThumb()} onKeyDown={() => clickThumb()}>
     {isPrivate && <Badge text="toolkit.private" className="card-component__badge" />}
@@ -20,6 +21,18 @@ const Card: FC<Props> = ({
           backgroundImage: `url('${image}`,
         }}
       />
+      {average && (
+        <Badge
+          className="card-component__average"
+          icon="icon-star-full"
+          plaintext={
+            <>
+              <span className="card-component__average-value">{average}</span>
+              <span className="card-component__average-total">&nbsp;/ 5</span>
+            </>
+          }
+        />
+      )}
     </div>
     <div className="card-component__body">
       <div className="card-component__countdown">{countdown}</div>
@@ -28,6 +41,11 @@ const Card: FC<Props> = ({
       </div>
       <div className="card-component__body-middle">{body}</div>
       <div className="card-component__support">
+        {support.revert && (
+          <div className="card-component__supporting-label" data-testid="supporting-label">
+            {support.label}
+          </div>
+        )}
         {support.url && support.name && (
           <a
             onClick={e => {
@@ -43,9 +61,11 @@ const Card: FC<Props> = ({
         )}
         {!support.url && support.name && <div data-testid="supporting-name">{support.name}</div>}
         {!support.url && !support.name && <div>&nbsp;</div>}
-        <div className="card-component__supporting-label" data-testid="supporting-label">
-          {support.label}
-        </div>
+        {!support.revert && (
+          <div className="card-component__supporting-label" data-testid="supporting-label">
+            {support.label}
+          </div>
+        )}
       </div>
     </div>
   </div>

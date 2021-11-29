@@ -5,7 +5,7 @@ interface Props {
   fullWidth?: boolean;
   style?: React.CSSProperties;
   text?: string;
-  plaintext?: string;
+  plaintext?: string | JSX.Element;
   icon?: string;
   iconDataTestId?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
