@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import classnames from 'classnames';
 import Props from './SelectField.types';
 import InputLabel from '../inputLabel';
@@ -25,6 +25,18 @@ const SelectField: FC<Props> = ({
   leftIcon,
   size = 'lg',
 }: Props): JSX.Element => {
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      const selectField = document.querySelector('select-field__input')[0];
+
+      if (selectField) selectField.classList.toggle('after', selectField.offsetWidth > 320);
+    });
+
+    return () => {
+      window.removeEventListener('resize', () => {});
+    };
+  }, []);
+
   const optionsList = options => {
     if (options) {
       return options.map((option, i) => (
