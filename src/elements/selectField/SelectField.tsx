@@ -45,10 +45,8 @@ const SelectField: FC<Props> = ({
       className={classnames(
         'select-field',
         'form-group',
-        { 'width-sm': size === 'sm' },
-        { 'width-md': size === 'md' },
-        { 'width-lg': size === 'lg' },
-        { 'has-error': error },
+        `size-${size}`,
+        { 'has-error': !!error },
         { 'left-label': isLabelLeft }
       )}
     >
@@ -89,7 +87,7 @@ const SelectField: FC<Props> = ({
           {optionsList(options)}
         </select>
         {info && <span className="footer-label-info">{info}</span>}
-        {error && <span className="help-block">{error}</span>}
+        {error && typeof error !== 'boolean' && <span className="help-block">{error}</span>}
       </div>
     </div>
   );

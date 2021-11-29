@@ -2,14 +2,14 @@
   position: relative;
   margin-bottom: $distance-4;
 
-  &.width-sm {
-    max-width: 320px;
+  .size-sm {
+    max-width: map-get($widths, sm);
   }
-  &.width-md {
-    max-width: 420px;
+  .size-md {
+    max-width: map-get($widths, md);
   }
-  &.width-lg {
-    max-width: 720px;
+  .size-lg {
+    max-width: map-get($widths, lg);
   }
 
   .help {
@@ -68,10 +68,10 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
-    color: map-get($base, 'black');
+    color: map-get($base, black);
     letter-spacing: 0;
     display: block;
-    margin-bottom: $distance-2;
+    margin-bottom: $distance-1;
   }
 
   .label-optional {
@@ -94,5 +94,18 @@
   input::placeholder,
   textarea::placeholder {
     color: map-get($neutrals, 400);
+  }
+
+  &.has-error {
+    .form-control {
+      @include input-form-error();
+    }
+    .help-block {
+      color: map-get($negative, 500) !important;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      font-weight: 400 !important;
+      padding-top: $distance-1;
+    }
   }
 }

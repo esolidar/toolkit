@@ -20,14 +20,14 @@
     position: relative;
     margin-bottom: $distance-4;
 
-    &.width-sm {
-      max-width: 320px;
+    &.size-sm {
+      max-width: map-get($widths, sm);
     }
-    &.width-md {
-      max-width: 420px;
+    &.size-md {
+      max-width: map-get($widths, md);
     }
-    &.width-lg {
-      max-width: 720px;
+    &.size-lg {
+      max-width: map-get($widths, lg);
     }
   }
 
@@ -56,7 +56,7 @@
       -moz-appearance: none;
       -webkit-appearance: none;
       appearance: none;
-      padding: 4px 20px;
+      padding: 0px 34px;
     }
 
     .form-control {
@@ -90,5 +90,20 @@
 
   &__input {
     width: 100%;
+
+    &::after {
+      content: ' ';
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 1)
+      );
+      height: 33px;
+      width: 40px;
+      position: absolute;
+      right: 29px;
+      top: 2px;
+    }
   }
 }

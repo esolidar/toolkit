@@ -7,6 +7,7 @@ interface Pages {
 interface Props {
   pages: Pages[];
   cdnStaticUrl: string;
+  handleChangeTab(i: number): void;
 }
 
 export default Props;

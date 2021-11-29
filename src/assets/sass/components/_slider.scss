@@ -1,0 +1,56 @@
+.esolidar-slider {
+  display: flex;
+  align-items: center;
+
+  .btn-ghost {
+    gap: 0;
+    min-width: 40px;
+  }
+
+  .rc-slider {
+    height: 22px;
+    margin: 0 $distance-1;
+  }
+
+  .rc-slider-rail {
+    height: 12px;
+    background-color: map-get($background, secondary);
+    border: 1px solid map-get($neutrals, 200);
+  }
+
+  .rc-slider-step {
+    height: 12px;
+  }
+
+  .rc-slider-track {
+    height: 12px;
+    background-color: map-get($turquoise, 500);
+  }
+
+  .rc-slider-handle {
+    margin-top: -4px;
+    width: 20px;
+    height: 20px;
+    border: solid 2px map-get($turquoise, 500);
+    background-color: #fff;
+
+    &:hover {
+      border: solid 2px map-get($turquoise, 500);
+    }
+
+    &:active {
+      box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      border: solid 2px map-get($turquoise, 500);
+    }
+  }
+  .rc-slider-handle-click-focused {
+    &:focus {
+      border: solid 2px map-get($turquoise, 500);
+    }
+  }
+
+  .rc-slider-disabled {
+    background-color: transparent;
+    opacity: 0.5;
+  }
+}

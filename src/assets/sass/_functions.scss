@@ -1,0 +1,3 @@
+@function get-rgba($color, $percent: 8) {
+  @return change-color($color, $alpha: $percent / 100);
+}

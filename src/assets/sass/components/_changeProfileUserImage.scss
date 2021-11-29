@@ -8,13 +8,13 @@
     display: inline-block;
     text-align: center;
     margin: 0 !important;
+    overflow: hidden;
 
     #change-profile-user-image__button-upload {
       min-width: 40px;
       width: 40px;
       height: 40px;
       position: absolute;
-      bottom: 0;
       left: 105px;
       padding: 0 11px;
     }
@@ -46,9 +46,16 @@
 
   .dropzone-box {
     text-align: center;
+    top: -50px;
+
+    .btn-esolidar__icon-left {
+      margin-right: -10px !important;
+    }
 
     .error-files {
       margin-top: 15px;
+      top: 33px;
+      position: absolute;
     }
   }
 }

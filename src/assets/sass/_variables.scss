@@ -269,6 +269,14 @@ $breakpoints: (
   xxl: 1400px,
 );
 
+$widths: (
+  xs: 155px,
+  sm: 320px,
+  md: 420px,
+  lg: 720px,
+  xl: 1020px,
+);
+
 /* Footer */
 $footer-link-color: map-get($theme-colors-light, primary);
 $facebook-color: #39579b;

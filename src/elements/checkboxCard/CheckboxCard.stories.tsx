@@ -32,9 +32,9 @@ export const Large = Template.bind({});
 
 Small.args = {
   id: 'checkboxCard-sm',
-  img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
+  img: `${cdnStaticUrl}/frontend/icons/ic-interest.svg`,
   size: 'sm',
-  title: 'Animals & Wildlife',
+  title: 'Primeiros socorros e Apoio em crises',
 };
 
 Medium.args = {

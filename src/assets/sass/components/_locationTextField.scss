@@ -1,12 +1,12 @@
 .locationTextField {
-  &.width-sm {
-    max-width: 320px;
+  .size-sm {
+    max-width: map-get($widths, sm);
   }
-  &.width-md {
-    max-width: 420px;
+  .size-md {
+    max-width: map-get($widths, md);
   }
-  &.width-lg {
-    max-width: 720px;
+  .size-lg {
+    max-width: map-get($widths, lg);
   }
 
   .geosuggest {
@@ -74,6 +74,26 @@
             background: map-get($grays, 100);
           }
         }
+      }
+    }
+  }
+
+  &.form-group {
+    &.has-error {
+      .geosuggest__input {
+        @include input-form-error();
+      }
+
+      &:focus {
+        @include input-focus();
+      }
+
+      .help-block {
+        color: map-get($negative, 500);
+        font-size: 14px !important;
+        line-height: 20px !important;
+        font-weight: 400 !important;
+        padding-top: $distance-1;
       }
     }
   }

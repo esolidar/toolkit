@@ -1,15 +1,15 @@
 .datepicker-component {
-  &.width-xs {
-    max-width: 155px;
+  .size-xs {
+    max-width: map-get($widths, xs);
   }
-  &.width-sm {
-    max-width: 320px;
+  .size-sm {
+    max-width: map-get($widths, sm);
   }
-  &.width-md {
-    max-width: 420px;
+  .size-md {
+    max-width: map-get($widths, md);
   }
-  &.width-lg {
-    max-width: 720px;
+  .size-lg {
+    max-width: map-get($widths, lg);
   }
 
   .icon {
@@ -144,6 +144,12 @@
       }
     }
 
+    &__day--in-selecting-range {
+      background-color: map-get($turquoise, 0);
+      color: map-get($turquoise, 500);
+      border-radius: 8px;
+    }
+
     &__day-names {
       margin: 0;
       padding: 0;
@@ -168,15 +174,22 @@
 
     &__day--selected,
     &__day--keyboard-selected {
-      background-color: map-get($turquoise, 500);
+      background-color: map-get($turquoise, 500) !important;
       border-radius: $border-radius-1;
+      color: white;
       &:focus-visible {
         border: none;
       }
     }
 
+    &__day--in-range {
+      background-color: map-get($turquoise, 300);
+      color: white;
+      border-radius: 8px;
+    }
+
     &__time-list-item--selected {
-      background-color: map-get($turquoise, 500) !important;
+      background-color: map-get($turquoise, 500);
     }
   }
 

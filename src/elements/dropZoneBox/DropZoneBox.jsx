@@ -3,8 +3,12 @@ import React, { useState, useEffect, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, useIntl } from 'react-intl';
+import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
+import InputLabel from '../inputLabel';
+import Slider from '../slider';
+import Icon from '../../components/icon';
 import CustomModal from '../customModal';
 import Button from '../button';
 import lastElemOf from '../../utils/lastElemOf';
@@ -36,8 +40,11 @@ const DropZoneBox = ({
   textSaveCropModal,
   modalClassName,
   isLoading,
-  label,
   hasError,
+  icon,
+  inputLabelProps,
+  label,
+  showFooterCropper = false,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -165,27 +172,27 @@ const DropZoneBox = ({
       const onDropErrorFileList = [];
 
       rejectedFiles.forEach(rejectedFile => {
-        const extension = fileExtensionOf(rejectedFile.name);
+        const extension = fileExtensionOf(rejectedFile.file.name);
         const errors = [];
         const acceptExtensionArray = accept.split(',').map(item => item.trim().toLocaleLowerCase());
         const extensionExist = acceptExtensionArray.includes(`.${extension}`);
 
         if (!extensionExist)
           errors.push(errorMessages.find(messageObj => messageObj.id === 'extensionError').message);
-        if (rejectedFile.size > maxSize)
+        if (rejectedFile.file.size > maxSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'maxSizeError').message
             } ${convertToMb(maxSize)}`
           );
-        if (rejectedFile.size < minSize)
+        if (rejectedFile.file.size < minSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'minSizeError').message
             } ${convertToMb(minSize)}`
           );
 
-        const fileErrorObject = { name: rejectedFile.name, errors };
+        const fileErrorObject = { name: rejectedFile.file.name, errors };
         if (errors.length) onDropErrorFileList.push(fileErrorObject);
       });
 
@@ -198,71 +205,72 @@ const DropZoneBox = ({
     toggleModalCropper();
   };
 
+  const onSliderMoves = (value, direction) => {
+    if (direction === 'right') cropper.current.zoom(0.1);
+    if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
   return (
-    <div className="dropzone-box">
+    <div className="dropzone-box form-group">
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-      {label && (
-        <label htmlFor="dropzone" className="control-label">
-          {label}
-        </label>
-      )}
+      {label && <InputLabel label={label} field="dropzone" />}
+      {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
-        <div
-          {...getRootProps({ className: 'dropZone' })}
-          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
-        >
+        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
           <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          <div className={hasError ? 'required-field' : ''}>
+          <div
+            className={classnames(
+              { 'required-field': hasError },
+              'drop-zone-box',
+              {
+                'with-icon': icon,
+              },
+              { disabled }
+            )}
+          >
             {isLoading && <Loading />}
             {!isLoading && (
-              <p>
-                <strong>
-                  <FormattedMessage id="document.files.modal.drop" />
-                </strong>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.acceptedFiles" values={{ accept }} />
-                </small>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.maxSize" />
-                </small>
-              </p>
+              <>
+                {icon && (
+                  <div className="drop-icon">
+                    <Icon iconClass={icon} />
+                  </div>
+                )}
+                <div>
+                  <FormattedMessage
+                    id="dropzonebox.text"
+                    values={{
+                      a: <a href="#">{intl.formatMessage({ id: 'dropzonebox.a' })}</a>,
+                    }}
+                  />
+                </div>
+              </>
             )}
           </div>
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
         </div>
       )}
       {!showDropArea && (
-        <span onClick={open} onKeyPress={() => {}} className={className}>
-          <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          {children}
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
-        </span>
+        <>
+          <span onClick={open} onKeyPress={() => {}} className={className}>
+            <input name="dropzone" {...getInputProps()} disabled={isLoading} />
+            {children}
+          </span>
+        </>
+      )}
+
+      {errorList.length > 0 && (
+        <div className="text-left error-files">
+          <div className="error">
+            <FormattedMessage id="document.files.modal.error.files" />
+          </div>
+          {errorList.map((file, idx) => (
+            <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
+              ', '
+            )}.`}</div>
+          ))}
+        </div>
       )}
 
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
@@ -311,8 +319,8 @@ const DropZoneBox = ({
                 src={croppedFile}
                 style={{ height: 400, width: '100%' }}
                 guides={true}
-                zoomable={false}
-                viewMode={1}
+                zoomable={true}
+                viewMode={2}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
               />
               {errorList.map((file, idx) => (
@@ -320,6 +328,34 @@ const DropZoneBox = ({
                   ', '
                 )}.`}</div>
               ))}
+              {showFooterCropper && (
+                <div className="d-flex">
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-left" />}
+                  />
+                  <Button
+                    extraClass="ghost"
+                    onClick={() => {
+                      cropper.current.rotate(-90);
+                    }}
+                    icon={<Icon iconClass="icon-corner-up-right" />}
+                  />
+                  <div className="flex-grow-1">
+                    <Slider
+                      min={0}
+                      max={100}
+                      step={10}
+                      defaultValue={0}
+                      showButtons={true}
+                      onChange={onSliderMoves}
+                    />
+                  </div>
+                </div>
+              )}
             </>
           }
           dividerBottom={true}
@@ -368,6 +404,9 @@ DropZoneBox.propTypes = {
   modalClassName: PropTypes.string,
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
+  inputLabelProps: PropTypes.object,
+  icon: PropTypes.string,
+  showFooterCropper: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {

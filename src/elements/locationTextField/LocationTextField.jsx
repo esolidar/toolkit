@@ -32,13 +32,12 @@ const TextField = ({
   latitude,
   longitude,
   size,
+  onBlur,
+  onChange,
 }) => (
   <div
     className={classnames(
       'locationTextField',
-      { 'width-sm': size === 'sm' },
-      { 'width-md': size === 'md' },
-      { 'width-lg': size === 'lg' },
       { 'form-group': !password },
       { 'has-error': error || message },
       { required },
@@ -51,11 +50,10 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
-        style={help ? { marginBottom: '8px' } : {}}
       />
     )}
     {!children && (
-      <div className="input">
+      <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
           <Icon
             iconClass={`icon left ${leftIcon?.name}`}
@@ -75,6 +73,8 @@ const TextField = ({
           className={classnames({ 'left-icon': leftIcon })}
           disabled={disabled}
           ref={inputRef}
+          onBlur={onBlur}
+          onChange={onChange}
         />
         {rightIcon?.show && (
           <Icon
@@ -126,6 +126,8 @@ TextField.propTypes = {
   latitude: PropTypes.string,
   longitude: PropTypes.string,
   size: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 TextField.defaultProps = {
