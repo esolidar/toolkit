@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638277843576" clover="3.2.0">
-  <project timestamp="1638277843577" name="All files">
-    <metrics statements="4022" coveredstatements="2794" conditionals="3302" coveredconditionals="2092" methods="1109" coveredmethods="566" elements="8433" coveredelements="5452" complexity="0" loc="4022" ncloc="4022" packages="181" files="399" classes="399"/>
+<coverage generated="1638282842657" clover="3.2.0">
+  <project timestamp="1638282842658" name="All files">
+    <metrics statements="4025" coveredstatements="2797" conditionals="3302" coveredconditionals="2092" methods="1109" coveredmethods="566" elements="8436" coveredelements="5455" complexity="0" loc="4025" ncloc="4025" packages="181" files="399" classes="399"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -817,13 +817,16 @@
       </file>
     </package>
     <package name="src.components.auctionDetail.auctionsList">
-      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="AuctionsList.jsx" path="C:\Projects\toolkit\src\components\auctionDetail\auctionsList\AuctionsList.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="21" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
+        <line num="12" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="30" count="21" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\auctionDetail\auctionsList\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
