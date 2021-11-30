@@ -1,7 +1,7 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import bundleScss from 'rollup-plugin-bundle-scss';
@@ -55,7 +55,7 @@ export default {
         '@babel/plugin-transform-react-jsx',
       ],
     }),
-    typescript({ useTsconfigDeclarationDir: true, rollupCommonJSResolveHack: true }),
+    typescript(),
     commonjs(),
     json(),
     copy({
