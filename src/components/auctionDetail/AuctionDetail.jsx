@@ -849,7 +849,7 @@ const AuctionDetail = ({
           <NoMatch
             color={primaryColor}
             errorMessage={intl.formatMessage({ id: 'auction.not.found' })}
-            link="/needs/auction/list"
+            link={`/${intl.locale}/needs/auction/list`}
             linkText={intl.formatMessage({ id: 'back.to.auctions' })}
           />
         </Row>
@@ -880,7 +880,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
-                    href="/needs/auction/list"
+                    href={`/${intl.locale}/needs/auction/list`}
                     text={intl.formatMessage({ id: 'cancel' })}
                   />
                   <Button
