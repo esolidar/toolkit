@@ -1,8 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import classnames from 'classnames';
 import Props from './SelectField.types';
 import InputLabel from '../inputLabel';
 import Icon from '../../components/icon';
+
+const toggleSelectAfter = () => {
+  const arraySelect = document.querySelectorAll<HTMLElement>('.select-field__input');
+  arraySelect.forEach((select: HTMLElement) => {
+    select.classList.toggle('after', select.offsetWidth > 320);
+  });
+};
 
 const SelectField: FC<Props> = ({
   options,
@@ -25,6 +32,14 @@ const SelectField: FC<Props> = ({
   leftIcon,
   size = 'lg',
 }: Props): JSX.Element => {
+  useEffect(() => {
+    window.addEventListener('resize', toggleSelectAfter);
+
+    return () => {
+      window.removeEventListener('resize', toggleSelectAfter);
+    };
+  }, []);
+
   const optionsList = options => {
     if (options) {
       return options.map((option, i) => (

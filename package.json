@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.31.0",
+  "version": "4.32.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -210,7 +210,6 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-visualizer": "^5.5.0",
     "sass-loader": "^8.0.0",
     "slugify": "^1.3.6",
@@ -234,6 +233,7 @@
     "registry": "https://npm.pkg.github.com/@esolidar"
   },
   "dependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
     "react-beautiful-dnd": "10.0.4",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2"
