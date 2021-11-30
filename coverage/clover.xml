@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638208053965" clover="3.2.0">
-  <project timestamp="1638208053965" name="All files">
-    <metrics statements="4020" coveredstatements="2793" conditionals="3304" coveredconditionals="2092" methods="1109" coveredmethods="566" elements="8433" coveredelements="5451" complexity="0" loc="4020" ncloc="4020" packages="181" files="399" classes="399"/>
+<coverage generated="1638211276142" clover="3.2.0">
+  <project timestamp="1638211276142" name="All files">
+    <metrics statements="4022" coveredstatements="2794" conditionals="3302" coveredconditionals="2092" methods="1109" coveredmethods="566" elements="8433" coveredelements="5452" complexity="0" loc="4022" ncloc="4022" packages="181" files="399" classes="399"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -4131,7 +4131,7 @@
       </file>
     </package>
     <package name="src.elements.selectField">
-      <metrics statements="21" coveredstatements="19" conditionals="32" coveredconditionals="28" methods="12" coveredmethods="6"/>
+      <metrics statements="23" coveredstatements="20" conditionals="30" coveredconditionals="28" methods="12" coveredmethods="6"/>
       <file name="SelectField.stories.js" path="D:\projects\toolkit\src\elements\selectField\SelectField.stories.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
         <line num="12" count="3" type="stmt"/>
@@ -4145,19 +4145,21 @@
         <line num="52" count="1" type="stmt"/>
       </file>
       <file name="SelectField.tsx" path="D:\projects\toolkit\src\elements\selectField\SelectField.tsx">
-        <metrics statements="12" coveredstatements="10" conditionals="32" coveredconditionals="28" methods="7" coveredmethods="5"/>
+        <metrics statements="14" coveredstatements="11" conditionals="30" coveredconditionals="28" methods="7" coveredmethods="5"/>
         <line num="7" count="10" type="stmt"/>
-        <line num="28" count="13" type="stmt"/>
-        <line num="29" count="7" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="35" count="7" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
         <line num="36" count="7" type="stmt"/>
-        <line num="40" count="13" type="stmt"/>
-        <line num="41" count="13" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="12" type="stmt"/>
-        <line num="43" count="36" type="stmt"/>
-        <line num="55" count="13" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="43" count="13" type="stmt"/>
+        <line num="44" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="12" type="stmt"/>
+        <line num="46" count="36" type="stmt"/>
+        <line num="58" count="13" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\selectField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -4,6 +4,13 @@ import Props from './SelectField.types';
 import InputLabel from '../inputLabel';
 import Icon from '../../components/icon';
 
+const toggleSelectAfter = () => {
+  const arraySelect = document.querySelectorAll<HTMLElement>('.select-field__input');
+  arraySelect.forEach((select: HTMLElement) => {
+    select.classList.toggle('after', select.offsetWidth > 320);
+  });
+};
+
 const SelectField: FC<Props> = ({
   options,
   value,
@@ -26,14 +33,10 @@ const SelectField: FC<Props> = ({
   size = 'lg',
 }: Props): JSX.Element => {
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      const selectField = document.querySelector('select-field__input')[0];
-
-      if (selectField) selectField.classList.toggle('after', selectField.offsetWidth > 320);
-    });
+    window.addEventListener('resize', toggleSelectAfter);
 
     return () => {
-      window.removeEventListener('resize', () => {});
+      window.removeEventListener('resize', toggleSelectAfter);
     };
   }, []);
 
