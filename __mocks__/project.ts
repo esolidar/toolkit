@@ -109,7 +109,7 @@ const project = {
       created_at: '2021-02-01 12:02:01',
     },
   ],
-  ods: [ods, ods, ods, ods, ods],
+  ods: [ods],
   project_category: {
     created_at: '2020-08-06 15:56:39',
     id: 9,

@@ -27,6 +27,7 @@ const InstitutionListSelect = ({
   isLoading,
   user_id,
   removeInstitutionSelected,
+  institutionRowButtonText,
 }) => {
   const intl = useIntl();
 
@@ -72,6 +73,7 @@ const InstitutionListSelect = ({
                 onChange={onChange}
                 userId={Number(user_id)}
                 removeInstitutionSelected={removeInstitutionSelected}
+                institutionRowButtonText={institutionRowButtonText}
               />
             ))
           )}
@@ -112,6 +114,7 @@ InstitutionListSelect.propTypes = {
   isLoading: PropTypes.bool,
   user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
+  institutionRowButtonText: PropTypes.string,
 };
 
 InstitutionListSelect.defaultProps = {
@@ -124,6 +127,7 @@ const InstitutionRow = ({
   onChange,
   userId,
   removeInstitutionSelected,
+  institutionRowButtonText,
 }) => {
   const intl = useIntl();
   const { id, name, image, user_id } = institution;
@@ -146,9 +150,12 @@ const InstitutionRow = ({
       </div>
       <Button
         extraClass={isSelected ? 'info-full' : 'info'}
-        text={intl.formatMessage({
-          id: isSelected ? 'selected' : 'select',
-        })}
+        text={
+          institutionRowButtonText ||
+          intl.formatMessage({
+            id: isSelected ? 'selected' : 'select',
+          })
+        }
         onClick={() => {
           if (isSameUserId && removeInstitutionSelected) removeInstitutionSelected();
           else if (!isSameUserId) onChange(institution);
@@ -170,6 +177,7 @@ InstitutionRow.propTypes = {
   onChange: PropTypes.func,
   removeInstitutionSelected: PropTypes.func,
   userId: PropTypes.any,
+  institutionRowButtonText: PropTypes.string,
 };
 
 export default InstitutionListSelect;
