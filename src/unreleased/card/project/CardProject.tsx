@@ -4,6 +4,8 @@ import { cdnUploadsUrl, cdnStaticUrl } from '../../../constants/env';
 import Props from './CardProject.types';
 import Card from '../Card';
 import Ods from '../../../interfaces/ods.types';
+import getStatus from '../../../utils/getStatus';
+import { PROJECT } from '../../../constants/status';
 
 const CardProject: FC<Props> = ({ project, clickThumb }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
@@ -43,46 +45,12 @@ interface CountdownProps {
 
 const Status = ({ project }: CountdownProps) => {
   const intl: IntlShape = useIntl();
-  let statusText = '';
   let newStatus = project.status;
-
-  if (newStatus === 'PENDING' && project.review_average) {
-    newStatus = 'REVIEWED';
+  if (newStatus === PROJECT.pending && project.review_average) {
+    newStatus = PROJECT.reviewed;
   }
 
-  switch (newStatus) {
-    case 'DRAFT':
-      statusText = intl.formatMessage({ id: 'draft' });
-      break;
-
-    case 'PENDING':
-      statusText = intl.formatMessage({ id: 'new' });
-      break;
-
-    case 'REVIEWED':
-      statusText = intl.formatMessage({ id: 'reviewed' });
-      break;
-
-    case 'IN_REVIEW':
-      statusText = intl.formatMessage({ id: 'on-hold' });
-      break;
-
-    case 'APPROVED':
-      statusText = intl.formatMessage({ id: 'approved' });
-      break;
-
-    case 'COMPLETED':
-      statusText = intl.formatMessage({ id: 'archived' });
-      break;
-
-    case 'REJECTED':
-      statusText = intl.formatMessage({ id: 'rejected' });
-      break;
-
-    default:
-  }
-
-  return <div className="card-project-status">{statusText}</div>;
+  return <div className="card-project-status">{getStatus(newStatus, intl.formatMessage)}</div>;
 };
 
 interface BodyProps {

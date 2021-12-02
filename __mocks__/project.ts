@@ -122,7 +122,7 @@ const project = {
     updated_at: '2021-05-04 13:56:32',
     whitelabel_id: 5,
   },
-  review_average: 4,
+  review_average: null,
   status: 'PENDING',
   status_reason: null,
   title: 'PROJECT TITLE',

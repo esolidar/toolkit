@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638439839052" clover="3.2.0">
-  <project timestamp="1638439839052" name="All files">
-    <metrics statements="4091" coveredstatements="2842" conditionals="3352" coveredconditionals="2117" methods="1131" coveredmethods="574" elements="8574" coveredelements="5533" complexity="0" loc="4091" ncloc="4091" packages="183" files="405" classes="405"/>
+<coverage generated="1638457679762" clover="3.2.0">
+  <project timestamp="1638457679762" name="All files">
+    <metrics statements="4108" coveredstatements="2851" conditionals="3363" coveredconditionals="2120" methods="1133" coveredmethods="575" elements="8604" coveredelements="5546" complexity="0" loc="4108" ncloc="4108" packages="184" files="407" classes="407"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -2523,7 +2523,7 @@
       </file>
     </package>
     <package name="src.components.preview">
-      <metrics statements="15" coveredstatements="13" conditionals="8" coveredconditionals="4" methods="5" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="13" conditionals="9" coveredconditionals="5" methods="5" coveredmethods="2"/>
       <file name="Preview.stories.tsx" path="C:\Projects\toolkit\src\components\preview\Preview.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
@@ -2536,7 +2536,7 @@
         <line num="42" count="1" type="stmt"/>
       </file>
       <file name="Preview.tsx" path="C:\Projects\toolkit\src\components\preview\Preview.tsx">
-        <metrics statements="7" coveredstatements="5" conditionals="8" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="5" conditionals="9" coveredconditionals="5" methods="3" coveredmethods="1"/>
         <line num="10" count="6" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -3480,7 +3480,7 @@
       </file>
     </package>
     <package name="src.constants">
-      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="date.ts" path="C:\Projects\toolkit\src\constants\date.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="13" type="stmt"/>
@@ -3503,6 +3503,13 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
+      </file>
+      <file name="status.ts" path="C:\Projects\toolkit\src\constants\status.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.alertBox">
@@ -3985,9 +3992,9 @@
       </file>
     </package>
     <package name="src.elements.multiSelectField">
-      <metrics statements="48" coveredstatements="26" conditionals="34" coveredconditionals="12" methods="16" coveredmethods="5"/>
+      <metrics statements="51" coveredstatements="28" conditionals="34" coveredconditionals="12" methods="17" coveredmethods="5"/>
       <file name="MultiSelectField.jsx" path="C:\Projects\toolkit\src\elements\multiSelectField\MultiSelectField.jsx">
-        <metrics statements="27" coveredstatements="18" conditionals="20" coveredconditionals="11" methods="10" coveredmethods="3"/>
+        <metrics statements="47" coveredstatements="25" conditionals="34" coveredconditionals="12" methods="15" coveredmethods="4"/>
         <line num="11" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -4015,6 +4022,26 @@
         <line num="136" count="1" type="stmt"/>
         <line num="137" count="0" type="cond" truecount="1" falsecount="1"/>
         <line num="155" count="1" type="stmt"/>
+        <line num="174" count="1" type="stmt"/>
+        <line num="175" count="1" type="stmt"/>
+        <line num="176" count="1" type="stmt"/>
+        <line num="181" count="1" type="stmt"/>
+        <line num="182" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="183" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="184" count="0" type="stmt"/>
+        <line num="186" count="0" type="stmt"/>
+        <line num="187" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="188" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="189" count="0" type="stmt"/>
+        <line num="190" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="197" count="0" type="stmt"/>
+        <line num="200" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="201" count="1" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="210" count="0" type="stmt"/>
+        <line num="213" count="1" type="stmt"/>
       </file>
       <file name="MultiSelectField.stories.tsx" path="C:\Projects\toolkit\src\elements\multiSelectField\MultiSelectField.stories.tsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
@@ -4022,26 +4049,6 @@
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-      </file>
-      <file name="Select.tsx" path="C:\Projects\toolkit\src\elements\multiSelectField\Select.tsx">
-        <metrics statements="17" coveredstatements="5" conditionals="14" coveredconditionals="1" methods="4" coveredmethods="1"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.pagination">
@@ -4477,12 +4484,12 @@
         <line num="34" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="35" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="36" count="30" type="stmt"/>
-        <line num="37" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="43" count="3" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
+        <line num="37" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
         <line num="49" count="37" type="stmt"/>
         <line num="98" count="20" type="stmt"/>
         <line num="125" count="20" type="stmt"/>
@@ -5670,6 +5677,25 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.utils.getStatus">
+      <metrics statements="10" coveredstatements="3" conditionals="10" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="getStatus.ts" path="C:\Projects\toolkit\src\utils\getStatus\getStatus.ts">
+        <metrics statements="10" coveredstatements="3" conditionals="10" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="7"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\utils\getStatus\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
     <package name="src.utils.getUrlParam">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="getUrlParam.js" path="C:\Projects\toolkit\src\utils\getUrlParam\getUrlParam.js">
@@ -5727,7 +5753,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="84" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
