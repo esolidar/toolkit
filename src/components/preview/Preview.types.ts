@@ -7,10 +7,10 @@ interface Image {
 
 interface Props {
   className?: string;
-  img?: Image;
-  handleDeleteImage(): void;
-  fullScreen: boolean;
-  badgeText: string;
+  img: Image;
+  handleDeleteImage?(): void;
+  fullScreen?: boolean;
+  badgeText?: string;
 }
 
 export default Props;

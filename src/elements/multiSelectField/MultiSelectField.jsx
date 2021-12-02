@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { components } from 'react-select';
+import ReactSelect, { components } from 'react-select';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
+import { injectIntl, useIntl } from 'react-intl';
 import classNames from 'classnames';
-import Select from './Select';
+
 import Badge from '../badge';
 import InputLabel from '../inputLabel';
 
@@ -21,8 +21,8 @@ class MultiSelectField extends Component {
   };
 
   ValueContainer = ({ children, ...props }) => {
-    let length = 0;
     const currentValues = props.getValue();
+    let { length } = currentValues;
     const toBeRendered = [[], children[1]];
 
     if (currentValues.find(i => i.value === '*')) length = currentValues.length - 1;
@@ -169,4 +169,49 @@ MultiSelectField.propTypes = {
   labelHeader: PropTypes.object,
   value: PropTypes.array,
   onChange: PropTypes.func,
+};
+
+const Select = props => {
+  const intl = useIntl();
+  const allOption = {
+    label: intl.formatMessage({ id: 'select-all' }),
+    value: '*',
+  };
+
+  const handleChange = (selected, event) => {
+    if (selected !== null && selected.length > 0) {
+      if (selected[selected.length - 1].value === allOption.value) {
+        return props.onChange([allOption, ...props.options]);
+      }
+      let result = [];
+      if (selected.length === props.options.length) {
+        if (selected.find(i => i.value === '*')) {
+          result = selected.filter(option => option.value !== allOption.value);
+        } else if (event.action === 'select-option') {
+          result = [allOption, ...props.options];
+        }
+        return props.onChange(result);
+      }
+    }
+
+    return props.onChange(selected);
+  };
+
+  if (props.allowSelectAll) {
+    return (
+      <ReactSelect
+        {...props}
+        options={[allOption, ...props.options]}
+        onChange={(selected, event) => handleChange(selected, event)}
+      />
+    );
+  }
+
+  return <ReactSelect {...props} />;
+};
+
+Select.propTypes = {
+  allowSelectAll: PropTypes.bool,
+  onChange: PropTypes.func,
+  options: PropTypes.array,
 };

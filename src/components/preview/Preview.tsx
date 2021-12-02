@@ -11,7 +11,7 @@ const Preview: FC<Props> = ({
   className,
   img,
   handleDeleteImage,
-  fullScreen,
+  fullScreen = false,
   badgeText,
 }: Props): JSX.Element => {
   const [lightboxIsOpen, seLightboxIsOpen] = useState<boolean>(false);
