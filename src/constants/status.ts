@@ -22,7 +22,7 @@ export const STATUS: Status = {
   suspended: 'suspended',
 };
 
-export const PROJECT: any = {
+export const PROJECT: Status = {
   [STATUS.draft]: 'DRAFT',
   [STATUS.pending]: 'PENDING',
   [STATUS.reviewed]: 'REVIEWED',
@@ -32,10 +32,11 @@ export const PROJECT: any = {
   [STATUS.rejected]: 'REJECTED',
 };
 
-export const AUCTION: any = {
+export const AUCTION: Status = {
   // ENUM('A', 'S', 'B', 'P', 'F', 'D', 'DRAFT')
-  A: [STATUS.active],
+  [STATUS.draft]: 'DRAFT',
 };
-export const CROWDFUNDING: any = {
+export const CROWDFUNDING: Status = {
   // ENUM('pending', 'approved', 'rejected', 'completed')
+  [STATUS.pending]: 'pending',
 };
