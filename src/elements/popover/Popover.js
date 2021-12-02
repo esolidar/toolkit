@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import PopoverBootstrap from 'react-bootstrap/Popover';
 
@@ -10,10 +11,13 @@ const Popover = ({
   overlayTrigger,
   popoverHeaderChildren,
   popoverBodyChildren,
+  className,
+  size = 'sm',
 }) => {
   const [isShow, setShow] = useState(undefined);
   const popover = (
     <PopoverBootstrap
+      className={classnames('esolidar-popover', `size-${size}`)}
       id="bootstrap-popover"
       onMouseOver={() => setShow(true)}
       onMouseOut={() => setShow(undefined)}
@@ -23,7 +27,10 @@ const Popover = ({
           {popoverHeaderChildren}
         </div>
       )}
-      <div className="bootstrap-popover-body" data-testid="bootstrap-popover-body">
+      <div
+        className={classnames('bootstrap-popover-body', className)}
+        data-testid="bootstrap-popover-body"
+      >
         {popoverBodyChildren}
       </div>
     </PopoverBootstrap>
@@ -47,5 +54,7 @@ Popover.propTypes = {
   overlayTrigger: PropTypes.element,
   popoverHeaderChildren: PropTypes.element,
   popoverBodyChildren: PropTypes.element,
+  className: PropTypes.string,
+  size: PropTypes.string,
 };
 export default Popover;

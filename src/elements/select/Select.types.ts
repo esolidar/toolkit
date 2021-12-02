@@ -34,6 +34,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   value: string;
   menuWidth?: string;
+  fullWidth?: boolean;
 }
 
 export interface CustomOptionProps {

@@ -1,0 +1,67 @@
+.multi-select-component {
+  .esolidar-select__menu-list {
+    label {
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  .esolidar-select__option--is-selected {
+    label {
+      color: map-get($turquoise, 500);
+    }
+  }
+
+  .checkbox-inline {
+    label {
+      cursor: pointer;
+    }
+  }
+
+  .label-header-options {
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 700);
+    margin-left: $distance-3;
+    margin-right: $distance-3;
+    margin-top: $distance-2;
+  }
+
+  .esolidar-select__value-container {
+    padding-right: 0;
+
+    .option-header {
+      display: flex;
+
+      &__text {
+        white-space: nowrap;
+        margin-right: $distance-1;
+        font-size: 16px;
+        line-height: 24px;
+        color: map-get($base, black);
+        font-weight: 600;
+      }
+
+      &__badge {
+        align-items: center;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .esolidar-select__control {
+    min-width: 140px;
+  }
+
+  .esolidar-select__placeholder {
+    font-size: 16px;
+    line-height: 24px;
+    color: map-get($base, black) !important;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .esolidar-select__menu {
+    min-width: map-get($widths, sm);
+  }
+}

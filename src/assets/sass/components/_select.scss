@@ -9,6 +9,12 @@
     max-width: 720px;
   }
 
+  &.full-width {
+    .esolidar-select__control {
+      width: 100%;
+    }
+  }
+
   &-error {
     & .esolidar-select__control {
       border: 2px solid map-get($negative, 500) !important;
@@ -24,6 +30,7 @@
   }
 
   &__control {
+    width: fit-content;
     border-radius: $border-radius-1 !important;
     background: map-get($base, white) !important;
     border: 2px solid map-get($neutrals, 200) !important;
@@ -99,6 +106,7 @@
       padding: $distance-2 !important;
 
       & .esolidar-select__option {
+        background: transparent;
         display: flex;
         gap: $distance-1;
         font-size: 14px;
