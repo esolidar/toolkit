@@ -3,6 +3,7 @@ interface Support {
   name?: string;
   label: any;
   target?: string;
+  revert: boolean;
 }
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
   body: any;
   support: Support;
   isPrivate?: boolean;
+  average?: number;
 }
 
 export default Props;

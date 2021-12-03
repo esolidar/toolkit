@@ -31,6 +31,7 @@
       color: map-get($neutrals, 700);
       line-height: 18px;
       text-align: center;
+      justify-content: center;
       @include animate();
     }
 

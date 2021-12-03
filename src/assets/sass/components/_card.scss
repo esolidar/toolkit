@@ -18,6 +18,7 @@
     overflow: hidden;
     position: relative;
     .bg-image {
+      background-color: map-get($neutrals, 200);
       height: 200px;
       background-size: cover;
       background-position: 50% 50%;
@@ -42,10 +43,23 @@
     position: relative;
   }
 
+  &__average {
+    position: absolute;
+    top: $distance-2;
+    left: $distance-2;
+
+    &-value {
+      color: map-get($base, black);
+    }
+
+    &-total {
+      color: map-get($neutrals, 400);
+    }
+  }
+
   &__countdown {
     margin-top: -50px;
     position: relative;
-    z-index: 9;
   }
 
   &__title {
@@ -120,5 +134,38 @@
     font-size: 16px;
     font-weight: 700;
     color: map-get($colors, black);
+  }
+
+  .card-project-status {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    background: map-get($colors, white);
+    border-radius: $border-radius-1;
+    border: 1px solid change-color(map-get($base, black), $alpha: 0.04);
+    padding: 22px;
+  }
+
+  .project__ods {
+    display: flex;
+    margin-top: $distance-4;
+    gap: $distance-1;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: $border-radius-1 / 2;
+    }
+
+    .more {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      border: 1px solid change-color(map-get($base, black), $alpha: 0.04);
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
   }
 }

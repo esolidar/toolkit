@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
+import Preview from '../../components/preview';
 import Slider from '../slider';
 import Icon from '../../components/icon';
 import CustomModal from '../customModal';
@@ -70,24 +71,21 @@ const DropZoneBox = ({
   const ImagesPreview = () => (
     <div className="d-flex">
       {imagesList.map((file, idx) => (
-        <div key={file.id} className="gallery-thumb mt-3 mb-2 mr-3">
+        <div key={file.id} className="mt-3 mb-2 mr-3">
           {file.image.includes('http') ? (
-            <img src={`${file.image}?width=64&height=64`} alt="thumb" />
+            <Preview
+              img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
+              handleDeleteImage={e => deleteImageGallery(e, idx)}
+            />
           ) : (
-            <img
-              src={`${env.serverlessResizeImage}/${file.image}?width=64&height=64`}
-              alt="thumb"
+            <Preview
+              handleDeleteImage={e => deleteImageGallery(e, idx)}
+              img={{
+                src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
+                alt: 'thumb',
+              }}
             />
           )}
-
-          <button
-            type="button"
-            className="btn-delete-image"
-            data-image-id={file.id}
-            onClick={e => deleteImageGallery(e, idx)}
-          >
-            x
-          </button>
         </div>
       ))}
     </div>
@@ -121,6 +119,7 @@ const DropZoneBox = ({
   const toggleModalCropper = () => {
     setDisableCroppedImage(false);
     setCropperModal(false);
+    setErrorList([]);
   };
 
   const { getRootProps, getInputProps, open } = useDropzone({
@@ -218,7 +217,7 @@ const DropZoneBox = ({
       {label && <InputLabel label={label} field="dropzone" />}
       {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
-        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}}`}>
+        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}`}>
           <input name="dropzone" {...getInputProps()} disabled={isLoading} />
           <div
             className={classnames(
@@ -290,6 +289,7 @@ const DropZoneBox = ({
                     if (imageWidth > minWidth && imageHeight > minHeight) {
                       setDisableCroppedImage(true);
                       handleSubmitCroppedImage(blob);
+                      setErrorList([]);
                     } else {
                       const errors = [];
                       errors.push({
