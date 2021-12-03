@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InstitutionListSelect from './InstitutionListSelect';
+import institution from '../../../__mocks__/institution';
 
 export default {
   title: 'Components/InstitutionListSelect',
@@ -10,7 +11,7 @@ const Template = args => {
   const [institutionSelected, setInstitutionSelected] = useState(args.institutionSelected);
 
   const handleOnChange = value => {
-    setInstitutionSelected(value);
+    setInstitutionSelected(value.id);
   };
 
   const handleOnRemove = () => {
@@ -34,44 +35,14 @@ Default.parameters = {
   jest: ['InstitutionListSelect.test.js'],
 };
 
+const istitution2 = { ...institution };
+istitution2.id = 31;
+
 Default.args = {
   institutionSelected: Number(''),
   user_id: null,
   isLoading: false,
-  institutions: [
-    {
-      user_id: 1124,
-      id: 30,
-      category_id: 1,
-      name: 'Helpo',
-      sigla: 'helpo',
-      accept_volunteer: 1,
-      accept_donations: 1,
-      paypal_email: 'donativos@esolidar.com',
-      image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      cover_image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      country: 208,
-      language: 2,
-    },
-    {
-      user_id: 1125,
-      id: 31,
-      category_id: 1,
-      name: 'Fundo Brasileiro para a Biodiversidade',
-      sigla: 'AP Braga',
-      accept_volunteer: 1,
-      accept_donations: 1,
-      paypal_email: 'donativos@esolidar.com',
-      image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      cover_image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      country: 208,
-      language: 2,
-    },
-  ],
+  institutions: [institution, istitution2],
   categories: [],
   onChangeInstitutionCategory: () => {},
   removeInstitutionSelected: () => {},
@@ -93,40 +64,7 @@ ListFooter.args = {
   institutionSelected: Number(''),
   user_id: null,
   isLoading: false,
-  institutions: [
-    {
-      user_id: 1124,
-      id: 30,
-      category_id: 1,
-      name: 'Helpo',
-      sigla: 'helpo',
-      accept_volunteer: 1,
-      accept_donations: 1,
-      paypal_email: 'donativos@esolidar.com',
-      image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      cover_image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      country: 208,
-      language: 2,
-    },
-    {
-      user_id: 1125,
-      id: 31,
-      category_id: 1,
-      name: 'Fundo Brasileiro para a Biodiversidade',
-      sigla: 'AP Braga',
-      accept_volunteer: 1,
-      accept_donations: 1,
-      paypal_email: 'donativos@esolidar.com',
-      image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      cover_image:
-        'https://cdn.testesolidar.com/institutions/cover/fdc46ea6-fea3-446c-87e4-178610260c04.jpeg',
-      country: 208,
-      language: 2,
-    },
-  ],
+  institutions: [institution, istitution2],
   categories: [],
   onChangeInstitutionCategory: () => {},
   removeInstitutionSelected: () => {},
