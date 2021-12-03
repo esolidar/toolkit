@@ -1,47 +1,34 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
-import React from 'react';
-import { shallow } from 'enzyme';
 import '@testing-library/jest-dom';
-import InstitutionListSelect from '../index';
-import institution from '../../../../__mocks__/institution';
+import { composeStory } from '@storybook/testing-react';
+import React from 'react';
+import { render } from '../../../../__customQueries__/test-utils';
+import Meta, {
+  Default as DefaultStory,
+  ListFooter as ListFooterStory,
+} from '../InstitutionListSelect.stories';
 
-const props = {
-  institutions: [institution],
-  onChangeInstitutionCategory: () => {},
-  selectCategoryText: 'selectCategoryText',
-  error: {},
-  onSearch: () => {},
-  categories: [],
-  search: '',
-  handlePageChange: () => {},
-  removeInstitutionSelected: () => {},
-  npoId: 1,
-  institutionSelected: 1,
-  onChange: () => {},
-  selectText: '',
-  NoResultsText: '',
-  pagination: {
-    activePage: 1,
-    itemsCountPerPage: 5,
-    totalItemsCount: 10,
-  },
-  user_id: 30,
-};
+const Default = composeStory(DefaultStory, Meta);
+const ListFooter = composeStory(ListFooterStory, Meta);
 
-describe('InstitutionListSelect component', () => {
-  it('renders InstitutionListSelect correctly', () => {
-    const component = shallow(<InstitutionListSelect {...props} />);
-    expect(component).toHaveLength(1);
-    expect(component.find('InstitutionRow')).toHaveLength(1);
-    expect(component.find('Pagination')).toHaveLength(1);
-  });
+it('renders InstitutionListSelect default', () => {
+  const { getByTestId, getAllByClass, getByClass } = render(<Default />);
 
-  it('renders InstitutionListSelect correctly without institutions', () => {
-    props.institutions = [];
-    const component = shallow(<InstitutionListSelect {...props} />);
-    expect(component.find('InstitutionRow')).toHaveLength(0);
-    expect(component.find('Pagination')).toHaveLength(0);
-    expect(component.find('.no-results')).toHaveLength(1);
-  });
+  expect(getByClass(/institutions-list/)).toBeInTheDocument();
+  expect(getByClass('control-label')).toBeInTheDocument();
+  expect(getByClass('select-field__input')).toBeInTheDocument();
+  expect(getByClass(/search-institutions/)).toBeInTheDocument();
+  expect(getAllByClass('institution-row')).toHaveLength(2);
+  expect(getByTestId('pagination')).toBeInTheDocument();
+});
+
+it('renders InstitutionListSelect with listFooter', () => {
+  const { getAllByClass, getByClass } = render(<ListFooter />);
+
+  expect(getByClass(/institutions-list/)).toBeInTheDocument();
+  expect(getByClass('control-label')).toBeInTheDocument();
+  expect(getByClass('select-field__input')).toBeInTheDocument();
+  expect(getByClass(/search-institutions/)).toBeInTheDocument();
+  expect(getAllByClass('institution-row')).toHaveLength(2);
+  expect(getByClass('component-list-footer')).toBeInTheDocument();
+  expect(getByClass('component-list-footer-results')).toBeInTheDocument();
 });
