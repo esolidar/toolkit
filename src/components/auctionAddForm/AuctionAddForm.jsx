@@ -1046,7 +1046,7 @@ const AuctionAddForm = ({
                       data-testid="select-institution"
                       className="title-help"
                     >
-                      <FormattedMessage id="auction.beneficiary" />
+                      <FormattedMessage id="toolkit.beneficiary" />
                     </h3>
                   </Col>
                   {showProjects && hasProjects && (

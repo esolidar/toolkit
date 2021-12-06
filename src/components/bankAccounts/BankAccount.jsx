@@ -355,7 +355,7 @@ const BankAccount = ({
                   />
                   <TextField
                     id={`beneficiary[${i}]`}
-                    label={intl.formatMessage({ id: 'auction.beneficiary' })}
+                    label={intl.formatMessage({ id: 'toolkit.beneficiary' })}
                     type="text"
                     onChange={e => handdleChangeAccount(e, i, countryId)}
                     error={errors[`account-${countryId}-indx-${i}-field-beneficiary`]}
