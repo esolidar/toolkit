@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl, FormattedMessage, FormattedNumber } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { FormattedMessage } from 'react-intl';
+
 import Moment from 'react-moment';
 import Pagination from '../../elements/pagination';
 import Loading from '../loading';
@@ -19,8 +20,6 @@ const Giftcards = ({
   onSearchTable,
   giftCardsListUsed,
   options,
-  renderCause,
-  rendeAmount,
   giftCardsListActivePage,
   giftCardsListPerPage,
   giftCardsListTotal,
@@ -31,23 +30,48 @@ const Giftcards = ({
   handlePageChangeUsed,
   loading,
   searchTerm,
+  statusText,
 }) => {
+  const intl = useIntl();
+
   const renderDate = (cell, row) => {
     if (row.giftcard_institution.length > 0) {
       return (
-        <div style={{ whiteSpace: 'initial', textAlign: 'center', fontSize: '13px' }}>
+        <div style={{ whiteSpace: 'initial', fontSize: '13px' }}>
           <Moment utc tz={row.timezone} format="YYYY-MM-DD HH:mm:ss">
             {row.giftcard_institution[0].created_at}
           </Moment>
         </div>
       );
     }
+    return <div style={{ textAlign: 'center' }}>--</div>;
+  };
+
+  const renderStatus = (cell, row) => {
+    if (row.giftcard_institution.length > 0) {
+      return (
+        <div>
+          <FormattedMessage id="toolkit.spent" />
+        </div>
+      );
+    }
     return (
-      <div className="error" style={{ textAlign: 'center' }}>
+      <div className="error">
         <FormattedMessage id="giftcard.expired" />
       </div>
     );
   };
+
+  const renderCause = (cell, row) => {
+    if (row.giftcard_institution.length > 0) {
+      return <span>{row.giftcard_institution[0].institution.name}</span>;
+    }
+    return '--';
+  };
+
+  const rendeAmount = (cell, row) => (
+    <FormattedNumber value={row.amount} style="currency" currency={row.currency.small} />
+  );
 
   return (
     <Row>
@@ -61,14 +85,16 @@ const Giftcards = ({
       )}
 
       <Col sm={12} className="mobile-nopadding">
-        <h3>{usedExpiredText}</h3>
-        <p>{usedTitleText}</p>
+        <h3>{usedExpiredText || intl.formatMessage({ id: 'toolkit.history' })}</h3>
+        {usedTitleText && <p>{usedTitleText}</p>}
       </Col>
       <Col sm={12} className="giftcards-used-table padding-bottom30 mobile-nopadding">
         <input
           onChange={onSearchTable}
           className="form-control"
-          placeholder={InputPlaceholderText}
+          placeholder={
+            InputPlaceholderText || intl.formatMessage({ id: 'toolkit.search.vouchers' })
+          }
           value={searchTerm}
         />
       </Col>
@@ -87,17 +113,25 @@ const Giftcards = ({
           remote={true}
         >
           <TableHeaderColumn dataField="id" isKey={true} hidden />
-          <TableHeaderColumn dataSort dataField="name">
-            {giftcardTableTitleText}
+          <TableHeaderColumn dataSort dataField="name" width="200">
+            {giftcardTableTitleText || intl.formatMessage({ id: 'toolkit.voucher' })}
           </TableHeaderColumn>
-          <TableHeaderColumn dataSort dataField="institution_name" dataFormat={renderCause}>
-            {causeText}
+          <TableHeaderColumn
+            dataSort
+            dataField="institution_name"
+            dataFormat={renderCause}
+            width="240"
+          >
+            {causeText || intl.formatMessage({ id: 'toolkit.beneficiary' })}
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="amount" dataSort dataFormat={rendeAmount} width="130">
-            {amountText}
+          <TableHeaderColumn dataField="amount" dataSort dataFormat={rendeAmount} width="120">
+            {amountText || intl.formatMessage({ id: 'toolkit.value' })}
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="date" dataFormat={renderDate} dataSort width="130">
-            {dateText}
+          <TableHeaderColumn dataField="date" dataFormat={renderDate} dataSort width="140">
+            {dateText || intl.formatMessage({ id: 'toolkit.spentOn' })}
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField="status" dataFormat={renderStatus} dataSort width="120">
+            {statusText || intl.formatMessage({ id: 'toolkit.status' })}
           </TableHeaderColumn>
         </BootstrapTable>
       </Col>
@@ -118,8 +152,6 @@ Giftcards.propTypes = {
   onSearchTable: PropTypes.func.isRequired,
   giftCardsListUsed: PropTypes.array.isRequired,
   options: PropTypes.object.isRequired,
-  renderCause: PropTypes.func.isRequired,
-  rendeAmount: PropTypes.func.isRequired,
   giftCardsListActivePage: PropTypes.number.isRequired,
   giftCardsListPerPage: PropTypes.number.isRequired,
   giftCardsListTotal: PropTypes.number.isRequired,
@@ -137,4 +169,5 @@ Giftcards.propTypes = {
   dateText: PropTypes.string,
   loading: PropTypes.bool,
   searchTerm: PropTypes.string,
+  statusText: PropTypes.string,
 };
