@@ -69,7 +69,7 @@ const Giftcards = ({
     return '--';
   };
 
-  const rendeAmount = (cell, row) => (
+  const renderAmount = (cell, row) => (
     <FormattedNumber value={row.amount} style="currency" currency={row.currency.small} />
   );
 
@@ -124,7 +124,7 @@ const Giftcards = ({
           >
             {causeText || intl.formatMessage({ id: 'toolkit.beneficiary' })}
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="amount" dataSort dataFormat={rendeAmount} width="120">
+          <TableHeaderColumn dataField="amount" dataSort dataFormat={renderAmount} width="120">
             {amountText || intl.formatMessage({ id: 'toolkit.value' })}
           </TableHeaderColumn>
           <TableHeaderColumn dataField="date" dataFormat={renderDate} dataSort width="140">
