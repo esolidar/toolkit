@@ -74,7 +74,7 @@ const Giftcards = ({
   );
 
   return (
-    <Row>
+    <Row className="gift-cards">
       {giftCardsList.length > 0 && (
         <Pagination
           activePage={giftCardsListActivePage}
