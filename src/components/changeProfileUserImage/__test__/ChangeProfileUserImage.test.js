@@ -14,8 +14,8 @@ describe('ChangeProfileUserImage component', () => {
   it('should exist title', () => {
     const { getByClass, getByTestId } = render(<Default />);
 
-    expect(getByClass('control-label change-profile-user-image-title')).toBeTruthy();
-    expect(getByClass('control-label change-profile-user-image-title')).toHaveTextContent(
+    expect(getByClass('control-label d-flex change-profile-user-image-title')).toBeTruthy();
+    expect(getByClass('control-label d-flex change-profile-user-image-title')).toHaveTextContent(
       'Profile picture'
     );
     expect(getByTestId('thumb-change-profile-user-image')).toBeTruthy();

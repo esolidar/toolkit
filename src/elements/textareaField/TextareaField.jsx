@@ -33,6 +33,7 @@ const TextareaField = ({
   onBlur,
   size,
   editButton = false,
+  inputLabelProps = false,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -64,6 +65,7 @@ const TextareaField = ({
       {label && (
         <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
       )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className={classnames(`size-${size}`, ' relative')}>
         {editMode && (
           <div className="edit-button-mode">
@@ -139,6 +141,7 @@ TextareaField.propTypes = {
   onBlur: PropTypes.func,
   size: PropTypes.string,
   editButton: PropTypes.bool,
+  inputLabelProps: PropTypes.object,
 };
 
 TextareaField.defaultProps = {
