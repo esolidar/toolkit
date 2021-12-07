@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { FC } from 'react';
+import { IntlShape, useIntl } from 'react-intl';
 import Pagination from '../../elements/pagination';
 import SelectPerPage from '../../elements/selectPerPage';
 import Props from './ListFooter.types';
@@ -13,9 +14,13 @@ const ListFooter: FC<Props> = ({
   per_page,
   perPageOptions = [6, 12, 18, 24],
 }: Props): JSX.Element => {
+  const intl: IntlShape = useIntl();
+
   return (
     <div className="component-list-footer" data-testid="list-footer">
-      <div className="component-list-footer-results">{`${total} ${labelResultText}`}</div>
+      <div className="component-list-footer-results">{`${total} ${
+        labelResultText || intl.formatMessage({ id: 'toolkit.results' })
+      }`}</div>
       <div>
         <Pagination
           activePage={current_page}
