@@ -14,7 +14,7 @@ it('renders InstitutionListSelect default', () => {
   const { getByTestId, getAllByClass, getByClass } = render(<Default />);
 
   expect(getByClass(/institutions-list/)).toBeInTheDocument();
-  expect(getByClass('control-label')).toBeInTheDocument();
+  expect(getByClass('control-label d-flex')).toBeInTheDocument();
   expect(getByClass('select-field__input')).toBeInTheDocument();
   expect(getByClass(/search-institutions/)).toBeInTheDocument();
   expect(getAllByClass('institution-row')).toHaveLength(2);
@@ -25,7 +25,7 @@ it('renders InstitutionListSelect with listFooter', () => {
   const { getAllByClass, getByClass } = render(<ListFooter />);
 
   expect(getByClass(/institutions-list/)).toBeInTheDocument();
-  expect(getByClass('control-label')).toBeInTheDocument();
+  expect(getByClass('control-label d-flex')).toBeInTheDocument();
   expect(getByClass('select-field__input')).toBeInTheDocument();
   expect(getByClass(/search-institutions/)).toBeInTheDocument();
   expect(getAllByClass('institution-row')).toHaveLength(2);

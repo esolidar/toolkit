@@ -13,6 +13,7 @@ const Template = args => (
 );
 
 export const Primary = Template.bind({});
+export const Required = Template.bind({});
 export const Weight600 = Template.bind({});
 export const Weight400 = Template.bind({});
 
@@ -22,6 +23,15 @@ Primary.args = {
   help: 'Textarea_name',
   showOptionalLabel: true,
   style: { marginBottom: '8px' },
+};
+Required.args = {
+  label: 'Lorem Ipsum',
+  field: 'Textarea_name',
+  help: 'Textarea_name',
+  showOptionalLabel: true,
+  style: { marginBottom: '8px' },
+  required: true,
+  requiredText: "Visible only to Acme inc's admins",
 };
 
 Weight600.args = {
