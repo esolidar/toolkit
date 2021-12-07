@@ -13,9 +13,10 @@ const Preview: FC<Props> = ({
   handleDeleteImage,
   fullScreen = false,
   badgeText,
+  hover = true,
 }: Props): JSX.Element => {
   const [lightboxIsOpen, seLightboxIsOpen] = useState<boolean>(false);
-  const classes = classNames('esolidar-preview', className);
+  const classes = classNames('esolidar-preview', className, { 'hover-image': hover });
 
   const handleFullscreen = () => {
     seLightboxIsOpen(true);
@@ -32,7 +33,34 @@ const Preview: FC<Props> = ({
               className="esolidar-preview__image-delete-image"
               onClick={handleDeleteImage}
             >
-              <Icon iconClass="icon-close" />
+              {/* TODO: change svg for new icon from product team */}
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z"
+                  fill="#1A1B1C"
+                  fillOpacity="0.65"
+                />
+                <path
+                  d="M11 21L21 11"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M21 21L11 11"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           )}
           {fullScreen && (

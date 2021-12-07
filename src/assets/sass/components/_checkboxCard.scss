@@ -5,14 +5,16 @@
   align-items: center;
   justify-content: center;
   background-color: map-get($background, primary);
-  border: 1px solid map-get($neutrals, 100);
+  outline: 1px solid map-get($neutrals, 100);
   border-radius: $border-radius-1;
   box-shadow: 0px 2px 4px rgba(26, 27, 28, 0.04);
+  border: none;
 
   &.sm {
     min-height: 152px;
     width: 191px;
-    padding: $distance-3 $distance-2 $distance-2 $distance-2;
+    align-items: center;
+    display: -webkit-inline-box;
     justify-content: start;
 
     & .checkbox-card__img {
@@ -21,9 +23,16 @@
       border-radius: $border-radius-1;
     }
 
+    .checkbox-card__image {
+      justify-content: center;
+      display: flex;
+      width: 100%;
+    }
+
     & .checkbox-card__info {
       margin-top: $distance-2;
       text-align: center;
+      width: 100%;
 
       & .checkbox-card__info--title {
         color: map-get($base, black);
@@ -116,14 +125,14 @@
 
   &:hover {
     &:not(.disabled) {
-      border: 1px solid map-get($turquoise, 500);
-      @include animate();
+      outline: 2px solid map-get($turquoise, 500);
+      @include animate(all, 100ms);
     }
   }
 
   &.active {
     &:not(.disabled) {
-      border: 1px solid map-get($turquoise, 500);
+      outline: 2px solid map-get($turquoise, 500);
     }
   }
 
@@ -157,12 +166,10 @@
     position: absolute;
     right: $distance-1;
     top: $distance-1;
-    width: 24px;
-    height: 24px;
-    background: url('#{$cdn-static-url}/whitelabel-frontend/icons/ic-success-selected.svg')
-      no-repeat 50% 50%;
-    background-size: 24px;
+    width: 32px;
+    height: 32px;
+    line-height: 0;
   }
 
-  @include animate();
+  @include animate(all, 100ms);
 }

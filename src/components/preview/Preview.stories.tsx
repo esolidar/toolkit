@@ -22,17 +22,18 @@ export const WithFullSreenButton: Story<Props> = Template.bind({});
 
 Default.args = {
   img: {
-    src: 'https://image.testesolidar.com/whitelabel/5/project-config/412d1879-67ae-4f3d-b030-6ee69b6af78d.jpg?width=216&height=144',
+    src: 'https://image.testesolidar.com/crowdfundings/esolidar_shop-907274bf-b6ea-4cf6-b52f-85b4a81fc1b0.jpg?width=216&height=144',
     alt: 'Imagem de teste',
     width: '216px',
     height: '144px',
   },
+  hover: false,
 };
 
 WithDeleteButton.args = {
   handleDeleteImage: () => {},
   img: {
-    src: 'https://image.testesolidar.com/whitelabel/5/project-config/412d1879-67ae-4f3d-b030-6ee69b6af78d.jpg?width=216&height=144',
+    src: 'https://image.testesolidar.com/crowdfundings/esolidar_shop-907274bf-b6ea-4cf6-b52f-85b4a81fc1b0.jpg?width=216&height=144',
     alt: 'Imagem de teste',
     width: '216px',
     height: '144px',

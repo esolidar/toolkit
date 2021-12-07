@@ -14,6 +14,7 @@ export default {
 const Template: Story<Props> = (args: Props) => <Tag {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
+export const Disabled: Story<Props> = Template.bind({});
 export const Checked: Story<Props> = Template.bind({});
 export const PlainText: Story<Props> = Template.bind({});
 export const RightIcon: Story<Props> = Template.bind({});
@@ -22,6 +23,11 @@ export const LeftImageWithClose: Story<Props> = Template.bind({});
 export const LeftIcon: Story<Props> = Template.bind({});
 
 Default.args = {
+  text: 'toolkit.private',
+};
+
+Disabled.args = {
+  disabled: true,
   text: 'toolkit.private',
 };
 

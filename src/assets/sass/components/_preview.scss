@@ -1,18 +1,18 @@
 .esolidar-preview {
   display: flex;
   .esolidar-preview__image {
-    border: 2px solid change-color(map-get($base, black), $alpha: 0.08);
-    border-radius: $border-radius-1;
-    overflow: hidden;
     position: relative;
-    @include animate();
+    @include animate(outline, 100ms);
 
     img {
       width: 216px;
       height: 144px;
+      outline: 1px solid change-color(map-get($base, black), $alpha: 0.08);
+      border-radius: $border-radius-1;
     }
 
     &-delete-image {
+      padding: 0;
       position: absolute;
       top: $distance-1;
       right: $distance-1;
@@ -20,8 +20,8 @@
       border: none;
       background: change-color(map-get($turquoise, 500), $alpha: 0.08);
       opacity: 0;
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       font-size: 10px;
       line-height: 10px;
       color: map-get($turquoise, 500);
@@ -30,7 +30,7 @@
       &:focus-visible {
         outline: none;
       }
-      @include animate();
+      @include animate(outline, 100ms);
     }
 
     &-fullscreen {
@@ -42,7 +42,7 @@
       padding: 0;
       min-width: 40px;
       opacity: 0;
-      @include animate();
+      @include animate(outline, 100ms);
     }
 
     &-badge {
@@ -50,14 +50,17 @@
       bottom: $distance-1;
       left: $distance-1;
     }
-
-    &:hover {
-      border: 2px solid map-get($turquoise, 500);
-      @include animate();
+  }
+  &.hover-image {
+    .esolidar-preview__image {
+      img:hover {
+        outline: 2px solid map-get($turquoise, 500);
+        @include animate(outline, 100ms);
+      }
 
       .esolidar-preview__image-delete-image {
         opacity: 1;
-        @include animate();
+        @include animate(outline, 100ms);
 
         &:focus,
         &:focus-visible {
@@ -67,7 +70,7 @@
 
       .esolidar-preview__image-fullscreen {
         opacity: 1;
-        @include animate();
+        @include animate(outline, 100ms);
       }
     }
   }

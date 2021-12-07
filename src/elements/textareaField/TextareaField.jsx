@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
 import InputLabel from '../inputLabel';
+import Icon from '../../components/icon';
+import Button from '../button';
 import isDefined from '../../utils/isDefined';
 
 const TextareaField = ({
@@ -30,6 +32,7 @@ const TextareaField = ({
   onKeyDown,
   onBlur,
   size,
+  editButton = false,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -46,6 +49,8 @@ const TextareaField = ({
     }
   }
 
+  const [editMode, setEditMode] = useState(editButton);
+
   return (
     <div
       className={classnames(
@@ -60,9 +65,22 @@ const TextareaField = ({
         <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
       )}
       <div className={classnames(`size-${size}`, ' relative')}>
+        {editMode && (
+          <div className="edit-button-mode">
+            <Button
+              className=""
+              extraClass="secondary"
+              fullWidth={false}
+              icon={<Icon iconClass="icon-edit-2" />}
+              onClick={() => setEditMode(false)}
+              size="md"
+              type="icon"
+            />
+          </div>
+        )}
         <textarea
           id={id || field}
-          disabled={disabled}
+          disabled={editMode || disabled}
           onChange={onChange}
           onBlur={onBlur}
           value={value}
@@ -120,6 +138,7 @@ TextareaField.propTypes = {
   onKeyDown: PropTypes.func,
   onBlur: PropTypes.func,
   size: PropTypes.string,
+  editButton: PropTypes.bool,
 };
 
 TextareaField.defaultProps = {

@@ -58,3 +58,10 @@
     }
   }
 }
+
+.edit-button-mode {
+  position: absolute;
+  top: $distance-1;
+  right: $distance-1;
+  z-index: 9;
+}

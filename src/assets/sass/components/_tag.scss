@@ -107,4 +107,23 @@
       }
     }
   }
+
+  &.tag-component-disabled {
+    opacity: 0.32;
+
+    .tag-component__item:hover {
+      color: map-get($neutrals, 900);
+      border: 2px solid map-get($neutrals, 100);
+      background-color: map-get($colors, white);
+    }
+
+    input[type='checkbox']:checked ~ .tag-component__item {
+      .unchecked {
+        opacity: 0 !important;
+      }
+      .checked {
+        opacity: 1 !important;
+      }
+    }
+  }
 }

@@ -57,6 +57,7 @@ const WizardHeader: FC<Props> = ({
                 onBlur={handleBlurTitle}
                 placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
                 maxLength={32}
+                style={{ minWidth: '170px', width: `${title.length * 12 + 15}px` }}
               />
             )}
             {!editMode && <>{title}</>}

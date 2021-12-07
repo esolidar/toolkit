@@ -10,6 +10,6 @@ it('renders Tooltip default', () => {
 
   expect(getByTestId('tooltipOverlay')).toBeInTheDocument();
   fireEvent.mouseOver(getByText('Hover here'));
-  expect(getByClass('rc-tooltip tooltip')).toBeInTheDocument();
+  expect(getByClass('rc-tooltip tooltip esolidar-tooltip')).toBeInTheDocument();
   expect(getByText('Text')).toBeInTheDocument();
 });

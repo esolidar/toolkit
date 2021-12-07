@@ -18,6 +18,7 @@ export const Disabled = Template.bind({});
 export const Sm = Template.bind({});
 export const Md = Template.bind({});
 export const Lg = Template.bind({});
+export const EditButton = Template.bind({});
 
 Default.parameters = {
   jest: ['TextareaField.test.js'],
@@ -119,4 +120,18 @@ Lg.args = {
   showOptionalLabel: true,
   help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
   size: 'lg',
+};
+
+EditButton.args = {
+  editButton: true,
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  defaultValue: 'Textarea',
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
 };

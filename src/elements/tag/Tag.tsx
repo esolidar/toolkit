@@ -24,7 +24,7 @@ const Tag: FC<Props> = ({
   const intl = useIntl();
 
   return (
-    <div className="tag-component">
+    <div className={classNames('tag-component', { 'tag-component-disabled': disabled })}>
       <label htmlFor={name}>
         <input
           data-testid={dataTestId}

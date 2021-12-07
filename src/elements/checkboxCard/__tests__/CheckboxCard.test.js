@@ -17,7 +17,7 @@ it('renders CheckboxCard Small', () => {
 
   const card = getById('checkboxCard-sm');
   expect(card).toBeInTheDocument();
-  expect(getByClass('checkbox-card__img')).toBeInTheDocument();
+  expect(getByClass('checkbox-card__image')).toBeInTheDocument();
   expect(getByClass(/sm/)).toBeInTheDocument();
   expect(getByText('Primeiros socorros e Apoio em crises')).toBeInTheDocument();
 
@@ -31,7 +31,7 @@ it('renders CheckboxCard Medium', () => {
 
   const card = getById('checkboxCard-md');
   expect(card).toBeInTheDocument();
-  expect(getByClass('checkbox-card__img')).toBeInTheDocument();
+  expect(getByClass('checkbox-card__image')).toBeInTheDocument();
   expect(getByClass(/md/)).toBeInTheDocument();
   expect(getByText('Title')).toBeInTheDocument();
   expect(getByText('Subtitle')).toBeInTheDocument();
@@ -46,7 +46,7 @@ it('renders CheckboxCard Large', () => {
 
   const card = getById('checkboxCard-lg');
   expect(card).toBeInTheDocument();
-  expect(getByClass('checkbox-card__img')).toBeInTheDocument();
+  expect(getByClass('checkbox-card__image')).toBeInTheDocument();
   expect(getByClass(/lg/)).toBeInTheDocument();
   expect(getByText('Zero hunger')).toBeInTheDocument();
   expect(

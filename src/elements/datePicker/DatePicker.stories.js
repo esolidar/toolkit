@@ -12,6 +12,7 @@ export const Default = Template.bind({});
 export const DateOnly = Template.bind({});
 export const InputOnly = Template.bind({});
 export const WithError = Template.bind({});
+export const Disabled = Template.bind({});
 
 Default.parameters = {
   jest: ['DatePicker.test.js'],
@@ -74,4 +75,18 @@ WithError.args = {
   leftIcon: { name: 'icon-calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
   errors: 'Invalid date',
+};
+
+Disabled.args = {
+  classnames: () => {},
+  disabled: true,
+  locale: 'pt',
+  selected: new Date('2021-03-05 00:00:00'),
+  startDate: new Date('2021-03-15 00:00:00'),
+  endDate: new Date('2021-03-25 00:00:00'),
+  onChange: () => {},
+  className: 'form-control',
+  showTimeSelect: false,
+  leftIcon: { name: 'icon-calendar', show: true },
+  dateFormat: 'dd-MM-yyyy',
 };

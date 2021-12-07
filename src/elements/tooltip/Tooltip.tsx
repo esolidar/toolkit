@@ -4,7 +4,7 @@ import RcTooltip from 'rc-tooltip';
 import Props from './Tooltip.types';
 
 const Tooltip: FC<Props> = ({
-  className,
+  className = 'esolidar-tooltip',
   tooltipBodyChild,
   trigger,
   overlay,
