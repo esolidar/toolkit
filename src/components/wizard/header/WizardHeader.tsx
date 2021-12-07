@@ -33,13 +33,6 @@ const WizardHeader: FC<Props> = ({
     }
   }, [saved]);
 
-  // const handleKeyPress = e => {
-  //   const input = { ...e };
-  //   const inputWidth = input.target.value.length * 12 + 30;
-  //   if (inputWidth > 126) input.target.style.width = `${input.target.value.length * 13 + 30}px`;
-  //   else input.target.style.width = '282px';
-  // };
-
   return (
     <div className="wizard__header">
       <div className="wizard__header__image">
