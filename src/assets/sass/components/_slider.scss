@@ -8,44 +8,46 @@
   }
 
   .rc-slider {
-    height: 22px;
+    height: 20px;
     margin: 0 $distance-1;
   }
 
   .rc-slider-rail {
-    height: 12px;
-    background-color: map-get($background, secondary);
-    border: 1px solid map-get($neutrals, 200);
+    height: 8px;
+    background-color: map-get($neutrals, 100);
+    border: none;
   }
 
   .rc-slider-step {
-    height: 12px;
+    height: 8px;
   }
 
   .rc-slider-track {
-    height: 12px;
+    height: 8px;
     background-color: map-get($turquoise, 500);
   }
 
   .rc-slider-handle {
-    margin-top: -4px;
+    margin-top: -6px;
     width: 20px;
     height: 20px;
-    border: solid 2px map-get($turquoise, 500);
-    background-color: #fff;
+    background-color: map-get($base, white);
+    border: none;
+    box-shadow: map-get($elevation, 50);
 
     &:hover {
-      border: solid 2px map-get($turquoise, 500);
+      border: none;
     }
 
     &:active {
       box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
-      border: solid 2px map-get($turquoise, 500);
+      border: none;
     }
   }
   .rc-slider-handle-click-focused {
     &:focus {
-      border: solid 2px map-get($turquoise, 500);
+      box-shadow: map-get($elevation, 50);
+      border: none;
     }
   }
 

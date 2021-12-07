@@ -10,6 +10,7 @@ interface Props {
   img: Image;
   handleDeleteImage?(): void;
   fullScreen?: boolean;
+  hover?: boolean;
   badgeText?: string;
 }
 

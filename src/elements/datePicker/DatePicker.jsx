@@ -37,6 +37,7 @@ const DatePicker = ({
   field,
   leftIcon,
   rightIcon,
+  disabled,
 }) => (
   <div
     className={classnames('datepicker-component', 'form-group', {
@@ -81,6 +82,7 @@ const DatePicker = ({
         dateFormat={dateFormat}
         minDate={minDate}
         maxDate={maxDate}
+        disabled={disabled}
       />
       {rightIcon?.show && (
         <Icon
@@ -97,6 +99,7 @@ const DatePicker = ({
 
 DatePicker.propTypes = {
   label: PropTypes.string,
+  disabled: PropTypes.bool,
   locale: PropTypes.oneOf(['pt', 'en', 'br']).isRequired,
   selected: PropTypes.instanceOf(Date),
   selectsStart: PropTypes.bool,

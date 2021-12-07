@@ -113,3 +113,126 @@
     }
   }
 }
+
+.footer-buttons {
+  display: flex;
+  gap: $distance-2;
+}
+
+.dropzone-footer {
+  display: flex;
+  margin-top: $distance-2;
+
+  &__buttons {
+    display: flex;
+    gap: $distance-2;
+    padding-right: $distance-2;
+    border-right: 1px solid map-get($neutrals, 200);
+
+    &-rotate {
+      min-width: 40px;
+      gap: 0;
+    }
+  }
+
+  &__slider {
+    flex-grow: 1;
+    padding-left: $distance-3;
+
+    .disabled {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.cropper-container {
+  .cropper-modal {
+    background-color: map-get($base, white);
+  }
+
+  .cropper-view-box {
+    outline: 2px solid map-get($blue, 300);
+  }
+
+  .cropper-dashed {
+    border: none;
+  }
+
+  .cropper-point {
+    width: 3px;
+    height: 3px;
+    opacity: 1;
+    background-color: map-get($blue, 300);
+  }
+
+  .cropper-line {
+    opacity: 0;
+  }
+
+  .cropper-point.point-ne {
+    width: 20px;
+    top: -4px;
+    right: -4px;
+    &:after {
+      content: '';
+      right: 0;
+      top: 0;
+      background: map-get($blue, 300);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-nw {
+    width: 20px;
+    top: -4px;
+    left: -4px;
+    &:after {
+      content: '';
+      left: 0;
+      top: 0;
+      background: map-get($blue, 300);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-sw {
+    width: 20px;
+    bottom: -4px;
+    left: -4px;
+    &:after {
+      content: '';
+      left: 0;
+      bottom: 0px;
+      background: map-get($blue, 300);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-se {
+    width: 20px;
+    bottom: -4px;
+    right: -4px;
+    &:after {
+      content: '';
+      right: 0;
+      bottom: 0;
+      background: map-get($blue, 300);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-n,
+  .cropper-point.point-w,
+  .cropper-point.point-s,
+  .cropper-point.point-e {
+    opacity: 0 !important;
+  }
+}

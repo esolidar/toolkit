@@ -203,38 +203,43 @@
 }
 
 @mixin input-focus() {
+  border: none;
   box-sizing: border-box;
-  border: 2px solid map-get($turquoise, 500) !important;
+  outline: 2px solid map-get($turquoise, 500) !important;
   box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
   @include animate();
 }
 
 @mixin input-hover() {
-  border: 2px solid map-get($turquoise, 500);
-  @include animate();
+  border: none;
+  outline: 2px solid map-get($turquoise, 500);
+  @include animate(all, 50ms);
 }
 
 @mixin input-disabled() {
+  border: none;
   color: map-get($neutrals, 700) !important;
-  border: 2px solid map-get($neutrals, 100) !important;
+  border: none !important;
   background-color: map-get($background, secondary) !important;
   @include animate();
 }
 
 @mixin input-form() {
+  border: none;
   font-size: 16px;
   font-weight: 400;
   color: map-get($neutrals, 900);
   resize: none;
   box-shadow: none;
   line-height: 1.8;
-  border: 2px solid map-get($neutrals, 200);
+  outline: 1px solid map-get($neutrals, 200);
   border-radius: $border-radius-1 !important;
   @include animate();
 }
 
 @mixin input-form-error() {
-  border: 2px solid map-get($negative, 500);
+  border: none;
+  outline: 2px solid map-get($negative, 500);
   @include animate();
 }
 

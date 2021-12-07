@@ -33,6 +33,13 @@ const WizardHeader: FC<Props> = ({
     }
   }, [saved]);
 
+  // const handleKeyPress = e => {
+  //   const input = { ...e };
+  //   const inputWidth = input.target.value.length * 12 + 30;
+  //   if (inputWidth > 126) input.target.style.width = `${input.target.value.length * 13 + 30}px`;
+  //   else input.target.style.width = '282px';
+  // };
+
   return (
     <div className="wizard__header">
       <div className="wizard__header__image">
@@ -57,6 +64,7 @@ const WizardHeader: FC<Props> = ({
                 onBlur={handleBlurTitle}
                 placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
                 maxLength={32}
+                style={{ minWidth: '170px', width: `${title.length * 12 + 15}px` }}
               />
             )}
             {!editMode && <>{title}</>}

@@ -12,6 +12,7 @@ import Slider from '../slider';
 import Icon from '../../components/icon';
 import CustomModal from '../customModal';
 import Button from '../button';
+import Tooltip from '../tooltip';
 import lastElemOf from '../../utils/lastElemOf';
 
 const cropper = createRef(null);
@@ -279,37 +280,45 @@ const DropZoneBox = ({
       {cropperModal && (
         <CustomModal
           actionsChildren={
-            <Button
-              extraClass="success-full"
-              onClick={() => {
-                cropper.current.getCroppedCanvas().toBlob(
-                  blob => {
-                    const imageWidth = cropper.current.getCroppedCanvas().width;
-                    const imageHeight = cropper.current.getCroppedCanvas().height;
-                    if (imageWidth > minWidth && imageHeight > minHeight) {
-                      setDisableCroppedImage(true);
-                      handleSubmitCroppedImage(blob);
-                      setErrorList([]);
-                    } else {
-                      const errors = [];
-                      errors.push({
-                        name: '',
-                        errors: [
-                          `${
-                            errorMessages.find(messageObj => messageObj.id === 'dimensions').message
-                          }`,
-                        ],
-                      });
-                      setErrorList(errors);
-                    }
-                  },
-                  'image/jpeg',
-                  0.7
-                );
-              }}
-              text={textSaveCropModal}
-              disabled={disableCroppedImage}
-            />
+            <div className="footer-buttons">
+              <Button
+                extraClass="secondary"
+                onClick={toggleModalCropper}
+                text={intl.formatMessage({ id: 'cancel' })}
+              />
+              <Button
+                extraClass="success-full"
+                onClick={() => {
+                  cropper.current.getCroppedCanvas().toBlob(
+                    blob => {
+                      const imageWidth = cropper.current.getCroppedCanvas().width;
+                      const imageHeight = cropper.current.getCroppedCanvas().height;
+                      if (imageWidth > minWidth && imageHeight > minHeight) {
+                        setDisableCroppedImage(true);
+                        handleSubmitCroppedImage(blob);
+                        setErrorList([]);
+                      } else {
+                        const errors = [];
+                        errors.push({
+                          name: '',
+                          errors: [
+                            `${
+                              errorMessages.find(messageObj => messageObj.id === 'dimensions')
+                                .message
+                            }`,
+                          ],
+                        });
+                        setErrorList(errors);
+                      }
+                    },
+                    'image/jpeg',
+                    0.7
+                  );
+                }}
+                text={textSaveCropModal}
+                disabled={disableCroppedImage}
+              />
+            </div>
           }
           bodyChildren={
             <>
@@ -317,7 +326,7 @@ const DropZoneBox = ({
               <Cropper
                 ref={cropper}
                 src={croppedFile}
-                style={{ height: 400, width: '100%' }}
+                style={{ height: 310, width: '100%' }}
                 guides={true}
                 zoomable={true}
                 viewMode={2}
@@ -329,22 +338,50 @@ const DropZoneBox = ({
                 )}.`}</div>
               ))}
               {showFooterCropper && (
-                <div className="d-flex">
-                  <Button
-                    extraClass="ghost"
-                    onClick={() => {
-                      cropper.current.rotate(90);
-                    }}
-                    icon={<Icon iconClass="icon-corner-up-left" />}
-                  />
-                  <Button
-                    extraClass="ghost"
-                    onClick={() => {
-                      cropper.current.rotate(-90);
-                    }}
-                    icon={<Icon iconClass="icon-corner-up-right" />}
-                  />
-                  <div className="flex-grow-1">
+                <div className="dropzone-footer">
+                  <div className="dropzone-footer__buttons">
+                    <Tooltip
+                      overlay={
+                        <span>
+                          <FormattedMessage id="rotate.left" />
+                        </span>
+                      }
+                      placement="right"
+                      trigger="hover"
+                      className="esolidar-tooltip"
+                      tooltipBodyChild={
+                        <Button
+                          className="dropzone-footer__buttons-rotate"
+                          extraClass="ghost"
+                          onClick={() => {
+                            cropper.current.rotate(90);
+                          }}
+                          icon={<Icon iconClass="icon-corner-up-left" />}
+                        />
+                      }
+                    />
+                    <Tooltip
+                      overlay={
+                        <span>
+                          <FormattedMessage id="rotate.right" />
+                        </span>
+                      }
+                      placement="right"
+                      trigger="hover"
+                      className="esolidar-tooltip"
+                      tooltipBodyChild={
+                        <Button
+                          className="dropzone-footer__buttons-rotate"
+                          extraClass="ghost"
+                          onClick={() => {
+                            cropper.current.rotate(-90);
+                          }}
+                          icon={<Icon iconClass="icon-corner-up-right" />}
+                        />
+                      }
+                    />
+                  </div>
+                  <div className="dropzone-footer__slider">
                     <Slider
                       min={0}
                       max={100}
@@ -358,8 +395,6 @@ const DropZoneBox = ({
               )}
             </>
           }
-          dividerBottom={true}
-          dividerTop={true}
           onHide={toggleModalCropper}
           show={cropperModal}
           size="md"
