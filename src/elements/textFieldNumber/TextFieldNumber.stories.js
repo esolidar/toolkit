@@ -35,7 +35,7 @@ Number.args = {
   placeholder: '123456',
   size: 'sm',
   showArrows: true,
-  min: 5,
-  max: 10,
+  min: 1,
+  max: 4,
   field: 'teste',
 };

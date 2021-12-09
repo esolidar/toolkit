@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 import TextField from '../textField';
+import isDefined from '../../utils/isDefined';
 
 const TextFieldNumber = ({
   value,
@@ -40,50 +41,42 @@ const TextFieldNumber = ({
   const [val, setVal] = useState(value);
 
   useEffect(() => {
-    document.getElementById(field || id).addEventListener('keypress', evt => {
-      if (evt.keyCode > 57) {
-        evt.preventDefault();
-      }
+    const el = document.getElementById(field || id);
+    el?.addEventListener('keypress', evt => {
+      if (evt.keyCode > 57) evt.preventDefault();
     });
   }, []);
 
   const handleUp = () => {
-    if (!val) {
-      setVal(min || 1);
-    } else if (max) {
-      if (val < max) {
-        setVal(+val + 1);
-      } else {
-        setVal(max);
-      }
-    } else {
-      setVal(+val + 1);
-    }
+    const defaultVal = isDefined(min) ? min : 1;
+    const isMaxGreaterThanValue = Number(val) < max;
+
+    if (!isDefined(val) || val === '') setVal(defaultVal);
+    else if (isDefined(max)) setVal(isMaxGreaterThanValue ? Number(val) + 1 : max);
+    else setVal(Number(val) + 1);
   };
 
   const handleDown = () => {
-    if (!val) {
-      setVal(min || -1);
-    } else if (min) {
-      if (val > min) setVal(+val - 1);
-    } else {
-      setVal(+val - 1);
-    }
+    const defaultVal = isDefined(max) ? max : -1;
+    const isValueGreaterThanMin = Number(val) > min;
+
+    if (!isDefined(val) || val === '') setVal(defaultVal);
+    else if (isDefined(min)) setVal(isValueGreaterThanMin ? Number(val) - 1 : min);
+    else setVal(Number(val) - 1);
   };
 
   const handleChange = ({ target: { value } }) => {
-    if (max && max < +value) {
-      setVal(max);
-    } else if (min && min > +value) {
-      setVal(min);
-    } else {
-      setVal(value);
-    }
+    const isMaxLowerThanValue = max < Number(value);
+    const isMinGreaterThanValue = min > Number(value);
+
+    if (isDefined(max) && isMaxLowerThanValue) setVal(max);
+    else if (isDefined(min) && isMinGreaterThanValue) setVal(min);
+    else setVal(Number(value));
 
     onChange({
       formattedValue: value,
       value,
-      floatValue: +value,
+      floatValue: Number(value),
     });
   };
 
@@ -92,7 +85,7 @@ const TextFieldNumber = ({
       <div className={classnames(`size-${size}`, 'input', 'textfield-number')}>
         {!showArrows && (
           <NumberFormat
-            value={`${val}`}
+            value={String(val)}
             displayType={displayType}
             prefix={prefix}
             placeholder={placeholder}
