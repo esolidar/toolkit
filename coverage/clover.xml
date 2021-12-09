@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1638897050832" clover="3.2.0">
-  <project timestamp="1638897050832" name="All files">
-    <metrics statements="4140" coveredstatements="2879" conditionals="3404" coveredconditionals="2153" methods="1149" coveredmethods="577" elements="8693" coveredelements="5609" complexity="0" loc="4140" ncloc="4140" packages="184" files="409" classes="409"/>
+<coverage generated="1639046244835" clover="3.2.0">
+  <project timestamp="1639046244835" name="All files">
+    <metrics statements="4164" coveredstatements="2885" conditionals="3444" coveredconditionals="2157" methods="1154" coveredmethods="577" elements="8762" coveredelements="5619" complexity="0" loc="4164" ncloc="4164" packages="184" files="409" classes="409"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -4479,13 +4479,37 @@
       </file>
     </package>
     <package name="src.elements.textFieldNumber">
-      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <metrics statements="28" coveredstatements="9" conditionals="44" coveredconditionals="6" methods="6" coveredmethods="1"/>
       <file name="TextFieldNumber.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/TextFieldNumber.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
+        <metrics statements="28" coveredstatements="9" conditionals="44" coveredconditionals="6" methods="6" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="73" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="158" count="1" type="stmt"/>
+        <line num="190" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4515,12 +4539,12 @@
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
@@ -4634,10 +4658,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="52" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="48" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="18" type="stmt"/>
-        <line num="17" count="34" type="stmt"/>
-        <line num="19" count="34" type="stmt"/>
+        <line num="17" count="30" type="stmt"/>
+        <line num="19" count="30" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="/Users/pedroguia/Projects/toolkit/src/hooks/useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -4947,7 +4971,7 @@
       </file>
     </package>
     <package name="src.unreleased.countdown">
-      <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="73" methods="12" coveredmethods="9"/>
+      <metrics statements="121" coveredstatements="110" conditionals="95" coveredconditionals="74" methods="12" coveredmethods="9"/>
       <file name="Countdown.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/countdown/Countdown.stories.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="28" count="1" type="stmt"/>
@@ -4980,7 +5004,7 @@
         <line num="155" count="1" type="stmt"/>
       </file>
       <file name="Countdown.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/countdown/Countdown.tsx">
-        <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="73" methods="9" coveredmethods="8"/>
+        <metrics statements="93" coveredstatements="82" conditionals="95" coveredconditionals="74" methods="9" coveredmethods="8"/>
         <line num="9" count="5" type="stmt"/>
         <line num="18" count="58" type="stmt"/>
         <line num="19" count="58" type="stmt"/>
@@ -5018,14 +5042,14 @@
         <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="7" type="stmt"/>
-        <line num="77" count="7" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
+        <line num="77" count="6" type="stmt"/>
         <line num="79" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="80" count="5" type="stmt"/>
-        <line num="81" count="5" type="stmt"/>
+        <line num="80" count="6" type="stmt"/>
+        <line num="81" count="6" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="6" type="stmt"/>
-        <line num="85" count="6" type="stmt"/>
+        <line num="84" count="10" type="stmt"/>
+        <line num="85" count="10" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
@@ -5051,9 +5075,9 @@
         <line num="127" count="1" type="stmt"/>
         <line num="131" count="58" type="stmt"/>
         <line num="132" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="133" count="1" type="stmt"/>
-        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="136" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="135" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="136" count="1" type="stmt"/>
         <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="143" count="0" type="stmt"/>
         <line num="145" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -5791,7 +5815,7 @@
       </file>
       <file name="isDefined.js" path="/Users/pedroguia/Projects/toolkit/src/utils/isDefined/isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
