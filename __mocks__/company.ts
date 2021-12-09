@@ -5,6 +5,7 @@ const company: Company = {
   id: 273,
   code: '050abf4f-9de8-4c80-ab0d-ffc7814873a0',
   name: 'Company Demo',
+  acronym: 'CompanyDemo',
   email: 'demo@esolidar.com',
   vat: '111111111',
   company_id: null,
