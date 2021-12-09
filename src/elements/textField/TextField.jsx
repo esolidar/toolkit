@@ -28,6 +28,7 @@ const TextField = ({
   inputRef,
   children,
   info,
+  inputLabelProps,
   showOptionalLabel,
   leftIcon,
   rightIcon,
@@ -50,6 +51,7 @@ const TextField = ({
         help={help}
       />
     )}
+    {inputLabelProps && <InputLabel {...inputLabelProps} />}
     {!children && (
       <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
@@ -102,6 +104,7 @@ const TextField = ({
 TextField.propTypes = {
   dataTestId: PropTypes.string,
   info: PropTypes.string,
+  inputLabelProps: PropTypes.object,
   field: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -5,6 +5,7 @@ import Props from './Tooltip.types';
 
 const Tooltip: FC<Props> = ({
   className = 'esolidar-tooltip',
+  bodyChildClassName,
   tooltipBodyChild,
   trigger,
   overlay,
@@ -12,6 +13,7 @@ const Tooltip: FC<Props> = ({
   displayNone,
 }: Props): JSX.Element => {
   const classes = classNames('tooltip', displayNone && 'tooltip--displayNone', className);
+  const bodyChildClasses = classNames('tooltipOverlay', bodyChildClassName);
 
   return (
     <>
@@ -21,7 +23,7 @@ const Tooltip: FC<Props> = ({
         trigger={trigger}
         overlay={overlay}
       >
-        <span className="tooltipOverlay" data-testid="tooltipOverlay">
+        <span className={bodyChildClasses} data-testid="tooltipOverlay">
           {tooltipBodyChild}
         </span>
       </RcTooltip>

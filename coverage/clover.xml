@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1639046026890" clover="3.2.0">
   <project timestamp="1639046026890" name="All files">
     <metrics statements="4163" coveredstatements="2883" conditionals="3436" coveredconditionals="2150" methods="1154" coveredmethods="577" elements="8753" coveredelements="5610" complexity="0" loc="4163" ncloc="4163" packages="184" files="409" classes="409"/>
+=======
+<coverage generated="1638897050832" clover="3.2.0">
+  <project timestamp="1638897050832" name="All files">
+    <metrics statements="4140" coveredstatements="2879" conditionals="3404" coveredconditionals="2153" methods="1149" coveredmethods="577" elements="8693" coveredelements="5609" complexity="0" loc="4140" ncloc="4140" packages="184" files="409" classes="409"/>
+>>>>>>> master
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -2237,9 +2243,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/icon/Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="81" type="stmt"/>
+        <line num="5" count="85" type="stmt"/>
         <line num="6" count="208" type="stmt"/>
-        <line num="9" count="81" type="stmt"/>
+        <line num="9" count="85" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/icon/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3974,6 +3980,7 @@
       </file>
     </package>
     <package name="src.elements.inputLabel">
+<<<<<<< HEAD
       <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="InputLabel.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/InputLabel.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
@@ -3981,6 +3988,15 @@
         <line num="15" count="154" type="stmt"/>
         <line num="17" count="154" type="stmt"/>
         <line num="33" count="48" type="stmt"/>
+=======
+      <metrics statements="4" coveredstatements="4" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <file name="InputLabel.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/InputLabel.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <line num="8" count="48" type="stmt"/>
+        <line num="19" count="155" type="stmt"/>
+        <line num="21" count="155" type="stmt"/>
+        <line num="49" count="48" type="stmt"/>
+>>>>>>> master
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4402,13 +4418,19 @@
       </file>
     </package>
     <package name="src.elements.textField">
+<<<<<<< HEAD
       <metrics statements="4" coveredstatements="4" conditionals="32" coveredconditionals="29" methods="1" coveredmethods="1"/>
       <file name="TextField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/TextField.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="32" coveredconditionals="29" methods="1" coveredmethods="1"/>
+=======
+      <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="30" methods="1" coveredmethods="1"/>
+      <file name="TextField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/TextField.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="30" methods="1" coveredmethods="1"/>
+>>>>>>> master
         <line num="8" count="23" type="stmt"/>
-        <line num="37" count="136" type="stmt"/>
-        <line num="102" count="23" type="stmt"/>
-        <line num="140" count="23" type="stmt"/>
+        <line num="38" count="136" type="stmt"/>
+        <line num="104" count="23" type="stmt"/>
+        <line num="143" count="23" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4479,6 +4501,7 @@
       </file>
     </package>
     <package name="src.elements.textFieldNumber">
+<<<<<<< HEAD
       <metrics statements="28" coveredstatements="9" conditionals="44" coveredconditionals="6" methods="6" coveredmethods="1"/>
       <file name="TextFieldNumber.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/TextFieldNumber.jsx">
         <metrics statements="28" coveredstatements="9" conditionals="44" coveredconditionals="6" methods="6" coveredmethods="1"/>
@@ -4510,6 +4533,15 @@
         <line num="83" count="2" type="stmt"/>
         <line num="158" count="1" type="stmt"/>
         <line num="190" count="1" type="stmt"/>
+=======
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="TextFieldNumber.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/TextFieldNumber.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+>>>>>>> master
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textFieldNumber/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4532,6 +4564,7 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
+<<<<<<< HEAD
       <metrics statements="15" coveredstatements="14" conditionals="30" coveredconditionals="26" methods="3" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
         <metrics statements="15" coveredstatements="14" conditionals="30" coveredconditionals="26" methods="3" coveredmethods="2"/>
@@ -4550,6 +4583,26 @@
         <line num="75" count="0" type="stmt"/>
         <line num="116" count="20" type="stmt"/>
         <line num="144" count="20" type="stmt"/>
+=======
+      <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
+      <file name="TextareaField.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/TextareaField.jsx">
+        <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="30" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="53" count="37" type="stmt"/>
+        <line num="55" count="37" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="118" count="20" type="stmt"/>
+        <line num="147" count="20" type="stmt"/>
+>>>>>>> master
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/textareaField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4574,7 +4627,11 @@
       </file>
     </package>
     <package name="src.elements.tooltip">
+<<<<<<< HEAD
       <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+=======
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+>>>>>>> master
       <file name="Tooltip.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/tooltip/Tooltip.stories.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="32" count="1" type="stmt"/>
@@ -4582,10 +4639,17 @@
         <line num="36" count="1" type="stmt"/>
       </file>
       <file name="Tooltip.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/tooltip/Tooltip.tsx">
+<<<<<<< HEAD
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="6" count="8" type="stmt"/>
         <line num="14" count="71" type="cond" truecount="2" falsecount="0"/>
+=======
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="6" count="51" type="stmt"/>
+        <line num="15" count="71" type="cond" truecount="2" falsecount="0"/>
+>>>>>>> master
         <line num="16" count="71" type="stmt"/>
+        <line num="18" count="71" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/tooltip/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4657,10 +4721,10 @@
         <line num="6" count="58" type="stmt"/>
         <line num="7" count="58" type="stmt"/>
         <line num="11" count="58" type="stmt"/>
-        <line num="13" count="49" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="52" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="18" type="stmt"/>
-        <line num="17" count="31" type="stmt"/>
-        <line num="19" count="31" type="stmt"/>
+        <line num="17" count="34" type="stmt"/>
+        <line num="19" count="34" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="/Users/pedroguia/Projects/toolkit/src/hooks/useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -5047,8 +5111,8 @@
         <line num="80" count="5" type="stmt"/>
         <line num="81" count="5" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="9" type="stmt"/>
-        <line num="85" count="9" type="stmt"/>
+        <line num="84" count="6" type="stmt"/>
+        <line num="85" count="6" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
