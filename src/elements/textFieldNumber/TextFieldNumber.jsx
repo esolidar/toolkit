@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
@@ -38,8 +38,6 @@ const TextFieldNumber = ({
   max,
   min,
 }) => {
-  const [val, setVal] = useState(value);
-
   useEffect(() => {
     const el = document.getElementById(field || id);
     el?.addEventListener('keypress', evt => {
@@ -47,32 +45,7 @@ const TextFieldNumber = ({
     });
   }, []);
 
-  const handleUp = () => {
-    const defaultVal = isDefined(min) ? min : 1;
-    const isMaxGreaterThanValue = Number(val) < max;
-
-    if (!isDefined(val) || val === '') setVal(defaultVal);
-    else if (isDefined(max)) setVal(isMaxGreaterThanValue ? Number(val) + 1 : max);
-    else setVal(Number(val) + 1);
-  };
-
-  const handleDown = () => {
-    const defaultVal = isDefined(max) ? max : -1;
-    const isValueGreaterThanMin = Number(val) > min;
-
-    if (!isDefined(val) || val === '') setVal(defaultVal);
-    else if (isDefined(min)) setVal(isValueGreaterThanMin ? Number(val) - 1 : min);
-    else setVal(Number(val) - 1);
-  };
-
-  const handleChange = ({ target: { value } }) => {
-    const isMaxLowerThanValue = max < Number(value);
-    const isMinGreaterThanValue = min > Number(value);
-
-    if (isDefined(max) && isMaxLowerThanValue) setVal(max);
-    else if (isDefined(min) && isMinGreaterThanValue) setVal(min);
-    else setVal(Number(value));
-
+  const handleChange = value => {
     onChange({
       formattedValue: value,
       value,
@@ -80,12 +53,39 @@ const TextFieldNumber = ({
     });
   };
 
+  const handleUp = () => {
+    const defaultVal = isDefined(min) ? min : 1;
+    const isMaxGreaterThanValue = Number(value) < max;
+
+    if (!isDefined(value) || value === '') handleChange(defaultVal);
+    else if (isDefined(max)) handleChange(isMaxGreaterThanValue ? Number(value) + 1 : max);
+    else handleChange(Number(value) + 1);
+  };
+
+  const handleDown = () => {
+    const defaultVal = isDefined(max) ? max : -1;
+    const isValueGreaterThanMin = Number(value) > min;
+
+    if (!isDefined(value) || value === '') handleChange(defaultVal);
+    else if (isDefined(min)) handleChange(isValueGreaterThanMin ? Number(value) - 1 : min);
+    else handleChange(Number(value) - 1);
+  };
+
+  const handleChangeInput = ({ target: { value } }) => {
+    const isMaxLowerThanValue = max < Number(value);
+    const isMinGreaterThanValue = min > Number(value);
+
+    if (isDefined(max) && isMaxLowerThanValue) handleChange(max);
+    else if (isDefined(min) && isMinGreaterThanValue) handleChange(min);
+    else handleChange(Number(value));
+  };
+
   return (
     <TextField label={label} error={error} message={message} className={classStyle}>
       <div className={classnames(`size-${size}`, 'input', 'textfield-number')}>
         {!showArrows && (
           <NumberFormat
-            value={String(val)}
+            value={String(value)}
             displayType={displayType}
             prefix={prefix}
             placeholder={placeholder}
@@ -112,8 +112,8 @@ const TextFieldNumber = ({
           <>
             <input
               autoComplete="off"
-              onChange={handleChange}
-              value={val}
+              onChange={handleChangeInput}
+              value={value}
               type="number"
               name={field}
               id={id || field}
