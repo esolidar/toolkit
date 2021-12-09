@@ -1,7 +1,6 @@
-const cursorFocus = elem => {
-  const x = window.scrollX;
-  const y = window.scrollY;
-  window.scrollTo(x, y);
+const cursorFocus = (elem, yOffset = 100) => {
+  const { x, y } = elem.getBoundingClientRect();
+  window.scrollBy(x, y - yOffset);
 
   if (elem) elem.focus();
 };
