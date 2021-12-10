@@ -1,6 +1,6 @@
 .tooltip {
   &--displayNone {
-    display: none;
+    display: none !important;
   }
 
   .rc-tooltip-inner {
