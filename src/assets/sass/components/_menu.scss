@@ -37,7 +37,7 @@
       }
     }
     &--active {
-      background-color: get-rgba(map-get($turquoise, 500), 8);
+      background-color: get-rgba(map-get($turquoise, 500));
       color: map-get($theme-colors, primary);
     }
 
