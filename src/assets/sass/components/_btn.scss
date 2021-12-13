@@ -50,13 +50,13 @@ a.btn-esolidar {
     &-sm {
       height: 32px;
       font-size: 14px;
-      padding: 6px 16px;
+      padding: 6px $distance-2;
     }
 
     &-md {
       height: 40px;
       font-size: 16px;
-      padding: 8px 16px;
+      padding: $distance-1 $distance-2;
     }
 
     &-lg {
