@@ -133,6 +133,12 @@ Danger.args = {
   onClick: () => {},
 };
 
+export const Negative = Template.bind({});
+Negative.args = {
+  extraClass: 'negative',
+  onClick: () => {},
+};
+
 export const Info = Template.bind({});
 Info.args = {
   extraClass: 'info',

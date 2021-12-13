@@ -48,18 +48,21 @@ a.btn-esolidar {
 
   &.btn {
     &-sm {
-      height: 35px;
+      height: 32px;
       font-size: 14px;
+      padding: 6px 16px;
     }
 
     &-md {
       height: 40px;
       font-size: 16px;
+      padding: 8px 16px;
     }
 
     &-lg {
-      height: 44px;
-      font-size: 20px;
+      height: 48px;
+      font-size: 18px;
+      padding: 12px 20px;
     }
 
     &-xl {
@@ -263,9 +266,41 @@ a.btn-esolidar {
         text-decoration: none;
       }
 
+      &:focus {
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
+
       &.disabled {
         color: map-get($neutrals, 400);
         background-color: map-get($background, secondary);
+      }
+    }
+
+    &-negative {
+      color: map-get($base, black);
+      background-color: map-get($colors, white);
+      border: 2px solid map-get($theme-colors, danger);
+      box-shadow: none;
+
+      &:hover:not(.disabled) {
+        color: white;
+        background-color: map-get($theme-colors-light, danger);
+        border-color: map-get($theme-colors-light, danger);
+      }
+    }
+
+    &-negative-full {
+      border: 2px solid map-get($theme-colors, danger);
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, danger);
+
+      &:hover:not(.disabled) {
+        background-color: map-get($theme-colors-light, danger);
+        border-color: map-get($theme-colors-light, danger);
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
       }
     }
   }
