@@ -13,20 +13,12 @@
 
       & ~ .radio {
         position: relative;
-        width: 24px;
-        height: 24px;
-        min-width: 24px;
-        min-height: 24px;
         background-color: map-get($base, white);
         border: 2px solid change-color(map-get($base, black), $alpha: 0.08);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        &:hover {
-          cursor: pointer;
-        }
 
         &::after {
           position: absolute;
@@ -35,6 +27,46 @@
           border-radius: 50%;
           width: 14px;
           height: 14px;
+        }
+
+        &.sm {
+          width: 16px;
+          height: 16px;
+          min-width: 16px;
+          min-height: 16px;
+
+          &::after {
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        &.md {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
+
+          &::after {
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        &.lg {
+          width: 24px;
+          height: 24px;
+          min-width: 24px;
+          min-height: 24px;
+
+          &::after {
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
         }
 
         @include animate();

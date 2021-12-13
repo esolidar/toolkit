@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const RadioField = ({
   value,
@@ -27,7 +28,7 @@ const RadioField = ({
           checked={checked}
           disabled={disabled}
         />
-        <div className="radio" />
+        <div className={classnames('radio', { [size]: size })} />
         {label && <div className={`label ${size}`}>{label}</div>}
       </label>
     </div>
@@ -50,7 +51,7 @@ RadioField.propTypes = {
   size: PropTypes.string,
 };
 
-RadioField.defaultValues = {
+RadioField.defaultProps = {
   size: 'md',
 };
 

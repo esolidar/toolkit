@@ -4,6 +4,12 @@ import RadioField from './RadioField';
 export default {
   title: 'Elements/RadioField',
   component: RadioField,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <RadioField {...args} />;
