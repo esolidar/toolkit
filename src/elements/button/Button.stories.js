@@ -9,7 +9,7 @@ export default {
   component: Button,
 };
 
-const extraClassesWithoutFull = ['secondary', 'link', 'ghost'];
+const extraClassesWithoutFull = ['secondary', 'link', 'ghost', 'negative'];
 
 const Template = args => (
   <>
@@ -108,6 +108,12 @@ Ghost.args = {
   onClick: () => {},
 };
 
+export const Negative = Template.bind({});
+Negative.args = {
+  extraClass: 'negative',
+  onClick: () => {},
+};
+
 export const Link = Template.bind({});
 Link.args = {
   extraClass: 'link',
@@ -130,12 +136,6 @@ Warning.args = {
 export const Danger = Template.bind({});
 Danger.args = {
   extraClass: 'danger',
-  onClick: () => {},
-};
-
-export const Negative = Template.bind({});
-Negative.args = {
-  extraClass: 'negative',
   onClick: () => {},
 };
 
