@@ -90,7 +90,7 @@ a.btn-esolidar {
       }
 
       &:focus {
-        @include box-shadow(0px 0px 0px 4px rgba(12, 131, 128, 0.08));
+        @include box-shadow(0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08));
       }
     }
 
@@ -106,7 +106,7 @@ a.btn-esolidar {
       }
 
       &:focus {
-        @include box-shadow(0px 0px 0px 4px rgba(12, 131, 128, 0.08));
+        @include box-shadow(0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08));
       }
 
       &.disabled {
@@ -125,7 +125,7 @@ a.btn-esolidar {
       }
 
       &:focus {
-        @include box-shadow(0px 0px 0px 4px rgba(12, 131, 128, 0.08));
+        @include box-shadow(0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08));
       }
 
       &.disabled {
@@ -267,7 +267,7 @@ a.btn-esolidar {
       }
 
       &:focus {
-        @include box-shadow(0px 0px 0px 4px rgba(12, 131, 128, 0.08));
+        @include box-shadow(0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08));
       }
 
       &.disabled {
@@ -287,7 +287,7 @@ a.btn-esolidar {
       }
 
       &:focus {
-        @include box-shadow(0px 0px 0px 4px rgba(12, 131, 128, 0.08));
+        @include box-shadow(0px 0px 0px 4px change-color(map-get($turquoise, 500), $alpha: 0.08));
       }
     }
   }
