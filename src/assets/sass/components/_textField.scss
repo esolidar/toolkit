@@ -57,6 +57,10 @@
 
     .form-control[disabled] {
       @include input-disabled();
+
+      &:hover {
+        @include input-disabled-hover();
+      }
     }
 
     .required-field {

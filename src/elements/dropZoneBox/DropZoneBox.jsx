@@ -46,7 +46,8 @@ const DropZoneBox = ({
   icon,
   inputLabelProps,
   label,
-  showFooterCropper = false,
+  showFooterCropper,
+  showErrors,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -260,7 +261,7 @@ const DropZoneBox = ({
         </>
       )}
 
-      {errorList.length > 0 && (
+      {errorList.length > 0 && showErrors && (
         <div className="text-left error-files">
           <div className="error">
             <FormattedMessage id="document.files.modal.error.files" />
@@ -442,6 +443,7 @@ DropZoneBox.propTypes = {
   inputLabelProps: PropTypes.object,
   icon: PropTypes.string,
   showFooterCropper: PropTypes.bool,
+  showErrors: PropTypes.bool,
 };
 
 DropZoneBox.defaultProps = {
@@ -462,5 +464,7 @@ DropZoneBox.defaultProps = {
   titleCropModal: 'Add Files',
   textSaveCropModal: 'Add',
   isLoading: false,
+  showFooterCropper: false,
+  showErrors: true,
 };
 export default DropZoneBox;

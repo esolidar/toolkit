@@ -65,7 +65,7 @@ class MultiSelectField extends Component {
             <div className="form-group">
               <label htmlFor={props.label}>
                 <input type="checkbox" onChange={() => null} checked={props.isSelected} />
-                <div className="checkbox" />
+                <div className={`checkbox ${this.props.size}`} />
                 {props.label}
               </label>
             </div>
@@ -169,6 +169,10 @@ MultiSelectField.propTypes = {
   labelHeader: PropTypes.object,
   value: PropTypes.array,
   onChange: PropTypes.func,
+};
+
+MultiSelectField.defaultProps = {
+  size: 'md',
 };
 
 const Select = props => {
