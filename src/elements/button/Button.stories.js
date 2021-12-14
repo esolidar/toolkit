@@ -9,7 +9,7 @@ export default {
   component: Button,
 };
 
-const extraClassesWithoutFull = ['secondary', 'link', 'ghost'];
+const extraClassesWithoutFull = ['secondary', 'link', 'ghost', 'negative'];
 
 const Template = args => (
   <>
@@ -105,6 +105,12 @@ Secondary.args = {
 export const Ghost = Template.bind({});
 Ghost.args = {
   extraClass: 'ghost',
+  onClick: () => {},
+};
+
+export const Negative = Template.bind({});
+Negative.args = {
+  extraClass: 'negative',
   onClick: () => {},
 };
 
