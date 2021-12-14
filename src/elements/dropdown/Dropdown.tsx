@@ -5,7 +5,7 @@ import Icon from '../../components/icon';
 import CustomToggle from './CustomToggle';
 import Props from './Dropdown.types';
 
-const Dropdown: FC<Props> = ({ toggleIcon, items }: Props): JSX.Element => {
+const Dropdown: FC<Props> = ({ toggleIcon = 'icon-more-vertical', items }: Props): JSX.Element => {
   const handleClick = (e, item) => {
     e.stopPropagation();
     item.onClick();
