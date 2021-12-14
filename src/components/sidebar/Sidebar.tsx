@@ -61,16 +61,6 @@ const Sidebar: FC<Props> = ({
 
     items.map(item => {
       const { submenu } = item;
-      if (submenu) {
-        item.onClick = () => openSubMenu(item);
-        if (subMenuTitle === item.text && isOpenSubMenu) {
-          item.isActive = true;
-        }
-        if (item.keepSubMenuOpen) {
-          openSubMenu(item);
-        }
-      }
-
       if (subMenuTitle !== '') {
         const activeMenu = activeMenus.filter(item => item.text !== subMenuTitle);
         const withSubmenusActive = activeMenus.find(item => item.text === subMenuTitle);
@@ -83,6 +73,15 @@ const Sidebar: FC<Props> = ({
           if (item.text === withSubmenusActive.text) {
             item.isActive = false;
           }
+        }
+      }
+      if (submenu) {
+        item.onClick = () => openSubMenu(item);
+        if (subMenuTitle === item.text && isOpenSubMenu) {
+          item.isActive = true;
+        }
+        if (item.keepSubMenuOpen) {
+          openSubMenu(item);
         }
       }
     });
