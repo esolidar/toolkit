@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
@@ -21,17 +21,7 @@ const WizardHeader: FC<Props> = ({
   handleChangeTitle,
   handleBlurTitle,
 }: Props): JSX.Element => {
-  const [showSaved, setShowSaved] = useState<boolean>(false);
   const intl = useIntl();
-
-  useEffect(() => {
-    if (saved) {
-      setShowSaved(true);
-      setTimeout(() => {
-        setShowSaved(false);
-      }, 3000);
-    }
-  }, [saved]);
 
   return (
     <div className="wizard__header">
@@ -66,7 +56,7 @@ const WizardHeader: FC<Props> = ({
         </div>
       </div>
       <div className="wizard__header__buttons">
-        {showSaved && (
+        {saved && (
           <span className="saved-status">
             <FormattedMessage id="business.changes.saved" />
             <img src={`${cdnStaticUrl}/frontend/icons/ic-save-status.svg`} alt="" />

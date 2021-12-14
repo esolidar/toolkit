@@ -3,8 +3,9 @@ export interface Option {
   isDisabled?: boolean;
   label: string;
   leftIcon?: JSX.Element;
-  show: boolean;
+  show?: boolean;
   value: string;
+  isLabelBold?: boolean;
 }
 
 interface InputLabel {

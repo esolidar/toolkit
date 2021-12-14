@@ -48,7 +48,8 @@ const Select: FC<Props> = ({
     else onClear();
   };
 
-  const filteredOptions: Option[] = options.filter((option: Option) => option.show);
+  const filteredOptions: Option[] = options.map(item => ({ ...item, show: item.show !== false }));
+
   const helper: string = typeof error === 'string' ? error : helperText;
 
   return (
@@ -110,7 +111,7 @@ const CustomOption: FC<CustomOptionProps> = ({
   isSelected,
   isDisabled,
 }: CustomOptionProps): JSX.Element => {
-  const { show, leftIcon, label, description } = data;
+  const { show, leftIcon, label, description, isLabelBold } = data;
 
   const optionClasses: string = classNames(
     'esolidar-select__option',
@@ -124,7 +125,7 @@ const CustomOption: FC<CustomOptionProps> = ({
     <div {...innerProps} className={optionClasses}>
       {leftIcon && <div className="esolidar-select__option--icon">{leftIcon}</div>}
       <div className="esolidar-select__option--text">
-        <span>{label}</span>
+        <span className={isLabelBold && 'option-bold'}>{label}</span>
         {description && <span>{description}</span>}
       </div>
     </div>

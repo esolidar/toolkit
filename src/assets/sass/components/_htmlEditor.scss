@@ -6,7 +6,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 .rdw {
   &-editor {
     &-wrapper {
-      border: 2px solid $border-color !important;
+      border: 0.132rem solid $border-color !important;
       background-color: white !important;
       border-radius: $border-radius-1;
       overflow: hidden;
@@ -46,6 +46,12 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
           &:not(.rdw-editor-wrapper-error) {
             box-shadow: 0 0 0 1px #2196f3;
             border-color: #2196f3 !important;
+          }
+        }
+
+        &-disabled {
+          &:hover {
+            @include input-disabled-hover();
           }
         }
       }

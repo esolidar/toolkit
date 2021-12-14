@@ -15,32 +15,30 @@ const options = [
   {
     value: 'first',
     label: 'This enabled option has no icon nor description',
-    show: true,
+    className: 'option-label-bold',
+    isLabelBold: true,
   },
   {
     value: 'second',
     label: 'This enabled option has an icon',
     leftIcon: <Icon iconClass="icon-httpslock" />,
-    show: true,
+    isLabelBold: false,
   },
   {
     value: 'third',
     label: 'This enabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
     leftIcon: <Icon iconClass="icon-httpslock" />,
-    show: true,
   },
   {
     value: 'fourth',
     label: 'This disabled option has no icon nor description',
-    show: true,
     isDisabled: true,
   },
   {
     value: 'fifth',
     label: 'This disabled option has an icon',
     leftIcon: <Icon iconClass="icon-httpslock" />,
-    show: true,
     isDisabled: true,
   },
   {
@@ -48,7 +46,6 @@ const options = [
     label: 'This disabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
     leftIcon: <Icon iconClass="icon-httpslock" />,
-    show: true,
     isDisabled: true,
   },
 ];

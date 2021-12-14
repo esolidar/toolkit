@@ -128,6 +128,9 @@
             font-size: 16px;
             line-height: 24px;
             color: map-get($neutrals, 900);
+          }
+
+          & .option-bold {
             font-weight: 600;
           }
         }
