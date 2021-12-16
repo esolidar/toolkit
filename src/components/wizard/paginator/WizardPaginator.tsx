@@ -30,7 +30,10 @@ const WizardPaginator: FC<Props> = ({
           style={{ width: `${JSON.stringify(100 / pages.length)}%` }}
         >
           <div>
-            <div className="wizard__paginator__item__title">{page.title}</div>
+            <div className="wizard__paginator__item__title">
+              <span className="page-number">{i + 1}.&nbsp;</span>
+              <span className="page-title">{page.title}</span>
+            </div>
             <div className="wizard__paginator__item__subtitle">
               {page.status === 'done' && (
                 <img

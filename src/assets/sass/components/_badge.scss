@@ -48,8 +48,13 @@
   }
 
   &__dark {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors-dark, dark);
+    color: map-get($neutrals, 900) !important;
+    background-color: map-get($base, white);
+    border: 1px solid map-get($neutrals, 200);
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 20px;
+    padding: 6px 12px !important;
   }
 
   &__xs {

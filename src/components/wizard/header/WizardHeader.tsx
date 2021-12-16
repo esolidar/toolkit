@@ -61,7 +61,7 @@ const WizardHeader: FC<Props> = ({
               />
             )}
             {!editMode && <>{title}</>}
-            <Badge text={status} className="btn-badge" size="md" />
+            <Badge text={status} className="btn-badge" extraClass="dark" size="md" />
           </h1>
         </div>
       </div>
