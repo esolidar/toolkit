@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const CheckboxField = ({
   value,
@@ -26,7 +27,7 @@ const CheckboxField = ({
           checked={checked}
           disabled={disabled}
         />
-        <div className="checkbox" />
+        <div className={classnames('checkbox', { [size]: size })} />
         {label && <div className={`label ${size}`}>{label}</div>}
       </label>
     </div>
@@ -47,7 +48,7 @@ CheckboxField.propTypes = {
   size: PropTypes.string,
 };
 
-CheckboxField.defaultValues = {
+CheckboxField.defaultProps = {
   size: 'md',
 };
 

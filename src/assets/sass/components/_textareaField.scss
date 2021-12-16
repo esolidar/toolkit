@@ -44,6 +44,14 @@
         padding-bottom: 40px;
       }
     }
+
+    .form-control[disabled] {
+      @include input-disabled();
+
+      &:hover {
+        @include input-disabled-hover();
+      }
+    }
   }
 
   &.has-error {

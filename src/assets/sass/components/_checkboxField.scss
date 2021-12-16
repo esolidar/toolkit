@@ -1,15 +1,15 @@
-@mixin checked-icon() {
+@mixin checked-icon($top, $left, $height, $width) {
   position: absolute;
   content: '';
-  top: 10px;
-  left: 10px;
+  top: $top;
+  left: $left;
   border: solid white;
   border-width: 0 0.145em 0.145em 0;
   display: block;
   -webkit-transform: translateY(-65%) translateX(-50%) rotate(45deg);
   transform: translateY(-65%) translateX(-50%) rotate(45deg);
-  height: calc(92% - 8px);
-  width: calc(48% - 4px);
+  height: $height;
+  width: $width;
 }
 
 .checkbox-inline {
@@ -27,16 +27,33 @@
 
       & ~ .checkbox {
         position: relative;
-        width: 24px;
-        height: 24px;
-        min-width: 24px;
-        min-height: 24px;
         background-color: map-get($base, white);
         border: 2px solid change-color(map-get($base, black), $alpha: 0.08);
         border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &.sm {
+          width: 16px;
+          height: 16px;
+          min-width: 16px;
+          min-height: 16px;
+        }
+
+        &.md {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
+        }
+
+        &.lg {
+          width: 24px;
+          height: 24px;
+          min-width: 24px;
+          min-height: 24px;
+        }
 
         &:hover {
           cursor: pointer;
@@ -56,8 +73,22 @@
       background-color: map-get($turquoise, 500);
       border-color: map-get($turquoise, 500);
 
-      &::after {
-        @include checked-icon();
+      &.sm {
+        &::after {
+          @include checked-icon(6px, 6px, 9px, 5px);
+        }
+      }
+
+      &.md {
+        &::after {
+          @include checked-icon(8px, 8px, 12px, 6px);
+        }
+      }
+
+      &.lg {
+        &::after {
+          @include checked-icon(10px, 10px, 12px, 6px);
+        }
       }
     }
 
@@ -66,8 +97,22 @@
         background-color: map-get($neutrals, 400);
         border-color: map-get($neutrals, 400);
 
-        &::after {
-          @include checked-icon();
+        &.sm {
+          &::after {
+            @include checked-icon(6px, 6px, 9px, 5px);
+          }
+        }
+
+        &.md {
+          &::after {
+            @include checked-icon(8px, 8px, 12px, 6px);
+          }
+        }
+
+        &.lg {
+          &::after {
+            @include checked-icon(10px, 10px, 12px, 6px);
+          }
         }
 
         &:hover {

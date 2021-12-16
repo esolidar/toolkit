@@ -224,6 +224,11 @@
   @include animate();
 }
 
+@mixin input-disabled-hover() {
+  border: none;
+  outline: 1px solid map-get($neutrals, 200);
+}
+
 @mixin input-form() {
   border: none;
   font-size: 16px;
