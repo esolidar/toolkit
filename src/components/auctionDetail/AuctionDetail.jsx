@@ -74,6 +74,7 @@ const AuctionDetail = ({
   primaryColor,
   domainUrl,
   locale,
+  partialThumbPath,
 }) => {
   const intl = useIntl();
   // Modals
@@ -1115,6 +1116,7 @@ const AuctionDetail = ({
                     cols={12}
                     showStatus={false}
                     status=""
+                    url={partialThumbPath ? `/${partialThumbPath}/projects` : '/projects'}
                   />
                 </Row>
               )}
@@ -1132,6 +1134,7 @@ const AuctionDetail = ({
               buttonTitle={intl.formatMessage({ id: 'auction.detail.seeAll' })}
               primaryColor={primaryColor}
               env={env}
+              partialThumbPath={partialThumbPath}
             />
           )}
         </>
@@ -1439,6 +1442,7 @@ AuctionDetail.propTypes = {
   primaryColor: PropTypes.string,
   domainUrl: PropTypes.string,
   locale: PropTypes.string,
+  partialThumbPath: PropTypes.string,
 };
 
 export default AuctionDetail;

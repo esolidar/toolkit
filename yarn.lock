@@ -1562,10 +1562,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.180.0":
-  version "0.180.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.180.0/f353ad9177bde4d0b70346ca1235a24b9100ad8713e24e6d93cd6fb7815d688c#fe8edb8669930e0d0689f37f34bc3d4614becb7c"
-  integrity sha512-wBTqfITyiE2+vLfZ1cLFCqX5ExMn7Ov63zXCJBuHrx+paZXpn72nGkf0rExTD9rOxbPf9yQk6qiZ+vvPAxs7AQ==
+"@esolidar/i18n@^0.182.0":
+  version "0.182.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.182.0/3affd6121df91dec86ddf12909d50f559bab81372df64efe117973ef744dff03#0cf69e21fc389fd0279cf5fdad78c6a27ce68374"
+  integrity sha512-8vQTCoM0sYpCO74nj4/vVDVLain7fzbVTDIQFR/m2JkI+QU2XkBKXgJvRItpDNEr7ELu9ZU2iaGFaYFfoKUlfQ==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -6945,6 +6945,11 @@ draft-js@^0.11.4:
     fbjs "^2.0.0"
     immutable "~3.7.4"
     object-assign "^4.1.1"
+
+draftjs-to-html@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/draftjs-to-html/-/draftjs-to-html-0.9.1.tgz#1c870fbb588d2390204cb4d0ee7e04ad0c709969"
+  integrity sha512-fFstE6+IayaVFBEvaFt/wN8vdj8FsTRzij7dy7LI9QIwf5LgfHFi9zSpvCg+feJ2tbYVqHxUkjcibwpsTpgFVQ==
 
 draftjs-utils@^0.10.2:
   version "0.10.2"
