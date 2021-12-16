@@ -6,8 +6,16 @@ import Button from '../../../elements/button';
 import slugify from '../../../utils/slugify/slugify';
 import AuctionThumb from '../../auctionThumb/AuctionThumb';
 
-const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) => {
+const AuctionsList = ({
+  title,
+  listAuctions,
+  buttonTitle,
+  primaryColor,
+  env,
+  partialThumbPath,
+}) => {
   const intl = useIntl();
+  const path = partialThumbPath || 'needs';
 
   if (listAuctions) {
     return (
@@ -35,7 +43,7 @@ const AuctionsList = ({ title, listAuctions, buttonTitle, primaryColor, env }) =
                   data-testid={`listAuction-${auction.id}`}
                 >
                   <a
-                    href={`/${localStorage.lang}/auction/detail/${auction.id}-${slugify(
+                    href={`/${localStorage.lang}/${path}/auction/detail/${auction.id}-${slugify(
                       auction.title
                     )}`}
                     title={auction.title}
@@ -78,6 +86,7 @@ AuctionsList.propTypes = {
   buttonTitle: PropTypes.string,
   primaryColor: PropTypes.string,
   env: PropTypes.object,
+  partialThumbPath: PropTypes.string,
 };
 
 export default AuctionsList;
