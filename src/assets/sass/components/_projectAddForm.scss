@@ -20,6 +20,18 @@
     margin-bottom: 25px;
   }
 
+  ol {
+    margin: 0;
+    padding: 0 $distance-2;
+  }
+
+  li {
+    font-size: 15px;
+    color: map-get($main-text-colors, dark);
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+
   .form-group {
     .control-label {
       font-size: 14px;
