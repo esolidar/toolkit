@@ -1,4 +1,5 @@
 interface Props {
+  buttonNextText: string;
   handleClickBack(): void;
   handleClickNext(): void;
   totalPages: number;

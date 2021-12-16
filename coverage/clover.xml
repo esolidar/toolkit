@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1639504558741" clover="3.2.0">
-  <project timestamp="1639504558741" name="All files">
-    <metrics statements="4157" coveredstatements="2875" conditionals="3447" coveredconditionals="2153" methods="1153" coveredmethods="575" elements="8757" coveredelements="5603" complexity="0" loc="4157" ncloc="4157" packages="184" files="409" classes="409"/>
+<coverage generated="1639671132584" clover="3.2.0">
+  <project timestamp="1639671132584" name="All files">
+    <metrics statements="4157" coveredstatements="2875" conditionals="3450" coveredconditionals="2156" methods="1153" coveredmethods="575" elements="8760" coveredelements="5606" complexity="0" loc="4157" ncloc="4157" packages="184" files="409" classes="409"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -3414,22 +3414,22 @@
         <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="42" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
         <line num="54" count="2" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
         <line num="56" count="2" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
@@ -3444,8 +3444,8 @@
       <file name="WizardFooter.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/wizard/footer/WizardFooter.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/wizard/footer/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4684,12 +4684,12 @@
       </file>
     </package>
     <package name="src.unreleased.card">
-      <metrics statements="3" coveredstatements="2" conditionals="18" coveredconditionals="14" methods="4" coveredmethods="1"/>
+      <metrics statements="3" coveredstatements="2" conditionals="21" coveredconditionals="17" methods="4" coveredmethods="1"/>
       <file name="Card.tsx" path="/Users/pedroguia/Projects/toolkit/src/unreleased/card/Card.tsx">
-        <metrics statements="3" coveredstatements="2" conditionals="18" coveredconditionals="14" methods="4" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="2" conditionals="21" coveredconditionals="17" methods="4" coveredmethods="1"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="15" count="17" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.unreleased.card.auction">

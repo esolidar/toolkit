@@ -39,7 +39,7 @@
   &__body {
     margin-left: $distance-2;
     margin-right: $distance-2;
-    height: 310px;
+    height: 244px;
     position: relative;
   }
 
@@ -58,11 +58,13 @@
   }
 
   &__countdown {
-    margin-top: -50px;
-    position: relative;
+    margin-top: -66px;
+    position: absolute;
+    width: 100%;
   }
 
   &__title {
+    padding-top: 20px;
     margin-top: $distance-2;
     margin-bottom: $distance-1;
     font-size: 16px;
@@ -76,9 +78,9 @@
     overflow: hidden;
   }
 
-  &__body-middle {
-    height: 95px;
-  }
+  // &__body-middle {
+  //   height: 55px;
+  // }
 
   &__progressbar {
     padding-bottom: $distance-5;

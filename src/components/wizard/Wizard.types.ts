@@ -29,6 +29,7 @@ interface Props {
   editMode: boolean;
   handleChangeTitle(): void;
   handleBlurTitle(): void;
+  buttonNextText: string;
 }
 
 export default Props;

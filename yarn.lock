@@ -1562,10 +1562,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.169.0":
-  version "0.169.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.169.0/51c51ae1a04fb67022820604cfa76ebec29c805c3b0c239049212d870e50e9f1#cb47c1cef4b550626daeb968156e090c7817dc36"
-  integrity sha512-HMzOwENq+o0XXR98WRtZ7rubOtT5V+oYRJhzX0Ah98acQQTwpguc51CSkYtcqVRB84C51VamGLf6EMvU9xc/+Q==
+"@esolidar/i18n@^0.180.0":
+  version "0.180.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.180.0/f353ad9177bde4d0b70346ca1235a24b9100ad8713e24e6d93cd6fb7815d688c#fe8edb8669930e0d0689f37f34bc3d4614becb7c"
+  integrity sha512-wBTqfITyiE2+vLfZ1cLFCqX5ExMn7Ov63zXCJBuHrx+paZXpn72nGkf0rExTD9rOxbPf9yQk6qiZ+vvPAxs7AQ==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -1967,10 +1967,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@pedroguia/react-draft-wysiwyg@^1.14.12":
-  version "1.14.12"
-  resolved "https://registry.yarnpkg.com/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.14.12.tgz#75a79eb95865c9438f94448f97f53230ca69a257"
-  integrity sha512-0EQA871GSXWHHJcD4jLVOAb7l9/rVsQA/My2hxWl7fMm0Ak5dNYFRLnq6nc2aNSXbtGboVLjHI6qyQlc/vtxsw==
+"@pedroguia/react-draft-wysiwyg@^1.14.14":
+  version "1.14.14"
+  resolved "https://registry.yarnpkg.com/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.14.14.tgz#f91f94871b886cf449677e7dd1109219c12786d2"
+  integrity sha512-LIAizPJ2HuwMwsMWVH0SJSGTPPLTHCwmClVZZJCekpOHsh7s4Fhl1xrxAUyONc4RaJoh3u+Y2hEY+DBcExM/Ew==
   dependencies:
     classnames "^2.2.6"
     draftjs-utils "^0.10.2"

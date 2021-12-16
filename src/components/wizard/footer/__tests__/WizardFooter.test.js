@@ -12,5 +12,5 @@ it('renders WizardFooter default component', () => {
   expect(getByClass('wizard__footer')).toBeTruthy();
   expect(getByClass(/btn-dark/)).toBeTruthy();
   expect(getByClass(/btn-primary-full/)).toBeTruthy();
-  expect(getByClass('wizard__footer__continue')).toHaveTextContent('Step 2 of 4Continue');
+  expect(getByClass('wizard__footer__continue')).toHaveTextContent('Step 2 of 4');
 });

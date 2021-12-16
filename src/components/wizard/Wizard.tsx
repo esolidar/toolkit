@@ -32,6 +32,7 @@ const Wizard: FC<Props> = ({
   editMode,
   handleChangeTitle,
   handleBlurTitle,
+  buttonNextText,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -84,6 +85,7 @@ const Wizard: FC<Props> = ({
         <Viewport className="wizard__body">{children}</Viewport>
         <Viewport>
           <WizardFooter
+            buttonNextText={buttonNextText}
             handleClickBack={handleClickBack}
             handleClickNext={handleClickNext}
             totalPages={totalPages}

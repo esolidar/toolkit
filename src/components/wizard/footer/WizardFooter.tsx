@@ -4,6 +4,7 @@ import Props from './WizardFooter.types';
 import Button from '../../../elements/button';
 
 const WizardFooter: FC<Props> = ({
+  buttonNextText,
   handleClickBack,
   handleClickNext,
   disableClickNext,
@@ -25,7 +26,7 @@ const WizardFooter: FC<Props> = ({
         <Button
           extraClass="primary-full"
           onClick={handleClickNext}
-          text={intl.formatMessage({ id: 'crowdfunding.donation.checkout.next' })}
+          text={buttonNextText}
           disabled={disableClickNext}
         />
       </div>

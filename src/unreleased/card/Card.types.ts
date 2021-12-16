@@ -15,6 +15,7 @@ interface Props {
   support: Support;
   isPrivate?: boolean;
   average?: number;
+  showCountdown?: boolean;
 }
 
 export default Props;
