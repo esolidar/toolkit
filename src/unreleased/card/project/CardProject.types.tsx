@@ -6,6 +6,7 @@ interface Props {
   clickThumb(): void;
   communityUrl: string;
   currency: CurrencySmall;
+  showStatus?: boolean;
 }
 
 export default Props;

@@ -25,10 +25,19 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const WithoutStatus: Story<Props> = Template.bind({});
 
 Default.args = {
   project,
   clickThumb: () => alert('clicked'),
   communityUrl: 'https://community.testesolidar.com/',
   currency: 'EUR',
+};
+
+WithoutStatus.args = {
+  project,
+  clickThumb: () => alert('clicked'),
+  communityUrl: 'https://community.testesolidar.com/',
+  currency: 'EUR',
+  showStatus: false,
 };

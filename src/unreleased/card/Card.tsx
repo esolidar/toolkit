@@ -11,6 +11,7 @@ const Card: FC<Props> = ({
   support,
   isPrivate = false,
   average,
+  showCountdown = true,
 }: Props): JSX.Element => (
   <div className="card-component" onClick={() => clickThumb()} onKeyDown={() => clickThumb()}>
     {isPrivate && <Badge text="toolkit.private" className="card-component__badge" />}
@@ -35,7 +36,7 @@ const Card: FC<Props> = ({
       )}
     </div>
     <div className="card-component__body">
-      <div className="card-component__countdown">{countdown}</div>
+      {showCountdown && <div className="card-component__countdown">{countdown}</div>}
       <div className="card-component__title" title={title}>
         {title}
       </div>

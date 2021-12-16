@@ -6,6 +6,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 .rdw {
   &-editor {
     &-wrapper {
+      padding: $distance-2 !important;
       border: 0.132rem solid $border-color !important;
       background-color: white !important;
       border-radius: $border-radius-1;
@@ -58,31 +59,46 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
     }
 
     &-main {
-      padding: 10px 15px !important;
-      height: 264px !important;
-      overflow: hidden !important;
-
       &.disabled {
         @include input-disabled();
         border-bottom: none !important;
+      }
+
+      & .DraftEditor-root {
+        & .public-DraftEditor-content {
+          height: 172px !important;
+          overflow: auto !important;
+        }
+
+        & .public-DraftEditorPlaceholder-root {
+          color: map-get($neutrals, 400);
+          font-size: 16px;
+        }
       }
     }
 
     &-toolbar {
       border: unset !important;
       margin: 0 !important;
-      padding: $distance-1 !important;
+      padding: unset !important;
+      padding-left: 2px !important;
+      padding-top: 2px !important;
+      gap: 2px !important;
+      margin-bottom: $distance-3 !important;
 
       & .rdw-inline-wrapper {
         margin-bottom: 0 !important;
+        gap: 2px;
       }
 
       & .rdw-list-wrapper {
         margin-bottom: 0 !important;
+        gap: 2px;
       }
 
       & .rdw-link-wrapper {
         margin-bottom: 0 !important;
+        gap: 2px;
       }
 
       &.disabled {
@@ -107,7 +123,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
           &-wrapper {
             &:hover {
               box-shadow: none !important;
-              border: 2px solid map-get($neutrals, 700) !important;
+              outline: 2px solid map-get($neutrals, 700) !important;
             }
           }
         }
@@ -121,6 +137,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
           height: 30px !important;
           border-radius: $border-radius !important;
           background-color: transparent !important;
+          margin: 0px;
         }
 
         &-active {
@@ -161,7 +178,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   &-link {
     &-modal {
       width: 265px !important;
-      height: 240px !important;
+      height: 200px !important;
     }
   }
 
@@ -262,21 +279,20 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   }
 }
 
-.public-Draft.Editor-content {
-  max-height: 264px !important;
-  overflow-y: auto !important;
-
-  h1 {
-    color: inherit !important;
-  }
-}
-
 .rdw-link-modal {
   border-radius: $border-radius-1 !important;
   box-shadow: map-get($elevation, 200) !important;
-  bottom: 35px !important;
-  top: auto !important;
-  padding: $distance-2 !important;
+  top: 35px !important;
+  bottom: auto !important;
+  padding: $distance-1 !important;
+
+  &-target-option {
+    display: none;
+  }
+
+  &-buttonsection {
+    margin-top: 4px !important;
+  }
 }
 
 .rdw-image-modal-alt-input,

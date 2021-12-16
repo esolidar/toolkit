@@ -304,27 +304,28 @@ const ProjectAddForm = ({
   return (
     <div className="add-project">
       <TextField
-        label={intl.formatMessage({ id: 'title' })}
+        label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.title' })}
         onChange={onChange}
         error={errors.title}
         value={form.title}
         field="title"
       />
       <TextareaField
-        label={intl.formatMessage({ id: 'description' })}
-        error={errors[form.description]}
+        label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.description' })}
+        error={errors.description}
         onChange={onChange}
         field="description"
         value={form.description}
         resize={true}
       />
       <TextField
-        label={intl.formatMessage({ id: 'video' })}
+        label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video' })}
+        showOptionalLabel={true}
         onChange={onChange}
         error={errors.video}
         value={form.video}
         field="video"
-        help={intl.formatMessage({ id: 'Specify the link for a Youtube or Vimeo video' })}
+        help={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video.help' })}
       />
 
       <DropZoneBox
@@ -358,26 +359,26 @@ const ProjectAddForm = ({
         onSelect={onDrop}
         showDropArea
         showImagesPreviews
-        textSaveCropModal="Add"
-        titleCropModal="Add Files"
+        textSaveCropModal={intl.formatMessage({ id: 'save' })}
+        titleCropModal={intl.formatMessage({ id: 'modal.crop.title' })}
+        error={errors.images}
       />
-
       <SelectField
         options={categories}
-        value={+form.categories}
-        label={intl.formatMessage({ id: 'categories' })}
+        value={+form.category}
+        label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.categories' })}
         field="categories"
         onChange={onChange}
         size="sm"
         error={errors.categories}
         help={intl.formatMessage({
-          id: 'Select the areas or themes in which you categorize your project',
+          id: 'toolkit.accelerator.appForm.form.categories.help.preview',
         })}
       />
 
       <Row className="ods">
         <Col sm={12}>
-          <InputLabel label={intl.formatMessage({ id: 'sdg' })} />
+          <InputLabel label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.sdgs' })} />
         </Col>
         <Col sm={12}>
           {ods.map(o => (

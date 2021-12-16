@@ -48,6 +48,7 @@ const DropZoneBox = ({
   label,
   showFooterCropper,
   showErrors,
+  error,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -274,6 +275,20 @@ const DropZoneBox = ({
         </div>
       )}
 
+      {error && (
+        <div
+          className="form-group has-error"
+          style={{
+            width: '100%',
+            display: 'inline-block',
+            marginBottom: '15px',
+            marginTop: '-15px',
+          }}
+        >
+          <div className="help-block">{error}</div>
+        </div>
+      )}
+
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
         <ImagesPreview />
       )}
@@ -444,6 +459,7 @@ DropZoneBox.propTypes = {
   icon: PropTypes.string,
   showFooterCropper: PropTypes.bool,
   showErrors: PropTypes.bool,
+  error: PropTypes.string,
 };
 
 DropZoneBox.defaultProps = {

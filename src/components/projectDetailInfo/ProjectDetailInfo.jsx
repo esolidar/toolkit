@@ -193,7 +193,7 @@ const NewQuestion = ({
     options = question.form.options.filter(i => i.id === question.reply);
   }
   if (type === 'checkboxes') {
-    question.reply.map(reply => {
+    question?.reply?.map(reply => {
       options.push(question.form.options.find(i => i.id === reply));
     });
   }

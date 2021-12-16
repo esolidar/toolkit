@@ -7,7 +7,7 @@ import Ods from '../../../interfaces/ods.types';
 import getStatus from '../../../utils/getStatus';
 import { PROJECT } from '../../../constants/status';
 
-const CardProject: FC<Props> = ({ project, clickThumb }: Props): JSX.Element => {
+const CardProject: FC<Props> = ({ project, clickThumb, showStatus = true }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
   const support = {
@@ -25,6 +25,7 @@ const CardProject: FC<Props> = ({ project, clickThumb }: Props): JSX.Element => 
           : ''
       }
       countdown={<Status project={project} />}
+      showCountdown={showStatus}
       title={project.title}
       body={<Body ods={project.ods} />}
       support={support}
