@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import classnames from 'classnames';
 import { useIntl } from 'react-intl';
 import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML } from 'draft-js';
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
@@ -65,15 +65,27 @@ const HtmlEditor = ({
   inputLabelProps,
   placeholder,
 }) => {
-  const [wrapperClassName, setWrapperClassName] = useState([]);
+  const intl = useIntl();
+  const isFirstRender = useIsFirstRender();
+
+  const [wrapperClassName, setWrapperClassName] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
   const [editorState, setEditorState] = useState(
     initialContent
       ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
       : EditorState.createEmpty()
   );
 
-  const intl = useIntl();
-  const isFirstRender = useIsFirstRender();
+  useEffect(() => {
+    setWrapperClassName(
+      classnames({
+        [disabledClass]: disabled,
+        [muiStyleClass]: muiStyle,
+        [errorClass]: error,
+        [focusClass]: isFocused,
+      })
+    );
+  });
 
   useEffect(() => {
     if (isFirstRender) return;
@@ -87,43 +99,13 @@ const HtmlEditor = ({
     }
   }, [initialContent]);
 
-  useEffect(() => {
-    let newClassArray = [...wrapperClassName];
-
-    if (disabled) {
-      if (!newClassArray.includes(disabledClass)) newClassArray.push(disabledClass);
-    } else newClassArray = newClassArray.filter(item => item !== disabledClass);
-
-    setWrapperClassName(newClassArray);
-  }, [disabled]);
-
-  useEffect(() => {
-    let newClassArray = [...wrapperClassName];
-
-    if (muiStyle) {
-      if (!newClassArray.includes(muiStyleClass)) newClassArray.push(muiStyleClass);
-    } else newClassArray = newClassArray.filter(item => item !== muiStyleClass);
-
-    if (error) {
-      if (!newClassArray.includes(errorClass)) newClassArray.push(errorClass);
-    } else newClassArray = newClassArray.filter(item => item !== errorClass);
-
-    setWrapperClassName(newClassArray);
-  }, [muiStyle, error]);
-
   const handleEditorStateChange = editorState => {
     if (onChange) onChange(convertToRaw(editorState.getCurrentContent()));
     setEditorState(editorState);
   };
 
-  const handleOnFocus = () => {
-    if (!wrapperClassName.includes(focusClass))
-      setWrapperClassName([...wrapperClassName, focusClass]);
-  };
-
-  const handleOnBlur = () => {
-    setWrapperClassName(wrapperClassName.filter(item => item !== focusClass));
-  };
+  const handleOnFocus = () => setIsFocused(true);
+  const handleOnBlur = () => setIsFocused(false);
 
   const options = ['inline', 'list'];
   if (showAddImageBtn) options.push('image');
@@ -153,7 +135,7 @@ const HtmlEditor = ({
         />
       )}
       <Editor
-        wrapperClassName={wrapperClassName.join(' ')}
+        wrapperClassName={wrapperClassName}
         editorState={editorState}
         onEditorStateChange={handleEditorStateChange}
         localization={{
