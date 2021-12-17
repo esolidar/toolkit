@@ -13,6 +13,10 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       overflow: hidden;
       @include animate();
 
+      &-disabled {
+        @include input-disabled();
+      }
+
       &-error {
         border: 1px solid red !important;
       }
@@ -49,18 +53,11 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
             border-color: #2196f3 !important;
           }
         }
-
-        &-disabled {
-          &:hover {
-            @include input-disabled-hover();
-          }
-        }
       }
     }
 
     &-main {
       &.disabled {
-        @include input-disabled();
         border-bottom: none !important;
       }
 
@@ -85,6 +82,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       padding-top: 2px !important;
       gap: 2px !important;
       margin-bottom: $distance-3 !important;
+      @include animate();
 
       & .rdw-inline-wrapper {
         margin-bottom: 0 !important;
@@ -102,8 +100,10 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       }
 
       &.disabled {
+        @include animate();
         @include input-disabled();
         border-top: none !important;
+        outline: none !important;
 
         .rdw-option {
           &-wrapper {
