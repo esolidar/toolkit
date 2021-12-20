@@ -1216,7 +1216,7 @@ const AuctionAddForm = ({
                   )}
                   {isEmpty(hasWhitelabel) && (
                     <Col sm={12}>
-                      <span className="subtext">
+                      <span className="subtext mb-3">
                         <FormattedMessage id="auction.add.submit.text" />
                       </span>
                     </Col>

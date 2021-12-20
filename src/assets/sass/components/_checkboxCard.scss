@@ -118,9 +118,8 @@
     }
   }
 
-  &:focus,
-  &:focus-visible {
-    outline: none;
+  &:focus {
+    outline: 1px solid map-get($neutrals, 100) !important;
   }
 
   &:hover {
@@ -132,7 +131,7 @@
 
   &.active {
     &:not(.disabled) {
-      outline: 2px solid map-get($turquoise, 500);
+      outline: 2px solid map-get($turquoise, 500) !important;
     }
   }
 
