@@ -240,7 +240,7 @@ const NewQuestion = ({
               {question.form.question}
               {question.form.privacy === 'private' && <PrivateIcon />}
             </h4>
-            {question.reply.split('\n').map((item, index) => (
+            {question.reply?.split('\n').map((item, index) => (
               <p key={index}>{item}</p>
             ))}
           </div>
