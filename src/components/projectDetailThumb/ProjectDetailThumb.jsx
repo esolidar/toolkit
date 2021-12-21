@@ -60,12 +60,14 @@ const ProjectDetailThumb = ({
             )}
           </div>
         )}
-        <div className="ods-thumb">
-          <h4 style={{ color }}>
-            <FormattedMessage id="category" />
-          </h4>
-          <p className="category-name">{project.project_category.name}</p>
-        </div>
+        {project.category_id && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage id="category" />
+            </h4>
+            <p className="category-name">{project.project_category?.name}</p>
+          </div>
+        )}
         <div className="ods-thumb">
           <h4 style={{ color }}>
             <FormattedMessage id="ods" />
