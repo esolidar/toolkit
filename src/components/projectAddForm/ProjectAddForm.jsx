@@ -363,19 +363,20 @@ const ProjectAddForm = ({
         titleCropModal={intl.formatMessage({ id: 'modal.crop.title' })}
         error={errors.images}
       />
-      <SelectField
-        options={categories}
-        value={+form.category}
-        label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.categories' })}
-        field="categories"
-        onChange={onChange}
-        size="sm"
-        error={errors.categories}
-        help={intl.formatMessage({
-          id: 'toolkit.accelerator.appForm.form.categories.help.preview',
-        })}
-      />
-
+      {categories.length > 0 && (
+        <SelectField
+          options={categories}
+          value={+form.category}
+          label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.categories' })}
+          field="categories"
+          onChange={onChange}
+          size="sm"
+          error={errors.categories}
+          help={intl.formatMessage({
+            id: 'toolkit.accelerator.appForm.form.categories.help.preview',
+          })}
+        />
+      )}
       <Row className="ods">
         <Col sm={12}>
           <InputLabel label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.sdgs' })} />

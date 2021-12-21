@@ -56,9 +56,9 @@ const Sidebar: FC<Props> = ({
     }
   };
 
-  const renderMenus = items => {
+  const renderMenus = (items, mainItems = []) => {
     const activeMenus = totalMenus.filter(item => item.isActive === true);
-
+    const mainItemsActive = mainItems.filter(item => item.isActive === true);
     items.map(item => {
       const { submenu } = item;
       if (subMenuTitle !== '') {
@@ -77,7 +77,7 @@ const Sidebar: FC<Props> = ({
       }
       if (submenu) {
         item.onClick = () => openSubMenu(item);
-        if (subMenuTitle === item.text && isOpenSubMenu) {
+        if (subMenuTitle === item.text && isOpenSubMenu && mainItemsActive.length < 1) {
           item.isActive = true;
         }
         if (item.keepSubMenuOpen) {
@@ -123,7 +123,7 @@ const Sidebar: FC<Props> = ({
             <div id="stop-anchor" ref={stopRef} />
           </div>
           <div className="sidebarNavigation__bottomMenu" ref={anchorRef}>
-            <Menu items={renderMenus(bottomMenu)} isCollapsed={isCollapsed} />
+            <Menu items={renderMenus(bottomMenu, mainMenu)} isCollapsed={isCollapsed} />
             <Icon
               iconClass={classnames(
                 'icon-equalizer2 sidebarNavigation__collapsed--button',
