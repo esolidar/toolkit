@@ -1,1 +1,1 @@
-export { default } from './BoxInfo';
+export { default } from './AcceleratorSubmitProjectBox';
