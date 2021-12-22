@@ -142,7 +142,7 @@
   @include animate();
 
   &.fix-on-scrool-down {
-    top: -5px !important;
+    top: -7px !important;
     @include animate();
 
     .wizard__paginator__item {
@@ -179,11 +179,6 @@
       color: map-get($turquoise, 500) !important;
       border-bottom: none !important;
       @include animate();
-
-      &:after {
-        height: 4px;
-        background: map-get($turquoise, 500);
-      }
     }
 
     &:not(:last-child) {

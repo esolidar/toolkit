@@ -318,7 +318,8 @@ const ProjectAddForm = ({
         value={form.description}
         resize={true}
       />
-      <TextField
+      {/* TODO: uncomment on phase 2  */}
+      {/* <TextField
         label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video' })}
         showOptionalLabel={true}
         onChange={onChange}
@@ -326,7 +327,7 @@ const ProjectAddForm = ({
         value={form.video}
         field="video"
         help={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video.help' })}
-      />
+      /> */}
 
       <DropZoneBox
         accept=".jpg, .jpeg, .png"
