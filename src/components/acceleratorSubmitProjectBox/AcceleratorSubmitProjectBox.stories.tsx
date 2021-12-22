@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
 import { format, addDays, subDays } from 'date-fns';
 import AcceleratorSubmitProjectBox from './AcceleratorSubmitProjectBox';
