@@ -202,14 +202,15 @@ const NewQuestion = ({
     <div className={questionGroupClassName.join(' ')} key={id}>
       <div className="answer">
         {type === 'description' && <p>{question.title}</p>}
-        {type === 'video' && (
+        {/* TODO: uncomment on phase 2  */}
+        {/* {type === 'video' && (
           <div>
             <h4 style={{ color }}>
               <FormattedMessage id="video" />
             </h4>
             <p>{question.title}</p>
           </div>
-        )}
+        )} */}
         {type === 'section' && (
           <div>
             <h4 style={{ color }}>

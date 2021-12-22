@@ -53,13 +53,9 @@
   }
   &.hover-image {
     .esolidar-preview__image {
-      img:hover {
-        outline: 2px solid map-get($turquoise, 500);
-        @include animate(outline, 100ms);
-      }
-
-      .esolidar-preview__image-delete-image {
-        opacity: 1;
+      .esolidar-preview__image-delete-image,
+      .esolidar-preview__image-fullscreen {
+        opacity: 0;
         @include animate(outline, 100ms);
 
         &:focus,
@@ -68,9 +64,16 @@
         }
       }
 
-      .esolidar-preview__image-fullscreen {
-        opacity: 1;
-        @include animate(outline, 100ms);
+      &:hover {
+        img {
+          outline: 2px solid map-get($turquoise, 500);
+          @include animate(outline, 100ms);
+        }
+
+        .esolidar-preview__image-delete-image,
+        .esolidar-preview__image-fullscreen {
+          opacity: 1;
+        }
       }
     }
   }

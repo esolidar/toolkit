@@ -247,6 +247,16 @@
   border: none;
   outline: 2px solid map-get($negative, 500);
   @include animate();
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: none !important;
+    outline: 2px solid map-get($negative, 500) !important;
+  }
+  &:focus {
+    box-shadow: 0px 0px 0px 4px rgba(183, 69, 32, 0.08);
+  }
 }
 
 @mixin line-clamp($lines: 4) {
