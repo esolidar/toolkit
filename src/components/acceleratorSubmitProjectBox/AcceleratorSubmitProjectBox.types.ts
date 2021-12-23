@@ -2,14 +2,16 @@
 
 interface ProjectConfig {
   start_at: string;
-  timezone: string;
   closed_at: string;
+  archived_at?: string;
+  timezone: string;
 }
 
 interface Props {
   projectConfig: ProjectConfig;
   locale: string;
   submitProjectButton(): void;
+  showRunningState: boolean;
 }
 
 export default Props;

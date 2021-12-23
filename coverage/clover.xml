@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640198460409" clover="3.2.0">
-  <project timestamp="1640198460410" name="All files">
-    <metrics statements="4223" coveredstatements="2896" conditionals="3561" coveredconditionals="2174" methods="1173" coveredmethods="578" elements="8957" coveredelements="5648" complexity="0" loc="4223" ncloc="4223" packages="186" files="412" classes="412"/>
+<coverage generated="1640252378554" clover="3.2.0">
+  <project timestamp="1640252378555" name="All files">
+    <metrics statements="4226" coveredstatements="2899" conditionals="3569" coveredconditionals="2182" methods="1174" coveredmethods="578" elements="8969" coveredelements="5659" complexity="0" loc="4226" ncloc="4226" packages="186" files="412" classes="412"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="351" type="stmt"/>
+        <line num="3" count="352" type="stmt"/>
         <line num="5" count="71" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="71" type="stmt"/>
@@ -28,35 +28,38 @@
         <line num="10" count="71" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="71" type="stmt"/>
         <line num="16" count="71" type="stmt"/>
-        <line num="17" count="202" type="stmt"/>
+        <line num="17" count="203" type="stmt"/>
       </file>
     </package>
     <package name="src.components.acceleratorSubmitProjectBox">
-      <metrics statements="19" coveredstatements="19" conditionals="14" coveredconditionals="13" methods="6" coveredmethods="3"/>
+      <metrics statements="22" coveredstatements="22" conditionals="22" coveredconditionals="21" methods="7" coveredmethods="3"/>
       <file name="AcceleratorSubmitProjectBox.stories.tsx" path="C:\Projects\toolkit\src\components\acceleratorSubmitProjectBox\AcceleratorSubmitProjectBox.stories.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
       </file>
       <file name="AcceleratorSubmitProjectBox.tsx" path="C:\Projects\toolkit\src\components\acceleratorSubmitProjectBox\AcceleratorSubmitProjectBox.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2"/>
+        <metrics statements="11" coveredstatements="11" conditionals="22" coveredconditionals="21" methods="2" coveredmethods="2"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="29" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="30" count="6" type="cond" truecount="4" falsecount="0"/>
-        <line num="31" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="3" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="31" count="9" type="cond" truecount="5" falsecount="0"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="36" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.auctionAddForm">
@@ -2252,7 +2255,7 @@
       <file name="Icon.jsx" path="C:\Projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="86" type="stmt"/>
-        <line num="6" count="210" type="stmt"/>
+        <line num="6" count="211" type="stmt"/>
         <line num="9" count="86" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\icon\index.js">
@@ -4595,12 +4598,12 @@
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
@@ -5889,7 +5892,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="84" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">

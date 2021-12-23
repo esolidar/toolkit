@@ -23,6 +23,7 @@ const today = getToday();
 export const Soon: Story<Props> = Template.bind({});
 export const Running: Story<Props> = Template.bind({});
 export const Ended: Story<Props> = Template.bind({});
+export const Archived: Story<Props> = Template.bind({});
 
 Soon.args = {
   projectConfig: {
@@ -48,6 +49,17 @@ Ended.args = {
   projectConfig: {
     start_at: format(subDays(today, 18), dateFormat),
     closed_at: format(subDays(today, 2), dateFormat),
+    timezone: 'Europe/Lisbon',
+  },
+  locale: 'pt',
+  submitProjectButton: () => {},
+};
+
+Archived.args = {
+  projectConfig: {
+    start_at: format(subDays(today, 5), dateFormat),
+    closed_at: format(addDays(today, 20), dateFormat),
+    archived_at: format(subDays(today, 2), dateFormat),
     timezone: 'Europe/Lisbon',
   },
   locale: 'pt',

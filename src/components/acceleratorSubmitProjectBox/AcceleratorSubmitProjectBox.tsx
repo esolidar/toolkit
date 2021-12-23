@@ -10,6 +10,7 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
   projectConfig,
   locale,
   submitProjectButton,
+  showRunningState = true,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -26,9 +27,10 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
   );
 
   const getProgramStatus = () => {
-    if (startProgram > today) return 'soon';
-    if (startProgram < today && closeProgram > today) return 'running';
-    if (closeProgram < today) return 'ended';
+    if (startProgram > today && !projectConfig.archived_at) return 'soon';
+    if (startProgram < today && closeProgram > today && !projectConfig.archived_at)
+      return 'running';
+    if (closeProgram < today || projectConfig.archived_at) return 'ended';
   };
 
   return (
@@ -61,21 +63,29 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
       )}
       {getProgramStatus() === 'running' && (
         <>
-          <Button
-            text={intl.formatMessage({ id: 'toolkit.projects.submit' })}
-            onClick={submitProjectButton}
-            extraClass="primary-full"
-          />
-          <p>
-            <FormattedMessage
-              id="toolkit.accelerator.open.until"
-              values={{
-                value: (
-                  <ConvertToMyTimezone date={projectConfig.closed_at} locale={locale} format="LL" />
-                ),
-              }}
-            />
-          </p>
+          {showRunningState && (
+            <>
+              <Button
+                text={intl.formatMessage({ id: 'toolkit.projects.submit' })}
+                onClick={submitProjectButton}
+                extraClass="primary-full"
+              />
+              <p>
+                <FormattedMessage
+                  id="toolkit.accelerator.open.until"
+                  values={{
+                    value: (
+                      <ConvertToMyTimezone
+                        date={projectConfig.closed_at}
+                        locale={locale}
+                        format="LL"
+                      />
+                    ),
+                  }}
+                />
+              </p>
+            </>
+          )}
         </>
       )}
       {getProgramStatus() === 'ended' && (
