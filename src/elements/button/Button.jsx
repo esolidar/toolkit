@@ -4,8 +4,6 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading';
 
-// TODO: tests for the new props: iconLeft, iconRight and badge
-
 const Button = ({
   className,
   dataTestId,
