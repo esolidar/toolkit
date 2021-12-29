@@ -37,8 +37,8 @@ const Sidebar: FC<Props> = ({
       const openMenu = menus.find(item => item.icon === subMenuActiveIcon);
 
       setSubMenu(openMenu?.submenu);
-      const activeMenu = activeMenus.find(item => item.text !== subMenuActiveTitle);
-      if (activeMenu && subMenuActiveTitle !== activeMenu.text) {
+      const activeMenu = activeMenus.find(item => item.icon !== subMenuActiveIcon);
+      if (activeMenu && subMenuActiveIcon !== activeMenu.icon) {
         setIsOpenSubMenu(false);
         collapseSidebar(collapsed || !isCollapsed);
         setSubMenuActiveTitle('');

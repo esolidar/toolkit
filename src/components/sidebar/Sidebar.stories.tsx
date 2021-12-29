@@ -104,7 +104,7 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
     },
     {
-      icon: 'icon-sliders',
+      icon: 'icon-settings',
       text: 'Settings',
       href: '#',
       showNotificationsIcon: false,
