@@ -45,7 +45,7 @@ a.btn-esolidar {
     min-width: 100%;
     height: 100%;
 
-    &.dblock {
+    &.setVisible {
       @include animate(opacity, 800ms, 300ms);
       opacity: 1;
     }

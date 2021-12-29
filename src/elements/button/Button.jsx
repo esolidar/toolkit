@@ -79,7 +79,7 @@ const Button = ({
           >
             {withLoading && (
               <Loading
-                loadingClass={isLoading ? 'small-loading dblock' : 'small-loading'}
+                loadingClass={isLoading ? 'small-loading setVisible' : 'small-loading'}
                 size="xs"
                 white={white}
               />
