@@ -7,10 +7,15 @@
   background: url('#{$cdn-static-url}/frontend/assets/ie-loader.gif') 50% 50% no-repeat;
 }
 
+.loadingWrapper {
+  width: 100%;
+  height: 100%;
+}
+
 .Loading {
+  min-height: 100%;
   position: relative;
   overflow: hidden;
-  min-height: 200px;
 
   .loader {
     position: absolute;
@@ -30,10 +35,69 @@
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-    border-top: 3px solid map-get($theme-colors, primary);
-    border-left: 3px solid map-get($theme-colors, primary);
-    border-bottom: 3px solid transparent;
-    border-right: 3px solid transparent;
+    border-top: 4px solid map-get($theme-colors, primary);
+    border-left: 4px solid map-get($theme-colors, primary);
+    border-right: 4px solid map-get($theme-colors, primary);
+    border-bottom: 4px solid rgba(245, 245, 246, 0.5);
+
+    &.white {
+      border-top: 4px solid #fff;
+      border-left: 4px solid #fff;
+      border-right: 4px solid #fff;
+    }
+  }
+
+  .loader-message {
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 140px;
+  }
+
+  &.loader-xs {
+    .loader {
+      width: 2em;
+      height: 2em;
+    }
+  }
+
+  &.loader-sm {
+    .loader {
+      width: 4em;
+      height: 4em;
+    }
+  }
+
+  &.loader-md {
+    min-height: 200px;
+
+    .loader {
+      width: 6em;
+      height: 6em;
+    }
+
+    .loader-message {
+      width: 300px;
+      height: 100px;
+    }
+  }
+
+  &.loader-lg {
+    .loader {
+      width: 8em;
+      height: 8em;
+    }
+  }
+
+  &.loader-xl {
+    .loader {
+      width: 10em;
+      height: 10em;
+    }
   }
 
   @-webkit-keyframes load3 {
@@ -58,19 +122,6 @@
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
-  }
-
-  .loader-message {
-    position: absolute;
-    text-align: center;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px;
-    width: 300px;
-    margin-top: 140px;
   }
 }
 

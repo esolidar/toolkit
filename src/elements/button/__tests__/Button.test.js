@@ -64,4 +64,12 @@ describe('Button component', () => {
     const component = shallow(<Button extraClass="danger" to="login" size="lg" />);
     expect(component.find('.btn-lg').length).toBe(1);
   });
+
+  it('renders Button with loading', () => {
+    const component = shallow(
+      <Button extraClass="info-full" withLoading={true} isLoading={true} />
+    );
+    expect(component.find('Loading').prop('loadingClass')).toBe('small-loading d-block');
+    expect(component.find('Loading').prop('white')).toBe(true);
+  });
 });

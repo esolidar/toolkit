@@ -3,6 +3,7 @@ a.btn-esolidar {
 }
 
 .btn-esolidar {
+  position: relative;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
@@ -16,6 +17,39 @@ a.btn-esolidar {
   gap: 12px;
 
   @include animate();
+
+  .wrapper {
+    display: contents;
+    & > div,
+    & > span,
+    & > i {
+      opacity: 1;
+      @include animate(opacity, 700ms);
+    }
+
+    &.setInvisible {
+      & > div,
+      & > span {
+        opacity: 0;
+      }
+    }
+  }
+
+  .small-loading {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    height: 100%;
+
+    &.dblock {
+      @include animate(opacity, 800ms, 300ms);
+      opacity: 1;
+    }
+  }
 
   &.btn &:hover,
   &:focus,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640252378554" clover="3.2.0">
-  <project timestamp="1640252378555" name="All files">
-    <metrics statements="4226" coveredstatements="2899" conditionals="3569" coveredconditionals="2182" methods="1174" coveredmethods="578" elements="8969" coveredelements="5659" complexity="0" loc="4226" ncloc="4226" packages="186" files="412" classes="412"/>
+<coverage generated="1640792750432" clover="3.2.0">
+  <project timestamp="1640792750432" name="All files">
+    <metrics statements="4227" coveredstatements="2900" conditionals="3613" coveredconditionals="2212" methods="1174" coveredmethods="578" elements="9014" coveredelements="5690" complexity="0" loc="4227" ncloc="4227" packages="186" files="412" classes="412"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -2345,10 +2345,10 @@
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Loading.jsx" path="C:\Projects\toolkit\src\components\loading\Loading.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="6" count="19" type="stmt"/>
-        <line num="7" count="26" type="stmt"/>
-        <line num="21" count="19" type="stmt"/>
-        <line num="27" count="19" type="stmt"/>
+        <line num="6" count="77" type="stmt"/>
+        <line num="7" count="32" type="stmt"/>
+        <line num="21" count="77" type="stmt"/>
+        <line num="29" count="77" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\loading\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3479,26 +3479,26 @@
         <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
         <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
-        <line num="60" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
-      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="2"/>
+      <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="4" coveredmethods="2"/>
       <file name="WizardFooter.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\footer\WizardFooter.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -3507,17 +3507,17 @@
         <line num="22" count="1" type="stmt"/>
       </file>
       <file name="WizardFooter.tsx" path="C:\Projects\toolkit\src\components\wizard\footer\WizardFooter.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\components\wizard\footer\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.components.wizard.header">
-      <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="8" methods="5" coveredmethods="2"/>
+      <metrics statements="11" coveredstatements="11" conditionals="11" coveredconditionals="9" methods="5" coveredmethods="2"/>
       <file name="WizardHeader.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\header\WizardHeader.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -3530,10 +3530,10 @@
         <line num="50" count="1" type="stmt"/>
       </file>
       <file name="WizardHeader.tsx" path="C:\Projects\toolkit\src\components\wizard\header\WizardHeader.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="10" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="11" coveredconditionals="9" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\components\wizard\header\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3673,25 +3673,26 @@
       </file>
     </package>
     <package name="src.elements.button">
-      <metrics statements="16" coveredstatements="16" conditionals="45" coveredconditionals="36" methods="2" coveredmethods="2"/>
+      <metrics statements="17" coveredstatements="17" conditionals="87" coveredconditionals="64" methods="2" coveredmethods="2"/>
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
-        <metrics statements="16" coveredstatements="16" conditionals="45" coveredconditionals="36" methods="2" coveredmethods="2"/>
-        <line num="8" count="71" type="stmt"/>
-        <line num="30" count="226" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="225" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="60" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="52" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="226" type="stmt"/>
-        <line num="62" count="226" type="stmt"/>
-        <line num="63" count="226" type="cond" truecount="5" falsecount="0"/>
-        <line num="65" count="165" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="102" count="8" type="stmt"/>
-        <line num="124" count="6" type="stmt"/>
-        <line num="139" count="46" type="stmt"/>
-        <line num="163" count="226" type="stmt"/>
-        <line num="166" count="71" type="stmt"/>
-        <line num="189" count="71" type="stmt"/>
+        <metrics statements="17" coveredstatements="17" conditionals="87" coveredconditionals="64" methods="2" coveredmethods="2"/>
+        <line num="9" count="71" type="stmt"/>
+        <line num="33" count="227" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="226" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="61" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="53" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="227" type="stmt"/>
+        <line num="65" count="227" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="227" type="stmt"/>
+        <line num="70" count="227" type="cond" truecount="5" falsecount="0"/>
+        <line num="72" count="165" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="127" count="8" type="stmt"/>
+        <line num="158" count="6" type="stmt"/>
+        <line num="182" count="47" type="stmt"/>
+        <line num="215" count="227" type="stmt"/>
+        <line num="218" count="71" type="stmt"/>
+        <line num="243" count="71" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\button\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
