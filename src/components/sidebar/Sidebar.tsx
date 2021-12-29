@@ -48,7 +48,7 @@ const Sidebar: FC<Props> = ({
   }, [bottomMenu, mainMenu]);
 
   const openSubMenu = item => {
-    if (item.text !== subMenuActiveTitle) {
+    if (item.icon !== subMenuActiveIcon) {
       setSubMenuActiveTitle(item.text);
       setSubMenuActiveIcon(item.icon);
       setSubMenu(item.submenu);
