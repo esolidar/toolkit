@@ -38,7 +38,7 @@ const Template: Story<Props> = (args: Props) => {
 
   const mainMenu = [
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-icon-feed',
       text: 'Social Feed',
       showNotificationsIcon: true,
       disabled: false,
@@ -56,7 +56,7 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveAuction, setIsActiveAuction),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-ic-crowdfunding',
       text: 'Crowdfunding',
       showNotificationsIcon: false,
       disabled: false,
@@ -65,7 +65,7 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveCrowdfunding, setIsActiveCrowdfunding),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-ic-file',
       text: 'Documents',
       showNotificationsIcon: false,
       disabled: false,
@@ -74,7 +74,7 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveDocuments, setIsActiveDocuments),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-ic-employees-involved',
       text: 'Survey',
       showNotificationsIcon: false,
       disabled: false,
@@ -83,7 +83,7 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveSurvey, setIsActiveSurvey),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-ic-goods',
       text: 'Projects',
       showNotificationsIcon: false,
       disabled: false,
@@ -95,7 +95,7 @@ const Template: Story<Props> = (args: Props) => {
 
   const bottomMenu = [
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-icon-manage-employees',
       text: 'Activity',
       href: '#',
       showNotificationsIcon: true,
@@ -104,7 +104,7 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'icon-sliders',
       text: 'Settings',
       href: '#',
       showNotificationsIcon: false,
@@ -113,7 +113,7 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
       submenu: [
         {
-          icon: 'icon-check-circle',
+          icon: 'icon-httpslock',
           text: 'Account',
           showNotificationsIcon: true,
           disabled: false,
@@ -122,7 +122,7 @@ const Template: Story<Props> = (args: Props) => {
           onClick: () => clickOption(!isActiveAccount, setIsActiveAccount),
         },
         {
-          icon: 'icon-check-circle',
+          icon: 'icon-ic-menu-payments',
           text: 'Preferences',
           showNotificationsIcon: false,
           disabled: false,
@@ -132,7 +132,7 @@ const Template: Story<Props> = (args: Props) => {
         },
         { separator: true },
         {
-          icon: 'icon-check-circle',
+          icon: 'icon-ic-menu-auctions',
           text: 'Billing',
           showNotificationsIcon: false,
           disabled: false,
