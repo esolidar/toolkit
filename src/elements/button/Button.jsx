@@ -79,12 +79,12 @@ const Button = ({
           >
             {withLoading && (
               <Loading
-                loadingClass={isLoading ? 'small-loading setVisible' : 'small-loading'}
+                loadingClass={classnames('small-loading', { setVisible: isLoading })}
                 size="xs"
                 white={white}
               />
             )}
-            <span className={isLoading ? 'wrapper setInvisible' : 'wrapper'}>
+            <span className={classnames('wrapper', { setInvisible: isLoading })}>
               {(icon || iconLeft) && (
                 <span className="btn-esolidar__icon-left">
                   {icon}
