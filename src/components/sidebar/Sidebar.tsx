@@ -65,9 +65,9 @@ const Sidebar: FC<Props> = ({
     const mainItemsActive = mainItems.filter(item => item.isActive === true);
     items.map(item => {
       const { submenu } = item;
-      if (subMenuActiveTitle !== '') {
-        const activeMenu = activeMenus.filter(item => item.text !== subMenuActiveTitle);
-        const withSubmenusActive = activeMenus.find(item => item.text === subMenuActiveTitle);
+      if (subMenuActiveIcon !== '') {
+        const activeMenu = activeMenus.filter(item => item.icon !== subMenuActiveIcon);
+        const withSubmenusActive = activeMenus.find(item => item.icon === subMenuActiveIcon);
         if (activeMenu.length > 0 && isOpenSubMenu) {
           if (item.text === activeMenu[0].text) {
             item.isActive = false;
@@ -81,7 +81,7 @@ const Sidebar: FC<Props> = ({
       }
       if (submenu) {
         item.onClick = () => openSubMenu(item);
-        if (subMenuActiveTitle === item.text && isOpenSubMenu && mainItemsActive.length < 1) {
+        if (subMenuActiveIcon === item.icon && isOpenSubMenu && mainItemsActive.length < 1) {
           item.isActive = true;
         }
         if (item.keepSubMenuOpen) {
