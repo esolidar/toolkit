@@ -3,6 +3,7 @@ interface Props {
   id?: string;
   img: string;
   disabledImg?: string;
+  chechedImg?: string;
   isChecked: boolean;
   name: string;
   onChange?(value: boolean): void;

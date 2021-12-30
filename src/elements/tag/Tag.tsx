@@ -54,7 +54,12 @@ const Tag: FC<Props> = ({
             />
           )}
           {leftIcon && (
-            <Icon iconClass={`${leftIcon} tag-component__item-left-icon`} dataTestId="left-icon" />
+            <Icon
+              name={leftIcon}
+              className="tag-component__item-left-icon"
+              data-testid="left-icon"
+              size="xs"
+            />
           )}
           {text && <span>{intl.formatMessage({ id: text })}</span>}
           {plaintext && plaintext}

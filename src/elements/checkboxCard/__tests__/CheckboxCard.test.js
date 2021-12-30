@@ -19,7 +19,7 @@ it('renders CheckboxCard Small', () => {
   expect(card).toBeInTheDocument();
   expect(getByClass('checkbox-card__image')).toBeInTheDocument();
   expect(getByClass(/sm/)).toBeInTheDocument();
-  expect(getByText('Primeiros socorros e Apoio em crises')).toBeInTheDocument();
+  expect(getByText('Reading & Writing')).toBeInTheDocument();
 
   expect(queryByClass(/active/)).not.toBeInTheDocument();
   userEvent.click(card);

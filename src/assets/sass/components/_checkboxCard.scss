@@ -14,8 +14,8 @@
     min-height: 152px;
     width: 191px;
     align-items: center;
-    display: -webkit-inline-box;
     justify-content: start;
+    padding-top: 32px;
 
     & .checkbox-card__img {
       width: 64px;
@@ -30,7 +30,7 @@
     }
 
     & .checkbox-card__info {
-      margin-top: $distance-2;
+      margin-top: $distance-3;
       text-align: center;
       width: 100%;
 
@@ -119,7 +119,7 @@
   }
 
   &:focus {
-    outline: 1px solid map-get($neutrals, 100) !important;
+    outline: inherit;
   }
 
   &:hover {
@@ -136,10 +136,8 @@
   }
 
   &:not(.active) {
-    &:not(:hover) {
-      & .checkbox-card__icon {
-        display: none;
-      }
+    & .checkbox-card__icon {
+      display: none;
     }
   }
 
@@ -168,6 +166,11 @@
     width: 32px;
     height: 32px;
     line-height: 0;
+    background-color: map-get($turquoise, 500);
+    border-radius: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   @include animate(all, 100ms);

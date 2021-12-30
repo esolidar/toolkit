@@ -57,12 +57,12 @@ LeftImage.args = {
 LeftImageWithClose.args = {
   plaintext: 'John Doe',
   leftImage: user.thumbs.thumb,
-  rightIcon: 'icon-plus1',
+  rightIcon: 'Check',
   iconDataTestId: 'badge-icon',
 };
 
 LeftIcon.args = {
   plaintext: 'Acme Corporation',
-  leftIcon: 'icon-equalizer2',
+  leftIcon: 'Check',
   iconDataTestId: 'badge-icon',
 };

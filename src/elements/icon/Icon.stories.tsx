@@ -40,6 +40,7 @@ const Template: Story<Props> = (args: Props) => {
         <div
           style={{
             position: 'fixed',
+            zIndex: 10,
             right: '20px',
             top: '20px',
             backgroundColor: '#000',
@@ -104,6 +105,7 @@ const TemplateSmall: Story<Props> = (args: Props) => {
         <div
           style={{
             position: 'fixed',
+            zIndex: 10,
             right: '20px',
             top: '20px',
             backgroundColor: '#000',
@@ -168,6 +170,7 @@ const TemplateXSmall: Story<Props> = (args: Props) => {
         <div
           style={{
             position: 'fixed',
+            zIndex: 10,
             right: '20px',
             top: '20px',
             backgroundColor: '#000',

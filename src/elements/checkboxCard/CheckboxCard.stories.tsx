@@ -32,10 +32,11 @@ export const Large = Template.bind({});
 
 Small.args = {
   id: 'checkboxCard-sm',
-  img: `${cdnUploadsUrl}/interests/Interests.svg`,
-  disabledImg: `${cdnUploadsUrl}/interests/Interests-disabled.svg`,
+  img: `${cdnUploadsUrl}/interests/test-interests.svg`,
+  disabledImg: `${cdnUploadsUrl}/interests/test-interests-disabled.svg`,
+  chechedImg: `${cdnUploadsUrl}/interests/test-interests-checked.svg`,
   size: 'sm',
-  title: 'Primeiros socorros e Apoio em crises',
+  title: 'Reading & Writing',
 };
 
 Medium.args = {

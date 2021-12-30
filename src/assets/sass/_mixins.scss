@@ -270,3 +270,11 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
 }
+
+@mixin svg-change-color($color: map-get($neutrals, 700)) {
+  .icon-component {
+    path {
+      fill: $color;
+    }
+  }
+}
