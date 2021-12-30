@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from '../index';
+import Icon from '../../../components/icon';
+import Badge from '../../badge';
 
 const onClickFunc = jest.fn();
 
@@ -63,5 +65,37 @@ describe('Button component', () => {
   it('renders Button classes from size prop', () => {
     const component = shallow(<Button extraClass="danger" to="login" size="lg" />);
     expect(component.find('.btn-lg').length).toBe(1);
+  });
+
+  it('renders Button with loading', () => {
+    const component = shallow(
+      <Button extraClass="info-full" withLoading={true} isLoading={true} />
+    );
+    expect(component.find('Loading').prop('loadingClass')).toBe('small-loading d-block');
+    expect(component.find('Loading').prop('white')).toBe(true);
+  });
+
+  it('renders Button with iconLeft', () => {
+    const component = shallow(
+      <Button extraClass="info-full" iconLeft={<Icon iconClass="icon-left-arrow" />} />
+    );
+    expect(component.find('.btn-esolidar__icon-left').length).toBe(1);
+    expect(component.find('Icon').prop('iconClass')).toBe('icon-left-arrow');
+  });
+
+  it('renders Button with iconRight', () => {
+    const component = shallow(
+      <Button extraClass="info-full" iconRight={<Icon iconClass="icon-chevron-down" />} />
+    );
+    expect(component.find('.btn-esolidar__icon-right').length).toBe(1);
+    expect(component.find('Icon').prop('iconClass')).toBe('icon-chevron-down');
+  });
+
+  it('renders Button with badge', () => {
+    const component = shallow(
+      <Button extraClass="info-full" badge={<Badge text="badgeText" size="xs" />} />
+    );
+    expect(component.find('.btn-esolidar__badge').length).toBe(1);
+    expect(component.find('Badge').prop('text')).toBe('badgeText');
   });
 });

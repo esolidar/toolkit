@@ -30,6 +30,7 @@ interface Props {
   handleChangeTitle(): void;
   handleBlurTitle(): void;
   buttonNextText: string;
+  isLoading: boolean;
 }
 
 export default Props;

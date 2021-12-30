@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-
-// TODO: tests for the new props: iconLeft, iconRight and badge
+import Loading from '../../components/loading';
 
 const Button = ({
   className,
@@ -25,6 +24,8 @@ const Button = ({
   to,
   type,
   badge,
+  withLoading,
+  isLoading,
 }) => {
   let getType;
   if (type === 'icon') getType = 'icon';
@@ -38,7 +39,7 @@ const Button = ({
     `btn-${size}`,
     { 'btn-icon': type === 'icon' },
     { 'full-width': fullWidth },
-    { disabled },
+    { disabled: disabled || isLoading },
     className,
     {
       'client__primary--background-color client__primary--border-color client__primary--background-color-hover client__primary--border-color-hover':
@@ -59,6 +60,10 @@ const Button = ({
     { 'client__primary--color client__primary--color-hover': extraClass === 'link' }
   );
 
+  const white = extraClass
+    ? extraClass.includes('-full') || extraClass.includes('negative')
+    : false;
+
   const renderButton = () => {
     switch (getType) {
       case 'button':
@@ -69,18 +74,27 @@ const Button = ({
             type="button"
             onClick={onClick}
             className={classes}
-            disabled={disabled}
+            disabled={disabled || isLoading}
             style={style}
           >
-            {(icon || iconLeft) && (
-              <span className="btn-esolidar__icon-left">
-                {icon}
-                {iconLeft}
-              </span>
+            {withLoading && (
+              <Loading
+                loadingClass={classnames('small-loading', { setVisible: isLoading })}
+                size="xs"
+                white={white}
+              />
             )}
-            <span className="text">{text}</span>
-            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
-            {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            <span className={classnames('wrapper', { setInvisible: isLoading })}>
+              {(icon || iconLeft) && (
+                <span className="btn-esolidar__icon-left">
+                  {icon}
+                  {iconLeft}
+                </span>
+              )}
+              <span className="text">{text}</span>
+              {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+              {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            </span>
           </button>
         );
       case 'icon':
@@ -91,10 +105,19 @@ const Button = ({
             type="button"
             onClick={onClick}
             className={classes}
-            disabled={disabled}
+            disabled={disabled || isLoading}
             style={style}
           >
-            {icon && <span className="btn-esolidar__icon">{icon}</span>}
+            {withLoading && (
+              <Loading
+                loadingClass={isLoading ? 'small-loading d-block' : 'small-loading'}
+                size="xs"
+                white={white}
+              />
+            )}
+            <span className={isLoading ? 'wrapper invisible' : 'wrapper'}>
+              {icon && <span className="btn-esolidar__icon">{icon}</span>}
+            </span>
           </button>
         );
 
@@ -105,33 +128,51 @@ const Button = ({
             id={id}
             type="submit"
             className={classes}
-            disabled={disabled}
+            disabled={disabled || isLoading}
             style={style}
           >
-            {(icon || iconLeft) && (
-              <span className="btn-esolidar__icon-left">
-                {icon}
-                {iconLeft}
-              </span>
+            {withLoading && (
+              <Loading
+                loadingClass={isLoading ? 'small-loading d-block' : 'small-loading'}
+                size="xs"
+                white={white}
+              />
             )}
-            <span className="text">{text}</span>
-            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
-            {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            <span className={isLoading ? 'wrapper invisible' : 'wrapper'}>
+              {(icon || iconLeft) && (
+                <span className="btn-esolidar__icon-left">
+                  {icon}
+                  {iconLeft}
+                </span>
+              )}
+              <span className="text">{text}</span>
+              {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+              {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            </span>
           </button>
         );
 
       case 'link':
         return (
           <Link data-testid={dataTestId} id={id} to={to} className={classes} style={style}>
-            {(icon || iconLeft) && (
-              <span className="btn-esolidar__icon-left">
-                {icon}
-                {iconLeft}
-              </span>
+            {withLoading && (
+              <Loading
+                loadingClass={isLoading ? 'small-loading d-block' : 'small-loading'}
+                size="xs"
+                white={white}
+              />
             )}
-            <span className="text">{text}</span>
-            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
-            {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            <span className={isLoading ? 'wrapper invisible' : 'wrapper'}>
+              {(icon || iconLeft) && (
+                <span className="btn-esolidar__icon-left">
+                  {icon}
+                  {iconLeft}
+                </span>
+              )}
+              <span className="text">{text}</span>
+              {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+              {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            </span>
           </Link>
         );
 
@@ -146,15 +187,24 @@ const Button = ({
             className={classes}
             style={style}
           >
-            {(icon || iconLeft) && (
-              <span className="btn-esolidar__icon-left">
-                {icon}
-                {iconLeft}
-              </span>
+            {withLoading && (
+              <Loading
+                loadingClass={isLoading ? 'small-loading d-block' : 'small-loading'}
+                size="xs"
+                white={white}
+              />
             )}
-            <span className="text">{text}</span>
-            {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
-            {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            <div className={isLoading ? 'wrapper invisible' : 'wrapper'}>
+              {(icon || iconLeft) && (
+                <span className="btn-esolidar__icon-left">
+                  {icon}
+                  {iconLeft}
+                </span>
+              )}
+              <span className="text">{text}</span>
+              {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
+              {badge && <span className="btn-esolidar__badge">{badge}</span>}
+            </div>
           </a>
         );
     }
@@ -184,6 +234,8 @@ Button.propTypes = {
   to: PropTypes.string,
   type: PropTypes.string,
   badge: PropTypes.node,
+  withLoading: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -191,6 +243,8 @@ Button.defaultProps = {
   fullWidth: false,
   size: 'md',
   type: 'button',
+  withLoading: false,
+  isLoading: false,
 };
 
 export default Button;

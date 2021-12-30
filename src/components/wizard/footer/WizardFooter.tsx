@@ -10,6 +10,7 @@ const WizardFooter: FC<Props> = ({
   disableClickNext,
   totalPages,
   currentPage,
+  isLoading = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
   return (
@@ -24,6 +25,8 @@ const WizardFooter: FC<Props> = ({
       <div className="wizard__footer__continue">
         <FormattedMessage id="paginator.steps" values={{ totalPages, currentPage }} />
         <Button
+          withLoading={true}
+          isLoading={isLoading}
           extraClass="primary-full"
           onClick={handleClickNext}
           text={buttonNextText}
