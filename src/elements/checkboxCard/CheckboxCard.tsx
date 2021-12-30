@@ -26,7 +26,7 @@ const CheckboxCard: FC<Props> = ({
 
   const handleOnClick = () => {
     if (disabled) return;
-    onChange(!isChecked);
+    if (onChange) onChange(!isChecked);
   };
 
   const image = {
