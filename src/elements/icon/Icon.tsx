@@ -12,7 +12,13 @@ const sizes = {
   md: 24,
 };
 
-const Icon: FC<Props> = ({ name, size = 'md', color = '#6C7679', ...props }: Props) => {
+const Icon: FC<Props> = ({
+  name,
+  size = 'md',
+  color = '#6C7679',
+  className = '',
+  ...props
+}: Props) => {
   let Icon = null;
   try {
     Icon = require(`../../assets/icons/${size}/${name}`).default;
@@ -26,7 +32,7 @@ const Icon: FC<Props> = ({ name, size = 'md', color = '#6C7679', ...props }: Pro
       width={sizes[size]}
       height={sizes[size]}
       viewBox={`0 0 ${sizes[size]} ${sizes[size]}`}
-      className="icon-component"
+      className={`icon-component ${className}`}
       {...props}
     />
   );
