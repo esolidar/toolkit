@@ -44,7 +44,7 @@ Checked.args = {
 
 RightIcon.args = {
   plaintext: 'Tag',
-  rightIcon: 'icon-equalizer',
+  rightIcon: 'Plus',
   iconDataTestId: 'badge-icon',
 };
 

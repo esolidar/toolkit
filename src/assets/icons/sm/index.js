@@ -12,6 +12,8 @@ export { default as BulletList } from './BulletList';
 export { default as Chat } from './Chat';
 export { default as Check } from './Check';
 export { default as ChevronDown } from './ChevronDown';
+export { default as ChevronLeft } from './ChevronLeft';
+export { default as ChevronRight } from './ChevronRight';
 export { default as ChevronUp } from './ChevronUp';
 export { default as ClearFormat } from './ClearFormat';
 export { default as Comment } from './Comment';

@@ -10,6 +10,7 @@ const CheckboxCard: FC<Props> = ({
   disabled = false,
   id,
   img,
+  disabledImg = img,
   isChecked,
   name,
   onChange,
@@ -30,7 +31,7 @@ const CheckboxCard: FC<Props> = ({
   };
 
   const image = {
-    src: img,
+    src: disabled ? disabledImg : img,
     alt: name,
     width: '64px',
     height: '64px',

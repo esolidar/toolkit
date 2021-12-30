@@ -171,4 +171,12 @@
   }
 
   @include animate(all, 100ms);
+
+  .esolidar-preview {
+    .esolidar-preview__image {
+      img {
+        outline: none;
+      }
+    }
+  }
 }

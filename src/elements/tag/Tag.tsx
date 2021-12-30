@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import { useIntl } from 'react-intl';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Props from './Tag.types';
 
 const Tag: FC<Props> = ({
@@ -60,9 +60,15 @@ const Tag: FC<Props> = ({
           {plaintext && plaintext}
           {rightIcon && (
             <div className="tag-component__item-right-icon">
-              <Icon iconClass={`${rightIcon} fixed`} dataTestId={iconDataTestId} />
-              <Icon iconClass="icon-close unchecked" dataTestId={iconDataTestId} />
-              <Icon iconClass="icon-right checked" dataTestId={iconDataTestId} />
+              <div className="fixed">
+                <Icon name={rightIcon} dataTestId={iconDataTestId} size="xs" />
+              </div>
+              <div className="unchecked">
+                <Icon name="X" dataTestId={iconDataTestId} size="xs" />
+              </div>
+              <div className="checked">
+                <Icon name="Check" dataTestId={iconDataTestId} size="xs" />
+              </div>
             </div>
           )}
         </div>

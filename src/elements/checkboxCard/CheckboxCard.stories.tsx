@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import CheckboxCard from './CheckboxCard';
 import Props from './CheckboxCard.types';
-import { cdnStaticUrl } from '../../constants/env';
+import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
 
 export default {
   title: 'Elements/CheckboxCard',
@@ -32,7 +32,8 @@ export const Large = Template.bind({});
 
 Small.args = {
   id: 'checkboxCard-sm',
-  img: `${cdnStaticUrl}/frontend/icons/ic-interest.svg`,
+  img: `${cdnUploadsUrl}/interests/Interests.svg`,
+  disabledImg: `${cdnUploadsUrl}/interests/Interests-disabled.svg`,
   size: 'sm',
   title: 'Primeiros socorros e Apoio em crises',
 };
