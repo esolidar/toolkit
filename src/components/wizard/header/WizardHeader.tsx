@@ -20,6 +20,7 @@ const WizardHeader: FC<Props> = ({
   editMode = false,
   handleChangeTitle,
   handleBlurTitle,
+  isLoading = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -70,6 +71,8 @@ const WizardHeader: FC<Props> = ({
           disabled={disabledDarkButton}
         />
         <Button
+          withLoading={true}
+          isLoading={isLoading}
           extraClass="primary-full"
           onClick={handlePrimaryButton}
           text={buttonPrimaryText}

@@ -4,11 +4,22 @@ import Loading from './Loading';
 export default {
   title: 'Components/Loading',
   component: Loading,
+  argTypes: {
+    size: {
+      options: ['xs', 'sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
-const Template = args => <Loading {...args} />;
+const Template = args => (
+  <div style={{ height: '200px' }}>
+    <Loading {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
+
 Default.parameters = {
   jest: ['Loading.test.js'],
 };

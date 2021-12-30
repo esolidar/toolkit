@@ -33,6 +33,7 @@ const Wizard: FC<Props> = ({
   handleChangeTitle,
   handleBlurTitle,
   buttonNextText,
+  isLoading,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -76,6 +77,7 @@ const Wizard: FC<Props> = ({
           editMode={editMode}
           handleChangeTitle={handleChangeTitle}
           handleBlurTitle={handleBlurTitle}
+          isLoading={isLoading}
         />
         <WizardPaginator
           pages={pages}
@@ -91,6 +93,7 @@ const Wizard: FC<Props> = ({
             totalPages={totalPages}
             currentPage={currentPage}
             disableClickNext={disableClickNext}
+            isLoading={isLoading}
           />
         </Viewport>
       </div>

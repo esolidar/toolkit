@@ -5,7 +5,7 @@ interface Props {
   disabledImg?: string;
   isChecked: boolean;
   name: string;
-  onChange(value: boolean): void;
+  onChange?(value: boolean): void;
   size: 'sm' | 'md' | 'lg';
   subtitle?: string;
   title: string;

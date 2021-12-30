@@ -1,8 +1,10 @@
 interface Props {
   className?: string;
-  isChecked: boolean;
+  defaultChecked?: boolean;
+  isChecked?: boolean;
   name?: string;
-  onChange(): void;
+  onChange?(): void;
+  inputRef?: any;
   isDisabled?: boolean;
 }
 

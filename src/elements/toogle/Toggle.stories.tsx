@@ -18,6 +18,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default: Story<Props> = Template.bind({});
 export const Disable: Story<Props> = Template.bind({});
+export const Uncontrolled: Story<Props> = Template.bind({});
 
 Default.args = {
   isChecked: true,
@@ -30,4 +31,9 @@ Disable.args = {
   name: 'toggle',
   onChange: () => {},
   isDisabled: true,
+};
+
+Uncontrolled.args = {
+  name: 'toggle',
+  defaultChecked: true,
 };
