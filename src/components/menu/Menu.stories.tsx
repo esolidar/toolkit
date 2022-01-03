@@ -32,7 +32,7 @@ SimpleText.args = {
 Default.args = {
   items: [
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: true,
@@ -40,7 +40,7 @@ Default.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: false,
@@ -48,7 +48,7 @@ Default.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: false,
@@ -57,7 +57,7 @@ Default.args = {
     },
     { separator: true },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: false,
@@ -70,7 +70,7 @@ Default.args = {
 OnClick.args = {
   items: [
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       onClick: () => {},
@@ -79,7 +79,7 @@ OnClick.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       onClick: () => {},
       showNotificationsIcon: false,
@@ -87,7 +87,7 @@ OnClick.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       onClick: () => {},
       showNotificationsIcon: false,
@@ -101,7 +101,7 @@ Collapsed.args = {
   isCollapsed: true,
   items: [
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: true,
@@ -109,7 +109,7 @@ Collapsed.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: false,
@@ -117,7 +117,7 @@ Collapsed.args = {
       isActive: false,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'ArrowDownCircle',
       text: 'Menu option',
       href: '#',
       showNotificationsIcon: false,

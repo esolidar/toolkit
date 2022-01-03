@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import Icon from '../icon';
+import Icon from '../../elements/icon';
 import Tooltip from '../../elements/tooltip';
 import Props from './Menu.types';
 
@@ -39,7 +39,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
             <Tooltip
               tooltipBodyChild={
                 <button type="button" onClick={onClick} className={itemClasses} disabled={disabled}>
-                  {icon && <Icon iconClass={icon} />}
+                  {icon && <Icon name={icon} />}
                   <span>{!isCollapsed && text}</span>
                 </button>
               }
@@ -50,7 +50,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
             <Tooltip
               tooltipBodyChild={
                 <a href={href} className={itemClasses}>
-                  {icon && <Icon iconClass={icon} />}
+                  {icon && <Icon name={icon} />}
                   <span>{!isCollapsed && text}</span>
                 </a>
               }
@@ -62,7 +62,7 @@ const Menu: FC<Props> = ({ items, isCollapsed }: Props): JSX.Element => {
               <Tooltip
                 tooltipBodyChild={
                   <div className={itemClasses}>
-                    {icon && <Icon iconClass={icon} />}
+                    {icon && <Icon name={icon} />}
                     <span>{!isCollapsed && text}</span>
                   </div>
                 }

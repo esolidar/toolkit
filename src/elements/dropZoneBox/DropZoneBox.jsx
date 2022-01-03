@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef, useCallback } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
@@ -244,10 +244,7 @@ const DropZoneBox = ({
                   <FormattedMessage
                     id="dropzonebox.text"
                     values={{
-                      a: useCallback(
-                        <a href="#">{intl.formatMessage({ id: 'dropzonebox.a' })}</a>,
-                        []
-                      ),
+                      a: <a href="#">{intl.formatMessage({ id: 'dropzonebox.a' })}</a>,
                     }}
                   />
                 </div>
