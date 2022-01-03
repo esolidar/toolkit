@@ -3,7 +3,7 @@ import React, { FC, useRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 import cookie from 'react-cookies';
 import Menu from '../menu';
-import Icon from '../icon';
+import Icon from '../../elements/icon';
 import Props, { subMenuProps } from './Sidebar.types';
 
 const Sidebar: FC<Props> = ({
@@ -128,13 +128,16 @@ const Sidebar: FC<Props> = ({
           </div>
           <div className="sidebarNavigation__bottomMenu" ref={anchorRef}>
             <Menu items={renderMenus(bottomMenu, mainMenu)} isCollapsed={isCollapsed} />
-            <Icon
-              iconClass={classnames(
-                'icon-equalizer2 sidebarNavigation__collapsed--button',
-                isOpenSubMenu && 'sidebarNavigation__collapsed--button--disabled'
-              )}
-              onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
-            />
+            <div
+              className={classnames('sidebarNavigation__collapsed--button', {
+                'sidebarNavigation__collapsed--button--disabled': isOpenSubMenu,
+              })}
+            >
+              <Icon
+                name="SidebarCollapse"
+                onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
+              />
+            </div>
           </div>
         </div>
       </div>

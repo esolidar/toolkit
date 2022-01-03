@@ -37,7 +37,7 @@ it('renders Default Menu', () => {
   expect(getByClass('menu__list')).toBeInTheDocument();
   expect(getAllByClass('menu__listItem')).toBeTruthy();
   expect(getByClass('menu__item menu__item--notification')).toBeInTheDocument();
-  expect(getAllByClass('icon-check-circle')).toBeTruthy();
+  expect(getAllByClass('icon-component')).toHaveLength(4);
   expect(getByClass(/menu__listItem--separator/)).toBeInTheDocument();
   expect(getByClass(/menu__item--separator/)).toBeInTheDocument();
   expect(getByClass(/menu__item--active/)).toBeInTheDocument();
@@ -59,7 +59,7 @@ it('renders onClick Menu', () => {
   expect(getByClass('menu__list')).toBeInTheDocument();
   expect(getAllByClass('menu__listItem')).toBeTruthy();
   expect(getByClass('menu__item menu__item--notification')).toBeInTheDocument();
-  expect(getAllByClass('icon-check-circle')).toBeTruthy();
+  expect(getAllByClass('icon-component')).toHaveLength(3);
   expect(
     queryByRole('a', {
       type: 'media_type',

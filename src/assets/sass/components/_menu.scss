@@ -22,7 +22,7 @@
     border: 0px;
     background-color: transparent;
     line-height: 18px;
-    display: inline-flex;
+    display: inherit;
     vertical-align: middle;
     flex-wrap: wrap;
     @include animate(background-color);
@@ -31,6 +31,7 @@
       &:hover,
       &:active,
       &:focus {
+        @include svg-change-color(map-get($theme-colors, primary));
         text-decoration: none;
         color: map-get($theme-colors, primary);
         outline: none;
@@ -70,9 +71,7 @@
       vertical-align: middle;
     }
 
-    i {
-      font-size: 18px;
-      line-height: 18px;
+    svg {
       vertical-align: middle;
       margin-right: 11px;
     }
@@ -86,7 +85,7 @@
   }
 
   &--isCollapsed {
-    i {
+    svg {
       margin-right: 0px;
     }
 
