@@ -28,7 +28,7 @@ export const WithArrowType1: Story<Props> = Template.bind({});
 WithArrowType0.args = {
   activePage: 2,
   itemsCountPerPage: 5,
-  totalItemsCount: 10,
+  totalItemsCount: 50,
   onChange: newPage => alert(`Changed to page ${newPage}`),
   arrowType: 0,
   dataTestId: 'pagination',
@@ -37,7 +37,7 @@ WithArrowType0.args = {
 WithArrowType1.args = {
   activePage: 2,
   itemsCountPerPage: 5,
-  totalItemsCount: 10,
+  totalItemsCount: 50,
   onChange: newPage => alert(`Changed to page ${newPage}`),
   dataTestId: 'pagination',
 };

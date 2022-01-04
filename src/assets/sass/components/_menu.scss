@@ -22,7 +22,7 @@
     border: 0px;
     background-color: transparent;
     line-height: 18px;
-    display: inherit;
+    display: flex;
     vertical-align: middle;
     flex-wrap: wrap;
     @include animate(background-color);
@@ -72,15 +72,17 @@
     }
 
     svg {
-      vertical-align: middle;
+      display: flex;
+      align-self: center;
       margin-right: 11px;
     }
 
     span {
+      display: flex;
+      align-items: center;
+      position: relative;
       max-width: 80%;
       height: 100%;
-      vertical-align: middle;
-      position: relative;
     }
   }
 

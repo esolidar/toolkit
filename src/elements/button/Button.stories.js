@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Badge from '../badge';
 
 export default {
@@ -41,32 +41,32 @@ const Template = args => {
               {...args}
               extraClass={`${args.extraClass}-full`}
               text="Left Icon"
-              iconLeft={<Icon iconClass="icon-left-arrow" />}
+              iconLeft={<Icon name="ArrowLeft" />}
             />
             <Button
               {...args}
               extraClass={`${args.extraClass}-full`}
               text="2 Icons"
-              iconLeft={<Icon iconClass="icon-left-arrow" />}
-              iconRight={<Icon iconClass="icon-chevron-down" />}
+              iconLeft={<Icon name="ArrowLeft" />}
+              iconRight={<Icon name="ChevronDown" />}
             />
             <Button
               {...args}
               extraClass={`${args.extraClass}-full`}
               text="Right Icon"
-              iconRight={<Icon iconClass="icon-right-arrow" />}
+              iconRight={<Icon name="ArrowRight" />}
             />
             <Button
               {...args}
               type="icon"
               extraClass={`${args.extraClass}-full`}
-              icon={<Icon iconClass="icon-left-arrow" />}
+              icon={<Icon name="ArrowLeft" />}
             />
             <Button
               {...args}
               extraClass={`${args.extraClass}-full`}
               text="With Badge"
-              iconLeft={<Icon iconClass="icon-left-arrow" />}
+              iconLeft={<Icon name="ArrowLeft" />}
               badge={<Badge text="2" size="xs" />}
             />
           </ButtonGrid>
@@ -90,19 +90,19 @@ const Template = args => {
           isLoading={isLoading}
           onClick={() => setIsLoading(true)}
         />
-        <Button {...args} text="Left Icon" iconLeft={<Icon iconClass="icon-left-arrow" />} />
+        <Button {...args} text="Left Icon" iconLeft={<Icon name="ArrowLeft" />} />
         <Button
           {...args}
           text="2 Icons"
-          iconLeft={<Icon iconClass="icon-left-arrow" />}
-          iconRight={<Icon iconClass="icon-chevron-down" />}
+          iconLeft={<Icon name="ArrowLeft" />}
+          iconRight={<Icon name="ChevronDown" />}
         />
-        <Button {...args} text="Right Icon" iconRight={<Icon iconClass="icon-right-arrow" />} />
-        <Button {...args} type="icon" icon={<Icon iconClass="icon-left-arrow" />} />
+        <Button {...args} text="Right Icon" iconRight={<Icon name="ArrowRight" />} />
+        <Button {...args} type="icon" icon={<Icon name="ArrowLeft" />} />
         <Button
           {...args}
           text="With Badge"
-          iconLeft={<Icon iconClass="icon-left-arrow" />}
+          iconLeft={<Icon name="ArrowLeft" />}
           badge={<Badge text="2" size="xs" />}
         />
       </ButtonGrid>

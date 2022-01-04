@@ -196,7 +196,8 @@
       line-height: 24px;
       font-weight: 400;
 
-      img {
+      @include svg-change-color(map-get($turquoise, 300));
+      .icon-component {
         margin-right: $distance-1;
         margin-top: -1px;
       }

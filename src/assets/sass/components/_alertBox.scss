@@ -6,6 +6,8 @@
   top: 0;
   left: 0;
   right: 0;
+  display: flex;
+  gap: $distance-1;
 
   i {
     position: absolute;
@@ -31,31 +33,19 @@
 
   &__info {
     background-color: map-get($blue, 0);
-
-    i {
-      color: map-get($neutrals, 700);
-    }
+    @include svg-change-color(map-get($turquoise, 500));
   }
   &__success {
     background-color: map-get($positive, 0);
-
-    i {
-      color: map-get($positive, 500);
-    }
+    @include svg-change-color(map-get($positive, 500));
   }
   &__warning {
     background-color: map-get($warning, 0);
-
-    i {
-      color: map-get($golden-tainoi, 500);
-    }
+    @include svg-change-color(map-get($golden-tainoi, 500));
   }
 
   &__danger {
     background-color: map-get($negative, 0);
-
-    i {
-      color: map-get($negative, 500);
-    }
+    @include svg-change-color(map-get($negative, 500));
   }
 }

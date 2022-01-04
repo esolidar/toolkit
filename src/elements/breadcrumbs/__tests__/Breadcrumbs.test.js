@@ -10,5 +10,6 @@ it('renders Container default component', () => {
   const { getByClass, getAllByClass } = render(<Default />);
 
   expect(getByClass('esolidar-breadcrumbs')).toBeTruthy();
-  expect(getAllByClass('esolidar-breadcrumbs__item')).toHaveLength(3);
+  expect(getAllByClass(/esolidar-breadcrumbs__button/)).toHaveLength(3);
+  expect(getAllByClass('icon-component')).toHaveLength(2);
 });

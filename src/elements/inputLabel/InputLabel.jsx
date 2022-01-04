@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Tooltip from '../tooltip';
 
 const InputLabel = ({
@@ -35,7 +35,7 @@ const InputLabel = ({
         {required && (
           <Tooltip
             bodyChildClassName="ml-auto"
-            tooltipBodyChild={<Icon iconClass="icon-httpslock" />}
+            tooltipBodyChild={<Icon name="LockBold" size="sm" />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />

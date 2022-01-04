@@ -17,6 +17,7 @@ const Icon: FC<Props> = ({
   size = 'md',
   color = '#6C7679',
   className = '',
+  dataTestId,
   ...props
 }: Props) => {
   let Icon = null;
@@ -33,6 +34,7 @@ const Icon: FC<Props> = ({
       height={sizes[size]}
       viewBox={`0 0 ${sizes[size]} ${sizes[size]}`}
       className={`icon-component ${className}`}
+      data-testid={dataTestId}
       {...props}
     />
   );

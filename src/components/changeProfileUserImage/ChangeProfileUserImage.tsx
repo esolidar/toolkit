@@ -6,11 +6,8 @@ import InputLabel from '../../elements/inputLabel';
 import Button from '../../elements/button';
 import DropZoneBox from '../../elements/dropZoneBox';
 import isDefined from '../../utils/isDefined';
-import { cdnStaticUrl } from '../../constants/env';
-import Icon from '../icon';
+import Icon from '../../elements/icon';
 import { Props } from './ChangeProfileUserImage.types';
-
-const placeholderImage: string = `${cdnStaticUrl}/frontend/assets/no-image/upload.svg`;
 
 const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
@@ -43,8 +40,11 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             onClick={onClick}
             className="thumb"
             data-testid="thumb-change-profile-user-image"
-            style={{ backgroundImage: `url(${hasNoImage ? placeholderImage : thumb})` }}
-          />
+            // style={{ backgroundImage: `url(${hasNoImage ? '' : thumb})` }}
+          >
+            {hasNoImage && <Icon name="Camera" />}
+            {!hasNoImage && <img src={thumb} alt="thumb" width="148px" />}
+          </div>
           <DropZoneBox
             accept=".jpg, .jpeg, .png"
             onSelect={handleOnSelect}
@@ -72,7 +72,7 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
               type="file"
               text=""
               dataTestId="button-change-profile-user-image"
-              icon={<Icon iconClass="icon-edit-2" />}
+              icon={<Icon name="Edit2" size="sm" />}
             />
           </DropZoneBox>
         </div>
