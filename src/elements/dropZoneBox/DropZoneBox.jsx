@@ -331,7 +331,7 @@ const DropZoneBox = ({
                     0.7
                   );
                 }}
-                text={textSaveCropModal}
+                text={textSaveCropModal || intl.formatMessage({ id: 'save' })}
                 disabled={disableCroppedImage}
               />
             </div>
@@ -414,7 +414,7 @@ const DropZoneBox = ({
           onHide={toggleModalCropper}
           show={cropperModal}
           size="md"
-          title={titleCropModal}
+          title={titleCropModal || intl.formatMessage({ id: 'modal.crop.title' })}
           dialogClassName={modalClassName}
         />
       )}
@@ -477,8 +477,8 @@ DropZoneBox.defaultProps = {
   noDrag: false,
   imagesPreviewPosition: 'bottom',
   imagesList: [],
-  titleCropModal: 'Add Files',
-  textSaveCropModal: 'Add',
+  titleCropModal: null,
+  textSaveCropModal: null,
   isLoading: false,
   showFooterCropper: false,
   showErrors: true,

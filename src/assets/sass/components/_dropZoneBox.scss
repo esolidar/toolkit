@@ -146,6 +146,7 @@
 }
 
 .cropper-container {
+  .cropper-wrap-box,
   .cropper-modal {
     background-color: map-get($base, white);
   }
