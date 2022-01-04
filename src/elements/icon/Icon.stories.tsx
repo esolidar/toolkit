@@ -52,13 +52,14 @@ const Template: Story<Props> = (args: Props) => {
           The icon name has been copied to the clipboard!
         </div>
       )}
+      <div style={{ position: 'absolute', right: '30px', top: '30px' }}>{icons.length} Icons</div>
       <div>
         <TextField
           label="Search icon"
           field="input-code"
           type="text"
           onChange={handleChange}
-          size="lg"
+          size="sm"
         />
       </div>
       <div className="d-flex flex-wrap" style={{ gap: '10px' }}>
@@ -117,6 +118,7 @@ const TemplateSmall: Story<Props> = (args: Props) => {
           The icon name has been copied to the clipboard!
         </div>
       )}
+      <div style={{ position: 'absolute', right: '30px', top: '30px' }}>{icons.length} Icons</div>
       <div>
         <TextField
           label="Search icon"
@@ -182,6 +184,7 @@ const TemplateXSmall: Story<Props> = (args: Props) => {
           The icon name has been copied to the clipboard!
         </div>
       )}
+      <div style={{ position: 'absolute', right: '30px', top: '30px' }}>{icons.length} Icons</div>
       <div>
         <TextField
           label="Search icon"

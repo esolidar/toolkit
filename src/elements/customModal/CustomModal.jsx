@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 
 const CustomModal = ({
   actionsChildren,
@@ -77,7 +77,7 @@ const CustomModal = ({
             <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
               {subtitle}
             </span>
-            {closeButton && <Icon iconClass="icon-close" onClick={onHide} />}
+            {closeButton && <Icon name="X" onClick={onHide} />}
           </Modal.Title>
         </Modal.Header>
       )}

@@ -39,7 +39,7 @@ PlainText.args = {
 
 Icon.args = {
   text: 'toolkit.private',
-  icon: 'icon-httpslock',
+  icon: 'Settings',
   iconDataTestId: 'badge-icon',
 };
 

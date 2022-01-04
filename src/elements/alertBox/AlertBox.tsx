@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Props from './AlertBox.types';
 
 const AlertBox: FC<Props> = ({
@@ -14,22 +14,24 @@ const AlertBox: FC<Props> = ({
 }: Props): JSX.Element => {
   let statusIcon = '';
   if (status === 'info') {
-    statusIcon = 'info';
+    statusIcon = 'Info';
   } else if (status === 'success') {
-    statusIcon = 'check-circle';
+    statusIcon = 'CheckCircle';
   } else if (status === 'warning') {
-    statusIcon = 'alert-triangle';
+    statusIcon = 'AlertTriangle';
   } else {
-    statusIcon = 'x-square';
+    statusIcon = 'X';
   }
   const classes = classNames('alertBox', `alertBox__${status}`, `alertBox__${extraClass}`);
 
   return (
     <>
       <div data-testid={dataTestId} className={classes} style={style} role="alert">
-        <Icon iconClass={icon || `icon-${statusIcon}`} />
-        <p>{title}</p>
-        <span>{subtitle}</span>
+        <Icon name={icon || statusIcon} data-testid={icon || statusIcon} />
+        <div>
+          <p>{title}</p>
+          <span>{subtitle}</span>
+        </div>
       </div>
     </>
   );

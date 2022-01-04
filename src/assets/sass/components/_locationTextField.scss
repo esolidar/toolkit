@@ -9,6 +9,12 @@
     max-width: map-get($widths, lg);
   }
 
+  .icon-left {
+    position: absolute;
+    left: $distance-2;
+    top: 12px;
+  }
+
   .geosuggest {
     .geosuggest__input {
       @include input-form();
@@ -36,7 +42,7 @@
 
     &.left-icon {
       .geosuggest__input {
-        padding-left: $distance-4;
+        padding-left: $distance-5;
       }
     }
 
