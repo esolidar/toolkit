@@ -64,6 +64,9 @@ const HtmlEditor = ({
   className,
   inputLabelProps,
   placeholder,
+  maxLength,
+  handleOnBlur,
+  size,
 }) => {
   const intl = useIntl();
   const isFirstRender = useIsFirstRender();
@@ -105,7 +108,7 @@ const HtmlEditor = ({
   };
 
   const handleOnFocus = () => setIsFocused(true);
-  const handleOnBlur = () => setIsFocused(false);
+  // const handleOnBlur = () => setIsFocused(false);
 
   const options = ['inline', 'list'];
   if (showAddImageBtn) options.push('image');
@@ -125,7 +128,7 @@ const HtmlEditor = ({
   }
 
   return (
-    <div className={`form-group ${className}`}>
+    <div className={classnames('form-group', `htmlEditor-${size}`, className)}>
       {inputLabelProps && (
         <InputLabel
           {...inputLabelProps}
@@ -135,6 +138,7 @@ const HtmlEditor = ({
         />
       )}
       <Editor
+        maxLength={maxLength}
         wrapperClassName={wrapperClassName}
         editorState={editorState}
         onEditorStateChange={handleEditorStateChange}
@@ -191,6 +195,9 @@ HtmlEditor.propTypes = {
   className: PropTypes.string,
   inputLabelProps: PropTypes.object,
   placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
+  handleOnBlur: PropTypes.func,
+  size: PropTypes.string,
 };
 
 HtmlEditor.defaultProps = {
@@ -202,6 +209,8 @@ HtmlEditor.defaultProps = {
   showAddImageBtn: false,
   showAddUrlBtn: true,
   disabled: false,
+  maxLength: 400,
+  size: 'sm',
 };
 
 export default HtmlEditor;

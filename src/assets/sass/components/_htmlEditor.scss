@@ -3,6 +3,12 @@ $border-color: map-get($neutrals, 100);
 $background-color: map-get($base, white);
 $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238, 238, 238, 1) 100%);
 
+.htmlEditor {
+  &-sm {
+    max-width: 720px;
+  }
+}
+
 .rdw {
   &-editor {
     &-wrapper {
