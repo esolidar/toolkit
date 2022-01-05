@@ -119,7 +119,7 @@
   }
 
   &:focus {
-    outline: inherit;
+    outline: 1px solid map-get($neutrals, 100) !important;
   }
 
   &:hover {
@@ -156,6 +156,10 @@
       & .checkbox-card__icon {
         display: none;
       }
+    }
+
+    .checkbox-card__icon {
+      background-color: map-get($neutrals, 400);
     }
   }
 

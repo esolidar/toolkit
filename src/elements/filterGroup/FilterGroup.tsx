@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Props from './FilterGroup.types';
 import Badge from '../badge';
+import Icon from '../icon';
 
 const FilterGroup: FC<Props> = ({ groupName, items, onChange }: Props): JSX.Element => (
   <div className="filter-group">
@@ -17,7 +18,8 @@ const FilterGroup: FC<Props> = ({ groupName, items, onChange }: Props): JSX.Elem
           checked={item.checked}
         />
         <div className="filter-group-btn-label">
-          {item.title}
+          <Icon name={item.icon} />
+          <span>{item.title}</span>
           {item.counter && <Badge size="xs" className="counter" plaintext={item.counter} />}
         </div>
       </label>

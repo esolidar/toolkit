@@ -37,11 +37,13 @@ const Badge: FC<Props> = ({
           {plaintext && plaintext}
         </button>
       ) : (
-        <span data-testid={dataTestId} className={classes} style={style}>
-          {icon && <Icon name={icon} data-testid={iconDataTestId} size="sm" />}
-          {text && <span>{intl.formatMessage({ id: text })}</span>}
-          {plaintext && plaintext}
-        </span>
+        <div data-testid={dataTestId} className={classes} style={style}>
+          <span>
+            {icon && <Icon name={icon} data-testid={iconDataTestId} size="sm" />}
+            {text && <span>{intl.formatMessage({ id: text })}</span>}
+            {plaintext && plaintext}
+          </span>
+        </div>
       )}
     </>
   );
