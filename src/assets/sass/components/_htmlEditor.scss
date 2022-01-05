@@ -5,7 +5,13 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
 .htmlEditor {
   &-sm {
-    max-width: 720px;
+    max-width: map-get($widths, sm);
+  }
+  &-md {
+    max-width: map-get($widths, md);
+  }
+  &-lg {
+    max-width: map-get($widths, lg);
   }
 }
 
