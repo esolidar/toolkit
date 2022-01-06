@@ -122,7 +122,7 @@ const TextFieldNumber = ({
               className={error ? 'form-control required-field' : 'form-control'}
             />
             <div className="textfield-number__arrows">
-              <button onClick={handleUp}>
+              <button type="button" onClick={handleUp}>
                 <svg
                   width="8"
                   height="7"
@@ -133,7 +133,7 @@ const TextFieldNumber = ({
                   <path d="M0.328835 7H7.67543L4.00213 0.818182L0.328835 7Z" fill="#1A1B1C" />
                 </svg>
               </button>
-              <button onClick={handleDown}>
+              <button type="button" onClick={handleDown}>
                 <svg
                   width="8"
                   height="7"
