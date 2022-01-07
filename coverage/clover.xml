@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641491131299" clover="3.2.0">
-  <project timestamp="1641491131300" name="All files">
-    <metrics statements="4773" coveredstatements="3415" conditionals="3631" coveredconditionals="2224" methods="1437" coveredmethods="824" elements="9841" coveredelements="6463" complexity="0" loc="4773" ncloc="4773" packages="190" files="659" classes="659"/>
+<coverage generated="1641574927817" clover="3.2.0">
+  <project timestamp="1641574927817" name="All files">
+    <metrics statements="4774" coveredstatements="3422" conditionals="3633" coveredconditionals="2228" methods="1437" coveredmethods="825" elements="9844" coveredelements="6475" complexity="0" loc="4774" ncloc="4774" packages="190" files="659" classes="659"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -4693,7 +4693,7 @@
       </file>
     </package>
     <package name="src.components.wizard">
-      <metrics statements="24" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
+      <metrics statements="25" coveredstatements="15" conditionals="8" coveredconditionals="3" methods="11" coveredmethods="4"/>
       <file name="Wizard.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4704,7 +4704,7 @@
         <line num="114" count="1" type="stmt"/>
       </file>
       <file name="Wizard.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.tsx">
-        <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="19" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
@@ -4722,7 +4722,8 @@
         <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="63" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
@@ -5887,19 +5888,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+      <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+        <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
         <line num="10" count="20" type="stmt"/>
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
@@ -7192,7 +7193,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="87" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
