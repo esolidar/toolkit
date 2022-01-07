@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641485614388" clover="3.2.0">
-  <project timestamp="1641485614388" name="All files">
-    <metrics statements="4773" coveredstatements="3421" conditionals="3630" coveredconditionals="2226" methods="1437" coveredmethods="825" elements="9840" coveredelements="6472" complexity="0" loc="4773" ncloc="4773" packages="190" files="659" classes="659"/>
+<coverage generated="1641573213766" clover="3.2.0">
+  <project timestamp="1641573213767" name="All files">
+    <metrics statements="4774" coveredstatements="3422" conditionals="3632" coveredconditionals="2227" methods="1437" coveredmethods="825" elements="9843" coveredelements="6474" complexity="0" loc="4774" ncloc="4774" packages="190" files="659" classes="659"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -4693,7 +4693,7 @@
       </file>
     </package>
     <package name="src.components.wizard">
-      <metrics statements="24" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
+      <metrics statements="25" coveredstatements="15" conditionals="8" coveredconditionals="3" methods="11" coveredmethods="4"/>
       <file name="Wizard.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/wizard/Wizard.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4704,7 +4704,7 @@
         <line num="114" count="1" type="stmt"/>
       </file>
       <file name="Wizard.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/wizard/Wizard.tsx">
-        <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="19" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
@@ -4722,7 +4722,8 @@
         <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="63" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
