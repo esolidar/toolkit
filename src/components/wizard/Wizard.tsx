@@ -53,9 +53,11 @@ const Wizard: FC<Props> = ({
   );
 
   useEffect(() => {
-    document.getElementsByClassName('wizard')[0].addEventListener('scroll', handleNavigation, true);
-    return () =>
-      document.getElementsByClassName('wizard')[0].removeEventListener('scroll', handleNavigation);
+    const wizard = document.getElementsByClassName('wizard')[0];
+    wizard.addEventListener('scroll', handleNavigation, true);
+    return () => {
+      if (wizard) return wizard.removeEventListener('scroll', handleNavigation);
+    };
   }, []);
 
   return (
