@@ -50,6 +50,7 @@ const DatePicker = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={size}
       />
     )}
     <div

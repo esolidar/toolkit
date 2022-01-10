@@ -7,6 +7,12 @@ export default {
   parameters: {
     jest: ['SelectField.test.tsx'],
   },
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <SelectField {...args} />;

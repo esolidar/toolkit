@@ -60,6 +60,7 @@ const Select: FC<Props> = ({
           style={{
             marginBottom: '8px',
           }}
+          size={size}
         />
       )}
       <ReactSelect

@@ -9,6 +9,12 @@ export default {
   parameters: {
     jest: ['Select.test.tsx'],
   },
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 } as Meta;
 
 const options = [
