@@ -3,6 +3,13 @@ import React, { FC } from 'react';
 import Icon from '../icon';
 import Props from './AlertBox.types';
 
+const iconMap = {
+  success: 'CheckCircle',
+  warning: 'AlertTriangle',
+  danger: 'X',
+  info: 'Info',
+};
+
 const AlertBox: FC<Props> = ({
   title,
   status,
@@ -12,28 +19,20 @@ const AlertBox: FC<Props> = ({
   style,
   icon,
 }: Props): JSX.Element => {
-  let statusIcon = '';
-  if (status === 'info') {
-    statusIcon = 'Info';
-  } else if (status === 'success') {
-    statusIcon = 'CheckCircle';
-  } else if (status === 'warning') {
-    statusIcon = 'AlertTriangle';
-  } else {
-    statusIcon = 'X';
-  }
   const classes = classNames('alertBox', `alertBox__${status}`, `alertBox__${extraClass}`);
 
   return (
-    <>
-      <div data-testid={dataTestId} className={classes} style={style} role="alert">
-        <Icon name={icon || statusIcon} data-testid={icon || statusIcon} />
-        <div>
-          <p>{title}</p>
-          <span>{subtitle}</span>
-        </div>
+    <div data-testid={dataTestId} className={classes} style={style} role="alert">
+      <Icon
+        className="alertBox__img"
+        name={icon || iconMap[status]}
+        data-testid={icon || iconMap[status]}
+      />
+      <div className="alertBox__text">
+        {title && <p className="alertBox__text--title">{title}</p>}
+        {subtitle && <span className="alertBox__text--subtitle">{subtitle}</span>}
       </div>
-    </>
+    </div>
   );
 };
 
