@@ -106,7 +106,7 @@ describe('SelectField component', () => {
   it('renders Select Field with label help', () => {
     const { getByClass } = render(<WithHelperComponent />);
 
-    expect(getByClass('help')).toBeInTheDocument();
+    expect(getByClass(/help/)).toBeInTheDocument();
   });
 
   it('renders Select Field with icon', () => {

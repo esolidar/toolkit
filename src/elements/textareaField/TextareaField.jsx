@@ -63,7 +63,13 @@ const TextareaField = ({
       )}
     >
       {label && (
-        <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} help={help} />
+        <InputLabel
+          field={field}
+          label={label}
+          showOptionalLabel={showOptionalLabel}
+          help={help}
+          size={size}
+        />
       )}
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className={classnames(`size-${size}`, ' relative')}>

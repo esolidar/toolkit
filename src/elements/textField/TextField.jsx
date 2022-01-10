@@ -49,6 +49,7 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={size}
       />
     )}
     {inputLabelProps && <InputLabel {...inputLabelProps} />}

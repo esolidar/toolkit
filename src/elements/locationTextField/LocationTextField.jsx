@@ -50,6 +50,7 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={size}
       />
     )}
     {!children && (

@@ -48,7 +48,7 @@ it('renders AlertBox Danger', () => {
 
   expect(getByTestId('alertBox-component')).toBeInTheDocument();
   expect(getByClass(/alertBox__danger/)).toBeInTheDocument();
-  expect(getByClass('icon-component')).toBeInTheDocument();
+  expect(getByClass(/icon-component/)).toBeInTheDocument();
   expect(getByText('Could not connect')).toBeInTheDocument();
   expect(
     getByText('Make sure your network connection is active and try again.')

@@ -72,6 +72,7 @@ const SelectField: FC<Props> = ({
             label={label}
             showOptionalLabel={showOptionalLabel}
             help={help}
+            size={size}
           />
         )}
       </div>
