@@ -28,6 +28,10 @@
       background-position: 50% 50%;
       border-radius: 50%;
       border: 2px solid map-get($neutrals, 100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
 
       &:hover {
         cursor: pointer;

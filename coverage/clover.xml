@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641312592265" clover="3.2.0">
-  <project timestamp="1641312592266" name="All files">
-    <metrics statements="4773" coveredstatements="3414" conditionals="3628" coveredconditionals="2217" methods="1436" coveredmethods="823" elements="9837" coveredelements="6454" complexity="0" loc="4773" ncloc="4773" packages="190" files="659" classes="659"/>
+<coverage generated="1641923812820" clover="3.2.0">
+  <project timestamp="1641923812820" name="All files">
+    <metrics statements="4767" coveredstatements="3415" conditionals="3635" coveredconditionals="2226" methods="1437" coveredmethods="825" elements="9839" coveredelements="6466" complexity="0" loc="4767" ncloc="4767" packages="190" files="659" classes="659"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="358" type="stmt"/>
+        <line num="3" count="356" type="stmt"/>
         <line num="5" count="72" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="72" type="stmt"/>
@@ -50,8 +50,8 @@
       </file>
       <file name="AlertTriangle.js" path="C:\Projects\toolkit\src\assets\icons\md\AlertTriangle.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="AlignCenter.js" path="C:\Projects\toolkit\src\assets\icons\md\AlignCenter.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -195,8 +195,8 @@
       </file>
       <file name="Camera.js" path="C:\Projects\toolkit\src\assets\icons\md\Camera.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="Chat.js" path="C:\Projects\toolkit\src\assets\icons\md\Chat.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -210,8 +210,8 @@
       </file>
       <file name="CheckCircle.js" path="C:\Projects\toolkit\src\assets\icons\md\CheckCircle.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="CheckSquare.js" path="C:\Projects\toolkit\src\assets\icons\md\CheckSquare.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -355,8 +355,8 @@
       </file>
       <file name="Dot.js" path="C:\Projects\toolkit\src\assets\icons\md\Dot.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="Download.js" path="C:\Projects\toolkit\src\assets\icons\md\Download.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -510,8 +510,8 @@
       </file>
       <file name="Info.js" path="C:\Projects\toolkit\src\assets\icons\md\Info.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
       </file>
       <file name="InfoBold.js" path="C:\Projects\toolkit\src\assets\icons\md\InfoBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -870,8 +870,8 @@
       </file>
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\md\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="19" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\md\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -906,13 +906,13 @@
       </file>
       <file name="ArrowLeft.js" path="C:\Projects\toolkit\src\assets\icons\sm\ArrowLeft.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="ArrowRight.js" path="C:\Projects\toolkit\src\assets\icons\sm\ArrowRight.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="AtSign.js" path="C:\Projects\toolkit\src\assets\icons\sm\AtSign.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -941,8 +941,8 @@
       </file>
       <file name="Check.js" path="C:\Projects\toolkit\src\assets\icons\sm\Check.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="7" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
       </file>
       <file name="ChevronDown.js" path="C:\Projects\toolkit\src\assets\icons\sm\ChevronDown.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -991,8 +991,8 @@
       </file>
       <file name="Edit2.js" path="C:\Projects\toolkit\src\assets\icons\sm\Edit2.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
       </file>
       <file name="ExternalLink.js" path="C:\Projects\toolkit\src\assets\icons\sm\ExternalLink.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1001,13 +1001,13 @@
       </file>
       <file name="Eye.js" path="C:\Projects\toolkit\src\assets\icons\sm\Eye.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
       </file>
       <file name="EyeOff.js" path="C:\Projects\toolkit\src\assets\icons\sm\EyeOff.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
       </file>
       <file name="Filter.js" path="C:\Projects\toolkit\src\assets\icons\sm\Filter.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1101,8 +1101,8 @@
       </file>
       <file name="MoreVertical.js" path="C:\Projects\toolkit\src\assets\icons\sm\MoreVertical.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="Pin.js" path="C:\Projects\toolkit\src\assets\icons\sm\Pin.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1146,8 +1146,8 @@
       </file>
       <file name="Settings.js" path="C:\Projects\toolkit\src\assets\icons\sm\Settings.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="Share.js" path="C:\Projects\toolkit\src\assets\icons\sm\Share.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1161,8 +1161,8 @@
       </file>
       <file name="Share3.js" path="C:\Projects\toolkit\src\assets\icons\sm\Share3.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="Smile.js" path="C:\Projects\toolkit\src\assets\icons\sm\Smile.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1206,8 +1206,8 @@
       </file>
       <file name="Trash.js" path="C:\Projects\toolkit\src\assets\icons\sm\Trash.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="Underline.js" path="C:\Projects\toolkit\src\assets\icons\sm\Underline.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1243,7 +1243,7 @@
       <file name="Plus.js" path="C:\Projects\toolkit\src\assets\icons\xs\Plus.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\xs\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -2290,7 +2290,7 @@
       </file>
     </package>
     <package name="src.components.changeProfileUserImage">
-      <metrics statements="15" coveredstatements="12" conditionals="11" coveredconditionals="6" methods="6" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="11" conditionals="13" coveredconditionals="8" methods="6" coveredmethods="2"/>
       <file name="ChangeProfileUserImage.stories.tsx" path="C:\Projects\toolkit\src\components\changeProfileUserImage\ChangeProfileUserImage.stories.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="4" type="stmt"/>
@@ -2300,17 +2300,16 @@
         <line num="27" count="1" type="stmt"/>
       </file>
       <file name="ChangeProfileUserImage.tsx" path="C:\Projects\toolkit\src\components\changeProfileUserImage\ChangeProfileUserImage.tsx">
-        <metrics statements="10" coveredstatements="7" conditionals="11" coveredconditionals="6" methods="3" coveredmethods="1"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="18" count="4" type="cond" truecount="3" falsecount="0"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
+        <metrics statements="9" coveredstatements="6" conditionals="13" coveredconditionals="8" methods="3" coveredmethods="1"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="3" falsecount="0"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.checkout.invoicing">
@@ -3477,9 +3476,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="C:\Projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="85" type="stmt"/>
-        <line num="6" count="131" type="stmt"/>
-        <line num="9" count="85" type="stmt"/>
+        <line num="5" count="60" type="stmt"/>
+        <line num="6" count="80" type="stmt"/>
+        <line num="9" count="60" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\components\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4694,7 +4693,7 @@
       </file>
     </package>
     <package name="src.components.wizard">
-      <metrics statements="24" coveredstatements="14" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
+      <metrics statements="25" coveredstatements="15" conditionals="8" coveredconditionals="3" methods="11" coveredmethods="4"/>
       <file name="Wizard.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.stories.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4705,7 +4704,7 @@
         <line num="114" count="1" type="stmt"/>
       </file>
       <file name="Wizard.tsx" path="C:\Projects\toolkit\src\components\wizard\Wizard.tsx">
-        <metrics statements="18" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="19" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
@@ -4723,7 +4722,8 @@
         <line num="56" count="2" type="stmt"/>
         <line num="57" count="2" type="stmt"/>
         <line num="58" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
+        <line num="59" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="63" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.wizard.footer">
@@ -4769,7 +4769,7 @@
       </file>
     </package>
     <package name="src.components.wizard.paginator">
-      <metrics statements="14" coveredstatements="13" conditionals="9" coveredconditionals="9" methods="5" coveredmethods="4"/>
+      <metrics statements="13" coveredstatements="12" conditionals="9" coveredconditionals="9" methods="5" coveredmethods="4"/>
       <file name="WizardPaginator.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\paginator\WizardPaginator.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4778,17 +4778,16 @@
         <line num="22" count="1" type="stmt"/>
       </file>
       <file name="WizardPaginator.tsx" path="C:\Projects\toolkit\src\components\wizard\paginator\WizardPaginator.tsx">
-        <metrics statements="10" coveredstatements="9" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="3"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="15" type="stmt"/>
-        <line num="15" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="18" count="15" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="24" count="12" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="8" conditionals="9" coveredconditionals="9" methods="4" coveredmethods="3"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="10" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="19" count="12" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
       </file>
       <file name="index.ts" path="C:\Projects\toolkit\src\components\wizard\paginator\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4806,9 +4805,9 @@
       </file>
       <file name="env.js" path="C:\Projects\toolkit\src\constants\env.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="25" type="stmt"/>
-        <line num="2" count="25" type="stmt"/>
-        <line num="4" count="25" type="stmt"/>
+        <line num="1" count="24" type="stmt"/>
+        <line num="2" count="24" type="stmt"/>
+        <line num="4" count="24" type="stmt"/>
       </file>
       <file name="months.ts" path="C:\Projects\toolkit\src\constants\months.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4828,7 +4827,7 @@
       </file>
     </package>
     <package name="src.elements.alertBox">
-      <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
+      <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="2" coveredmethods="2"/>
       <file name="AlertBox.stories.tsx" path="C:\Projects\toolkit\src\elements\alertBox\AlertBox.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="19" count="1" type="stmt"/>
@@ -4843,18 +4842,11 @@
         <line num="48" count="1" type="stmt"/>
       </file>
       <file name="AlertBox.tsx" path="C:\Projects\toolkit\src\elements\alertBox\AlertBox.tsx">
-        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.badge">
@@ -4886,7 +4878,7 @@
       </file>
     </package>
     <package name="src.elements.breadcrumbs">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="3"/>
       <file name="Breadcrumbs.stories.tsx" path="C:\Projects\toolkit\src\elements\breadcrumbs\Breadcrumbs.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -4895,10 +4887,10 @@
         <line num="22" count="1" type="stmt"/>
       </file>
       <file name="Breadcrumbs.tsx" path="C:\Projects\toolkit\src\elements\breadcrumbs\Breadcrumbs.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.button">
@@ -5075,9 +5067,9 @@
         <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
-        <line num="42" count="8" type="stmt"/>
-        <line num="100" count="3" type="stmt"/>
-        <line num="134" count="3" type="stmt"/>
+        <line num="43" count="8" type="stmt"/>
+        <line num="102" count="3" type="stmt"/>
+        <line num="137" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\datePicker\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5245,25 +5237,27 @@
       </file>
     </package>
     <package name="src.elements.filterGroup">
-      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="3"/>
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="3"/>
       <file name="FilterGroup.stories.tsx" path="C:\Projects\toolkit\src\elements\filterGroup\FilterGroup.stories.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
       </file>
       <file name="FilterGroup.tsx" path="C:\Projects\toolkit\src\elements\filterGroup\FilterGroup.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="8" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="8" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.icon">
-      <metrics statements="53" coveredstatements="34" conditionals="9" coveredconditionals="6" methods="20" coveredmethods="7"/>
+      <metrics statements="53" coveredstatements="35" conditionals="9" coveredconditionals="6" methods="20" coveredmethods="8"/>
       <file name="Icon.stories.tsx" path="C:\Projects\toolkit\src\elements\icon\Icon.stories.tsx">
         <metrics statements="45" coveredstatements="27" conditionals="6" coveredconditionals="3" methods="18" coveredmethods="6"/>
         <line num="18" count="1" type="stmt"/>
@@ -5278,63 +5272,63 @@
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="66" count="168" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
+        <line num="67" count="168" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="88" count="0" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
         <line num="98" count="0" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
-        <line num="131" count="69" type="stmt"/>
-        <line num="148" count="1" type="stmt"/>
-        <line num="149" count="1" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="133" count="69" type="stmt"/>
         <line num="150" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
         <line num="152" count="1" type="stmt"/>
-        <line num="153" count="0" type="stmt"/>
-        <line num="154" count="0" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
         <line num="156" count="0" type="stmt"/>
-        <line num="159" count="1" type="stmt"/>
-        <line num="160" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="161" count="1" type="stmt"/>
         <line num="162" count="0" type="stmt"/>
-        <line num="163" count="0" type="stmt"/>
-        <line num="167" count="1" type="stmt"/>
-        <line num="196" count="4" type="stmt"/>
-        <line num="213" count="1" type="stmt"/>
-        <line num="214" count="1" type="stmt"/>
-        <line num="215" count="1" type="stmt"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="169" count="1" type="stmt"/>
+        <line num="199" count="4" type="stmt"/>
+        <line num="216" count="1" type="stmt"/>
         <line num="217" count="1" type="stmt"/>
-        <line num="221" count="1" type="stmt"/>
-        <line num="226" count="1" type="stmt"/>
+        <line num="218" count="1" type="stmt"/>
+        <line num="220" count="1" type="stmt"/>
+        <line num="224" count="1" type="stmt"/>
+        <line num="229" count="1" type="stmt"/>
       </file>
       <file name="Icon.tsx" path="C:\Projects\toolkit\src\elements\icon\Icon.tsx">
-        <metrics statements="8" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="1"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="22" count="314" type="stmt"/>
-        <line num="23" count="314" type="stmt"/>
-        <line num="24" count="314" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="29" count="314" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="7" count="80" type="stmt"/>
+        <line num="9" count="80" type="stmt"/>
+        <line num="15" count="80" type="stmt"/>
+        <line num="23" count="380" type="stmt"/>
+        <line num="24" count="380" type="stmt"/>
+        <line num="25" count="380" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="30" count="380" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.elements.inputLabel">
-      <metrics statements="4" coveredstatements="4" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <metrics statements="4" coveredstatements="4" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
       <file name="InputLabel.jsx" path="C:\Projects\toolkit\src\elements\inputLabel\InputLabel.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="4" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="8" count="49" type="stmt"/>
-        <line num="19" count="157" type="stmt"/>
-        <line num="21" count="157" type="stmt"/>
-        <line num="49" count="49" type="stmt"/>
+        <line num="20" count="157" type="stmt"/>
+        <line num="22" count="157" type="stmt"/>
+        <line num="50" count="49" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\inputLabel\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5367,8 +5361,8 @@
         <metrics statements="4" coveredstatements="4" conditionals="24" coveredconditionals="20" methods="1" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
         <line num="38" count="7" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="133" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\locationTextField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5432,7 +5426,7 @@
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.elements.pagination">
@@ -5618,15 +5612,15 @@
       <metrics statements="23" coveredstatements="20" conditionals="30" coveredconditionals="28" methods="12" coveredmethods="6"/>
       <file name="SelectField.stories.js" path="C:\Projects\toolkit\src\elements\selectField\SelectField.stories.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
       </file>
       <file name="SelectField.tsx" path="C:\Projects\toolkit\src\elements\selectField\SelectField.tsx">
         <metrics statements="14" coveredstatements="11" conditionals="30" coveredconditionals="28" methods="7" coveredmethods="5"/>
@@ -5731,7 +5725,7 @@
       <metrics statements="20" coveredstatements="20" conditionals="12" coveredconditionals="11" methods="2" coveredmethods="2"/>
       <file name="Tag.stories.tsx" path="C:\Projects\toolkit\src\elements\tag\Tag.stories.tsx">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="7" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -5762,8 +5756,8 @@
         <metrics statements="4" coveredstatements="4" conditionals="34" coveredconditionals="30" methods="1" coveredmethods="1"/>
         <line num="8" count="24" type="stmt"/>
         <line num="38" count="139" type="stmt"/>
-        <line num="104" count="24" type="stmt"/>
-        <line num="143" count="24" type="stmt"/>
+        <line num="105" count="24" type="stmt"/>
+        <line num="144" count="24" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\textField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5887,24 +5881,24 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+      <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+        <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
         <line num="10" count="20" type="stmt"/>
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="118" count="20" type="stmt"/>
-        <line num="147" count="20" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="124" count="20" type="stmt"/>
+        <line num="153" count="20" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\textareaField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -7192,7 +7186,7 @@
       </file>
       <file name="isDefined.js" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="89" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">

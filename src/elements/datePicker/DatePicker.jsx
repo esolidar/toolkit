@@ -38,6 +38,7 @@ const DatePicker = ({
   leftIcon,
   rightIcon,
   disabled,
+  inputLabelSize,
 }) => (
   <div
     className={classnames('datepicker-component', 'form-group', {
@@ -50,6 +51,7 @@ const DatePicker = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={inputLabelSize}
       />
     )}
     <div
@@ -129,6 +131,7 @@ DatePicker.propTypes = {
     onClick: PropTypes.func,
     show: PropTypes.bool.isRequired,
   }),
+  inputLabelSize: PropTypes.string,
 };
 
 DatePicker.defaultProps = {
@@ -138,6 +141,7 @@ DatePicker.defaultProps = {
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
   size: 'xs',
+  inputLabelSize: 'lg',
 };
 
 export default DatePicker;

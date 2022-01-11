@@ -3,6 +3,7 @@ interface Props {
   size?: 'sm' | 'xs' | 'md';
   color: string;
   className?: string;
+  dataTestId?: string;
 }
 
 export default Props;

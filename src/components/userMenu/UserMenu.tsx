@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Dropdown } from 'react-bootstrap';
 import Props from './UserMenu.types';
@@ -18,9 +18,9 @@ const UserMenu: FC<Props> = ({
     <Dropdown.Menu flip={flip} align={align}>
       {items.map((item, i) => {
         if (item.isVisible === false) return;
-        if (item.isDivider) return <Dropdown.Divider />;
+        if (item.isDivider) return <Dropdown.Divider key={item.id} />;
         return (
-          <>
+          <Fragment key={item.id}>
             {item.title && <div className="esolidar-user-menu-title">{item.title}</div>}
             <Dropdown.Item
               key={i}
@@ -35,7 +35,7 @@ const UserMenu: FC<Props> = ({
                 <FormattedMessage id={item.text || ' '} />
               )}
             </Dropdown.Item>
-          </>
+          </Fragment>
         );
       })}
     </Dropdown.Menu>

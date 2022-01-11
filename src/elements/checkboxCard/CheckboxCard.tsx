@@ -42,7 +42,7 @@ const CheckboxCard: FC<Props> = ({
   };
 
   return (
-    <button className={classes} onClick={handleOnClick} id={id}>
+    <div className={classes} onKeyPress={handleOnClick} onClick={handleOnClick} id={id}>
       <div className="checkbox-card__image">
         <Preview img={image} hover={false} />
       </div>
@@ -53,7 +53,7 @@ const CheckboxCard: FC<Props> = ({
       <div className="checkbox-card__icon">
         <Icon name="Check" color="#fff" size="sm" />
       </div>
-    </button>
+    </div>
   );
 };
 

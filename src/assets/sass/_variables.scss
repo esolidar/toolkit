@@ -277,6 +277,11 @@ $widths: (
   xl: 1020px,
 );
 
+$z-indexs: (
+  wizard: 2,
+  wizard-header: 4,
+);
+
 /* Footer */
 $footer-link-color: map-get($theme-colors-light, primary);
 $facebook-color: #39579b;

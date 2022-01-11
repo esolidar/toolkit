@@ -7,6 +7,12 @@ export default {
   parameters: {
     jest: ['LocationTextField.test.tsx'],
   },
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <LocationTextField {...args} />;
@@ -47,7 +53,7 @@ WithIcons.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
-  leftIcon: { name: 'icon-ic-location', show: true },
-  rightIcon: { name: 'icon-x', onClick: () => alert('right-button'), show: true },
+  leftIcon: { name: 'MapPin', show: true },
+  rightIcon: { name: 'X', onClick: () => alert('right-button'), show: true },
   size: 'lg',
 };

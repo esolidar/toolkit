@@ -25,7 +25,7 @@ const Card: FC<Props> = ({
       {average && (
         <Badge
           className="card-component__average"
-          icon="icon-star-full"
+          icon="StarBold"
           plaintext={
             <>
               <span className="card-component__average-value">{average}</span>

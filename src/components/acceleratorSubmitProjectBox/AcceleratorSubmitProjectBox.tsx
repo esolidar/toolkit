@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import moment from 'moment-timezone';
 import { FormattedMessage, useIntl } from 'react-intl';
-import Icon from '../icon';
+import Icon from '../../elements/icon';
 import Button from '../../elements/button';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import Props from './AcceleratorSubmitProjectBox.types';
@@ -38,7 +38,7 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
       {getProgramStatus() === 'soon' && (
         <div className="acceleratorSubmitProjectBox__submit-soon">
           <div>
-            <Icon iconClass="icon-ic-box-calendar-white" />
+            <Icon name="Info" />
           </div>
           <div>
             <h4>
@@ -91,7 +91,7 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
       {getProgramStatus() === 'ended' && (
         <div className="acceleratorSubmitProjectBox__submit-soon">
           <div>
-            <Icon iconClass="icon-ic-box-calendar-white" />
+            <Icon name="Info" />
           </div>
           <div>
             <h4>

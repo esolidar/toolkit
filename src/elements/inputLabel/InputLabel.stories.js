@@ -4,6 +4,12 @@ import InputLabel from './InputLabel';
 export default {
   title: 'Elements/InputLabel',
   component: InputLabel,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => (

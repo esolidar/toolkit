@@ -25,7 +25,7 @@ it('renders EnterEmail component with set password copy', () => {
   expect(getByText('Email')).toBeInTheDocument();
 
   expect(getByClass(/btn-esolidar/)).toBeInTheDocument();
-  expect(getByClass('help')).toBeInTheDocument();
+  expect(getByClass(/help/)).toBeInTheDocument();
   expect(getByText('Send instructions')).toBeInTheDocument();
 });
 

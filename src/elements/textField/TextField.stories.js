@@ -7,6 +7,12 @@ export default {
   parameters: {
     jest: ['TextField.test.tsx'],
   },
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <TextField {...args} />;

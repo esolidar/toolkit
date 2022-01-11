@@ -89,8 +89,10 @@
       border: 2px solid map-get($neutrals, 100) !important;
 
       & .esolidar-select__indicator,
-      & .esolidar-select__placeholder > i {
+      & .esolidar-select__placeholder > i,
+      & .esolidar-select__single-value {
         color: map-get($neutrals, 400) !important;
+        @include svg-change-color(map-get($neutrals, 400));
       }
     }
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Tooltip from '../tooltip';
 
 const InputLabel = ({
@@ -15,6 +15,7 @@ const InputLabel = ({
   fontWeight = 600,
   required = false,
   requiredText,
+  size = 'lg',
 }) => {
   const cssStyle = { ...style, fontWeight };
 
@@ -22,7 +23,7 @@ const InputLabel = ({
     <>
       <label
         htmlFor={field}
-        className={classnames('control-label', 'd-flex', cssClass)}
+        className={classnames('control-label', `size-${size}`, 'd-flex', cssClass)}
         style={cssStyle}
       >
         {label}
@@ -35,13 +36,13 @@ const InputLabel = ({
         {required && (
           <Tooltip
             bodyChildClassName="ml-auto"
-            tooltipBodyChild={<Icon iconClass="icon-httpslock" />}
+            tooltipBodyChild={<Icon name="LockBold" size="sm" />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />
         )}
       </label>
-      {help && <p className="help">{help}</p>}
+      {help && <p className={classnames('help', `size-${size}`)}>{help}</p>}
     </>
   );
 };
@@ -56,6 +57,7 @@ InputLabel.propTypes = {
   fontWeight: PropTypes.number,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default InputLabel;

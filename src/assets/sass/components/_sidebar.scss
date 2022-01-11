@@ -97,7 +97,7 @@
     padding: 0px $distance-3 0px $distance-3;
 
     &--align-items-end {
-      align-items: end;
+      align-items: flex-end;
     }
   }
   &__mainMenu {
@@ -165,7 +165,7 @@
     margin-left: -154px;
 
     .sidebarNavigation__header {
-      justify-content: end;
+      justify-content: flex-end;
     }
     .sidebarNavigation__mainMenu {
       width: auto;
