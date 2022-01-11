@@ -5,12 +5,20 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useIntl } from 'react-intl';
-import { EditorState, convertToRaw, convertFromRaw, ContentState, convertFromHTML } from 'draft-js';
+import {
+  EditorState,
+  convertToRaw,
+  convertFromRaw,
+  ContentState,
+  convertFromHTML,
+  Modifier,
+} from 'draft-js';
 import { Editor } from '@pedroguia/react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import InputLabel from '../../elements/inputLabel';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
+import Icon from '../../elements/icon';
 import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const getInitialRawContent = initialContent => {
@@ -48,6 +56,28 @@ const translations = {
   },
 };
 
+const toolbarButtons = {
+  inline: ['bold', 'italic', 'underline', 'strikethrough', 'monospace', 'superscript', 'subscript'],
+  textAlign: ['left', 'center', 'right', 'justify'],
+  list: ['unordered', 'ordered', 'indent', 'outdent'],
+  link: ['link'],
+  image: ['image'],
+};
+
+const getToolbarOptions = toolbarItems => {
+  const options = [];
+  const keys = Object.keys(toolbarButtons);
+
+  keys.forEach(key => {
+    const isOptionIncludedInToolbarItems = toolbarItems.some(item =>
+      toolbarButtons[key].includes(item)
+    );
+    if (isOptionIncludedInToolbarItems) options.push(key);
+  });
+
+  return options;
+};
+
 const HtmlEditor = ({
   dataTestId,
   initialContent,
@@ -64,6 +94,9 @@ const HtmlEditor = ({
   className,
   inputLabelProps,
   placeholder,
+  maxLength,
+  size,
+  toolbarItems,
 }) => {
   const intl = useIntl();
   const isFirstRender = useIsFirstRender();
@@ -75,6 +108,14 @@ const HtmlEditor = ({
       ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
       : EditorState.createEmpty()
   );
+  const [options, setOptions] = useState(getToolbarOptions(toolbarItems));
+
+  useEffect(() => {
+    const newOptions = getToolbarOptions(toolbarItems);
+    if (JSON.stringify(options) !== JSON.stringify(newOptions)) {
+      setOptions(newOptions);
+    }
+  }, [toolbarItems]);
 
   useEffect(() => {
     setWrapperClassName(
@@ -104,12 +145,36 @@ const HtmlEditor = ({
     setEditorState(editorState);
   };
 
+  const handlePastedText = (text, html, editorState, onChange) => {
+    if (maxLength) {
+      const currentTextLength = Number(editorState.getCurrentContent().getPlainText('').length);
+      const selection = editorState.getSelection();
+      console.log('selection', selection.getEndOffset());
+      const string = text.substring(0, maxLength - currentTextLength);
+
+      if (string === '') {
+        onChange(editorState);
+        return 'handled';
+      }
+
+      const pastedBlocks = ContentState.createFromText(string).blockMap;
+      const newState = Modifier.replaceWithFragment(
+        editorState.getCurrentContent(),
+        selection,
+        pastedBlocks
+      );
+
+      const newEditorState = EditorState.push(editorState, newState, 'insert-fragment');
+      onChange(newEditorState);
+      return 'handled';
+    }
+  };
+
   const handleOnFocus = () => setIsFocused(true);
   const handleOnBlur = () => setIsFocused(false);
 
-  const options = ['inline', 'list'];
-  if (showAddImageBtn) options.push('image');
-  if (showAddUrlBtn) options.push('link');
+  if (showAddImageBtn && !options.includes('image')) options.push('image');
+  if (showAddUrlBtn && !options.includes('link')) options.push('link');
 
   const toolbarCustomButtons = [];
   if (showColumnsBtn) {
@@ -125,7 +190,7 @@ const HtmlEditor = ({
   }
 
   return (
-    <div className={`form-group ${className}`}>
+    <div className={classnames('form-group', `htmlEditor-${size}`, className)}>
       {inputLabelProps && (
         <InputLabel
           {...inputLabelProps}
@@ -145,14 +210,44 @@ const HtmlEditor = ({
         toolbar={{
           options,
           inline: {
-            options: ['bold', 'italic', 'underline', 'strikethrough'],
+            options: toolbarItems.filter(item => toolbarButtons.inline.includes(item)),
+            bold: {
+              icon: <Icon name="Bold" size="sm" />,
+            },
+            italic: {
+              icon: <Icon name="Italic" size="sm" />,
+            },
+            underline: {
+              icon: <Icon name="Underline" size="sm" />,
+            },
+            strikethrough: {
+              icon: <Icon name="StrikeThrough" size="sm" />,
+            },
+          },
+          textAlign: {
+            options: toolbarItems.filter(item => toolbarButtons.textAlign.includes(item)),
+            left: {
+              icon: <Icon name="AlignLeft" size="sm" />,
+            },
+            center: {
+              icon: <Icon name="AlignCenter" size="sm" />,
+            },
+            right: {
+              icon: <Icon name="AlignRight" size="sm" />,
+            },
           },
           list: {
-            options: ['unordered', 'ordered'],
+            options: toolbarItems.filter(item => toolbarButtons.list.includes(item)),
           },
           link: {
             defaultTargetOption: '_blank',
-            options: ['link'],
+            options: toolbarItems.filter(item => toolbarButtons.link.includes(item)),
+            link: {
+              icon: <Icon name="Link" size="sm" />,
+            },
+          },
+          image: {
+            icon: <Icon name="Image" size="sm" />,
           },
         }}
         toolbarCustomButtons={toolbarCustomButtons}
@@ -165,6 +260,8 @@ const HtmlEditor = ({
         toolbarClassName={disabled ? 'disabled' : ''}
         readOnly={disabled}
         placeholder={placeholder}
+        maxLength={maxLength}
+        handlePastedText={handlePastedText}
       />
       {!!helperText && (
         <p aria-label="html-helper-text" className="helper-text__error">
@@ -191,6 +288,9 @@ HtmlEditor.propTypes = {
   className: PropTypes.string,
   inputLabelProps: PropTypes.object,
   placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
+  size: PropTypes.string,
+  toolbarItems: PropTypes.object,
 };
 
 HtmlEditor.defaultProps = {
@@ -202,6 +302,8 @@ HtmlEditor.defaultProps = {
   showAddImageBtn: false,
   showAddUrlBtn: true,
   disabled: false,
+  size: 'lg',
+  toolbarItems: ['bold', 'italic', 'underline', 'strikethrough', 'left', 'center', 'right', 'link'],
 };
 
 export default HtmlEditor;

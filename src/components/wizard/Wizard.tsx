@@ -37,17 +37,19 @@ const Wizard: FC<Props> = ({
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
-      const { scrollTop } = e.target;
-      const paginatorDiv = document.getElementsByClassName('wizard__paginator')[0];
-      const headerDiv = document.getElementsByClassName('wizard__header')[0];
-      if (y > scrollTop) {
-        paginatorDiv.classList.remove('fix-on-scrool-down');
-        headerDiv.classList.remove('fix-on-scrool-down');
-      } else if (y < scrollTop) {
-        paginatorDiv.classList.add('fix-on-scrool-down');
-        headerDiv.classList.add('fix-on-scrool-down');
+      const { scrollTop, id } = e.target;
+      if (id === 'wizard') {
+        const paginatorDiv = document.getElementsByClassName('wizard__paginator')[0];
+        const headerDiv = document.getElementsByClassName('wizard__header')[0];
+        if (y > scrollTop) {
+          paginatorDiv.classList.remove('fix-on-scrool-down');
+          headerDiv.classList.remove('fix-on-scrool-down');
+        } else if (y < scrollTop) {
+          paginatorDiv.classList.add('fix-on-scrool-down');
+          headerDiv.classList.add('fix-on-scrool-down');
+        }
+        y = scrollTop;
       }
-      y = scrollTop;
     },
     [y]
   );
@@ -59,7 +61,7 @@ const Wizard: FC<Props> = ({
   }, []);
 
   return (
-    <div className={`wizard ${showWizard ? 'open' : 'closed'} `}>
+    <div className={`wizard ${showWizard ? 'open' : 'closed'} `} id="wizard">
       <div className="wizard-container">
         <WizardHeader
           closeWizard={closeWizard}

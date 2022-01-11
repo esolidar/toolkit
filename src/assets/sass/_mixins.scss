@@ -175,7 +175,9 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #9f9f9f;
+    background: #dadcde;
+    border-radius: 8px;
+    min-height: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -187,19 +189,23 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #f0f0f0;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:hover {
-    background: #e8e8e8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:active {
-    background: #c8c8c8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-corner {
     background: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    min-height: 10px;
   }
 }
 
