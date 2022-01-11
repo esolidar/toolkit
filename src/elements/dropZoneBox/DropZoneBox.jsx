@@ -342,11 +342,15 @@ const DropZoneBox = ({
               <Cropper
                 ref={cropper}
                 src={croppedFile}
-                style={{ height: 310, width: '100%' }}
+                style={{ height: 290, width: '100%' }}
                 guides={true}
                 zoomable={true}
-                viewMode={2}
+                viewMode={1}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
+                dragMode="move"
+                cropBoxResizable={true}
+                cropBoxMovable={false}
+                autoCropArea={1}
               />
               {errorList.map((file, idx) => (
                 <div key={idx} className="error ml-2">{`- ${file.name} ${file.errors.join(
