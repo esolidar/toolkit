@@ -4,6 +4,12 @@ import DatePicker from './DatePicker';
 export default {
   title: 'Elements/DatePicker',
   component: DatePicker,
+  argTypes: {
+    size: {
+      options: ['xs', 'sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => <DatePicker {...args} />;

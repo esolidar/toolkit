@@ -15,6 +15,7 @@ const InputLabel = ({
   fontWeight = 600,
   required = false,
   requiredText,
+  size = 'lg',
 }) => {
   const cssStyle = { ...style, fontWeight };
 
@@ -22,7 +23,7 @@ const InputLabel = ({
     <>
       <label
         htmlFor={field}
-        className={classnames('control-label', 'd-flex', cssClass)}
+        className={classnames('control-label', `size-${size}`, 'd-flex', cssClass)}
         style={cssStyle}
       >
         {label}
@@ -41,7 +42,7 @@ const InputLabel = ({
           />
         )}
       </label>
-      {help && <p className="help">{help}</p>}
+      {help && <p className={classnames('help', `size-${size}`)}>{help}</p>}
     </>
   );
 };
@@ -56,6 +57,7 @@ InputLabel.propTypes = {
   fontWeight: PropTypes.number,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default InputLabel;

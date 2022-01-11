@@ -4,6 +4,7 @@ interface Items {
   counter?: string;
   disabled?: boolean;
   checked?: boolean;
+  icon?: string;
 }
 
 interface Props {

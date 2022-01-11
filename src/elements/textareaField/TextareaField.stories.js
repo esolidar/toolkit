@@ -4,6 +4,12 @@ import TextareaField from './TextareaField';
 export default {
   title: 'Elements/TextareaField',
   component: TextareaField,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => (

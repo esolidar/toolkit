@@ -26,6 +26,7 @@ Default.args = {
   ],
   labelHeader: <span>Sustainable Development Goals (SDG)</span>,
   onChange: selected => {
+    // eslint-disable-next-line no-console
     console.log(selected);
   },
 };

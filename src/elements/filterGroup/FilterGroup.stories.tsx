@@ -18,6 +18,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default: Story<Props> = Template.bind({});
 export const WithCounter: Story<Props> = Template.bind({});
+export const WithIcon: Story<Props> = Template.bind({});
 
 Default.args = {
   groupName: 'categories',
@@ -66,6 +67,38 @@ WithCounter.args = {
       value: 'governance',
       counter: '2',
       disabled: true,
+    },
+  ],
+};
+
+WithIcon.args = {
+  groupName: 'categories',
+  onChange: () => {},
+  items: [
+    {
+      title: 'All',
+      value: 'all',
+      counter: '3',
+      icon: 'MyProjects',
+    },
+    {
+      title: 'Environment ',
+      value: 'environment ',
+      counter: '7',
+      icon: 'Projects',
+    },
+    {
+      title: 'Social',
+      value: 'social',
+      counter: '3',
+      icon: 'Activity',
+    },
+    {
+      title: 'Governance',
+      value: 'governance',
+      counter: '2',
+      disabled: true,
+      icon: 'Accelerator',
     },
   ],
 };
