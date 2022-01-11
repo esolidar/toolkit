@@ -29,7 +29,7 @@
   }
 
   .wizard__header {
-    z-index: 2;
+    z-index: map-get($z-indexs, wizard-header);
     position: fixed;
     top: 0;
     left: 0;
@@ -39,7 +39,7 @@
     position: fixed;
     top: 71px;
     left: 0;
-    z-index: 1;
+    z-index: map-get($z-indexs, wizard);
   }
 }
 
