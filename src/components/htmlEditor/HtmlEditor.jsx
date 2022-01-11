@@ -78,6 +78,18 @@ const getToolbarOptions = toolbarItems => {
   return options;
 };
 
+const getCurrentTextSelection = editorState => {
+  const selectionState = editorState.getSelection();
+  const anchorKey = selectionState.getAnchorKey();
+  const currentContent = editorState.getCurrentContent();
+  const currentContentBlock = currentContent.getBlockForKey(anchorKey);
+  const start = selectionState.getStartOffset();
+  const end = selectionState.getEndOffset();
+  const selectedText = currentContentBlock.getText().slice(start, end);
+
+  return selectedText;
+};
+
 const HtmlEditor = ({
   dataTestId,
   initialContent,
@@ -149,8 +161,8 @@ const HtmlEditor = ({
     if (maxLength) {
       const currentTextLength = Number(editorState.getCurrentContent().getPlainText('').length);
       const selection = editorState.getSelection();
-      console.log('selection', selection.getEndOffset());
-      const string = text.substring(0, maxLength - currentTextLength);
+      const currentTextSelection = getCurrentTextSelection(editorState).length;
+      const string = text.substring(0, maxLength - (currentTextLength - currentTextSelection));
 
       if (string === '') {
         onChange(editorState);
