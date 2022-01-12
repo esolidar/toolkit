@@ -7,6 +7,7 @@ interface Props {
   communityUrl: string;
   currency: CurrencySmall;
   showStatus?: boolean;
+  cdnUploadsUrl: string;
 }
 
 export default Props;
