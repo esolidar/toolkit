@@ -26,7 +26,8 @@
     "setupFiles": [
       "jest-localstorage-mock",
       "jest-date-mock",
-      "./__globals__/globals.js"
+      "./__globals__/globals.js",
+      "<rootDir>/.jest/setEnvVars.js"
     ],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
