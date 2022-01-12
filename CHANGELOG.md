@@ -4,6 +4,44 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.61.0](https://github.com/esolidar/toolkit/compare/v4.11.1...v4.61.0) Released: ER2150 / 09th November 2021 -> 12th January 2021
+
+### Enhancements
+
+- Add: Create Select component [`ENG-436`](https://github.com/esolidar/toolkit/pulls?q=ENG-436)
+- Refactor: Refactor Checkbox component [`ENG-437`](https://github.com/esolidar/toolkit/pulls?q=ENG-437)
+- Add: Create Dropdown component [`ENG-438`](https://github.com/esolidar/toolkit/pulls?q=ENG-438)
+- Add: Create IconButton component [`ENG-442`](https://github.com/esolidar/toolkit/pulls?q=ENG-442)
+- Add: Create "Sidebar" component [`ENG-593`](https://github.com/esolidar/toolkit/pulls?q=ENG-593)
+- Add: Add Container component [`ENG-595`](https://github.com/esolidar/toolkit/pulls?q=ENG-595)
+- Add: Create Menu component [`ENG-600`](https://github.com/esolidar/toolkit/pulls?q=ENG-600)
+- Add: Revamp Datepicker [`ENG-611`](https://github.com/esolidar/toolkit/pulls?q=ENG-611)
+- Add: Revamp dropzone input to new desgn [`ENG-614`](https://github.com/esolidar/toolkit/pulls?q=ENG-614)
+- Add: Add new popover component as figma design [`ENG-639`](https://github.com/esolidar/toolkit/pulls?q=ENG-639)
+- Add: Add empty state component [`ENG-640`](https://github.com/esolidar/toolkit/pulls?q=ENG-640)
+- Add: Add tag component [`ENG-648`](https://github.com/esolidar/toolkit/pulls?q=ENG-648)
+- Refactor: Refactor Radio component [`ENG-651`](https://github.com/esolidar/toolkit/pulls?q=ENG-651)
+- Add: Add slider component [`ENG-659`](https://github.com/esolidar/toolkit/pulls?q=ENG-659)
+- Add: Add multi-select dropdown component [`ENG-673`](https://github.com/esolidar/toolkit/pulls?q=ENG-673)
+- Add: Change input fields border width [`ENG-674`](https://github.com/esolidar/toolkit/pulls?q=ENG-674)
+- Add: Change buttons style according to figma [`ENG-675`](https://github.com/esolidar/toolkit/pulls?q=ENG-675)
+- Add: InstitutionsListSelect [`ENG-690`](https://github.com/esolidar/toolkit/pulls?q=ENG-690)
+- Add: Add new text field number has figma design [`ENG-705`](https://github.com/esolidar/toolkit/pulls?q=ENG-705)
+- Add: Add required icon to InputLabel component [`ENG-706`](https://github.com/esolidar/toolkit/pulls?q=ENG-706)
+- Add: Update ProjectAddForm component to new form object [`ENG-710`](https://github.com/esolidar/toolkit/pulls?q=ENG-710)
+- Add: Change checkbox and radio style according to figma [`ENG-712`](https://github.com/esolidar/toolkit/pulls?q=ENG-712)
+- Add: Refeactor Select component and change Textfield [`ENG-713`](https://github.com/esolidar/toolkit/pulls?q=ENG-713)
+- Add: wizard Preview component border on hover [`ENG-730`](https://github.com/esolidar/toolkit/pulls?q=ENG-730)
+- Add: Create new component AcceleratorSubmitProjectBox [`ENG-733`](https://github.com/esolidar/toolkit/pulls?q=ENG-733)
+- Add: Create Icon component [`ENG-735`](https://github.com/esolidar/toolkit/pulls?q=ENG-735)
+- Add: Add loading to Button component [`ENG-737`](https://github.com/esolidar/toolkit/pulls?q=ENG-737)
+- Add: Update icons on Sidebar component [`ENG-744`](https://github.com/esolidar/toolkit/pulls?q=ENG-744)
+- Add: Change all icons on toolkit components to new icon component [`ENG-745`](https://github.com/esolidar/toolkit/pulls?q=ENG-745)
+- Add: Add size prop to InputLabel component [`ENG-757`](https://github.com/esolidar/toolkit/pulls?q=ENG-757)
+- Refactor: Refactor Alertbox component [`ENG-776`](https://github.com/esolidar/toolkit/pulls?q=ENG-776)
+  <br>
+  <br>
+
 ## [v4.11.1](https://github.com/esolidar/toolkit/compare/v3.51.1...v4.11.1) Released: ER2144 / 19th October 2021 -> 9th November 2021
 
 ### Enhancements
@@ -19,6 +57,8 @@ All notable changes to this project will be documented in this file.
 - Add: Add modal when code was expired on set new password [`ENG-567`](https://github.com/esolidar/toolkit/pulls?q=ENG-567)
 - Refactor: Remove index js file [`ENG-572`](https://github.com/esolidar/toolkit/pulls?q=ENG-572)
 - Refactor: Change Pagination component according to new designs [`ENG-588`](https://github.com/esolidar/toolkit/pulls?q=ENG-588)
+  <br>
+  <br>
 
 ## [v3.51.1](https://github.com/esolidar/toolkit/compare/v3.30.0...v3.51.1) Released: ER2141 / 27th September -> 19th October 2021
 
