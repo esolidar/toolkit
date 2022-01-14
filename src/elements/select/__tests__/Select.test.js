@@ -26,9 +26,8 @@ const WithoutOptions = composeStory(WithoutOptionStory, Meta);
 window.alert = jest.fn();
 
 it('renders select with default props', () => {
-  const { getByText, queryByClass, queryAllByClass, getByClass, queryAllByText } = render(
-    <Default />
-  );
+  const { getByText, queryByClass, queryAllByClass, getByClass, queryAllByText, queryAllByTestId } =
+    render(<Default />);
 
   expect(getByText('Select an option')).toBeInTheDocument();
   expect(getByClass(/esolidar-select__dropdown-indicator/)).toBeInTheDocument();
@@ -52,7 +51,7 @@ it('renders select with default props', () => {
   expect(getByText('This disabled option has no icon nor description')).toBeInTheDocument();
   expect(getByText('This disabled option has an icon and description')).toBeInTheDocument();
 
-  expect(queryAllByClass('icon-httpslock')).toHaveLength(4);
+  expect(queryAllByTestId('lock-icon')).toHaveLength(4);
   expect(queryAllByText('Only visible to Acme Inc admins')).toHaveLength(2);
 
   const firstOption = getByText('This enabled option has no icon nor description');
@@ -119,9 +118,9 @@ it('renders select with error', () => {
 });
 
 it('renders select with placeholder icon', () => {
-  const { getByText, getByClass } = render(<WithPlaceholderIcon />);
+  const { getByText, getByTestId } = render(<WithPlaceholderIcon />);
 
-  expect(getByClass(/icon-search/)).toBeInTheDocument();
+  expect(getByTestId('search-icon')).toBeInTheDocument();
   expect(getByText('Select an option')).toBeInTheDocument();
 });
 
