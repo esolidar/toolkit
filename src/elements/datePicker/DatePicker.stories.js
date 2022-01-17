@@ -40,19 +40,36 @@ Default.args = {
   size: 'sm',
 };
 
+const highlightWithRanges = [
+  {
+    date: [new Date('2022-01-19 00:00:00')],
+    name: 'Date 1',
+  },
+  {
+    date: [new Date('2022-01-23 00:00:00')],
+    name: 'Data 2',
+  },
+  {
+    date: [new Date('2022-01-11 00:00:00')],
+    name: 'Data 3',
+  },
+];
+
 DateOnly.args = {
   classnames: () => {},
   label: 'Start Date',
-  locale: 'en',
-  startDate: new Date('2021-03-05 00:00:00'),
-  selected: new Date('2021-03-15 00:00:00'),
-  endDate: new Date('2021-03-25 00:00:00'),
+  locale: 'pt',
+  startDate: new Date('2022-01-18 00:00:00'),
+  selected: null,
+  endDate: new Date('2022-01-23 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
   dateFormat: 'dd-MM-yyyy',
   leftIcon: { name: 'icon-calendar', show: true },
+  highlightDates: highlightWithRanges,
+  minDate: new Date(),
 };
 
 InputOnly.args = {

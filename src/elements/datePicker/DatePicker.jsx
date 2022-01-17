@@ -39,65 +39,88 @@ const DatePicker = ({
   rightIcon,
   disabled,
   inputLabelSize,
-}) => (
-  <div
-    className={classnames('datepicker-component', 'form-group', {
-      'has-error': !!errors,
-    })}
-  >
-    {label && (
-      <InputLabel
-        field={id || field}
-        label={label}
-        showOptionalLabel={showOptionalLabel}
-        help={help}
-        size={inputLabelSize}
-      />
-    )}
+  highlightDates = [],
+}) => {
+  const highlightWithRanges = [];
+  highlightDates.map((item, index) => {
+    highlightWithRanges.push({
+      [`react-datepicker__highlighted highlighted-${index}`]: item.date,
+      name: item.name,
+    });
+  });
+
+  const addHighlightedTooltip = () => {
+    highlightWithRanges.map((date, index) => {
+      const elem = document.getElementsByClassName(`highlighted-${index}`)[0];
+      if (elem) elem.setAttribute('title', date.name);
+    });
+  };
+
+  return (
     <div
-      className={classnames(
-        `size-${size}`,
-        'input',
-        { 'with-icon': leftIcon?.show },
-        { 'with-time': showTimeSelect }
-      )}
+      className={classnames('datepicker-component', 'form-group', {
+        'has-error': !!errors,
+      })}
     >
-      {leftIcon?.show && (
-        <Icon
-          iconClass={`icon left ${leftIcon?.name}`}
-          onClick={leftIcon?.onClick}
-          style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-          dataTestId="input-left-icon"
+      {label && (
+        <InputLabel
+          field={id || field}
+          label={label}
+          showOptionalLabel={showOptionalLabel}
+          help={help}
+          size={inputLabelSize}
         />
       )}
-      <DatePick
-        locale={locale}
-        selected={selected}
-        selectsStart={selectsStart}
-        startDate={startDate}
-        endDate={endDate}
-        showTimeSelect={showTimeSelect}
-        onChange={onChange}
-        className={className}
-        placeholderText={placeholderText}
-        timeCaption={timeCaption}
-        dateFormat={dateFormat}
-        minDate={minDate}
-        maxDate={maxDate}
-        disabled={disabled}
-      />
-      {rightIcon?.show && (
-        <Icon
-          iconClass={`icon right ${rightIcon?.name}`}
-          onClick={rightIcon?.onClick}
-          style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-          dataTestId="input-right-icon"
+      <div
+        className={classnames(
+          `size-${size}`,
+          'input',
+          { 'with-icon': leftIcon?.show },
+          { 'with-time': showTimeSelect }
+        )}
+      >
+        {leftIcon?.show && (
+          <Icon
+            iconClass={`icon left ${leftIcon?.name}`}
+            onClick={leftIcon?.onClick}
+            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+            dataTestId="input-left-icon"
+          />
+        )}
+        <DatePick
+          locale={locale}
+          selected={selected}
+          selectsStart={selectsStart}
+          startDate={startDate}
+          endDate={endDate}
+          showTimeSelect={showTimeSelect}
+          onChange={onChange}
+          className={className}
+          placeholderText={placeholderText}
+          timeCaption={timeCaption}
+          dateFormat={dateFormat}
+          minDate={minDate}
+          maxDate={maxDate}
+          disabled={disabled}
+          highlightDates={highlightWithRanges}
+          onCalendarOpen={addHighlightedTooltip}
+          showMonthDropdown
+          showYearDropdown
+          dropdownMode="scroll"
         />
-      )}
+        {rightIcon?.show && (
+          <Icon
+            iconClass={`icon right ${rightIcon?.name}`}
+            onClick={rightIcon?.onClick}
+            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+            dataTestId="input-right-icon"
+          />
+        )}
+      </div>
+      {!!errors && <span className="help-block">{errors}</span>}
     </div>
-    {!!errors && <span className="help-block">{errors}</span>}
-  </div>
-);
+  );
+};
 
 DatePicker.propTypes = {
   label: PropTypes.string,
@@ -132,6 +155,7 @@ DatePicker.propTypes = {
     show: PropTypes.bool.isRequired,
   }),
   inputLabelSize: PropTypes.string,
+  highlightDates: PropTypes.array,
 };
 
 DatePicker.defaultProps = {

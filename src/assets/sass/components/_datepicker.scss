@@ -78,12 +78,18 @@
       font-size: 24px;
       line-height: 32px;
       text-transform: capitalize;
-    }
 
-    &__month {
-      margin: 0;
-      margin-top: $distance-1;
-      padding-bottom: 16px;
+      &__dropdown {
+        background-color: map-get($base, white);
+        position: absolute;
+        top: 15px;
+        left: $distance-1;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
 
     &__time-container {
@@ -139,8 +145,29 @@
       font-size: 16px;
       margin: 0;
 
+      &--today {
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
       &:hover {
-        border-radius: $border-radius-1;
+        background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+        color: map-get($turquoise, 500);
+      }
+
+      &--outside-month {
+        color: map-get($neutrals, 400);
+      }
+
+      &--disabled {
+        color: map-get($neutrals, 400);
+        cursor: not-allowed;
+
+        &:hover {
+          color: map-get($neutrals, 400) !important;
+          background-color: map-get($base, white);
+        }
       }
     }
 
@@ -182,14 +209,188 @@
       }
     }
 
-    &__day--in-range {
-      background-color: map-get($turquoise, 300);
-      color: white;
-      border-radius: 8px;
+    &__day {
+      &--in-range {
+        background-color: change-color(map-get($turquoise, 300), $alpha: 0.08) !important;
+        color: map-get($turquoise, 500);
+        border-radius: 0px;
+
+        &:first-child {
+          border-radius: 8px 0 0 8px;
+        }
+
+        &:last-child {
+          border-radius: 0 8px 8px 0;
+        }
+      }
+      &--range-start {
+        background-color: map-get($turquoise, 500) !important;
+        border-radius: 8px;
+        color: map-get($base, white) !important;
+        position: relative;
+        transform-style: preserve-3d;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          transform: translateZ(-1px);
+          border-radius: 8px 0 0 8px;
+        }
+
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
+      &--range-end {
+        background-color: map-get($turquoise, 500) !important;
+        border-radius: 8px !important;
+        color: map-get($base, white);
+        transform-style: preserve-3d;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          transform: translateZ(-1px);
+          border-radius: 0 8px 8px 0;
+        }
+
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
+      &--selected {
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
     }
 
     &__time-list-item--selected {
       background-color: map-get($turquoise, 500);
+    }
+
+    &__highlighted {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        background-color: map-get($turquoise, 300);
+        width: 5px;
+        height: 5px;
+        border-radius: 3px;
+        left: 18px;
+        z-index: 9;
+      }
+    }
+
+    &__month {
+      margin: 0;
+      margin-top: $distance-1;
+      padding-bottom: 16px;
+
+      &-read-view--down-arrow {
+        display: none;
+      }
+
+      &-option--selected {
+        display: none;
+      }
+
+      &-dropdown {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: -10px;
+        width: 290px;
+        height: 305px;
+        border: none;
+        background-color: map-get($base, white);
+      }
+
+      &-option {
+        display: flex;
+        width: 33%;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 0;
+        background: map-get($base, white);
+
+        &:first-of-type,
+        &:first-of-type {
+          border-radius: 0;
+        }
+
+        &:hover {
+          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          color: map-get($turquoise, 500);
+        }
+      }
+    }
+
+    &__year {
+      margin: 0;
+      margin-top: $distance-1;
+      padding-bottom: 16px;
+
+      &-read-view--down-arrow {
+        display: none;
+      }
+
+      &-option--selected {
+        display: none;
+      }
+
+      &-dropdown {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: -10px;
+        width: 290px;
+        height: 305px;
+        border: none;
+        background-color: map-get($base, white);
+      }
+
+      &-option {
+        display: flex;
+        width: 33%;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 0;
+        background: map-get($base, white);
+
+        &:first-of-type,
+        &:first-of-type {
+          border-radius: 0;
+        }
+
+        &:hover {
+          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          color: map-get($turquoise, 500);
+        }
+      }
     }
   }
 
