@@ -1,4 +1,4 @@
-interface Item {
+export interface Item {
   id: number;
   text: string;
   leftIcon?: string;
