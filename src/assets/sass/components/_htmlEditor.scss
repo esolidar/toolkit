@@ -159,7 +159,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
           &-wrapper {
             &:hover {
               box-shadow: none !important;
-              background-color: change-color(map-get($turquoise, 500), $alpha: 0.08) !important;
+              background-color: get-rgba(map-get($turquoise, 500)) !important;
 
               @include svg-change-color(map-get($turquoise, 500));
             }
