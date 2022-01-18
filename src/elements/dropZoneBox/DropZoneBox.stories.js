@@ -63,7 +63,7 @@ WithCropper.args = {
     aspectRatioW: 16,
     aspectRatioH: 9,
     minWidth: 1200,
-    minHeight: 680,
+    minHeight: 675,
   },
   accept: '.jpg, .jpeg, .png',
   onSelect: () => {},
