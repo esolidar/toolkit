@@ -145,8 +145,16 @@ const HtmlEditor = ({
     if (isFirstRender) return;
 
     if (typeof initialContent === 'string') {
-      const content = initialContent
-        ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(initialContent)))
+      let value = null;
+
+      try {
+        if (JSON.parse(initialContent)) value = JSON.parse(initialContent);
+      } catch (errors) {
+        value = initialContent;
+      }
+
+      const content = value
+        ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(value)))
         : EditorState.createEmpty();
 
       setEditorState(content);
