@@ -175,7 +175,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #dadcde;
+    background: map-get($neutrals, 200);
     border-radius: 8px;
     min-height: 5px;
   }
