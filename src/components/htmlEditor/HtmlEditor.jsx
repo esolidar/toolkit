@@ -109,6 +109,7 @@ const HtmlEditor = ({
   maxLength,
   size,
   toolbarItems,
+  onBlur,
 }) => {
   const intl = useIntl();
   const isFirstRender = useIsFirstRender();
@@ -183,7 +184,10 @@ const HtmlEditor = ({
   };
 
   const handleOnFocus = () => setIsFocused(true);
-  const handleOnBlur = () => setIsFocused(false);
+  const handleOnBlur = () => {
+    if (onBlur) onBlur(convertToRaw(editorState.getCurrentContent()));
+    setIsFocused(false);
+  };
 
   if (showAddImageBtn && !options.includes('image')) options.push('image');
   if (showAddUrlBtn && !options.includes('link')) options.push('link');
@@ -303,6 +307,7 @@ HtmlEditor.propTypes = {
   maxLength: PropTypes.number,
   size: PropTypes.string,
   toolbarItems: PropTypes.object,
+  onBlur: PropTypes.func,
 };
 
 HtmlEditor.defaultProps = {
