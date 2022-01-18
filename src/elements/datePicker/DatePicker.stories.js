@@ -36,22 +36,22 @@ Default.args = {
   errors: '',
   showOptionalLabel: true,
   help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  leftIcon: { name: 'icon-calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true },
   size: 'sm',
 };
 
 const highlightWithRanges = [
   {
+    date: [new Date('2022-01-10 00:00:00')],
+    name: 'Start program',
+  },
+  {
     date: [new Date('2022-01-19 00:00:00')],
-    name: 'Date 1',
+    name: 'Applications ends',
   },
   {
-    date: [new Date('2022-01-23 00:00:00')],
-    name: 'Data 2',
-  },
-  {
-    date: [new Date('2022-01-11 00:00:00')],
-    name: 'Data 3',
+    date: [new Date('2022-01-25 00:00:00')],
+    name: 'Program ends',
   },
 ];
 
@@ -66,8 +66,8 @@ DateOnly.args = {
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
-  dateFormat: 'dd-MM-yyyy',
-  leftIcon: { name: 'icon-calendar', show: true },
+  dateFormat: 'yyyy',
+  leftIcon: { name: 'Calendar', show: true },
   highlightDates: highlightWithRanges,
   minDate: new Date(),
 };
@@ -82,7 +82,7 @@ InputOnly.args = {
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
-  leftIcon: { name: 'icon-calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
 };
 
@@ -95,7 +95,7 @@ WithError.args = {
   onChange: () => {},
   className: 'form-control',
   showTimeSelect: false,
-  leftIcon: { name: 'icon-calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
   errors: 'Invalid date',
 };
@@ -110,6 +110,6 @@ Disabled.args = {
   onChange: () => {},
   className: 'form-control',
   showTimeSelect: false,
-  leftIcon: { name: 'icon-calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true },
   dateFormat: 'dd-MM-yyyy',
 };

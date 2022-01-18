@@ -18,7 +18,7 @@
 
   .with-icon {
     .form-control {
-      padding-left: $distance-4;
+      padding-left: $distance-5;
     }
   }
 
@@ -53,6 +53,14 @@
     margin-top: 5px;
   }
 
+  .left-icon {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    left: $distance-2;
+    width: 16px;
+  }
+
   .react-datepicker {
     box-shadow: map-get($elevation, 100);
     font-family: map-get($fonts, main);
@@ -67,6 +75,10 @@
     padding-right: 16px;
     overflow: hidden;
 
+    &-popper {
+      z-index: 1;
+    }
+
     &__triangle {
       display: none;
     }
@@ -78,51 +90,10 @@
       font-size: 24px;
       line-height: 32px;
       text-transform: capitalize;
-
-      &__dropdown {
-        background-color: map-get($base, white);
-        position: absolute;
-        top: 15px;
-        left: $distance-1;
-
-        font-style: normal;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 32px;
-      }
     }
 
     &__time-container {
       border-left: 1px solid map-get($neutrals, 200);
-    }
-
-    &__navigation--previous {
-      left: auto;
-      right: 50px;
-      top: 20px;
-      background: url('#{$cdn-static-url}/frontend/icons/ic-prev-arrow.svg') 50% 50% no-repeat;
-      border: none;
-      width: 22px;
-      height: 22px;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
-    }
-
-    &__navigation--next {
-      right: 25px;
-      top: 20px;
-      border: none;
-      width: 22px;
-      height: 22px;
-      background: url('#{$cdn-static-url}/frontend/icons/ic-next-arrow.svg') 50% 50% no-repeat;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
     }
 
     &__navigation--next--with-time:not(.react-datepicker__navigation--previous--with-today-button),
@@ -165,7 +136,7 @@
         cursor: not-allowed;
 
         &:hover {
-          color: map-get($neutrals, 400) !important;
+          color: map-get($neutrals, 400);
           background-color: map-get($base, white);
         }
       }
@@ -279,7 +250,7 @@
     }
 
     &__time-list-item--selected {
-      background-color: map-get($turquoise, 500);
+      background-color: map-get($turquoise, 500) !important;
     }
 
     &__highlighted {
@@ -297,98 +268,94 @@
       }
     }
 
-    &__month {
-      margin: 0;
-      margin-top: $distance-1;
-      padding-bottom: 16px;
+    &__custom-header {
+      display: flex;
+      justify-content: space-between;
+      padding: $distance-2 0;
 
-      &-read-view--down-arrow {
-        display: none;
-      }
-
-      &-option--selected {
-        display: none;
-      }
-
-      &-dropdown {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        position: absolute;
-        z-index: 99;
-        top: 0;
-        left: -10px;
-        width: 290px;
-        height: 305px;
+      &-month {
         border: none;
         background-color: map-get($base, white);
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: capitalize;
+        font-weight: 700;
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+        }
       }
 
-      &-option {
+      &-buttons {
         display: flex;
-        width: 33%;
-        font-size: 16px;
+        gap: $distance-2;
         align-items: center;
-        justify-content: center;
-        padding: 28px 0;
-        background: map-get($base, white);
 
-        &:first-of-type,
-        &:first-of-type {
-          border-radius: 0;
-        }
+        &-arrow {
+          border: none;
+          background-color: map-get($base, white);
+          padding: 0;
+          display: flex;
+          gap: $distance-2;
 
-        &:hover {
-          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
-          color: map-get($turquoise, 500);
+          &:focus,
+          &:focus-visible {
+            outline: none;
+          }
+
+          &.disabled {
+            @include svg-change-color(map-get($neutrals, 100));
+          }
         }
       }
     }
 
-    &__year {
-      margin: 0;
-      margin-top: $distance-1;
-      padding-bottom: 16px;
+    &__container-months {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: map-get($base, white);
+      right: 0;
+      height: 330px;
+      z-index: 10;
 
-      &-read-view--down-arrow {
-        display: none;
+      &-view-header {
+        display: flex;
+        justify-content: space-between;
+        padding: $distance-2 0;
       }
 
-      &-option--selected {
-        display: none;
-      }
-
-      &-dropdown {
+      &-list {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        position: absolute;
-        z-index: 99;
-        top: 0;
-        left: -10px;
-        width: 290px;
-        height: 305px;
-        border: none;
-        background-color: map-get($base, white);
-      }
 
-      &-option {
-        display: flex;
-        width: 33%;
-        font-size: 16px;
-        align-items: center;
-        justify-content: center;
-        padding: 28px 0;
-        background: map-get($base, white);
+        &-option {
+          border: none;
+          display: flex;
+          width: 33%;
+          font-size: 16px;
+          align-items: center;
+          justify-content: center;
+          padding: $distance-2 0;
+          background: map-get($base, white);
+          border-radius: $distance-1;
 
-        &:first-of-type,
-        &:first-of-type {
-          border-radius: 0;
-        }
+          &:focus,
+          &:focus-visible {
+            outline: none;
+          }
 
-        &:hover {
-          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
-          color: map-get($turquoise, 500);
+          &:hover {
+            background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+            color: map-get($turquoise, 500);
+          }
+
+          &.active {
+            background-color: map-get($turquoise, 500);
+            color: map-get($base, white);
+          }
         }
       }
     }

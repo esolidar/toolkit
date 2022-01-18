@@ -1,14 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { useIntl } from 'react-intl';
 import DatePick, { registerLocale } from 'react-datepicker';
 import pt from 'date-fns/locale/pt';
 import en from 'date-fns/locale/en-US';
 import br from 'date-fns/locale/pt-BR';
 import InputLabel from '../inputLabel';
-import Icon from '../../components/icon';
+import Icon from '../icon';
+import monthsConst from '../../constants/months';
 
 registerLocale('pt', pt);
 registerLocale('en', en);
@@ -41,6 +43,11 @@ const DatePicker = ({
   inputLabelSize,
   highlightDates = [],
 }) => {
+  const intl = useIntl();
+  const [showMonths, setShowMonths] = useState(false);
+  const [showYears, setShowYears] = useState(false);
+  const months = monthsConst.flatMap(month => intl.formatMessage({ id: month.long }));
+
   const highlightWithRanges = [];
   highlightDates.map((item, index) => {
     highlightWithRanges.push({
@@ -54,6 +61,153 @@ const DatePicker = ({
       const elem = document.getElementsByClassName(`highlighted-${index}`)[0];
       if (elem) elem.setAttribute('title', date.name);
     });
+  };
+
+  const years = currentYear => {
+    let firstYear = +`${JSON.stringify(currentYear).substring(0, 3)}0` - 1;
+    const lastYear = +`${JSON.stringify(currentYear).substring(0, 3)}9` + 1;
+    const years = [firstYear];
+
+    while (firstYear < lastYear) {
+      years.push((firstYear += 1));
+    }
+    return years;
+  };
+
+  const handleChangeYears = year => {
+    years(year);
+  };
+
+  const renderCustomHeader = ({
+    date,
+    changeYear,
+    changeMonth,
+    decreaseMonth,
+    increaseMonth,
+    prevMonthButtonDisabled,
+    nextMonthButtonDisabled,
+  }) => {
+    return (
+      <div className="react-datepicker__custom-header">
+        <button
+          className="react-datepicker__custom-header-month"
+          onClick={() => setShowMonths(true)}
+        >{`${months[date.getMonth()]} ${date.getFullYear()}`}</button>
+
+        <div className="react-datepicker__custom-header-buttons">
+          <button
+            onClick={decreaseMonth}
+            disabled={prevMonthButtonDisabled}
+            className={classnames('react-datepicker__custom-header-buttons-arrow', {
+              disabled: prevMonthButtonDisabled,
+            })}
+          >
+            <Icon name="ChevronLeft" />
+          </button>
+          <button
+            onClick={increaseMonth}
+            disabled={nextMonthButtonDisabled}
+            className={classnames('react-datepicker__custom-header-buttons-arrow', {
+              disabled: nextMonthButtonDisabled,
+            })}
+          >
+            <Icon name="ChevronRight" />
+          </button>
+        </div>
+
+        {showMonths && (
+          <div className="react-datepicker__container-months">
+            <div className="react-datepicker__container-months-view-header">
+              <button
+                className="react-datepicker__custom-header-month"
+                onClick={() => setShowYears(true)}
+              >
+                {date.getFullYear()}
+              </button>
+              <div className="react-datepicker__custom-header-buttons">
+                <button
+                  onClick={() => {
+                    changeYear(date.getFullYear() - 1);
+                  }}
+                  className="react-datepicker__custom-header-buttons-arrow"
+                >
+                  <Icon name="ChevronLeft" />
+                </button>
+                <button
+                  onClick={() => {
+                    changeYear(date.getFullYear() + 1);
+                  }}
+                  className="react-datepicker__custom-header-buttons-arrow"
+                >
+                  <Icon name="ChevronRight" />
+                </button>
+              </div>
+            </div>
+            <div className="react-datepicker__container-months-list">
+              {months.map((option, index) => (
+                <button
+                  onClick={() => {
+                    changeMonth(months.indexOf(option));
+                    setShowMonths(false);
+                  }}
+                  key={option}
+                  className={classnames('react-datepicker__container-months-list-option', {
+                    active: date.getMonth() === index,
+                  })}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {showYears && (
+          <div className="react-datepicker__container-months">
+            <div className="react-datepicker__container-months-view-header">
+              <div className="react-datepicker__custom-header-month">
+                {`${years(date.getFullYear())[0] + 1}-${years(date.getFullYear())[9] + 1}`}
+              </div>
+              <div className="react-datepicker__custom-header-buttons">
+                <button
+                  onClick={() => {
+                    changeYear(date.getFullYear() - 10);
+                    handleChangeYears(years(date.getFullYear())[0] - 10);
+                  }}
+                  className="react-datepicker__custom-header-buttons-arrow"
+                >
+                  <Icon name="ChevronLeft" />
+                </button>
+                <button
+                  onClick={() => {
+                    changeYear(date.getFullYear() + 10);
+                    handleChangeYears(years(date.getFullYear())[9] + 10, changeMonth);
+                  }}
+                  className="react-datepicker__custom-header-buttons-arrow"
+                >
+                  <Icon name="ChevronRight" />
+                </button>
+              </div>
+            </div>
+            <div className="react-datepicker__container-months-list">
+              {years(date.getFullYear()).map(option => (
+                <button
+                  onClick={() => {
+                    changeYear(option);
+                    setShowYears(false);
+                  }}
+                  key={option}
+                  className={classnames('react-datepicker__container-months-list-option', {
+                    active: date.getFullYear() === option,
+                  })}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -81,9 +235,9 @@ const DatePicker = ({
       >
         {leftIcon?.show && (
           <Icon
-            iconClass={`icon left ${leftIcon?.name}`}
+            className="left-icon"
+            name={leftIcon?.name}
             onClick={leftIcon?.onClick}
-            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
             dataTestId="input-left-icon"
           />
         )}
@@ -104,9 +258,12 @@ const DatePicker = ({
           disabled={disabled}
           highlightDates={highlightWithRanges}
           onCalendarOpen={addHighlightedTooltip}
-          showMonthDropdown
-          showYearDropdown
-          dropdownMode="scroll"
+          renderCustomHeader={renderCustomHeader}
+          fixedHeight
+          onCalendarClose={() => {
+            setShowMonths(false);
+            setShowYears(false);
+          }}
         />
         {rightIcon?.show && (
           <Icon
@@ -117,7 +274,7 @@ const DatePicker = ({
           />
         )}
       </div>
-      {!!errors && <span className="help-block">{errors}</span>}
+      {!!errors && <div className="help-block">{errors}</div>}
     </div>
   );
 };
