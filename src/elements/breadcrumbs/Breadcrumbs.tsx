@@ -3,9 +3,12 @@ import classnames from 'classnames';
 import Icon from '../icon';
 import Props from './Breadcrumbs.types';
 
-const Breadcrumbs: FC<Props> = ({ breadcrumbs }: Props): JSX.Element => {
+const Breadcrumbs: FC<Props> = ({
+  breadcrumbs,
+  style = { marginBottom: '16px' },
+}: Props): JSX.Element => {
   return (
-    <div className="esolidar-breadcrumbs">
+    <div className="esolidar-breadcrumbs" style={style}>
       {breadcrumbs.map((item, i) => (
         <React.Fragment key={item.title}>
           <button
