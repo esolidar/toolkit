@@ -215,14 +215,7 @@ const HtmlEditor = ({
 
   return (
     <div className={classnames('form-group', `htmlEditor-${size}`, className)}>
-      {inputLabelProps && (
-        <InputLabel
-          {...inputLabelProps}
-          style={{
-            marginBottom: '8px',
-          }}
-        />
-      )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <Editor
         wrapperClassName={wrapperClassName}
         editorState={editorState}

@@ -74,7 +74,7 @@ const InvoicingData = props => {
             </label>
             {errors.agree && (
               <div className="has-error">
-                <span className="help-block">{errors.agree}</span>
+                <div className="help-block">{errors.agree}</div>
               </div>
             )}
           </div>
