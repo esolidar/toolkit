@@ -14,31 +14,27 @@ export default {
 
 const Template = args => <DatePicker {...args} />;
 
-export const Default = Template.bind({});
+// export const Default = Template.bind({});
 export const DateOnly = Template.bind({});
 export const InputOnly = Template.bind({});
 export const WithError = Template.bind({});
 export const Disabled = Template.bind({});
 
-Default.parameters = {
-  jest: ['DatePicker.test.js'],
-};
-
-Default.args = {
-  classnames: () => {},
-  label: 'Start Date',
-  locale: 'en',
-  selected: new Date('2021-03-05 00:00:00'),
-  startDate: new Date('2021-03-15 00:00:00'),
-  endDate: new Date('2021-03-25 00:00:00'),
-  onChange: () => {},
-  className: 'form-control',
-  errors: '',
-  showOptionalLabel: true,
-  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  leftIcon: { name: 'Calendar', show: true },
-  size: 'sm',
-};
+// Default.args = {
+//   classnames: () => {},
+//   label: 'Start Date',
+//   locale: 'en',
+//   selected: new Date('2021-03-05 00:00:00'),
+//   startDate: new Date('2021-03-15 00:00:00'),
+//   endDate: new Date('2021-03-25 00:00:00'),
+//   onChange: () => {},
+//   className: 'form-control',
+//   errors: '',
+//   showOptionalLabel: true,
+//   help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//   leftIcon: { name: 'Calendar', show: true },
+//   size: 'sm',
+// };
 
 const highlightWithRanges = [
   {
@@ -59,9 +55,9 @@ DateOnly.args = {
   classnames: () => {},
   label: 'Start Date',
   locale: 'pt',
-  startDate: new Date('2022-01-18 00:00:00'),
+  startDate: new Date('2022-01-05 00:00:00'),
   selected: null,
-  endDate: new Date('2022-01-23 00:00:00'),
+  endDate: new Date('2022-01-20 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',
@@ -69,7 +65,7 @@ DateOnly.args = {
   dateFormat: 'yyyy',
   leftIcon: { name: 'Calendar', show: true },
   highlightDates: highlightWithRanges,
-  minDate: new Date(),
+  minDate: new Date('2022-01-05 00:00:00'),
 };
 
 InputOnly.args = {

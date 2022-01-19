@@ -117,13 +117,17 @@
       margin: 0;
 
       &--today {
+        font-weight: 600;
+        background-color: map-get($background, secondary);
+        border-radius: $border-radius-1 !important;
+
         &:hover {
           color: map-get($base, white);
         }
       }
 
       &:hover {
-        background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+        background-color: get-rgba(map-get($turquoise, 300));
         color: map-get($turquoise, 500);
       }
 
@@ -133,7 +137,6 @@
 
       &--disabled {
         color: map-get($neutrals, 400);
-        cursor: not-allowed;
 
         &:hover {
           color: map-get($neutrals, 400);
@@ -182,7 +185,7 @@
 
     &__day {
       &--in-range {
-        background-color: change-color(map-get($turquoise, 300), $alpha: 0.08) !important;
+        background-color: get-rgba(map-get($turquoise, 300)) !important;
         color: map-get($turquoise, 500);
         border-radius: 0px;
 
@@ -208,7 +211,7 @@
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          background-color: get-rgba(map-get($turquoise, 300));
           transform: translateZ(-1px);
           border-radius: 8px 0 0 8px;
         }
@@ -232,7 +235,7 @@
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+          background-color: get-rgba(map-get($turquoise, 300));
           transform: translateZ(-1px);
           border-radius: 0 8px 8px 0;
         }
@@ -287,27 +290,15 @@
         }
       }
 
+      button.react-datepicker__custom-header-month {
+        &:hover {
+          color: map-get($turquoise, 500);
+        }
+      }
+
       &-buttons {
         display: flex;
-        gap: $distance-2;
         align-items: center;
-
-        &-arrow {
-          border: none;
-          background-color: map-get($base, white);
-          padding: 0;
-          display: flex;
-          gap: $distance-2;
-
-          &:focus,
-          &:focus-visible {
-            outline: none;
-          }
-
-          &.disabled {
-            @include svg-change-color(map-get($neutrals, 100));
-          }
-        }
       }
     }
 
@@ -324,21 +315,22 @@
         display: flex;
         justify-content: space-between;
         padding: $distance-2 0;
+        align-items: center;
       }
 
       &-list {
-        display: flex;
-        flex-wrap: wrap;
         align-items: center;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: $distance-1 / 2;
 
         &-option {
           border: none;
           display: flex;
-          width: 33%;
           font-size: 16px;
           align-items: center;
           justify-content: center;
-          padding: $distance-2 0;
+          padding: 14px 0;
           background: map-get($base, white);
           border-radius: $distance-1;
 
@@ -348,7 +340,7 @@
           }
 
           &:hover {
-            background-color: change-color(map-get($turquoise, 300), $alpha: 0.08);
+            background-color: get-rgba(map-get($turquoise, 300));
             color: map-get($turquoise, 500);
           }
 

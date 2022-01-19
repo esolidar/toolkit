@@ -5,6 +5,10 @@
   border-radius: 100px;
   border: 0px;
 
+  &.squared {
+    border-radius: $border-radius-1;
+  }
+
   &:focus {
     outline: none;
   }
@@ -25,6 +29,11 @@
   &__primary {
     color: map-get($colors, white) !important;
     background-color: map-get($theme-colors, primary);
+  }
+
+  &__white {
+    color: map-get($base, black) !important;
+    background-color: map-get($base, white);
   }
 
   &__info {

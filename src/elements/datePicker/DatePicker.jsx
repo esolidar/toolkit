@@ -10,6 +10,7 @@ import en from 'date-fns/locale/en-US';
 import br from 'date-fns/locale/pt-BR';
 import InputLabel from '../inputLabel';
 import Icon from '../icon';
+import Button from '../button';
 import monthsConst from '../../constants/months';
 
 registerLocale('pt', pt);
@@ -95,7 +96,23 @@ const DatePicker = ({
         >{`${months[date.getMonth()]} ${date.getFullYear()}`}</button>
 
         <div className="react-datepicker__custom-header-buttons">
-          <button
+          <Button
+            extraClass="ghost"
+            icon={<Icon name="ChevronLeft" />}
+            onClick={decreaseMonth}
+            size="md"
+            type="icon"
+            disabled={prevMonthButtonDisabled}
+          />
+          <Button
+            extraClass="ghost"
+            icon={<Icon name="ChevronRight" />}
+            onClick={increaseMonth}
+            size="md"
+            type="icon"
+            disabled={nextMonthButtonDisabled}
+          />
+          {/* <button
             onClick={decreaseMonth}
             disabled={prevMonthButtonDisabled}
             className={classnames('react-datepicker__custom-header-buttons-arrow', {
@@ -103,8 +120,8 @@ const DatePicker = ({
             })}
           >
             <Icon name="ChevronLeft" />
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={increaseMonth}
             disabled={nextMonthButtonDisabled}
             className={classnames('react-datepicker__custom-header-buttons-arrow', {
@@ -112,7 +129,7 @@ const DatePicker = ({
             })}
           >
             <Icon name="ChevronRight" />
-          </button>
+          </button> */}
         </div>
 
         {showMonths && (
@@ -125,22 +142,40 @@ const DatePicker = ({
                 {date.getFullYear()}
               </button>
               <div className="react-datepicker__custom-header-buttons">
-                <button
+                <Button
+                  extraClass="ghost"
+                  icon={<Icon name="ChevronLeft" />}
+                  onClick={() => {
+                    changeYear(date.getFullYear() - 1);
+                  }}
+                  size="md"
+                  type="icon"
+                />
+                <Button
+                  extraClass="ghost"
+                  icon={<Icon name="ChevronRight" />}
+                  onClick={() => {
+                    changeYear(date.getFullYear() + 1);
+                  }}
+                  size="md"
+                  type="icon"
+                />
+                {/* <button
                   onClick={() => {
                     changeYear(date.getFullYear() - 1);
                   }}
                   className="react-datepicker__custom-header-buttons-arrow"
                 >
                   <Icon name="ChevronLeft" />
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   onClick={() => {
                     changeYear(date.getFullYear() + 1);
                   }}
                   className="react-datepicker__custom-header-buttons-arrow"
                 >
                   <Icon name="ChevronRight" />
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="react-datepicker__container-months-list">
@@ -165,10 +200,30 @@ const DatePicker = ({
           <div className="react-datepicker__container-months">
             <div className="react-datepicker__container-months-view-header">
               <div className="react-datepicker__custom-header-month">
-                {`${years(date.getFullYear())[0] + 1}-${years(date.getFullYear())[9] + 1}`}
+                {`${years(date.getFullYear())[0]}-${years(date.getFullYear())[11]}`}
               </div>
               <div className="react-datepicker__custom-header-buttons">
-                <button
+                <Button
+                  extraClass="ghost"
+                  icon={<Icon name="ChevronLeft" />}
+                  onClick={() => {
+                    changeYear(date.getFullYear() - 10);
+                    handleChangeYears(years(date.getFullYear())[0] - 10);
+                  }}
+                  size="md"
+                  type="icon"
+                />
+                <Button
+                  extraClass="ghost"
+                  icon={<Icon name="ChevronRight" />}
+                  onClick={() => {
+                    changeYear(date.getFullYear() + 10);
+                    handleChangeYears(years(date.getFullYear())[9] + 10, changeMonth);
+                  }}
+                  size="md"
+                  type="icon"
+                />
+                {/* <button
                   onClick={() => {
                     changeYear(date.getFullYear() - 10);
                     handleChangeYears(years(date.getFullYear())[0] - 10);
@@ -176,8 +231,8 @@ const DatePicker = ({
                   className="react-datepicker__custom-header-buttons-arrow"
                 >
                   <Icon name="ChevronLeft" />
-                </button>
-                <button
+                </button> */}
+                {/* <button
                   onClick={() => {
                     changeYear(date.getFullYear() + 10);
                     handleChangeYears(years(date.getFullYear())[9] + 10, changeMonth);
@@ -185,7 +240,7 @@ const DatePicker = ({
                   className="react-datepicker__custom-header-buttons-arrow"
                 >
                   <Icon name="ChevronRight" />
-                </button>
+                </button> */}
               </div>
             </div>
             <div className="react-datepicker__container-months-list">
