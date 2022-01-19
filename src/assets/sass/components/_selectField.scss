@@ -19,16 +19,6 @@
   &.form-group {
     position: relative;
     margin-bottom: $distance-4;
-
-    &.size-sm {
-      max-width: map-get($widths, sm);
-    }
-    &.size-md {
-      max-width: map-get($widths, md);
-    }
-    &.size-lg {
-      max-width: map-get($widths, lg);
-    }
   }
 
   .select-field__input {

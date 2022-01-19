@@ -2,6 +2,7 @@ interface Props {
   disabled?: boolean;
   id?: string;
   img: string;
+  disabledHover?: boolean;
   disabledImg?: string;
   chechedImg?: string;
   isChecked: boolean;

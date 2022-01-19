@@ -80,7 +80,7 @@ const InstitutionListSelect = ({
               />
             ))
           )}
-          {error && <span className="help-block">{error}</span>}
+          {error && <div className="help-block">{error}</div>}
           {institutions.length > 0 && (
             <>
               {listFooter ? (

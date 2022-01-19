@@ -26,7 +26,7 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
   return (
     <div className="change-profile-user-image">
       <InputLabel
-        cssClass="change-profile-user-image-title"
+        className="change-profile-user-image-title"
         label={intl.formatMessage({ id: 'toolkit.profile.picture' })}
       />
       <div
@@ -76,7 +76,7 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             />
           </DropZoneBox>
         </div>
-        {errors.image && <span className="help-block">{errors.image}</span>}
+        {errors.image && <div className="help-block">{errors.image}</div>}
       </div>
     </div>
   );

@@ -125,10 +125,14 @@
   }
 
   &:hover {
-    &:not(.disabled) {
+    &:not(.disabled):not(.no-hover) {
       outline: 2px solid map-get($turquoise, 500);
       @include animate(all, 100ms);
     }
+  }
+
+  &.no-hover {
+    cursor: default;
   }
 
   &.active {
