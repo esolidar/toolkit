@@ -15,7 +15,7 @@ const RadioField = ({
   dataTestId,
   size,
 }) => (
-  <div className="radio-inline">
+  <div className={classnames('radio-inline', { 'has-error': error })}>
     <div className="form-group">
       <label htmlFor={id}>
         <input
@@ -33,7 +33,7 @@ const RadioField = ({
       </label>
     </div>
     {message && <div className="message">{message}</div>}
-    {error && <span className="help-block">{error}</span>}
+    {error && <div className="help-block">{error}</div>}
   </div>
 );
 

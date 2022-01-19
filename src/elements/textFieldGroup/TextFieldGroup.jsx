@@ -44,8 +44,8 @@ const TextFieldGroup = ({
       )}
     </div>
     {info && <span className="footer-label-info">{info}</span>}
-    {error && <span className="help-block">{error}</span>}
-    {message && <span className="help-block">{message}</span>}
+    {error && <div className="help-block">{error}</div>}
+    {message && <div className="help-block">{message}</div>}
   </div>
 );
 

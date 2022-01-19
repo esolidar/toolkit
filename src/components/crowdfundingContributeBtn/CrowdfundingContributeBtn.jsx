@@ -228,7 +228,7 @@ class CrowdfundingContributeBtn extends Component {
               />
               {value === '' || value < campaign.minimum_contribution ? (
                 <div className="has-error">
-                  <span className="help-block">{errors.value}</span>
+                  <div className="help-block">{errors.value}</div>
                 </div>
               ) : (
                 ''

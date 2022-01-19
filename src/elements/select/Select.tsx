@@ -54,14 +54,7 @@ const Select: FC<Props> = ({
 
   return (
     <div className="form-group">
-      {inputLabelProps && (
-        <InputLabel
-          {...inputLabelProps}
-          style={{
-            marginBottom: '8px',
-          }}
-        />
-      )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <ReactSelect
         className={classes}
         classNamePrefix="esolidar-select"

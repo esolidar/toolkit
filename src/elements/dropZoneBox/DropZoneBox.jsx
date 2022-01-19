@@ -309,7 +309,7 @@ const DropZoneBox = ({
                     blob => {
                       const imageWidth = cropper.current.getCroppedCanvas().width;
                       const imageHeight = cropper.current.getCroppedCanvas().height;
-                      if (imageWidth > minWidth && imageHeight > minHeight) {
+                      if (imageWidth >= minWidth && imageHeight >= minHeight) {
                         setDisableCroppedImage(true);
                         handleSubmitCroppedImage(blob);
                         setErrorList([]);

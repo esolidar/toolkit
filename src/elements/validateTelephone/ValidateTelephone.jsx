@@ -127,9 +127,9 @@ const ValidateTelephone = ({
       </div>
       {errors && (
         <div className="has-error">
-          <span className="help-block">
+          <div className="help-block">
             <FormattedMessage id="user.settings.phone.errorNumber" />
-          </span>
+          </div>
         </div>
       )}
       {showVerifyCode && (
@@ -155,9 +155,9 @@ const ValidateTelephone = ({
             />
             {errorCode && (
               <div className="has-error">
-                <span className="help-block">
+                <div className="help-block">
                   <FormattedMessage id="user.settings.phone.errorCode" />
-                </span>
+                </div>
               </div>
             )}
           </div>
