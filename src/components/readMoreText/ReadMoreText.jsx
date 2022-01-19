@@ -4,7 +4,13 @@ import Button from '../../elements/button';
 
 const regex = /(<([^>]+)>)/gi;
 
-const ReadMoreText = ({ text, charLimit, readMoreTextTranslation, readLessTextTranslation }) => {
+const ReadMoreText = ({
+  text,
+  charLimit,
+  readMoreTextTranslation,
+  readLessTextTranslation,
+  showReadMoreLink = true,
+}) => {
   const [showReadMoreButton, setShowReadMoreButton] = useState(true);
   const [showReadLessButton, setShowReadLessButton] = useState(false);
 
@@ -18,16 +24,18 @@ const ReadMoreText = ({ text, charLimit, readMoreTextTranslation, readLessTextTr
           {showReadMoreButton && (
             <>
               {`${result.substr(0, charLimit)}... `}
-              <Button
-                extraClass="link"
-                className="px-0"
-                onClick={() => {
-                  setShowReadMoreButton(false);
-                  setShowReadLessButton(true);
-                }}
-                text={readMoreTextTranslation}
-                size="sm"
-              />
+              {showReadMoreLink && (
+                <Button
+                  extraClass="link"
+                  className="px-0"
+                  onClick={() => {
+                    setShowReadMoreButton(false);
+                    setShowReadLessButton(true);
+                  }}
+                  text={readMoreTextTranslation}
+                  size="sm"
+                />
+              )}
             </>
           )}
           {showReadLessButton && (
@@ -58,6 +66,7 @@ ReadMoreText.propTypes = {
   charLimit: PropTypes.number,
   readMoreTextTranslation: PropTypes.string,
   readLessTextTranslation: PropTypes.string,
+  showReadMoreLink: PropTypes.bool,
 };
 
 ReadMoreText.defaultProps = {

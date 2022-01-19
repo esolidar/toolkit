@@ -198,9 +198,9 @@ const TicketsForm = ({
                           />
                           {errors.related_feature_id && (
                             <div className="has-error">
-                              <span className="help-block">
+                              <div className="help-block">
                                 {intl.formatMessage({ id: 'form.required' })}
-                              </span>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -223,9 +223,9 @@ const TicketsForm = ({
                           />
                           {errors.related_feature_id && (
                             <div className="has-error">
-                              <span className="help-block">
+                              <div className="help-block">
                                 {intl.formatMessage({ id: 'form.required' })}
-                              </span>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -248,9 +248,9 @@ const TicketsForm = ({
                           />
                           {errors.related_feature_id && (
                             <div className="has-error">
-                              <span className="help-block">
+                              <div className="help-block">
                                 {intl.formatMessage({ id: 'form.required' })}
-                              </span>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -274,9 +274,9 @@ const TicketsForm = ({
                           />
                           {errors.assignee_id && (
                             <div className="has-error">
-                              <span className="help-block">
+                              <div className="help-block">
                                 {intl.formatMessage({ id: 'form.required' })}
-                              </span>
+                              </div>
                             </div>
                           )}
                         </div>

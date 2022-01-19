@@ -70,14 +70,17 @@ const CustomModal = ({
           <Modal.Title>
             <span className={`custom-modal__title${titleClassName}`} data-testid="title">
               {iconTitle && (
-                <img className="custom-modal__icon-title" src={iconTitle} alt={title} />
+                <img className="custom-modal__title-icon" src={iconTitle} alt={title} />
               )}
               {title}
+              {subtitle && (
+                <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
+                  {subtitle}
+                </span>
+              )}
             </span>
-            <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
-              {subtitle}
-            </span>
-            {closeButton && <Icon name="X" onClick={onHide} />}
+
+            {closeButton && <Icon name="X" onClick={onHide} className="custom-modal__close" />}
           </Modal.Title>
         </Modal.Header>
       )}
@@ -120,7 +123,7 @@ CustomModal.propTypes = {
   style: PropTypes.object,
   subtitle: PropTypes.string,
   subtitleClassName: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   titleClassName: PropTypes.string,
   iconTitle: PropTypes.string,
 };

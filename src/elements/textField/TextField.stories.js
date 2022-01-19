@@ -23,13 +23,14 @@ export const WithHelper = Template.bind({});
 export const WithIcons = Template.bind({});
 
 Default.args = {
-  label: 'Lorem Ipsum',
+  // label: 'Lorem Ipsum',
   type: 'text',
   onChange: () => {},
   error: '',
-  placeholder: '',
-  defaultValue: 'defaultValue',
+  placeholder: 'placeholder',
+  // defaultValue: 'defaultValue',
   field: 'forCompanies',
+  disabled: true,
 };
 
 WithError.args = {

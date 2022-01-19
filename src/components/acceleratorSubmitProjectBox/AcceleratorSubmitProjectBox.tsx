@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import moment from 'moment-timezone';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Icon from '../../elements/icon';
 import Button from '../../elements/button';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import Props from './AcceleratorSubmitProjectBox.types';
+import { getProgramStatus } from '../../utils/getProgramStatus';
 
 const AcceleratorSubmitProjectBox: FC<Props> = ({
   projectConfig,
@@ -14,28 +14,17 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
 }: Props): JSX.Element => {
   const intl = useIntl();
 
-  const today = new Date();
-  const startProgram = new Date(
-    new Date(
-      moment.tz(projectConfig.start_at, projectConfig.timezone).utc().format('YYYY-MM-DD HH:mm:ss')
-    )
-  );
-  const closeProgram = new Date(
-    new Date(
-      moment.tz(projectConfig.closed_at, projectConfig.timezone).utc().format('YYYY-MM-DD HH:mm:ss')
-    )
-  );
-
-  const getProgramStatus = () => {
-    if (startProgram > today && !projectConfig.archived_at) return 'soon';
-    if (startProgram < today && closeProgram > today && !projectConfig.archived_at)
-      return 'running';
-    if (closeProgram < today || projectConfig.archived_at) return 'ended';
+  const dates = {
+    timezone: projectConfig.timezone,
+    startAt: projectConfig.start_at,
+    closedAt: projectConfig.closed_at,
+    endedAt: projectConfig.ended_at,
+    archivedAt: projectConfig.archived_at,
   };
 
   return (
     <div className="acceleratorSubmitProjectBox__submit">
-      {getProgramStatus() === 'soon' && (
+      {getProgramStatus(dates) === 'soon' && (
         <div className="acceleratorSubmitProjectBox__submit-soon">
           <div>
             <Icon name="Info" />
@@ -61,7 +50,7 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
           </div>
         </div>
       )}
-      {getProgramStatus() === 'running' && (
+      {getProgramStatus(dates) === 'running' && (
         <>
           {showRunningState && (
             <>
@@ -88,7 +77,7 @@ const AcceleratorSubmitProjectBox: FC<Props> = ({
           )}
         </>
       )}
-      {getProgramStatus() === 'ended' && (
+      {(getProgramStatus(dates) === 'ended' || getProgramStatus(dates) === 'closed') && (
         <div className="acceleratorSubmitProjectBox__submit-soon">
           <div>
             <Icon name="Info" />
