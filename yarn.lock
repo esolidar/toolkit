@@ -2075,10 +2075,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@pedroguia/react-draft-wysiwyg@^1.17.0":
-  version "1.17.0"
-  resolved "https://registry.npmjs.org/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.17.0.tgz#062c70961b888bafd9fbacbd539c0afa0b05cda7"
-  integrity sha512-uvlY6gKhSwKDlP4zXnN5zT/utX8a1vSRROofC89HHraR1oRa2a970N9QNO7G8ek/qaIZfO+aFfNlaBqMGI44Tg==
+"@pedroguia/react-draft-wysiwyg@^1.18.0":
+  version "1.18.0"
+  resolved "https://registry.npmjs.org/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.18.0.tgz#e39df407217f0c79f0812d652309ef7d0f65674c"
+  integrity sha512-X1HEWZLXbZ/g99vKavWcJhWoe0fra2dtBhTudu1kCuIu5AZmCbz2MnQpsVPdUxO80B7+0p5v16J1ff52cQrkkg==
   dependencies:
     classnames "^2.2.6"
     draftjs-utils "^0.10.2"
