@@ -262,6 +262,9 @@ const HtmlEditor = ({
           },
           list: {
             options: toolbarItems.filter(item => toolbarButtons.list.includes(item)),
+            unordered: {
+              icon: <Icon name="BulletList" size="sm" />,
+            },
           },
           link: {
             defaultTargetOption: '_blank',
@@ -328,7 +331,17 @@ HtmlEditor.defaultProps = {
   showAddUrlBtn: true,
   disabled: false,
   size: 'lg',
-  toolbarItems: ['bold', 'italic', 'underline', 'strikethrough', 'left', 'center', 'right', 'link'],
+  toolbarItems: [
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'left',
+    'center',
+    'right',
+    'unordered',
+    'link',
+  ],
 };
 
 export default HtmlEditor;
