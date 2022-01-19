@@ -148,7 +148,7 @@
     &__day--in-selecting-range {
       background-color: map-get($turquoise, 0);
       color: map-get($turquoise, 500);
-      border-radius: 8px;
+      border-radius: $border-radius-1;
     }
 
     &__day-names {
@@ -190,16 +190,16 @@
         border-radius: 0px;
 
         &:first-child {
-          border-radius: 8px 0 0 8px;
+          border-radius: $border-radius-1 0 0 $border-radius-1;
         }
 
         &:last-child {
-          border-radius: 0 8px 8px 0;
+          border-radius: 0 $border-radius-1 $border-radius-1 0;
         }
       }
       &--range-start {
         background-color: map-get($turquoise, 500) !important;
-        border-radius: 8px;
+        border-radius: $border-radius-1;
         color: map-get($base, white) !important;
         position: relative;
         transform-style: preserve-3d;
@@ -213,7 +213,7 @@
           bottom: 0;
           background-color: get-rgba(map-get($turquoise, 300));
           transform: translateZ(-1px);
-          border-radius: 8px 0 0 8px;
+          border-radius: $border-radius-1 0 0 $border-radius-1;
         }
 
         &:hover {
@@ -223,7 +223,7 @@
 
       &--range-end {
         background-color: map-get($turquoise, 500) !important;
-        border-radius: 8px !important;
+        border-radius: $border-radius-1 !important;
         color: map-get($base, white);
         transform-style: preserve-3d;
         position: relative;
@@ -237,7 +237,7 @@
           bottom: 0;
           background-color: get-rgba(map-get($turquoise, 300));
           transform: translateZ(-1px);
-          border-radius: 0 8px 8px 0;
+          border-radius: 0 $border-radius-1 $border-radius-1 0;
         }
 
         &:hover {

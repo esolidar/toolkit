@@ -24,5 +24,3 @@ export const getProgramStatus = ({ startAt, closedAt, endedAt, archivedAt, timez
   if (closeProgram < today && endedProgram > today && !archivedAt) return 'closed';
   if (closeProgram < today || archivedAt) return 'ended';
 };
-
-// export default getProgramStatus;
