@@ -62,13 +62,13 @@
   }
 
   .react-datepicker {
-    box-shadow: map-get($elevation, 100);
+    box-shadow: map-get($elevation, 50);
     font-family: map-get($fonts, main);
     font-size: 0.8rem;
     background-color: #ffffff;
     color: #000000;
     border: 1px solid map-get($neutrals, 200);
-    border-radius: $border-radius-1;
+    border-radius: $border-radius-2;
     display: inline-block;
     position: relative;
     padding-left: 16px;
@@ -107,6 +107,11 @@
       padding-left: 10px;
       font-size: 24px;
       line-height: 32px;
+    }
+
+    &__month {
+      margin: 0;
+      margin-bottom: 16px;
     }
 
     &__day {
@@ -199,7 +204,7 @@
       }
       &--range-start {
         background-color: map-get($turquoise, 500) !important;
-        border-radius: $border-radius-1;
+        border-radius: $border-radius-1 !important;
         color: map-get($base, white) !important;
         position: relative;
         transform-style: preserve-3d;
@@ -291,6 +296,7 @@
       }
 
       button.react-datepicker__custom-header-month {
+        padding: 0;
         &:hover {
           color: map-get($turquoise, 500);
         }
@@ -321,7 +327,7 @@
       &-list {
         align-items: center;
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto auto auto;
         gap: $distance-1 / 2;
 
         &-option {
@@ -330,7 +336,7 @@
           font-size: 16px;
           align-items: center;
           justify-content: center;
-          padding: 14px 0;
+          padding: 24px 0;
           background: map-get($base, white);
           border-radius: $distance-1;
 

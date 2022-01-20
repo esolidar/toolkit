@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1642696397453" clover="3.2.0">
-  <project timestamp="1642696397453" name="All files">
-    <metrics statements="4865" coveredstatements="3454" conditionals="3669" coveredconditionals="2246" methods="1470" coveredmethods="836" elements="10004" coveredelements="6536" complexity="0" loc="4865" ncloc="4865" packages="192" files="663" classes="663"/>
+<coverage generated="1642696985209" clover="3.2.0">
+  <project timestamp="1642696985209" name="All files">
+    <metrics statements="4866" coveredstatements="3454" conditionals="3669" coveredconditionals="2246" methods="1471" coveredmethods="836" elements="10006" coveredelements="6536" complexity="0" loc="4866" ncloc="4866" packages="193" files="665" classes="665"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -5102,9 +5102,9 @@
       </file>
     </package>
     <package name="src.elements.datePicker">
-      <metrics statements="48" coveredstatements="16" conditionals="19" coveredconditionals="9" methods="20" coveredmethods="1"/>
+      <metrics statements="49" coveredstatements="16" conditionals="19" coveredconditionals="9" methods="21" coveredmethods="1"/>
       <file name="DatePicker.jsx" path="D:\projects\toolkit\src\elements\datePicker\DatePicker.jsx">
-        <metrics statements="48" coveredstatements="16" conditionals="19" coveredconditionals="9" methods="20" coveredmethods="1"/>
+        <metrics statements="49" coveredstatements="16" conditionals="19" coveredconditionals="9" methods="21" coveredmethods="1"/>
         <line num="16" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
@@ -5135,24 +5135,25 @@
         <line num="200" count="3" type="stmt"/>
         <line num="213" count="0" type="stmt"/>
         <line num="215" count="0" type="stmt"/>
-        <line num="217" count="0" type="stmt"/>
+        <line num="216" count="0" type="stmt"/>
         <line num="218" count="0" type="stmt"/>
-        <line num="221" count="0" type="stmt"/>
-        <line num="225" count="0" type="stmt"/>
-        <line num="252" count="0" type="stmt"/>
-        <line num="261" count="0" type="stmt"/>
-        <line num="270" count="0" type="stmt"/>
-        <line num="279" count="0" type="stmt"/>
-        <line num="281" count="0" type="stmt"/>
+        <line num="219" count="0" type="stmt"/>
+        <line num="222" count="0" type="stmt"/>
+        <line num="226" count="0" type="stmt"/>
+        <line num="253" count="0" type="stmt"/>
+        <line num="262" count="0" type="stmt"/>
+        <line num="271" count="0" type="stmt"/>
+        <line num="280" count="0" type="stmt"/>
         <line num="282" count="0" type="stmt"/>
-        <line num="308" count="0" type="stmt"/>
+        <line num="283" count="0" type="stmt"/>
         <line num="309" count="0" type="stmt"/>
-        <line num="318" count="0" type="stmt"/>
+        <line num="310" count="0" type="stmt"/>
         <line num="319" count="0" type="stmt"/>
-        <line num="328" count="0" type="stmt"/>
-        <line num="330" count="0" type="stmt"/>
+        <line num="320" count="0" type="stmt"/>
+        <line num="329" count="0" type="stmt"/>
         <line num="331" count="0" type="stmt"/>
-        <line num="348" count="3" type="stmt"/>
+        <line num="332" count="0" type="stmt"/>
+        <line num="349" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\datePicker\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -7058,6 +7059,18 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
+    <package name="src.utils.convertUtcToTimezone">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="convertUtcToTimezone.ts" path="D:\projects\toolkit\src\utils\convertUtcToTimezone\convertUtcToTimezone.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="61" type="stmt"/>
+      </file>
+      <file name="index.ts" path="D:\projects\toolkit\src\utils\convertUtcToTimezone\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
     <package name="src.utils.cursorFocus">
       <metrics statements="4" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="cursorFocus.js" path="D:\projects\toolkit\src\utils\cursorFocus\cursorFocus.js">
@@ -7206,21 +7219,18 @@
       </file>
     </package>
     <package name="src.utils.getProgramStatus">
-      <metrics statements="12" coveredstatements="12" conditionals="18" coveredconditionals="17" methods="2" coveredmethods="2"/>
+      <metrics statements="9" coveredstatements="9" conditionals="18" coveredconditionals="17" methods="1" coveredmethods="1"/>
       <file name="getProgramStatus.ts" path="D:\projects\toolkit\src\utils\getProgramStatus\getProgramStatus.ts">
-        <metrics statements="12" coveredstatements="12" conditionals="18" coveredconditionals="17" methods="2" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="9" conditionals="18" coveredconditionals="17" methods="1" coveredmethods="1"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="60" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="19" type="stmt"/>
-        <line num="19" count="19" type="stmt"/>
-        <line num="20" count="19" type="stmt"/>
-        <line num="22" count="19" type="cond" truecount="4" falsecount="0"/>
-        <line num="23" count="14" type="cond" truecount="5" falsecount="0"/>
-        <line num="24" count="9" type="cond" truecount="5" falsecount="0"/>
-        <line num="25" count="8" type="cond" truecount="3" falsecount="1"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="19" type="stmt"/>
+        <line num="15" count="19" type="stmt"/>
+        <line num="16" count="19" type="stmt"/>
+        <line num="18" count="19" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="14" type="cond" truecount="5" falsecount="0"/>
+        <line num="20" count="9" type="cond" truecount="5" falsecount="0"/>
+        <line num="21" count="8" type="cond" truecount="3" falsecount="1"/>
       </file>
       <file name="index.ts" path="D:\projects\toolkit\src\utils\getProgramStatus\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

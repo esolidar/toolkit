@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { advanceTo } from 'jest-date-mock';
 import { format, addDays, subDays } from 'date-fns';
 import { getToday, dateFormat } from '../../constants/date';
-import { getProgramStatus, convertToTimezone } from '.';
+import getProgramStatus from '.';
 
 const today = getToday();
 const date = new Date();
@@ -66,16 +66,4 @@ test('getProgramStatus function with archived ended status', () => {
     archivedAt: format(subDays(today, 1), dateFormat),
   };
   expect(getProgramStatus(dates)).toBe('ended');
-});
-
-test('convertToTimezone function', () => {
-  expect(convertToTimezone('2022-01-14 00:00:00', 'Europe/Lisbon')).toEqual(
-    new Date('2022-01-14T00:00:00.000Z')
-  );
-  expect(convertToTimezone('2022-01-14 00:00:00', 'America/Sao_Paulo')).toEqual(
-    new Date('2022-01-14T03:00:00.000Z')
-  );
-  expect(convertToTimezone('2022-01-14 00:00:00', 'Asia/Colombo')).toEqual(
-    new Date('2022-01-13T18:30:00.000Z')
-  );
 });

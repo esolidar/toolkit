@@ -212,7 +212,8 @@ const RenderCustomHeader = ({
 }) => {
   const intl = useIntl();
 
-  const months = monthsConst.flatMap(month => intl.formatMessage({ id: month.long }));
+  const months = monthsConst.flatMap(month => intl.formatMessage({ id: month.short }));
+  const longMonths = monthsConst.flatMap(month => intl.formatMessage({ id: month.long }));
 
   const handleChangeYears = year => {
     calculateYearsArray(year);
@@ -223,7 +224,7 @@ const RenderCustomHeader = ({
       <button
         className="react-datepicker__custom-header-month"
         onClick={() => setShowMonths(true)}
-      >{`${months[date.getMonth()]} ${date.getFullYear()}`}</button>
+      >{`${longMonths[date.getMonth()]} ${date.getFullYear()}`}</button>
 
       <div className="react-datepicker__custom-header-buttons">
         <Button
