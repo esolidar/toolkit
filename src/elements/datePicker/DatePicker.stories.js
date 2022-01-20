@@ -57,7 +57,7 @@ DateOnly.args = {
   locale: 'pt',
   startDate: new Date('2022-01-05 00:00:00'),
   selected: null,
-  endDate: new Date('2022-01-20 00:00:00'),
+  endDate: new Date('2022-01-13 00:00:00'),
   onChange: () => {},
   className: 'form-control',
   errors: '',

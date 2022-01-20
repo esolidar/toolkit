@@ -4,7 +4,7 @@ import Icon from '../../elements/icon';
 import Button from '../../elements/button';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import Props from './AcceleratorSubmitProjectBox.types';
-import { getProgramStatus } from '../../utils/getProgramStatus';
+import getProgramStatus from '../../utils/getProgramStatus';
 
 const AcceleratorSubmitProjectBox: FC<Props> = ({
   projectConfig,
