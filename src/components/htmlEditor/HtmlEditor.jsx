@@ -325,10 +325,10 @@ HtmlEditor.defaultProps = {
     'italic',
     'underline',
     'strikethrough',
+    'unordered',
     'left',
     'center',
     'right',
-    'unordered',
     'link',
   ],
 };
