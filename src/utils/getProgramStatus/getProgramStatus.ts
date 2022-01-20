@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+import convertUtcToTimezone from '../convertUtcToTimezone';
 
 interface Args {
   startAt: string;
@@ -9,18 +9,16 @@ interface Args {
 }
 
 const today = new Date();
-const format = 'YYYY-MM-DD HH:mm:ss';
 
-export const convertToTimezone = (date, timezone) =>
-  new Date(new Date(moment.tz(date, timezone).utc().format(format)));
-
-export const getProgramStatus = ({ startAt, closedAt, endedAt, archivedAt, timezone }: Args) => {
-  const startProgram = convertToTimezone(startAt, timezone);
-  const closeProgram = convertToTimezone(closedAt, timezone);
-  const endedProgram = convertToTimezone(endedAt, timezone);
+const getProgramStatus = ({ startAt, closedAt, endedAt, archivedAt, timezone }: Args) => {
+  const startProgram = convertUtcToTimezone(startAt, timezone);
+  const closeProgram = convertUtcToTimezone(closedAt, timezone);
+  const endedProgram = convertUtcToTimezone(endedAt, timezone);
 
   if (startProgram > today && !archivedAt) return 'soon';
   if (startProgram < today && closeProgram > today && !archivedAt) return 'running';
   if (closeProgram < today && endedProgram > today && !archivedAt) return 'closed';
   if (closeProgram < today || archivedAt) return 'ended';
 };
+
+export default getProgramStatus;

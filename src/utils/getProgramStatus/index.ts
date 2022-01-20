@@ -1,1 +1,1 @@
-export { convertToTimezone, getProgramStatus } from './getProgramStatus';
+export { default } from './getProgramStatus';
