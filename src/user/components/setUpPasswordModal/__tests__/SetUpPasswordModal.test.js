@@ -20,5 +20,5 @@ it('renders Title default component', () => {
       'The esolidar team is working hard to make our platform a safer place, and from now on, passwords will be mandatory for all accounts.'
     )
   ).toBeTruthy();
-  expect(getByClass('custom-modal__icon-title')).toBeTruthy();
+  expect(getByClass('custom-modal__title-icon')).toBeTruthy();
 });

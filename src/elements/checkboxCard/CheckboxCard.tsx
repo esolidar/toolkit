@@ -4,13 +4,11 @@ import Props from './CheckboxCard.types';
 import Preview from '../../components/preview';
 import Icon from '../icon';
 
-// TODO: needs new icons for active, hover and disabled states
-// TODO: check with bruno what happens if title and/or subtitle have multiple lines
-
 const CheckboxCard: FC<Props> = ({
   disabled = false,
   id,
   img,
+  disabledHover = false,
   disabledImg = img,
   chechedImg = img,
   isChecked,
@@ -22,6 +20,7 @@ const CheckboxCard: FC<Props> = ({
 }: Props): JSX.Element => {
   const classes = classnames(
     'checkbox-card',
+    { 'no-hover': disabledHover },
     { active: isChecked },
     { disabled },
     { [size]: size }

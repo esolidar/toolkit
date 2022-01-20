@@ -10,6 +10,7 @@ interface Props {
   iconDataTestId?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg';
   type?: 'span' | 'button';
+  rounded?: boolean;
   onClick?(): void;
 }
 

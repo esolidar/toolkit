@@ -28,14 +28,12 @@ Primary.args = {
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
-  style: { marginBottom: '8px' },
 };
 Required.args = {
   label: 'Lorem Ipsum',
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
-  style: { marginBottom: '8px' },
   required: true,
   requiredText: "Visible only to Acme inc's admins",
 };

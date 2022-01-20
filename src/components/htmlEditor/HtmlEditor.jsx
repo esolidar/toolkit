@@ -58,8 +58,8 @@ const translations = {
 
 const toolbarButtons = {
   inline: ['bold', 'italic', 'underline', 'strikethrough', 'monospace', 'superscript', 'subscript'],
-  textAlign: ['left', 'center', 'right', 'justify'],
   list: ['unordered', 'ordered', 'indent', 'outdent'],
+  textAlign: ['left', 'center', 'right', 'justify'],
   link: ['link'],
   image: ['image'],
 };
@@ -211,14 +211,7 @@ const HtmlEditor = ({
 
   return (
     <div className={classnames('form-group', `htmlEditor-${size}`, className)}>
-      {inputLabelProps && (
-        <InputLabel
-          {...inputLabelProps}
-          style={{
-            marginBottom: '8px',
-          }}
-        />
-      )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <Editor
         wrapperClassName={wrapperClassName}
         editorState={editorState}
@@ -244,6 +237,12 @@ const HtmlEditor = ({
               icon: <Icon name="StrikeThrough" size="sm" />,
             },
           },
+          list: {
+            options: toolbarItems.filter(item => toolbarButtons.list.includes(item)),
+            unordered: {
+              icon: <Icon name="BulletList" size="sm" />,
+            },
+          },
           textAlign: {
             options: toolbarItems.filter(item => toolbarButtons.textAlign.includes(item)),
             left: {
@@ -254,12 +253,6 @@ const HtmlEditor = ({
             },
             right: {
               icon: <Icon name="AlignRight" size="sm" />,
-            },
-          },
-          list: {
-            options: toolbarItems.filter(item => toolbarButtons.list.includes(item)),
-            unordered: {
-              icon: <Icon name="BulletList" size="sm" />,
             },
           },
           link: {
