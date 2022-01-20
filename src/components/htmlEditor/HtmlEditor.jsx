@@ -145,13 +145,9 @@ const HtmlEditor = ({
     if (isFirstRender) return;
 
     if (typeof initialContent === 'string') {
-      let value = null;
+      let value = initialContent;
 
-      try {
-        if (JSON.parse(initialContent)) value = JSON.parse(initialContent);
-      } catch (errors) {
-        value = initialContent;
-      }
+      if (initialContent[0] === '{') value = JSON.parse(initialContent);
 
       const content = value
         ? EditorState.createWithContent(convertFromRaw(getInitialRawContent(value)))
@@ -317,7 +313,7 @@ HtmlEditor.propTypes = {
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
   size: PropTypes.string,
-  toolbarItems: PropTypes.object,
+  toolbarItems: PropTypes.array,
   onBlur: PropTypes.func,
 };
 
