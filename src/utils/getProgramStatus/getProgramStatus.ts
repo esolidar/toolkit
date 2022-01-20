@@ -1,4 +1,4 @@
-import { convertUtcToTimezone } from '../convertDates';
+import convertUtcToTimezone from '../convertUtcToTimezone';
 
 interface Args {
   startAt: string;
