@@ -100,7 +100,7 @@ const TextareaField = ({
             'form-control',
             { footer: maxLength },
             { 'required-field': error },
-            { cssClass }
+            cssClass
           )}
           onPaste={onPaste}
           onKeyDown={onKeyDown}
