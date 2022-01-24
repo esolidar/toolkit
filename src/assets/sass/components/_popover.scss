@@ -4,8 +4,11 @@
   &:focus,
   & > span[aria-describedby='bootstrap-popover'] {
     cursor: pointer;
-    text-decoration: underline;
     color: map-get($theme-colors, primary);
+
+    & > *:not(i) {
+      text-decoration: underline;
+    }
   }
 }
 
