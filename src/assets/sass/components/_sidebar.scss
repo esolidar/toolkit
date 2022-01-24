@@ -166,6 +166,10 @@
 
     .sidebarNavigation__header {
       justify-content: flex-end;
+
+      &--logo {
+        min-width: 80px;
+      }
     }
     .sidebarNavigation__mainMenu {
       width: auto;
