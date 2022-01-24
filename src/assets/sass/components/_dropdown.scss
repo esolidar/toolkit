@@ -1,7 +1,25 @@
+.esolidar-dropdown.show {
+  .btn-ghost {
+    color: map-get($theme-colors, primary);
+    background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+    border: transparent !important;
+
+    @include svg-change-color(map-get($theme-colors, primary));
+  }
+}
+
 .esolidar-dropdown {
   &__toggle {
     &:hover {
       text-decoration: none;
+
+      .btn-ghost {
+        border: transparent !important;
+      }
+    }
+
+    button {
+      border: 1px solid map-get($neutrals, 200) !important;
     }
   }
 
