@@ -5,6 +5,7 @@ import { Dropdown } from 'react-bootstrap';
 import Moment from 'react-moment';
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from '../loading';
+import Icon from '../../elements/icon';
 import Button from '../../elements/button';
 import { cdnStaticUrl } from '../../constants/env';
 import isDefined from '../../utils/isDefined';
@@ -84,11 +85,7 @@ const NotificationsBell = ({
     <>
       <Dropdown id="notification-box" className="notification-box" onToggle={onToggle}>
         <Dropdown.Toggle className="notification-icon" role="button">
-          <img
-            src={`${cdnStaticUrl}/frontend/icons/ic-notification-bell.svg`}
-            className="notification-image"
-            alt="Notifications"
-          />
+          <Icon name="Bell" />
           {+totalNotifications > 0 && (
             <span className="number">{+totalNotifications > 100 ? '+99' : totalNotifications}</span>
           )}
