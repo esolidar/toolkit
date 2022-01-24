@@ -29,7 +29,6 @@
       "./__globals__/globals.js",
       "<rootDir>/.jest/setEnvVars.js"
     ],
-    "globalSetup": "./__globals__/global-setup.js",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
