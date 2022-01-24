@@ -81,14 +81,21 @@ test('convertFromUtcToLocalTimezone function winter time', () => {
 });
 
 test('convertFromUtcToLocalTimezone function summer time', () => {
-  expect(convertFromUtcToLocalTimezone('2022-05-14 00:00:00', 'YYYY-MM-DD HH:mm:ss')).toEqual(
-    '2022-05-14 01:00:00'
-  );
+  expect(
+    convertFromUtcToLocalTimezone(
+      mockDateInTimezone('2022-05-14 00:00:00', 'Europe/London'),
+      'YYYY-MM-DD HH:mm:ss'
+    )
+  ).toEqual('2022-05-14 00:00:00');
 });
 
 test('convertFromUtcToCustomTimezone function winter time', () => {
   expect(
-    convertFromUtcToCustomTimezone('2022-01-14 00:00:00', 'Europe/Lisbon', 'YYYY-MM-DD HH:mm:ss')
+    convertFromUtcToCustomTimezone(
+      mockDateInTimezone('2022-01-14 00:00:00', 'Europe/London'),
+      'Europe/Lisbon',
+      'YYYY-MM-DD HH:mm:ss'
+    )
   ).toEqual('2022-01-14 00:00:00');
 
   expect(

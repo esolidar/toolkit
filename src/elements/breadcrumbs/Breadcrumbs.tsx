@@ -3,17 +3,8 @@ import classnames from 'classnames';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Props from './Breadcrumbs.types';
-import { convertFromUtcToCustomTimezone } from '../../utils/convertDates';
 
 const Breadcrumbs: FC<Props> = ({ breadcrumbs, style }: Props): JSX.Element => {
-  console.log(
-    'date 05',
-    convertFromUtcToCustomTimezone('2022-05-14 13:00:00', 'America/Sao_Paulo')
-  );
-  console.log(
-    'date 01',
-    convertFromUtcToCustomTimezone('2022-01-14 13:00:00', 'America/Sao_Paulo')
-  );
   return (
     <div className="esolidar-breadcrumbs" style={style}>
       {breadcrumbs.map((item, i) => (
