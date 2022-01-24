@@ -52,9 +52,13 @@
       border-radius: 8px;
       color: map-get($neutrals, 900);
 
-      &:hover {
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-visible {
         background-color: transparent;
         color: map-get($turquoise, 500);
+        outline: none;
       }
     }
 
