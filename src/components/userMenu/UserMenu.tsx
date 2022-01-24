@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Dropdown } from 'react-bootstrap';
+import Icon from '../../elements/icon';
 import Props from './UserMenu.types';
 
 const UserMenu: FC<Props> = ({
@@ -14,6 +15,7 @@ const UserMenu: FC<Props> = ({
   <Dropdown className="esolidar-user-menu">
     <Dropdown.Toggle>
       <img src={companyLogo} alt={companyName} onError={handleError} />
+      <Icon name="ChevronDown" />
     </Dropdown.Toggle>
     <Dropdown.Menu flip={flip} align={align}>
       {items.map((item, i) => {

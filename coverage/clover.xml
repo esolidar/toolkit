@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643038266359" clover="3.2.0">
-  <project timestamp="1643038266359" name="All files">
+<coverage generated="1643038587763" clover="3.2.0">
+  <project timestamp="1643038587764" name="All files">
     <metrics statements="4866" coveredstatements="3454" conditionals="3669" coveredconditionals="2246" methods="1471" coveredmethods="836" elements="10006" coveredelements="6536" complexity="0" loc="4866" ncloc="4866" packages="193" files="665" classes="665"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
@@ -165,8 +165,8 @@
       </file>
       <file name="Bell.js" path="D:\projects\toolkit\src\assets\icons\md\Bell.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
       </file>
       <file name="BellOff.js" path="D:\projects\toolkit\src\assets\icons\md\BellOff.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -220,8 +220,8 @@
       </file>
       <file name="ChevronDown.js" path="D:\projects\toolkit\src\assets\icons\md\ChevronDown.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="ChevronLeft.js" path="D:\projects\toolkit\src\assets\icons\md\ChevronLeft.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -3680,27 +3680,27 @@
       <metrics statements="55" coveredstatements="38" conditionals="29" coveredconditionals="24" methods="26" coveredmethods="9"/>
       <file name="NotificationsBell.jsx" path="D:\projects\toolkit\src\components\noticationsBell\NotificationsBell.jsx">
         <metrics statements="21" coveredstatements="20" conditionals="29" coveredconditionals="24" methods="5" coveredmethods="4"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
-        <line num="27" count="6" type="stmt"/>
-        <line num="29" count="6" type="cond" truecount="3" falsecount="1"/>
-        <line num="31" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="30" count="6" type="cond" truecount="3" falsecount="1"/>
+        <line num="32" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="4" type="stmt"/>
         <line num="34" count="4" type="stmt"/>
         <line num="35" count="4" type="stmt"/>
         <line num="36" count="4" type="stmt"/>
         <line num="37" count="4" type="stmt"/>
         <line num="38" count="4" type="stmt"/>
-        <line num="39" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="4" type="stmt"/>
-        <line num="44" count="6" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="81" count="4" type="stmt"/>
-        <line num="83" count="4" type="stmt"/>
-        <line num="155" count="1" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="82" count="4" type="stmt"/>
+        <line num="84" count="4" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
       </file>
       <file name="NotificationsBell.stories.js" path="D:\projects\toolkit\src\components\noticationsBell\NotificationsBell.stories.js">
         <metrics statements="34" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="21" coveredmethods="5"/>
@@ -4705,11 +4705,11 @@
       </file>
       <file name="UserMenu.tsx" path="D:\projects\toolkit\src\components\userMenu\UserMenu.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="12" coveredconditionals="10" methods="2" coveredmethods="2"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="20" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="22" count="18" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="22" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="18" type="stmt"/>
       </file>
     </package>
     <package name="src.components.viewport">
@@ -5393,14 +5393,14 @@
       </file>
       <file name="Icon.tsx" path="D:\projects\toolkit\src\elements\icon\Icon.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="7" count="80" type="stmt"/>
-        <line num="9" count="80" type="stmt"/>
-        <line num="15" count="80" type="stmt"/>
-        <line num="23" count="438" type="stmt"/>
-        <line num="24" count="438" type="stmt"/>
-        <line num="25" count="438" type="stmt"/>
+        <line num="7" count="82" type="stmt"/>
+        <line num="9" count="82" type="stmt"/>
+        <line num="15" count="82" type="stmt"/>
+        <line num="23" count="444" type="stmt"/>
+        <line num="24" count="444" type="stmt"/>
+        <line num="25" count="444" type="stmt"/>
         <line num="27" count="8" type="stmt"/>
-        <line num="30" count="438" type="stmt"/>
+        <line num="30" count="444" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
