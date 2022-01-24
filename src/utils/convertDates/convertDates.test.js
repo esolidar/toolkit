@@ -27,13 +27,16 @@ test('convertToUtcFromLocalTimezone function winter time', () => {
 });
 
 test('convertToUtcFromLocalTimezone function summer time', () => {
-  expect(convertToUtcFromLocalTimezone('2022-05-14 00:00:00', 'YYYY-MM-DD HH:mm:ss')).toEqual(
-    '2022-05-13 23:00:00'
-  );
+  expect(
+    convertToUtcFromLocalTimezone(
+      mockDateInTimezone('2022-05-14 00:00:00', 'Europe/London'),
+      'YYYY-MM-DD HH:mm:ss'
+    )
+  ).toEqual('2022-05-13 23:00:00');
 
-  expect(convertToUtcFromLocalTimezone('2022-05-14 00:00:00')).toEqual(
-    new Date('2022-05-13T23:00:00.000Z')
-  );
+  expect(
+    convertToUtcFromLocalTimezone(mockDateInTimezone('2022-05-14 00:00:00', 'Europe/London'))
+  ).toEqual(new Date('2022-05-13T23:00:00.000Z'));
 });
 
 test('convertToUtcFromCustomTimezone function summer time', () => {
