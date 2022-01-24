@@ -1,4 +1,4 @@
-import convertUtcToTimezone from '../convertUtcToTimezone';
+import { convertFromUtcToCustomTimezone } from '../convertDates';
 
 interface Args {
   startAt: string;
@@ -11,9 +11,9 @@ interface Args {
 const today = new Date();
 
 const getProgramStatus = ({ startAt, closedAt, endedAt, archivedAt, timezone }: Args) => {
-  const startProgram = convertUtcToTimezone(startAt, timezone);
-  const closeProgram = convertUtcToTimezone(closedAt, timezone);
-  const endedProgram = convertUtcToTimezone(endedAt, timezone);
+  const startProgram = convertFromUtcToCustomTimezone(startAt, timezone);
+  const closeProgram = convertFromUtcToCustomTimezone(closedAt, timezone);
+  const endedProgram = convertFromUtcToCustomTimezone(endedAt, timezone);
 
   if (startProgram > today && !archivedAt) return 'soon';
   if (startProgram < today && closeProgram > today && !archivedAt) return 'running';

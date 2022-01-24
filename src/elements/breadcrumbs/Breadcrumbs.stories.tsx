@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div style={{ width: '100%' }}>
+  <div style={{ width: '100%', marginTop: '100px' }}>
     <Breadcrumbs {...args} />
   </div>
 );
@@ -22,15 +22,15 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   breadcrumbs: [
     {
-      title: 'Title 1',
+      title: 'Accelerator',
       handleClick: () => {},
     },
     {
-      title: 'Title 2',
+      title: 'Lorem ipsum',
       handleClick: () => {},
     },
     {
-      title: 'Title 3',
+      title: 'Lorem ipsum dolor sit amet, cons lorem ipsum dolor sit amet, cons',
       handleClick: () => {},
     },
   ],
