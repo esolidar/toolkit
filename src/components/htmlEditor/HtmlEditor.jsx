@@ -213,7 +213,6 @@ const HtmlEditor = ({
     <div className={classnames('form-group', `htmlEditor-${size}`, className)}>
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <Editor
-        maxLength={maxLength}
         wrapperClassName={wrapperClassName}
         editorState={editorState}
         onEditorStateChange={handleEditorStateChange}
