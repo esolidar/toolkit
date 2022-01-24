@@ -4,6 +4,12 @@ import InputLabel from './InputLabel';
 export default {
   title: 'Elements/InputLabel',
   component: InputLabel,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 const Template = args => (
@@ -22,14 +28,12 @@ Primary.args = {
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
-  style: { marginBottom: '8px' },
 };
 Required.args = {
   label: 'Lorem Ipsum',
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
-  style: { marginBottom: '8px' },
   required: true,
   requiredText: "Visible only to Acme inc's admins",
 };

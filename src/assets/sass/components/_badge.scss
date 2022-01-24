@@ -5,6 +5,10 @@
   border-radius: 100px;
   border: 0px;
 
+  &.squared {
+    border-radius: $border-radius-1;
+  }
+
   &:focus {
     outline: none;
   }
@@ -25,6 +29,11 @@
   &__primary {
     color: map-get($colors, white) !important;
     background-color: map-get($theme-colors, primary);
+  }
+
+  &__white {
+    color: map-get($base, black) !important;
+    background-color: map-get($base, white);
   }
 
   &__info {
@@ -58,11 +67,16 @@
   }
 
   &__xs {
-    font-weight: 600;
-    font-size: 12px;
-    padding: 2px 6px;
+    align-items: start;
+    padding: 0 8px;
     min-height: 18px;
-    // line-height: 17px;
+    span {
+      line-height: 19px;
+      height: 16px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
   }
 
   &__sm {
@@ -85,9 +99,9 @@
     padding: $distance-2 $distance-3;
   }
 
-  i {
+  @include svg-change-color(map-get($neutrals, 700));
+
+  .icon-component {
     margin-right: $distance-1;
-    color: map-get($neutrals, 700);
-    // position: relative;
   }
 }

@@ -83,7 +83,7 @@
   }
 }
 
-@mixin animate($prop: all, $ms: 700ms) {
+@mixin animate($prop: all, $ms: 700ms, $dl: 0ms) {
   -webkit-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1);
   /* older webkit */
   -webkit-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
@@ -96,6 +96,11 @@
   -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+
+  -webkit-transition-delay: $dl;
+  -moz-transition-delay: $dl;
+  -o-transition-delay: $dl;
+  transition-delay: $dl;
 }
 
 @mixin text-overflow-ellipsis {
@@ -170,7 +175,9 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #9f9f9f;
+    background: map-get($neutrals, 200);
+    border-radius: $border-radius-1;
+    min-height: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -182,19 +189,23 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #f0f0f0;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:hover {
-    background: #e8e8e8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:active {
-    background: #c8c8c8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-corner {
     background: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    min-height: 10px;
   }
 }
 
@@ -206,7 +217,7 @@
   border: none;
   box-sizing: border-box;
   outline: 2px solid map-get($turquoise, 500) !important;
-  box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+  box-shadow: 0px 0px 0px 6px rgba(12, 131, 128, 0.08);
   @include animate();
 }
 
@@ -240,6 +251,7 @@
   line-height: 1.8;
   outline: 1px solid map-get($neutrals, 200);
   border-radius: $border-radius-1 !important;
+  background-color: map-get($base, white);
   @include animate();
 }
 
@@ -264,4 +276,12 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
+}
+
+@mixin svg-change-color($color: map-get($neutrals, 700)) {
+  .icon-component {
+    path {
+      fill: $color;
+    }
+  }
 }

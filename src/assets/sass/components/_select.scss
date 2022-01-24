@@ -89,8 +89,10 @@
       border: 2px solid map-get($neutrals, 100) !important;
 
       & .esolidar-select__indicator,
-      & .esolidar-select__placeholder > i {
+      & .esolidar-select__placeholder > i,
+      & .esolidar-select__single-value {
         color: map-get($neutrals, 400) !important;
+        @include svg-change-color(map-get($neutrals, 400));
       }
     }
   }
@@ -140,6 +142,7 @@
         &:active {
           background-color: unset;
           color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
 
           & .esolidar-select__option--text {
             & > span:first-of-type {
@@ -151,6 +154,7 @@
         &--is-selected {
           background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
           color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
 
           & .esolidar-select__option--text {
             & > span:first-of-type {
@@ -169,10 +173,12 @@
           background-color: unset !important;
           color: map-get($neutrals, 400) !important;
           cursor: default !important;
+          @include svg-change-color(map-get($neutrals, 400));
 
           &:hover,
           &:focus,
           &:active {
+            @include svg-change-color(map-get($neutrals, 400));
             & .esolidar-select__option--text {
               & > span:first-of-type {
                 color: map-get($neutrals, 400);

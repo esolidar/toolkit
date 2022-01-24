@@ -1,23 +1,25 @@
 import React, { FC } from 'react';
 import DropdownBTS from 'react-bootstrap/Dropdown';
 import Button from '../button';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import CustomToggle from './CustomToggle';
-import Props from './Dropdown.types';
+import Props, { Item } from './Dropdown.types';
 
-const Dropdown: FC<Props> = ({ toggleIcon = 'icon-more-vertical', items }: Props): JSX.Element => {
+const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX.Element => {
   const handleClick = (e, item) => {
     e.stopPropagation();
     item.onClick();
   };
 
+  const filteredItems: Item[] = items.map(item => ({ ...item, show: item.show !== false }));
+
   return (
     <DropdownBTS className="esolidar-dropdown">
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
-        <Button extraClass="dark" type="icon" icon={<Icon iconClass={toggleIcon} />} />
+        <Button extraClass="ghost" type="icon" icon={<Icon name={toggleIcon} size="sm" />} />
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
-        {items.map(item => {
+        {filteredItems.map(item => {
           if (item.show)
             return (
               <DropdownBTS.Item
@@ -27,9 +29,9 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'icon-more-vertical', items }: Props
                 onClick={e => handleClick(e, item)}
                 disabled={item.disabled}
               >
-                {item.leftIcon && <Icon iconClass={item.leftIcon} />}
+                {item.leftIcon && <Icon name={item.leftIcon} size="sm" />}
                 <span className="esolidar-dropdown__item--text">{item.text}</span>
-                {item.rightIcon && <Icon iconClass={item.rightIcon} />}
+                {item.rightIcon && <Icon name={item.rightIcon} size="sm" />}
               </DropdownBTS.Item>
             );
         })}

@@ -33,32 +33,37 @@ const Wizard: FC<Props> = ({
   handleChangeTitle,
   handleBlurTitle,
   buttonNextText,
+  isLoading,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
-      const { scrollTop } = e.target;
-      const paginatorDiv = document.getElementsByClassName('wizard__paginator')[0];
-      const headerDiv = document.getElementsByClassName('wizard__header')[0];
-      if (y > scrollTop) {
-        paginatorDiv.classList.remove('fix-on-scrool-down');
-        headerDiv.classList.remove('fix-on-scrool-down');
-      } else if (y < scrollTop) {
-        paginatorDiv.classList.add('fix-on-scrool-down');
-        headerDiv.classList.add('fix-on-scrool-down');
+      const { scrollTop, id } = e.target;
+      if (id === 'wizard') {
+        const paginatorDiv = document.getElementsByClassName('wizard__paginator')[0];
+        const headerDiv = document.getElementsByClassName('wizard__header')[0];
+        if (y > scrollTop) {
+          paginatorDiv.classList.remove('fix-on-scrool-down');
+          headerDiv.classList.remove('fix-on-scrool-down');
+        } else if (y < scrollTop) {
+          paginatorDiv.classList.add('fix-on-scrool-down');
+          headerDiv.classList.add('fix-on-scrool-down');
+        }
+        y = scrollTop;
       }
-      y = scrollTop;
     },
     [y]
   );
 
   useEffect(() => {
-    document.getElementsByClassName('wizard')[0].addEventListener('scroll', handleNavigation, true);
-    return () =>
-      document.getElementsByClassName('wizard')[0].removeEventListener('scroll', handleNavigation);
+    const wizard = document.getElementsByClassName('wizard')[0];
+    wizard.addEventListener('scroll', handleNavigation, true);
+    return () => {
+      if (wizard) return wizard.removeEventListener('scroll', handleNavigation);
+    };
   }, []);
 
   return (
-    <div className={`wizard ${showWizard ? 'open' : 'closed'} `}>
+    <div className={`wizard ${showWizard ? 'open' : 'closed'} `} id="wizard">
       <div className="wizard-container">
         <WizardHeader
           closeWizard={closeWizard}
@@ -76,6 +81,7 @@ const Wizard: FC<Props> = ({
           editMode={editMode}
           handleChangeTitle={handleChangeTitle}
           handleBlurTitle={handleBlurTitle}
+          isLoading={isLoading}
         />
         <WizardPaginator
           pages={pages}
@@ -91,6 +97,7 @@ const Wizard: FC<Props> = ({
             totalPages={totalPages}
             currentPage={currentPage}
             disableClickNext={disableClickNext}
+            isLoading={isLoading}
           />
         </Viewport>
       </div>

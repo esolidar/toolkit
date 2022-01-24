@@ -19,7 +19,12 @@
     background-color: white;
     border-radius: $border-radius-1;
     cursor: pointer;
+    line-height: 21px;
     @include animate();
+
+    .icon-component {
+      margin-right: $distance-1;
+    }
 
     .counter {
       background-color: map-get($neutrals, 100);
@@ -63,6 +68,7 @@
   &__radio[type='radio']:checked ~ &-btn-label {
     color: map-get($turquoise, 500);
     background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+    @include svg-change-color(map-get($turquoise, 500));
 
     .counter {
       color: white;
@@ -82,6 +88,7 @@
     color: map-get($neutrals, 400);
     background-color: white;
     cursor: not-allowed;
+    @include svg-change-color(map-get($neutrals, 400));
 
     .counter {
       color: map-get($neutrals, 400);

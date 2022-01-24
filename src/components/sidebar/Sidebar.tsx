@@ -3,7 +3,7 @@ import React, { FC, useRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 import cookie from 'react-cookies';
 import Menu from '../menu';
-import Icon from '../icon';
+import Icon from '../../elements/icon';
 import Props, { subMenuProps } from './Sidebar.types';
 
 const Sidebar: FC<Props> = ({
@@ -18,7 +18,8 @@ const Sidebar: FC<Props> = ({
   const [isCollapsed, setIsCollapsed] = useState(collapsed);
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
   const [subMenu, setSubMenu] = useState([]);
-  const [subMenuTitle, setSubMenuTitle] = useState('');
+  const [subMenuActiveTitle, setSubMenuActiveTitle] = useState('');
+  const [subMenuActiveIcon, setSubMenuActiveIcon] = useState('');
   const [totalMenus, setTotalMenus] = useState([]);
   const classes = classnames(
     'sidebarNavigation',
@@ -33,20 +34,23 @@ const Sidebar: FC<Props> = ({
     setTotalMenus(menus);
     const activeMenus = menus.filter(item => item.isActive === true);
     if (isOpenSubMenu) {
-      const openMenu = menus.find(item => item.text === subMenuTitle);
-      setSubMenu(openMenu.submenu);
-      const activeMenu = activeMenus.find(item => item.text !== subMenuTitle);
-      if (activeMenu && subMenuTitle !== activeMenu.text) {
+      const openMenu = menus.find(item => item.icon === subMenuActiveIcon);
+
+      setSubMenu(openMenu?.submenu);
+      const activeMenu = activeMenus.find(item => item.icon !== subMenuActiveIcon);
+      if (activeMenu && subMenuActiveIcon !== activeMenu.icon) {
         setIsOpenSubMenu(false);
         collapseSidebar(collapsed || !isCollapsed);
-        setSubMenuTitle('');
+        setSubMenuActiveTitle('');
+        setSubMenuActiveIcon('');
       }
     }
   }, [bottomMenu, mainMenu]);
 
   const openSubMenu = item => {
-    if (item.text !== subMenuTitle) {
-      setSubMenuTitle(item.text);
+    if (item.icon !== subMenuActiveIcon) {
+      setSubMenuActiveTitle(item.text);
+      setSubMenuActiveIcon(item.icon);
       setSubMenu(item.submenu);
       setIsOpenSubMenu(false);
       setTimeout(() => {
@@ -61,9 +65,9 @@ const Sidebar: FC<Props> = ({
     const mainItemsActive = mainItems.filter(item => item.isActive === true);
     items.map(item => {
       const { submenu } = item;
-      if (subMenuTitle !== '') {
-        const activeMenu = activeMenus.filter(item => item.text !== subMenuTitle);
-        const withSubmenusActive = activeMenus.find(item => item.text === subMenuTitle);
+      if (subMenuActiveIcon !== '') {
+        const activeMenu = activeMenus.filter(item => item.icon !== subMenuActiveIcon);
+        const withSubmenusActive = activeMenus.find(item => item.icon === subMenuActiveIcon);
         if (activeMenu.length > 0 && isOpenSubMenu) {
           if (item.text === activeMenu[0].text) {
             item.isActive = false;
@@ -77,7 +81,7 @@ const Sidebar: FC<Props> = ({
       }
       if (submenu) {
         item.onClick = () => openSubMenu(item);
-        if (subMenuTitle === item.text && isOpenSubMenu && mainItemsActive.length < 1) {
+        if (subMenuActiveIcon === item.icon && isOpenSubMenu && mainItemsActive.length < 1) {
           item.isActive = true;
         }
         if (item.keepSubMenuOpen) {
@@ -100,7 +104,7 @@ const Sidebar: FC<Props> = ({
 
   return (
     <div className={classes} data-testid="sidebar-component" id="sidebar-component">
-      <SidebarSubMenu title={subMenuTitle} items={subMenu} isOpen={isOpenSubMenu} />
+      <SidebarSubMenu title={subMenuActiveTitle} items={subMenu} isOpen={isOpenSubMenu} />
       <div className="sidebarNavigation__sidebar">
         <div className="sidebarNavigation__header">
           <a href="/" className="sidebarNavigation__header--logo">
@@ -124,13 +128,16 @@ const Sidebar: FC<Props> = ({
           </div>
           <div className="sidebarNavigation__bottomMenu" ref={anchorRef}>
             <Menu items={renderMenus(bottomMenu, mainMenu)} isCollapsed={isCollapsed} />
-            <Icon
-              iconClass={classnames(
-                'icon-equalizer2 sidebarNavigation__collapsed--button',
-                isOpenSubMenu && 'sidebarNavigation__collapsed--button--disabled'
-              )}
-              onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
-            />
+            <div
+              className={classnames('sidebarNavigation__collapsed--button', {
+                'sidebarNavigation__collapsed--button--disabled': isOpenSubMenu,
+              })}
+            >
+              <Icon
+                name="SidebarCollapse"
+                onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -9,13 +9,14 @@
   border-radius: $border-radius-1;
   box-shadow: 0px 2px 4px rgba(26, 27, 28, 0.04);
   border: none;
+  cursor: pointer;
 
   &.sm {
     min-height: 152px;
     width: 191px;
     align-items: center;
-    display: -webkit-inline-box;
     justify-content: start;
+    padding-top: 32px;
 
     & .checkbox-card__img {
       width: 64px;
@@ -30,9 +31,10 @@
     }
 
     & .checkbox-card__info {
-      margin-top: $distance-2;
+      margin-top: $distance-3;
       text-align: center;
       width: 100%;
+      padding: 0 $distance-2;
 
       & .checkbox-card__info--title {
         color: map-get($base, black);
@@ -123,10 +125,14 @@
   }
 
   &:hover {
-    &:not(.disabled) {
+    &:not(.disabled):not(.no-hover) {
       outline: 2px solid map-get($turquoise, 500);
       @include animate(all, 100ms);
     }
+  }
+
+  &.no-hover {
+    cursor: default;
   }
 
   &.active {
@@ -136,10 +142,8 @@
   }
 
   &:not(.active) {
-    &:not(:hover) {
-      & .checkbox-card__icon {
-        display: none;
-      }
+    & .checkbox-card__icon {
+      display: none;
     }
   }
 
@@ -159,6 +163,10 @@
         display: none;
       }
     }
+
+    .checkbox-card__icon {
+      background-color: map-get($neutrals, 400);
+    }
   }
 
   & .checkbox-card__icon {
@@ -168,7 +176,20 @@
     width: 32px;
     height: 32px;
     line-height: 0;
+    background-color: map-get($turquoise, 500);
+    border-radius: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
   @include animate(all, 100ms);
+
+  .esolidar-preview {
+    .esolidar-preview__image {
+      img {
+        outline: none;
+      }
+    }
+  }
 }

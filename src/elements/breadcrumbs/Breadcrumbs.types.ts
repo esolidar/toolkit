@@ -5,6 +5,7 @@ interface Breadcrumbs {
 
 interface Props {
   breadcrumbs: Breadcrumbs[];
+  style: React.CSSProperties;
 }
 
 export default Props;

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import Props from './PasswordField.types';
 import TextField from '../textField';
-import Icon from '../../components/icon/Icon';
+import Icon from '../icon';
 import InputLabel from '../inputLabel';
 
 const PasswordField: FC<Props> = ({
@@ -40,9 +40,9 @@ const PasswordField: FC<Props> = ({
         />
         <button onClick={handleClick} data-testid="button" type="button" style={{ top: '7px' }}>
           {showPasswordText ? (
-            <Icon iconClass="icon-eye-blocked" dataTestId="eye-blocked" />
+            <Icon name="EyeOff" size="sm" dataTestId="eye-blocked" />
           ) : (
-            <Icon iconClass="icon-eye" dataTestId="eye" />
+            <Icon name="Eye" size="sm" dataTestId="eye" />
           )}
         </button>
       </div>

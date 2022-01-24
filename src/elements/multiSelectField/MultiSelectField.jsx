@@ -3,7 +3,6 @@ import ReactSelect, { components } from 'react-select';
 import PropTypes from 'prop-types';
 import { injectIntl, useIntl } from 'react-intl';
 import classNames from 'classnames';
-
 import Badge from '../badge';
 import InputLabel from '../inputLabel';
 
@@ -106,14 +105,7 @@ class MultiSelectField extends Component {
 
     return (
       <div className="multi-select-component form-group">
-        {inputLabelProps && (
-          <InputLabel
-            {...inputLabelProps}
-            style={{
-              marginBottom: '8px',
-            }}
-          />
-        )}
+        {inputLabelProps && <InputLabel {...inputLabelProps} />}
         <span
           className="d-inline-block"
           data-toggle="popover"

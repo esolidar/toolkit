@@ -67,20 +67,22 @@
     }
   }
   &__collapsed--button {
-    color: map-get($neutrals, 400);
-    cursor: pointer;
-    position: absolute;
-    bottom: 43px;
-    right: 21px;
+    @include svg-change-color(map-get($neutrals, 400));
+    & > svg {
+      cursor: pointer;
+      position: absolute;
+      bottom: 43px;
+      right: 21px;
+    }
 
     &:not(.sidebarNavigation__collapsed--button--disabled) {
       &:hover,
       &:active,
       &:focus {
-        color: map-get($neutrals, 700);
+        @include svg-change-color(map-get($neutrals, 700));
       }
     }
-    &--disabled {
+    &--disabled > svg {
       cursor: default;
     }
   }
@@ -95,7 +97,7 @@
     padding: 0px $distance-3 0px $distance-3;
 
     &--align-items-end {
-      align-items: end;
+      align-items: flex-end;
     }
   }
   &__mainMenu {
@@ -160,10 +162,10 @@
   }
 
   &--isCollapsed {
-    margin-left: -160px;
+    margin-left: -154px;
 
     .sidebarNavigation__header {
-      justify-content: end;
+      justify-content: flex-end;
     }
     .sidebarNavigation__mainMenu {
       width: auto;

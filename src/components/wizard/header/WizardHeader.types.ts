@@ -14,6 +14,7 @@ interface Props {
   handleBlurTitle?(): void;
   disabledDarkButton: boolean;
   disabledPrimaryButton: boolean;
+  isLoading: boolean;
 }
 
 export default Props;

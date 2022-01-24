@@ -49,6 +49,7 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={size}
       />
     )}
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
@@ -96,8 +97,8 @@ const TextField = ({
     )}
     {children && children}
     {info && <span className="footer-label-info">{info}</span>}
-    {error && <span className="help-block">{error}</span>}
-    {message && <span className="help-block">{message}</span>}
+    {error && <div className="help-block">{error}</div>}
+    {message && <div className="help-block">{message}</div>}
   </div>
 );
 
@@ -112,7 +113,7 @@ TextField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.bool]),
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
@@ -123,7 +124,7 @@ TextField.propTypes = {
   help: PropTypes.string,
   required: PropTypes.bool,
   className: PropTypes.string,
-  inputRef: PropTypes.object,
+  inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   children: PropTypes.node,
   showOptionalLabel: PropTypes.bool,
   password: PropTypes.bool,

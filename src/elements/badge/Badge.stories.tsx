@@ -10,7 +10,7 @@ export default {
   },
   argTypes: {
     extraClass: {
-      options: ['default', 'primary', 'info', 'success', 'danger', 'warning', 'dark'],
+      options: ['default', 'white', 'primary', 'info', 'success', 'danger', 'warning', 'dark'],
       control: { type: 'radio' },
     },
     size: {
@@ -23,12 +23,18 @@ export default {
 const Template: Story<Props> = (args: Props) => <Badge {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
+export const Squared: Story<Props> = Template.bind({});
 export const PlainText: Story<Props> = Template.bind({});
 export const Icon: Story<Props> = Template.bind({});
 export const FullWidth: Story<Props> = Template.bind({});
 export const Button: Story<Props> = Template.bind({});
 
 Default.args = {
+  text: 'toolkit.private',
+};
+
+Squared.args = {
+  rounded: false,
   text: 'toolkit.private',
 };
 
@@ -39,7 +45,7 @@ PlainText.args = {
 
 Icon.args = {
   text: 'toolkit.private',
-  icon: 'icon-httpslock',
+  icon: 'Settings',
   iconDataTestId: 'badge-icon',
 };
 

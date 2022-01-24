@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.51.0",
+  "version": "4.73.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -13,7 +13,8 @@
     "build:dev": "rollup -c ./rollup.config.dev.js",
     "build:publish": "rollup -c ./rollup.config.prod.js && npm publish",
     "build-storybook": "build-storybook",
-    "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'"
+    "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'",
+    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values #6C7679={props.color}"
   },
   "husky": {
     "hooks": {
@@ -25,8 +26,10 @@
     "setupFiles": [
       "jest-localstorage-mock",
       "jest-date-mock",
-      "./__globals__/globals.js"
+      "./__globals__/globals.js",
+      "<rootDir>/.jest/setEnvVars.js"
     ],
+    "globalSetup": "./__globals__/global-setup.js",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
@@ -50,7 +53,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.15.0",
+    "@pedroguia/react-draft-wysiwyg": "^1.18.0",
     "classnames": "^2.2.6",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
@@ -94,13 +97,13 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.195.0",
+    "@esolidar/i18n": "^0.201.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.14.14",
+    "@pedroguia/react-draft-wysiwyg": "^1.18.0",
     "@react-mock/state": "^0.1.8",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -117,6 +120,7 @@
     "@storybook/addon-viewport": "^6.3.8",
     "@storybook/react": "^6.3.8",
     "@storybook/testing-react": "^0.0.22",
+    "@svgr/cli": "^6.1.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.7.0",

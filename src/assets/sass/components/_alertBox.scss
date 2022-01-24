@@ -1,61 +1,54 @@
 .alertBox {
+  display: flex;
+  justify-content: flex-start;
+  gap: $distance-2;
   width: 100%;
   position: absolute;
-  padding: $distance-2 $distance-2 $distance-2 52px;
+  padding: $distance-2 19px;
   border-radius: 8px;
   top: 0;
   left: 0;
   right: 0;
 
-  i {
-    position: absolute;
-    left: 19px;
-    top: 19px;
+  &__img {
     font-size: 18px;
   }
 
-  p {
-    color: map-get($main-text-colors, title);
-    font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 0px;
-  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: $distance-1;
 
-  span {
-    color: map-get($main-text-colors, title);
-    display: block;
-    margin-top: $distance-1;
-    font-weight: 400;
-    font-size: 16px;
+    &--title {
+      color: map-get($main-text-colors, title);
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: unset;
+    }
+
+    &--subtitle {
+      color: map-get($main-text-colors, title);
+      display: block;
+      font-weight: 400;
+      font-size: 16px;
+    }
   }
 
   &__info {
     background-color: map-get($blue, 0);
-
-    i {
-      color: map-get($neutrals, 700);
-    }
+    @include svg-change-color(map-get($turquoise, 500));
   }
   &__success {
     background-color: map-get($positive, 0);
-
-    i {
-      color: map-get($positive, 500);
-    }
+    @include svg-change-color(map-get($positive, 500));
   }
   &__warning {
     background-color: map-get($warning, 0);
-
-    i {
-      color: map-get($golden-tainoi, 500);
-    }
+    @include svg-change-color(map-get($golden-tainoi, 500));
   }
 
   &__danger {
     background-color: map-get($negative, 0);
-
-    i {
-      color: map-get($negative, 500);
-    }
+    @include svg-change-color(map-get($negative, 500));
   }
 }

@@ -12,7 +12,7 @@ interface InputLabel {
   field?: string;
   label: string;
   showOptionalLabel?: boolean;
-  cssClass?: string;
+  className?: string;
   style?: any;
   help?: string;
   fontWeight?: number;

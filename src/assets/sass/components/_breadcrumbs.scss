@@ -1,28 +1,9 @@
 .esolidar-breadcrumbs {
   display: flex;
-  margin-bottom: 18px;
+  gap: $distance-1;
+  margin-bottom: $distance-2;
 
-  &__item {
-    padding: 0 $distance-3;
-    position: relative;
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:not(:last-child) {
-      &:after {
-        content: '';
-        position: absolute;
-        border-radius: 50%;
-        width: 4px;
-        height: 4px;
-        background-color: map-get($neutrals, 700);
-        right: 0;
-        top: 10px;
-      }
-    }
-  }
+  @include svg-change-color(map-get($neutrals, 700));
 
   &__button {
     border: none;

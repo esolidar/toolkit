@@ -72,6 +72,7 @@ const SelectField: FC<Props> = ({
             label={label}
             showOptionalLabel={showOptionalLabel}
             help={help}
+            size={size}
           />
         )}
       </div>
@@ -102,7 +103,7 @@ const SelectField: FC<Props> = ({
           {optionsList(options)}
         </select>
         {info && <span className="footer-label-info">{info}</span>}
-        {error && typeof error !== 'boolean' && <span className="help-block">{error}</span>}
+        {error && typeof error !== 'boolean' && <div className="help-block">{error}</div>}
       </div>
     </div>
   );

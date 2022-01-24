@@ -49,17 +49,23 @@
       width: 14px;
       height: 14px;
       .unchecked {
+        display: flex;
+        margin-top: 1px;
         position: absolute;
         opacity: 0;
         @include animate();
       }
       .checked {
+        display: flex;
+        margin-top: 1px;
         position: absolute;
         opacity: 0;
         @include animate();
       }
 
       .fixed {
+        display: flex;
+        margin-top: 1px;
         position: absolute;
         opacity: 1;
         @include animate();
@@ -71,6 +77,8 @@
       color: map-get($turquoise, 500);
       border: 2px solid map-get($turquoise, 500);
       background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+
+      @include svg-change-color(map-get($turquoise, 500));
     }
   }
 
@@ -78,20 +86,29 @@
     background-color: map-get($turquoise, 500);
     color: white;
     border: 2px solid map-get($turquoise, 500);
+    @include svg-change-color(map-get($base, white));
 
     .tag-component__item-right-icon {
       .unchecked {
+        margin-top: 1px;
+        display: flex;
         opacity: 0;
         @include animate();
       }
       .checked {
+        margin-top: 1px;
+        display: flex;
         opacity: 1;
         @include animate();
       }
       .fixed {
+        margin-top: 1px;
+        display: flex;
         opacity: 0;
         @include animate();
       }
+
+      @include svg-change-color(map-get($base, white));
     }
 
     &:hover {

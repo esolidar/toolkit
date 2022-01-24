@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import { useIntl } from 'react-intl';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Props from './Badge.types';
 
 const Badge: FC<Props> = ({
@@ -16,6 +16,7 @@ const Badge: FC<Props> = ({
   iconDataTestId = 'badge-component-icon',
   size = 'sm',
   type = 'span',
+  rounded = true,
   onClick,
 }: Props): JSX.Element => {
   const intl = useIntl();
@@ -25,6 +26,7 @@ const Badge: FC<Props> = ({
     `badge__${size}`,
     { 'full-width': fullWidth },
     { 'cursor-pointer': type === 'button' },
+    { squared: !rounded },
     className
   );
 
@@ -32,16 +34,18 @@ const Badge: FC<Props> = ({
     <>
       {type === 'button' ? (
         <button data-testid={dataTestId} className={classes} style={style} onClick={onClick}>
-          {icon && <Icon iconClass={icon} dataTestId={iconDataTestId} />}
+          {icon && <Icon name={icon} data-testid={iconDataTestId} size="sm" />}
           {text && <span>{intl.formatMessage({ id: text })}</span>}
           {plaintext && plaintext}
         </button>
       ) : (
-        <span data-testid={dataTestId} className={classes} style={style}>
-          {icon && <Icon iconClass={icon} dataTestId={iconDataTestId} />}
-          {text && <span>{intl.formatMessage({ id: text })}</span>}
-          {plaintext && plaintext}
-        </span>
+        <div data-testid={dataTestId} className={classes} style={style}>
+          <span>
+            {icon && <Icon name={icon} data-testid={iconDataTestId} size="sm" />}
+            {text && <span>{intl.formatMessage({ id: text })}</span>}
+            {plaintext && plaintext}
+          </span>
+        </div>
       )}
     </>
   );

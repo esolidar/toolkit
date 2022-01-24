@@ -16,21 +16,33 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 }
 
 .rdw {
+  &-text-align-wrapper,
+  &-image-wrapper {
+    margin-bottom: 0px !important;
+  }
   &-editor {
     &-wrapper {
+      @include thin-scroll-bar();
+
       padding: $distance-2 !important;
       border: 0.132rem solid $border-color !important;
       background-color: white !important;
       border-radius: $border-radius-1;
-      overflow: hidden;
+
       @include animate();
 
       &-disabled {
         @include input-disabled();
+        @include svg-change-color(map-get($neutrals, 400));
+        outline: none !important;
+        border: 0.132rem solid $border-color !important;
+        box-shadow: none;
       }
 
       &-error {
-        border: 1px solid red !important;
+        border: 2px solid map-get($negative, 500) !important;
+        outline: unset !important;
+        box-shadow: none !important;
       }
 
       &-focus {
@@ -42,6 +54,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
       &:hover {
         &:not(.rdw-editor-wrapper-disabled) {
           border: 2px solid map-get($turquoise, 500) !important;
+          outline: none !important;
+          box-shadow: none;
         }
       }
 
@@ -56,8 +70,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
         &.rdw-editor-wrapper-focus {
           &.rdw-editor-wrapper-error {
-            box-shadow: 0 0 0 1px red;
-            border-color: red !important;
+            box-shadow: 0 0 0 1px map-get($negative, 500);
+            border-color: map-get($negative, 500) !important;
           }
 
           &:not(.rdw-editor-wrapper-error) {
@@ -69,14 +83,13 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
     }
 
     &-main {
-      &.disabled {
+      & .disabled {
         border-bottom: none !important;
       }
 
       & .DraftEditor-root {
         & .public-DraftEditor-content {
           height: 172px !important;
-          overflow: auto !important;
         }
 
         & .public-DraftEditorPlaceholder-root {
@@ -111,6 +124,17 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
         gap: 2px;
       }
 
+      .rdw-option {
+        &-wrapper {
+          &:hover,
+          &:active,
+          &:focus-visible {
+            box-shadow: none !important;
+            outline: none !important;
+          }
+        }
+      }
+
       &.disabled {
         @include animate();
         @include input-disabled();
@@ -135,7 +159,9 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
           &-wrapper {
             &:hover {
               box-shadow: none !important;
-              outline: 2px solid map-get($neutrals, 700) !important;
+              background-color: get-rgba(map-get($turquoise, 500)) !important;
+
+              @include svg-change-color(map-get($turquoise, 500));
             }
           }
         }
@@ -145,8 +171,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
         &-wrapper {
           border: none !important;
           padding: 0 !important;
-          width: 30px !important;
-          height: 30px !important;
+          width: 24px !important;
+          height: 24px !important;
           border-radius: $border-radius !important;
           background-color: transparent !important;
           margin: 0px;
@@ -154,7 +180,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
         &-active {
           box-shadow: none !important;
-          background-color: map-get($turquoise, 100) !important;
+          @include svg-change-color(map-get($turquoise, 500));
         }
       }
     }

@@ -10,7 +10,7 @@ describe('Loading component', () => {
 
   it('renders Loading with prop loadingClass', () => {
     const component = shallow(<Loading loadingClass="testCss" />);
-    expect(component.props().className).toEqual('testCss');
+    expect(component.props().className).toEqual('loadingWrapper testCss');
   });
 
   it('renders Loading with prop message', () => {
@@ -20,6 +20,6 @@ describe('Loading component', () => {
 
   it('renders Loading with prop curtain', () => {
     const component = shallow(<Loading loadingClass="testCss" curtain={true} />);
-    expect(component.props().className).toEqual('testCss curtain');
+    expect(component.props().className).toEqual('loadingWrapper testCss curtain');
   });
 });

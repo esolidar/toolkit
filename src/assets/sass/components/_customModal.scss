@@ -8,18 +8,6 @@
 }
 
 .custom-modal {
-  &__title {
-    font-weight: 700;
-    color: map-get($base, black);
-    margin-right: $distance-1;
-    display: flex;
-    align-items: center;
-  }
-
-  &__icon-title {
-    margin-right: $distance-3;
-  }
-
   .modal-content {
     padding: $distance-1;
     border-radius: $border-radius-2;
@@ -31,13 +19,25 @@
 
       & .modal-title {
         display: flex;
-        align-items: center;
+        gap: $distance-1;
+        justify-content: space-between;
         width: 100%;
 
-        & .icon-close {
-          margin-left: auto;
+        & .custom-modal__title {
+          font-weight: 700;
+          color: map-get($base, black);
+          display: flex;
+          flex-wrap: wrap;
+          gap: $distance-1;
+
+          &-icon {
+            margin-right: $distance-3;
+          }
+        }
+
+        & .custom-modal__close {
           cursor: pointer;
-          font-size: 12px;
+          padding-top: $distance-1;
         }
       }
     }

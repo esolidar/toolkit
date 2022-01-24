@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Geosuggest from 'react-geosuggest';
 import classnames from 'classnames';
 import InputLabel from '../inputLabel';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 
 const TextField = ({
   field,
@@ -50,16 +50,19 @@ const TextField = ({
         label={label}
         showOptionalLabel={showOptionalLabel}
         help={help}
+        size={size}
       />
     )}
     {!children && (
       <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
           <Icon
-            iconClass={`icon left ${leftIcon?.name}`}
+            name={leftIcon?.name}
+            className="icon-left"
             onClick={leftIcon?.onClick}
             style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
             dataTestId="input-left-icon"
+            size="sm"
           />
         )}
         <Geosuggest
@@ -88,8 +91,8 @@ const TextField = ({
     )}
     {children && children}
     {info && <span className="footer-label-info">{info}</span>}
-    {error && <span className="help-block">{error}</span>}
-    {message && <span className="help-block">{message}</span>}
+    {error && <div className="help-block">{error}</div>}
+    {message && <div className="help-block">{message}</div>}
   </div>
 );
 

@@ -26,16 +26,22 @@
     &:focus {
       color: map-get($turquoise, 500);
       background-color: unset;
+
+      @include svg-change-color(map-get($turquoise, 500));
     }
 
     &:active {
       background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
       border-radius: $border-radius-1;
       color: map-get($turquoise, 500);
+
+      @include svg-change-color(map-get($turquoise, 500));
     }
 
     &.disabled {
       color: map-get($neutrals, 400);
+
+      @include svg-change-color(map-get($neutrals, 400));
     }
 
     &--text {

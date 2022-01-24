@@ -5,6 +5,7 @@ interface Props {
   totalPages: number;
   currentPage: number;
   disableClickNext: boolean;
+  isLoading: boolean;
 }
 
 export default Props;

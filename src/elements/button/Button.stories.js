@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from './Button';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Badge from '../badge';
 
 export default {
@@ -11,84 +11,111 @@ export default {
 
 const extraClassesWithoutFull = ['secondary', 'link', 'ghost', 'negative'];
 
-const Template = args => (
-  <>
-    {!extraClassesWithoutFull.includes(args.extraClass) && (
-      <>
-        <ButtonGrid>
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
-          <Button
-            {...args}
-            extraClass={`${args.extraClass}-full`}
-            text="Left Icon"
-            iconLeft={<Icon iconClass="icon-left-arrow" />}
-          />
-          <Button
-            {...args}
-            extraClass={`${args.extraClass}-full`}
-            text="2 Icons"
-            iconLeft={<Icon iconClass="icon-left-arrow" />}
-            iconRight={<Icon iconClass="icon-chevron-down" />}
-          />
-          <Button
-            {...args}
-            extraClass={`${args.extraClass}-full`}
-            text="Right Icon"
-            iconRight={<Icon iconClass="icon-right-arrow" />}
-          />
-          <Button
-            {...args}
-            type="icon"
-            extraClass={`${args.extraClass}-full`}
-            icon={<Icon iconClass="icon-left-arrow" />}
-          />
-          <Button
-            {...args}
-            extraClass={`${args.extraClass}-full`}
-            text="With Badge"
-            iconLeft={<Icon iconClass="icon-left-arrow" />}
-            badge={<Badge text="2" size="xs" />}
-          />
-        </ButtonGrid>
+const Template = args => {
+  const [isLoading, setIsLoading] = useState(false);
 
-        <ButtonGrid>
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
-          <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
-        </ButtonGrid>
-      </>
-    )}
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
 
-    <ButtonGrid>
-      <Button {...args} text="Enabled" />
-      <Button {...args} text="Disabled" disabled />
-      <Button {...args} text="Left Icon" iconLeft={<Icon iconClass="icon-left-arrow" />} />
-      <Button
-        {...args}
-        text="2 Icons"
-        iconLeft={<Icon iconClass="icon-left-arrow" />}
-        iconRight={<Icon iconClass="icon-chevron-down" />}
-      />
-      <Button {...args} text="Right Icon" iconRight={<Icon iconClass="icon-right-arrow" />} />
-      <Button {...args} type="icon" icon={<Icon iconClass="icon-left-arrow" />} />
-      <Button
-        {...args}
-        text="With Badge"
-        iconLeft={<Icon iconClass="icon-left-arrow" />}
-        badge={<Badge text="2" size="xs" />}
-      />
-    </ButtonGrid>
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isLoading]);
 
-    <ButtonGrid>
-      <Button {...args} text="Size XL" size="xl" />
-      <Button {...args} text="Size LG" size="lg" />
-      <Button {...args} text="Size MD" size="md" />
-      <Button {...args} text="Size SM" size="sm" />
-    </ButtonGrid>
-  </>
-);
+  return (
+    <>
+      {!extraClassesWithoutFull.includes(args.extraClass) && (
+        <>
+          <ButtonGrid>
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
+            <Button
+              {...args}
+              extraClass={`${args.extraClass}-full`}
+              text="With loading"
+              withLoading={true}
+              isLoading={isLoading}
+              onClick={() => setIsLoading(true)}
+            />
+            <Button
+              {...args}
+              extraClass={`${args.extraClass}-full`}
+              text="Left Icon"
+              iconLeft={<Icon name="ArrowLeft" />}
+            />
+            <Button
+              {...args}
+              extraClass={`${args.extraClass}-full`}
+              text="2 Icons"
+              iconLeft={<Icon name="ArrowLeft" />}
+              iconRight={<Icon name="ChevronDown" />}
+            />
+            <Button
+              {...args}
+              extraClass={`${args.extraClass}-full`}
+              text="Right Icon"
+              iconRight={<Icon name="ArrowRight" />}
+            />
+            <Button
+              {...args}
+              type="icon"
+              extraClass={`${args.extraClass}-full`}
+              icon={<Icon name="ArrowLeft" />}
+            />
+            <Button
+              {...args}
+              extraClass={`${args.extraClass}-full`}
+              text="With Badge"
+              iconLeft={<Icon name="ArrowLeft" />}
+              badge={<Badge text="2" size="xs" />}
+            />
+          </ButtonGrid>
+
+          <ButtonGrid>
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
+            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
+          </ButtonGrid>
+        </>
+      )}
+
+      <ButtonGrid>
+        <Button {...args} text="Enabled" />
+        <Button {...args} text="Disabled" disabled />
+        <Button
+          {...args}
+          text="With loading"
+          withLoading={true}
+          isLoading={isLoading}
+          onClick={() => setIsLoading(true)}
+        />
+        <Button {...args} text="Left Icon" iconLeft={<Icon name="ArrowLeft" />} />
+        <Button
+          {...args}
+          text="2 Icons"
+          iconLeft={<Icon name="ArrowLeft" />}
+          iconRight={<Icon name="ChevronDown" />}
+        />
+        <Button {...args} text="Right Icon" iconRight={<Icon name="ArrowRight" />} />
+        <Button {...args} type="icon" icon={<Icon name="ArrowLeft" />} />
+        <Button
+          {...args}
+          text="With Badge"
+          iconLeft={<Icon name="ArrowLeft" />}
+          badge={<Badge text="2" size="xs" />}
+        />
+      </ButtonGrid>
+
+      <ButtonGrid>
+        <Button {...args} text="Size XL" size="xl" />
+        <Button {...args} text="Size LG" size="lg" />
+        <Button {...args} text="Size MD" size="md" />
+        <Button {...args} text="Size SM" size="sm" />
+      </ButtonGrid>
+    </>
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -13,32 +13,34 @@ export default {
 
 const Template: Story<Props> = (args: Props) => {
   const [isActiveFeed, setIsActiveFeed] = useState(false);
-  const [isActiveAuction, setIsActiveAuction] = useState(false);
-  const [isActiveCrowdfunding, setIsActiveCrowdfunding] = useState(false);
+  const [isActiveAccelerator, setIsActiveAccelerator] = useState(false);
+  const [isActiveNeeds, setIsActiveNeeds] = useState(false);
   const [isActiveDocuments, setIsActiveDocuments] = useState(false);
   const [isActiveSurvey, setIsActiveSurvey] = useState(false);
-  const [isActiveProjects, setIsActiveProjects] = useState(false);
 
+  const [isActiveConfig, setIsActiveConfig] = useState(false);
   const [isActiveAccount, setIsActiveAccount] = useState(false);
   const [isActivePreferences, setIsActivePreferences] = useState(false);
+  const [isActiveSecurity, setIsActiveSecurity] = useState(false);
   const [isActiveBilling, setIsActiveBilling] = useState(false);
 
   const clickOption = (state, setState) => {
     setIsActiveFeed(false);
-    setIsActiveAuction(false);
-    setIsActiveCrowdfunding(false);
+    setIsActiveAccelerator(false);
+    setIsActiveNeeds(false);
     setIsActiveDocuments(false);
     setIsActiveSurvey(false);
-    setIsActiveProjects(false);
+    setIsActiveConfig(false);
     setIsActiveAccount(false);
     setIsActivePreferences(false);
+    setIsActiveSecurity(false);
     setIsActiveBilling(false);
     setState(state);
   };
 
   const mainMenu = [
     {
-      icon: 'icon-check-circle',
+      icon: 'Feed',
       text: 'Social Feed',
       showNotificationsIcon: true,
       disabled: false,
@@ -47,25 +49,25 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveFeed, setIsActiveFeed),
     },
     {
-      icon: 'icon-check-circle',
-      text: 'Auctions',
+      icon: 'Accelerator',
+      text: 'Accelerator',
       showNotificationsIcon: false,
       disabled: false,
-      isActive: isActiveAuction,
+      isActive: isActiveAccelerator,
       isVisible: true,
-      onClick: () => clickOption(!isActiveAuction, setIsActiveAuction),
+      onClick: () => clickOption(!isActiveAccelerator, setIsActiveAccelerator),
     },
     {
-      icon: 'icon-check-circle',
-      text: 'Crowdfunding',
+      icon: 'Needs',
+      text: 'Needs',
       showNotificationsIcon: false,
       disabled: false,
-      isActive: isActiveCrowdfunding,
+      isActive: isActiveNeeds,
       isVisible: true,
-      onClick: () => clickOption(!isActiveCrowdfunding, setIsActiveCrowdfunding),
+      onClick: () => clickOption(!isActiveNeeds, setIsActiveNeeds),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'FileText',
       text: 'Documents',
       showNotificationsIcon: false,
       disabled: false,
@@ -74,7 +76,7 @@ const Template: Story<Props> = (args: Props) => {
       onClick: () => clickOption(!isActiveDocuments, setIsActiveDocuments),
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'Surveys',
       text: 'Survey',
       showNotificationsIcon: false,
       disabled: false,
@@ -82,20 +84,11 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
       onClick: () => clickOption(!isActiveSurvey, setIsActiveSurvey),
     },
-    {
-      icon: 'icon-check-circle',
-      text: 'Projects',
-      showNotificationsIcon: false,
-      disabled: false,
-      isActive: isActiveProjects,
-      isVisible: true,
-      onClick: () => clickOption(!isActiveProjects, setIsActiveProjects),
-    },
   ];
 
   const bottomMenu = [
     {
-      icon: 'icon-check-circle',
+      icon: 'Activity',
       text: 'Activity',
       href: '#',
       showNotificationsIcon: true,
@@ -104,7 +97,7 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
     },
     {
-      icon: 'icon-check-circle',
+      icon: 'Settings',
       text: 'Settings',
       href: '#',
       showNotificationsIcon: false,
@@ -113,8 +106,18 @@ const Template: Story<Props> = (args: Props) => {
       isVisible: true,
       submenu: [
         {
-          icon: 'icon-check-circle',
-          text: 'Account',
+          icon: 'WebsiteConfigurator',
+          text: 'Site configuration',
+          showNotificationsIcon: true,
+          disabled: false,
+          isActive: isActiveConfig,
+          isVisible: true,
+          onClick: () => clickOption(!isActiveConfig, setIsActiveConfig),
+        },
+        { separator: true },
+        {
+          icon: 'UserAccountSeetings',
+          text: 'Account settings',
           showNotificationsIcon: true,
           disabled: false,
           isActive: isActiveAccount,
@@ -122,7 +125,7 @@ const Template: Story<Props> = (args: Props) => {
           onClick: () => clickOption(!isActiveAccount, setIsActiveAccount),
         },
         {
-          icon: 'icon-check-circle',
+          icon: 'Preferences',
           text: 'Preferences',
           showNotificationsIcon: false,
           disabled: false,
@@ -130,10 +133,18 @@ const Template: Story<Props> = (args: Props) => {
           isVisible: true,
           onClick: () => clickOption(!isActivePreferences, setIsActivePreferences),
         },
-        { separator: true },
         {
-          icon: 'icon-check-circle',
-          text: 'Billing',
+          icon: 'Security',
+          text: 'Privacy & Security',
+          showNotificationsIcon: false,
+          disabled: false,
+          isActive: isActiveSecurity,
+          isVisible: true,
+          onClick: () => clickOption(!isActiveSecurity, setIsActiveSecurity),
+        },
+        {
+          icon: 'CreditCard',
+          text: 'Billing information',
           showNotificationsIcon: false,
           disabled: false,
           isActive: isActiveBilling,

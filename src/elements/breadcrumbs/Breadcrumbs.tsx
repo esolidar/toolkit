@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
+import Icon from '../icon';
 import Props from './Breadcrumbs.types';
 
-const Breadcrumbs: FC<Props> = ({ breadcrumbs }: Props): JSX.Element => {
+const Breadcrumbs: FC<Props> = ({ breadcrumbs, style }: Props): JSX.Element => {
   return (
-    <div className="esolidar-breadcrumbs">
+    <div className="esolidar-breadcrumbs" style={style}>
       {breadcrumbs.map((item, i) => (
-        <div key={item.title} className="esolidar-breadcrumbs__item">
+        <React.Fragment key={item.title}>
           <button
             type="button"
             onClick={item.handleClick}
@@ -17,7 +18,8 @@ const Breadcrumbs: FC<Props> = ({ breadcrumbs }: Props): JSX.Element => {
           >
             {item.title}
           </button>
-        </div>
+          {breadcrumbs.length !== i + 1 && <Icon name="Dot" />}
+        </React.Fragment>
       ))}
     </div>
   );

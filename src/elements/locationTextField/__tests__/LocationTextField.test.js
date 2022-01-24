@@ -65,9 +65,9 @@ describe('LocationTextField component', () => {
     );
 
     expect(component.find('[dataTestId="input-left-icon"]').length).toBe(1);
-    expect(component.find('[iconClass="icon left icon-search"]').length).toBe(1);
+    expect(component.find('.icon-left').length).toBe(1);
 
     expect(component.find('[dataTestId="input-right-icon"]').length).toBe(1);
-    expect(component.find('[iconClass="icon right icon-x"]').length).toBe(1);
+    expect(component.find('.icon-left').length).toBe(1);
   });
 });

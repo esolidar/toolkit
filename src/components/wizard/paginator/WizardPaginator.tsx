@@ -1,14 +1,9 @@
 import React, { FC } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import Props from './WizardPaginator.types';
+import Icon from '../../../elements/icon';
 
-const WizardPaginator: FC<Props> = ({
-  pages,
-  cdnStaticUrl,
-  handleChangeTab,
-}: Props): JSX.Element => {
-  const intl = useIntl();
-
+const WizardPaginator: FC<Props> = ({ pages, handleChangeTab }: Props): JSX.Element => {
   const currentPageLabel = (page): string => {
     let text: string = 'paginator.not-done-yet';
 
@@ -36,12 +31,7 @@ const WizardPaginator: FC<Props> = ({
               <span className="page-title">{page.title}</span>
             </div>
             <div className="wizard__paginator__item__subtitle">
-              {page.status === 'done' && !page.active && (
-                <img
-                  src={`${cdnStaticUrl}/frontend/icons/ic-page-done.svg`}
-                  alt={intl.formatMessage({ id: currentPageLabel(page) })}
-                />
-              )}
+              {page.status === 'done' && !page.active && <Icon name="Check" size="sm" />}
               <FormattedMessage id={currentPageLabel(page)} />
             </div>
           </div>

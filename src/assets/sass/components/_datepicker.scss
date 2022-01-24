@@ -13,12 +13,12 @@
   }
 
   .icon {
-    z-index: 9;
+    z-index: 1;
   }
 
   .with-icon {
     .form-control {
-      padding-left: $distance-4;
+      padding-left: $distance-5;
     }
   }
 
@@ -53,19 +53,31 @@
     margin-top: 5px;
   }
 
+  .left-icon {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    left: $distance-2;
+    width: 16px;
+  }
+
   .react-datepicker {
-    box-shadow: map-get($elevation, 100);
+    box-shadow: map-get($elevation, 50);
     font-family: map-get($fonts, main);
     font-size: 0.8rem;
     background-color: #ffffff;
     color: #000000;
     border: 1px solid map-get($neutrals, 200);
-    border-radius: $border-radius-1;
+    border-radius: $border-radius-2;
     display: inline-block;
     position: relative;
     padding-left: 16px;
     padding-right: 16px;
     overflow: hidden;
+
+    &-popper {
+      z-index: 1;
+    }
 
     &__triangle {
       display: none;
@@ -80,43 +92,8 @@
       text-transform: capitalize;
     }
 
-    &__month {
-      margin: 0;
-      margin-top: $distance-1;
-      padding-bottom: 16px;
-    }
-
     &__time-container {
       border-left: 1px solid map-get($neutrals, 200);
-    }
-
-    &__navigation--previous {
-      left: auto;
-      right: 50px;
-      top: 20px;
-      background: url('#{$cdn-static-url}/frontend/icons/ic-prev-arrow.svg') 50% 50% no-repeat;
-      border: none;
-      width: 22px;
-      height: 22px;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
-    }
-
-    &__navigation--next {
-      right: 25px;
-      top: 20px;
-      border: none;
-      width: 22px;
-      height: 22px;
-      background: url('#{$cdn-static-url}/frontend/icons/ic-next-arrow.svg') 50% 50% no-repeat;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
     }
 
     &__navigation--next--with-time:not(.react-datepicker__navigation--previous--with-today-button),
@@ -132,6 +109,11 @@
       line-height: 32px;
     }
 
+    &__month {
+      margin: 0;
+      margin-bottom: 16px;
+    }
+
     &__day {
       width: 40px;
       height: 40px;
@@ -139,15 +121,39 @@
       font-size: 16px;
       margin: 0;
 
+      &--today {
+        font-weight: 600;
+        background-color: map-get($background, secondary);
+        border-radius: $border-radius-1 !important;
+
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
       &:hover {
-        border-radius: $border-radius-1;
+        background-color: get-rgba(map-get($turquoise, 300));
+        color: map-get($turquoise, 500);
+      }
+
+      &--outside-month {
+        color: map-get($neutrals, 400);
+      }
+
+      &--disabled {
+        color: map-get($neutrals, 400);
+
+        &:hover {
+          color: map-get($neutrals, 400);
+          background-color: map-get($base, white);
+        }
       }
     }
 
     &__day--in-selecting-range {
       background-color: map-get($turquoise, 0);
       color: map-get($turquoise, 500);
-      border-radius: 8px;
+      border-radius: $border-radius-1;
     }
 
     &__day-names {
@@ -182,14 +188,174 @@
       }
     }
 
-    &__day--in-range {
-      background-color: map-get($turquoise, 300);
-      color: white;
-      border-radius: 8px;
+    &__day {
+      &--in-range {
+        background-color: get-rgba(map-get($turquoise, 300)) !important;
+        color: map-get($turquoise, 500);
+        border-radius: 0px;
+
+        &:first-child {
+          border-radius: $border-radius-1 0 0 $border-radius-1;
+        }
+
+        &:last-child {
+          border-radius: 0 $border-radius-1 $border-radius-1 0;
+        }
+      }
+      &--range-start {
+        background-color: map-get($turquoise, 500) !important;
+        border-radius: $border-radius-1 !important;
+        color: map-get($base, white) !important;
+        position: relative;
+        transform-style: preserve-3d;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: get-rgba(map-get($turquoise, 300));
+          transform: translateZ(-1px);
+          border-radius: $border-radius-1 0 0 $border-radius-1;
+        }
+
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
+      &--range-end {
+        background-color: map-get($turquoise, 500) !important;
+        border-radius: $border-radius-1 !important;
+        color: map-get($base, white);
+        transform-style: preserve-3d;
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: get-rgba(map-get($turquoise, 300));
+          transform: translateZ(-1px);
+          border-radius: 0 $border-radius-1 $border-radius-1 0;
+        }
+
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
+
+      &--selected {
+        &:hover {
+          color: map-get($base, white);
+        }
+      }
     }
 
     &__time-list-item--selected {
-      background-color: map-get($turquoise, 500);
+      background-color: map-get($turquoise, 500) !important;
+    }
+
+    &__highlighted {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        background-color: map-get($turquoise, 300);
+        width: 5px;
+        height: 5px;
+        border-radius: 3px;
+        left: 18px;
+        z-index: 9;
+      }
+    }
+
+    &__custom-header {
+      display: flex;
+      justify-content: space-between;
+      padding: $distance-2 0;
+
+      &-month {
+        border: none;
+        background-color: map-get($base, white);
+        font-size: 24px;
+        line-height: 32px;
+        text-transform: capitalize;
+        font-weight: 700;
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      button.react-datepicker__custom-header-month {
+        padding: 0;
+        &:hover {
+          color: map-get($turquoise, 500);
+        }
+      }
+
+      &-buttons {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__container-months {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: map-get($base, white);
+      right: 0;
+      height: 330px;
+      z-index: 10;
+
+      &-view-header {
+        display: flex;
+        justify-content: space-between;
+        padding: $distance-2 0;
+        align-items: center;
+      }
+
+      &-list {
+        align-items: center;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: $distance-1 / 2;
+
+        &-option {
+          border: none;
+          display: flex;
+          font-size: 16px;
+          align-items: center;
+          justify-content: center;
+          padding: 24px 0;
+          background: map-get($base, white);
+          border-radius: $distance-1;
+
+          &:focus,
+          &:focus-visible {
+            outline: none;
+          }
+
+          &:hover {
+            background-color: get-rgba(map-get($turquoise, 300));
+            color: map-get($turquoise, 500);
+          }
+
+          &.active {
+            background-color: map-get($turquoise, 500);
+            color: map-get($base, white);
+          }
+        }
+      }
     }
   }
 

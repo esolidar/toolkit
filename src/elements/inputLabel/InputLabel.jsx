@@ -2,31 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Tooltip from '../tooltip';
 
 const InputLabel = ({
   field,
   label,
   showOptionalLabel,
-  cssClass = '',
+  className = '',
   style,
   help,
   fontWeight = 600,
   required = false,
   requiredText,
+  size = 'lg',
 }) => {
   const cssStyle = { ...style, fontWeight };
 
   return (
-    <>
-      <label
-        htmlFor={field}
-        className={classnames('control-label', 'd-flex', cssClass)}
-        style={cssStyle}
-      >
-        {label}
-        &nbsp;
+    <div className="input-label-component">
+      <div className={classnames('input-label-component__label', `size-${size}`, className)}>
+        <label htmlFor={field} className="control-label" style={cssStyle}>
+          {label}
+        </label>
         {showOptionalLabel && (
           <span className="label-optional">
             (<FormattedMessage id="optional" />)
@@ -34,15 +32,14 @@ const InputLabel = ({
         )}
         {required && (
           <Tooltip
-            bodyChildClassName="ml-auto"
-            tooltipBodyChild={<Icon iconClass="icon-httpslock" />}
+            tooltipBodyChild={<Icon name="LockBold" size="sm" />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />
         )}
-      </label>
-      {help && <p className="help">{help}</p>}
-    </>
+      </div>
+      {help && <p className={classnames('help', `size-${size}`)}>{help}</p>}
+    </div>
   );
 };
 
@@ -50,12 +47,13 @@ InputLabel.propTypes = {
   field: PropTypes.string,
   label: PropTypes.string.isRequired,
   showOptionalLabel: PropTypes.bool,
-  cssClass: PropTypes.string,
+  className: PropTypes.string,
   style: PropTypes.object,
   help: PropTypes.string,
   fontWeight: PropTypes.number,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
+  size: PropTypes.string,
 };
 
 export default InputLabel;
