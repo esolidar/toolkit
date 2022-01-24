@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+
 import timezoneMock from 'timezone-mock';
 import {
   convertToUtcFromLocalTimezone,
@@ -11,6 +12,13 @@ const mockDateInTimezone = (date, timezone) => {
   timezoneMock.register(timezone);
   return new Date(date);
 };
+
+const moment = require('moment-timezone');
+
+jest.doMock('moment', () => {
+  moment.tz.setDefault('Europe/Lisbon');
+  return moment;
+});
 
 test('convertToUtcFromLocalTimezone function winter time', () => {
   expect(convertToUtcFromLocalTimezone('2022-01-14 00:00:00')).toEqual(
