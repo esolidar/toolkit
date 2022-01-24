@@ -13,25 +13,21 @@ const mockDateInTimezone = (date, timezone) => {
   return new Date(date);
 };
 
-const moment = require('moment-timezone');
-
-jest.doMock('moment', () => {
-  moment.tz.setDefault('Europe/Lisbon');
-  return moment;
-});
-
 test('convertToUtcFromLocalTimezone function winter time', () => {
   expect(convertToUtcFromLocalTimezone('2022-01-14 00:00:00')).toEqual(
     new Date('2022-01-14 00:00:00')
   );
 
-  expect(convertToUtcFromLocalTimezone('2022-01-14 00:00:00', 'YYYY-MM-DD HH:mm:ss')).toEqual(
-    '2022-01-14 00:00:00'
-  );
+  expect(
+    convertToUtcFromLocalTimezone(
+      mockDateInTimezone('2022-01-14 00:00:00', 'Europe/London'),
+      'YYYY-MM-DD HH:mm:ss'
+    )
+  ).toEqual('2022-01-14 00:00:00');
 
-  expect(convertToUtcFromLocalTimezone('2022-01-14 00:00:00', 'LLL')).toEqual(
-    'January 14, 2022 12:00 AM'
-  );
+  expect(
+    convertToUtcFromLocalTimezone(mockDateInTimezone('2022-01-14 00:00:00', 'Europe/London'), 'LLL')
+  ).toEqual('January 14, 2022 12:00 AM');
 });
 
 test('convertToUtcFromLocalTimezone function summer time', () => {
