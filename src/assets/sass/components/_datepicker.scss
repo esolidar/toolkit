@@ -186,6 +186,9 @@
       &:focus-visible {
         border: none;
       }
+      &:hover {
+        color: map-get($base, white);
+      }
     }
 
     &__day {
