@@ -92,7 +92,7 @@
     flex-direction: column;
     height: 100%;
     position: relative;
-    overflow-y: auto;
+    overflow-y: overlay;
     overflow-x: hidden;
     padding: 0px $distance-3 0px $distance-3;
 
@@ -168,7 +168,7 @@
       justify-content: flex-end;
 
       &--logo {
-        min-width: 80px;
+        min-width: 70px;
       }
     }
     .sidebarNavigation__mainMenu {
