@@ -40,6 +40,8 @@
     &--active {
       background-color: get-rgba(map-get($turquoise, 500));
       color: map-get($theme-colors, primary);
+
+      @include svg-change-color(map-get($theme-colors, primary));
     }
 
     &:disabled,
@@ -83,6 +85,7 @@
       position: relative;
       max-width: 80%;
       height: 100%;
+      font-weight: 600;
     }
   }
 
