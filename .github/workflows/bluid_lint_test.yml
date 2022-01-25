@@ -32,10 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: install
     steps:
-      - name: Setup timezone
-        uses: zcong1993/setup-timezone@master
-        with:
-          timezone: Europe/Lisbon
       - uses: actions/cache@v2
         id: restore-build
         with:
@@ -48,6 +44,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: install
     steps:
+      - name: Setup timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: Europe/Lisbon
       - uses: actions/cache@v2
         id: restore-build
         with:
