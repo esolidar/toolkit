@@ -115,7 +115,6 @@ Close.args = {
   showWizard: false,
   closeWizard: () => {},
   title: 'A title',
-  subtitle: 'Volunteering',
   status: 'draft',
   buttonDarkText: 'Save & Close',
   buttonPrimaryText: 'Publish',

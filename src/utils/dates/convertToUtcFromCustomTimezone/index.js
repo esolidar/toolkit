@@ -1,1 +1,1 @@
-export { default } from './convertFromUtcToCustomTimezone';
+export { default } from './convertToUtcFromCustomTimezone';
