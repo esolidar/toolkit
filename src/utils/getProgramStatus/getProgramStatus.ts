@@ -1,4 +1,4 @@
-import { convertFromUtcToCustomTimezone } from '../convertDates';
+import { convertFromUtcToCustomTimezone } from '../convertDates/convertDates';
 
 interface Args {
   startAt: string;
