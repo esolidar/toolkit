@@ -373,8 +373,8 @@ describe('ProjectDetailThumb component', () => {
       />
     );
 
-    expect(component.find('Button').length).toBe(1);
-    expect(component.find('Button').props().id).toBe('request-info-btn');
+    expect(component.find('ForwardRef').length).toBe(1);
+    expect(component.find('ForwardRef').props().id).toBe('request-info-btn');
   });
 
   it('should not show request info button if status !== IN_REVIEW', () => {

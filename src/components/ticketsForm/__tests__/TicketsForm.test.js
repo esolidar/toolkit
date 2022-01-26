@@ -30,7 +30,7 @@ describe('TicketsForm component', () => {
     const component = shallow(<TicketsForm {...props} showAddFilesButtton={true} />);
 
     expect(
-      component.find('Button').findWhere(n => n.prop('extraClass') === 'dark-full float-left')
+      component.find('ForwardRef').findWhere(n => n.prop('extraClass') === 'dark-full float-left')
     ).toHaveLength(1);
   });
 
