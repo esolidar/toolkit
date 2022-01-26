@@ -27,6 +27,11 @@ Default.args = {
       active: false,
     },
     {
+      title: 'Location & Time ',
+      status: 'not-done',
+      active: true,
+    },
+    {
       title: 'Categories ',
       status: 'not-done',
       active: true,

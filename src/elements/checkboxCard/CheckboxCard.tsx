@@ -7,10 +7,10 @@ import Icon from '../icon';
 const CheckboxCard: FC<Props> = ({
   disabled = false,
   id,
-  img,
   disabledHover = false,
-  disabledImg = img,
-  chechedImg = img,
+  defaultImg,
+  disabledImg = defaultImg,
+  checkedImg = defaultImg,
   isChecked,
   name,
   onChange,
@@ -31,7 +31,7 @@ const CheckboxCard: FC<Props> = ({
     if (onChange) onChange(!isChecked);
   };
 
-  const imageAA = isChecked ? chechedImg : img;
+  const imageAA = isChecked ? checkedImg : defaultImg;
 
   const image = {
     src: disabled ? disabledImg : imageAA,

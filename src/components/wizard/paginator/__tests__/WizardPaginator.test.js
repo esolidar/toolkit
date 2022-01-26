@@ -10,5 +10,5 @@ it('renders WizardPaginator default component', () => {
   const { getByClass, queryAllByClass } = render(<Default />);
 
   expect(getByClass('wizard__paginator')).toBeTruthy();
-  expect(queryAllByClass(/wizard__paginator__item /)).toHaveLength(4);
+  expect(queryAllByClass(/wizard__paginator__item /)).toHaveLength(5);
 });
