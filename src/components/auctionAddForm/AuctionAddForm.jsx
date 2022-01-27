@@ -659,7 +659,7 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="title"
-                      maxLength="255"
+                      maxLength="75"
                       autofocus={true}
                     />
                   </Col>
@@ -904,6 +904,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.payment.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                   <Col sm={12}>
@@ -919,6 +920,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.shipping.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                 </Row>
