@@ -7,20 +7,22 @@
 
     & .icon {
       position: absolute;
-      top: 0.2rem;
-      width: 2rem;
-      height: 2rem;
+      top: 0;
+      bottom: 0;
+
       display: flex;
       justify-content: center;
       align-items: center;
       color: map-get($theme-colors, dark);
 
       &.left {
-        left: 0.2rem;
+        left: 0;
+        padding-left: 16px;
       }
 
       &.right {
-        right: 0.2rem;
+        right: 0;
+        padding-right: 16px;
       }
     }
 
