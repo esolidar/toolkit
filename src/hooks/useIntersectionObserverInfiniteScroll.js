@@ -15,7 +15,10 @@ const useIntersectionObserverInfiniteScroll = ({
   const lastPageWithLoadButton = useRef(1);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled) {
+      if (showLoadButton) setShowLoadButton(false);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       entries => entries.forEach(entry => entry.isIntersecting && onIntersect()),
