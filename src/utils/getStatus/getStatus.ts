@@ -1,6 +1,6 @@
 import { PROJECT, CROWDFUNDING } from '../../constants/status';
 
-export const getStatus = (st: string, formatMessage) => {
+export const getStatus = (st: string, formatMessage): any => {
   switch (st) {
     case PROJECT.draft:
       return formatMessage({ id: 'toolkit.status.draft' });

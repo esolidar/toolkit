@@ -8,9 +8,13 @@ interface Status {
   completed?: string;
   rejected?: string;
   suspended?: string;
+  soon?: string;
+  running?: string;
+  closed?: string;
+  ended?: string;
 }
 
-export const STATUS: Status = {
+export const API_STATUS: Status = {
   draft: 'draft',
   active: 'active',
   pending: 'pending',
@@ -20,23 +24,35 @@ export const STATUS: Status = {
   completed: 'completed',
   rejected: 'rejected',
   suspended: 'suspended',
+  soon: 'soon',
+  running: 'running',
+  closed: 'closed',
+  ended: 'ended',
+};
+
+export const ACCELERATION_PROGRAM: Status = {
+  [API_STATUS.soon]: 'soon',
+  [API_STATUS.running]: 'running',
+  [API_STATUS.closed]: 'closed',
+  [API_STATUS.ended]: 'ended',
 };
 
 export const PROJECT: Status = {
-  [STATUS.draft]: 'DRAFT',
-  [STATUS.pending]: 'PENDING',
-  [STATUS.reviewed]: 'REVIEWED',
-  [STATUS.inReview]: 'IN_REVIEW',
-  [STATUS.approved]: 'APPROVED',
-  [STATUS.completed]: 'COMPLETED',
-  [STATUS.rejected]: 'REJECTED',
+  [API_STATUS.draft]: 'DRAFT',
+  [API_STATUS.pending]: 'PENDING',
+  [API_STATUS.reviewed]: 'REVIEWED',
+  [API_STATUS.inReview]: 'IN_REVIEW',
+  [API_STATUS.approved]: 'APPROVED',
+  [API_STATUS.completed]: 'COMPLETED',
+  [API_STATUS.rejected]: 'REJECTED',
 };
 
 export const AUCTION: Status = {
   // ENUM('A', 'S', 'B', 'P', 'F', 'D', 'DRAFT')
-  [STATUS.draft]: 'DRAFT',
+  [API_STATUS.draft]: 'DRAFT',
 };
+
 export const CROWDFUNDING: Status = {
   // ENUM('pending', 'approved', 'rejected', 'completed')
-  [STATUS.pending]: 'pending',
+  [API_STATUS.pending]: 'pending',
 };
