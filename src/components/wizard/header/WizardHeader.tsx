@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
+import isDefined from '../../../utils/isDefined';
+import cursorFocus from '../../../utils/cursorFocus';
 
 const WizardHeader: FC<Props> = ({
   closeWizard,
@@ -24,6 +26,13 @@ const WizardHeader: FC<Props> = ({
 }: Props): JSX.Element => {
   const intl = useIntl();
 
+  useEffect(() => {
+    if (editMode && title === '') {
+      const element = document.getElementById('wizard-header-title-input');
+      if (isDefined(element)) cursorFocus(element, 0);
+    }
+  }, []);
+
   return (
     <div className="wizard__header">
       <div className="wizard__header__image">
@@ -42,13 +51,14 @@ const WizardHeader: FC<Props> = ({
           <h1>
             {editMode && (
               <input
+                id="wizard-header-title-input"
                 type="text"
                 onChange={handleChangeTitle}
                 value={title}
                 onBlur={handleBlurTitle}
                 placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
                 maxLength={32}
-                style={{ minWidth: '170px', width: `${title.length * 12 + 15}px` }}
+                style={{ width: '100%', maxWidth: '502px' }}
               />
             )}
             {!editMode && <>{title}</>}
@@ -65,7 +75,6 @@ const WizardHeader: FC<Props> = ({
         )}
         <Button
           extraClass="dark"
-          className="btn-save-close"
           onClick={handleDarkButton}
           text={buttonDarkText}
           disabled={disabledDarkButton}
