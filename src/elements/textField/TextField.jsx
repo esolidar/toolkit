@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import InputLabel from '../inputLabel';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 
 const TextField = ({
   field,
@@ -56,12 +56,15 @@ const TextField = ({
     {!children && (
       <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
-          <Icon
-            iconClass={`icon left ${leftIcon?.name}`}
-            onClick={leftIcon?.onClick}
-            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-left-icon"
-          />
+          <div className="icon left">
+            <Icon
+              name={leftIcon?.name}
+              size="sm"
+              onClick={leftIcon?.onClick}
+              style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+              dataTestId="input-left-icon"
+            />
+          </div>
         )}
         <input
           data-testid={dataTestId}
@@ -81,17 +84,20 @@ const TextField = ({
           className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
           style={{
-            paddingLeft: leftIcon?.show ? '36px' : '12px',
-            paddingRight: rightIcon?.show ? '36px' : '12px',
+            paddingLeft: leftIcon?.show ? '40px' : '12px',
+            paddingRight: rightIcon?.show ? '40px' : '12px',
           }}
         />
         {rightIcon?.show && (
-          <Icon
-            iconClass={`icon right ${rightIcon?.name}`}
-            onClick={rightIcon?.onClick}
-            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-right-icon"
-          />
+          <div className="icon right">
+            <Icon
+              name={rightIcon?.name}
+              size="sm"
+              onClick={rightIcon?.onClick}
+              style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+              dataTestId="input-right-icon"
+            />
+          </div>
         )}
       </div>
     )}

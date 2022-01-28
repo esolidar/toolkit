@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormattedNumber } from 'react-intl';
 import isDefined from '../isDefined/isDefined';
 
@@ -11,7 +10,7 @@ const convertToMyCurrency = (value, currency) => {
       : currency;
 
   if (myCurrency.id !== currency.id) {
-    convertedValue = (value * currency.value) / myCurrency.value;
+    convertedValue = (value * Number(currency.value)) / myCurrency.value;
   }
 
   return <FormattedNumber value={convertedValue} style="currency" currency={myCurrency.small} />;
