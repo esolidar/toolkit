@@ -129,6 +129,7 @@
       font-size: 16px;
       line-height: 24px;
       color: map-get($neutrals, 700);
+      width: max-content;
 
       img {
         margin-left: $distance-2;
