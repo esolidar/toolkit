@@ -13,18 +13,30 @@ export default {
 };
 
 const Template = args => (
-  <div style={{ height: '200px' }}>
+  <div style={{ height: '400px' }}>
     <Loading {...args} />
   </div>
 );
 
 export const Default = Template.bind({});
+export const Message = Template.bind({});
 
 Default.parameters = {
   jest: ['Loading.test.js'],
 };
+
 Default.args = {
   loadingClass: '',
-  message: 'Lorem Ipsum',
+  curtain: false,
+};
+
+Message.args = {
+  loadingClass: '',
+  message: (
+    <>
+      <h2>Searching...</h2>
+      <p>Please wait while we are searching for &apos;term&apos; projects</p>
+    </>
+  ),
   curtain: false,
 };
