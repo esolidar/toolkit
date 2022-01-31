@@ -1,6 +1,6 @@
 interface Props {
   name: string;
-  size?: 'sm' | 'xs' | 'md';
+  size?: 'sm' | 'xs' | 'md' | 'lg';
   color?: string;
   className?: string;
   dataTestId?: string;

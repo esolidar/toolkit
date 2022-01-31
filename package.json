@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.79.2",
+  "version": "4.80.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -14,7 +14,7 @@
     "build:publish": "rollup -c ./rollup.config.prod.js && npm publish",
     "build-storybook": "build-storybook",
     "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'",
-    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values #6C7679={props.color}"
+    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values '#6C7679={props.color}'"
   },
   "husky": {
     "hooks": {

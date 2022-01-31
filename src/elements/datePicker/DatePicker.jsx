@@ -104,12 +104,7 @@ const DatePicker = ({
         )}
       >
         {leftIcon?.show && (
-          <Icon
-            className="left-icon"
-            name={leftIcon?.name}
-            onClick={leftIcon?.onClick}
-            dataTestId="input-left-icon"
-          />
+          <Icon {...leftIcon} className="left-icon" dataTestId="input-left-icon" />
         )}
         <DatePick
           locale={locale}

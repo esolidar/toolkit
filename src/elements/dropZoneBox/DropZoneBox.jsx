@@ -9,7 +9,7 @@ import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
 import Preview from '../../components/preview';
 import Slider from '../slider';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import CustomModal from '../customModal';
 import Button from '../button';
 import Tooltip from '../tooltip';
@@ -237,7 +237,7 @@ const DropZoneBox = ({
               <>
                 {icon && (
                   <div className="drop-icon">
-                    <Icon iconClass={icon} />
+                    <Icon name={icon} size="lg" />
                   </div>
                 )}
                 <div>
@@ -372,7 +372,7 @@ const DropZoneBox = ({
                           onClick={() => {
                             cropper.current.rotate(90);
                           }}
-                          icon={<Icon iconClass="icon-corner-up-left" />}
+                          icon={<Icon name="RotateCcw" size="sm" />}
                         />
                       }
                     />
@@ -392,7 +392,7 @@ const DropZoneBox = ({
                           onClick={() => {
                             cropper.current.rotate(-90);
                           }}
-                          icon={<Icon iconClass="icon-corner-up-right" />}
+                          icon={<Icon name="RotateCw" size="sm" />}
                         />
                       }
                     />
