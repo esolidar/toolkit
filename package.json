@@ -14,7 +14,7 @@
     "build:publish": "rollup -c ./rollup.config.prod.js && npm publish",
     "build-storybook": "build-storybook",
     "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'",
-    "svgr": "svgr -d ./src/assets/icons/ ./src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values '#6C7679={props.color}'"
+    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values '#6C7679={props.color}'"
   },
   "husky": {
     "hooks": {
