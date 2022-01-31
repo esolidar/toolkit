@@ -63,7 +63,7 @@ DateOnly.args = {
   errors: '',
   showTimeSelect: false,
   dateFormat: 'yyyy',
-  leftIcon: { name: 'Calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true, size: 'sm' },
   highlightDates: highlightWithRanges,
   minDate: new Date('2022-01-05 00:00:00'),
 };
@@ -78,7 +78,7 @@ InputOnly.args = {
   className: 'form-control',
   errors: '',
   showTimeSelect: false,
-  leftIcon: { name: 'Calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true, size: 'sm' },
   dateFormat: 'dd-MM-yyyy',
 };
 
@@ -91,7 +91,7 @@ WithError.args = {
   onChange: () => {},
   className: 'form-control',
   showTimeSelect: false,
-  leftIcon: { name: 'Calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true, size: 'sm' },
   dateFormat: 'dd-MM-yyyy',
   errors: 'Invalid date',
 };
@@ -106,6 +106,6 @@ Disabled.args = {
   onChange: () => {},
   className: 'form-control',
   showTimeSelect: false,
-  leftIcon: { name: 'Calendar', show: true },
+  leftIcon: { name: 'Calendar', show: true, size: 'sm' },
   dateFormat: 'dd-MM-yyyy',
 };

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Slider from 'rc-slider';
 import Props from './Slider.types';
 import Button from '../button';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import 'rc-slider/assets/index.css';
 
 const SliderComponent: FC<Props> = ({
@@ -50,7 +50,7 @@ const SliderComponent: FC<Props> = ({
           disabled={isMinusDisabled}
           extraClass="ghost"
           onClick={handleClickMinus}
-          icon={<Icon iconClass="icon-minus" />}
+          icon={<Icon name="Minus" size="sm" />}
         />
       )}
       <Slider
@@ -66,7 +66,7 @@ const SliderComponent: FC<Props> = ({
           disabled={isPlusDisabled}
           extraClass="ghost"
           onClick={handleClickPlus}
-          icon={<Icon iconClass="icon-plus1" />}
+          icon={<Icon name="Plus" size="sm" />}
         />
       )}
     </div>

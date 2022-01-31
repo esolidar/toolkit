@@ -24,6 +24,9 @@
 
       .drop-icon {
         margin-bottom: $distance-2;
+        background-color: map-get($background, secondary);
+        border-radius: 50%;
+        padding: $distance-2;
       }
 
       i {

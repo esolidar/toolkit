@@ -10,6 +10,7 @@ const sizes = {
   xs: 12,
   sm: 16,
   md: 24,
+  lg: 40,
 };
 
 const Icon: FC<Props> = ({
