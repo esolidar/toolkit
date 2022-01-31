@@ -5,13 +5,13 @@ import Meta, {
   Default as DefaultStory,
   Small as SmallStory,
   XSmall as XSmallStory,
-  Large as LArgeStory,
+  Large as LargeStory,
 } from '../Icon.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 const Small = composeStory(SmallStory, Meta);
 const XSmall = composeStory(XSmallStory, Meta);
-const Large = composeStory(LArgeStory, Meta);
+const Large = composeStory(LargeStory, Meta);
 
 it('renders Icon default', () => {
   const { getAllByClass } = render(<Default />);
