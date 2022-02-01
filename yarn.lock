@@ -1677,6 +1677,17 @@
   dependencies:
     readline-sync "^1.4.10"
 
+"@esolidar/react-draft-wysiwyg@1.19.0":
+  version "1.19.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/react-draft-wysiwyg/1.19.0/f91eb1ce5811553e4c3352d1e8b07214e0517800b3824b8b4fd38df708d41684#a7af756cce42e9244bf2cfeac8210add88197bdf"
+  integrity sha512-8BjmVLtR19khgke5amYw5iiQH4sWt/42aQlABpeZ1AUDIPAaQr74dAEIqlb4C1orh0sFFPJ76zpacUTtg6JNBg==
+  dependencies:
+    classnames "^2.2.6"
+    draftjs-utils "^0.10.2"
+    html-to-draftjs "^1.5.0"
+    linkify-it "^2.2.0"
+    prop-types "^15.7.2"
+
 "@formatjs/ecma402-abstract@1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.7.1.tgz#1459a9dad654d5d5ec34765965b8e4f22ad6ff81"
@@ -2074,17 +2085,6 @@
   dependencies:
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
-
-"@pedroguia/react-draft-wysiwyg@^1.18.1":
-  version "1.18.1"
-  resolved "https://registry.npmjs.org/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.18.1.tgz#6b072358fe482b31b92733b51f604be858833efd"
-  integrity sha512-Mg645LaUQYnGVXsxPBb9U1WNxHY0icoVA+Uv7gqyqbs+Bwz1Gx0X0CaSfbbXi8AXzhYD/Vq6384oHR5ktShPWQ==
-  dependencies:
-    classnames "^2.2.6"
-    draftjs-utils "^0.10.2"
-    html-to-draftjs "^1.5.0"
-    linkify-it "^2.2.0"
-    prop-types "^15.7.2"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"

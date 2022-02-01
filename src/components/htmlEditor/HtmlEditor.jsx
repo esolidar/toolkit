@@ -13,13 +13,13 @@ import {
   convertFromHTML,
   Modifier,
 } from 'draft-js';
-import { Editor } from '@pedroguia/react-draft-wysiwyg';
+import { Editor } from '@esolidar/react-draft-wysiwyg';
 import htmlToDraft from 'html-to-draftjs';
 import Dropdown from './Dropdown';
 import InputLabel from '../../elements/inputLabel';
 import useIsFirstRender from '../../hooks/useIsFirstRender';
 import Icon from '../../elements/icon';
-import '@pedroguia/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import '@esolidar/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 const getInitialRawContent = initialContent => {
   const isContentHtmlString = typeof initialContent === 'string';
