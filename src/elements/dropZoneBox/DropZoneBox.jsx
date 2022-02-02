@@ -43,7 +43,7 @@ const DropZoneBox = ({
   modalClassName,
   isLoading,
   hasError,
-  icon,
+  showIcon,
   inputLabelProps,
   label,
   showFooterCropper,
@@ -227,7 +227,7 @@ const DropZoneBox = ({
               { 'required-field': hasError },
               'drop-zone-box',
               {
-                'with-icon': icon,
+                'with-icon': showIcon,
               },
               { disabled }
             )}
@@ -235,9 +235,9 @@ const DropZoneBox = ({
             {isLoading && <Loading />}
             {!isLoading && (
               <>
-                {icon && (
+                {showIcon && (
                   <div className="drop-icon">
-                    <Icon name={icon} size="lg" />
+                    <Icon name="UploadCloud" size="lg" />
                   </div>
                 )}
                 <div>
@@ -456,7 +456,7 @@ DropZoneBox.propTypes = {
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
-  icon: PropTypes.string,
+  showIcon: PropTypes.bool,
   showFooterCropper: PropTypes.bool,
   showErrors: PropTypes.bool,
   error: PropTypes.string,
@@ -482,5 +482,6 @@ DropZoneBox.defaultProps = {
   isLoading: false,
   showFooterCropper: false,
   showErrors: true,
+  showIcon: true,
 };
 export default DropZoneBox;

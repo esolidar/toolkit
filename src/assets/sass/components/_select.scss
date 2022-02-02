@@ -50,6 +50,10 @@
         color: map-get($neutrals, 900);
         font-size: 16px;
         line-height: 24px;
+
+        & .esolidar-select__option--icon {
+          display: flex;
+        }
       }
     }
 
@@ -119,7 +123,6 @@
         padding: $distance-1 !important;
 
         &--icon {
-          display: flex;
           font-size: 20px !important;
         }
 

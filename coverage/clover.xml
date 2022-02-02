@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643819963416" clover="3.2.0">
-  <project timestamp="1643819963416" name="All files">
-    <metrics statements="4933" coveredstatements="3507" conditionals="3685" coveredconditionals="2256" methods="1494" coveredmethods="853" elements="10112" coveredelements="6616" complexity="0" loc="4933" ncloc="4933" packages="198" files="686" classes="686"/>
+<coverage generated="1643824121203" clover="3.2.0">
+  <project timestamp="1643824121203" name="All files">
+    <metrics statements="4933" coveredstatements="3507" conditionals="3685" coveredconditionals="2257" methods="1494" coveredmethods="853" elements="10112" coveredelements="6617" complexity="0" loc="4933" ncloc="4933" packages="198" files="686" classes="686"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -40,8 +40,8 @@
       </file>
       <file name="UploadCloud.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/lg/UploadCloud.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/lg/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -571,8 +571,8 @@
       </file>
       <file name="LockBold.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/md/LockBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="13" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
       <file name="LongAnswer.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/md/LongAnswer.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1102,8 +1102,8 @@
       </file>
       <file name="Lock.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/sm/Lock.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
       </file>
       <file name="LockBold.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/sm/LockBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -1177,8 +1177,8 @@
       </file>
       <file name="PublicBold.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/sm/PublicBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
       </file>
       <file name="RotateCcw.js" path="/Users/pedroguia/Projects/toolkit/src/assets/icons/sm/RotateCcw.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -5255,9 +5255,9 @@
       </file>
     </package>
     <package name="src.elements.dropZoneBox">
-      <metrics statements="85" coveredstatements="24" conditionals="69" coveredconditionals="29" methods="32" coveredmethods="2"/>
+      <metrics statements="85" coveredstatements="24" conditionals="69" coveredconditionals="30" methods="32" coveredmethods="2"/>
       <file name="DropZoneBox.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/dropZoneBox/DropZoneBox.jsx">
-        <metrics statements="85" coveredstatements="24" conditionals="69" coveredconditionals="29" methods="32" coveredmethods="2"/>
+        <metrics statements="85" coveredstatements="24" conditionals="69" coveredconditionals="30" methods="32" coveredmethods="2"/>
         <line num="18" count="6" type="stmt"/>
         <line num="20" count="6" type="stmt"/>
         <line num="53" count="11" type="stmt"/>
@@ -5487,11 +5487,11 @@
         <line num="7" count="83" type="stmt"/>
         <line num="9" count="83" type="stmt"/>
         <line num="16" count="83" type="stmt"/>
-        <line num="24" count="458" type="stmt"/>
-        <line num="25" count="458" type="stmt"/>
-        <line num="26" count="458" type="stmt"/>
+        <line num="24" count="460" type="stmt"/>
+        <line num="25" count="460" type="stmt"/>
+        <line num="26" count="460" type="stmt"/>
         <line num="28" count="10" type="stmt"/>
-        <line num="31" count="458" type="stmt"/>
+        <line num="31" count="460" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/icon/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
