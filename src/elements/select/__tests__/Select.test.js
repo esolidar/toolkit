@@ -51,7 +51,8 @@ it('renders select with default props', () => {
   expect(getByText('This disabled option has no icon nor description')).toBeInTheDocument();
   expect(getByText('This disabled option has an icon and description')).toBeInTheDocument();
 
-  expect(queryAllByTestId('lock-icon')).toHaveLength(4);
+  expect(queryAllByTestId('PublicBold')).toHaveLength(2);
+  expect(queryAllByTestId('Lock')).toHaveLength(2);
   expect(queryAllByText('Only visible to Acme Inc admins')).toHaveLength(2);
 
   const firstOption = getByText('This enabled option has no icon nor description');

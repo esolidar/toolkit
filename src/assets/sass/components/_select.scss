@@ -49,7 +49,11 @@
         gap: $distance-1;
         color: map-get($neutrals, 900);
         font-size: 16px;
-        line-height: 19px;
+        line-height: 24px;
+
+        & .esolidar-select__option--icon {
+          display: flex;
+        }
       }
     }
 

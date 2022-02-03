@@ -11,7 +11,7 @@ const Template = args => <DropZoneBox {...args} />;
 export const Default = Template.bind({});
 export const WithLabel = Template.bind({});
 export const WithCropper = Template.bind({});
-export const WithIcon = Template.bind({});
+export const WithoutIcon = Template.bind({});
 export const Disabled = Template.bind({});
 
 Default.parameters = {
@@ -83,10 +83,9 @@ WithCropper.args = {
     label: 'Image',
     help: 'This will be your program main image. Select a JPG, JPEG or PNG image up to 5Mb. ',
   },
-  icon: 'UploadCloud',
 };
 
-WithIcon.args = {
+WithoutIcon.args = {
   accept: '.jpg, .jpeg, .png',
   onSelect: () => {},
   showImagesPreviews: true,
@@ -105,7 +104,7 @@ WithIcon.args = {
     label: 'Image',
     help: 'This will be your program main image. Select a JPG, JPEG or PNG image up to 5Mb. ',
   },
-  icon: 'UploadCloud',
+  showIcon: false,
 };
 
 Disabled.args = {

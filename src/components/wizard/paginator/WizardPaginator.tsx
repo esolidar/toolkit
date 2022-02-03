@@ -27,7 +27,6 @@ const WizardPaginator: FC<Props> = ({ pages, handleChangeTab }: Props): JSX.Elem
         >
           <div>
             <div className="wizard__paginator__item__title">
-              <span className="page-number">{i + 1}.&nbsp;</span>
               <span className="page-title">{page.title}</span>
             </div>
             <div className="wizard__paginator__item__subtitle">

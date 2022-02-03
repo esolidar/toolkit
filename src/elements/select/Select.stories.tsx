@@ -21,14 +21,14 @@ const options = [
   {
     value: 'second',
     label: 'This enabled option has an icon',
-    leftIcon: <Icon name="LockBold" dataTestId="lock-icon" />,
+    leftIcon: <Icon name="PublicBold" size="sm" dataTestId="PublicBold" />,
     isLabelBold: false,
   },
   {
     value: 'third',
     label: 'This enabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
-    leftIcon: <Icon name="LockBold" dataTestId="lock-icon" />,
+    leftIcon: <Icon name="PublicBold" size="sm" dataTestId="PublicBold" />,
   },
   {
     value: 'fourth',
@@ -38,14 +38,14 @@ const options = [
   {
     value: 'fifth',
     label: 'This disabled option has an icon',
-    leftIcon: <Icon name="LockBold" dataTestId="lock-icon" />,
+    leftIcon: <Icon name="Lock" size="sm" dataTestId="Lock" />,
     isDisabled: true,
   },
   {
     value: 'sixth',
     label: 'This disabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
-    leftIcon: <Icon name="LockBold" dataTestId="lock-icon" />,
+    leftIcon: <Icon name="Lock" size="sm" dataTestId="Lock" />,
     isDisabled: true,
   },
 ];
