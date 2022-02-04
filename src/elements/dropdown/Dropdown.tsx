@@ -5,7 +5,11 @@ import Icon from '../icon';
 import CustomToggle from './CustomToggle';
 import Props, { Item } from './Dropdown.types';
 
-const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX.Element => {
+const Dropdown: FC<Props> = ({
+  toggleIcon = 'MoreVertical',
+  items,
+  hasBorder = true,
+}: Props): JSX.Element => {
   const handleClick = (e, item) => {
     e.stopPropagation();
     item.onClick();
@@ -16,7 +20,12 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX
   return (
     <DropdownBTS className="esolidar-dropdown">
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
-        <Button extraClass="ghost" type="icon" icon={<Icon name={toggleIcon} size="sm" />} />
+        <Button
+          hasBorder={hasBorder}
+          extraClass="ghost"
+          type="icon"
+          icon={<Icon name={toggleIcon} size="sm" />}
+        />
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
         {filteredItems.map(item => {

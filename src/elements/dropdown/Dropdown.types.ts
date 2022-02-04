@@ -12,6 +12,7 @@ export interface Item {
 interface Props {
   toggleIcon: string;
   items: Item[];
+  hasBorder: boolean;
 }
 
 export default Props;

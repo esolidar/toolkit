@@ -28,6 +28,7 @@ const Button = React.forwardRef(
       badge,
       withLoading,
       isLoading,
+      hasBorder = true,
     },
     ref
   ) => {
@@ -41,6 +42,7 @@ const Button = React.forwardRef(
       'btn-esolidar',
       `btn-${extraClass}`,
       `btn-${size}`,
+      { 'no-border': !hasBorder },
       { 'btn-icon': type === 'icon' },
       { 'full-width': fullWidth },
       { disabled: disabled || isLoading },
@@ -243,6 +245,7 @@ Button.propTypes = {
   badge: PropTypes.node,
   withLoading: PropTypes.bool,
   isLoading: PropTypes.bool,
+  hasBorder: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -252,6 +255,7 @@ Button.defaultProps = {
   type: 'button',
   withLoading: false,
   isLoading: false,
+  hasBorder: true,
 };
 
 export default Button;

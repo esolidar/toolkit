@@ -21,6 +21,10 @@
     button {
       border: 1px solid map-get($neutrals, 200) !important;
     }
+
+    button.no-border {
+      border: none !important;
+    }
   }
 
   &__menu {
