@@ -1,13 +1,18 @@
 import React, { FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
-import { cdnUploadsUrl, cdnStaticUrl } from '../../../constants/env';
+import { cdnStaticUrl } from '../../../constants/env';
 import Props from './CardProject.types';
 import Card from '../Card';
 import Ods from '../../../interfaces/ods.types';
 import getStatus from '../../../utils/getStatus';
 import { PROJECT } from '../../../constants/status';
 
-const CardProject: FC<Props> = ({ project, clickThumb, showStatus = true }: Props): JSX.Element => {
+const CardProject: FC<Props> = ({
+  project,
+  clickThumb,
+  showStatus = true,
+  cdnUploadsUrl = 'https://cdn.testesolidar.com',
+}: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
   const support = {
