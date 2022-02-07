@@ -1677,6 +1677,17 @@
   dependencies:
     readline-sync "^1.4.10"
 
+"@esolidar/react-draft-wysiwyg@1.19.0":
+  version "1.19.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/react-draft-wysiwyg/1.19.0/f91eb1ce5811553e4c3352d1e8b07214e0517800b3824b8b4fd38df708d41684#a7af756cce42e9244bf2cfeac8210add88197bdf"
+  integrity sha512-8BjmVLtR19khgke5amYw5iiQH4sWt/42aQlABpeZ1AUDIPAaQr74dAEIqlb4C1orh0sFFPJ76zpacUTtg6JNBg==
+  dependencies:
+    classnames "^2.2.6"
+    draftjs-utils "^0.10.2"
+    html-to-draftjs "^1.5.0"
+    linkify-it "^2.2.0"
+    prop-types "^15.7.2"
+
 "@formatjs/ecma402-abstract@1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@formatjs/ecma402-abstract/-/ecma402-abstract-1.7.1.tgz#1459a9dad654d5d5ec34765965b8e4f22ad6ff81"
@@ -2074,17 +2085,6 @@
   dependencies:
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
-
-"@pedroguia/react-draft-wysiwyg@^1.14.14":
-  version "1.14.14"
-  resolved "https://registry.yarnpkg.com/@pedroguia/react-draft-wysiwyg/-/react-draft-wysiwyg-1.14.14.tgz#f91f94871b886cf449677e7dd1109219c12786d2"
-  integrity sha512-LIAizPJ2HuwMwsMWVH0SJSGTPPLTHCwmClVZZJCekpOHsh7s4Fhl1xrxAUyONc4RaJoh3u+Y2hEY+DBcExM/Ew==
-  dependencies:
-    classnames "^2.2.6"
-    draftjs-utils "^0.10.2"
-    html-to-draftjs "^1.5.0"
-    linkify-it "^2.2.0"
-    prop-types "^15.7.2"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
@@ -16894,6 +16894,11 @@ timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
+
+timezone-mock@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/timezone-mock/-/timezone-mock-1.3.0.tgz#87c58875757f1101acddcc4a35cf63b07bb8d6f6"
+  integrity sha512-pKNgrfC+pXSMXpLBRPjYYqH9I4SAHGRHrYg5Wiu/A7o3g7N3NuCzpqz1UtYLlN6KuIyF1PArAoJUqeK33ShIsA==
 
 timsort@^0.3.0:
   version "0.3.0"

@@ -169,7 +169,7 @@ const Reviews = ({
                       style={{ display: 'inline' }}
                       data-testid="rate-error"
                     >
-                      <span className="help-block">{errors.rate}</span>
+                      <div className="help-block">{errors.rate}</div>
                     </div>
                   )}
                   <div className="actions">

@@ -9,7 +9,7 @@ import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
 import Preview from '../../components/preview';
 import Slider from '../slider';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import CustomModal from '../customModal';
 import Button from '../button';
 import Tooltip from '../tooltip';
@@ -43,7 +43,7 @@ const DropZoneBox = ({
   modalClassName,
   isLoading,
   hasError,
-  icon,
+  showIcon,
   inputLabelProps,
   label,
   showFooterCropper,
@@ -227,7 +227,7 @@ const DropZoneBox = ({
               { 'required-field': hasError },
               'drop-zone-box',
               {
-                'with-icon': icon,
+                'with-icon': showIcon,
               },
               { disabled }
             )}
@@ -235,9 +235,9 @@ const DropZoneBox = ({
             {isLoading && <Loading />}
             {!isLoading && (
               <>
-                {icon && (
+                {showIcon && (
                   <div className="drop-icon">
-                    <Icon iconClass={icon} />
+                    <Icon name="UploadCloud" size="lg" />
                   </div>
                 )}
                 <div>
@@ -309,7 +309,7 @@ const DropZoneBox = ({
                     blob => {
                       const imageWidth = cropper.current.getCroppedCanvas().width;
                       const imageHeight = cropper.current.getCroppedCanvas().height;
-                      if (imageWidth > minWidth && imageHeight > minHeight) {
+                      if (imageWidth >= minWidth && imageHeight >= minHeight) {
                         setDisableCroppedImage(true);
                         handleSubmitCroppedImage(blob);
                         setErrorList([]);
@@ -376,7 +376,7 @@ const DropZoneBox = ({
                           onClick={() => {
                             cropper.current.rotate(90);
                           }}
-                          icon={<Icon iconClass="icon-corner-up-left" />}
+                          icon={<Icon name="RotateCcw" size="sm" />}
                         />
                       }
                     />
@@ -396,7 +396,7 @@ const DropZoneBox = ({
                           onClick={() => {
                             cropper.current.rotate(-90);
                           }}
-                          icon={<Icon iconClass="icon-corner-up-right" />}
+                          icon={<Icon name="RotateCw" size="sm" />}
                         />
                       }
                     />
@@ -460,7 +460,7 @@ DropZoneBox.propTypes = {
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
   inputLabelProps: PropTypes.object,
-  icon: PropTypes.string,
+  showIcon: PropTypes.bool,
   showFooterCropper: PropTypes.bool,
   showErrors: PropTypes.bool,
   error: PropTypes.string,
@@ -486,5 +486,6 @@ DropZoneBox.defaultProps = {
   isLoading: false,
   showFooterCropper: false,
   showErrors: true,
+  showIcon: true,
 };
 export default DropZoneBox;

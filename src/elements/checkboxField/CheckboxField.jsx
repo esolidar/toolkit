@@ -14,7 +14,7 @@ const CheckboxField = ({
   dataTestId,
   size,
 }) => (
-  <div className="checkbox-inline">
+  <div className={classnames('checkbox-inline', { 'has-error': error })}>
     <div className="form-group">
       <label htmlFor={name}>
         <input
@@ -31,7 +31,7 @@ const CheckboxField = ({
         {label && <div className={`label ${size}`}>{label}</div>}
       </label>
     </div>
-    {error && <span className="help-block">{error}</span>}
+    {error && <div className="help-block">{error}</div>}
   </div>
 );
 

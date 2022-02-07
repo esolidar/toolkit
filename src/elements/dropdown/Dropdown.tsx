@@ -3,7 +3,7 @@ import DropdownBTS from 'react-bootstrap/Dropdown';
 import Button from '../button';
 import Icon from '../icon';
 import CustomToggle from './CustomToggle';
-import Props from './Dropdown.types';
+import Props, { Item } from './Dropdown.types';
 
 const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX.Element => {
   const handleClick = (e, item) => {
@@ -11,13 +11,15 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX
     item.onClick();
   };
 
+  const filteredItems: Item[] = items.map(item => ({ ...item, show: item.show !== false }));
+
   return (
     <DropdownBTS className="esolidar-dropdown">
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
         <Button extraClass="ghost" type="icon" icon={<Icon name={toggleIcon} size="sm" />} />
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
-        {items.map(item => {
+        {filteredItems.map(item => {
           if (item.show)
             return (
               <DropdownBTS.Item

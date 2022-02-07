@@ -65,7 +65,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         list-style: none;
-        z-index: 5;
+        z-index: 2;
         -webkit-transition: max-height 0.2s, border 0.2s;
         transition: max-height 0.2s, border 0.2s;
 
@@ -92,14 +92,6 @@
 
       &:focus {
         @include input-focus();
-      }
-
-      .help-block {
-        color: map-get($negative, 500);
-        font-size: 14px !important;
-        line-height: 20px !important;
-        font-weight: 400 !important;
-        padding-top: $distance-1;
       }
     }
   }

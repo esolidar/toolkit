@@ -16,6 +16,7 @@ const Badge: FC<Props> = ({
   iconDataTestId = 'badge-component-icon',
   size = 'sm',
   type = 'span',
+  rounded = true,
   onClick,
 }: Props): JSX.Element => {
   const intl = useIntl();
@@ -25,6 +26,7 @@ const Badge: FC<Props> = ({
     `badge__${size}`,
     { 'full-width': fullWidth },
     { 'cursor-pointer': type === 'button' },
+    { squared: !rounded },
     className
   );
 

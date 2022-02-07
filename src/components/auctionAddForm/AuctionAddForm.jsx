@@ -659,7 +659,7 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="title"
-                      maxLength="255"
+                      maxLength="75"
                       autofocus={true}
                     />
                   </Col>
@@ -793,7 +793,7 @@ const AuctionAddForm = ({
                       isLoading={updloadFileIsLoading}
                       hasError={!isEmpty(errors) && !!errors.images}
                     />
-                    {errors.images && <span className="help-block">{errors.images}</span>}
+                    {errors.images && <div className="help-block">{errors.images}</div>}
                   </div>
                   <Col sm={12}>
                     <TextField
@@ -904,6 +904,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.payment.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                   <Col sm={12}>
@@ -919,6 +920,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.shipping.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                 </Row>
@@ -1075,7 +1077,7 @@ const AuctionAddForm = ({
                   )}
                   {errors.beneficiary && (
                     <Col sm={12} className={classnames({ 'has-error': errors.beneficiary })}>
-                      <span className="help-block">{errors.beneficiary}</span>
+                      <div className="help-block">{errors.beneficiary}</div>
                     </Col>
                   )}
                   {((showInstitutions && beneficiary === 'institution') ||
@@ -1138,7 +1140,7 @@ const AuctionAddForm = ({
                                 })}
                               >
                                 {errors.projectIds && (
-                                  <span className="help-block d-block">{errors.projectIds}</span>
+                                  <div className="help-block d-block">{errors.projectIds}</div>
                                 )}
                               </Col>
                             </Row>
@@ -1200,7 +1202,7 @@ const AuctionAddForm = ({
                     />
                     {errors.bankAccount && (
                       <div className="has-error">
-                        <span className="help-block">{errors.bankAccount}</span>
+                        <div className="help-block">{errors.bankAccount}</div>
                       </div>
                     )}
                   </Col>

@@ -9,7 +9,7 @@ const InputLabel = ({
   field,
   label,
   showOptionalLabel,
-  cssClass = '',
+  className = '',
   style,
   help,
   fontWeight = 600,
@@ -20,14 +20,11 @@ const InputLabel = ({
   const cssStyle = { ...style, fontWeight };
 
   return (
-    <>
-      <label
-        htmlFor={field}
-        className={classnames('control-label', `size-${size}`, 'd-flex', cssClass)}
-        style={cssStyle}
-      >
-        {label}
-        &nbsp;
+    <div className="input-label-component">
+      <div className={classnames('input-label-component__label', `size-${size}`, className)}>
+        <label htmlFor={field} className="control-label" style={cssStyle}>
+          {label}
+        </label>
         {showOptionalLabel && (
           <span className="label-optional">
             (<FormattedMessage id="optional" />)
@@ -35,15 +32,14 @@ const InputLabel = ({
         )}
         {required && (
           <Tooltip
-            bodyChildClassName="ml-auto"
             tooltipBodyChild={<Icon name="LockBold" size="sm" />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />
         )}
-      </label>
+      </div>
       {help && <p className={classnames('help', `size-${size}`)}>{help}</p>}
-    </>
+    </div>
   );
 };
 
@@ -51,7 +47,7 @@ InputLabel.propTypes = {
   field: PropTypes.string,
   label: PropTypes.string.isRequired,
   showOptionalLabel: PropTypes.bool,
-  cssClass: PropTypes.string,
+  className: PropTypes.string,
   style: PropTypes.object,
   help: PropTypes.string,
   fontWeight: PropTypes.number,

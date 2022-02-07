@@ -49,10 +49,10 @@ const StripeCheckoutFormSca = ({
           <CardNumberElement {...createOptions()} onChange={e => handleChange(e, 'cardnumber')} />
         </label>
         {!!errors.cardnumber && (
-          <span className="help-block">
+          <div className="help-block">
             {errors.cardnumber?.invalid_number}
             {errors.cardnumber?.incomplete_number}
-          </span>
+          </div>
         )}
       </Col>
       <Col sm={6} className={errors.expiration ? 'has-error' : ''}>
@@ -61,11 +61,11 @@ const StripeCheckoutFormSca = ({
           <CardExpiryElement {...createOptions()} onChange={e => handleChange(e, 'expiration')} />
         </label>
         {!!errors.expiration && (
-          <span className="help-block">
+          <div className="help-block">
             {errors.expiration?.incomplete_expiry}
             {errors.expiration?.invalid_expiry_month_past}
             {errors.expiration?.invalid_expiry_year_past}
-          </span>
+          </div>
         )}
       </Col>
       <Col sm={6} className={errors.cvc ? 'has-error' : ''}>

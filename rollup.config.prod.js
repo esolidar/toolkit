@@ -59,7 +59,7 @@ export default {
     commonjs(),
     json(),
     copy({
-      assets: ['src/assets/'],
+      assets: ['src/assets/icons', 'src/assets/sass'],
     }),
     postcss({
       plugins: [],

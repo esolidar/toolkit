@@ -20,7 +20,6 @@ Default.args = {
       text: 'Action',
       leftIcon: 'Edit2',
       onClick: () => alert('You clicked first item!'),
-      show: true,
     },
     {
       id: 1,
@@ -28,14 +27,12 @@ Default.args = {
       leftIcon: 'Settings',
       rightIcon: 'Share3',
       href: '#/action-2',
-      show: true,
     },
     {
       id: 2,
       text: 'Something else',
       rightIcon: 'Trash',
       href: '#/action-3',
-      show: true,
       disabled: true,
     },
     {

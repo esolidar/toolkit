@@ -49,7 +49,11 @@
         gap: $distance-1;
         color: map-get($neutrals, 900);
         font-size: 16px;
-        line-height: 19px;
+        line-height: 24px;
+
+        & .esolidar-select__option--icon {
+          display: flex;
+        }
       }
     }
 
@@ -142,6 +146,7 @@
         &:active {
           background-color: unset;
           color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
 
           & .esolidar-select__option--text {
             & > span:first-of-type {
@@ -153,6 +158,7 @@
         &--is-selected {
           background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
           color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
 
           & .esolidar-select__option--text {
             & > span:first-of-type {
@@ -171,10 +177,12 @@
           background-color: unset !important;
           color: map-get($neutrals, 400) !important;
           cursor: default !important;
+          @include svg-change-color(map-get($neutrals, 400));
 
           &:hover,
           &:focus,
           &:active {
+            @include svg-change-color(map-get($neutrals, 400));
             & .esolidar-select__option--text {
               & > span:first-of-type {
                 color: map-get($neutrals, 400);

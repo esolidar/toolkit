@@ -206,7 +206,7 @@ describe('RequestDetailThumb component', () => {
     const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
 
     expect(component).toHaveLength(1);
-    expect(component.find('Button').length).toBe(2);
+    expect(component.find('ForwardRef').length).toBe(2);
     expect(component.find('LightboxGallery').length).toBe(1);
   });
 
@@ -222,7 +222,7 @@ describe('RequestDetailThumb component', () => {
     requestWithoutPivot.pivot.status = 'F';
     const component = shallow(<RequestDetailThumb request={requestWithoutPivot} errors={{}} />);
 
-    expect(component.find('Button').length).toBe(1);
+    expect(component.find('ForwardRef').length).toBe(1);
     expect(component.find('LightboxGallery').length).toBe(1);
   });
 

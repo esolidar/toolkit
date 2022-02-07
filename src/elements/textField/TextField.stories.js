@@ -23,12 +23,10 @@ export const WithHelper = Template.bind({});
 export const WithIcons = Template.bind({});
 
 Default.args = {
-  label: 'Lorem Ipsum',
   type: 'text',
   onChange: () => {},
   error: '',
-  placeholder: '',
-  defaultValue: 'defaultValue',
+  placeholder: 'placeholder',
   field: 'forCompanies',
 };
 
@@ -62,6 +60,6 @@ WithIcons.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
-  leftIcon: { name: 'icon-search', show: true },
-  rightIcon: { name: 'icon-x', onClick: () => alert('right-button'), show: true },
+  leftIcon: { name: 'Search', show: true },
+  rightIcon: { name: 'DeleteCircle', onClick: () => alert('right-button'), show: true },
 };

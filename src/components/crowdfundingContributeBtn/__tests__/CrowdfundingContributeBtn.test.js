@@ -193,7 +193,7 @@ describe('CrowdfundingHeader', () => {
     );
     expect(wrapper.state('countDownStatus')).toEqual('soon');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
-    expect(wrapper.find('Button').prop('disabled')).toBe(true);
+    expect(wrapper.find('ForwardRef').prop('disabled')).toBe(true);
   });
 
   it('should input and button disable - running', () => {
@@ -203,7 +203,7 @@ describe('CrowdfundingHeader', () => {
     );
     expect(wrapper.state('countDownStatus')).toEqual('running');
     expect(wrapper.find('TextField').prop('disabled')).toBe(false);
-    expect(wrapper.find('Button').prop('disabled')).toBe(false);
+    expect(wrapper.find('ForwardRef').prop('disabled')).toBe(false);
   });
 
   it('should input and button disable - ended', () => {
@@ -213,14 +213,15 @@ describe('CrowdfundingHeader', () => {
     );
     expect(wrapper.state('countDownStatus')).toEqual('ended');
     expect(wrapper.find('TextField').prop('disabled')).toBe(true);
-    expect(wrapper.find('Button').prop('disabled')).toBe(true);
+    expect(wrapper.find('ForwardRef').prop('disabled')).toBe(true);
   });
 
   it('should exist button donate', () => {
     const wrapper = shallow(
       <CrowdfundingContributeBtn campaign={propsCampaign} textBtnDonate="text" />
     );
-    expect(wrapper.find('Button').length).toBe(1);
+
+    expect(wrapper.find('ForwardRef').length).toBe(1);
   });
 
   it('should call checkoutContribution without value', () => {

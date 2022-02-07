@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import Select from './Select';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 import Props from './Select.types';
 
 export default {
@@ -21,14 +21,14 @@ const options = [
   {
     value: 'second',
     label: 'This enabled option has an icon',
-    leftIcon: <Icon iconClass="icon-httpslock" />,
+    leftIcon: <Icon name="PublicBold" size="sm" dataTestId="PublicBold" />,
     isLabelBold: false,
   },
   {
     value: 'third',
     label: 'This enabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
-    leftIcon: <Icon iconClass="icon-httpslock" />,
+    leftIcon: <Icon name="PublicBold" size="sm" dataTestId="PublicBold" />,
   },
   {
     value: 'fourth',
@@ -38,14 +38,14 @@ const options = [
   {
     value: 'fifth',
     label: 'This disabled option has an icon',
-    leftIcon: <Icon iconClass="icon-httpslock" />,
+    leftIcon: <Icon name="Lock" size="sm" dataTestId="Lock" />,
     isDisabled: true,
   },
   {
     value: 'sixth',
     label: 'This disabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
-    leftIcon: <Icon iconClass="icon-httpslock" />,
+    leftIcon: <Icon name="Lock" size="sm" dataTestId="Lock" />,
     isDisabled: true,
   },
 ];
@@ -116,7 +116,7 @@ WithError.args = {
 WithPlaceholderIcon.args = {
   onChange: value => alert(`New value: ${value}`),
   options,
-  placeholderLeftIcon: <Icon iconClass="icon-search" />,
+  placeholderLeftIcon: <Icon name="Search" dataTestId="search-icon" />,
   value: '',
 };
 

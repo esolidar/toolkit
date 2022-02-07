@@ -32,23 +32,23 @@ export const Large = Template.bind({});
 
 Small.args = {
   id: 'checkboxCard-sm',
-  img: `${cdnUploadsUrl}/interests/test-interests.svg`,
+  defaultImg: `${cdnUploadsUrl}/interests/test-interests.svg`,
   disabledImg: `${cdnUploadsUrl}/interests/test-interests-disabled.svg`,
-  chechedImg: `${cdnUploadsUrl}/interests/test-interests-checked.svg`,
+  checkedImg: `${cdnUploadsUrl}/interests/test-interests-checked.svg`,
   size: 'sm',
   title: 'Reading & Writing',
 };
 
 Medium.args = {
   id: 'checkboxCard-md',
-  img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
+  defaultImg: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
   subtitle: 'Subtitle',
   title: 'Title',
 };
 
 Large.args = {
   id: 'checkboxCard-lg',
-  img: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
+  defaultImg: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
   size: 'lg',
   subtitle:
     'End hunger, achieve food security and improved nutrition and promote sustainable agriculture',

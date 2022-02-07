@@ -56,7 +56,7 @@ $mobile-width: 260px;
     position: absolute !important;
     inset: 0px auto auto 0px;
     margin: 0px !important;
-    transform: translate(-315px, 42px) !important;
+    transform: translate(-312px, 42px) !important;
     padding: $distance-2 $distance-1;
 
     @media (max-width: map-get($breakpoints, xs)) {

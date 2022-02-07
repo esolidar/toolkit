@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.62.0",
+  "version": "4.82.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -14,7 +14,7 @@
     "build:publish": "rollup -c ./rollup.config.prod.js && npm publish",
     "build-storybook": "build-storybook",
     "prettier": "pretty-quick --staged --pattern '**/*.js' --pattern '**/*.jsx' --pattern '**/*.ts' --pattern '**/*.tsx'",
-    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values #6C7679={props.color}"
+    "svgr": "svgr -d src/assets/icons/ src/assets/svg/icons --index-template svgr-template.js --svg-props width={props.width} --svg-props height={props.height} --svg-props viewBox={props.viewBox} --replace-attr-values '#6C7679={props.color}'"
   },
   "husky": {
     "hooks": {
@@ -52,7 +52,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.14.14",
+    "@esolidar/react-draft-wysiwyg": "1.19.0",
     "classnames": "^2.2.6",
     "draft-js": "^0.11.4",
     "draft-js-color-picker": "^1.0.2",
@@ -97,12 +97,12 @@
     "@babel/runtime": "^7.14.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
     "@esolidar/i18n": "^0.201.0",
+    "@esolidar/react-draft-wysiwyg": "1.19.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@pedroguia/react-draft-wysiwyg": "^1.14.14",
     "@react-mock/state": "^0.1.8",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -224,6 +224,7 @@
     "storybook-dark-mode": "^1.0.8",
     "style-loader": "^1.1.2",
     "terser-webpack-plugin": "^5.1.1",
+    "timezone-mock": "^1.3.0",
     "ts-loader": "^8.0.16",
     "typescript": "^4.3.5",
     "use-smartcrop": "^1.0.3",

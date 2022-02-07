@@ -25,7 +25,7 @@
     position: relative;
     clip-path: inset(0 0 0 0);
     padding-top: 155px;
-    padding-bottom: 98px;
+    padding-bottom: $distance-9;
   }
 
   .wizard__header {
@@ -49,6 +49,8 @@
   display: flex;
   width: 100%;
   background: white;
+  gap: $distance-3;
+
   @include animate();
 
   &.fix-on-scrool-down {
@@ -58,7 +60,6 @@
 
   &__image {
     justify-content: start;
-    margin-right: $distance-3;
     align-items: center;
     display: flex;
 
@@ -72,6 +73,11 @@
   &__title {
     align-items: center;
     display: flex;
+    flex-basis: 100%;
+
+    & > div:first-of-type {
+      width: 100%;
+    }
 
     &__subtitle {
       font-size: 16px;
@@ -87,6 +93,7 @@
       font-size: 24px;
       line-height: 32px;
       font-weight: 700;
+      @include animate();
 
       &::placeholder {
         color: map-get($neutrals, 400);
@@ -95,6 +102,7 @@
       &:focus-visible,
       &:focus {
         outline: none;
+        border-bottom: 1px solid map-get($neutrals, 200);
       }
     }
   }
@@ -107,29 +115,25 @@
     padding: 0 !important;
     display: flex;
     align-items: center;
-
-    .badge {
-      margin-left: $distance-4;
-    }
+    white-space: nowrap;
+    gap: $distance-3;
   }
 
   &__buttons {
     display: flex;
     align-items: center;
     margin-left: auto;
+    gap: $distance-3;
 
     .saved-status {
       font-size: 16px;
       line-height: 24px;
       color: map-get($neutrals, 700);
+      width: max-content;
 
       img {
         margin-left: $distance-2;
       }
-    }
-
-    .btn-save-close {
-      margin: 0 $distance-3;
     }
   }
 }
@@ -142,7 +146,6 @@
   @include animate();
 
   &.fix-on-scrool-down {
-    top: -7px !important;
     @include animate();
 
     .wizard__paginator__item {
@@ -155,9 +158,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: $distance-2;
-    height: 80px;
     background: white;
     border: none;
+    min-height: 80px;
     position: relative;
     &:after {
       content: '';
@@ -233,6 +236,7 @@
   display: flex;
   border-top: 1px solid map-get($neutrals, 100);
   padding-top: $distance-3;
+  color: map-get($neutrals, 700);
 
   &__continue {
     display: flex;

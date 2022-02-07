@@ -1,9 +1,10 @@
 interface Props {
   disabled?: boolean;
   id?: string;
-  img: string;
+  defaultImg: string;
+  disabledHover?: boolean;
   disabledImg?: string;
-  chechedImg?: string;
+  checkedImg?: string;
   isChecked: boolean;
   name: string;
   onChange?(value: boolean): void;
