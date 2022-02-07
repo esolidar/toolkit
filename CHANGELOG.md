@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.83.0](https://github.com/esolidar/toolkit/compare/v4.61.0...v4.83.0) Released: ER2205 / 13th January 2022 -> 04th February 2022
+
+### New features
+
+- Add: Add ref on Button component [`ENG-840`](https://github.com/esolidar/toolkit/pulls?q=ENG-840)
+- Add: Add new SVG icons [`ENG-846`](https://github.com/esolidar/toolkit/pulls?q=ENG-846)
+
+### Enhancements
+
+- Enhancement: Edit HtmlEdit component according to new design [`ENG-625`](https://github.com/esolidar/toolkit/pulls?q=ENG-625)
+- Enhancement: Add logic to use environment variables from main projects in our toolkit [`ENG-788`](https://github.com/esolidar/toolkit/pulls?q=ENG-788)
+- Enhancement: Sidebar component css changes [`ENG-808`](https://github.com/esolidar/toolkit/pulls?q=ENG-808)
+- Enhancement: Change icon color in Select component scss [`ENG-825`](https://github.com/esolidar/toolkit/pulls?q=ENG-825)
+- Enhancement: Redesign breadcrumbs component [`ENG-831`](https://github.com/esolidar/toolkit/pulls?q=ENG-831)
+- Enhancement: Update UserMenu component design [`ENG-833`](https://github.com/esolidar/toolkit/pulls?q=ENG-833)
+- Refactor: Convert every util function from JS to TS [`ENG-844`](https://github.com/esolidar/toolkit/pulls?q=ENG-844)
+- Enhancement: Change Wizard according to design [`ENG-843`](https://github.com/esolidar/toolkit/pulls?q=ENG-843)
+
+### Bug Fixing
+
+- Fix: Sidebar icons are not fully aligned incl. Company logo when menu is collapsed [`ENG-783`](https://github.com/esolidar/toolkit/pulls?q=ENG-783)
+  <br>
+  <br>
+
 ## [v4.61.0](https://github.com/esolidar/toolkit/compare/v4.11.1...v4.61.0) Released: ER2150 / 09th November 2021 -> 12th January 2021
 
 ### Enhancements
