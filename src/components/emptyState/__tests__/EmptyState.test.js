@@ -23,6 +23,12 @@ it('renders EmptyState default component', () => {
   expect(getByClass('empty-state__buttons')).toBeTruthy();
 });
 
+it('renders EmptyState DefaultComponent without border', () => {
+  const { getByClass } = render(<DefaultComponent />);
+
+  expect(getByClass(/esolidar-container/)).toHaveStyle('border-width: 0px');
+});
+
 it('renders EmptyState WithImageComponent component', () => {
   const { getByClass } = render(<WithImageComponent />);
 
