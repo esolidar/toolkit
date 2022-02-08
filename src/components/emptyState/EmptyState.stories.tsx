@@ -22,12 +22,6 @@ export const WithImage: Story<Props> = Template.bind({});
 export const WithIcon: Story<Props> = Template.bind({});
 
 Default.args = {
-  container: {
-    rounded: true,
-    shadow: true,
-    borderSize: 1,
-    background: true,
-  },
   title: 'You haven’t set up your accelerator... yet!',
   body: 'Create your program and start receiving project applications',
   altImage: 'Image',

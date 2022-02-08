@@ -21,6 +21,7 @@ it('renders EmptyState default component', () => {
     'Create your program and start receiving project applications'
   );
   expect(getByClass('empty-state__buttons')).toBeTruthy();
+  expect(getByClass(/esolidar-container/)).toHaveStyle('border-width: 0px');
 });
 
 it('renders EmptyState WithImageComponent component', () => {
