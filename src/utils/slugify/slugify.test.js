@@ -32,3 +32,11 @@ test('should return slugify url with correct casing', () => {
 
   expect(slugify('34 Projecto de uma Organização ?*_+~./,()!:@', filters)).toBe(expectedString);
 });
+
+test('should return slugify url with correct casing', () => {
+  const expectedString = 'thee-aredollarmay-vriations-of-passages-of-lorem-ipsum-available-but-999';
+
+  expect(
+    slugify('The.e are$ma(y v"riations of passages of Lorem Ipsum available, but :_;999.')
+  ).toBe(expectedString);
+});
