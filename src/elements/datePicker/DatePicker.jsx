@@ -64,7 +64,7 @@ const DatePicker = ({
   disabled,
   inputLabelSize,
   highlightDates = [],
-  isReadOnly = false,
+  readOnly = false,
 }) => {
   const [showMonths, setShowMonths] = useState(false);
   const [showYears, setShowYears] = useState(false);
@@ -86,7 +86,7 @@ const DatePicker = ({
     <div
       className={classnames('datepicker-component', 'form-group', {
         'has-error': !!errors,
-        'read-only': isReadOnly,
+        'read-only': readOnly,
       })}
     >
       {label && (
@@ -98,7 +98,7 @@ const DatePicker = ({
           size={inputLabelSize}
         />
       )}
-      {isReadOnly && (
+      {readOnly ? (
         <InputLabel
           field={id || field}
           label={moment(selected).format('DD-MM-YYYY')}
@@ -106,8 +106,7 @@ const DatePicker = ({
           size={inputLabelSize}
           fontWeight={400}
         />
-      )}
-      {!isReadOnly && (
+      ) : (
         <>
           <div
             className={classnames(
@@ -194,7 +193,7 @@ DatePicker.propTypes = {
   }),
   inputLabelSize: PropTypes.string,
   highlightDates: PropTypes.array,
-  isReadOnly: PropTypes.bool,
+  readOnly: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -205,7 +204,7 @@ DatePicker.defaultProps = {
   dateFormat: 'd-MM-yyyy h:mm aa',
   size: 'xs',
   inputLabelSize: 'lg',
-  isReadOnly: false,
+  readOnly: false,
 };
 
 export default DatePicker;

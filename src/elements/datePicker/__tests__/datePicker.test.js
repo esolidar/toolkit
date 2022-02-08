@@ -17,7 +17,7 @@ const props = {
   placeholderText: 'DD-MM-YYYY',
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
-  isReadOnly: false,
+  readOnly: false,
 };
 
 describe('DatePicker component', () => {
@@ -50,7 +50,7 @@ describe('DatePicker component', () => {
 
   it('renders DatePicker is read only', () => {
     advanceTo(new Date(2021, 1, 3, 0, 0, 0));
-    props.isReadOnly = true;
+    props.readOnly = true;
 
     const wrapper = shallow(<DatePicker {...props} />);
     expect(wrapper).toHaveLength(1);

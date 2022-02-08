@@ -118,5 +118,5 @@ ReadOnly.args = {
   selected: new Date('2021-03-05 00:00:00'),
   className: 'form-control',
   showTimeSelect: false,
-  isReadOnly: true,
+  readOnly: true,
 };
