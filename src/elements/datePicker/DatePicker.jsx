@@ -102,6 +102,7 @@ const DatePicker = ({
         <InputLabel
           field={id || field}
           label={moment(selected).format('DD-MM-YYYY')}
+          className="date"
           size={inputLabelSize}
           fontWeight={400}
         />
