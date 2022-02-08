@@ -21,11 +21,6 @@ it('renders EmptyState default component', () => {
     'Create your program and start receiving project applications'
   );
   expect(getByClass('empty-state__buttons')).toBeTruthy();
-});
-
-it('renders EmptyState DefaultComponent without border', () => {
-  const { getByClass } = render(<DefaultComponent />);
-
   expect(getByClass(/esolidar-container/)).toHaveStyle('border-width: 0px');
 });
 
