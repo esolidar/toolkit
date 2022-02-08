@@ -14,7 +14,7 @@ interface Filters {
 }
 const defaultFilters: Filters = {
   replacement: '-',
-  remove: /[?$*_+~./,()'"!\-:@]/g,
+  remove: /[?$*_+~./,()'"!\-:;@]/g,
   lower: true,
 };
 
