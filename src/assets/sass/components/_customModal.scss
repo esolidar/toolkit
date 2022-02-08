@@ -35,9 +35,14 @@
           }
         }
 
+        & .btn-ghost {
+          gap: 0;
+          min-width: 40px;
+          width: 40px;
+        }
+
         & .custom-modal__close {
           cursor: pointer;
-          padding-top: $distance-1;
         }
       }
     }

@@ -1,6 +1,12 @@
 .dropzone-box {
   max-width: 720px;
 
+  .error-files,
+  .has-error {
+    text-align: left;
+    color: map-get($colors, red);
+  }
+
   & .upload-file {
     .drop-zone-box {
       text-align: center;
@@ -238,5 +244,13 @@
   .cropper-point.point-s,
   .cropper-point.point-e {
     opacity: 0 !important;
+  }
+}
+
+.dropzone-box-modal {
+  .error-files,
+  .has-error {
+    text-align: left;
+    color: map-get($colors, red);
   }
 }

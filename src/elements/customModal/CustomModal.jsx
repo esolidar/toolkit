@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import Icon from '../icon';
+import Button from '../button';
 
 const CustomModal = ({
   actionsChildren,
@@ -32,6 +33,8 @@ const CustomModal = ({
   titleClassName,
   iconTitle,
 }) => {
+  const [isShow, setIsShow] = useState(show);
+
   const border = '1px solid #dee2e6';
 
   const headerStyle = {
@@ -48,6 +51,14 @@ const CustomModal = ({
     padding: footerPadding || 'auto',
   };
 
+  const handleClose = () => setIsShow(false);
+
+  useEffect(() => {
+    if (show) {
+      setIsShow(true);
+    }
+  }, [show]);
+
   return (
     <Modal
       backdrop={backdrop}
@@ -55,7 +66,7 @@ const CustomModal = ({
       dialogClassName={`custom-modal ${dialogClassName}`}
       onHide={onHide}
       scrollable={scrollable}
-      show={show}
+      show={isShow}
       size={size}
       data-testid="modal"
       style={style}
@@ -80,7 +91,13 @@ const CustomModal = ({
               )}
             </span>
 
-            {closeButton && <Icon name="X" onClick={onHide} className="custom-modal__close" />}
+            {closeButton && (
+              <Button
+                extraClass="ghost"
+                icon={<Icon name="X" size="sm" onClick={onHide} className="custom-modal__close" />}
+                onClick={handleClose}
+              />
+            )}
           </Modal.Title>
         </Modal.Header>
       )}
