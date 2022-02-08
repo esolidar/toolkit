@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { FormattedMessage } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import Tooltip from '../tooltip';
 import Badge from '../badge';
 
@@ -17,6 +17,7 @@ const InputLabel = ({
   requiredText,
   size = 'lg',
 }) => {
+  const intl = useIntl();
   const cssStyle = { ...style, fontWeight };
 
   return (
@@ -32,7 +33,7 @@ const InputLabel = ({
         )}
         {required && (
           <Tooltip
-            tooltipBodyChild={<Badge text="Private" />}
+            tooltipBodyChild={<Badge text={intl.formatMessage({ id: 'toolkit.private' })} />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />
