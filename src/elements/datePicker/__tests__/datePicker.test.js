@@ -52,7 +52,7 @@ describe('DatePicker component', () => {
     advanceTo(new Date(2021, 1, 3, 0, 0, 0));
     props.isReadOnly = true;
 
-    const wrapper = shallow(<DatePicker {...props} errors="required field" />);
+    const wrapper = shallow(<DatePicker {...props} />);
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.read-only').length).toBe(1);
   });
