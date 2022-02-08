@@ -13,6 +13,7 @@ export default {
 const Template: Story = args => <MultiSelectField {...args} />;
 
 export const Default: Story = Template.bind({});
+export const MenuWidth: Story = Template.bind({});
 
 Default.args = {
   name: 'sdgs',
@@ -22,11 +23,32 @@ Default.args = {
     { value: '1', label: 'No poverty' },
     { value: '2', label: 'Zero hunger' },
     { value: '3', label: 'Good health' },
-    { value: '4', label: '...' },
+    { value: '4', label: 'Industry, innovation and infrastructure' },
+    { value: '5', label: '...' },
   ],
   labelHeader: <span>Sustainable Development Goals (SDG)</span>,
   onChange: selected => {
     // eslint-disable-next-line no-console
     console.log(selected);
   },
+  size: 'sm',
+};
+
+MenuWidth.args = {
+  name: 'sdgs',
+  showSelectAll: true,
+  valueText: 'All SDGs',
+  options: [
+    { value: '1', label: 'No poverty' },
+    { value: '2', label: 'Zero hunger' },
+    { value: '3', label: 'Good health' },
+    { value: '4', label: 'Industry, innovation and infrastructure' },
+    { value: '5', label: '...' },
+  ],
+  labelHeader: <span>Sustainable Development Goals (SDG)</span>,
+  onChange: selected => {
+    // eslint-disable-next-line no-console
+    console.log(selected);
+  },
+  menuWidth: '400px',
 };
