@@ -1677,10 +1677,10 @@
   dependencies:
     readline-sync "^1.4.10"
 
-"@esolidar/react-draft-wysiwyg@1.19.0":
-  version "1.19.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/react-draft-wysiwyg/1.19.0/f91eb1ce5811553e4c3352d1e8b07214e0517800b3824b8b4fd38df708d41684#a7af756cce42e9244bf2cfeac8210add88197bdf"
-  integrity sha512-8BjmVLtR19khgke5amYw5iiQH4sWt/42aQlABpeZ1AUDIPAaQr74dAEIqlb4C1orh0sFFPJ76zpacUTtg6JNBg==
+"@esolidar/react-draft-wysiwyg@1.20.0":
+  version "1.20.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/react-draft-wysiwyg/1.20.0/62df1a2f91ffd3915e770337304df04dd5e44cf301c3b0601356a0c5ddc8c089#e735fe75a3a5c18cf32eab4af8cd9d82ae321813"
+  integrity sha512-A+i+VUsOz7qI1rHj1DlKO11Jh08EdFT4qiWCUq1htiF0QEpGG5mZRm4RlROtbVTpepXlVZEyIMqf2ZbNrz3YUw==
   dependencies:
     classnames "^2.2.6"
     draftjs-utils "^0.10.2"
