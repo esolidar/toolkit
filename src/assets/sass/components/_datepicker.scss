@@ -365,3 +365,11 @@
     @include thin-scroll-bar();
   }
 }
+
+.datepicker-component.read-only {
+  display: flex;
+
+  .control-label {
+    margin-right: $distance-2;
+  }
+}

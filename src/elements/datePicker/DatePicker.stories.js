@@ -19,6 +19,7 @@ export const DateOnly = Template.bind({});
 export const InputOnly = Template.bind({});
 export const WithError = Template.bind({});
 export const Disabled = Template.bind({});
+export const ReadOnly = Template.bind({});
 
 // Default.args = {
 //   classnames: () => {},
@@ -108,4 +109,14 @@ Disabled.args = {
   showTimeSelect: false,
   leftIcon: { name: 'Calendar', show: true, size: 'sm' },
   dateFormat: 'dd-MM-yyyy',
+};
+
+ReadOnly.args = {
+  label: 'Starts',
+  classnames: () => {},
+  locale: 'pt',
+  selected: new Date('2021-03-05 00:00:00'),
+  className: 'form-control',
+  showTimeSelect: false,
+  isReadOnly: true,
 };
