@@ -26,7 +26,7 @@ const Template = args => {
     <>
       {!extraClassesWithoutFull.includes(args.extraClass) && (
         <>
-          <ButtonGrid>
+          <Grid>
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
             <Button
@@ -69,18 +69,18 @@ const Template = args => {
               iconLeft={<Icon name="ArrowLeft" />}
               badge={<Badge text="2" size="xs" />}
             />
-          </ButtonGrid>
+          </Grid>
 
-          <ButtonGrid>
+          <Grid>
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
             <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
-          </ButtonGrid>
+          </Grid>
         </>
       )}
 
-      <ButtonGrid>
+      <Grid>
         <Button {...args} text="Enabled" />
         <Button {...args} text="Disabled" disabled />
         <Button
@@ -105,14 +105,14 @@ const Template = args => {
           iconLeft={<Icon name="ArrowLeft" />}
           badge={<Badge text="2" size="xs" />}
         />
-      </ButtonGrid>
+      </Grid>
 
-      <ButtonGrid>
+      <Grid>
         <Button {...args} text="Size XL" size="xl" />
         <Button {...args} text="Size LG" size="lg" />
         <Button {...args} text="Size MD" size="md" />
         <Button {...args} text="Size SM" size="sm" />
-      </ButtonGrid>
+      </Grid>
     </>
   );
 };
@@ -178,12 +178,12 @@ Dark.args = {
   onClick: () => {},
 };
 
-const ButtonGrid = ({ children }) => (
+const Grid = ({ children }) => (
   <div className="p-1 d-flex align-items-center flex-wrap" style={{ gap: '8px' }}>
     {children}
   </div>
 );
 
-ButtonGrid.propTypes = {
+Grid.propTypes = {
   children: PropTypes.node,
 };

@@ -1,0 +1,121 @@
+.toast-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $distance-1;
+  position: absolute;
+  width: fit-content;
+  border-radius: $border-radius-1;
+  padding: 12px $distance-2;
+  color: map-get($base, white);
+  box-shadow: map-get($elevation, 200);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $distance-1;
+
+    &--title {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      margin-left: 11px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    margin-left: 28px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  &__info {
+    &.toast-component__snack-bar {
+      background-color: map-get($blue, 500);
+      @include svg-change-color(map-get($blue, 50));
+
+      & .toast-component__header--close {
+        @include svg-change-color(map-get($blue, 50));
+      }
+    }
+
+    &.toast-component__description {
+      color: map-get($blue, 500);
+      @include svg-change-color(map-get($blue, 500));
+    }
+  }
+
+  &__success {
+    &.toast-component__snack-bar {
+      background-color: map-get($positive, 400);
+      @include svg-change-color(map-get($positive, 50));
+
+      & .toast-component__header--close {
+        @include svg-change-color(map-get($positive, 50));
+      }
+    }
+
+    &.toast-component__description {
+      color: map-get($positive, 500);
+      @include svg-change-color(map-get($positive, 500));
+    }
+  }
+
+  &__warning {
+    &.toast-component__snack-bar {
+      color: map-get($base, black);
+      background-color: map-get($warning, 200);
+      @include svg-change-color(map-get($warning, 500));
+
+      & .toast-component__header--close {
+        @include svg-change-color(map-get($warning, 500));
+      }
+    }
+
+    &.toast-component__description {
+      color: map-get($warning, 500);
+      @include svg-change-color(map-get($warning, 500));
+    }
+  }
+
+  &__danger {
+    &.toast-component__snack-bar {
+      background-color: map-get($negative, 400);
+      @include svg-change-color(map-get($negative, 50));
+
+      & .toast-component__header--close {
+        @include svg-change-color(map-get($negative, 50));
+      }
+    }
+
+    &.toast-component__description {
+      color: map-get($negative, 500);
+      @include svg-change-color(map-get($negative, 500));
+    }
+  }
+
+  &__snack-bar {
+    height: 48px;
+  }
+
+  &__description {
+    max-width: 420px;
+    width: 100%;
+    padding: $distance-2;
+
+    & .toast-component__subtitle {
+      color: map-get($base, black);
+      margin-left: 43px;
+    }
+
+    & .toast-component__header--close {
+      margin-left: auto;
+      @include svg-change-color(map-get($neutrals, 700));
+    }
+  }
+}

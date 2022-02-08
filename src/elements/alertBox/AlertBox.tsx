@@ -12,7 +12,7 @@ const iconMap = {
 
 const AlertBox: FC<Props> = ({
   title,
-  status,
+  status = 'success',
   subtitle,
   dataTestId = 'alertBox-component',
   extraClass = 'default',

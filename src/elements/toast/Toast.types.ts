@@ -1,11 +1,18 @@
+interface Button {
+  label: string;
+  onClick(): void;
+}
+
 interface Props {
   title: string;
   status?: 'info' | 'success' | 'warning' | 'danger';
   subtitle?: string;
   dataTestId?: string;
-  extraClass?: string;
   style?: React.CSSProperties;
-  icon?: string;
+  variant?: 'snack-bar' | 'description';
+  primaryButton?: Button;
+  secondaryButton?: Button;
+  onClose?(): void;
 }
 
 export default Props;
