@@ -17,6 +17,7 @@ const props = {
   placeholderText: 'DD-MM-YYYY',
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
+  readOnly: false,
 };
 
 describe('DatePicker component', () => {
@@ -45,5 +46,14 @@ describe('DatePicker component', () => {
     const wrapper = shallow(<DatePicker {...props} errors="required field" />);
     expect(wrapper).toHaveLength(1);
     expect(wrapper.find('.help-block').length).toBe(1);
+  });
+
+  it('renders DatePicker is read only', () => {
+    advanceTo(new Date(2021, 1, 3, 0, 0, 0));
+    props.readOnly = true;
+
+    const wrapper = shallow(<DatePicker {...props} />);
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find('.read-only').length).toBe(1);
   });
 });
