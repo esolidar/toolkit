@@ -89,6 +89,7 @@ class MultiSelectField extends Component {
       valueText,
       isSearchable = false,
       fullWidth = false,
+      menuWidth,
     } = this.props;
 
     const helper = typeof error === 'string' ? error : helperText;
@@ -106,36 +107,32 @@ class MultiSelectField extends Component {
     return (
       <div className="multi-select-component form-group">
         {inputLabelProps && <InputLabel {...inputLabelProps} />}
-        <span
-          className="d-inline-block"
-          data-toggle="popover"
-          data-trigger="focus"
-          data-content="Please selecet account(s)"
-        >
-          <Select
-            placeholder={valueText}
-            className={classes}
-            classNamePrefix="esolidar-select"
-            options={options}
-            isMulti={true}
-            name={name}
-            isSearchable={isSearchable}
-            noOptionsMessage={() => intl.formatMessage({ id: 'toolkit.select.noOptions' })}
-            isClearable={isClearable}
-            closeMenuOnSelect={false}
-            hideSelectedOptions={false}
-            components={{
-              IndicatorSeparator: () => null,
-              DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
-              Option: this.Option,
-              Menu: this.Menu,
-              ValueContainer: this.ValueContainer,
-            }}
-            value={this.state.optionSelected}
-            onChange={this.handleChange}
-            allowSelectAll={showSelectAll}
-          />
-        </span>
+
+        <Select
+          placeholder={valueText}
+          className={classes}
+          classNamePrefix="esolidar-select"
+          options={options}
+          isMulti={true}
+          name={name}
+          isSearchable={isSearchable}
+          noOptionsMessage={() => intl.formatMessage({ id: 'toolkit.select.noOptions' })}
+          isClearable={isClearable}
+          closeMenuOnSelect={false}
+          hideSelectedOptions={false}
+          components={{
+            IndicatorSeparator: () => null,
+            DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
+            Option: this.Option,
+            Menu: this.Menu,
+            ValueContainer: this.ValueContainer,
+          }}
+          value={this.state.optionSelected}
+          onChange={this.handleChange}
+          allowSelectAll={showSelectAll}
+          menuWidth={menuWidth}
+        />
+
         {!!helper && <div className={helperTextClasses}>{helper}</div>}
       </div>
     );
@@ -161,6 +158,7 @@ MultiSelectField.propTypes = {
   labelHeader: PropTypes.object,
   value: PropTypes.array,
   onChange: PropTypes.func,
+  menuWidth: PropTypes.string,
 };
 
 MultiSelectField.defaultProps = {
@@ -172,6 +170,12 @@ const Select = props => {
   const allOption = {
     label: intl.formatMessage({ id: 'select-all' }),
     value: '*',
+  };
+
+  const customStyles = {
+    menu: provided =>
+      // eslint-disable-next-line prefer-object-spread
+      Object.assign({}, provided, { width: props.menuWidth || '100%' }),
   };
 
   const handleChange = (selected, event) => {
@@ -199,6 +203,7 @@ const Select = props => {
         {...props}
         options={[allOption, ...props.options]}
         onChange={(selected, event) => handleChange(selected, event)}
+        styles={customStyles}
       />
     );
   }
@@ -210,4 +215,5 @@ Select.propTypes = {
   allowSelectAll: PropTypes.bool,
   onChange: PropTypes.func,
   options: PropTypes.array,
+  menuWidth: PropTypes.string,
 };
