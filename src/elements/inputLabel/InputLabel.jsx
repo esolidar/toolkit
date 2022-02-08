@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import Icon from '../icon';
 import Tooltip from '../tooltip';
+import Badge from '../badge';
 
 const InputLabel = ({
   field,
@@ -32,7 +32,7 @@ const InputLabel = ({
         )}
         {required && (
           <Tooltip
-            tooltipBodyChild={<Icon name="LockBold" size="sm" />}
+            tooltipBodyChild={<Badge text="Private" />}
             overlay={<span>{requiredText}</span>}
             displayNone={!requiredText}
           />

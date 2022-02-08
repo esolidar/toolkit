@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643824121203" clover="3.2.0">
-  <project timestamp="1643824121203" name="All files">
+<coverage generated="1644314907903" clover="3.2.0">
+  <project timestamp="1644314907903" name="All files">
     <metrics statements="4933" coveredstatements="3507" conditionals="3685" coveredconditionals="2257" methods="1494" coveredmethods="853" elements="10112" coveredelements="6617" complexity="0" loc="4933" ncloc="4933" packages="198" files="686" classes="686"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
@@ -4983,7 +4983,7 @@
       </file>
       <file name="Badge.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/badge/Badge.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="20" coveredconditionals="18" methods="1" coveredmethods="1"/>
-        <line num="7" count="17" type="stmt"/>
+        <line num="7" count="59" type="stmt"/>
         <line num="22" count="15" type="stmt"/>
         <line num="23" count="15" type="stmt"/>
         <line num="33" count="15" type="stmt"/>
