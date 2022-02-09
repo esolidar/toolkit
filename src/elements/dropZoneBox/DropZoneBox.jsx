@@ -388,7 +388,7 @@ const DropZoneBox = ({
               <Cropper
                 ref={cropper}
                 src={croppedFile}
-                style={{ height: 310, width: '100%' }}
+                style={{ height: 290, width: '100%' }}
                 guides={true}
                 zoomable={true}
                 viewMode={1}
@@ -529,5 +529,7 @@ DropZoneBox.defaultProps = {
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
+  minWidth: 0,
+  minHeight: 0,
 };
 export default DropZoneBox;
