@@ -136,10 +136,7 @@ const DropZoneBox = ({
       img.onerror = () => reject(new Error('Something went wrong'));
       img.src = _URL.createObjectURL(file);
     }).then(img => {
-      const imageAttributes = {};
-      imageAttributes.width = img.width;
-      imageAttributes.height = img.height;
-      return imageAttributes;
+      return { width: img.width, height: img.height };
     });
   };
 

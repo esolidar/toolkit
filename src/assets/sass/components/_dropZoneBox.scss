@@ -4,7 +4,7 @@
   .error-files,
   .has-error {
     text-align: left;
-    color: map-get($colors, red);
+    color: map-get($theme-colors, danger);
   }
 
   & .upload-file {
