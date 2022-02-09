@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644425187645" clover="3.2.0">
-  <project timestamp="1644425187645" name="All files">
-    <metrics statements="4961" coveredstatements="3514" conditionals="3718" coveredconditionals="2269" methods="1503" coveredmethods="854" elements="10182" coveredelements="6637" complexity="0" loc="4961" ncloc="4961" packages="198" files="686" classes="686"/>
+<coverage generated="1644426134735" clover="3.2.0">
+  <project timestamp="1644426134736" name="All files">
+    <metrics statements="4963" coveredstatements="3516" conditionals="3721" coveredconditionals="2272" methods="1504" coveredmethods="854" elements="10188" coveredelements="6642" complexity="0" loc="4963" ncloc="4963" packages="198" files="686" classes="686"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="357" type="stmt"/>
+        <line num="3" count="358" type="stmt"/>
         <line num="5" count="72" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="72" type="stmt"/>
@@ -28,7 +28,7 @@
         <line num="10" count="72" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="72" type="stmt"/>
         <line num="16" count="72" type="stmt"/>
-        <line num="17" count="207" type="stmt"/>
+        <line num="17" count="208" type="stmt"/>
       </file>
     </package>
     <package name="src.assets.icons.lg">
@@ -5524,9 +5524,9 @@
       <file name="InputLabel.jsx" path="C:\Projects\toolkit\src\elements\inputLabel\InputLabel.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="8" count="49" type="stmt"/>
-        <line num="20" count="158" type="stmt"/>
-        <line num="21" count="158" type="stmt"/>
-        <line num="23" count="158" type="stmt"/>
+        <line num="20" count="160" type="stmt"/>
+        <line num="21" count="160" type="stmt"/>
+        <line num="23" count="160" type="stmt"/>
         <line num="47" count="49" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\inputLabel\index.js">
@@ -5813,35 +5813,37 @@
       </file>
     </package>
     <package name="src.elements.selectField">
-      <metrics statements="23" coveredstatements="20" conditionals="30" coveredconditionals="28" methods="12" coveredmethods="6"/>
+      <metrics statements="25" coveredstatements="22" conditionals="33" coveredconditionals="31" methods="13" coveredmethods="6"/>
       <file name="SelectField.stories.js" path="C:\Projects\toolkit\src\elements\selectField\SelectField.stories.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="18" count="3" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="18" count="4" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
       </file>
       <file name="SelectField.tsx" path="C:\Projects\toolkit\src\elements\selectField\SelectField.tsx">
-        <metrics statements="14" coveredstatements="11" conditionals="30" coveredconditionals="28" methods="7" coveredmethods="5"/>
+        <metrics statements="14" coveredstatements="11" conditionals="33" coveredconditionals="31" methods="7" coveredmethods="5"/>
         <line num="7" count="10" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="14" count="10" type="stmt"/>
-        <line num="35" count="15" type="stmt"/>
-        <line num="36" count="9" type="stmt"/>
-        <line num="38" count="9" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
-        <line num="43" count="15" type="stmt"/>
-        <line num="44" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="14" type="stmt"/>
-        <line num="46" count="36" type="stmt"/>
-        <line num="58" count="15" type="stmt"/>
+        <line num="36" count="16" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="14" type="stmt"/>
+        <line num="47" count="36" type="stmt"/>
+        <line num="59" count="16" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\selectField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
