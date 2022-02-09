@@ -99,3 +99,16 @@
     }
   }
 }
+
+.select-field.read-only {
+  .control-label {
+    line-height: 24px;
+  }
+
+  .label-read {
+    .control-label {
+      line-height: 24px;
+      color: map-get($neutrals, 900);
+    }
+  }
+}
