@@ -31,6 +31,7 @@ const SelectField: FC<Props> = ({
   isLabelLeft = false,
   leftIcon,
   size = 'lg',
+  readOnly = false,
 }: Props): JSX.Element => {
   useEffect(() => {
     window.addEventListener('resize', toggleSelectAfter);
@@ -62,7 +63,8 @@ const SelectField: FC<Props> = ({
         'form-group',
         `size-${size}`,
         { 'has-error': !!error },
-        { 'left-label': isLabelLeft }
+        { 'left-label': isLabelLeft },
+        { 'read-only': readOnly }
       )}
     >
       <div className="select-field__info">
@@ -76,35 +78,47 @@ const SelectField: FC<Props> = ({
           />
         )}
       </div>
-      <div className="select-field__input">
-        {leftIcon?.show && (
-          <Icon
-            iconClass={`icon left ${leftIcon?.name}`}
-            onClick={leftIcon?.onClick}
-            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-left-icon"
-          />
-        )}
-        <select
-          data-testid={dataTestId}
-          name={field}
-          className={
-            error ? `form-control ${className} required-field` : `form-control ${className}`
-          }
-          value={value}
-          defaultValue={defaultValue}
-          onChange={onChange}
-          disabled={disabled}
-          style={{
-            paddingLeft: leftIcon?.show ? '36px' : '12px',
-          }}
-        >
-          {!hiddenSelectText && <option value="">{selectText}</option>}
-          {optionsList(options)}
-        </select>
-        {info && <span className="footer-label-info">{info}</span>}
-        {error && typeof error !== 'boolean' && <div className="help-block">{error}</div>}
-      </div>
+      {readOnly ? (
+        <InputLabel
+          field={field}
+          label={selectText}
+          className="label-read"
+          size={size}
+          fontWeight={400}
+        />
+      ) : (
+        <>
+          <div className="select-field__input">
+            {leftIcon?.show && (
+              <Icon
+                iconClass={`icon left ${leftIcon?.name}`}
+                onClick={leftIcon?.onClick}
+                style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+                dataTestId="input-left-icon"
+              />
+            )}
+            <select
+              data-testid={dataTestId}
+              name={field}
+              className={
+                error ? `form-control ${className} required-field` : `form-control ${className}`
+              }
+              value={value}
+              defaultValue={defaultValue}
+              onChange={onChange}
+              disabled={disabled}
+              style={{
+                paddingLeft: leftIcon?.show ? '36px' : '12px',
+              }}
+            >
+              {!hiddenSelectText && <option value="">{selectText}</option>}
+              {optionsList(options)}
+            </select>
+            {info && <span className="footer-label-info">{info}</span>}
+            {error && typeof error !== 'boolean' && <div className="help-block">{error}</div>}
+          </div>
+        </>
+      )}
     </div>
   );
 };
