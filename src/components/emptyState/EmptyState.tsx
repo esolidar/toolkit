@@ -5,7 +5,10 @@ import Icon from '../icon';
 import Props from './EmptyState.types';
 
 const EmptyState: FC<Props> = ({
-  container,
+  container = {
+    shadow: false,
+    borderSize: 0,
+  },
   title,
   body,
   icon,

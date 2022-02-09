@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import Icon from '../icon';
+import Button from '../button';
 
 const CustomModal = ({
   actionsChildren,
@@ -79,8 +80,15 @@ const CustomModal = ({
                 </span>
               )}
             </span>
-
-            {closeButton && <Icon name="X" onClick={onHide} className="custom-modal__close" />}
+            {closeButton && (
+              <Button
+                type="icon"
+                extraClass="primary-full"
+                icon={<Icon name="X" size="sm" />}
+                onClick={onHide}
+                ghost
+              />
+            )}
           </Modal.Title>
         </Modal.Header>
       )}

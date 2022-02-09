@@ -9,7 +9,8 @@ export default {
   component: Button,
 };
 
-const extraClassesWithoutFull = ['secondary', 'link', 'ghost', 'negative'];
+const showGhostLight = ['primary-full', 'secondary', 'negative'];
+const showGhostDark = ['secondary'];
 
 const Template = args => {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,62 +25,7 @@ const Template = args => {
 
   return (
     <>
-      {!extraClassesWithoutFull.includes(args.extraClass) && (
-        <>
-          <Grid>
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Enabled" />
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Disabled" disabled />
-            <Button
-              {...args}
-              extraClass={`${args.extraClass}-full`}
-              text="With loading"
-              withLoading={true}
-              isLoading={isLoading}
-              onClick={() => setIsLoading(true)}
-            />
-            <Button
-              {...args}
-              extraClass={`${args.extraClass}-full`}
-              text="Left Icon"
-              iconLeft={<Icon name="ArrowLeft" />}
-            />
-            <Button
-              {...args}
-              extraClass={`${args.extraClass}-full`}
-              text="2 Icons"
-              iconLeft={<Icon name="ArrowLeft" />}
-              iconRight={<Icon name="ChevronDown" />}
-            />
-            <Button
-              {...args}
-              extraClass={`${args.extraClass}-full`}
-              text="Right Icon"
-              iconRight={<Icon name="ArrowRight" />}
-            />
-            <Button
-              {...args}
-              type="icon"
-              extraClass={`${args.extraClass}-full`}
-              icon={<Icon name="ArrowLeft" />}
-            />
-            <Button
-              {...args}
-              extraClass={`${args.extraClass}-full`}
-              text="With Badge"
-              iconLeft={<Icon name="ArrowLeft" />}
-              badge={<Badge text="2" size="xs" />}
-            />
-          </Grid>
-
-          <Grid>
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size XL" size="xl" />
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size LG" size="lg" />
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size MD" size="md" />
-            <Button {...args} extraClass={`${args.extraClass}-full`} text="Size SM" size="sm" />
-          </Grid>
-        </>
-      )}
-
+      <h5 className="p-1">Normal</h5>
       <Grid>
         <Button {...args} text="Enabled" />
         <Button {...args} text="Disabled" disabled />
@@ -103,7 +49,7 @@ const Template = args => {
           {...args}
           text="With Badge"
           iconLeft={<Icon name="ArrowLeft" />}
-          badge={<Badge text="2" size="xs" />}
+          badge={<Badge text="2" size="xs" extraClass="success" />}
         />
       </Grid>
 
@@ -113,25 +59,133 @@ const Template = args => {
         <Button {...args} text="Size MD" size="md" />
         <Button {...args} text="Size SM" size="sm" />
       </Grid>
+
+      {showGhostLight.includes(args.extraClass) && (
+        <>
+          <h5 className="p-1 mt-3">Ghost Light</h5>
+          <Grid>
+            <Button {...args} text="Enabled" ghost theme="light" />
+            <Button {...args} text="Disabled" disabled ghost theme="light" />
+            <Button
+              {...args}
+              text="With loading"
+              withLoading={true}
+              isLoading={isLoading}
+              onClick={() => setIsLoading(true)}
+              ghost
+              theme="light"
+            />
+            <Button
+              {...args}
+              text="Left Icon"
+              iconLeft={<Icon name="ArrowLeft" />}
+              ghost
+              theme="light"
+            />
+            <Button
+              {...args}
+              text="2 Icons"
+              iconLeft={<Icon name="ArrowLeft" />}
+              iconRight={<Icon name="ChevronDown" />}
+              ghost
+              theme="light"
+            />
+            <Button
+              {...args}
+              text="Right Icon"
+              iconRight={<Icon name="ArrowRight" />}
+              ghost
+              theme="light"
+            />
+            <Button {...args} type="icon" icon={<Icon name="ArrowLeft" />} ghost theme="light" />
+            <Button
+              {...args}
+              text="With Badge"
+              iconLeft={<Icon name="ArrowLeft" />}
+              badge={<Badge text="2" size="xs" extraClass="success" />}
+              ghost
+              theme="light"
+            />
+          </Grid>
+
+          <Grid>
+            <Button {...args} text="Size XL" size="xl" ghost theme="light" />
+            <Button {...args} text="Size LG" size="lg" ghost theme="light" />
+            <Button {...args} text="Size MD" size="md" ghost theme="light" />
+            <Button {...args} text="Size SM" size="sm" ghost theme="light" />
+          </Grid>
+        </>
+      )}
+
+      {showGhostDark.includes(args.extraClass) && (
+        <>
+          <h5 className="p-1 mt-3">Ghost Dark</h5>
+          <Grid>
+            <Button {...args} text="Enabled" ghost theme="dark" />
+            <Button {...args} text="Disabled" disabled ghost theme="dark" />
+            <Button
+              {...args}
+              text="With loading"
+              withLoading={true}
+              isLoading={isLoading}
+              onClick={() => setIsLoading(true)}
+              ghost
+              theme="dark"
+            />
+            <Button
+              {...args}
+              text="Left Icon"
+              iconLeft={<Icon name="ArrowLeft" />}
+              ghost
+              theme="dark"
+            />
+            <Button
+              {...args}
+              text="2 Icons"
+              iconLeft={<Icon name="ArrowLeft" />}
+              iconRight={<Icon name="ChevronDown" />}
+              ghost
+              theme="dark"
+            />
+            <Button
+              {...args}
+              text="Right Icon"
+              iconRight={<Icon name="ArrowRight" />}
+              ghost
+              theme="dark"
+            />
+            <Button {...args} type="icon" icon={<Icon name="ArrowLeft" />} ghost theme="dark" />
+            <Button
+              {...args}
+              text="With Badge"
+              iconLeft={<Icon name="ArrowLeft" />}
+              badge={<Badge text="2" size="xs" extraClass="success" />}
+              ghost
+              theme="dark"
+            />
+          </Grid>
+
+          <Grid>
+            <Button {...args} text="Size XL" size="xl" ghost theme="dark" />
+            <Button {...args} text="Size LG" size="lg" ghost theme="dark" />
+            <Button {...args} text="Size MD" size="md" ghost theme="dark" />
+            <Button {...args} text="Size SM" size="sm" ghost theme="dark" />
+          </Grid>
+        </>
+      )}
     </>
   );
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  extraClass: 'primary',
+  extraClass: 'primary-full',
   onClick: () => {},
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   extraClass: 'secondary',
-  onClick: () => {},
-};
-
-export const Ghost = Template.bind({});
-Ghost.args = {
-  extraClass: 'ghost',
   onClick: () => {},
 };
 
@@ -146,36 +200,6 @@ Link.args = {
   extraClass: 'link',
   target: '_blank',
   href: '#',
-};
-
-export const Success = Template.bind({});
-Success.args = {
-  extraClass: 'success',
-  onClick: () => {},
-};
-
-export const Warning = Template.bind({});
-Warning.args = {
-  extraClass: 'warning',
-  onClick: () => {},
-};
-
-export const Danger = Template.bind({});
-Danger.args = {
-  extraClass: 'danger',
-  onClick: () => {},
-};
-
-export const Info = Template.bind({});
-Info.args = {
-  extraClass: 'info',
-  onClick: () => {},
-};
-
-export const Dark = Template.bind({});
-Dark.args = {
-  extraClass: 'dark',
-  onClick: () => {},
 };
 
 const Grid = ({ children }) => (

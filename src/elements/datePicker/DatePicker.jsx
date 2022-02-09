@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useIntl } from 'react-intl';
 import DatePick, { registerLocale } from 'react-datepicker';
+import moment from 'moment-timezone';
 import pt from 'date-fns/locale/pt';
 import en from 'date-fns/locale/en-US';
 import br from 'date-fns/locale/pt-BR';
@@ -63,6 +64,7 @@ const DatePicker = ({
   disabled,
   inputLabelSize,
   highlightDates = [],
+  readOnly = false,
 }) => {
   const [showMonths, setShowMonths] = useState(false);
   const [showYears, setShowYears] = useState(false);
@@ -84,6 +86,7 @@ const DatePicker = ({
     <div
       className={classnames('datepicker-component', 'form-group', {
         'has-error': !!errors,
+        'read-only': readOnly,
       })}
     >
       {label && (
@@ -95,51 +98,63 @@ const DatePicker = ({
           size={inputLabelSize}
         />
       )}
-      <div
-        className={classnames(
-          `size-${size}`,
-          'input',
-          { 'with-icon': leftIcon?.show },
-          { 'with-time': showTimeSelect }
-        )}
-      >
-        {leftIcon?.show && (
-          <Icon {...leftIcon} className="left-icon" dataTestId="input-left-icon" />
-        )}
-        <DatePick
-          locale={locale}
-          selected={selected}
-          selectsStart={selectsStart}
-          startDate={startDate}
-          endDate={endDate}
-          showTimeSelect={showTimeSelect}
-          onChange={onChange}
-          className={className}
-          placeholderText={placeholderText}
-          timeCaption={timeCaption}
-          dateFormat={dateFormat}
-          minDate={minDate}
-          maxDate={maxDate}
-          disabled={disabled}
-          highlightDates={highlightWithRanges}
-          onCalendarOpen={addHighlightedTooltip}
-          renderCustomHeader={args => <RenderCustomHeader {...props} {...args} />}
-          fixedHeight
-          onCalendarClose={() => {
-            setShowMonths(false);
-            setShowYears(false);
-          }}
+      {readOnly ? (
+        <InputLabel
+          field={id || field}
+          label={moment(selected).format('DD-MM-YYYY')}
+          className="date"
+          size={inputLabelSize}
+          fontWeight={400}
         />
-        {rightIcon?.show && (
-          <Icon
-            iconClass={`icon right ${rightIcon?.name}`}
-            onClick={rightIcon?.onClick}
-            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-right-icon"
-          />
-        )}
-      </div>
-      {!!errors && <div className="help-block">{errors}</div>}
+      ) : (
+        <>
+          <div
+            className={classnames(
+              `size-${size}`,
+              'input',
+              { 'with-icon': leftIcon?.show },
+              { 'with-time': showTimeSelect }
+            )}
+          >
+            {leftIcon?.show && (
+              <Icon {...leftIcon} className="left-icon" dataTestId="input-left-icon" />
+            )}
+            <DatePick
+              locale={locale}
+              selected={selected}
+              selectsStart={selectsStart}
+              startDate={startDate}
+              endDate={endDate}
+              showTimeSelect={showTimeSelect}
+              onChange={onChange}
+              className={className}
+              placeholderText={placeholderText}
+              timeCaption={timeCaption}
+              dateFormat={dateFormat}
+              minDate={minDate}
+              maxDate={maxDate}
+              disabled={disabled}
+              highlightDates={highlightWithRanges}
+              onCalendarOpen={addHighlightedTooltip}
+              renderCustomHeader={args => <RenderCustomHeader {...props} {...args} />}
+              fixedHeight
+              onCalendarClose={() => {
+                setShowMonths(false);
+                setShowYears(false);
+              }}
+            />
+            {rightIcon?.show && (
+              <Icon
+                iconClass={`icon right ${rightIcon?.name}`}
+                onClick={rightIcon?.onClick}
+                style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+                dataTestId="input-right-icon"
+              />
+            )}
+          </div>
+          {!!errors && <div className="help-block">{errors}</div>}
+        </>
+      )}
     </div>
   );
 };
@@ -178,6 +193,7 @@ DatePicker.propTypes = {
   }),
   inputLabelSize: PropTypes.string,
   highlightDates: PropTypes.array,
+  readOnly: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -188,6 +204,7 @@ DatePicker.defaultProps = {
   dateFormat: 'd-MM-yyyy h:mm aa',
   size: 'xs',
   inputLabelSize: 'lg',
+  readOnly: false,
 };
 
 export default DatePicker;
@@ -223,20 +240,22 @@ const RenderCustomHeader = ({
 
       <div className="react-datepicker__custom-header-buttons">
         <Button
-          extraClass="ghost"
+          extraClass="primary-full"
           icon={<Icon name="ChevronLeft" />}
           onClick={decreaseMonth}
           size="md"
           type="icon"
           disabled={prevMonthButtonDisabled}
+          ghost
         />
         <Button
-          extraClass="ghost"
+          extraClass="primary-full"
           icon={<Icon name="ChevronRight" />}
           onClick={increaseMonth}
           size="md"
           type="icon"
           disabled={nextMonthButtonDisabled}
+          ghost
         />
       </div>
 
@@ -251,22 +270,24 @@ const RenderCustomHeader = ({
             </button>
             <div className="react-datepicker__custom-header-buttons">
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronLeft" />}
                 onClick={() => {
                   changeYear(date.getFullYear() - 1);
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronRight" />}
                 onClick={() => {
                   changeYear(date.getFullYear() + 1);
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
             </div>
           </div>
@@ -298,7 +319,7 @@ const RenderCustomHeader = ({
             </div>
             <div className="react-datepicker__custom-header-buttons">
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronLeft" />}
                 onClick={() => {
                   changeYear(date.getFullYear() - 10);
@@ -306,9 +327,10 @@ const RenderCustomHeader = ({
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronRight" />}
                 onClick={() => {
                   changeYear(date.getFullYear() + 10);
@@ -316,6 +338,7 @@ const RenderCustomHeader = ({
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
             </div>
           </div>

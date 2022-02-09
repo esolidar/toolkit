@@ -49,6 +49,8 @@ const DropZoneBox = ({
   showFooterCropper,
   showErrors,
   error,
+  minWidth,
+  minHeight,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -57,8 +59,8 @@ const DropZoneBox = ({
 
   const intl = useIntl();
 
-  const minWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
-  const minHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
+  const cropMinWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
+  const cropMinHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
 
   useEffect(() => {
     if (!cropModalStatus) {
@@ -112,8 +114,8 @@ const DropZoneBox = ({
       message: intl.formatMessage(
         { id: 'document.files.modal.error.dimensions' },
         {
-          width: minWidth,
-          height: minHeight,
+          width: minWidth || cropMinWidth,
+          height: minHeight || cropMinHeight,
         }
       ),
     },
@@ -123,6 +125,39 @@ const DropZoneBox = ({
     setDisableCroppedImage(false);
     setCropperModal(false);
     setErrorList([]);
+  };
+
+  const getImageWidthAndHeight = file => {
+    return new Promise((resolve, reject) => {
+      // eslint-disable-next-line no-underscore-dangle
+      const _URL = window.URL || window.webkitURL;
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('Something went wrong'));
+      img.src = _URL.createObjectURL(file);
+    }).then(img => {
+      return { width: img.width, height: img.height };
+    });
+  };
+
+  const renderErrorList = (errorList, showErrors, errorTitle = false) => {
+    if (errorList.length > 0 && showErrors) {
+      return (
+        <div className="error-files">
+          {errorTitle && (
+            <div className="error">
+              <FormattedMessage id="document.files.modal.error.files" />
+            </div>
+          )}
+          {errorList.map((file, idx) => (
+            <div key={idx} className="error ml-2 d-block">
+              {file.name && ` ${file.name}: `}
+              {` ${file.errors.join(', ')}`}
+            </div>
+          ))}
+        </div>
+      );
+    }
   };
 
   const { getRootProps, getInputProps, open } = useDropzone({
@@ -149,24 +184,45 @@ const DropZoneBox = ({
     },
     onDrop: () => {},
     onDropAccepted: async acceptedFiles => {
+      const errors = [];
       if (hasCropper && hasCropper.showCropper) {
         const reader = new FileReader();
         const file = acceptedFiles[0];
+        const imagesAttributes = await getImageWidthAndHeight(file);
 
-        reader.onloadend = () => {
-          setCroppedFile(reader.result);
-        };
+        if (imagesAttributes?.height < minHeight && imagesAttributes?.width < minWidth) {
+          errors.push({
+            name: '',
+            errors: [`${errorMessages.find(messageObj => messageObj.id === 'dimensions').message}`],
+          });
+          setErrorList(errors);
+        } else {
+          reader.onloadend = () => {
+            setCroppedFile(reader.result);
+          };
 
-        reader.readAsDataURL(file);
-        setCropperModal(true);
+          reader.readAsDataURL(file);
+          setCropperModal(true);
+        }
       } else {
-        onSelect(
-          acceptedFiles.map(file =>
-            Object.assign(file, {
+        const getData = await Promise.all(
+          acceptedFiles.map(async file => {
+            const imagesAttributes = await getImageWidthAndHeight(file);
+            if (imagesAttributes?.height < minHeight && imagesAttributes?.width < minWidth) {
+              return errors.push({
+                name: file.name,
+                errors: [
+                  `${errorMessages.find(messageObj => messageObj.id === 'dimensions').message}`,
+                ],
+              });
+            }
+            return Object.assign(file, {
               preview: URL.createObjectURL(file),
-            })
-          )
+            });
+          })
         );
+        setErrorList(errors);
+        acceptedFiles(getData);
       }
     },
     onDropRejected: async rejectedFiles => {
@@ -262,18 +318,11 @@ const DropZoneBox = ({
         </>
       )}
 
-      {errorList.length > 0 && showErrors && (
-        <div className="text-left error-files">
-          <div className="error">
-            <FormattedMessage id="document.files.modal.error.files" />
-          </div>
-          {errorList.map((file, idx) => (
-            <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-              ', '
-            )}.`}</div>
-          ))}
-        </div>
+      {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
+        <ImagesPreview />
       )}
+
+      {renderErrorList(errorList, showErrors, true)}
 
       {error && (
         <div
@@ -289,12 +338,9 @@ const DropZoneBox = ({
         </div>
       )}
 
-      {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
-        <ImagesPreview />
-      )}
-
       {cropperModal && (
         <CustomModal
+          bodyClassName="dropzone-box"
           actionsChildren={
             <div className="footer-buttons">
               <Button
@@ -331,7 +377,7 @@ const DropZoneBox = ({
                     0.7
                   );
                 }}
-                text={textSaveCropModal}
+                text={textSaveCropModal || intl.formatMessage({ id: 'save' })}
                 disabled={disableCroppedImage}
               />
             </div>
@@ -342,17 +388,17 @@ const DropZoneBox = ({
               <Cropper
                 ref={cropper}
                 src={croppedFile}
-                style={{ height: 310, width: '100%' }}
+                style={{ height: 290, width: '100%' }}
                 guides={true}
                 zoomable={true}
-                viewMode={2}
+                viewMode={1}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
+                dragMode="move"
+                cropBoxResizable={true}
+                cropBoxMovable={false}
+                autoCropArea={1}
               />
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name} ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
+              {renderErrorList(errorList, showErrors)}
               {showFooterCropper && (
                 <div className="dropzone-footer">
                   <div className="dropzone-footer__buttons">
@@ -368,11 +414,12 @@ const DropZoneBox = ({
                       tooltipBodyChild={
                         <Button
                           className="dropzone-footer__buttons-rotate"
-                          extraClass="ghost"
+                          extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(90);
                           }}
                           icon={<Icon name="RotateCcw" size="sm" />}
+                          ghost
                         />
                       }
                     />
@@ -388,11 +435,12 @@ const DropZoneBox = ({
                       tooltipBodyChild={
                         <Button
                           className="dropzone-footer__buttons-rotate"
-                          extraClass="ghost"
+                          extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(-90);
                           }}
                           icon={<Icon name="RotateCw" size="sm" />}
+                          ghost
                         />
                       }
                     />
@@ -414,7 +462,7 @@ const DropZoneBox = ({
           onHide={toggleModalCropper}
           show={cropperModal}
           size="md"
-          title={titleCropModal}
+          title={titleCropModal || intl.formatMessage({ id: 'modal.crop.title' })}
           dialogClassName={modalClassName}
         />
       )}
@@ -460,6 +508,8 @@ DropZoneBox.propTypes = {
   showFooterCropper: PropTypes.bool,
   showErrors: PropTypes.bool,
   error: PropTypes.string,
+  minWidth: PropTypes.number,
+  minHeight: PropTypes.number,
 };
 
 DropZoneBox.defaultProps = {
@@ -477,11 +527,11 @@ DropZoneBox.defaultProps = {
   noDrag: false,
   imagesPreviewPosition: 'bottom',
   imagesList: [],
-  titleCropModal: 'Add Files',
-  textSaveCropModal: 'Add',
   isLoading: false,
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
+  minWidth: 0,
+  minHeight: 0,
 };
 export default DropZoneBox;
