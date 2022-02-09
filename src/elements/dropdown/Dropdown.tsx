@@ -16,7 +16,12 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX
   return (
     <DropdownBTS className="esolidar-dropdown">
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
-        <Button extraClass="ghost" type="icon" icon={<Icon name={toggleIcon} size="sm" />} />
+        <Button
+          extraClass="primary-full"
+          type="icon"
+          icon={<Icon name={toggleIcon} size="sm" />}
+          ghost
+        />
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
         {filteredItems.map(item => {
