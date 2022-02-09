@@ -81,11 +81,7 @@ const CustomModal = ({
               )}
             </span>
             {closeButton && (
-              <Button
-                extraClass="ghost"
-                icon={<Icon name="X" size="sm" className="custom-modal__close" />}
-                onClick={onHide}
-              />
+              <Button extraClass="ghost" icon={<Icon name="X" size="sm" />} onClick={onHide} />
             )}
           </Modal.Title>
         </Modal.Header>

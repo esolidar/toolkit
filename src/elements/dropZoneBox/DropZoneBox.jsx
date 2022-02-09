@@ -343,7 +343,7 @@ const DropZoneBox = ({
 
       {cropperModal && (
         <CustomModal
-          bodyClassName="dropzone-box-modal"
+          bodyClassName="dropzone-box"
           actionsChildren={
             <div className="footer-buttons">
               <Button
@@ -528,8 +528,6 @@ DropZoneBox.defaultProps = {
   noDrag: false,
   imagesPreviewPosition: 'bottom',
   imagesList: [],
-  titleCropModal: null,
-  textSaveCropModal: null,
   isLoading: false,
   showFooterCropper: false,
   showErrors: true,

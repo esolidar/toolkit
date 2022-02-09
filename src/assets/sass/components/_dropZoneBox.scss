@@ -246,11 +246,3 @@
     opacity: 0 !important;
   }
 }
-
-.dropzone-box-modal {
-  .error-files,
-  .has-error {
-    text-align: left;
-    color: map-get($colors, red);
-  }
-}
