@@ -35,10 +35,11 @@
           }
         }
 
-        & .custom-modal__close {
-          cursor: pointer;
-          padding-top: $distance-1;
-        }
+        // & .btn-ghost {
+        //   gap: 0;
+        //   min-width: 40px;
+        //   width: 40px;
+        // }
       }
     }
     .modal-body {
