@@ -28,6 +28,8 @@ const Button = React.forwardRef(
       badge,
       withLoading,
       isLoading,
+      ghost,
+      theme,
     },
     ref
   ) => {
@@ -41,6 +43,7 @@ const Button = React.forwardRef(
       'btn-esolidar',
       `btn-${extraClass}`,
       `btn-${size}`,
+      { [`btn-ghost btn-ghost-${theme}`]: ghost },
       { 'btn-icon': type === 'icon' },
       { 'full-width': fullWidth },
       { disabled: disabled || isLoading },
@@ -65,7 +68,7 @@ const Button = React.forwardRef(
     );
 
     const white = extraClass
-      ? extraClass.includes('-full') || extraClass.includes('negative')
+      ? (extraClass.includes('-full') || extraClass.includes('negative')) && !ghost
       : false;
 
     const renderButton = () => {
@@ -243,6 +246,8 @@ Button.propTypes = {
   badge: PropTypes.node,
   withLoading: PropTypes.bool,
   isLoading: PropTypes.bool,
+  ghost: PropTypes.bool,
+  theme: PropTypes.oneOf(['light', 'dark']),
 };
 
 Button.defaultProps = {
@@ -252,6 +257,8 @@ Button.defaultProps = {
   type: 'button',
   withLoading: false,
   isLoading: false,
+  ghost: false,
+  theme: 'light',
 };
 
 export default Button;

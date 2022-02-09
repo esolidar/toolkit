@@ -414,11 +414,12 @@ const DropZoneBox = ({
                       tooltipBodyChild={
                         <Button
                           className="dropzone-footer__buttons-rotate"
-                          extraClass="ghost"
+                          extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(90);
                           }}
                           icon={<Icon name="RotateCcw" size="sm" />}
+                          ghost
                         />
                       }
                     />
@@ -434,11 +435,12 @@ const DropZoneBox = ({
                       tooltipBodyChild={
                         <Button
                           className="dropzone-footer__buttons-rotate"
-                          extraClass="ghost"
+                          extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(-90);
                           }}
                           icon={<Icon name="RotateCw" size="sm" />}
+                          ghost
                         />
                       }
                     />
