@@ -14,6 +14,7 @@
       display: flex;
       background-color: map-get($blue, 0);
       padding: $distance-2;
+      border-radius: $border-radius-1;
 
       @include svg-change-color(map-get($blue, 500));
 
