@@ -4,11 +4,12 @@ import { composeStory } from '@storybook/testing-react';
 import SelectField from '../index';
 import '@testing-library/jest-dom';
 import { render } from '../../../../__customQueries__/test-utils';
-import Meta, { LeftLabel, WithHelper, WithIcons } from '../SelectField.stories';
+import Meta, { LeftLabel, WithHelper, WithIcons, ReadOnly } from '../SelectField.stories';
 
 const LeftLabelComponent = composeStory(LeftLabel, Meta);
 const WithHelperComponent = composeStory(WithHelper, Meta);
 const WithIconsComponent = composeStory(WithIcons, Meta);
+const ReadOnlyComponent = composeStory(ReadOnly, Meta);
 
 const changed = jest.fn();
 
@@ -113,5 +114,11 @@ describe('SelectField component', () => {
     const { getByClass } = render(<WithIconsComponent />);
 
     expect(getByClass('icon left icon-search')).toBeInTheDocument();
+  });
+
+  it('renders Select Field read only', () => {
+    const { getByClass } = render(<ReadOnlyComponent />);
+
+    expect(getByClass(/read-only/)).toBeInTheDocument();
   });
 });

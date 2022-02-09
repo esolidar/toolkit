@@ -24,6 +24,7 @@ interface Props {
   isLabelLeft?: boolean;
   leftIcon?: LefIcon;
   size?: string;
+  readOnly?: boolean;
 }
 
 export default Props;
