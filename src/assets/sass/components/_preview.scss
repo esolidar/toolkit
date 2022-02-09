@@ -1,6 +1,6 @@
 .esolidar-preview {
   display: flex;
-  .esolidar-preview__image {
+  &__image {
     position: relative;
     @include animate(outline, 100ms);
 
@@ -53,8 +53,8 @@
   }
   &.hover-image {
     .esolidar-preview__image {
-      .esolidar-preview__image-delete-image,
-      .esolidar-preview__image-fullscreen {
+      &-delete-image,
+      &-fullscreen {
         opacity: 0;
         @include animate(outline, 100ms);
 
@@ -74,6 +74,23 @@
         .esolidar-preview__image-fullscreen {
           opacity: 1;
         }
+      }
+    }
+  }
+
+  &__no-image {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 144px;
+    width: 216px;
+    background: map-get($neutrals, 100);
+    border-radius: $distance-1;
+
+    &.hover-placeholder {
+      &:hover {
+        outline: 2px solid map-get($turquoise, 500);
+        @include animate(outline, 100ms);
       }
     }
   }
