@@ -529,7 +529,5 @@ DropZoneBox.defaultProps = {
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
-  minWidth: 0,
-  minHeight: 0,
 };
 export default DropZoneBox;
