@@ -157,7 +157,14 @@
 .cropper-container {
   .cropper-wrap-box,
   .cropper-modal {
-    background-color: map-get($base, white);
+    background-color: transparent;
+  }
+
+  &.cropper-bg {
+    background-color: map-get($background, secondary);
+    border: 1px solid map-get($neutrals, 200);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cropper-view-box {
