@@ -240,20 +240,22 @@ const RenderCustomHeader = ({
 
       <div className="react-datepicker__custom-header-buttons">
         <Button
-          extraClass="ghost"
+          extraClass="primary-full"
           icon={<Icon name="ChevronLeft" />}
           onClick={decreaseMonth}
           size="md"
           type="icon"
           disabled={prevMonthButtonDisabled}
+          ghost
         />
         <Button
-          extraClass="ghost"
+          extraClass="primary-full"
           icon={<Icon name="ChevronRight" />}
           onClick={increaseMonth}
           size="md"
           type="icon"
           disabled={nextMonthButtonDisabled}
+          ghost
         />
       </div>
 
@@ -268,22 +270,24 @@ const RenderCustomHeader = ({
             </button>
             <div className="react-datepicker__custom-header-buttons">
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronLeft" />}
                 onClick={() => {
                   changeYear(date.getFullYear() - 1);
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronRight" />}
                 onClick={() => {
                   changeYear(date.getFullYear() + 1);
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
             </div>
           </div>
@@ -315,7 +319,7 @@ const RenderCustomHeader = ({
             </div>
             <div className="react-datepicker__custom-header-buttons">
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronLeft" />}
                 onClick={() => {
                   changeYear(date.getFullYear() - 10);
@@ -323,9 +327,10 @@ const RenderCustomHeader = ({
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
               <Button
-                extraClass="ghost"
+                extraClass="primary-full"
                 icon={<Icon name="ChevronRight" />}
                 onClick={() => {
                   changeYear(date.getFullYear() + 10);
@@ -333,6 +338,7 @@ const RenderCustomHeader = ({
                 }}
                 size="md"
                 type="icon"
+                ghost
               />
             </div>
           </div>

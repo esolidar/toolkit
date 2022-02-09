@@ -66,9 +66,10 @@ const Preview: FC<Props> = ({
           {fullScreen && (
             <Button
               className="esolidar-preview__image-fullscreen"
-              extraClass="ghost"
+              extraClass="primary-full"
               onClick={handleFullscreen}
               icon={<Icon iconClass="icon-camera" />}
+              ghost
             />
           )}
           {badgeText && (

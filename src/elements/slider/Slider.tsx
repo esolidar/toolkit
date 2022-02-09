@@ -48,9 +48,10 @@ const SliderComponent: FC<Props> = ({
       {showButtons && (
         <Button
           disabled={isMinusDisabled}
-          extraClass="ghost"
+          extraClass="primary-full"
           onClick={handleClickMinus}
           icon={<Icon name="Minus" size="sm" />}
+          ghost
         />
       )}
       <Slider
@@ -64,9 +65,10 @@ const SliderComponent: FC<Props> = ({
       {showButtons && (
         <Button
           disabled={isPlusDisabled}
-          extraClass="ghost"
+          extraClass="primary-full"
           onClick={handleClickPlus}
           icon={<Icon name="Plus" size="sm" />}
+          ghost
         />
       )}
     </div>
