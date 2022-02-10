@@ -12,7 +12,6 @@ const Wizard: FC<Props> = ({
   closeWizard,
   title,
   subtitle,
-  status,
   buttonDarkText,
   buttonPrimaryText,
   cdnStaticUrl,
@@ -34,6 +33,8 @@ const Wizard: FC<Props> = ({
   handleBlurTitle,
   buttonNextText,
   isLoading,
+  isDraft = false,
+  isLive = false,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -77,7 +78,8 @@ const Wizard: FC<Props> = ({
           closeWizard={closeWizard}
           title={title}
           subtitle={subtitle}
-          status={status}
+          isDraft={isDraft}
+          isLive={isLive}
           buttonDarkText={buttonDarkText}
           buttonPrimaryText={buttonPrimaryText}
           cdnStaticUrl={cdnStaticUrl}

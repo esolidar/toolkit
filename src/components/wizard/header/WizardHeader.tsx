@@ -3,6 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
+import Icon from '../../../elements/icon';
 import isDefined from '../../../utils/isDefined';
 import cursorFocus from '../../../utils/cursorFocus';
 
@@ -10,7 +11,6 @@ const WizardHeader: FC<Props> = ({
   closeWizard,
   title,
   subtitle,
-  status,
   buttonDarkText,
   buttonPrimaryText,
   cdnStaticUrl,
@@ -23,6 +23,8 @@ const WizardHeader: FC<Props> = ({
   handleChangeTitle,
   handleBlurTitle,
   isLoading = false,
+  isDraft = false,
+  isLive = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -36,11 +38,7 @@ const WizardHeader: FC<Props> = ({
   return (
     <div className="wizard__header">
       <div className="wizard__header__image">
-        <Button
-          extraClass="link"
-          onClick={closeWizard}
-          text={<img src={`${cdnStaticUrl}/frontend/icons/icon-prev-page.svg`} alt="" />}
-        />
+        <Button extraClass="ghost" onClick={closeWizard} text={<Icon name="X" size="sm" />} />
       </div>
       <div className="wizard__header__title">
         <div>
@@ -62,7 +60,10 @@ const WizardHeader: FC<Props> = ({
               />
             )}
             {!editMode && <>{title}</>}
-            <Badge text={status} className="btn-badge" extraClass="dark" size="md" />
+            <div className="status-badge">
+              {isLive && <Badge text="live" className="btn-badge" extraClass="green" size="sm" />}
+              {isDraft && <Badge text="draft" className="btn-badge" extraClass="white" size="sm" />}
+            </div>
           </h1>
         </div>
       </div>

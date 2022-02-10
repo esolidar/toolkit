@@ -31,6 +31,8 @@ interface Props {
   handleBlurTitle(): void;
   buttonNextText: string;
   isLoading: boolean;
+  isDraft?: boolean;
+  isLive?: boolean;
 }
 
 export default Props;
