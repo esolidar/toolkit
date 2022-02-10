@@ -16,7 +16,7 @@ const Toast: FC<Props> = ({
   title,
   status = 'success',
   subtitle,
-  dataTestId = 'alertBox-component',
+  dataTestId = 'toast-component',
   style,
   variant = 'snack-bar',
   primaryButton,
@@ -29,58 +29,74 @@ const Toast: FC<Props> = ({
     `toast-component__${variant}`
   );
 
+  const buttonsTheme = status === 'warning' || variant === 'description' ? 'dark' : 'light';
+
   return (
     <div data-testid={dataTestId} className={classes} style={style} role="alert">
       <div className="toast-component__header">
-        <Icon name={iconMap[status]} data-testid={iconMap[status]} />
+        <Icon
+          className="toast-component__header--icon"
+          name={iconMap[status]}
+          data-testid={`icon-${iconMap[status]}`}
+        />
         {title && <span className="toast-component__header--title">{title}</span>}
         {variant === 'snack-bar' && (
           <>
             {subtitle && <span className="toast-component__subtitle">{subtitle}</span>}
             {primaryButton && (
               <Button
-                extraClass="ghost"
-                text={primaryButton.label}
-                onClick={primaryButton.onClick}
-              />
-            )}
-            {secondaryButton && (
-              <Button
-                extraClass="ghost"
-                text={primaryButton.label}
-                onClick={primaryButton.onClick}
+                dataTestId="primaryButton"
+                extraClass="secondary"
+                text={primaryButton?.label}
+                onClick={primaryButton?.onClick}
+                size="sm"
+                ghost
+                theme={buttonsTheme}
               />
             )}
           </>
         )}
         {isDefined(onClose) && (
           <Button
+            dataTestId="closeButton"
             type="icon"
-            extraClass="ghost"
+            extraClass="secondary"
             className="toast-component__header--close"
+            onClick={onClose}
             icon={<Icon name="X" size="sm" />}
+            size="sm"
+            ghost
+            theme={buttonsTheme}
           />
         )}
       </div>
       {variant === 'description' && (
         <>
           {subtitle && <span className="toast-component__subtitle">{subtitle}</span>}
-          <div className="toast-component__actions">
-            {primaryButton && (
-              <Button
-                extraClass="ghost"
-                text={primaryButton.label}
-                onClick={primaryButton.onClick}
-              />
-            )}
-            {secondaryButton && (
-              <Button
-                extraClass="ghost"
-                text={primaryButton.label}
-                onClick={primaryButton.onClick}
-              />
-            )}
-          </div>
+          {(isDefined(primaryButton) || isDefined(secondaryButton)) && (
+            <div className="toast-component__actions">
+              {primaryButton && (
+                <Button
+                  dataTestId="primaryButton"
+                  extraClass="secondary"
+                  text={primaryButton?.label}
+                  onClick={primaryButton?.onClick}
+                  size="sm"
+                />
+              )}
+              {secondaryButton && (
+                <Button
+                  dataTestId="secondaryButton"
+                  extraClass="secondary"
+                  text={secondaryButton?.label}
+                  onClick={secondaryButton?.onClick}
+                  size="sm"
+                  ghost
+                  theme="dark"
+                />
+              )}
+            </div>
+          )}
         </>
       )}
     </div>

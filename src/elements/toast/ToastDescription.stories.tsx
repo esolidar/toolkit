@@ -21,18 +21,47 @@ const Template: Story<Props> = (args: Props) => (
   <Grid>
     <Toast
       {...args}
-      primaryButton={{ label: 'Button', onClick: () => {} }}
-      secondaryButton={{ label: 'Button', onClick: () => {} }}
-      onClose={() => {}}
+      variant="description"
+      primaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the primary button');
+        },
+      }}
+      secondaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the secondary button');
+        },
+      }}
+      onClose={() => {
+        alert('You closed the toast');
+      }}
     />
-    <Toast {...args} onClose={() => {}} style={{ top: '180px' }} />
     <Toast
       {...args}
-      primaryButton={{ label: 'Button', onClick: () => {} }}
-      secondaryButton={{ label: 'Button', onClick: () => {} }}
-      style={{ top: '305px' }}
+      variant="description"
+      onClose={() => {
+        alert('You closed the toast');
+      }}
     />
-    <Toast {...args} style={{ top: '455px' }} />
+    <Toast
+      {...args}
+      variant="description"
+      primaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the primary button');
+        },
+      }}
+      secondaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the secondary button');
+        },
+      }}
+    />
+    <Toast {...args} variant="description" />
   </Grid>
 );
 
@@ -45,28 +74,24 @@ Info.args = {
   title: 'Header',
   subtitle: 'Description',
   status: 'info',
-  variant: 'description',
 };
 
 Success.args = {
   title: 'Header',
   subtitle: 'Description',
   status: 'success',
-  variant: 'description',
 };
 
 Warning.args = {
   title: 'Header',
   subtitle: 'Description',
   status: 'warning',
-  variant: 'description',
 };
 
 Danger.args = {
   title: 'Header',
   subtitle: 'Description',
   status: 'danger',
-  variant: 'description',
 };
 
 const Grid = ({ children }: any) => (

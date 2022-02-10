@@ -19,14 +19,34 @@ export default {
 
 const Template: Story<Props> = (args: Props) => (
   <Grid>
-    <Toast {...args} primaryButton={{ label: 'Button', onClick: () => {} }} onClose={() => {}} />
     <Toast
       {...args}
-      primaryButton={{ label: 'Button', onClick: () => {} }}
-      style={{ top: '70px' }}
+      primaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the button');
+        },
+      }}
+      onClose={() => {
+        alert('You closed the toast');
+      }}
     />
-    <Toast {...args} style={{ top: '124px' }} />
-    <Toast {...args} onClose={() => {}} style={{ top: '179px' }} />
+    <Toast
+      {...args}
+      primaryButton={{
+        label: 'Button',
+        onClick: () => {
+          alert('You clicked in the button');
+        },
+      }}
+    />
+    <Toast {...args} />
+    <Toast
+      {...args}
+      onClose={() => {
+        alert('You closed the toast');
+      }}
+    />
   </Grid>
 );
 
