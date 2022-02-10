@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: center;
   gap: $distance-1;
-  position: absolute;
+  position: relative;
   width: fit-content;
   border-radius: $border-radius-1;
   padding: 12px $distance-2;
   color: map-get($base, white);
   box-shadow: map-get($elevation, 200);
+  background-color: map-get($base, white);
 
   &__header {
     display: flex;
@@ -19,13 +20,15 @@
       font-size: 16px;
       line-height: 24px;
       font-weight: 600;
-      margin-left: 11px;
+      @include text-overflow-ellipsis();
     }
   }
 
   &__actions {
     display: flex;
-    margin-left: 28px;
+    gap: $distance-1;
+    margin-top: $distance-1;
+    margin-left: 34px;
   }
 
   &__subtitle {
@@ -110,7 +113,8 @@
 
     & .toast-component__subtitle {
       color: map-get($base, black);
-      margin-left: 43px;
+      margin-left: 33px;
+      word-break: break-all;
     }
 
     & .toast-component__header--close {
