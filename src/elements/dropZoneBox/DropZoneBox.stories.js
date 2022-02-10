@@ -83,6 +83,8 @@ WithCropper.args = {
     label: 'Image',
     help: 'This will be your program main image. Select a JPG, JPEG or PNG image up to 5Mb. ',
   },
+  minWidth: 1200,
+  minHeight: 675,
 };
 
 WithoutIcon.args = {

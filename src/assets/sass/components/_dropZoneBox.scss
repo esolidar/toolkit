@@ -1,6 +1,12 @@
 .dropzone-box {
   max-width: 720px;
 
+  .error-files,
+  .has-error {
+    text-align: left;
+    color: map-get($theme-colors, danger);
+  }
+
   & .upload-file {
     .drop-zone-box {
       text-align: center;
@@ -149,8 +155,17 @@
 }
 
 .cropper-container {
+  .cropper-wrap-box,
   .cropper-modal {
-    background-color: map-get($base, white);
+    background-color: transparent;
+  }
+
+  &.cropper-bg {
+    background-image: none;
+    background-color: map-get($background, secondary);
+    border: 1px solid map-get($neutrals, 200);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cropper-view-box {

@@ -21,6 +21,7 @@ export const Default = Template.bind({});
 export const LeftLabel = Template.bind({});
 export const WithHelper = Template.bind({});
 export const WithIcons = Template.bind({});
+export const ReadOnly = Template.bind({});
 
 Default.args = {
   options: [{ id: 1, name: 'lorem' }],
@@ -64,4 +65,15 @@ WithIcons.args = {
   selectText: 'Exemplo',
   leftIcon: { name: 'icon-search', show: true },
   error: '',
+};
+
+ReadOnly.args = {
+  options: [{ id: 1, name: 'lorem' }],
+  value: '',
+  label: 'Select exemple',
+  field: 'name',
+  onChange: () => {},
+  selectText: 'Exemplo',
+  error: '',
+  readOnly: true,
 };
