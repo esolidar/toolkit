@@ -26,7 +26,7 @@ const Template = args => {
   return (
     <>
       <h5 className="p-1">Normal</h5>
-      <ButtonGrid>
+      <Grid>
         <Button {...args} text="Enabled" />
         <Button {...args} text="Disabled" disabled />
         <Button
@@ -51,19 +51,19 @@ const Template = args => {
           iconLeft={<Icon name="ArrowLeft" />}
           badge={<Badge text="2" size="xs" extraClass="success" />}
         />
-      </ButtonGrid>
+      </Grid>
 
-      <ButtonGrid>
+      <Grid>
         <Button {...args} text="Size XL" size="xl" />
         <Button {...args} text="Size LG" size="lg" />
         <Button {...args} text="Size MD" size="md" />
         <Button {...args} text="Size SM" size="sm" />
-      </ButtonGrid>
+      </Grid>
 
       {showGhostLight.includes(args.extraClass) && (
         <>
           <h5 className="p-1 mt-3">Ghost Light</h5>
-          <ButtonGrid>
+          <Grid>
             <Button {...args} text="Enabled" ghost theme="light" />
             <Button {...args} text="Disabled" disabled ghost theme="light" />
             <Button
@@ -106,21 +106,21 @@ const Template = args => {
               ghost
               theme="light"
             />
-          </ButtonGrid>
+          </Grid>
 
-          <ButtonGrid>
+          <Grid>
             <Button {...args} text="Size XL" size="xl" ghost theme="light" />
             <Button {...args} text="Size LG" size="lg" ghost theme="light" />
             <Button {...args} text="Size MD" size="md" ghost theme="light" />
             <Button {...args} text="Size SM" size="sm" ghost theme="light" />
-          </ButtonGrid>
+          </Grid>
         </>
       )}
 
       {showGhostDark.includes(args.extraClass) && (
         <>
           <h5 className="p-1 mt-3">Ghost Dark</h5>
-          <ButtonGrid>
+          <Grid>
             <Button {...args} text="Enabled" ghost theme="dark" />
             <Button {...args} text="Disabled" disabled ghost theme="dark" />
             <Button
@@ -163,14 +163,14 @@ const Template = args => {
               ghost
               theme="dark"
             />
-          </ButtonGrid>
+          </Grid>
 
-          <ButtonGrid>
+          <Grid>
             <Button {...args} text="Size XL" size="xl" ghost theme="dark" />
             <Button {...args} text="Size LG" size="lg" ghost theme="dark" />
             <Button {...args} text="Size MD" size="md" ghost theme="dark" />
             <Button {...args} text="Size SM" size="sm" ghost theme="dark" />
-          </ButtonGrid>
+          </Grid>
         </>
       )}
     </>
@@ -202,12 +202,12 @@ Link.args = {
   href: '#',
 };
 
-const ButtonGrid = ({ children }) => (
+const Grid = ({ children }) => (
   <div className="p-1 d-flex align-items-center flex-wrap" style={{ gap: '8px' }}>
     {children}
   </div>
 );
 
-ButtonGrid.propTypes = {
+Grid.propTypes = {
   children: PropTypes.node,
 };

@@ -19,9 +19,11 @@ const Icon: FC<Props> = ({
   color = '#6C7679',
   className = '',
   dataTestId,
+  style,
   ...props
 }: Props) => {
   let Icon = null;
+
   try {
     Icon = require(`../../assets/icons/${size}/${name}`).default;
   } catch (error) {
@@ -36,6 +38,10 @@ const Icon: FC<Props> = ({
       viewBox={`0 0 ${sizes[size]} ${sizes[size]}`}
       className={`icon-component ${className}`}
       data-testid={dataTestId}
+      style={{
+        ...style,
+        minWidth: sizes[size],
+      }}
       {...props}
     />
   );

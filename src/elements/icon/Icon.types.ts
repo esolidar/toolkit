@@ -4,6 +4,7 @@ interface Props {
   color?: string;
   className?: string;
   dataTestId?: string;
+  style?: React.CSSProperties;
 }
 
 export default Props;
