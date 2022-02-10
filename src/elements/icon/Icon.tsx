@@ -10,7 +10,6 @@ const sizes = {
   xs: 12,
   sm: 16,
   md: 24,
-  xmd: 32,
   lg: 40,
 };
 
