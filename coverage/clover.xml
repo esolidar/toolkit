@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644512241666" clover="3.2.0">
-  <project timestamp="1644512241666" name="All files">
-    <metrics statements="4957" coveredstatements="3510" conditionals="3764" coveredconditionals="2312" methods="1503" coveredmethods="854" elements="10224" coveredelements="6676" complexity="0" loc="4957" ncloc="4957" packages="199" files="688" classes="688"/>
+<coverage generated="1644512699368" clover="3.2.0">
+  <project timestamp="1644512699368" name="All files">
+    <metrics statements="4968" coveredstatements="3517" conditionals="3769" coveredconditionals="2317" methods="1506" coveredmethods="855" elements="10243" coveredelements="6689" complexity="0" loc="4968" ncloc="4968" packages="199" files="688" classes="688"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="372" type="stmt"/>
+        <line num="3" count="374" type="stmt"/>
         <line num="5" count="75" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="75" type="stmt"/>
@@ -28,7 +28,7 @@
         <line num="10" count="75" type="cond" truecount="2" falsecount="0"/>
         <line num="11" count="75" type="stmt"/>
         <line num="16" count="75" type="stmt"/>
-        <line num="17" count="227" type="stmt"/>
+        <line num="17" count="229" type="stmt"/>
       </file>
     </package>
     <package name="src.assets.icons.lg">
@@ -3581,9 +3581,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/icon/Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="45" type="stmt"/>
+        <line num="5" count="41" type="stmt"/>
         <line num="6" count="65" type="stmt"/>
-        <line num="9" count="45" type="stmt"/>
+        <line num="9" count="41" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/icon/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3895,11 +3895,11 @@
       </file>
     </package>
     <package name="src.components.preview">
-      <metrics statements="15" coveredstatements="13" conditionals="10" coveredconditionals="5" methods="5" coveredmethods="2"/>
+      <metrics statements="24" coveredstatements="18" conditionals="12" coveredconditionals="7" methods="7" coveredmethods="3"/>
       <file name="Preview.stories.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/preview/Preview.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
@@ -3908,14 +3908,23 @@
         <line num="43" count="1" type="stmt"/>
       </file>
       <file name="Preview.tsx" path="/Users/pedroguia/Projects/toolkit/src/components/preview/Preview.tsx">
-        <metrics statements="7" coveredstatements="5" conditionals="10" coveredconditionals="5" methods="3" coveredmethods="1"/>
-        <line num="10" count="8" type="stmt"/>
-        <line num="18" count="7" type="stmt"/>
-        <line num="19" count="7" type="stmt"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
+        <metrics statements="16" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="5" coveredmethods="2"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="8" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/components/preview/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5515,9 +5524,9 @@
       <file name="InputLabel.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/InputLabel.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="8" count="49" type="stmt"/>
-        <line num="20" count="158" type="stmt"/>
-        <line num="21" count="158" type="stmt"/>
-        <line num="23" count="158" type="stmt"/>
+        <line num="20" count="160" type="stmt"/>
+        <line num="21" count="160" type="stmt"/>
+        <line num="23" count="160" type="stmt"/>
         <line num="47" count="49" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/inputLabel/index.js">
@@ -5804,35 +5813,37 @@
       </file>
     </package>
     <package name="src.elements.selectField">
-      <metrics statements="23" coveredstatements="20" conditionals="30" coveredconditionals="28" methods="12" coveredmethods="6"/>
+      <metrics statements="25" coveredstatements="22" conditionals="33" coveredconditionals="31" methods="13" coveredmethods="6"/>
       <file name="SelectField.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/SelectField.stories.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="18" count="3" type="stmt"/>
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <line num="18" count="4" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
       </file>
       <file name="SelectField.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/SelectField.tsx">
-        <metrics statements="14" coveredstatements="11" conditionals="30" coveredconditionals="28" methods="7" coveredmethods="5"/>
+        <metrics statements="14" coveredstatements="11" conditionals="33" coveredconditionals="31" methods="7" coveredmethods="5"/>
         <line num="7" count="10" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="14" count="10" type="stmt"/>
-        <line num="35" count="15" type="stmt"/>
-        <line num="36" count="9" type="stmt"/>
-        <line num="38" count="9" type="stmt"/>
-        <line num="39" count="9" type="stmt"/>
-        <line num="43" count="15" type="stmt"/>
-        <line num="44" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="14" type="stmt"/>
-        <line num="46" count="36" type="stmt"/>
-        <line num="58" count="15" type="stmt"/>
+        <line num="36" count="16" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="39" count="10" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="44" count="16" type="stmt"/>
+        <line num="45" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="14" type="stmt"/>
+        <line num="47" count="36" type="stmt"/>
+        <line num="59" count="16" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/elements/selectField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -7299,8 +7310,8 @@
       <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="getEnvVar.ts" path="/Users/pedroguia/Projects/toolkit/src/utils/getEnvVar/getEnvVar.ts">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="9" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/utils/getEnvVar/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
