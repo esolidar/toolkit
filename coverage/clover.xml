@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644432750926" clover="3.2.0">
-  <project timestamp="1644432750926" name="All files">
-    <metrics statements="4974" coveredstatements="3523" conditionals="3723" coveredconditionals="2274" methods="1506" coveredmethods="855" elements="10203" coveredelements="6652" complexity="0" loc="4974" ncloc="4974" packages="198" files="686" classes="686"/>
+<coverage generated="1644485741445" clover="3.2.0">
+  <project timestamp="1644485741445" name="All files">
+    <metrics statements="4972" coveredstatements="3527" conditionals="3723" coveredconditionals="2277" methods="1506" coveredmethods="856" elements="10201" coveredelements="6660" complexity="0" loc="4972" ncloc="4972" packages="198" files="686" classes="686"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -3581,9 +3581,9 @@
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Icon.jsx" path="D:\projects\toolkit\src\components\icon\Icon.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="45" type="stmt"/>
+        <line num="5" count="41" type="stmt"/>
         <line num="6" count="65" type="stmt"/>
-        <line num="9" count="45" type="stmt"/>
+        <line num="9" count="41" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\components\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -3895,19 +3895,17 @@
       </file>
     </package>
     <package name="src.components.preview">
-      <metrics statements="26" coveredstatements="20" conditionals="12" coveredconditionals="7" methods="7" coveredmethods="3"/>
+      <metrics statements="24" coveredstatements="18" conditionals="12" coveredconditionals="7" methods="7" coveredmethods="3"/>
       <file name="Preview.stories.tsx" path="D:\projects\toolkit\src\components\preview\Preview.stories.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
       <file name="Preview.tsx" path="D:\projects\toolkit\src\components\preview\Preview.tsx">
         <metrics statements="16" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="5" coveredmethods="2"/>
@@ -3926,7 +3924,7 @@
         <line num="36" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="41" count="8" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
       </file>
       <file name="index.ts" path="D:\projects\toolkit\src\components\preview\index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5519,12 +5517,12 @@
         <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="7" count="83" type="stmt"/>
         <line num="9" count="83" type="stmt"/>
-        <line num="16" count="83" type="stmt"/>
-        <line num="24" count="460" type="stmt"/>
+        <line num="17" count="83" type="stmt"/>
         <line num="25" count="460" type="stmt"/>
         <line num="26" count="460" type="stmt"/>
-        <line num="28" count="10" type="stmt"/>
-        <line num="31" count="460" type="stmt"/>
+        <line num="27" count="460" type="stmt"/>
+        <line num="29" count="10" type="stmt"/>
+        <line num="32" count="460" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6098,19 +6096,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+      <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="D:\projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
+        <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
         <line num="10" count="20" type="stmt"/>
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -7460,7 +7458,7 @@
       </file>
       <file name="isDefined.ts" path="D:\projects\toolkit\src\utils\isDefined\isDefined.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="89" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="92" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">

@@ -72,7 +72,10 @@
 
         .esolidar-preview__image-delete-image,
         .esolidar-preview__image-fullscreen {
+          background-color: get-rgba(map-get($base, black), 65);
+          border-radius: 50%;
           opacity: 1;
+          @include svg-change-color(map-get($base, white));
         }
       }
     }
