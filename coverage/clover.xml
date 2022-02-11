@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644485741445" clover="3.2.0">
-  <project timestamp="1644485741445" name="All files">
-    <metrics statements="4972" coveredstatements="3527" conditionals="3723" coveredconditionals="2277" methods="1506" coveredmethods="856" elements="10201" coveredelements="6660" complexity="0" loc="4972" ncloc="4972" packages="198" files="686" classes="686"/>
+<coverage generated="1644584879945" clover="3.2.0">
+  <project timestamp="1644584879946" name="All files">
+    <metrics statements="4995" coveredstatements="3534" conditionals="3735" coveredconditionals="2277" methods="1513" coveredmethods="856" elements="10243" coveredelements="6667" complexity="0" loc="4995" ncloc="4995" packages="198" files="686" classes="686"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -5517,12 +5517,12 @@
         <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="7" count="83" type="stmt"/>
         <line num="9" count="83" type="stmt"/>
-        <line num="17" count="83" type="stmt"/>
+        <line num="16" count="83" type="stmt"/>
+        <line num="24" count="460" type="stmt"/>
         <line num="25" count="460" type="stmt"/>
         <line num="26" count="460" type="stmt"/>
-        <line num="27" count="460" type="stmt"/>
-        <line num="29" count="10" type="stmt"/>
-        <line num="32" count="460" type="stmt"/>
+        <line num="28" count="10" type="stmt"/>
+        <line num="31" count="460" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5564,13 +5564,36 @@
       </file>
     </package>
     <package name="src.elements.locationTextField">
-      <metrics statements="4" coveredstatements="4" conditionals="24" coveredconditionals="20" methods="1" coveredmethods="1"/>
+      <metrics statements="27" coveredstatements="11" conditionals="36" coveredconditionals="20" methods="8" coveredmethods="1"/>
       <file name="LocationTextField.jsx" path="D:\projects\toolkit\src\elements\locationTextField\LocationTextField.jsx">
-        <metrics statements="4" coveredstatements="4" conditionals="24" coveredconditionals="20" methods="1" coveredmethods="1"/>
+        <metrics statements="27" coveredstatements="11" conditionals="36" coveredconditionals="20" methods="8" coveredmethods="1"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="38" count="7" type="stmt"/>
-        <line num="99" count="1" type="stmt"/>
-        <line num="136" count="1" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="41" count="7" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="7" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="53" count="7" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="7" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="79" count="7" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="165" count="1" type="stmt"/>
+        <line num="201" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\locationTextField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

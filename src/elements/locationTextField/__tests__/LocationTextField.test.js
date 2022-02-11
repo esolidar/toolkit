@@ -56,12 +56,9 @@ describe('LocationTextField component', () => {
     expect(component.find('.new-class').length).toBe(1);
   });
 
-  it('renders LocationTextField with left and right icons', () => {
+  it('renders LocationTextField with left and delete button', () => {
     const component = shallow(
-      <LocationTextField
-        leftIcon={{ name: 'icon-search', show: true }}
-        rightIcon={{ name: 'icon-x', show: true }}
-      />
+      <LocationTextField leftIcon={{ name: 'icon-search', show: true }} local="teste" />
     );
 
     expect(component.find('[dataTestId="input-left-icon"]').length).toBe(1);

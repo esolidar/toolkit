@@ -15,6 +15,22 @@
     top: 12px;
   }
 
+  .item-delete-address {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    cursor: pointer;
+
+    .delete-circle-bold {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+    }
+  }
+
   .geosuggest {
     .geosuggest__input {
       @include input-form();
@@ -52,34 +68,61 @@
 
     .geosuggest__suggests-wrapper {
       .geosuggest__suggests {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        max-height: 25em;
-        padding: 0;
-        margin-top: -1px;
-        background: map-get($colors, white);
-        border: 2px solid map-get($grays, 400);
-        border-radius: $border-radius-1;
-        overflow-x: hidden;
-        overflow-y: auto;
-        list-style: none;
-        z-index: 2;
-        -webkit-transition: max-height 0.2s, border 0.2s;
-        transition: max-height 0.2s, border 0.2s;
-
         .geosuggest__item {
-          font-size: 14px;
-          padding: 0.5em 0.65em;
-          cursor: pointer;
+          .item {
+            display: flex;
 
-          color: map-get($main-text-colors, dark);
-
-          &:hover {
-            background: map-get($grays, 100);
+            .item-bold {
+              font-weight: 700;
+              .not-bold {
+                font-weight: 400;
+              }
+            }
+            .map-pin {
+              margin-right: $distance-1;
+            }
           }
         }
+
+        .geosuggest__item:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  .geosuggest__suggests-not-found,
+  .geosuggest__suggests {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 25em;
+    padding: 0;
+    margin-top: -1px;
+    background: map-get($colors, white);
+    border: 1px solid map-get($neutrals, 200);
+    border-radius: $border-radius-2;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+    z-index: 2;
+    -webkit-transition: max-height 0.2s, border 0.2s;
+    transition: max-height 0.2s, border 0.2s;
+    margin-top: $distance-1;
+    padding: 20px 24px;
+    @include box-shadow(map-get($elevation, 200));
+
+    .geosuggest__item {
+      font-size: 14px;
+      cursor: pointer;
+      padding: $distance-1 0px;
+
+      color: map-get($main-text-colors, dark);
+
+      &:hover {
+        background: map-get($grays, 100);
+        border-radius: $distance-1;
       }
     }
   }
