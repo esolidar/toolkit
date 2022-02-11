@@ -6,6 +6,7 @@ import Icon from '../../elements/icon';
 import Badge from '../../elements/badge';
 import Button from '../../elements/button';
 import getEnvVar from '../../utils/getEnvVar';
+import variables from '../../assets/sass/_export.module.scss';
 import 'react-image-lightbox/style.css';
 
 const urlNoImage = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
@@ -56,7 +57,7 @@ const Preview: FC<Props> = ({
               style={{
                 height: img?.height,
                 width: 'auto',
-                borderRadius: img?.borderRadius || '8px',
+                borderRadius: img?.borderRadius || variables['border-radius-1'],
               }}
             />
             {handleDeleteImage && (
@@ -89,7 +90,7 @@ const Preview: FC<Props> = ({
             style={{
               width: img?.width,
               height: img?.height,
-              borderRadius: img?.borderRadius || '8px',
+              borderRadius: img?.borderRadius || variables['border-radius-1'],
             }}
           >
             <img src={urlNoImage} alt="Preview without content" />

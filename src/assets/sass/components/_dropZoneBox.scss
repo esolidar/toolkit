@@ -47,7 +47,7 @@
 
       &:focus {
         outline: none !important;
-        border-color: map-get($theme-colors, primary) 5;
+        border-color: map-get($theme-colors, primary);
       }
 
       &:hover {
@@ -134,6 +134,7 @@
 .dropzone-footer {
   display: flex;
   margin-top: $distance-2;
+  margin-bottom: $distance-1;
 
   &__buttons {
     display: flex;
