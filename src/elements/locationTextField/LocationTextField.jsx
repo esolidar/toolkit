@@ -38,21 +38,20 @@ const TextField = ({
 
   const geosuggestEl = useRef(null);
 
-  const onSuggestNoResults = text => {
+  const handleSuggestNoResults = text => {
     if (text !== '' && text.length > 3) {
       setShowNoResult(true);
     }
   };
 
-  const onUpdateSuggests = suggests => {
+  const handleUpdateSuggests = suggests => {
     if (suggests.length && showNoResult) {
       setShowNoResult(false);
     }
   };
 
   const handleShowDeleteButton = value => {
-    if (value) setShowDeleteButton(true);
-    else setShowDeleteButton(false);
+    setShowDeleteButton(!!value);
   };
 
   const renderSuggestItem = item => {
@@ -115,7 +114,7 @@ const TextField = ({
               setShowNoResult(false);
               onSuggestSelect();
             }}
-            onSuggestNoResults={onSuggestNoResults}
+            onSuggestNoResults={handleSuggestNoResults}
             initialValue={local}
             location={new google.maps.LatLng(latitude, longitude)}
             radius="20"
@@ -126,7 +125,7 @@ const TextField = ({
               onChange(e);
               handleShowDeleteButton(e);
             }}
-            onUpdateSuggests={onUpdateSuggests}
+            onUpdateSuggests={handleUpdateSuggests}
             minLength={3}
             renderSuggestItem={renderSuggestItem}
             autoComplete="off"

@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 4px;
-    top: 4px;
+    right: $distance-1/2;
+    top: $distance-1/2;
     cursor: pointer;
 
     .delete-circle-bold {
@@ -71,6 +71,7 @@
         .geosuggest__item {
           .item {
             display: flex;
+            align-items: center;
 
             .item-bold {
               font-weight: 700;
@@ -85,7 +86,7 @@
           }
 
           &:hover {
-            background: get-rgba(map-get($turquoise, 500), 8);
+            background: get-rgba(map-get($turquoise, 500));
             color: map-get($turquoise, 500);
             border-radius: $distance-1;
             cursor: pointer;
@@ -120,7 +121,7 @@
     -webkit-transition: max-height 0.2s, border 0.2s;
     transition: max-height 0.2s, border 0.2s;
     margin-top: $distance-1;
-    padding: 24px 19px;
+    padding: $distance-3 19px;
     @include box-shadow(map-get($elevation, 200));
 
     .geosuggest__item {
