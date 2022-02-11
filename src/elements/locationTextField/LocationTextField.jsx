@@ -141,7 +141,6 @@ const TextField = ({
                   setShowDeleteButton(false);
                   setShowNoResult(false);
                 }}
-                // style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
                 dataTestId="input-right-icon"
                 size="sm"
               />
