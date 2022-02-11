@@ -13,19 +13,23 @@ const iconMap = {
 };
 
 const Banner: FC<Props> = ({
-  title,
-  status = 'success',
-  subtitle,
+  boxShadow = false,
+  className,
   dataTestId = 'banner-component',
-  style,
-  variant = 'snack-bar',
   primaryButton,
   secondaryButton,
+  status = 'success',
+  style,
+  subtitle,
+  title,
+  variant = 'snack-bar',
 }: Props): JSX.Element => {
   const classes = classNames(
     'banner-component',
     `banner-component__${status}`,
-    `banner-component__${variant}`
+    `banner-component__${variant}`,
+    { 'banner-component__no-shadow': !boxShadow },
+    className
   );
 
   const buttonsTheme = status === 'warning' || variant === 'description' ? 'dark' : 'light';

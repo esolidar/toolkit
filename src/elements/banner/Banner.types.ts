@@ -4,14 +4,16 @@ interface Button {
 }
 
 interface Props {
-  title: string;
-  status?: 'info' | 'success' | 'warning' | 'danger';
-  subtitle?: string;
+  boxShadow?: boolean;
+  className?: string;
   dataTestId?: string;
-  style?: React.CSSProperties;
-  variant?: 'snack-bar' | 'description';
   primaryButton?: Button;
   secondaryButton?: Button;
+  status?: 'info' | 'success' | 'warning' | 'danger';
+  style?: React.CSSProperties;
+  subtitle?: string;
+  title: string;
+  variant?: 'snack-bar' | 'description';
 }
 
 export default Props;

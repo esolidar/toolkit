@@ -13,20 +13,24 @@ const iconMap = {
 };
 
 const Toast: FC<Props> = ({
-  title,
-  status = 'success',
-  subtitle,
+  boxShadow = false,
+  className,
   dataTestId = 'toast-component',
-  style,
-  variant = 'snack-bar',
+  onClose,
   primaryButton,
   secondaryButton,
-  onClose,
+  status = 'success',
+  style,
+  subtitle,
+  title,
+  variant = 'snack-bar',
 }: Props): JSX.Element => {
   const classes = classNames(
     'toast-component',
     `toast-component__${status}`,
-    `toast-component__${variant}`
+    `toast-component__${variant}`,
+    { 'toast-component__no-shadow': variant === 'snack-bar' && !boxShadow },
+    className
   );
 
   const buttonsTheme = status === 'warning' || variant === 'description' ? 'dark' : 'light';
