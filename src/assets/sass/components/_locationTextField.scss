@@ -79,8 +79,18 @@
               }
             }
             .map-pin {
-              margin-right: $distance-1;
+              margin-right: 12px;
+              color: map-get($neutrals, 700);
             }
+          }
+
+          &:hover {
+            background: get-rgba(map-get($turquoise, 500), 8);
+            color: map-get($turquoise, 500);
+            border-radius: $distance-1;
+            cursor: pointer;
+
+            @include svg-change-color(map-get($turquoise, 500));
           }
         }
 
@@ -110,20 +120,14 @@
     -webkit-transition: max-height 0.2s, border 0.2s;
     transition: max-height 0.2s, border 0.2s;
     margin-top: $distance-1;
-    padding: 20px 24px;
+    padding: 24px 19px;
     @include box-shadow(map-get($elevation, 200));
 
     .geosuggest__item {
       font-size: 14px;
-      cursor: pointer;
-      padding: $distance-1 0px;
+      padding: $distance-1;
 
       color: map-get($main-text-colors, dark);
-
-      &:hover {
-        background: map-get($grays, 100);
-        border-radius: $distance-1;
-      }
     }
   }
 
