@@ -17,7 +17,6 @@
 
   .item-delete-address {
     justify-content: center;
-    align-items: center;
     position: absolute;
     right: $distance-1/2;
     top: $distance-1/2;
@@ -71,7 +70,6 @@
         .geosuggest__item {
           .item {
             display: flex;
-            align-items: center;
 
             .item-bold {
               font-weight: 700;
@@ -80,8 +78,9 @@
               }
             }
             .map-pin {
-              margin-right: 12px;
+              margin-right: $distance-1;
               color: map-get($neutrals, 700);
+              margin-top: 1px;
             }
           }
 
