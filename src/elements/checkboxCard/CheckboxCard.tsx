@@ -25,7 +25,7 @@ const CheckboxCard: FC<Props> = ({
     { active: isChecked },
     { disabled },
     { [size]: size },
-    { className }
+    className
   );
 
   const handleOnClick = () => {
