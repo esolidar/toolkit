@@ -68,11 +68,16 @@
     .geosuggest__suggests-wrapper {
       .geosuggest__suggests {
         .geosuggest__item {
+          display: flex;
+
           .item {
             display: flex;
+            align-items: stretch;
 
             .item-bold {
               font-weight: 700;
+              margin-top: 1px;
+
               .not-bold {
                 font-weight: 400;
               }
@@ -80,7 +85,7 @@
             .map-pin {
               margin-right: $distance-1;
               color: map-get($neutrals, 700);
-              margin-top: 1px;
+              margin-top: 2px;
             }
           }
 
