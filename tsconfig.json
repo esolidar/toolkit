@@ -16,7 +16,7 @@
     "noImplicitAny": false,
     "strictNullChecks": false
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./declarations.d.ts"],
   "exclude": [
     "node_modules",
     "build",
