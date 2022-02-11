@@ -19,11 +19,11 @@ const Preview: FC<Props> = ({
   hover = true,
 }: Props): JSX.Element => {
   const [lightboxIsOpen, seLightboxIsOpen] = useState<boolean>(false);
-  const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img);
+  const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
   const classes = classNames('esolidar-preview', className, { 'hover-image': hover });
 
   useEffect(() => {
-    setShowPlaceholder(!img);
+    setShowPlaceholder(!img || !img?.src);
   }, [img]);
 
   const handleFullscreen = () => {
@@ -44,13 +44,20 @@ const Preview: FC<Props> = ({
         {!showPlaceholder ? (
           <div
             className="esolidar-preview__image"
-            style={{ width: img?.width, height: img?.height }}
+            style={{
+              width: img?.width,
+              height: img?.height,
+            }}
           >
             <img
               src={img?.src}
               onError={imageOnErrorHandler}
               alt={img?.alt}
-              style={{ height: img?.height, width: 'auto' }}
+              style={{
+                height: img?.height,
+                width: 'auto',
+                borderRadius: img?.borderRadius || '8px',
+              }}
             />
             {handleDeleteImage && (
               <button
@@ -77,7 +84,14 @@ const Preview: FC<Props> = ({
             )}
           </div>
         ) : (
-          <div className={classNames('esolidar-preview__no-image', { 'hover-placeholder': hover })}>
+          <div
+            className={classNames('esolidar-preview__no-image', { 'hover-placeholder': hover })}
+            style={{
+              width: img?.width,
+              height: img?.height,
+              borderRadius: img?.borderRadius || '8px',
+            }}
+          >
             <img src={urlNoImage} alt="Preview without content" />
           </div>
         )}
