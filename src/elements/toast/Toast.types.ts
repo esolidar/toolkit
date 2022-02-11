@@ -13,6 +13,7 @@ interface Props {
   primaryButton?: Button;
   secondaryButton?: Button;
   onClose?(): void;
+  boxShadow?: boolean;
 }
 
 export default Props;

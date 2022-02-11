@@ -24,6 +24,10 @@
     }
   }
 
+  &__no-shadow {
+    box-shadow: none;
+  }
+
   &__actions {
     display: flex;
     gap: $distance-1;

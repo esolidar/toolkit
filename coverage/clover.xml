@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644512699368" clover="3.2.0">
-  <project timestamp="1644512699368" name="All files">
-    <metrics statements="4968" coveredstatements="3517" conditionals="3769" coveredconditionals="2317" methods="1506" coveredmethods="855" elements="10243" coveredelements="6689" complexity="0" loc="4968" ncloc="4968" packages="199" files="688" classes="688"/>
+<coverage generated="1644575782417" clover="3.2.0">
+  <project timestamp="1644575782417" name="All files">
+    <metrics statements="4968" coveredstatements="3517" conditionals="3773" coveredconditionals="2321" methods="1506" coveredmethods="855" elements="10247" coveredelements="6693" complexity="0" loc="4968" ncloc="4968" packages="199" files="688" classes="688"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -4979,14 +4979,14 @@
       </file>
     </package>
     <package name="src.elements.banner">
-      <metrics statements="5" coveredstatements="5" conditionals="28" coveredconditionals="26" methods="1" coveredmethods="1"/>
+      <metrics statements="5" coveredstatements="5" conditionals="29" coveredconditionals="27" methods="1" coveredmethods="1"/>
       <file name="Banner.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/banner/Banner.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="28" coveredconditionals="26" methods="1" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="5" conditionals="29" coveredconditionals="27" methods="1" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="25" count="12" type="stmt"/>
-        <line num="31" count="12" type="cond" truecount="4" falsecount="0"/>
-        <line num="33" count="12" type="stmt"/>
+        <line num="26" count="12" type="stmt"/>
+        <line num="33" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="35" count="12" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/banner/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6111,14 +6111,14 @@
       </file>
     </package>
     <package name="src.elements.toast">
-      <metrics statements="5" coveredstatements="5" conditionals="28" coveredconditionals="27" methods="1" coveredmethods="1"/>
+      <metrics statements="5" coveredstatements="5" conditionals="31" coveredconditionals="30" methods="1" coveredmethods="1"/>
       <file name="Toast.tsx" path="/Users/pedroguia/Projects/toolkit/src/elements/toast/Toast.tsx">
-        <metrics statements="5" coveredstatements="5" conditionals="28" coveredconditionals="27" methods="1" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="5" conditionals="31" coveredconditionals="30" methods="1" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="26" count="12" type="stmt"/>
-        <line num="32" count="12" type="cond" truecount="4" falsecount="0"/>
-        <line num="34" count="12" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="34" count="12" type="cond" truecount="4" falsecount="0"/>
+        <line num="36" count="12" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/pedroguia/Projects/toolkit/src/elements/toast/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

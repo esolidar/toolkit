@@ -22,11 +22,13 @@ const Toast: FC<Props> = ({
   primaryButton,
   secondaryButton,
   onClose,
+  boxShadow = false,
 }: Props): JSX.Element => {
   const classes = classNames(
     'toast-component',
     `toast-component__${status}`,
-    `toast-component__${variant}`
+    `toast-component__${variant}`,
+    { 'toast-component__no-shadow': variant === 'snack-bar' && !boxShadow }
   );
 
   const buttonsTheme = status === 'warning' || variant === 'description' ? 'dark' : 'light';

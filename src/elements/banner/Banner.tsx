@@ -21,11 +21,13 @@ const Banner: FC<Props> = ({
   variant = 'snack-bar',
   primaryButton,
   secondaryButton,
+  boxShadow = false,
 }: Props): JSX.Element => {
   const classes = classNames(
     'banner-component',
     `banner-component__${status}`,
-    `banner-component__${variant}`
+    `banner-component__${variant}`,
+    { 'banner-component__no-shadow': !boxShadow }
   );
 
   const buttonsTheme = status === 'warning' || variant === 'description' ? 'dark' : 'light';

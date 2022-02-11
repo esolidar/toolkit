@@ -12,6 +12,7 @@ interface Props {
   variant?: 'snack-bar' | 'description';
   primaryButton?: Button;
   secondaryButton?: Button;
+  boxShadow?: boolean;
 }
 
 export default Props;
