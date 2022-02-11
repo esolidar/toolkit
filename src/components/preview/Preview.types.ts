@@ -3,6 +3,7 @@ interface Image {
   alt?: string;
   width?: string;
   height?: string;
+  borderRadius?: string;
 }
 
 interface Props {

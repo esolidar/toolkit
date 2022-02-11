@@ -11,6 +11,7 @@ interface Props {
   size: 'sm' | 'md' | 'lg';
   subtitle?: string;
   title: string;
+  className?: string;
 }
 
 export default Props;

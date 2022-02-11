@@ -15,7 +15,7 @@
       color: map-get($neutrals, 700);
       border-color: map-get($neutrals, 200);
       border-style: dashed;
-      border-width: 1px;
+      border-width: 2px;
       transition: all 0.2s ease;
       border-radius: $border-radius-1;
       min-height: 160px;
@@ -41,19 +41,21 @@
       }
 
       a {
-        color: map-get($blue, 500);
+        color: map-get($theme-colors, primary);
         text-decoration: underline;
       }
 
       &:focus {
         outline: none !important;
-        border-color: #81cce5;
+        border-color: map-get($theme-colors, primary);
       }
 
       &:hover {
-        border-color: #81cce5;
-        color: map-get($blue, 500);
+        border-color: map-get($theme-colors, primary);
+        color: map-get($theme-colors, primary);
         @include animate();
+
+        @include svg-change-color(map-get($theme-colors, primary));
       }
 
       p {
@@ -70,12 +72,13 @@
       }
 
       &.disabled {
-        background-color: map-get($background, secondary);
+        background-color: map-get($base, white);
         border-color: map-get($neutrals, 200) !important;
-        color: map-get($neutrals, 400);
+        color: map-get($theme-colors, dark);
+        @include svg-change-color(map-get($theme-colors, dark));
 
         a {
-          color: map-get($neutrals, 400);
+          color: map-get($theme-colors, dark);
         }
 
         &:hover {
@@ -131,6 +134,7 @@
 .dropzone-footer {
   display: flex;
   margin-top: $distance-2;
+  margin-bottom: $distance-1;
 
   &__buttons {
     display: flex;
@@ -169,7 +173,7 @@
   }
 
   .cropper-view-box {
-    outline: 2px solid map-get($blue, 300);
+    outline: 2px solid map-get($theme-colors, primary);
   }
 
   .cropper-dashed {
@@ -180,7 +184,7 @@
     width: 3px;
     height: 3px;
     opacity: 1;
-    background-color: map-get($blue, 300);
+    background-color: map-get($theme-colors, primary);
   }
 
   .cropper-line {
@@ -195,7 +199,7 @@
       content: '';
       right: 0;
       top: 0;
-      background: map-get($blue, 300);
+      background: map-get($theme-colors, primary);
       width: 4px;
       position: absolute;
       height: 20px;
@@ -210,7 +214,7 @@
       content: '';
       left: 0;
       top: 0;
-      background: map-get($blue, 300);
+      background: map-get($theme-colors, primary);
       width: 4px;
       position: absolute;
       height: 20px;
@@ -225,7 +229,7 @@
       content: '';
       left: 0;
       bottom: 0px;
-      background: map-get($blue, 300);
+      background: map-get($theme-colors, primary);
       width: 4px;
       position: absolute;
       height: 20px;
@@ -240,7 +244,7 @@
       content: '';
       right: 0;
       bottom: 0;
-      background: map-get($blue, 300);
+      background: map-get($theme-colors, primary);
       width: 4px;
       position: absolute;
       height: 20px;
