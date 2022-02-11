@@ -125,7 +125,7 @@
     -webkit-transition: max-height 0.2s, border 0.2s;
     transition: max-height 0.2s, border 0.2s;
     margin-top: $distance-1;
-    padding: $distance-3 19px;
+    padding: $distance-2;
     @include box-shadow(map-get($elevation, 200));
 
     .geosuggest__item {
