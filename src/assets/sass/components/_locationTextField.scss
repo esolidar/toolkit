@@ -69,23 +69,20 @@
       .geosuggest__suggests {
         .geosuggest__item {
           display: flex;
+          align-items: center;
+          height: 40px;
 
           .item {
             display: flex;
-            align-items: stretch;
+            gap: $distance-1;
+            align-items: center;
 
-            .item-bold {
-              font-weight: 700;
-              margin-top: 2px;
-
-              .not-bold {
-                font-weight: 400;
-              }
+            .text-item {
+              line-height: 24px;
             }
+
             .map-pin {
-              margin-right: $distance-1;
               color: map-get($neutrals, 700);
-              margin-top: 2px;
             }
           }
 

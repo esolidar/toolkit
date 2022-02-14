@@ -68,8 +68,9 @@ const TextField = ({
           dataTestId="MapPin"
           size="sm"
         />
-        <span className="item-bold">
-          {firstAddress} <span className="not-bold">{restAddress}</span>
+        <span className="tex-item">
+          <strong>{firstAddress}</strong>
+          {restAddress}
         </span>
       </div>
     );
