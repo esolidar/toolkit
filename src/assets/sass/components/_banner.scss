@@ -1,0 +1,81 @@
+.banner-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $distance-1;
+  position: relative;
+  width: 100%;
+  border-radius: $border-radius-1;
+  padding: 12px $distance-2;
+  color: map-get($base, black);
+  box-shadow: map-get($elevation, 200);
+  background-color: map-get($base, white);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $distance-1;
+
+    &--title {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 600;
+      @include text-overflow-ellipsis();
+    }
+
+    & .banner-component__subtitle {
+      margin-right: auto;
+    }
+  }
+
+  &__no-shadow {
+    box-shadow: none;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $distance-1;
+    margin-top: $distance-1;
+    margin-left: 34px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  &__info {
+    background-color: map-get($blue, 0);
+    @include svg-change-color(map-get($blue, 500));
+  }
+
+  &__success {
+    background-color: map-get($positive, 0);
+    @include svg-change-color(map-get($positive, 500));
+  }
+
+  &__warning {
+    background-color: map-get($warning, 0);
+    @include svg-change-color(map-get($warning, 500));
+  }
+
+  &__danger {
+    background-color: map-get($negative, 0);
+    @include svg-change-color(map-get($negative, 500));
+  }
+
+  &__snack-bar {
+    height: 48px;
+  }
+
+  &__description {
+    padding: $distance-2;
+
+    & .banner-component__subtitle {
+      color: map-get($base, black);
+      margin-left: 32px;
+      word-break: break-all;
+    }
+  }
+}

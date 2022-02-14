@@ -9,13 +9,13 @@
 
 .custom-modal {
   .modal-content {
-    padding: $distance-1;
     border-radius: $border-radius-2;
     box-shadow: 0px 0px 16px 0px #00000026;
     border: 1px solid map-get($neutrals, 200);
+    @include thin-scroll-bar();
 
     .modal-header {
-      padding: $distance-2;
+      padding: $distance-3;
 
       & .modal-title {
         display: flex;
@@ -34,23 +34,19 @@
             margin-right: $distance-3;
           }
         }
-
-        // & .btn-ghost {
-        //   gap: 0;
-        //   min-width: 40px;
-        //   width: 40px;
-        // }
       }
     }
     .modal-body {
-      padding: 0 $distance-2 $distance-1 $distance-2;
+      padding: 0 $distance-3;
+      @include thin-scroll-bar();
     }
 
     .modal-footer {
-      padding: $distance-2;
-      gap: $distance-1;
+      padding: $distance-3;
+      gap: $distance-2;
 
       & > * {
+        gap: $distance-2;
         margin: 0;
       }
     }

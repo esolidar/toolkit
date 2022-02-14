@@ -53,7 +53,8 @@ WithIcons.args = {
   placeholder: '',
   defaultValue: 'defaultValue',
   field: 'forCompanies',
-  leftIcon: { name: 'MapPin', show: true },
-  rightIcon: { name: 'X', onClick: () => alert('right-button'), show: true },
+  leftIcon: { name: 'Search', show: true },
   size: 'lg',
+  local: 'teste',
+  messageNoResult: 'Oups... we couldn´t find the address',
 };

@@ -8,7 +8,6 @@
       width: 216px;
       height: 144px;
       outline: 1px solid change-color(map-get($base, black), $alpha: 0.08);
-      border-radius: $border-radius-1;
     }
 
     &-delete-image {
@@ -82,17 +81,23 @@
   }
 
   &__no-image {
+    width: 216px;
+    height: 144px;
     align-items: center;
     justify-content: center;
     display: flex;
-    height: 144px;
-    width: 216px;
     background: map-get($neutrals, 100);
-    border-radius: $distance-1;
+    border: 2px solid get-rgba(map-get($base, black), 24);
+
+    img {
+      outline: none;
+      width: 36px;
+      height: 24px;
+    }
 
     &.hover-placeholder {
       &:hover {
-        outline: 2px solid map-get($turquoise, 500);
+        border: 2px solid map-get($turquoise, 500);
         @include animate(outline, 100ms);
       }
     }

@@ -19,6 +19,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 export const WithDeleteButton: Story<Props> = Template.bind({});
 export const Placeholder: Story<Props> = Template.bind({});
+export const BorderRadius: Story<Props> = Template.bind({});
 
 Default.args = {
   img: {
@@ -42,4 +43,21 @@ WithDeleteButton.args = {
 
 Placeholder.args = {
   hover: true,
+  img: {
+    src: '',
+    alt: 'Imagem de teste',
+    width: '216px',
+    height: '144px',
+  },
+};
+
+BorderRadius.args = {
+  hover: true,
+  img: {
+    src: '',
+    alt: 'Imagem de teste',
+    width: '200px',
+    height: '200px',
+    borderRadius: '50%',
+  },
 };

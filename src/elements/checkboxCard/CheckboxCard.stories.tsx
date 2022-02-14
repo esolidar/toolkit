@@ -53,4 +53,5 @@ Large.args = {
   subtitle:
     'End hunger, achieve food security and improved nutrition and promote sustainable agriculture',
   title: 'Zero hunger',
+  className: 'large',
 };
