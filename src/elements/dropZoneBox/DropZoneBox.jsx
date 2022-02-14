@@ -222,7 +222,7 @@ const DropZoneBox = ({
           })
         );
         setErrorList(errors);
-        acceptedFiles(getData);
+        onSelect(getData);
       }
     },
     onDropRejected: async rejectedFiles => {
