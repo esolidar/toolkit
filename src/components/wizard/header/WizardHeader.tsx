@@ -37,9 +37,16 @@ const WizardHeader: FC<Props> = ({
 
   return (
     <div className="wizard__header">
-      <div className="wizard__header__image">
-        <Button extraClass="ghost" onClick={closeWizard} text={<Icon name="X" size="sm" />} />
-      </div>
+      <Button
+        extraClass="primary-full"
+        ghost
+        theme="light"
+        size="md"
+        type="icon"
+        onClick={closeWizard}
+        icon={<Icon name="X" size="sm" />}
+      />
+
       <div className="wizard__header__title">
         <div>
           {subtitle && !editMode && (

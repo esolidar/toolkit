@@ -11,6 +11,9 @@ const WizardFooter: FC<Props> = ({
   totalPages,
   currentPage,
   isLoading = false,
+  handleDarkButton,
+  buttonDarkText,
+  disabledDarkButton,
 }: Props): JSX.Element => {
   const intl = useIntl();
   return (
@@ -24,6 +27,12 @@ const WizardFooter: FC<Props> = ({
       )}
       <div className="wizard__footer__continue">
         <FormattedMessage id="paginator.steps" values={{ totalPages, currentPage }} />
+        <Button
+          extraClass="dark"
+          onClick={handleDarkButton}
+          text={buttonDarkText}
+          disabled={disabledDarkButton}
+        />
         <Button
           withLoading={true}
           isLoading={isLoading}

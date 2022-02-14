@@ -2,6 +2,9 @@ interface Props {
   buttonNextText: string;
   handleClickBack(): void;
   handleClickNext(): void;
+  handleDarkButton(): void;
+  buttonDarkText: string;
+  disabledDarkButton: boolean;
   totalPages: number;
   currentPage: number;
   disableClickNext: boolean;

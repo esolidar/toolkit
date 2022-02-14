@@ -109,6 +109,7 @@ Open.args = {
   totalPages: 4,
   currentPage: 2,
   disableClickNext: true,
+  buttonNextText: 'Continue',
 };
 
 Close.args = {
@@ -149,4 +150,5 @@ Close.args = {
   totalPages: 4,
   currentPage: 2,
   disableClickNext: true,
+  buttonNextText: 'Continue',
 };

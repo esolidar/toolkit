@@ -24,5 +24,10 @@ Default.args = {
   handleClickNext: () => {},
   totalPages: 4,
   currentPage: 2,
-  disableClickNext: true,
+  disableClickNext: false,
+  buttonNextText: 'Continue',
+  handleDarkButton: () => {},
+  buttonDarkText: 'Save and close',
+  disabledDarkButton: false,
+  isLoading: false,
 };

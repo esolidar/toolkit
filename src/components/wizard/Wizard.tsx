@@ -101,6 +101,9 @@ const Wizard: FC<Props> = ({
         <Viewport className="wizard__body">{children}</Viewport>
         <Viewport>
           <WizardFooter
+            disabledDarkButton={disabledDarkButton}
+            buttonDarkText={buttonDarkText}
+            handleDarkButton={handleDarkButton}
             buttonNextText={buttonNextText}
             handleClickBack={handleClickBack}
             handleClickNext={handleClickNext}

@@ -245,11 +245,8 @@
 
   &__continue {
     display: flex;
+    gap: $distance-2;
     align-items: center;
     margin-left: auto;
-
-    button {
-      margin-left: $distance-3;
-    }
   }
 }
