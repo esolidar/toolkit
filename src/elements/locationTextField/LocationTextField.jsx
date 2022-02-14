@@ -1,6 +1,6 @@
 /* global google */
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Geosuggest from 'react-geosuggest';
 import classnames from 'classnames';
@@ -14,87 +14,152 @@ const TextField = ({
   error,
   placeholder,
   message,
+  messageNoResult,
   disabled,
   help,
   required,
   className,
   dataTestId,
-  inputRef,
   children,
   info,
   showOptionalLabel,
   leftIcon,
-  rightIcon,
   password,
   onSuggestSelect,
-  onSuggestNoResults,
   local,
   latitude,
   longitude,
   size,
   onBlur,
   onChange,
-}) => (
-  <div
-    className={classnames(
-      'locationTextField',
-      { 'form-group': !password },
-      { 'has-error': error || message },
-      { required },
-      className
-    )}
-  >
-    {label && (
-      <InputLabel
-        field={id || field}
-        label={label}
-        showOptionalLabel={showOptionalLabel}
-        help={help}
-        size={size}
-      />
-    )}
-    {!children && (
-      <div className={classnames(`size-${size}`, 'input')}>
-        {leftIcon?.show && (
-          <Icon
-            name={leftIcon?.name}
-            className="icon-left"
-            onClick={leftIcon?.onClick}
-            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-left-icon"
-            size="sm"
-          />
-        )}
-        <Geosuggest
-          data-testid={dataTestId}
-          placeholder={placeholder}
-          onSuggestSelect={onSuggestSelect}
-          onSuggestNoResults={onSuggestNoResults}
-          initialValue={local}
-          location={new google.maps.LatLng(latitude, longitude)}
-          radius="20"
-          className={classnames({ 'left-icon': leftIcon })}
-          disabled={disabled}
-          ref={inputRef}
-          onBlur={onBlur}
-          onChange={onChange}
+}) => {
+  const [showNoResult, setShowNoResult] = useState(false);
+  const [showDeleteButton, setShowDeleteButton] = useState(local);
+
+  const geosuggestEl = useRef(null);
+
+  const handleSuggestNoResults = text => {
+    if (text !== '' && text.length > 3) {
+      setShowNoResult(true);
+    }
+  };
+
+  const handleUpdateSuggests = suggests => {
+    if (suggests.length && showNoResult) {
+      setShowNoResult(false);
+    }
+  };
+
+  const handleShowDeleteButton = value => {
+    setShowDeleteButton(!!value);
+  };
+
+  const renderSuggestItem = item => {
+    const [firstAddress, ...rest] = item.description.split(/[,/-]/);
+    const restAddress = rest.join(',');
+
+    return (
+      <div className="item">
+        <Icon
+          name="MapPin"
+          className="map-pin"
+          onClick={leftIcon?.onClick}
+          style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+          dataTestId="MapPin"
+          size="sm"
         />
-        {rightIcon?.show && (
-          <Icon
-            iconClass={`icon right ${rightIcon?.name}`}
-            onClick={rightIcon?.onClick}
-            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-right-icon"
-          />
-        )}
+        <span className="tex-item">
+          <strong>{firstAddress}</strong>
+          {restAddress}
+        </span>
       </div>
-    )}
-    {children && children}
-    {info && <span className="footer-label-info">{info}</span>}
-    {error && <div className="help-block">{error}</div>}
-    {message && <div className="help-block">{message}</div>}
-  </div>
-);
+    );
+  };
+
+  return (
+    <div
+      className={classnames(
+        'locationTextField',
+        { 'form-group': !password },
+        { 'has-error': error || message },
+        { required },
+        className
+      )}
+    >
+      {label && (
+        <InputLabel
+          field={id || field}
+          label={label}
+          showOptionalLabel={showOptionalLabel}
+          help={help}
+          size={size}
+        />
+      )}
+      {!children && (
+        <div className={classnames(`size-${size}`, 'input')}>
+          {leftIcon?.show && (
+            <Icon
+              name={leftIcon?.name}
+              className="icon-left"
+              onClick={leftIcon?.onClick}
+              style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+              dataTestId="input-left-icon"
+              size="sm"
+            />
+          )}
+          <Geosuggest
+            ref={geosuggestEl}
+            data-testid={dataTestId}
+            placeholder={placeholder}
+            onSuggestSelect={() => {
+              setShowNoResult(false);
+              onSuggestSelect();
+            }}
+            onSuggestNoResults={handleSuggestNoResults}
+            initialValue={local}
+            location={new google.maps.LatLng(latitude, longitude)}
+            radius="20"
+            className={classnames({ 'left-icon': leftIcon })}
+            disabled={disabled}
+            onBlur={onBlur}
+            onChange={e => {
+              onChange(e);
+              handleShowDeleteButton(e);
+            }}
+            onUpdateSuggests={handleUpdateSuggests}
+            minLength={3}
+            renderSuggestItem={renderSuggestItem}
+            autoComplete="off"
+          />
+          {showDeleteButton && (
+            <div className="item-delete-address">
+              <Icon
+                name="DeleteCircleBold"
+                className="delete-circle-bold"
+                onClick={() => {
+                  geosuggestEl.current.clear();
+                  setShowDeleteButton(false);
+                  setShowNoResult(false);
+                }}
+                dataTestId="input-right-icon"
+                size="sm"
+              />
+            </div>
+          )}
+          {showNoResult && (
+            <div className="geosuggest__suggests-not-found">
+              <div className="geosuggest__item">{messageNoResult}</div>
+            </div>
+          )}
+        </div>
+      )}
+      {children && children}
+      {info && <span className="footer-label-info">{info}</span>}
+      {error && <div className="help-block">{error}</div>}
+      {message && <div className="help-block">{message}</div>}
+    </div>
+  );
+};
 
 TextField.propTypes = {
   dataTestId: PropTypes.string,
@@ -105,11 +170,11 @@ TextField.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   placeholder: PropTypes.string,
   message: PropTypes.string,
+  messageNoResult: PropTypes.string,
   disabled: PropTypes.bool,
   help: PropTypes.string,
   required: PropTypes.bool,
   className: PropTypes.string,
-  inputRef: PropTypes.object,
   children: PropTypes.node,
   showOptionalLabel: PropTypes.bool,
   password: PropTypes.bool,
@@ -124,7 +189,6 @@ TextField.propTypes = {
     show: PropTypes.bool.isRequired,
   }),
   onSuggestSelect: PropTypes.func,
-  onSuggestNoResults: PropTypes.func,
   local: PropTypes.string,
   latitude: PropTypes.string,
   longitude: PropTypes.string,
