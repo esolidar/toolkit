@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1644602441374" clover="3.2.0">
-  <project timestamp="1644602441374" name="All files">
-    <metrics statements="4992" coveredstatements="3532" conditionals="3791" coveredconditionals="2332" methods="1513" coveredmethods="856" elements="10296" coveredelements="6720" complexity="0" loc="4992" ncloc="4992" packages="199" files="688" classes="688"/>
+<coverage generated="1644841615501" clover="3.2.0">
+  <project timestamp="1644841615501" name="All files">
+    <metrics statements="5004" coveredstatements="3544" conditionals="3791" coveredconditionals="2332" methods="1519" coveredmethods="862" elements="10314" coveredelements="6738" complexity="0" loc="5004" ncloc="5004" packages="199" files="694" classes="694"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="D:\projects\toolkit\__customQueries__\queryByClass.js">
@@ -48,7 +48,7 @@
       </file>
     </package>
     <package name="src.assets.icons.md">
-      <metrics statements="336" coveredstatements="336" conditionals="0" coveredconditionals="0" methods="168" coveredmethods="168"/>
+      <metrics statements="340" coveredstatements="340" conditionals="0" coveredconditionals="0" methods="170" coveredmethods="170"/>
       <file name="Accelerator.js" path="D:\projects\toolkit\src\assets\icons\md\Accelerator.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
@@ -405,6 +405,11 @@
         <line num="4" count="1" type="stmt"/>
       </file>
       <file name="EditBook.js" path="D:\projects\toolkit\src\assets\icons\md\EditBook.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="Email.js" path="D:\projects\toolkit\src\assets\icons\md\Email.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -834,6 +839,11 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
+      <file name="Upload.js" path="D:\projects\toolkit\src\assets\icons\md\Upload.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
       <file name="UploadCloud.js" path="D:\projects\toolkit\src\assets\icons\md\UploadCloud.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
@@ -894,7 +904,7 @@
       </file>
     </package>
     <package name="src.assets.icons.sm">
-      <metrics statements="158" coveredstatements="158" conditionals="0" coveredconditionals="0" methods="79" coveredmethods="79"/>
+      <metrics statements="166" coveredstatements="166" conditionals="0" coveredconditionals="0" methods="83" coveredmethods="83"/>
       <file name="AlignCenter.js" path="D:\projects\toolkit\src\assets\icons\sm\AlignCenter.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="2" type="stmt"/>
@@ -1025,6 +1035,11 @@
         <line num="3" count="3" type="stmt"/>
         <line num="4" count="6" type="stmt"/>
       </file>
+      <file name="Email.js" path="D:\projects\toolkit\src\assets\icons\sm\Email.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
       <file name="ExternalLink.js" path="D:\projects\toolkit\src\assets\icons\sm\ExternalLink.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
@@ -1150,6 +1165,11 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
+      <file name="PauseBold.js" path="D:\projects\toolkit\src\assets\icons\sm\PauseBold.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
       <file name="Pin.js" path="D:\projects\toolkit\src\assets\icons\sm\Pin.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
@@ -1165,12 +1185,12 @@
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
-      <file name="Plus.js" path="D:\projects\toolkit\src\assets\icons\sm\Plus.js">
+      <file name="PlayBold.js" path="D:\projects\toolkit\src\assets\icons\sm\PlayBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
-      <file name="Public.js" path="D:\projects\toolkit\src\assets\icons\sm\Public.js">
+      <file name="Plus.js" path="D:\projects\toolkit\src\assets\icons\sm\Plus.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -1275,12 +1295,22 @@
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="6" type="stmt"/>
       </file>
+      <file name="Upload.js" path="D:\projects\toolkit\src\assets\icons\sm\Upload.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
       <file name="UploadCloud.js" path="D:\projects\toolkit\src\assets\icons\sm\UploadCloud.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
       <file name="Volume.js" path="D:\projects\toolkit\src\assets\icons\sm\Volume.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="VolumeBold.js" path="D:\projects\toolkit\src\assets\icons\sm\VolumeBold.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -5504,18 +5534,18 @@
         <line num="177" count="4" type="stmt"/>
         <line num="182" count="1" type="stmt"/>
         <line num="183" count="4" type="stmt"/>
-        <line num="185" count="253" type="stmt"/>
+        <line num="185" count="259" type="stmt"/>
       </file>
       <file name="Icon.tsx" path="D:\projects\toolkit\src\elements\icon\Icon.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="7" count="86" type="stmt"/>
         <line num="9" count="86" type="stmt"/>
         <line num="16" count="86" type="stmt"/>
-        <line num="25" count="482" type="stmt"/>
-        <line num="27" count="482" type="stmt"/>
-        <line num="28" count="482" type="stmt"/>
+        <line num="25" count="488" type="stmt"/>
+        <line num="27" count="488" type="stmt"/>
+        <line num="28" count="488" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="482" type="stmt"/>
+        <line num="33" count="488" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5576,16 +5606,16 @@
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="78" count="7" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
+        <line num="79" count="7" type="stmt"/>
         <line num="115" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
         <line num="126" count="0" type="stmt"/>
-        <line num="139" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
-        <line num="163" count="1" type="stmt"/>
-        <line num="199" count="1" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="164" count="1" type="stmt"/>
+        <line num="200" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="D:\projects\toolkit\src\elements\locationTextField\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6118,12 +6148,12 @@
         <line num="38" count="37" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="53" count="37" type="stmt"/>
         <line num="55" count="37" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -7487,7 +7517,7 @@
       </file>
       <file name="isDefined.ts" path="D:\projects\toolkit\src\utils\isDefined\isDefined.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="126" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="124" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
