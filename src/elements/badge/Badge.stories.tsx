@@ -10,7 +10,17 @@ export default {
   },
   argTypes: {
     extraClass: {
-      options: ['default', 'white', 'primary', 'info', 'success', 'danger', 'warning', 'dark'],
+      options: [
+        'default',
+        'white',
+        'primary',
+        'secondary',
+        'info',
+        'success',
+        'danger',
+        'warning',
+        'dark',
+      ],
       control: { type: 'radio' },
     },
     size: {

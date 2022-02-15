@@ -1,7 +1,15 @@
 interface Props {
   className?: string;
   dataTestId?: string;
-  extraClass?: 'default' | 'primary' | 'info' | 'success' | 'danger' | 'warning' | 'dark';
+  extraClass?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'info'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'dark';
   fullWidth?: boolean;
   style?: React.CSSProperties;
   text?: string;

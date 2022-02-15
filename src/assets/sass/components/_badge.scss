@@ -31,6 +31,11 @@
     background-color: map-get($theme-colors, primary);
   }
 
+  &__secondary {
+    color: map-get($base, white) !important;
+    background-color: map-get($neutrals, 700);
+  }
+
   &__white {
     color: map-get($base, black) !important;
     background-color: map-get($base, white);
