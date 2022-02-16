@@ -1,5 +1,5 @@
 import React from 'react';
-import InputLabel from './InputLabel';
+import InputLabel from '.';
 
 export default {
   title: 'Elements/InputLabel',
@@ -19,7 +19,7 @@ const Template = args => (
 );
 
 export const Primary = Template.bind({});
-export const Required = Template.bind({});
+export const Private = Template.bind({});
 export const Weight600 = Template.bind({});
 export const Weight400 = Template.bind({});
 
@@ -29,13 +29,13 @@ Primary.args = {
   help: 'Textarea_name',
   showOptionalLabel: true,
 };
-Required.args = {
+Private.args = {
   label: 'Lorem Ipsum',
   field: 'Textarea_name',
   help: 'Textarea_name',
   showOptionalLabel: true,
-  required: true,
-  requiredText: "Visible only to Acme inc's admins",
+  isPrivate: true,
+  privateText: "Visible only to Acme inc's admins",
 };
 
 Weight600.args = {
