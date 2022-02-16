@@ -16,7 +16,7 @@ describe('InputLabel component', () => {
   });
 
   it('renders private icon correctly', () => {
-    const component = shallow(<InputLabel field="fiend-name" label="Label" required />);
+    const component = shallow(<InputLabel field="fiend-name" label="Label" isPrivate />);
     expect(component.find('Tooltip')).toHaveLength(1);
   });
 
