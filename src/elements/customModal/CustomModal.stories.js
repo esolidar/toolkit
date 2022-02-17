@@ -36,7 +36,7 @@ Default.args = {
 WithScroll.args = {
   actionsChildren: (
     <>
-      <Button extraClass="dark" className="mr-2" text="Cancel" />
+      <Button extraClass="dark" text="Cancel" />
       <Button extraClass="primary-full" text="Save" />
     </>
   ),

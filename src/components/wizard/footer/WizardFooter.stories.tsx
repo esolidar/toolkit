@@ -23,6 +23,11 @@ Default.args = {
   handleClickBack: () => {},
   handleClickNext: () => {},
   totalPages: 4,
-  currentPage: 2,
-  disableClickNext: true,
+  currentPage: 'categories',
+  disableClickNext: false,
+  buttonNextText: 'Continue',
+  handleDarkButton: () => {},
+  buttonDarkText: 'Save and close',
+  disabledDarkButton: false,
+  isLoading: false,
 };

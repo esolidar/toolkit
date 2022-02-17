@@ -12,7 +12,6 @@ const Wizard: FC<Props> = ({
   closeWizard,
   title,
   subtitle,
-  status,
   buttonDarkText,
   buttonPrimaryText,
   cdnStaticUrl,
@@ -34,6 +33,9 @@ const Wizard: FC<Props> = ({
   handleBlurTitle,
   buttonNextText,
   isLoading,
+  isDraft = false,
+  isLive = false,
+  pageStatus,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -77,7 +79,8 @@ const Wizard: FC<Props> = ({
           closeWizard={closeWizard}
           title={title}
           subtitle={subtitle}
-          status={status}
+          isDraft={isDraft}
+          isLive={isLive}
           buttonDarkText={buttonDarkText}
           buttonPrimaryText={buttonPrimaryText}
           cdnStaticUrl={cdnStaticUrl}
@@ -93,12 +96,16 @@ const Wizard: FC<Props> = ({
         />
         <WizardPaginator
           pages={pages}
+          pageStatus={pageStatus}
           cdnStaticUrl={cdnStaticUrl}
           handleChangeTab={handleChangeTab}
         />
         <Viewport className="wizard__body">{children}</Viewport>
         <Viewport>
           <WizardFooter
+            disabledDarkButton={disabledDarkButton}
+            buttonDarkText={buttonDarkText}
+            handleDarkButton={handleDarkButton}
             buttonNextText={buttonNextText}
             handleClickBack={handleClickBack}
             handleClickNext={handleClickNext}

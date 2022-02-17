@@ -170,7 +170,7 @@ const ProgramDetail = ({
                 {previewMode && !programConfig.interests.length && (
                   <Badge
                     size="md"
-                    extraClass="preview"
+                    extraClass="white"
                     style={{ width: '153px', height: '152px' }}
                     rounded={false}
                   />
@@ -246,7 +246,7 @@ const Skills = ({ skills, type, previewMode }: SkillsProps): JSX.Element => {
             {[...Array(4)].map((_e, i) => (
               <Badge
                 size="md"
-                extraClass="preview"
+                extraClass="white"
                 key={i}
                 style={{ width: '49px', height: '32px' }}
                 rounded={false}

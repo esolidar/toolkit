@@ -7,6 +7,7 @@ export interface Item {
   onClick?(): void;
   show: boolean;
   disabled?: boolean;
+  divider?: boolean;
 }
 
 interface Props {

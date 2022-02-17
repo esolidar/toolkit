@@ -25,35 +25,37 @@ Default.args = {
   closeWizard: () => {},
   title: 'A title',
   subtitle: 'Volunteering',
-  status: 'draft',
   buttonDarkText: 'Save & Close',
   buttonPrimaryText: 'Publish',
   cdnStaticUrl: 'https://static.esolidar.com',
   saved: false,
   disabledDarkButton: false,
   disabledPrimaryButton: true,
+  isDraft: true,
 };
 
 EditTitle.args = {
   closeWizard: () => {},
   title: '',
   editMode: true,
-  status: 'draft',
   buttonDarkText: 'Save & Close',
   buttonPrimaryText: 'Publish',
   cdnStaticUrl: 'https://static.esolidar.com',
   saved: false,
   disabledDarkButton: false,
   disabledPrimaryButton: true,
+  isDraft: true,
+  isLive: true,
 };
 
 NoSubtitle.args = {
   closeWizard: () => {},
   title: 'Program details',
-  status: 'draft',
   buttonDarkText: 'Save & Close',
   buttonPrimaryText: 'Publish',
   cdnStaticUrl: 'https://static.esolidar.com',
   disabledDarkButton: false,
   disabledPrimaryButton: true,
+  isDraft: true,
+  isLive: true,
 };

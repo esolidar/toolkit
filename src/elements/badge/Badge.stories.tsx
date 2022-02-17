@@ -11,6 +11,15 @@ export default {
   argTypes: {
     extraClass: {
       options: [
+        'black',
+        'dark-gray',
+        'white',
+        'turquoise',
+        'green',
+        'red',
+        'yellow',
+        'blue',
+        'dark-blue',
         'default',
         'white',
         'primary',
@@ -27,13 +36,17 @@ export default {
       options: ['xs', 'sm', 'md', 'lg'],
       control: { type: 'radio' },
     },
+    type: {
+      options: ['default', 'text', 'button'],
+      control: { type: 'radio' },
+    },
   },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => <Badge {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
-export const Squared: Story<Props> = Template.bind({});
+// export const Squared: Story<Props> = Template.bind({});
 export const PlainText: Story<Props> = Template.bind({});
 export const Icon: Story<Props> = Template.bind({});
 export const FullWidth: Story<Props> = Template.bind({});
@@ -43,10 +56,10 @@ Default.args = {
   text: 'toolkit.private',
 };
 
-Squared.args = {
-  rounded: false,
-  text: 'toolkit.private',
-};
+// Squared.args = {
+//   rounded: false,
+//   text: 'toolkit.private',
+// };
 
 PlainText.args = {
   plaintext: 'Plaintext',
@@ -55,7 +68,7 @@ PlainText.args = {
 
 Icon.args = {
   text: 'toolkit.private',
-  icon: 'Settings',
+  icon: 'StarBold',
   iconDataTestId: 'badge-icon',
 };
 

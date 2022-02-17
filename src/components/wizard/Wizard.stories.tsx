@@ -84,12 +84,12 @@ Open.args = {
     {
       title: 'General details',
       status: 'done',
-      active: false,
+      active: true,
     },
     {
       title: 'Categories ',
       status: 'not-done',
-      active: true,
+      active: false,
     },
     {
       title: 'Skills & Interests',
@@ -107,8 +107,9 @@ Open.args = {
   handleClickBack: () => {},
   handleClickNext: () => {},
   totalPages: 4,
-  currentPage: 2,
+  currentPage: 'generalDetails',
   disableClickNext: true,
+  buttonNextText: 'Continue',
 };
 
 Close.args = {
@@ -120,33 +121,18 @@ Close.args = {
   buttonPrimaryText: 'Publish',
   cdnStaticUrl: 'https://static.esolidar.com',
   saved: false,
-  pages: [
-    {
-      title: 'General details',
-      status: 'done',
-      active: false,
-    },
-    {
-      title: 'Categories ',
-      status: 'not-done',
-      active: true,
-    },
-    {
-      title: 'Skills & Interests',
-      status: 'not-done',
-      active: false,
-    },
-    {
-      title: 'Application form',
-      status: 'not-done',
-      active: false,
-    },
-  ],
+  pages: {
+    published: false,
+    active: 'applicationForm',
+    edited: ['generalDetails', 'categories'],
+    done: ['locationTime', 'categories'],
+  },
   disabledDarkButton: false,
   disabledPrimaryButton: true,
   handleClickBack: () => {},
   handleClickNext: () => {},
   totalPages: 4,
-  currentPage: 2,
+  currentPage: 'applicationForm',
   disableClickNext: true,
+  buttonNextText: 'Continue',
 };

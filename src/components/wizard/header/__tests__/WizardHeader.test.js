@@ -12,5 +12,7 @@ it('renders WizardHeader default component', () => {
   expect(getByClass('wizard__header')).toBeTruthy();
   expect(getByClass('wizard__header__title')).toBeTruthy();
   expect(getByClass('wizard__header__title__subtitle')).toHaveTextContent('Volunteering');
-  expect(getByClass('badge badge__dark badge__md btn-badge')).toHaveTextContent('Draft');
+  expect(
+    getByClass('badge type-default__white badge__sm type-default btn-badge')
+  ).toHaveTextContent('Draft');
 });

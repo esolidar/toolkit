@@ -19,7 +19,7 @@ it('renders ProgramDetail default', () => {
   expect(within(getByClass('accelerator-view__format')).getByText('Lorem ipsum'));
   expect(within(getByClass('accelerator-view__apply')).getByText('Everyone'));
 
-  expect(queryAllByClass(/badge/)).toHaveLength(2);
+  expect(queryAllByClass(/badge /)).toHaveLength(2);
   expect(within(getByClass('checkbox-card__info--title')).getByText('Pollution'));
   expect(getByClass('accelerator-view__bottom-submit')).toBeInTheDocument();
 });
@@ -50,6 +50,6 @@ it('renders ProgramDetail preview mode', () => {
     )
   );
 
-  expect(queryAllByClass(/badge/)).toHaveLength(9);
+  expect(queryAllByClass(/badge /)).toHaveLength(9);
   expect(queryByClass('accelerator-view__bottom-submit')).not.toBeInTheDocument();
 });
