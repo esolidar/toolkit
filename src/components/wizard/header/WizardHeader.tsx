@@ -6,6 +6,7 @@ import Button from '../../../elements/button';
 import Icon from '../../../elements/icon';
 import isDefined from '../../../utils/isDefined';
 import cursorFocus from '../../../utils/cursorFocus';
+import Tooltip from '../../../elements/tooltip';
 
 const WizardHeader: FC<Props> = ({
   closeWizard,
@@ -37,16 +38,27 @@ const WizardHeader: FC<Props> = ({
 
   return (
     <div className="wizard__header">
-      <Button
-        extraClass="primary-full"
-        ghost
-        theme="light"
-        size="md"
-        type="icon"
-        onClick={closeWizard}
-        icon={<Icon name="X" size="sm" />}
+      <Tooltip
+        overlay={
+          <span>
+            <FormattedMessage id="toolkit.cancel.program.changes" />
+          </span>
+        }
+        placement="right"
+        trigger="hover"
+        className="esolidar-tooltip"
+        tooltipBodyChild={
+          <Button
+            extraClass="primary-full"
+            ghost
+            theme="light"
+            size="md"
+            type="icon"
+            onClick={closeWizard}
+            icon={<Icon name="X" size="sm" />}
+          />
+        }
       />
-
       <div className="wizard__header__title">
         <div>
           {subtitle && !editMode && (

@@ -6,7 +6,7 @@ interface Props {
   buttonDarkText: string;
   disabledDarkButton: boolean;
   totalPages: number;
-  currentPage: number;
+  currentPage: string;
   disableClickNext: boolean;
   isLoading: boolean;
 }

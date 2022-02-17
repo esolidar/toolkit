@@ -18,6 +18,7 @@ const props = {
   timeCaption: 'hour',
   dateFormat: 'd-MM-yyyy h:mm aa',
   readOnly: false,
+  inline: true,
 };
 
 describe('DatePicker component', () => {

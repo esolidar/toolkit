@@ -35,6 +35,7 @@ const Wizard: FC<Props> = ({
   isLoading,
   isDraft = false,
   isLive = false,
+  pageStatus,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -95,6 +96,7 @@ const Wizard: FC<Props> = ({
         />
         <WizardPaginator
           pages={pages}
+          pageStatus={pageStatus}
           cdnStaticUrl={cdnStaticUrl}
           handleChangeTab={handleChangeTab}
         />

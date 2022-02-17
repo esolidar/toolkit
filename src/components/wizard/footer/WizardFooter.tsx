@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { useIntl, FormattedMessage } from 'react-intl';
 import Props from './WizardFooter.types';
 import Button from '../../../elements/button';
+import PAGES from '../../../constants/pages';
 
 const WizardFooter: FC<Props> = ({
   buttonNextText,
   handleClickBack,
   handleClickNext,
   disableClickNext,
-  totalPages,
   currentPage,
   isLoading = false,
   handleDarkButton,
@@ -16,9 +16,12 @@ const WizardFooter: FC<Props> = ({
   disabledDarkButton,
 }: Props): JSX.Element => {
   const intl = useIntl();
+  const pages = Object.keys(PAGES);
+  const current: number = pages.findIndex(i => i === currentPage) + 1;
+
   return (
     <div className="wizard__footer">
-      {currentPage !== 1 && (
+      {current !== 1 && (
         <Button
           extraClass="dark"
           onClick={handleClickBack}
@@ -26,7 +29,12 @@ const WizardFooter: FC<Props> = ({
         />
       )}
       <div className="wizard__footer__continue">
-        <FormattedMessage id="paginator.steps" values={{ totalPages, currentPage }} />
+        <div className="label-paginator-steps">
+          <FormattedMessage
+            id="paginator.steps"
+            values={{ totalPages: pages.length, currentPage: current }}
+          />
+        </div>
         <Button
           extraClass="dark"
           onClick={handleDarkButton}

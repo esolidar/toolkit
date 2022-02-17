@@ -20,6 +20,7 @@ export const InputOnly = Template.bind({});
 export const WithError = Template.bind({});
 export const Disabled = Template.bind({});
 export const ReadOnly = Template.bind({});
+export const ReadOnlyInline = Template.bind({});
 
 // Default.args = {
 //   classnames: () => {},
@@ -119,4 +120,15 @@ ReadOnly.args = {
   className: 'form-control',
   showTimeSelect: false,
   readOnly: true,
+};
+
+ReadOnlyInline.args = {
+  label: 'Starts',
+  classnames: () => {},
+  locale: 'pt',
+  selected: new Date('2021-03-05 00:00:00'),
+  className: 'form-control',
+  showTimeSelect: false,
+  readOnly: true,
+  inline: true,
 };
