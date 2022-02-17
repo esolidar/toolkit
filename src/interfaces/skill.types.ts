@@ -6,7 +6,7 @@ interface Pivot {
 interface Skill {
   project_config_id: number;
   created_at: string;
-  deleted_at: string | null;
+  deleted_at?: string | null;
   id: number;
   name_br: string;
   name_en: string;

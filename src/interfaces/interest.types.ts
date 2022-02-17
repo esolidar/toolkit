@@ -16,7 +16,7 @@ interface Interest {
   checked_image: InterestImage;
   created_at: string;
   default_image: InterestImage;
-  deleted_at: string | null;
+  deleted_at?: string | null;
   description_br: string | null;
   description_en: string | null;
   description_pt: string | null;
