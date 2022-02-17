@@ -26,6 +26,11 @@
     background-color: map-get($neutrals, 100);
   }
 
+  &__preview {
+    color: map-get($base, black);
+    background-color: map-get($background, secondary);
+  }
+
   &__primary {
     color: map-get($colors, white) !important;
     background-color: map-get($theme-colors, primary);

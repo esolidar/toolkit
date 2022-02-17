@@ -12,7 +12,7 @@ interface Props {
   projectConfig: ProjectConfig;
   locale: string;
   submitProjectButton(): void;
-  showRunningState: boolean;
+  showRunningState?: boolean;
 }
 
 export default Props;

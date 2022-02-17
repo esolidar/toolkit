@@ -18,6 +18,7 @@ const CheckboxCard: FC<Props> = ({
   subtitle,
   title,
   className,
+  style,
 }: Props): JSX.Element => {
   const classes = classnames(
     'checkbox-card',
@@ -43,7 +44,13 @@ const CheckboxCard: FC<Props> = ({
   };
 
   return (
-    <div className={classes} onKeyPress={handleOnClick} onClick={handleOnClick} id={id}>
+    <div
+      className={classes}
+      onKeyPress={handleOnClick}
+      onClick={handleOnClick}
+      id={id}
+      style={style}
+    >
       <div className="checkbox-card__image">
         <Preview img={image} hover={false} />
       </div>

@@ -96,7 +96,7 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.220.0",
+    "@esolidar/i18n": "^0.231.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
