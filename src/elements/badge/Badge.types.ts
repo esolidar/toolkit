@@ -13,6 +13,7 @@ interface Props {
     | 'dark-blue'
     | 'default'
     | 'primary'
+    | 'secondary'
     | 'info'
     | 'success'
     | 'danger'

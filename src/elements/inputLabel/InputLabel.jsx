@@ -13,8 +13,8 @@ const InputLabel = ({
   style,
   help,
   fontWeight = 600,
-  required = false,
-  requiredText,
+  isPrivate = false,
+  privateText,
   size = 'lg',
 }) => {
   const intl = useIntl();
@@ -31,11 +31,11 @@ const InputLabel = ({
             (<FormattedMessage id="optional" />)
           </span>
         )}
-        {required && (
+        {isPrivate && (
           <Tooltip
             tooltipBodyChild={<Badge text={intl.formatMessage({ id: 'toolkit.private' })} />}
-            overlay={<span>{requiredText}</span>}
-            displayNone={!requiredText}
+            overlay={<span>{privateText}</span>}
+            displayNone={!privateText}
           />
         )}
       </div>
@@ -52,8 +52,8 @@ InputLabel.propTypes = {
   style: PropTypes.object,
   help: PropTypes.string,
   fontWeight: PropTypes.number,
-  required: PropTypes.bool,
-  requiredText: PropTypes.string,
+  isPrivate: PropTypes.bool,
+  privateText: PropTypes.string,
   size: PropTypes.string,
 };
 

@@ -14,6 +14,10 @@
     border: 1px solid map-get($neutrals, 200);
     @include thin-scroll-bar();
 
+    @media (max-height: map-get($breakpoints, md)) {
+      max-height: calc(100vh - 3.5rem) !important;
+    }
+
     .modal-header {
       padding: $distance-3;
 

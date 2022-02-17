@@ -1,54 +1,52 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import CustomModal from '../index';
+import '@testing-library/jest-dom';
+import { composeStory } from '@storybook/testing-react';
+import { render, fireEvent } from '../../../../__customQueries__/test-utils';
+import Meta, {
+  Default as DefaultStory,
+  WithScroll as WithScrollStory,
+} from '../CustomModal.stories';
 
-const props = {
-  bodyChildren: <p>bodyChildren</p>,
-  show: true,
-  title: 'Title',
-};
+const Default = composeStory(DefaultStory, Meta);
+const WithScroll = composeStory(WithScrollStory, Meta);
 
 describe('CustomModal component', () => {
   it('renders "CustomModal" correctly', () => {
-    const component = shallow(<CustomModal {...props} />);
-    expect(component.find('[data-testid="modal"]').length).toBe(1);
-    expect(component.find('[data-testid="header"]').length).toBe(1);
-    expect(component.find('[data-testid="title"]').length).toBe(1);
-    expect(component.find('[data-testid="body"]').length).toBe(1);
+    const { getByTestId } = render(<Default />);
+    expect(getByTestId('modal')).toBeInTheDocument();
+    expect(getByTestId('header')).toBeInTheDocument();
+    expect(getByTestId('title')).toBeInTheDocument();
+    expect(getByTestId('body')).toBeInTheDocument();
   });
 
   it('renders subtitle if prop "subtitle" is defined', () => {
-    const component = shallow(<CustomModal {...props} subtitle="subtitle" />);
-    expect(component.find('[data-testid="subtitle"]').length).toBe(1);
+    const { getByTestId } = render(<Default />);
+    expect(getByTestId('subtitle')).toBeInTheDocument();
   });
 
   it('renders footer if prop "actionsChildren" is defined', () => {
-    const component = shallow(<CustomModal {...props} actionsChildren={<p>Footer</p>} />);
-    expect(component.find('[data-testid="footer"]').length).toBe(1);
-  });
-
-  it('sets backdrop if prop "backdrop" is defined', () => {
-    const component = shallow(<CustomModal {...props} backdrop={false} />);
-    expect(component.find('[data-testid="modal"]').props().backdrop).toEqual(false);
+    const { getByTestId } = render(<Default />);
+    expect(getByTestId('footer')).toBeInTheDocument();
   });
 
   it('sets size if prop "size" is defined', () => {
-    const component = shallow(<CustomModal {...props} size="xl" />);
-    expect(component.find('[data-testid="modal"]').props().size).toEqual('xl');
+    const { getByClass } = render(<Default />);
+    expect(getByClass(/modal-md/)).toBeTruthy();
   });
 
-  it('sets scrollable if prop "scrollable" is defined', () => {
-    const component = shallow(<CustomModal {...props} scrollable={false} />);
-    expect(component.find('[data-testid="modal"]').props().scrollable).toEqual(false);
+  it('renders closeButton if prop "closeButton" is true', () => {
+    const { getByClass } = render(<Default />);
+    expect(getByClass('btn-esolidar__icon')).toBeTruthy();
   });
 
-  it('sets show if prop "show" is defined', () => {
-    const component = shallow(<CustomModal {...props} show={true} />);
-    expect(component.find('[data-testid="modal"]').props().show).toEqual(true);
-  });
+  it('renders modal with scroll', async () => {
+    const { getByClass } = render(<WithScroll />);
 
-  it('renders closeButton if prop "closeButton" is false', () => {
-    const component = shallow(<CustomModal {...props} closeButton={false} />);
-    expect(component.find('.icon-close')).toHaveLength(0);
+    expect(getByClass('modal-footer')).toHaveStyle({
+      borderTop: '1px solid rgb(222, 226, 230',
+    });
+    await fireEvent.scroll(window, { target: { scrollY: 101 } });
+    expect(getByClass('modal-header')).toHaveStyle({
+      borderBottom: '1px solid rgb(222, 226, 230',
+    });
   });
 });
