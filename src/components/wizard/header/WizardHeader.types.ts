@@ -3,7 +3,6 @@ interface Props {
   closeWizard(): void;
   title?: string;
   subtitle?: string;
-  status: string;
   buttonDarkText: string;
   buttonPrimaryText: string;
   cdnStaticUrl: string;
@@ -15,6 +14,8 @@ interface Props {
   disabledDarkButton: boolean;
   disabledPrimaryButton: boolean;
   isLoading: boolean;
+  isDraft?: boolean;
+  isLive?: boolean;
 }
 
 export default Props;

@@ -111,9 +111,9 @@ const TextField = ({
             ref={geosuggestEl}
             data-testid={dataTestId}
             placeholder={placeholder}
-            onSuggestSelect={() => {
+            onSuggestSelect={google => {
               setShowNoResult(false);
-              onSuggestSelect();
+              onSuggestSelect(google);
             }}
             onSuggestNoResults={handleSuggestNoResults}
             initialValue={local}
@@ -200,6 +200,7 @@ TextField.propTypes = {
 TextField.defaultProps = {
   children: null,
   showOptionalLabel: false,
+  onChange: () => {},
   size: 'lg',
 };
 
