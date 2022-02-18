@@ -21,11 +21,6 @@ export const PreviewMode: Story<Props> = Template.bind({});
 Default.args = {
   programConfig: accelerationProgram,
   onSubmitProjectButton: () => {},
-  env: {
-    serverlessResizeImage: 'https://image.testesolidar.com',
-    cdnUploadsUrl: 'https://cdn.testesolidar.com',
-    imgCdn: 'https://static.testesolidar.com',
-  },
   breadcrumb: (
     <Breadcrumbs
       breadcrumbs={[
@@ -40,7 +35,6 @@ Default.args = {
       ]}
     />
   ),
-  previewMode: false,
 };
 
 const accelerationProgramPreview = {
@@ -60,11 +54,6 @@ PreviewMode.args = {
   programConfig: accelerationProgramPreview,
   onSubmitProjectButton: () => {},
   onClickAccelerator: () => {},
-  env: {
-    serverlessResizeImage: 'https://image.testesolidar.com',
-    cdnUploadsUrl: 'https://cdn.testesolidar.com',
-    imgCdn: 'https://static.testesolidar.com',
-  },
   breadcrumb: (
     <Breadcrumbs
       breadcrumbs={[

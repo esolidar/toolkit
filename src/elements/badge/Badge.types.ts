@@ -18,7 +18,6 @@ interface Props {
     | 'success'
     | 'danger'
     | 'warning'
-    | 'preview'
     | 'dark';
   fullWidth?: boolean;
   style?: React.CSSProperties;
