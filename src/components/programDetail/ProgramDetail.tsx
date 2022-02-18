@@ -40,8 +40,12 @@ const ProgramDetail = ({
 
   const programStatus = getProgramStatus(dates);
 
-  const hardSkills = programConfig?.skills.filter(item => item.type === 'hard');
-  const softSkills = programConfig?.skills.filter(item => item.type === 'soft');
+  const hardSkills = programConfig?.skills
+    ? programConfig?.skills.filter(item => item.type === 'hard')
+    : [];
+  const softSkills = programConfig?.skills
+    ? programConfig?.skills.filter(item => item.type === 'soft')
+    : [];
 
   const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
   const cdnUploadsUrl = getEnvVar('CDN_UPLOADS_URL');
@@ -49,7 +53,7 @@ const ProgramDetail = ({
 
   const programImg = {
     src:
-      programConfig?.images.length > 0
+      programConfig?.images?.length > 0
         ? `${serverlessResizeImage}/${programConfig.images[0].image}?width=600px&height=340px`
         : null,
     alt: programConfig.title,
@@ -62,7 +66,7 @@ const ProgramDetail = ({
     <Viewport size={viewportSize} className="accelerator-view">
       <>
         {breadcrumb}
-        {(programConfig?.images.length > 0 || previewMode) && (
+        {(programConfig?.images?.length > 0 || previewMode) && (
           <div className="accelerator-view__image">
             <Preview img={programImg} hover={false} />
           </div>
@@ -136,7 +140,7 @@ const ProgramDetail = ({
               previewModeCopy="toolkit.acceleration.preview.applicants"
             />
           </div>
-          {(programConfig.skills.length > 0 || previewMode) && (
+          {(programConfig.skills?.length > 0 || previewMode) && (
             <div className="accelerator-view__skills">
               <h2 className="accelerator-view__h2">
                 <FormattedMessage id="toolkit.accelerator.what.looking.for" />
@@ -145,7 +149,7 @@ const ProgramDetail = ({
               <Skills skills={softSkills} previewMode={previewMode} type="soft" />
             </div>
           )}
-          {(programConfig.interests.length > 0 || previewMode) && (
+          {(programConfig.interests?.length > 0 || previewMode) && (
             <>
               <div className="accelerator-view__sub-title">
                 <InputLabel
@@ -155,23 +159,27 @@ const ProgramDetail = ({
                 />
               </div>
               <div className="accelerator-view__interests-list">
-                {programConfig.interests.map(interest => (
-                  <div key={interest.id}>
-                    <CheckboxCard
-                      id={`checkboxCard-${interest.id}`}
-                      defaultImg={
-                        interest.image
-                          ? `${cdnUploadsUrl}/${interest.image?.image}`
-                          : `${cdnStaticUrl}/frontend/icons/ic-interest.svg`
-                      }
-                      size="sm"
-                      title={interest[`name_${locale}`]}
-                      disabledHover={true}
-                      name={interest[`name_${locale}`]}
-                    />
-                  </div>
-                ))}
-                {previewMode && !programConfig.interests.length && (
+                {programConfig.interests?.length > 0 && (
+                  <>
+                    {programConfig.interests.map(interest => (
+                      <div key={interest.id}>
+                        <CheckboxCard
+                          id={`checkboxCard-${interest.id}`}
+                          defaultImg={
+                            interest.image
+                              ? `${cdnUploadsUrl}/${interest.image?.image}`
+                              : `${cdnStaticUrl}/frontend/icons/ic-interest.svg`
+                          }
+                          size="sm"
+                          title={interest[`name_${locale}`]}
+                          disabledHover={true}
+                          name={interest[`name_${locale}`]}
+                        />
+                      </div>
+                    ))}
+                  </>
+                )}
+                {previewMode && !programConfig.interests?.length && (
                   <Badge
                     size="md"
                     extraClass="white"

@@ -30,6 +30,8 @@ interface Props {
   isDraft?: boolean;
   isLive?: boolean;
   pageStatus: PageStatus;
+  showPaginator?: boolean;
+  showFooter?: boolean;
 }
 
 export default Props;

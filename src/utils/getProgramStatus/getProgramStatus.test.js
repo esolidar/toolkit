@@ -67,3 +67,9 @@ test('getProgramStatus function with archived ended status', () => {
   };
   expect(getProgramStatus(dates)).toBe('ended');
 });
+
+test('getProgramStatus function with invalid date object', () => {
+  advanceTo(new Date(date));
+  const dates = {};
+  expect(getProgramStatus(dates)).toBe('');
+});
