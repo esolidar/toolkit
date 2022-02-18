@@ -87,7 +87,6 @@
     justify-content: center;
     display: flex;
     background: map-get($neutrals, 100);
-    border: 2px solid get-rgba(map-get($base, black), 24);
 
     img {
       outline: none;
