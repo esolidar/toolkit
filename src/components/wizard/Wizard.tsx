@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useCallback } from 'react';
+import classNames from 'classnames';
 import WizardHeader from './header';
 import WizardPaginator from './paginator';
 import WizardFooter from './footer';
@@ -36,6 +37,8 @@ const Wizard: FC<Props> = ({
   isDraft = false,
   isLive = false,
   pageStatus,
+  showPaginator = true,
+  showFooter = true,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -94,27 +97,38 @@ const Wizard: FC<Props> = ({
           handleBlurTitle={handleBlurTitle}
           isLoading={isLoading}
         />
-        <WizardPaginator
-          pages={pages}
-          pageStatus={pageStatus}
-          cdnStaticUrl={cdnStaticUrl}
-          handleChangeTab={handleChangeTab}
-        />
-        <Viewport className="wizard__body">{children}</Viewport>
-        <Viewport>
-          <WizardFooter
-            disabledDarkButton={disabledDarkButton}
-            buttonDarkText={buttonDarkText}
-            handleDarkButton={handleDarkButton}
-            buttonNextText={buttonNextText}
-            handleClickBack={handleClickBack}
-            handleClickNext={handleClickNext}
-            totalPages={totalPages}
-            currentPage={currentPage}
-            disableClickNext={disableClickNext}
-            isLoading={isLoading}
+        {showPaginator && (
+          <WizardPaginator
+            pages={pages}
+            pageStatus={pageStatus}
+            cdnStaticUrl={cdnStaticUrl}
+            handleChangeTab={handleChangeTab}
           />
+        )}
+        <Viewport
+          className={classNames(
+            { 'wizard__body-with-paginator': showPaginator },
+            { wizard__body: !showPaginator }
+          )}
+        >
+          {children}
         </Viewport>
+        {showFooter && (
+          <Viewport>
+            <WizardFooter
+              disabledDarkButton={disabledDarkButton}
+              buttonDarkText={buttonDarkText}
+              handleDarkButton={handleDarkButton}
+              buttonNextText={buttonNextText}
+              handleClickBack={handleClickBack}
+              handleClickNext={handleClickNext}
+              totalPages={totalPages}
+              currentPage={currentPage}
+              disableClickNext={disableClickNext}
+              isLoading={isLoading}
+            />
+          </Viewport>
+        )}
       </div>
     </div>
   );

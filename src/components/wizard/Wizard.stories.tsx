@@ -69,6 +69,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Open: Story<Props> = Template.bind({});
 export const Close: Story<Props> = Template.bind({});
+export const Simple: Story<Props> = Template.bind({});
 
 Open.args = {
   showWizard: true,
@@ -135,4 +136,12 @@ Close.args = {
   currentPage: 'applicationForm',
   disableClickNext: true,
   buttonNextText: 'Continue',
+};
+
+Simple.args = {
+  showWizard: true,
+  buttonDarkText: 'Close preview',
+  cdnStaticUrl: 'https://static.esolidar.com',
+  showFooter: false,
+  showPaginator: false,
 };
