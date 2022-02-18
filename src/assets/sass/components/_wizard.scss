@@ -28,6 +28,13 @@
     padding-bottom: $distance-9;
   }
 
+  .wizard-container-simple {
+    position: relative;
+    clip-path: inset(0 0 0 0);
+    padding-top: 75px;
+    padding-bottom: $distance-9;
+  }
+
   .wizard__header {
     z-index: map-get($z-indexs, wizard-header);
     position: fixed;

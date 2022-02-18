@@ -7,7 +7,7 @@ interface ProgramImage extends Image {
 }
 
 interface AccelerationProgram {
-  id: number;
+  id?: number;
   title?: string;
   intro?: string;
   images?: ProgramImage[];

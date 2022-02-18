@@ -48,18 +48,19 @@ const Wizard: FC<Props> = ({
           'wizard__paginator'
         )[0] as HTMLBodyElement;
         const headerDiv = document.getElementsByClassName('wizard__header')[0] as HTMLBodyElement;
-
-        if (y > scrollTop) {
-          paginatorDiv.classList.remove('fix-on-scrool-down');
-          headerDiv.classList.remove('fix-on-scrool-down');
-          paginatorDiv.setAttribute('style', `top: ${headerDiv.offsetHeight}px`);
-        } else if (y < scrollTop) {
-          paginatorDiv.classList.add('fix-on-scrool-down');
-          headerDiv.classList.add('fix-on-scrool-down');
-          paginatorDiv.setAttribute(
-            'style',
-            `top: ${headerDiv.offsetHeight - paginatorDiv.offsetHeight + 4}px`
-          );
+        if (paginatorDiv) {
+          if (y > scrollTop) {
+            paginatorDiv.classList.remove('fix-on-scrool-down');
+            headerDiv.classList.remove('fix-on-scrool-down');
+            paginatorDiv.setAttribute('style', `top: ${headerDiv.offsetHeight}px`);
+          } else if (y < scrollTop) {
+            paginatorDiv.classList.add('fix-on-scrool-down');
+            headerDiv.classList.add('fix-on-scrool-down');
+            paginatorDiv.setAttribute(
+              'style',
+              `top: ${headerDiv.offsetHeight - paginatorDiv.offsetHeight + 4}px`
+            );
+          }
         }
         y = scrollTop;
       }
@@ -77,7 +78,12 @@ const Wizard: FC<Props> = ({
 
   return (
     <div className={`wizard ${showWizard ? 'open' : 'closed'} `} id="wizard">
-      <div className="wizard-container">
+      <div
+        className={classNames(
+          { 'wizard-container-simple': !showPaginator },
+          { 'wizard-container': showPaginator }
+        )}
+      >
         <WizardHeader
           closeWizard={closeWizard}
           title={title}
