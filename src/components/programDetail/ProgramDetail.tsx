@@ -20,10 +20,6 @@ import Skill from '../../interfaces/skill.types';
 import getProgramStatus from '../../utils/getProgramStatus';
 import getEnvVar from '../../utils/getEnvVar';
 
-const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
-const cdnUploadsUrl = getEnvVar('CDN_UPLOADS_URL');
-const cdnStaticUrl = getEnvVar('CDN_STATIC_URL');
-
 const ProgramDetail = ({
   programConfig,
   onSubmitProjectButton,
@@ -46,6 +42,10 @@ const ProgramDetail = ({
 
   const hardSkills = programConfig?.skills.filter(item => item.type === 'hard');
   const softSkills = programConfig?.skills.filter(item => item.type === 'soft');
+
+  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+  const cdnUploadsUrl = getEnvVar('CDN_UPLOADS_URL');
+  const cdnStaticUrl = getEnvVar('CDN_STATIC_URL');
 
   const programImg = {
     src:
