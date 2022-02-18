@@ -6,7 +6,7 @@ import Breadcrumbs from '../../elements/breadcrumbs';
 import accelerationProgram from '../../../__mocks__/accelerationProgram';
 
 export default {
-  title: 'Elements/ProgramDetail',
+  title: 'Components/ProgramDetail',
   component: ProgramDetail,
   parameters: {
     jest: ['ProgramDetail.test.js'],
@@ -17,6 +17,7 @@ const Template: Story<Props> = (args: Props) => <ProgramDetail {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 export const PreviewMode: Story<Props> = Template.bind({});
+export const EmptyProgram: Story<Props> = Template.bind({});
 
 Default.args = {
   programConfig: accelerationProgram,
@@ -52,6 +53,27 @@ accelerationProgramPreview.interests = [];
 
 PreviewMode.args = {
   programConfig: accelerationProgramPreview,
+  onSubmitProjectButton: () => {},
+  onClickAccelerator: () => {},
+  breadcrumb: (
+    <Breadcrumbs
+      breadcrumbs={[
+        {
+          handleClick: () => {},
+          title: 'Accelarator',
+        },
+        {
+          handleClick: null,
+          title: 'Project Title',
+        },
+      ]}
+    />
+  ),
+  previewMode: true,
+};
+
+EmptyProgram.args = {
+  programConfig: {},
   onSubmitProjectButton: () => {},
   onClickAccelerator: () => {},
   breadcrumb: (

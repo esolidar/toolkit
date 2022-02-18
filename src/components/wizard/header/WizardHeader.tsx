@@ -38,27 +38,29 @@ const WizardHeader: FC<Props> = ({
 
   return (
     <div className="wizard__header">
-      <Tooltip
-        overlay={
-          <span>
-            <FormattedMessage id="toolkit.cancel.program.changes" />
-          </span>
-        }
-        placement="right"
-        trigger="hover"
-        className="esolidar-tooltip"
-        tooltipBodyChild={
-          <Button
-            extraClass="primary-full"
-            ghost
-            theme="light"
-            size="md"
-            type="icon"
-            onClick={closeWizard}
-            icon={<Icon name="X" size="sm" />}
-          />
-        }
-      />
+      {closeWizard && (
+        <Tooltip
+          overlay={
+            <span>
+              <FormattedMessage id="toolkit.cancel.program.changes" />
+            </span>
+          }
+          placement="right"
+          trigger="hover"
+          className="esolidar-tooltip"
+          tooltipBodyChild={
+            <Button
+              extraClass="primary-full"
+              ghost
+              theme="light"
+              size="md"
+              type="icon"
+              onClick={closeWizard}
+              icon={<Icon name="X" size="sm" />}
+            />
+          }
+        />
+      )}
       <div className="wizard__header__title">
         <div>
           {subtitle && !editMode && (
@@ -99,14 +101,16 @@ const WizardHeader: FC<Props> = ({
           text={buttonDarkText}
           disabled={disabledDarkButton}
         />
-        <Button
-          withLoading={true}
-          isLoading={isLoading}
-          extraClass="primary-full"
-          onClick={handlePrimaryButton}
-          text={buttonPrimaryText}
-          disabled={disabledPrimaryButton}
-        />
+        {buttonPrimaryText && (
+          <Button
+            withLoading={true}
+            isLoading={isLoading}
+            extraClass="primary-full"
+            onClick={handlePrimaryButton}
+            text={buttonPrimaryText}
+            disabled={disabledPrimaryButton}
+          />
+        )}
       </div>
     </div>
   );

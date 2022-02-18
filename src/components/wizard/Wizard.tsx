@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useCallback } from 'react';
+import classNames from 'classnames';
 import WizardHeader from './header';
 import WizardPaginator from './paginator';
 import WizardFooter from './footer';
@@ -36,6 +37,8 @@ const Wizard: FC<Props> = ({
   isDraft = false,
   isLive = false,
   pageStatus,
+  showPaginator = true,
+  showFooter = true,
 }: Props): JSX.Element => {
   const handleNavigation = useCallback(
     e => {
@@ -45,18 +48,19 @@ const Wizard: FC<Props> = ({
           'wizard__paginator'
         )[0] as HTMLBodyElement;
         const headerDiv = document.getElementsByClassName('wizard__header')[0] as HTMLBodyElement;
-
-        if (y > scrollTop) {
-          paginatorDiv.classList.remove('fix-on-scrool-down');
-          headerDiv.classList.remove('fix-on-scrool-down');
-          paginatorDiv.setAttribute('style', `top: ${headerDiv.offsetHeight}px`);
-        } else if (y < scrollTop) {
-          paginatorDiv.classList.add('fix-on-scrool-down');
-          headerDiv.classList.add('fix-on-scrool-down');
-          paginatorDiv.setAttribute(
-            'style',
-            `top: ${headerDiv.offsetHeight - paginatorDiv.offsetHeight + 4}px`
-          );
+        if (paginatorDiv) {
+          if (y > scrollTop) {
+            paginatorDiv.classList.remove('fix-on-scrool-down');
+            headerDiv.classList.remove('fix-on-scrool-down');
+            paginatorDiv.setAttribute('style', `top: ${headerDiv.offsetHeight}px`);
+          } else if (y < scrollTop) {
+            paginatorDiv.classList.add('fix-on-scrool-down');
+            headerDiv.classList.add('fix-on-scrool-down');
+            paginatorDiv.setAttribute(
+              'style',
+              `top: ${headerDiv.offsetHeight - paginatorDiv.offsetHeight + 4}px`
+            );
+          }
         }
         y = scrollTop;
       }
@@ -74,7 +78,12 @@ const Wizard: FC<Props> = ({
 
   return (
     <div className={`wizard ${showWizard ? 'open' : 'closed'} `} id="wizard">
-      <div className="wizard-container">
+      <div
+        className={classNames(
+          { 'wizard-container-simple': !showPaginator },
+          { 'wizard-container': showPaginator }
+        )}
+      >
         <WizardHeader
           closeWizard={closeWizard}
           title={title}
@@ -94,27 +103,38 @@ const Wizard: FC<Props> = ({
           handleBlurTitle={handleBlurTitle}
           isLoading={isLoading}
         />
-        <WizardPaginator
-          pages={pages}
-          pageStatus={pageStatus}
-          cdnStaticUrl={cdnStaticUrl}
-          handleChangeTab={handleChangeTab}
-        />
-        <Viewport className="wizard__body">{children}</Viewport>
-        <Viewport>
-          <WizardFooter
-            disabledDarkButton={disabledDarkButton}
-            buttonDarkText={buttonDarkText}
-            handleDarkButton={handleDarkButton}
-            buttonNextText={buttonNextText}
-            handleClickBack={handleClickBack}
-            handleClickNext={handleClickNext}
-            totalPages={totalPages}
-            currentPage={currentPage}
-            disableClickNext={disableClickNext}
-            isLoading={isLoading}
+        {showPaginator && (
+          <WizardPaginator
+            pages={pages}
+            pageStatus={pageStatus}
+            cdnStaticUrl={cdnStaticUrl}
+            handleChangeTab={handleChangeTab}
           />
+        )}
+        <Viewport
+          className={classNames(
+            { 'wizard__body-with-paginator': showPaginator },
+            { wizard__body: !showPaginator }
+          )}
+        >
+          {children}
         </Viewport>
+        {showFooter && (
+          <Viewport>
+            <WizardFooter
+              disabledDarkButton={disabledDarkButton}
+              buttonDarkText={buttonDarkText}
+              handleDarkButton={handleDarkButton}
+              buttonNextText={buttonNextText}
+              handleClickBack={handleClickBack}
+              handleClickNext={handleClickNext}
+              totalPages={totalPages}
+              currentPage={currentPage}
+              disableClickNext={disableClickNext}
+              isLoading={isLoading}
+            />
+          </Viewport>
+        )}
       </div>
     </div>
   );
