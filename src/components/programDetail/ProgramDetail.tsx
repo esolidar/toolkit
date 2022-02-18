@@ -20,11 +20,9 @@ import Skill from '../../interfaces/skill.types';
 import getProgramStatus from '../../utils/getProgramStatus';
 import getEnvVar from '../../utils/getEnvVar';
 
-const serverlessResizeImage = `${getEnvVar(
-  'SERVER_LESS_RESIZE_IMAGE'
-)}/frontend/assets/placeholders/image.svg`;
-const cdnUploadsUrl = `${getEnvVar('CDN_UPLOADS_URL')}/frontend/assets/placeholders/image.svg`;
-const cdnStaticUrl = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
+const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+const cdnUploadsUrl = getEnvVar('CDN_UPLOADS_URL');
+const cdnStaticUrl = getEnvVar('CDN_STATIC_URL');
 
 const ProgramDetail = ({
   programConfig,
