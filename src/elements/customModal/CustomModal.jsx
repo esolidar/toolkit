@@ -35,7 +35,9 @@ const CustomModal = ({
 }) => {
   const [modalDividerBottom, setModalDividerBottom] = useState(false);
   const [modalDividerTop, setModalDividerTop] = useState(false);
-  const [modalBody, setModalBody] = useState(document.querySelector('.modal-body'));
+  const [modalBody, setModalBody] = useState(
+    typeof window !== 'undefined' && document.querySelector('.modal-body')
+  );
 
   const border = '1px solid #dee2e6';
   const headerStyle = {
