@@ -2,16 +2,36 @@
   margin-top: $distance-10;
   position: relative;
 
+  @media (max-width: map-get($breakpoints, xs)) {
+    .accelerator-view {
+      margin-top: $distance-2;
+    }
+  }
+
   &__image {
     position: absolute;
     right: 0;
     top: 0;
     z-index: -1;
 
+    @media (max-width: map-get($breakpoints, md)) {
+      position: relative;
+    }
+
     img,
-    .esolidar-preview__no-image {
+    .esolidar-preview__no-image,
+    .esolidar-preview__image {
       outline: 0px;
       border: 0px;
+
+      @media (max-width: map-get($breakpoints, md)) {
+        width: 100% !important;
+        height: auto !important;
+
+        &:after {
+          display: none;
+        }
+      }
     }
 
     &:after {
@@ -47,6 +67,11 @@
     padding-top: $distance-4;
     padding-right: $distance-4;
     min-height: 190px;
+
+    @media (max-width: map-get($breakpoints, md)) {
+      margin-top: $distance-1;
+      max-width: 100%;
+    }
 
     &.preview-color {
       color: map-get($main-text-colors, dark) !important;
@@ -115,6 +140,10 @@
       display: flex;
       align-items: center;
 
+      @media (max-width: map-get($breakpoints, xs)) {
+        flex-direction: column;
+      }
+
       h3 {
         margin: 0;
         padding: 0;
@@ -148,34 +177,5 @@
   &__interests-list {
     display: flex;
     gap: $distance-2;
-  }
-}
-
-@media (max-width: map-get($breakpoints, xs)) {
-  .accelerator-view {
-    margin-top: $distance-2;
-    &__image {
-      position: relative;
-      img {
-        width: 100%;
-      }
-      &:after {
-        display: none;
-      }
-    }
-    &__intro {
-      margin-top: $distance-1;
-      max-width: 100%;
-      padding-top: $distance-4;
-      padding-right: $distance-4;
-    }
-    &__bottom-submit {
-      &-container {
-        flex-direction: column;
-      }
-    }
-    .accelerator-view__bottom-submit-container {
-      padding: $distance-1;
-    }
   }
 }
