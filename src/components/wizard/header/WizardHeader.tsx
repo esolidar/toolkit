@@ -51,6 +51,7 @@ const WizardHeader: FC<Props> = ({
           tooltipBodyChild={
             <Button
               extraClass="primary-full"
+              dataTestId="btnCloseWizard"
               ghost
               theme="light"
               size="md"
