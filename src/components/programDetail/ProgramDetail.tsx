@@ -279,6 +279,7 @@ const Skills = ({ skills, type, previewMode }: SkillsProps): JSX.Element => {
         )}
       </>
     );
+  return <></>;
 };
 
 interface InnerHTMLProps {
