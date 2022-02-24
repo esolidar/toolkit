@@ -3,14 +3,15 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
+import Icon from '../../../elements/icon';
 import isDefined from '../../../utils/isDefined';
 import cursorFocus from '../../../utils/cursorFocus';
+import Tooltip from '../../../elements/tooltip';
 
 const WizardHeader: FC<Props> = ({
   closeWizard,
   title,
   subtitle,
-  status,
   buttonDarkText,
   buttonPrimaryText,
   cdnStaticUrl,
@@ -23,6 +24,8 @@ const WizardHeader: FC<Props> = ({
   handleChangeTitle,
   handleBlurTitle,
   isLoading = false,
+  isDraft = false,
+  isLive = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -35,13 +38,30 @@ const WizardHeader: FC<Props> = ({
 
   return (
     <div className="wizard__header">
-      <div className="wizard__header__image">
-        <Button
-          extraClass="link"
-          onClick={closeWizard}
-          text={<img src={`${cdnStaticUrl}/frontend/icons/icon-prev-page.svg`} alt="" />}
+      {closeWizard && (
+        <Tooltip
+          overlay={
+            <span>
+              <FormattedMessage id="toolkit.cancel.program.changes" />
+            </span>
+          }
+          placement="right"
+          trigger="hover"
+          className="esolidar-tooltip"
+          tooltipBodyChild={
+            <Button
+              extraClass="primary-full"
+              dataTestId="btnCloseWizard"
+              ghost
+              theme="light"
+              size="md"
+              type="icon"
+              onClick={closeWizard}
+              icon={<Icon name="X" size="sm" />}
+            />
+          }
         />
-      </div>
+      )}
       <div className="wizard__header__title">
         <div>
           {subtitle && !editMode && (
@@ -62,7 +82,10 @@ const WizardHeader: FC<Props> = ({
               />
             )}
             {!editMode && <>{title}</>}
-            <Badge text={status} className="btn-badge" extraClass="dark" size="md" />
+            <div className="status-badge">
+              {isLive && <Badge text="live" className="btn-badge" extraClass="green" size="sm" />}
+              {isDraft && <Badge text="draft" className="btn-badge" extraClass="white" size="sm" />}
+            </div>
           </h1>
         </div>
       </div>
@@ -79,14 +102,16 @@ const WizardHeader: FC<Props> = ({
           text={buttonDarkText}
           disabled={disabledDarkButton}
         />
-        <Button
-          withLoading={true}
-          isLoading={isLoading}
-          extraClass="primary-full"
-          onClick={handlePrimaryButton}
-          text={buttonPrimaryText}
-          disabled={disabledPrimaryButton}
-        />
+        {buttonPrimaryText && (
+          <Button
+            withLoading={true}
+            isLoading={isLoading}
+            extraClass="primary-full"
+            onClick={handlePrimaryButton}
+            text={buttonPrimaryText}
+            disabled={disabledPrimaryButton}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 import Icon from '../icon';
@@ -33,21 +33,65 @@ const CustomModal = ({
   titleClassName,
   iconTitle,
 }) => {
-  const border = '1px solid #dee2e6';
+  const [modalDividerBottom, setModalDividerBottom] = useState(false);
+  const [modalDividerTop, setModalDividerTop] = useState(false);
+  const [modalBody, setModalBody] = useState(
+    typeof window !== 'undefined' && document.querySelector('.modal-body')
+  );
 
+  const border = '1px solid #dee2e6';
   const headerStyle = {
-    borderBottom: dividerTop ? border : 'none',
+    borderBottom: dividerTop || modalDividerTop ? border : 'none',
     padding: headerPadding || 'auto',
   };
-
   const bodyStyle = {
     padding: bodyPadding || 'auto',
   };
-
   const footerStyle = {
-    borderTop: dividerBottom ? border : 'none',
+    borderTop: dividerBottom || modalDividerBottom ? border : 'none',
     padding: footerPadding || 'auto',
   };
+
+  useEffect(() => {
+    if (show && scrollable) {
+      const timer = setTimeout(() => {
+        setModalBody(document.querySelector('.modal-body'));
+      }, 300);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [show]);
+
+  useEffect(() => {
+    if (modalBody && scrollable) {
+      if (modalBody.scrollHeight > modalBody.clientHeight) {
+        setModalDividerBottom(true);
+      }
+      modalBody.addEventListener('scroll', () => {
+        if (modalBody.scrollTop > 0) {
+          setModalDividerTop(true);
+        } else {
+          setModalDividerTop(false);
+        }
+        if (
+          Math.round(modalBody.scrollTop + modalBody.clientHeight) >=
+          modalBody.scrollHeight - 1
+        ) {
+          setModalDividerBottom(false);
+        } else {
+          setModalDividerBottom(true);
+        }
+      });
+      return () => {
+        modalBody.removeEventListener('scroll', () => {
+          setModalDividerTop(false);
+          setModalDividerBottom(false);
+        });
+      };
+    }
+  }, [modalBody]);
 
   return (
     <Modal

@@ -17,13 +17,16 @@ const CheckboxCard: FC<Props> = ({
   size = 'md',
   subtitle,
   title,
+  className,
+  style,
 }: Props): JSX.Element => {
   const classes = classnames(
     'checkbox-card',
     { 'no-hover': disabledHover },
     { active: isChecked },
     { disabled },
-    { [size]: size }
+    { [size]: size },
+    className
   );
 
   const handleOnClick = () => {
@@ -36,12 +39,18 @@ const CheckboxCard: FC<Props> = ({
   const image = {
     src: disabled ? disabledImg : imageAA,
     alt: name,
-    width: '48px',
-    height: '48px',
+    width: '56px',
+    height: '56px',
   };
 
   return (
-    <div className={classes} onKeyPress={handleOnClick} onClick={handleOnClick} id={id}>
+    <div
+      className={classes}
+      onKeyPress={handleOnClick}
+      onClick={handleOnClick}
+      id={id}
+      style={style}
+    >
       <div className="checkbox-card__image">
         <Preview img={image} hover={false} />
       </div>

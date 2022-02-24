@@ -15,18 +15,21 @@ const Badge: FC<Props> = ({
   icon,
   iconDataTestId = 'badge-component-icon',
   size = 'sm',
-  type = 'span',
+  type = 'default',
   rounded = true,
   onClick,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const classes = classNames(
     'badge',
-    `badge__${extraClass}`,
+    `type-${type}__${extraClass}`,
     `badge__${size}`,
     { 'full-width': fullWidth },
     { 'cursor-pointer': type === 'button' },
     { squared: !rounded },
+    { 'type-default': type === 'default' },
+    { 'type-text': type === 'text' },
+    { 'with-icon': !!icon },
     className
   );
 
@@ -40,9 +43,9 @@ const Badge: FC<Props> = ({
         </button>
       ) : (
         <div data-testid={dataTestId} className={classes} style={style}>
-          <span>
+          <span className="badge__content">
             {icon && <Icon name={icon} data-testid={iconDataTestId} size="sm" />}
-            {text && <span>{intl.formatMessage({ id: text })}</span>}
+            {text && <>{intl.formatMessage({ id: text })}</>}
             {plaintext && plaintext}
           </span>
         </div>

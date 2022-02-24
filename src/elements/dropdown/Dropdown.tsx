@@ -25,6 +25,8 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
         {filteredItems.map(item => {
+          if (item.divider)
+            return <DropdownBTS.Divider className="esolidar-dropdown__divider" key={item.id} />;
           if (item.show)
             return (
               <DropdownBTS.Item

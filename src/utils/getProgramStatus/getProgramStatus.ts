@@ -16,6 +16,8 @@ interface Args {
 const today = new Date();
 
 const getProgramStatus = ({ startAt, closedAt, endedAt, archivedAt, timezone }: Args): string => {
+  if (!startAt || !closedAt || !endedAt || !timezone) return '';
+
   const startProgram = convertFromUtcToCustomTimezone(startAt, timezone);
   const closeProgram = convertFromUtcToCustomTimezone(closedAt, timezone);
   const endedProgram = convertFromUtcToCustomTimezone(endedAt, timezone);

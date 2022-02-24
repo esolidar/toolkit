@@ -1,6 +1,6 @@
 .esolidar-preview {
   display: flex;
-  .esolidar-preview__image {
+  &__image {
     position: relative;
     @include animate(outline, 100ms);
 
@@ -8,7 +8,6 @@
       width: 216px;
       height: 144px;
       outline: 1px solid change-color(map-get($base, black), $alpha: 0.08);
-      border-radius: $border-radius-1;
     }
 
     &-delete-image {
@@ -53,8 +52,8 @@
   }
   &.hover-image {
     .esolidar-preview__image {
-      .esolidar-preview__image-delete-image,
-      .esolidar-preview__image-fullscreen {
+      &-delete-image,
+      &-fullscreen {
         opacity: 0;
         @include animate(outline, 100ms);
 
@@ -72,8 +71,33 @@
 
         .esolidar-preview__image-delete-image,
         .esolidar-preview__image-fullscreen {
+          background-color: get-rgba(map-get($base, black), 65);
+          border-radius: 50%;
           opacity: 1;
+          @include svg-change-color(map-get($base, white));
         }
+      }
+    }
+  }
+
+  &__no-image {
+    width: 216px;
+    height: 144px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: map-get($neutrals, 100);
+
+    img {
+      outline: none;
+      width: 36px;
+      height: 24px;
+    }
+
+    &.hover-placeholder {
+      &:hover {
+        border: 2px solid map-get($turquoise, 500);
+        @include animate(outline, 100ms);
       }
     }
   }

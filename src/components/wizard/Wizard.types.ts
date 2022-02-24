@@ -1,8 +1,4 @@
-interface Pages {
-  title: string;
-  status: 'done' | 'not-done';
-  active: boolean;
-}
+import { PageStatus } from './paginator/WizardPaginator.types';
 
 interface Props {
   showWizard?: boolean;
@@ -14,7 +10,7 @@ interface Props {
   buttonPrimaryText: string;
   cdnStaticUrl: string;
   saved?: boolean;
-  pages: Pages[];
+  pages: any;
   children: JSX.Element;
   handleDarkButton(): void;
   handlePrimaryButton(): void;
@@ -23,7 +19,7 @@ interface Props {
   handleClickBack(): void;
   handleClickNext(): void;
   totalPages: number;
-  currentPage: number;
+  currentPage: string;
   disableClickNext: boolean;
   handleChangeTab(): void;
   editMode: boolean;
@@ -31,6 +27,11 @@ interface Props {
   handleBlurTitle(): void;
   buttonNextText: string;
   isLoading: boolean;
+  isDraft?: boolean;
+  isLive?: boolean;
+  pageStatus: PageStatus;
+  showPaginator?: boolean;
+  showFooter?: boolean;
 }
 
 export default Props;

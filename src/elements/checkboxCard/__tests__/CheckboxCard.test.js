@@ -58,4 +58,5 @@ it('renders CheckboxCard Large', () => {
   expect(queryByClass(/active/)).not.toBeInTheDocument();
   userEvent.click(card);
   expect(getByClass(/active/)).toBeInTheDocument();
+  expect(getByClass(/large/)).toBeInTheDocument();
 });

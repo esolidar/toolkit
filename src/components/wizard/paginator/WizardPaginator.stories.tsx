@@ -18,8 +18,36 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const Published: Story<Props> = Template.bind({});
+export const Old: Story<Props> = Template.bind({});
 
 Default.args = {
+  handleChangeTab: () => {},
+  // pages: PAGES,
+  pages: {
+    published: false,
+    active: 'applicationForm',
+    edited: ['generalDetails', 'categories'],
+    done: ['locationTime', 'categories'],
+  },
+  cdnStaticUrl: 'https://static.esolidar.com',
+};
+
+Published.args = {
+  handleChangeTab: () => {},
+  // pages: PAGES,
+  pages: {
+    published: true,
+    active: 'categories',
+    edited: ['generalDetails', 'categories'],
+    done: ['locationTime', 'categories'],
+  },
+  cdnStaticUrl: 'https://static.esolidar.com',
+};
+
+Old.args = {
+  handleChangeTab: () => {},
+
   pages: [
     {
       title: 'General details',
@@ -27,18 +55,18 @@ Default.args = {
       active: false,
     },
     {
-      title: 'Location & Time ',
+      title: 'Location & Time',
       status: 'not-done',
       active: true,
     },
     {
-      title: 'Categories ',
+      title: 'Categories',
       status: 'not-done',
       active: true,
     },
     {
       title: 'Skills & Interests',
-      status: 'not-done',
+      status: 'done',
       active: false,
     },
     {

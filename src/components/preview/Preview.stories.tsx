@@ -18,7 +18,8 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default: Story<Props> = Template.bind({});
 export const WithDeleteButton: Story<Props> = Template.bind({});
-export const WithFullSreenButton: Story<Props> = Template.bind({});
+export const Placeholder: Story<Props> = Template.bind({});
+export const BorderRadius: Story<Props> = Template.bind({});
 
 Default.args = {
   img: {
@@ -40,13 +41,23 @@ WithDeleteButton.args = {
   },
 };
 
-WithFullSreenButton.args = {
-  badgeText: 'Cover',
-  fullScreen: true,
+Placeholder.args = {
+  hover: true,
   img: {
-    src: 'https://image.testesolidar.com/crowdfundings/esolidar_shop-907274bf-b6ea-4cf6-b52f-85b4a81fc1b0.jpg',
+    src: '',
     alt: 'Imagem de teste',
     width: '216px',
     height: '144px',
+  },
+};
+
+BorderRadius.args = {
+  hover: true,
+  img: {
+    src: '',
+    alt: 'Imagem de teste',
+    width: '200px',
+    height: '200px',
+    borderRadius: '50%',
   },
 };

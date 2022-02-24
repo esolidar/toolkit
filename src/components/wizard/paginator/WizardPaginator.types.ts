@@ -1,11 +1,13 @@
-interface Pages {
-  title: string;
-  status: 'done' | 'not-done';
-  active: boolean;
+export interface PageStatus {
+  published: boolean;
+  active: string;
+  edited: string[];
+  done: string[];
 }
 
 interface Props {
-  pages: Pages[];
+  pages: any;
+  pageStatus: PageStatus;
   cdnStaticUrl: string;
   handleChangeTab(i: number): void;
 }

@@ -21,49 +21,202 @@
     width: 100%;
   }
 
-  &__default {
-    color: map-get($base, black);
-    background-color: map-get($neutrals, 100);
+  &.type-default {
+    &__black {
+      color: map-get($base, white);
+      background-color: map-get($base, black);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__dark-gray {
+      color: map-get($base, white);
+      background-color: map-get($neutrals, 700);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__white {
+      color: map-get($base, black);
+      background-color: map-get($background, secondary);
+      @include svg-change-color(map-get($neutrals, 700));
+    }
+    &__secondary {
+      color: map-get($base, white) !important;
+      background-color: map-get($neutrals, 700);
+    }
+
+    &__turquoise {
+      color: map-get($base, white);
+      background-color: map-get($turquoise, 500);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__green {
+      color: map-get($positive, 500);
+      background-color: get-rgba(map-get($positive, 500));
+      @include svg-change-color(map-get($positive, 500));
+    }
+
+    &__red {
+      color: map-get($negative, 500);
+      background-color: get-rgba(map-get($negative, 500));
+      @include svg-change-color(map-get($negative, 500));
+    }
+
+    &__yellow {
+      color: map-get($warning, 500);
+      background-color: get-rgba(map-get($warning, 500));
+      @include svg-change-color(map-get($warning, 500));
+    }
+
+    &__blue {
+      color: map-get($blue, 500);
+      background-color: get-rgba(map-get($blue, 500));
+      @include svg-change-color(map-get($blue, 500));
+    }
+
+    &__dark-blue {
+      color: map-get($base, white);
+      background-color: map-get($blue, 500);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__default {
+      color: map-get($base, black);
+      background-color: map-get($neutrals, 100);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__primary {
+      color: map-get($base, white) !important;
+      background-color: map-get($theme-colors, primary);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__info {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, secondary);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__success {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, success);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__danger {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, danger);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__warning {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, warning);
+      @include svg-change-color(map-get($base, white));
+    }
+
+    &__dark {
+      color: map-get($neutrals, 900) !important;
+      background-color: map-get($base, white);
+      border: 1px solid map-get($neutrals, 200);
+      @include svg-change-color(map-get($neutrals, 900));
+    }
   }
 
-  &__primary {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors, primary);
+  &.type-text {
+    &__black {
+      color: map-get($base, black);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__dark-gray {
+      color: map-get($neutrals, 700);
+      @include svg-change-color(map-get($neutrals, 700));
+    }
+
+    &__white {
+      color: map-get($neutrals, 400);
+      @include svg-change-color(map-get($neutrals, 400));
+    }
+
+    &__turquoise {
+      color: map-get($turquoise, 400);
+      @include svg-change-color(map-get($turquoise, 400));
+    }
+
+    &__green {
+      color: map-get($positive, 400);
+      @include svg-change-color(map-get($positive, 400));
+    }
+
+    &__red {
+      color: map-get($negative, 400);
+      @include svg-change-color(map-get($negative, 400));
+    }
+
+    &__yellow {
+      color: map-get($warning, 400);
+      @include svg-change-color(map-get($warning, 400));
+    }
+
+    &__blue {
+      color: map-get($blue, 400);
+      @include svg-change-color(map-get($blue, 400));
+    }
+
+    &__dark-blue {
+      color: map-get($blue, 500);
+      @include svg-change-color(map-get($blue, 500));
+    }
+
+    &__default {
+      color: map-get($base, black);
+      background-color: map-get($neutrals, 100);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__primary {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, primary);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__info {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, secondary);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__success {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, success);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__danger {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, danger);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__warning {
+      color: map-get($colors, white) !important;
+      background-color: map-get($theme-colors, warning);
+      @include svg-change-color(map-get($base, black));
+    }
+
+    &__dark {
+      color: map-get($neutrals, 900) !important;
+      background-color: map-get($base, white);
+      border: 1px solid map-get($neutrals, 200);
+      @include svg-change-color(map-get($base, black));
+    }
   }
 
-  &__white {
-    color: map-get($base, black) !important;
-    background-color: map-get($base, white);
-  }
-
-  &__info {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors, secondary);
-  }
-
-  &__success {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors, success);
-  }
-
-  &__danger {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors, danger);
-  }
-
-  &__warning {
-    color: map-get($colors, white) !important;
-    background-color: map-get($theme-colors, warning);
-  }
-
-  &__dark {
-    color: map-get($neutrals, 900) !important;
-    background-color: map-get($base, white);
-    border: 1px solid map-get($neutrals, 200);
-    font-weight: normal !important;
-    font-size: 14px !important;
-    line-height: 20px;
-    padding: 6px 12px !important;
+  &__content {
+    display: flex;
+    align-items: center;
   }
 
   &__xs {
@@ -83,8 +236,7 @@
     font-weight: 600;
     font-size: 14px;
     padding: $distance-1 / 2 $distance-1;
-    min-height: 24px;
-    // line-height: 20px;
+    min-height: 20px;
   }
 
   &__md {
@@ -99,9 +251,11 @@
     padding: $distance-2 $distance-3;
   }
 
-  @include svg-change-color(map-get($neutrals, 700));
+  &.with-icon {
+    padding-left: $distance-1 / 2;
+  }
 
   .icon-component {
-    margin-right: $distance-1;
+    margin-right: $distance-1 / 2;
   }
 }

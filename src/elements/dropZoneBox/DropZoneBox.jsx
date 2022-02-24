@@ -222,7 +222,7 @@ const DropZoneBox = ({
           })
         );
         setErrorList(errors);
-        acceptedFiles(getData);
+        onSelect(getData);
       }
     },
     onDropRejected: async rejectedFiles => {
@@ -355,7 +355,7 @@ const DropZoneBox = ({
                     blob => {
                       const imageWidth = cropper.current.getCroppedCanvas().width;
                       const imageHeight = cropper.current.getCroppedCanvas().height;
-                      if (imageWidth >= minWidth && imageHeight >= minHeight) {
+                      if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
                         setDisableCroppedImage(true);
                         handleSubmitCroppedImage(blob);
                         setErrorList([]);

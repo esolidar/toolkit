@@ -28,6 +28,13 @@
     padding-bottom: $distance-9;
   }
 
+  .wizard-container-simple {
+    position: relative;
+    clip-path: inset(0 0 0 0);
+    padding-top: 75px;
+    padding-bottom: $distance-9;
+  }
+
   .wizard__header {
     z-index: map-get($z-indexs, wizard-header);
     position: fixed;
@@ -117,6 +124,11 @@
     align-items: center;
     white-space: nowrap;
     gap: $distance-3;
+
+    .status-badge {
+      display: flex;
+      gap: $distance-1;
+    }
   }
 
   &__buttons {
@@ -228,6 +240,11 @@
 }
 
 .wizard__body {
+  margin-top: 0;
+  margin-bottom: 72px;
+}
+
+.wizard__body-with-paginator {
   margin-top: 72px;
   margin-bottom: 72px;
 }
@@ -240,11 +257,8 @@
 
   &__continue {
     display: flex;
+    gap: $distance-2;
     align-items: center;
     margin-left: auto;
-
-    button {
-      margin-left: $distance-3;
-    }
   }
 }

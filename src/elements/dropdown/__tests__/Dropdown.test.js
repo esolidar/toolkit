@@ -35,4 +35,7 @@ it('renders dropdown menu when button is clicked', () => {
 
   const hidden = queryByText('hidden');
   expect(hidden).not.toBeInTheDocument();
+
+  const divider = queryByClass(/dropdown-divider/);
+  expect(divider).toBeInTheDocument();
 });
