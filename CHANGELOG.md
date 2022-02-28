@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
-## [v4.99.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.99.0) Released: ER2208 / 08th February 2022 -> 25th February 2022
+## [v4.100.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.100.0) Released: ER2208 / 08th February 2022 -> 02nd March 2022
 
 ### New features
 
@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file.
 - Change header and footer buttons and add live badge in Wizard component [`ENG-877`](https://github.com/esolidar/toolkit/pulls?q=ENG-877)
 - Remove numbers from steps in Wizard component [`ENG-878`](https://github.com/esolidar/toolkit/pulls?q=ENG-878)
 - Fix InputLabel required prop naming [`ENG-919`](https://github.com/esolidar/toolkit/pulls?q=ENG-919)
+- Hide SDG selection section in Add Project page if admin did not include ods field in Application's form [`ENG-976`](https://github.com/esolidar/toolkit/pulls?q=ENG-976)
 
 ### Bug Fixing
 
