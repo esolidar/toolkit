@@ -378,37 +378,41 @@ const ProjectAddForm = ({
           })}
         />
       )}
-      <Row className="ods">
-        <Col sm={12}>
-          <InputLabel label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.sdgs' })} />
-        </Col>
-        <Col sm={12}>
-          {ods.map(o => (
-            <CheckboxImage
-              key={o.ods_id}
-              label={o.tag_name}
-              img={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${o.tag_name}.png`}
-              onChange={onSelectOds}
-              value={o.ods_id}
-              error={errors.ods}
-              checked={o.checked}
+      {!!form?.sdg.include && (
+        <Row className="ods">
+          <Col sm={12}>
+            <InputLabel
+              label={intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.sdgs' })}
             />
-          ))}
-          {errors.ods && (
-            <div
-              className="has-error"
-              style={{
-                width: '100%',
-                display: 'inline-block',
-                marginBottom: '15px',
-                marginTop: '-15px',
-              }}
-            >
-              <div className="help-block">{errors.ods}</div>
-            </div>
-          )}
-        </Col>
-      </Row>
+          </Col>
+          <Col sm={12}>
+            {ods.map(o => (
+              <CheckboxImage
+                key={o.ods_id}
+                label={o.tag_name}
+                img={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${o.tag_name}.png`}
+                onChange={onSelectOds}
+                value={o.ods_id}
+                error={errors.ods}
+                checked={o.checked}
+              />
+            ))}
+            {errors.ods && (
+              <div
+                className="has-error"
+                style={{
+                  width: '100%',
+                  display: 'inline-block',
+                  marginBottom: '15px',
+                  marginTop: '-15px',
+                }}
+              >
+                <div className="help-block">{errors.ods}</div>
+              </div>
+            )}
+          </Col>
+        </Row>
+      )}
 
       {form.customQuestions.map(field => {
         const isDescriptionString = typeof field.form.description === 'string';
