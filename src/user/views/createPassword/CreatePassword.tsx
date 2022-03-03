@@ -18,6 +18,7 @@ const CreatePassword: FC<Props> = ({
   reducers: { setNewPasswordResponse },
   company,
   type = 'recover',
+  codeExpiredButtonUrl = `/${localStorage.getItem('lang')}}/auth/recover-password`,
 }: Props): JSX.Element => {
   const [errors, setErrors] = useState<Form>({});
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -138,7 +139,7 @@ const CreatePassword: FC<Props> = ({
         </div>
       </form>
       <CodeExpiredModal
-        buttonUrl="/en/auth/recover-password"
+        buttonUrl={codeExpiredButtonUrl}
         handleCloseModal={handleCloseModal}
         showModal={showModal}
       />

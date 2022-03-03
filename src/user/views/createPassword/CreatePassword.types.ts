@@ -31,6 +31,7 @@ interface Props {
   type?: 'set' | 'recover';
   userId: number;
   code: number;
+  codeExpiredButtonUrl?: string;
 }
 
 export default Props;
