@@ -7,9 +7,7 @@ import moment from 'moment-timezone';
 
 const convertFromUtcToCustomTimezone = (date: string, timezone: string, format?: string) => {
   const constTzDate = moment.utc(date).tz(timezone);
-  const stringDateConverted = new Date(constTzDate.format('YYYY-MM-DD HH:mm:ss'));
-
-  return format ? constTzDate.format(format) : stringDateConverted;
+  return format ? constTzDate.format(format) : new Date(constTzDate.format('YYYY/MM/DD HH:mm:ss'));
 };
 
 export default convertFromUtcToCustomTimezone;

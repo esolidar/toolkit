@@ -18,16 +18,16 @@ test('convertFromUtcToCustomTimezone function winter time', () => {
   ).toEqual('2022-01-14 00:00:00');
 
   expect(
-    convertFromUtcToCustomTimezone('2022-01-14 00:00:00', 'Europe/Madrid', 'YYYY-MM-DD HH:mm:ss')
-  ).toEqual('2022-01-14 01:00:00');
+    convertFromUtcToCustomTimezone('2022-01-14 00:00:00', 'Europe/Madrid', 'YYYY/MM/DD HH:mm:ss')
+  ).toEqual('2022/01/14 01:00:00');
 
   expect(
     convertFromUtcToCustomTimezone(
       '2022-01-14 00:00:00',
       'America/Sao_Paulo',
-      'YYYY-MM-DD HH:mm:ss'
+      'YYYY/MM/DD HH:mm:ss'
     )
-  ).toEqual('2022-01-13 21:00:00');
+  ).toEqual('2022/01/13 21:00:00');
 });
 
 test('convertFromUtcToCustomTimezone function summer time', () => {
@@ -40,10 +40,10 @@ test('convertFromUtcToCustomTimezone function summer time', () => {
   ).toEqual('2022-05-13 20:00:00');
 
   expect(
-    convertFromUtcToCustomTimezone('2022-06-14 00:00:00', 'Europe/Lisbon', 'YYYY-MM-DD HH:mm:ss')
-  ).toEqual('2022-06-14 01:00:00');
+    convertFromUtcToCustomTimezone('2022-06-14 00:00:00', 'Europe/Lisbon', 'YYYY/MM/DD HH:mm:ss')
+  ).toEqual('2022/06/14 01:00:00');
 
   expect(
-    convertFromUtcToCustomTimezone('2022-06-14 00:00:00', 'Europe/Madrid', 'YYYY-MM-DD HH:mm:ss')
-  ).toEqual('2022-06-14 02:00:00');
+    convertFromUtcToCustomTimezone('2022-06-14 00:00:00', 'Europe/Madrid', 'YYYY/MM/DD HH:mm:ss')
+  ).toEqual('2022/06/14 02:00:00');
 });

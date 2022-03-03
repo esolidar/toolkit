@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
-## [v4.100.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.100.0) Released: ER2208 / 08th February 2022 -> 02nd March 2022
+## [v4.101.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.101.0) Released: ER2208 / 08th February 2022 -> 02nd March 2022
 
 ### New features
 
@@ -31,6 +31,7 @@ All notable changes to this project will be documented in this file.
 
 - Strange behaviour detected on scrollbar when using a mouse [`ENG-848`](https://github.com/esolidar/toolkit/pulls?q=ENG-848)
 - Fix HtmlEditor toolbar controls with scroll [`ENG-858`](https://github.com/esolidar/toolkit/pulls?q=ENG-858)
+- Submit project button does not appear on IOS [`ENG-988`](https://github.com/esolidar/toolkit/pulls?q=ENG-988)
   <br>
   <br>
 
