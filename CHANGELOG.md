@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.100.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.100.0) Released: ER2208 / 08th February 2022 -> 02nd March 2022
+
+### New features
+
+- Create banner and toast notification components [`ENG-852`](https://github.com/esolidar/toolkit/pulls?q=ENG-852)
+- Create “Program detail” view [`ENG-855`](https://github.com/esolidar/toolkit/pulls?q=ENG-855)
+- Add readonly prop in Datepicker component [`ENG-859`](https://github.com/esolidar/toolkit/pulls?q=ENG-859)
+- Add readonly prop in Select component [`ENG-860`](https://github.com/esolidar/toolkit/pulls?q=ENG-860)
+- Add new ghost buttons [`ENG-862`](https://github.com/esolidar/toolkit/pulls?q=ENG-862)
+- Add new icons [`ENG-914`](https://github.com/esolidar/toolkit/pulls?q=ENG-914)
+
+### Enhancements
+
+- Change DropZoneBox crop background and copy [`ENG-750`](https://github.com/esolidar/toolkit/pulls?q=ENG-750)
+- Change Empty State default values to remove border [`ENG-853`](https://github.com/esolidar/toolkit/pulls?q=ENG-853)
+- Replace image placeholder in Preview component [`ENG-854`](https://github.com/esolidar/toolkit/pulls?q=ENG-854)
+- Change LocationTextfield component according to new design [`ENG-861`](https://github.com/esolidar/toolkit/pulls?q=ENG-861)
+- Change inputLabel component private icon to a badge [`ENG-863`](https://github.com/esolidar/toolkit/pulls?q=ENG-863)
+- Change header and footer buttons and add live badge in Wizard component [`ENG-877`](https://github.com/esolidar/toolkit/pulls?q=ENG-877)
+- Remove numbers from steps in Wizard component [`ENG-878`](https://github.com/esolidar/toolkit/pulls?q=ENG-878)
+- Fix InputLabel required prop naming [`ENG-919`](https://github.com/esolidar/toolkit/pulls?q=ENG-919)
+- Hide SDG selection section in Add Project page if admin did not include ods field in Application's form [`ENG-976`](https://github.com/esolidar/toolkit/pulls?q=ENG-976)
+
+### Bug Fixing
+
+- Strange behaviour detected on scrollbar when using a mouse [`ENG-848`](https://github.com/esolidar/toolkit/pulls?q=ENG-848)
+- Fix HtmlEditor toolbar controls with scroll [`ENG-858`](https://github.com/esolidar/toolkit/pulls?q=ENG-858)
+  <br>
+  <br>
+
 ## [v4.83.0](https://github.com/esolidar/toolkit/compare/v4.61.0...v4.83.0) Released: ER2205 / 13th January 2022 -> 04th February 2022
 
 ### New features
