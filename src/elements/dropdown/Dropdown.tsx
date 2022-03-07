@@ -5,7 +5,15 @@ import Icon from '../icon';
 import CustomToggle from './CustomToggle';
 import Props, { Item } from './Dropdown.types';
 
-const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX.Element => {
+const defaultButton = toggleIcon => (
+  <Button extraClass="primary-full" type="icon" icon={<Icon name={toggleIcon} size="sm" />} ghost />
+);
+
+const Dropdown: FC<Props> = ({
+  customButton,
+  toggleIcon = 'MoreVertical',
+  items,
+}: Props): JSX.Element => {
   const handleClick = (e, item) => {
     e.stopPropagation();
     item.onClick();
@@ -16,12 +24,7 @@ const Dropdown: FC<Props> = ({ toggleIcon = 'MoreVertical', items }: Props): JSX
   return (
     <DropdownBTS className="esolidar-dropdown">
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
-        <Button
-          extraClass="primary-full"
-          type="icon"
-          icon={<Icon name={toggleIcon} size="sm" />}
-          ghost
-        />
+        {customButton || defaultButton(toggleIcon)}
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu">
         {filteredItems.map(item => {

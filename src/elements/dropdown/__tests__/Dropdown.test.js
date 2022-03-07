@@ -2,9 +2,13 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
-import Meta, { Default as DefaultStory } from '../Dropdown.stories';
+import Meta, {
+  Default as DefaultStory,
+  CustomButton as CustomButtonStory,
+} from '../Dropdown.stories';
 
 const Default = composeStory(DefaultStory, Meta);
+const CustomButton = composeStory(CustomButtonStory, Meta);
 
 it('renders dropdown menu when button is clicked', () => {
   const { getByText, queryByClass, queryByText, queryAllByClass } = render(<Default />);
@@ -38,4 +42,10 @@ it('renders dropdown menu when button is clicked', () => {
 
   const divider = queryByClass(/dropdown-divider/);
   expect(divider).toBeInTheDocument();
+});
+
+it('renders custom button', () => {
+  const { getByTestId } = render(<CustomButton />);
+
+  expect(getByTestId('customButton')).toBeInTheDocument();
 });
