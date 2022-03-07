@@ -11,7 +11,7 @@ export interface Item {
 }
 
 interface Props {
-  customButton?: any;
+  customButton?: JSX.Element;
   toggleIcon?: string;
   items: Item[];
 }
