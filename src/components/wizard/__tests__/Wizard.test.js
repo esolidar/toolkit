@@ -10,7 +10,7 @@ const Close = composeStory(CloseStory, Meta);
 it('renders Wizard default component open', () => {
   const { getByClass } = render(<Open />);
 
-  expect(getByClass('wizard open')).toBeTruthy();
+  expect(getByClass('fullscreen-modal open')).toBeTruthy();
   expect(getByClass('wizard__header')).toBeTruthy();
   expect(getByClass('wizard__paginator')).toBeTruthy();
   expect(getByClass('esolidar-viewport size-xl centred wizard__body-with-paginator')).toBeTruthy();
@@ -19,5 +19,5 @@ it('renders Wizard default component open', () => {
 it('renders Wizard default component closed', () => {
   const { getByClass } = render(<Close />);
 
-  expect(getByClass('wizard closed')).toBeTruthy();
+  expect(getByClass('fullscreen-modal closed')).toBeTruthy();
 });
