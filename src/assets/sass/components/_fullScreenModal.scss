@@ -29,24 +29,5 @@
 
   &__body {
     overflow: auto;
-    // @include thin-scroll-bar();
   }
-
-  // &__no-header {
-  //   overflow: auto;
-  // }
-
-  // &__header-close {
-  //   background-color: map-get($base, white);
-  //   display: flex;
-  //   justify-content: end;
-  // }
-
-  // &__footer {
-  //   position: fixed;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   height: 72px;
-  // }
 }
