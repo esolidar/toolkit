@@ -89,7 +89,6 @@ CustomButton.args = {
       disabled: true,
     },
   ],
-  toggleIcon: 'MoreVertical',
   customButton: (
     <Button
       extraClass="secondary"

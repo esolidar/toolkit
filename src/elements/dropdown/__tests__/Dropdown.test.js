@@ -44,7 +44,7 @@ it('renders dropdown menu when button is clicked', () => {
   expect(divider).toBeInTheDocument();
 });
 
-it('renders custom  button', () => {
+it('renders custom button', () => {
   const { getByTestId } = render(<CustomButton />);
 
   expect(getByTestId('customButton')).toBeInTheDocument();
