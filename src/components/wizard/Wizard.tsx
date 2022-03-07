@@ -5,6 +5,7 @@ import WizardPaginator from './paginator';
 import WizardFooter from './footer';
 import Props from './Wizard.types';
 import Viewport from '../viewport';
+import FullScreenModal from '../../elements/fullScreenModal/FullScreenModal';
 
 let y = window.scrollY;
 
@@ -77,66 +78,68 @@ const Wizard: FC<Props> = ({
   }, []);
 
   return (
-    <div className={`wizard ${showWizard ? 'open' : 'closed'} `} id="wizard">
-      <div
-        className={classNames(
-          { 'wizard-container-simple': !showPaginator },
-          { 'wizard-container': showPaginator }
-        )}
-      >
-        <WizardHeader
-          closeWizard={closeWizard}
-          title={title}
-          subtitle={subtitle}
-          isDraft={isDraft}
-          isLive={isLive}
-          buttonDarkText={buttonDarkText}
-          buttonPrimaryText={buttonPrimaryText}
-          cdnStaticUrl={cdnStaticUrl}
-          saved={saved}
-          handleDarkButton={handleDarkButton}
-          handlePrimaryButton={handlePrimaryButton}
-          disabledDarkButton={disabledDarkButton}
-          disabledPrimaryButton={disabledPrimaryButton}
-          editMode={editMode}
-          handleChangeTitle={handleChangeTitle}
-          handleBlurTitle={handleBlurTitle}
-          isLoading={isLoading}
-        />
-        {showPaginator && (
-          <WizardPaginator
-            pages={pages}
-            pageStatus={pageStatus}
-            cdnStaticUrl={cdnStaticUrl}
-            handleChangeTab={handleChangeTab}
-          />
-        )}
-        <Viewport
+    <FullScreenModal showModal={showWizard}>
+      <div className="wizard" id="wizard">
+        <div
           className={classNames(
-            { 'wizard__body-with-paginator': showPaginator },
-            { wizard__body: !showPaginator }
+            { 'wizard-container-simple': !showPaginator },
+            { 'wizard-container': showPaginator }
           )}
         >
-          {children}
-        </Viewport>
-        {showFooter && (
-          <Viewport>
-            <WizardFooter
-              disabledDarkButton={disabledDarkButton}
-              buttonDarkText={buttonDarkText}
-              handleDarkButton={handleDarkButton}
-              buttonNextText={buttonNextText}
-              handleClickBack={handleClickBack}
-              handleClickNext={handleClickNext}
-              totalPages={totalPages}
-              currentPage={currentPage}
-              disableClickNext={disableClickNext}
-              isLoading={isLoading}
+          <WizardHeader
+            closeWizard={closeWizard}
+            title={title}
+            subtitle={subtitle}
+            isDraft={isDraft}
+            isLive={isLive}
+            buttonDarkText={buttonDarkText}
+            buttonPrimaryText={buttonPrimaryText}
+            cdnStaticUrl={cdnStaticUrl}
+            saved={saved}
+            handleDarkButton={handleDarkButton}
+            handlePrimaryButton={handlePrimaryButton}
+            disabledDarkButton={disabledDarkButton}
+            disabledPrimaryButton={disabledPrimaryButton}
+            editMode={editMode}
+            handleChangeTitle={handleChangeTitle}
+            handleBlurTitle={handleBlurTitle}
+            isLoading={isLoading}
+          />
+          {showPaginator && (
+            <WizardPaginator
+              pages={pages}
+              pageStatus={pageStatus}
+              cdnStaticUrl={cdnStaticUrl}
+              handleChangeTab={handleChangeTab}
             />
+          )}
+          <Viewport
+            className={classNames(
+              { 'wizard__body-with-paginator': showPaginator },
+              { wizard__body: !showPaginator }
+            )}
+          >
+            {children}
           </Viewport>
-        )}
+          {showFooter && (
+            <Viewport>
+              <WizardFooter
+                disabledDarkButton={disabledDarkButton}
+                buttonDarkText={buttonDarkText}
+                handleDarkButton={handleDarkButton}
+                buttonNextText={buttonNextText}
+                handleClickBack={handleClickBack}
+                handleClickNext={handleClickNext}
+                totalPages={totalPages}
+                currentPage={currentPage}
+                disableClickNext={disableClickNext}
+                isLoading={isLoading}
+              />
+            </Viewport>
+          )}
+        </div>
       </div>
-    </div>
+    </FullScreenModal>
   );
 };
 

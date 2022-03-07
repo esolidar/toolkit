@@ -1,0 +1,33 @@
+.fullscreen-modal {
+  background: map-get($base, white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  z-index: 9999;
+  @include animate();
+
+  &.open {
+    left: 0;
+  }
+
+  &.closed {
+    left: 100%;
+    .wizard__header,
+    .wizard__paginator {
+      @include animate();
+      left: 100%;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: end;
+    padding: $distance-3;
+  }
+
+  &__body {
+    overflow: auto;
+  }
+}
