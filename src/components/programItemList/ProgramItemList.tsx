@@ -4,17 +4,7 @@ import { useIntl } from 'react-intl';
 import Preview from '../preview';
 import Dropdown from '../../elements/dropdown';
 import Badge from '../../elements/badge';
-
-interface Props {
-  id: number;
-  image: string;
-  title: string;
-  summary: string;
-  dropdownItems?: any[];
-  isLive?: boolean;
-  isDraft?: boolean;
-  handleClickItem(id: number): void;
-}
+import Props from './ProgramItemList.types';
 
 const ProgramItemList = ({
   id,
