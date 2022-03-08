@@ -1,6 +1,6 @@
 interface DropdownItems {
   id: number;
-  leftIcon: string;
+  leftIcon?: string;
   onClick(): void;
   show: boolean;
   text: string;
