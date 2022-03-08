@@ -124,7 +124,7 @@ const ProgramDetail = ({
                 <Icon iconClass="icon-ic-location" />
                 {!programConfig.remote && programConfig.location
                   ? programConfig.location
-                  : !previewMode
+                  : programConfig.remote
                   ? intl.formatMessage({ id: 'remote' })
                   : intl.formatMessage({ id: 'toolkit.acceleration.preview.location' })}
               </p>
