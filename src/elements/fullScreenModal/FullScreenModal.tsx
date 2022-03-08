@@ -33,7 +33,7 @@ const FullScreenModal = ({
         </div>
       )}
       {header && <div>{header}</div>}
-      <div className="fullscreen-modal__body" style={{ maxHeight: `calc(100vh - ${height})` }}>
+      <div className="fullscreen-modal__body" style={{ height: `calc(100vh - ${height})` }}>
         {children}
       </div>
       {footer && <div className="fullscreen-modal__footer">{footer}</div>}
