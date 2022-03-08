@@ -11,8 +11,14 @@ const Tooltip: FC<Props> = ({
   overlay,
   placement = 'right',
   displayNone,
+  type = 'default',
 }: Props): JSX.Element => {
-  const classes = classNames('tooltip', displayNone && 'tooltip--displayNone', className);
+  const classes = classNames(
+    'tooltip',
+    displayNone && 'tooltip--displayNone',
+    type && `tooltip--${type}`,
+    className
+  );
   const bodyChildClasses = classNames('tooltipOverlay', bodyChildClassName);
 
   return (
