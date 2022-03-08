@@ -190,10 +190,6 @@ const DropZoneBox = ({
         const file = acceptedFiles[0];
         const imagesAttributes = await getImageWidthAndHeight(file);
 
-        console.log('height: ', imagesAttributes?.height);
-        console.log('height: ', imagesAttributes?.width);
-        console.log('height/minWidth: ', minHeight, minWidth);
-
         if (imagesAttributes?.height < minHeight && imagesAttributes?.width < minWidth) {
           errors.push({
             name: '',
