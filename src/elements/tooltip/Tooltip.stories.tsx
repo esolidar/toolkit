@@ -32,8 +32,15 @@ export default {
 const Template: Story<Props> = (args: Props) => <Tooltip {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
+export const Onboarding: Story<Props> = Template.bind({});
 
 Default.args = {
   tooltipBodyChild: <div>Hover here</div>,
-  overlay: <span>Text</span>,
+  overlay: <span>Default</span>,
+};
+
+Onboarding.args = {
+  tooltipBodyChild: <div>Hover here</div>,
+  overlay: <span>Start here!</span>,
+  type: 'onboarding',
 };
