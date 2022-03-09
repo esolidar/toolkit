@@ -39,6 +39,15 @@
         color: map-get($turquoise, 500);
         font-weight: 600;
       }
+
+      &__private {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($neutrals, 700);
+        margin-left: $distance-2;
+      }
       .content {
         flex-basis: 100%;
 
@@ -49,6 +58,7 @@
           line-height: 48px;
           letter-spacing: -0.02em;
           color: map-get($base, black);
+          margin-bottom: $distance-2;
         }
 
         p {
@@ -91,5 +101,32 @@
     height: 4px;
     transition: all 700ms;
     background-color: map-get($turquoise, 500);
+  }
+}
+
+.wizard-success {
+  // uncomment when publish illustration
+  // .image {
+  //   width: 256px;
+  //   height: 256px;
+  //   margin-bottom: $distance-5;
+  // }
+
+  p {
+    margin-bottom: $distance-5;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $distance-2;
+    align-items: center;
+
+    &-auto-close-message {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 28px;
+      color: map-get($neutrals, 700);
+    }
   }
 }

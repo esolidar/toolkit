@@ -5,6 +5,13 @@ import Props from './WizardOrdered.types';
 import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
 import Viewport from '../viewport';
+import CustomQuestionsSectionProps from '../../accelerator/project/questions/customQuestionsSection/CustomQuestionsSection';
+import Success from '../../accelerator/project/questions/success/Success';
+import projectConfig from '../../../__mocks__/projectConfig';
+import user from '../../../__mocks__/user';
+import company from '../../../__mocks__/company';
+
+const questions = JSON.parse(projectConfig.data.form);
 
 const Page1 = ({ user }: any) => (
   <Viewport size="lg" centred={false}>
@@ -109,6 +116,8 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Open: Story<Props> = Template.bind({});
 
+const customQuestions = questions.customQuestions.filter(i => i.type === 'section')[0].form;
+
 Open.args = {
   showWizard: true,
   header: (
@@ -128,14 +137,28 @@ Open.args = {
     />
   ),
   pages: [
-    { page: <Page1 user={{ firstname: 'Joel' }} /> },
-    { page: <Page2 /> },
+    {
+      page: (
+        <CustomQuestionsSectionProps
+          title={customQuestions.title}
+          description={customQuestions.description}
+          privacy={customQuestions.privacy}
+          required={false}
+        />
+      ),
+    },
+    { page: <Page1 user={user.firstName} /> },
     { page: <Page3 /> },
     { page: <Page4 /> },
-    { page: <Page1 user={{ firstname: 'Joel' }} /> },
+    { page: <Page1 user={user.firstName} /> },
     { page: <Page2 /> },
-    { page: <Page1 user={{ firstname: 'Joel' }} /> },
-    { page: <Page2 /> },
+    { page: <Page1 user={user.firstName} /> },
+    { page: <Success user={user.firstName} companyName={company.name} /> },
   ],
   validForm: true,
+  handleCloseWizard: () => {
+    alert('handleCloseWizard');
+  },
+  success: false,
+  companyName: company.name,
 };
