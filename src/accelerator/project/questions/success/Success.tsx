@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Viewport from '../../../../components/viewport';
 import Props from './Success.types';
 
-const Success = ({ user, companyName }: Props) => (
+const Success = ({ userName, companyName }: Props) => (
   <Viewport size="xl">
     <div className="wizard-success">
       {/* <div className="image" /> // TODO: uncomment css too */}
@@ -11,7 +11,7 @@ const Success = ({ user, companyName }: Props) => (
         <FormattedMessage id="toolkit.success.published.project" />
       </h2>
       <p>
-        <FormattedMessage id="toolkit.success.ready" values={{ user }} />
+        <FormattedMessage id="toolkit.success.ready" values={{ user: userName }} />
         <br />
         <FormattedMessage id="toolkit.success.journey.start" />
         <br />

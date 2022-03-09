@@ -14,9 +14,9 @@ const WizardOrdered = ({
   success = false,
   companyName,
 }: Props) => {
-  const [activePage, setActivePage] = useState(1);
-  const [blurPage, setBlurPage] = useState(false);
-  const [direction, setDirection] = useState(null);
+  const [activePage, setActivePage] = useState<number>(1);
+  const [blurPage, setBlurPage] = useState<boolean>(false);
+  const [direction, setDirection] = useState<string>(null);
 
   useEffect(() => {
     if (success && activePage === pages.length - 1) goNext();
@@ -82,14 +82,14 @@ const WizardOrdered = ({
                 <Page
                   key={i}
                   activePage={activePage}
-                  lastPage={activePage === pages.length}
-                  lastQuestion={i === pages.length - 2}
+                  isLastPage={activePage === pages.length}
+                  isLastQuestions={i === pages.length - 2}
                   page={i + 1}
                   blurPage={blurPage}
                   direction={direction}
                   handleGoNext={goNext}
                   handlePublish={handlePublish}
-                  disabledButton={!validForm}
+                  isDisabledButton={!validForm}
                   handleCloseWizard={handleCloseWizard}
                   companyName={companyName}
                 >

@@ -5,7 +5,7 @@ import Props from './WizardOrdered.types';
 import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
 import Viewport from '../viewport';
-import CustomQuestionsSectionProps from '../../accelerator/project/questions/customQuestionsSection/CustomQuestionsSection';
+import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
 import Success from '../../accelerator/project/questions/success/Success';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';

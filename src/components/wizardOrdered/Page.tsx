@@ -10,14 +10,14 @@ interface Props {
   children: JSX.Element;
   activePage: number;
   page: number;
-  lastPage: boolean;
-  lastQuestion: boolean;
+  isLastPage: boolean;
+  isLastQuestions: boolean;
   blurPage: boolean;
   direction: string;
   handleGoNext(): void;
   handlePublish(): void;
   handleCloseWizard(): void;
-  disabledButton: boolean;
+  isDisabledButton: boolean;
   companyName: string;
 }
 
@@ -29,9 +29,9 @@ const Page = ({
   direction,
   handleGoNext,
   handlePublish,
-  lastPage,
-  lastQuestion,
-  disabledButton,
+  isLastPage,
+  isLastQuestions,
+  isDisabledButton,
   handleCloseWizard,
   companyName,
 }: Props): JSX.Element => {
@@ -42,7 +42,7 @@ const Page = ({
     () => {
       setTime(time - 1);
     },
-    lastPage && time > 0 ? 1000 : null
+    isLastPage && time > 0 ? 1000 : null
   );
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Page = ({
         <Viewport size="xl">
           <>
             <div>
-              {!lastPage && <span className="page-content__page-number">{`${page}.`}</span>}
+              {!isLastPage && <span className="page-content__page-number">{`${page}.`}</span>}
               {children.props.privacy === 'private' && (
                 <span
                   className="page-content__private"
@@ -84,7 +84,7 @@ const Page = ({
             </div>
             <div className="content">{children}</div>
             <div className="buttons">
-              {!lastQuestion && !lastPage && (
+              {!isLastQuestions && !isLastPage && (
                 <Button
                   extraClass="primary-full"
                   ghost={false}
@@ -92,11 +92,11 @@ const Page = ({
                   onClick={handleGoNext}
                   text={intl.formatMessage({ id: 'continue' })}
                   type="button"
-                  disabled={disabledButton || children.props.required}
+                  disabled={isDisabledButton || children.props.required}
                   dataTestId="click-continue"
                 />
               )}
-              {lastQuestion && (
+              {isLastQuestions && (
                 <Button
                   extraClass="primary-full"
                   ghost={false}
@@ -104,11 +104,11 @@ const Page = ({
                   onClick={handlePublish}
                   text={intl.formatMessage({ id: 'publish' })}
                   type="button"
-                  disabled={disabledButton}
+                  disabled={isDisabledButton}
                   dataTestId="click-publish"
                 />
               )}
-              {lastPage && (
+              {isLastPage && (
                 <div className="wizard-success__buttons">
                   <Button
                     extraClass="secondary"

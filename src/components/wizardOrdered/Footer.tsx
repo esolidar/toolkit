@@ -23,7 +23,6 @@ const Footer = ({
       onClick={handleClickPrev}
       disabled={disableClickPrev}
       icon={<Icon name="ChevronUp" />}
-      withLoading={false}
       type="icon"
       dataTestId="click-prev"
     />
@@ -33,7 +32,6 @@ const Footer = ({
       onClick={handleClickNext}
       disabled={disableClickNext}
       icon={<Icon name="ChevronDown" />}
-      withLoading={false}
       type="icon"
       dataTestId="click-next"
     />

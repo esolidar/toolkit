@@ -5,10 +5,10 @@ import user from '../../../../../__mocks__/user';
 import company from '../../../../../__mocks__/company';
 
 export default {
-  title: 'Accelerator/Project/Submit/Success',
+  title: 'Accelerator/Project/Questions/Success',
   component: Success,
   parameters: {
-    jest: ['CustomQuestionsSection.test.js'],
+    jest: ['Section.test.js'],
   },
 } as Meta;
 
@@ -21,6 +21,6 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  user: user.firstName,
+  userName: user.firstName,
   companyName: company.name,
 };

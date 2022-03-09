@@ -1,5 +1,5 @@
 interface Props {
-  user: string;
+  userName: string;
   companyName: string;
 }
 

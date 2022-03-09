@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../../../__customQueries__/test-utils';
-import Meta, { Default as DefaultStory } from '../CustomQuestionsSection.stories';
+import Meta, { Default as DefaultStory } from '../Section.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 

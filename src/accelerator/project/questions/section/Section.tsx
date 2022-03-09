@@ -1,12 +1,9 @@
 import React from 'react';
-import CustomQuestionsSectionProps from './CustomQuestionsSection.types';
+import Props from './Section.types';
 import Viewport from '../../../../components/viewport';
 import rawDraftToHtml from '../../../../utils/rawDraftToHtml';
 
-const CustomQuestionsSection = ({
-  title,
-  description,
-}: CustomQuestionsSectionProps): JSX.Element => {
+const CustomQuestionsSection = ({ title, description }: Props): JSX.Element => {
   const text = rawDraftToHtml(description, 1);
 
   return (
