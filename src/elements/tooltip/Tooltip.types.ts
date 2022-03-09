@@ -14,5 +14,6 @@ interface Props {
     | 'bottomLeft'
     | 'bottomRight';
   displayNone?: boolean;
+  type?: 'default' | 'onboarding';
 }
 export default Props;
