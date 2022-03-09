@@ -13,11 +13,11 @@ import company from '../../../__mocks__/company';
 
 const questions = JSON.parse(projectConfig.data.form);
 
-const Page1 = ({ user }: any) => (
+const Page1 = ({ userName }: any) => (
   <Viewport size="lg" centred={false}>
     <>
       <h2>Description</h2>
-      <p>Welcome aboard {user.firstname}.</p>
+      <p>Welcome aboard {userName}.</p>
       <p>
         Describe your project idea in a concise and descriptive manner, sharing all the amazing
         things you want to achieve!
@@ -123,13 +123,13 @@ Open.args = {
         />
       ),
     },
-    { page: <Page1 user={user.firstName} /> },
+    { page: <Page1 userName={user.firstName} /> },
     { page: <Page3 /> },
     { page: <Page4 /> },
-    { page: <Page1 user={user.firstName} /> },
+    { page: <Page1 userName={user.firstName} /> },
     { page: <Page2 /> },
     { page: <Page1 user={user.firstName} /> },
-    { page: <Success user={user.firstName} companyName={company.name} /> },
+    { page: <Success userName={user.firstName} companyName={company.name} /> },
   ],
   validForm: true,
   handleCloseWizard: () => {

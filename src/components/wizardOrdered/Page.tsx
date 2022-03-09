@@ -17,7 +17,7 @@ interface Props {
   handleGoNext(): void;
   handlePublish(): void;
   handleCloseWizard(): void;
-  isDisabledButton: boolean;
+  isButtonDisabled: boolean;
   companyName: string;
 }
 
@@ -31,7 +31,7 @@ const Page = ({
   handlePublish,
   isLastPage,
   isLastQuestions,
-  isDisabledButton,
+  isButtonDisabled,
   handleCloseWizard,
   companyName,
 }: Props): JSX.Element => {
@@ -57,8 +57,11 @@ const Page = ({
         'page',
         { 'page-before': activePage > page },
         { 'page-after': activePage < page },
-        { blur: blurPage && page !== activePage - 1 && direction === 'up' },
-        { blur: blurPage && page !== activePage + 1 && direction === 'down' }
+        {
+          blur:
+            (blurPage && page !== activePage - 1 && direction === 'up') ||
+            (blurPage && page !== activePage + 1 && direction === 'down'),
+        }
       )}
       style={{ zIndex: 100 - page }}
     >
@@ -92,7 +95,7 @@ const Page = ({
                   onClick={handleGoNext}
                   text={intl.formatMessage({ id: 'continue' })}
                   type="button"
-                  disabled={isDisabledButton || children.props.required}
+                  disabled={isButtonDisabled || children.props.required}
                   dataTestId="click-continue"
                 />
               )}
@@ -104,7 +107,7 @@ const Page = ({
                   onClick={handlePublish}
                   text={intl.formatMessage({ id: 'publish' })}
                   type="button"
-                  disabled={isDisabledButton}
+                  disabled={isButtonDisabled}
                   dataTestId="click-publish"
                 />
               )}
