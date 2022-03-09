@@ -4,7 +4,7 @@ import CustomQuestionsSection from './CustomQuestionsSection';
 import CustomQuestionsSectionProps from './CustomQuestionsSection.types';
 
 export default {
-  title: 'Accelerator/Project/CustomQuestionsSection',
+  title: 'Accelerator/Project/Submit/CustomQuestionsSection',
   component: CustomQuestionsSection,
   parameters: {
     jest: ['CustomQuestionsSection.test.js'],

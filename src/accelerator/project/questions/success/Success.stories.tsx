@@ -6,7 +6,7 @@ import user from '../../../../../__mocks__/user';
 import company from '../../../../../__mocks__/company';
 
 export default {
-  title: 'Accelerator/Project/Success',
+  title: 'Accelerator/Project/Submit/Success',
   component: Success,
   parameters: {
     jest: ['CustomQuestionsSection.test.js'],

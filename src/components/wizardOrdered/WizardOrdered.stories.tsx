@@ -66,30 +66,6 @@ const Page3 = () => (
       rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
       turpis.
     </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tincidunt libero. Aenean
-      justo purus, venenatis tristique metus a, luctus pharetra ligula. Nullam accumsan felis nisl.
-      Integer vitae viverra lorem, egestas vehicula libero. Pellentesque viverra pellentesque tellus
-      ac mattis. Quisque laoreet vulputate erat gravida lacinia. Nunc sed hendrerit ipsum, commodo
-      rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
-      turpis.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tincidunt libero. Aenean
-      justo purus, venenatis tristique metus a, luctus pharetra ligula. Nullam accumsan felis nisl.
-      Integer vitae viverra lorem, egestas vehicula libero. Pellentesque viverra pellentesque tellus
-      ac mattis. Quisque laoreet vulputate erat gravida lacinia. Nunc sed hendrerit ipsum, commodo
-      rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
-      turpis.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tincidunt libero. Aenean
-      justo purus, venenatis tristique metus a, luctus pharetra ligula. Nullam accumsan felis nisl.
-      Integer vitae viverra lorem, egestas vehicula libero. Pellentesque viverra pellentesque tellus
-      ac mattis. Quisque laoreet vulputate erat gravida lacinia. Nunc sed hendrerit ipsum, commodo
-      rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
-      turpis.
-    </p>
   </>
 );
 
