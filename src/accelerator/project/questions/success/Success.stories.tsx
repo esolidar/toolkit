@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
 import Success from './Success';
 import Props from './Success.types';

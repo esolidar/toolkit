@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1646820503482" clover="3.2.0">
-  <project timestamp="1646820503483" name="All files">
-    <metrics statements="5219" coveredstatements="3736" conditionals="3988" coveredconditionals="2498" methods="1607" coveredmethods="907" elements="10814" coveredelements="7141" complexity="0" loc="5219" ncloc="5219" packages="205" files="714" classes="714"/>
+<coverage generated="1646821225627" clover="3.2.0">
+  <project timestamp="1646821225627" name="All files">
+    <metrics statements="5221" coveredstatements="3738" conditionals="3988" coveredconditionals="2498" methods="1608" coveredmethods="908" elements="10817" coveredelements="7144" complexity="0" loc="5221" ncloc="5221" packages="205" files="714" classes="714"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -32,15 +32,17 @@
       </file>
     </package>
     <package name="src.accelerator.project.questions.customQuestionsSection">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="CustomQuestionsSection.stories.tsx" path="C:\Projects\toolkit\src\accelerator\project\questions\customQuestionsSection\CustomQuestionsSection.stories.tsx">
-        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
       </file>
       <file name="CustomQuestionsSection.tsx" path="C:\Projects\toolkit\src\accelerator\project\questions\customQuestionsSection\CustomQuestionsSection.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -5121,14 +5123,14 @@
         <line num="40" count="0" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
         <line num="59" count="2" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="95" count="6" type="stmt"/>
         <line num="97" count="1" type="stmt"/>
-        <line num="111" count="1" type="stmt"/>
-        <line num="112" count="3" type="stmt"/>
-        <line num="117" count="1" type="stmt"/>
-        <line num="119" count="6" type="stmt"/>
-        <line num="121" count="1" type="stmt"/>
-        <line num="160" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
       </file>
       <file name="WizardOrdered.tsx" path="C:\Projects\toolkit\src\components\wizardOrdered\WizardOrdered.tsx">
         <metrics statements="28" coveredstatements="24" conditionals="19" coveredconditionals="14" methods="7" coveredmethods="5"/>
