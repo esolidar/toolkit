@@ -15,7 +15,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div>
+  <div className="content-step-page">
     <CustomQuestionsSection {...args} />
   </div>
 );

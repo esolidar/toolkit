@@ -135,6 +135,6 @@ Open.args = {
   handleCloseWizard: () => {
     alert('handleCloseWizard');
   },
-  success: false,
+  isSuccess: false,
   companyName: company.name,
 };

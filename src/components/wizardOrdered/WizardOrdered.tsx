@@ -11,7 +11,7 @@ const WizardOrdered = ({
   header,
   validForm,
   handlePublish,
-  success = false,
+  isSuccess = false,
   companyName,
 }: Props) => {
   const [activePage, setActivePage] = useState<number>(1);
@@ -19,8 +19,8 @@ const WizardOrdered = ({
   const [direction, setDirection] = useState<'up' | 'down'>(null);
 
   useEffect(() => {
-    if (success && activePage === pages.length - 1) goNext();
-  }, [success]);
+    if (isSuccess && activePage === pages.length - 1) goNext();
+  }, [isSuccess]);
 
   const goNext = () => {
     if (activePage < pages.length) {

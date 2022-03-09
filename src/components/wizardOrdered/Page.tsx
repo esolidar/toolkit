@@ -85,16 +85,13 @@ const Page = ({
               )}
               <ReactTooltip className="application-form-read-only-card__tooltip" />
             </div>
-            <div className="content">{children}</div>
+            <div className="content-step-page">{children}</div>
             <div className="buttons">
               {!isLastQuestions && !isLastPage && (
                 <Button
                   extraClass="primary-full"
-                  ghost={false}
-                  isLoading={false}
                   onClick={handleGoNext}
                   text={intl.formatMessage({ id: 'continue' })}
-                  type="button"
                   disabled={isButtonDisabled || children.props.required}
                   dataTestId="click-continue"
                 />
@@ -102,11 +99,8 @@ const Page = ({
               {isLastQuestions && (
                 <Button
                   extraClass="primary-full"
-                  ghost={false}
-                  isLoading={false}
                   onClick={handlePublish}
                   text={intl.formatMessage({ id: 'publish' })}
-                  type="button"
                   disabled={isButtonDisabled}
                   dataTestId="click-publish"
                 />
@@ -115,11 +109,8 @@ const Page = ({
                 <div className="wizard-success__buttons">
                   <Button
                     extraClass="secondary"
-                    ghost={false}
-                    isLoading={false}
                     onClick={handleCloseWizard}
                     text={intl.formatMessage({ id: 'close' })}
-                    type="button"
                     dataTestId="click-close"
                   />
                   <span className="wizard-success__buttons-auto-close-message">

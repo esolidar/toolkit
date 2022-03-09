@@ -9,7 +9,7 @@ interface Props {
   header: JSX.Element;
   pages: any[];
   validForm: boolean;
-  success?: boolean;
+  isSuccess?: boolean;
   companyName: string;
 }
 

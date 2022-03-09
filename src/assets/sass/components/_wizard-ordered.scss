@@ -48,27 +48,6 @@
         color: map-get($neutrals, 700);
         margin-left: $distance-2;
       }
-      .content {
-        flex-basis: 100%;
-
-        h2 {
-          font-style: normal;
-          font-weight: bold;
-          font-size: 36px;
-          line-height: 48px;
-          letter-spacing: -0.02em;
-          color: map-get($base, black);
-          margin-bottom: $distance-2;
-        }
-
-        p {
-          font-style: normal;
-          font-weight: normal;
-          font-size: 21px;
-          line-height: 26px;
-          color: map-get($neutrals, 700);
-        }
-      }
 
       .buttons {
         margin-top: $distance-5;
@@ -128,5 +107,27 @@
       line-height: 28px;
       color: map-get($neutrals, 700);
     }
+  }
+}
+
+.content-step-page {
+  flex-basis: 100%;
+
+  h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    color: map-get($base, black);
+    margin-bottom: $distance-2;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+    line-height: 26px;
+    color: map-get($neutrals, 700);
   }
 }
