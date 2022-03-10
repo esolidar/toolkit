@@ -1,4 +1,7 @@
 /* eslint-disable no-alert */
+import { VFC, ReactNode } from 'react';
+import { action } from '@storybook/addon-actions';
+import { FormProvider, useForm } from 'react-hook-form';
 import { Story, Meta } from '@storybook/react';
 import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
@@ -7,11 +10,21 @@ import WizardHeader from '../wizard/header/WizardHeader';
 import Viewport from '../viewport';
 import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
 import Success from '../../accelerator/project/questions/success/Success';
+import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
 
 const questions = JSON.parse(projectConfig.data.form);
+
+const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) => {
+  const methods = useForm();
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(action('[React Hooks Form] Submit'))}>{children}</form>
+    </FormProvider>
+  );
+};
 
 const Page1 = ({ userName }: any) => (
   <Viewport size="lg" centred={false}>
@@ -85,14 +98,17 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div>
-    <WizardOrdered {...args} />
-  </div>
+  <StorybookFormProvider>
+    <div>
+      <WizardOrdered {...args} />
+    </div>
+  </StorybookFormProvider>
 );
 
 export const Open: Story<Props> = Template.bind({});
 
-const customQuestions = questions.customQuestions.filter(i => i.type === 'section')[0].form;
+const section = questions.customQuestions.filter(i => i.type === 'section')[0].form;
+const checkboxes = questions.customQuestions.filter(i => i.type === 'checkboxes')[0].form;
 
 Open.args = {
   showWizard: true,
@@ -113,22 +129,22 @@ Open.args = {
     />
   ),
   pages: [
+    { page: <Checkbox {...checkboxes} /> },
     {
       page: (
         <CustomQuestionsSectionProps
-          title={customQuestions.title}
-          description={customQuestions.description}
-          privacy={customQuestions.privacy}
+          title={section.title}
+          description={section.description}
+          privacy={section.privacy}
           required={false}
         />
       ),
     },
     { page: <Page1 userName={user.firstName} /> },
-    { page: <Page3 /> },
     { page: <Page4 /> },
     { page: <Page1 userName={user.firstName} /> },
     { page: <Page2 /> },
-    { page: <Page1 user={user.firstName} /> },
+    { page: <Page3 /> },
     { page: <Success userName={user.firstName} companyName={company.name} /> },
   ],
   validForm: true,

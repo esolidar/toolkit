@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.106.0",
+  "version": "4.107.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -96,7 +96,7 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.243.0",
+    "@esolidar/i18n": "^0.245.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -183,6 +183,7 @@
     "react-ga": "^3.2.0",
     "react-geosuggest": "^2.14.1",
     "react-google-maps": "^9.4.5",
+    "react-hook-form": "^7.27.1",
     "react-image-lightbox": "^5.1.4",
     "react-images": "^1.1.0-beta.3",
     "react-infinite-scroller": "^1.2.4",
