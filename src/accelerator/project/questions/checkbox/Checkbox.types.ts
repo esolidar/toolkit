@@ -5,14 +5,14 @@ interface Options {
 
 interface Props {
   answersAllowed: 'unlimited' | 'exact' | 'range';
-  description: any;
+  description: string;
   options: Options[];
   privacy: 'public' | 'private';
   question: string;
   exact?: number;
   rangeMin?: number;
   rangeMax?: number;
-  required: boolean;
+  required?: boolean;
   id: number;
   control: any;
   handleChange(): void;

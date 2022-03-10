@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1646903622380" clover="3.2.0">
-  <project timestamp="1646903622381" name="All files">
+<coverage generated="1646903847256" clover="3.2.0">
+  <project timestamp="1646903847256" name="All files">
     <metrics statements="5265" coveredstatements="3771" conditionals="3999" coveredconditionals="2500" methods="1623" coveredmethods="919" elements="10887" coveredelements="7190" complexity="0" loc="5265" ncloc="5265" packages="207" files="719" classes="719"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
@@ -1390,7 +1390,7 @@
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\sm\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="14" type="stmt"/>
-        <line num="4" count="39" type="stmt"/>
+        <line num="4" count="38" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\sm\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5309,20 +5309,20 @@
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="84" coveredconditionals="65" methods="2" coveredmethods="2"/>
         <line num="7" count="82" type="stmt"/>
-        <line num="37" count="338" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="337" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="280" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="78" type="cond" truecount="2" falsecount="0"/>
         <line num="40" count="70" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="338" type="stmt"/>
-        <line num="70" count="338" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="338" type="stmt"/>
-        <line num="75" count="338" type="cond" truecount="5" falsecount="0"/>
+        <line num="42" count="337" type="stmt"/>
+        <line num="70" count="337" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="337" type="stmt"/>
+        <line num="75" count="337" type="cond" truecount="5" falsecount="0"/>
         <line num="77" count="202" type="stmt"/>
-        <line num="109" count="58" type="stmt"/>
+        <line num="109" count="57" type="stmt"/>
         <line num="134" count="8" type="stmt"/>
         <line num="166" count="6" type="stmt"/>
         <line num="190" count="64" type="stmt"/>
-        <line num="223" count="338" type="stmt"/>
+        <line num="223" count="337" type="stmt"/>
         <line num="227" count="82" type="stmt"/>
         <line num="253" count="82" type="stmt"/>
       </file>
@@ -5461,35 +5461,35 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="32" coveredstatements="23" conditionals="42" coveredconditionals="35" methods="8" coveredmethods="6"/>
         <line num="7" count="21" type="stmt"/>
-        <line num="36" count="60" type="stmt"/>
-        <line num="37" count="60" type="stmt"/>
-        <line num="38" count="60" type="stmt"/>
-        <line num="42" count="60" type="stmt"/>
-        <line num="43" count="60" type="stmt"/>
-        <line num="47" count="60" type="stmt"/>
-        <line num="50" count="60" type="stmt"/>
-        <line num="55" count="60" type="stmt"/>
+        <line num="36" count="59" type="stmt"/>
+        <line num="37" count="59" type="stmt"/>
+        <line num="38" count="59" type="stmt"/>
+        <line num="42" count="59" type="stmt"/>
+        <line num="43" count="59" type="stmt"/>
+        <line num="47" count="59" type="stmt"/>
+        <line num="50" count="59" type="stmt"/>
+        <line num="55" count="59" type="stmt"/>
         <line num="56" count="56" type="cond" truecount="4" falsecount="0"/>
         <line num="57" count="22" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="61" count="22" type="stmt"/>
         <line num="62" count="22" type="stmt"/>
-        <line num="67" count="60" type="stmt"/>
-        <line num="68" count="54" type="cond" truecount="4" falsecount="0"/>
-        <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="67" count="59" type="stmt"/>
+        <line num="68" count="53" type="cond" truecount="4" falsecount="0"/>
+        <line num="69" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="74" count="0" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="82" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="96" count="60" type="stmt"/>
+        <line num="96" count="59" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
         <line num="183" count="21" type="stmt"/>
       </file>
@@ -5899,11 +5899,11 @@
         <line num="7" count="90" type="stmt"/>
         <line num="9" count="90" type="stmt"/>
         <line num="16" count="90" type="stmt"/>
-        <line num="25" count="532" type="stmt"/>
-        <line num="27" count="532" type="stmt"/>
-        <line num="28" count="532" type="stmt"/>
+        <line num="25" count="531" type="stmt"/>
+        <line num="27" count="531" type="stmt"/>
+        <line num="28" count="531" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="532" type="stmt"/>
+        <line num="33" count="531" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6645,10 +6645,10 @@
         <line num="6" count="79" type="stmt"/>
         <line num="7" count="79" type="stmt"/>
         <line num="11" count="79" type="stmt"/>
-        <line num="13" count="60" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="63" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="29" type="stmt"/>
-        <line num="17" count="31" type="stmt"/>
-        <line num="19" count="31" type="stmt"/>
+        <line num="17" count="34" type="stmt"/>
+        <line num="19" count="34" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="C:\Projects\toolkit\src\hooks\useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -7035,8 +7035,8 @@
         <line num="80" count="5" type="stmt"/>
         <line num="81" count="5" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="9" type="stmt"/>
-        <line num="85" count="9" type="stmt"/>
+        <line num="84" count="6" type="stmt"/>
+        <line num="85" count="6" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>

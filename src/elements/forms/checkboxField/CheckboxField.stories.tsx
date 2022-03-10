@@ -35,7 +35,7 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   checkboxFieldProps: {
     label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    error: 'error',
+    error: 'This field is required',
     name: 'CheckboxField_name',
     value: 'CheckboxField_value',
     checked: false,
