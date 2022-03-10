@@ -37,7 +37,7 @@ it('renders WizardOrdered click-prev', () => {
   fireEvent.click(screen.getByTestId('click-next'));
   fireEvent.click(screen.getByTestId('click-next'));
   fireEvent.click(screen.getByTestId('click-prev'));
-  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(4);
+  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(5);
   expect(getAllByClass(/page-before/)).toHaveLength(1);
   expect(getAllByClass(/page-after/)).toHaveLength(1);
 });
