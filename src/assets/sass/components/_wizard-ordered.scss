@@ -129,5 +129,23 @@
     font-size: 21px;
     line-height: 26px;
     color: map-get($neutrals, 700);
+    margin: 0;
+  }
+}
+
+.page-content-checkbox {
+  p {
+    margin-bottom: $distance-5;
+  }
+
+  .checkbox-helper-answers-allowed {
+    display: flex;
+
+    margin-bottom: $distance-2;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: map-get($neutrals, 700);
   }
 }

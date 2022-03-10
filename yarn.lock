@@ -1670,10 +1670,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.243.0":
-  version "0.243.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.243.0/d7a0660832db3f1141be9942718497749fee911d123f8c11f9672bedf5b4b253#519d570bfbea4b92473050947ad872fefc668e99"
-  integrity sha512-KtkjbXe3n3PoGeF3TKd9lVDbDYbjkWuHur3cgg52mL7SRG8/AOR7tUQhLHH6B8euBXc5g8xiQNFoX6vHoVCUAw==
+"@esolidar/i18n@^0.245.0":
+  version "0.245.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.245.0/6d45b1a22dce495ae206a3af0fc086098d4bfb340b72a966ba1fa5387e7edcc6#ac51839238e381bf76771f5851c6ec0bbbc0f4a1"
+  integrity sha512-u0+fBmmIFnPzQbDHOFb96og3wb3IIQiH/TWqIWZnKt/jj+3bw+qXU0hnhx33Ng6SrnfPZBXWSN6ixZXm4NMGKA==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -14182,6 +14182,11 @@ react-helmet-async@^1.0.7:
     prop-types "^15.7.2"
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
+
+react-hook-form@^7.27.1:
+  version "7.27.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.27.1.tgz#fe5fbcb6bf58751f66d9569e998d671480cc57f6"
+  integrity sha512-N3a7A6zIQ8DJeThisVZGtOUabTbJw+7DHJidmB9w8m3chckv2ZWKb5MHps9d2pPJqmCDoWe53Bos56bYmJms5w==
 
 react-icons@^3.8.0:
   version "3.11.0"
