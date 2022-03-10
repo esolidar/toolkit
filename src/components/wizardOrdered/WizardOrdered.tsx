@@ -16,7 +16,6 @@ const WizardOrdered = ({
   isSuccess = false,
   companyName,
 }: Props) => {
-  // const [activePage, setActivePage] = useState<number>(1);
   const [blurPage, setBlurPage] = useState<boolean>(false);
   const [direction, setDirection] = useState<'up' | 'down'>(null);
 
@@ -26,7 +25,6 @@ const WizardOrdered = ({
 
   const goNext = () => {
     if (activePage < pages.length) {
-      // setActivePage(activePage + 1);
       onChangePage(activePage + 1);
       setBlurPage(true);
       setDirection('up');
@@ -40,7 +38,6 @@ const WizardOrdered = ({
   const goPrev = () => {
     if (activePage > 1) {
       onChangePage(activePage - 1);
-      // setActivePage(activePage - 1);
       setBlurPage(true);
       setDirection('down');
       setTimeout(() => {
