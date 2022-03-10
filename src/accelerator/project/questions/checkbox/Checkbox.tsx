@@ -17,28 +17,18 @@ const Checkbox = ({
   required,
 }: Props): JSX.Element => {
   const intl = useIntl();
-  let answersAllowedText = '';
 
-  switch (answersAllowed) {
-    case 'exact':
-      answersAllowedText = intl.formatMessage(
-        { id: 'toolkit.checkbox.range.exact' },
-        { value: exact }
-      );
-      break;
-    case 'range':
-      answersAllowedText = intl.formatMessage(
+  const answersAllowedMessage = {
+    exact: () => intl.formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact }),
+    range: () =>
+      intl.formatMessage(
         {
           id: 'toolkit.checkbox.range.range',
         },
         { rangeMin, rangeMax }
-      );
-      break;
-
-    default:
-      answersAllowedText = '';
-      break;
-  }
+      ),
+    unlimited: () => '',
+  };
 
   return (
     <Viewport size="xl">
@@ -46,7 +36,9 @@ const Checkbox = ({
         <h2>{question}</h2>
         <p>{description}</p>
         {answersAllowed !== 'unlimited' && (
-          <span className="checkbox-helper-answers-allowed">{answersAllowedText}</span>
+          <span className="checkbox-helper-answers-allowed">
+            {answersAllowedMessage[answersAllowed]()}
+          </span>
         )}
         {options.map(option => (
           <CheckboxField
