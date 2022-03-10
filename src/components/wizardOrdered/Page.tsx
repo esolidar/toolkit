@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { useIntl, FormattedMessage } from 'react-intl';
@@ -6,8 +7,21 @@ import Button from '../../elements/button';
 import Viewport from '../viewport';
 import useInterval from '../../hooks/useInterval';
 
+interface ChildrenProps {
+  type: 'checkboxes' | 'multiChoice';
+  exact?: number;
+  rangeMin?: number;
+  rangeMax?: number;
+  answersAllowed?: 'unlimited' | 'exact' | 'range';
+  privacy: 'public' | 'private';
+}
+
+interface Children extends JSX.Element {
+  props: ChildrenProps;
+}
+
 interface Props {
-  children: JSX.Element;
+  children: Children;
   activePage: number;
   page: number;
   isLastPage: boolean;
@@ -51,6 +65,31 @@ const Page = ({
     }
   }, [time]);
 
+  const disabledMessageTooltip = () => {
+    const { props } = children;
+    const { type, answersAllowed, exact, rangeMin, rangeMax } = props;
+
+    if (type === 'checkboxes') {
+      if (answersAllowed === 'exact')
+        return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+          .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
+          .toLowerCase()}`;
+      if (answersAllowed === 'range')
+        return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+          .formatMessage(
+            {
+              id: 'toolkit.checkbox.range.range',
+            },
+            { rangeMin, rangeMax }
+          )
+          .toLowerCase()}`;
+    }
+
+    if (type === 'multiChoice') {
+      return intl.formatMessage({ id: 'toolkit.please.select.option' });
+    }
+  };
+
   return (
     <div
       className={classnames(
@@ -83,18 +122,19 @@ const Page = ({
                   <FormattedMessage id="toolkit.private" />
                 </span>
               )}
-              <ReactTooltip className="application-form-read-only-card__tooltip" />
             </div>
             <div className="content-step-page">{children}</div>
             <div className="buttons">
               {!isLastQuestions && !isLastPage && (
-                <Button
-                  extraClass="primary-full"
-                  onClick={handleGoNext}
-                  text={intl.formatMessage({ id: 'continue' })}
-                  disabled={isButtonDisabled || children.props.required}
-                  dataTestId="click-continue"
-                />
+                <div data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}>
+                  <Button
+                    extraClass="primary-full"
+                    onClick={handleGoNext}
+                    text={intl.formatMessage({ id: 'continue' })}
+                    disabled={isButtonDisabled}
+                    dataTestId="click-continue"
+                  />
+                </div>
               )}
               {isLastQuestions && (
                 <Button
@@ -122,6 +162,7 @@ const Page = ({
           </>
         </Viewport>
       </div>
+      <ReactTooltip className="page-content__tooltip" />
     </div>
   );
 };

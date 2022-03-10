@@ -1,4 +1,6 @@
 interface Props {
+  activePage: number;
+  onChangePage(page: number): void;
   showWizard: boolean;
   handleClickPrev(): void;
   disableClickPrev: boolean;

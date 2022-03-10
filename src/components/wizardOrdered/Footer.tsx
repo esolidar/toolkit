@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
 
@@ -8,6 +9,7 @@ interface Props {
   handleClickNext(): void;
   disableClickNext: boolean;
   className: string;
+  pages: any[];
 }
 
 const Footer = ({
@@ -16,6 +18,7 @@ const Footer = ({
   handleClickNext,
   disableClickNext,
   className,
+  pages,
 }: Props) => (
   <div className={className}>
     <Button
@@ -30,7 +33,7 @@ const Footer = ({
     <Button
       extraClass="primary-full"
       onClick={handleClickNext}
-      disabled={disableClickNext}
+      disabled={disableClickNext || pages.length === 0}
       icon={<Icon name="ChevronDown" />}
       type="icon"
       dataTestId="click-next"

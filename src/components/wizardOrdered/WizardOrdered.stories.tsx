@@ -1,5 +1,5 @@
 /* eslint-disable no-alert */
-import { VFC, ReactNode } from 'react';
+import { VFC, ReactNode, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Story, Meta } from '@storybook/react';
@@ -11,6 +11,7 @@ import Viewport from '../viewport';
 import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
 import Success from '../../accelerator/project/questions/success/Success';
 import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';
+import Radiobox from '../../accelerator/project/questions/radiobox/Radiobox';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
@@ -97,18 +98,27 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <StorybookFormProvider>
-    <div>
-      <WizardOrdered {...args} />
-    </div>
-  </StorybookFormProvider>
-);
+const Template: Story<Props> = (args: Props) => {
+  const [activePage, setActivePage] = useState<number>(1);
+
+  const ChangePage = page => {
+    setActivePage(page);
+  };
+
+  return (
+    <StorybookFormProvider>
+      <div>
+        <WizardOrdered {...args} activePage={activePage} onChangePage={ChangePage} />
+      </div>
+    </StorybookFormProvider>
+  );
+};
 
 export const Open: Story<Props> = Template.bind({});
 
 const section = questions.customQuestions.filter(i => i.type === 'section')[0].form;
-const checkboxes = questions.customQuestions.filter(i => i.type === 'checkboxes')[0].form;
+const checkboxes = questions.customQuestions.filter(i => i.type === 'checkboxes')[0];
+const radioboxes = questions.customQuestions.filter(i => i.type === 'multiChoice')[0];
 
 Open.args = {
   showWizard: true,
@@ -129,20 +139,13 @@ Open.args = {
     />
   ),
   pages: [
-    { page: <Checkbox {...checkboxes} /> },
+    { page: <Checkbox {...checkboxes.form} type={checkboxes.type} /> },
+    { page: <Radiobox {...radioboxes.form} type={radioboxes.type} /> },
     {
-      page: (
-        <CustomQuestionsSectionProps
-          title={section.title}
-          description={section.description}
-          privacy={section.privacy}
-          required={false}
-        />
-      ),
+      page: <CustomQuestionsSectionProps {...section} />,
     },
     { page: <Page1 userName={user.firstName} /> },
     { page: <Page4 /> },
-    { page: <Page1 userName={user.firstName} /> },
     { page: <Page2 /> },
     { page: <Page3 /> },
     { page: <Success userName={user.firstName} companyName={company.name} /> },
