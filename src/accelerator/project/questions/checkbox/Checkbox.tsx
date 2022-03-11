@@ -4,22 +4,20 @@ import Props from './Checkbox.types';
 import Viewport from '../../../../components/viewport';
 import CheckboxField from '../../../../elements/forms/checkboxField';
 
-const Checkbox = (props: Props): JSX.Element => {
-  const {
-    handleChange,
-    control,
-    answersAllowed,
-    description,
-    options,
-    question,
-    exact,
-    rangeMin,
-    rangeMax,
-    required,
-    name,
-    reply,
-  } = props;
-
+const Checkbox = ({
+  handleChange,
+  control,
+  answersAllowed,
+  description,
+  options,
+  question,
+  exact,
+  rangeMin,
+  rangeMax,
+  required,
+  name,
+  reply,
+}: Props): JSX.Element => {
   const intl = useIntl();
 
   const answersAllowedMessage = {
