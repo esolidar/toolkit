@@ -1,4 +1,4 @@
-interface CheckboxFieldProps {
+interface RadioboxFieldProps {
   dataTestId?: string;
   value: string | number;
   name: string;
@@ -13,7 +13,7 @@ interface CheckboxFieldProps {
 interface Props {
   name?: string;
   control: any;
-  checkboxFieldProps: CheckboxFieldProps;
+  radioboxFieldProps: RadioboxFieldProps;
   required: boolean;
   dataTestId?: string;
   onChange(e: any): void;

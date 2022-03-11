@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import { useIntl, FormattedMessage } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
@@ -57,15 +57,10 @@ const Page = ({
   useInterval(
     () => {
       setTime(time - 1);
+      if (time - 1 === 0) handleCloseWizard();
     },
     isLastPage && time > 0 ? 1000 : null
   );
-
-  useEffect(() => {
-    if (time === 0) {
-      handleCloseWizard();
-    }
-  }, [time]);
 
   const disabledMessageTooltip = () => {
     const { props } = children;
@@ -128,7 +123,10 @@ const Page = ({
             <div className="content-step-page">{children}</div>
             <div className="buttons">
               {!isLastQuestions && !isLastPage && (
-                <div data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}>
+                <div
+                  data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
+                  style={{ display: 'inline-block' }}
+                >
                   <Button
                     extraClass="primary-full"
                     onClick={handleGoNext}

@@ -3,7 +3,7 @@ import { useController } from 'react-hook-form';
 import RadioField from '../../radioField';
 import Props from './RadioField.types';
 
-const RadioFieldForm = ({ control, name, required, checkboxFieldProps, onChange }: Props) => {
+const RadioFieldForm = ({ control, name, required, radioboxFieldProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value, ref },
     fieldState: { error },
@@ -11,7 +11,7 @@ const RadioFieldForm = ({ control, name, required, checkboxFieldProps, onChange 
     name,
     control,
     rules: { required },
-    defaultValue: checkboxFieldProps?.value,
+    defaultValue: radioboxFieldProps?.value,
     shouldUnregister: true,
   });
 
@@ -25,7 +25,7 @@ const RadioFieldForm = ({ control, name, required, checkboxFieldProps, onChange 
       field={fieldName}
       inputRef={ref}
       error={error ? error.message || true : false}
-      {...checkboxFieldProps}
+      {...radioboxFieldProps}
     />
   );
 };

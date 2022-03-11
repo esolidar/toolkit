@@ -38,7 +38,7 @@ const RadioField = ({
 );
 
 RadioField.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   id: PropTypes.string,
   onChange: PropTypes.func,

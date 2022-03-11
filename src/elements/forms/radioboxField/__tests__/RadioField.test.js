@@ -7,11 +7,8 @@ import Meta, { Default as DefaultStory } from '../RadioField.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 it('renders CheckboxField default component', () => {
-  const { getByClass, getByText, getAllByClass, getByTestId } = render(<Default />);
+  const { getByClass, getAllByClass } = render(<Default />);
 
   expect(getByClass(/radio-inline/)).toBeTruthy();
-  expect(getByText('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')).toBeInTheDocument();
-  expect(getByText('This field is required')).toBeInTheDocument();
-  expect(getByTestId('checkbox-field')).toBeInTheDocument();
   expect(getAllByClass('form-group')).toHaveLength(1);
 });

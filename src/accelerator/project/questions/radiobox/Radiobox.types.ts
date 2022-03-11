@@ -12,6 +12,7 @@ interface Props {
   required?: boolean;
   control: any;
   handleChange(): void;
+  reply: string | number;
 }
 
 export default Props;
