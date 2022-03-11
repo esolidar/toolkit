@@ -128,7 +128,10 @@ const Page = ({
             <div className="content-step-page">{children}</div>
             <div className="buttons">
               {!isLastQuestions && !isLastPage && (
-                <div data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}>
+                <div
+                  data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
+                  style={{ display: 'inline-block' }}
+                >
                   <Button
                     extraClass="primary-full"
                     onClick={handleGoNext}

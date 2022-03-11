@@ -14,8 +14,8 @@ it('renders WizardOrdered default component open', () => {
   expect(getByClass('wizard-ordered-progress-active')).toBeTruthy();
   expect(getByClass('wizard-ordered')).toBeTruthy();
   expect(getAllByClass('page')).toHaveLength(1);
-  expect(getAllByClass(/page-after/)).toHaveLength(1);
-  expect(getAllByTestId('click-continue')).toHaveLength(2);
+  expect(getAllByClass(/page-after/)).toHaveLength(7);
+  expect(getAllByTestId('click-continue')).toHaveLength(7);
 });
 
 it('renders WizardOrdered click-next', () => {
@@ -25,7 +25,7 @@ it('renders WizardOrdered click-next', () => {
   expect(getAllByTestId('click-prev')).toHaveLength(1);
   fireEvent.click(screen.getByTestId('click-next'));
   expect(getAllByClass(/page-before/)).toHaveLength(1);
-  expect(getAllByClass(/page-after/)).toHaveLength(1);
+  expect(getAllByClass(/page-after/)).toHaveLength(6);
 });
 
 it('renders WizardOrdered click-prev', () => {
@@ -37,7 +37,7 @@ it('renders WizardOrdered click-prev', () => {
   fireEvent.click(screen.getByTestId('click-next'));
   fireEvent.click(screen.getByTestId('click-next'));
   fireEvent.click(screen.getByTestId('click-prev'));
-  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(5);
-  expect(getAllByClass(/page-before/)).toHaveLength(1);
-  expect(getAllByClass(/page-after/)).toHaveLength(1);
+  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(11);
+  expect(getAllByClass(/page-before/)).toHaveLength(2);
+  expect(getAllByClass(/page-after/)).toHaveLength(5);
 });

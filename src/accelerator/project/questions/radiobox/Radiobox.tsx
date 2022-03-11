@@ -11,6 +11,7 @@ const Radiobox = ({
   options,
   question,
   required,
+  reply,
 }: Props): JSX.Element => (
   <Viewport size="xl">
     <div className="page-content-checkbox">
@@ -24,11 +25,12 @@ const Radiobox = ({
           required={required}
           onChange={handleChange}
           key={option.id}
-          checkboxFieldProps={{
+          radioboxFieldProps={{
             error: '',
             label: option.value,
             name,
             value: option.id,
+            checked: reply === String(option.id),
           }}
         />
       ))}

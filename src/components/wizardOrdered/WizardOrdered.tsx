@@ -75,33 +75,25 @@ const WizardOrdered = ({
           />
         </div>
         <div className="wizard-ordered">
-          {pages.map((page, i) => {
-            const previousStep = i + 1 === activePage - 1;
-            const actualStep = i + 1 === activePage;
-            const nextStep = i + 1 === activePage + 1;
-
-            if (previousStep || actualStep || nextStep) {
-              return (
-                <Page
-                  key={i}
-                  activePage={activePage}
-                  isLastPage={activePage === pages.length}
-                  isLastQuestions={i === pages.length - 2}
-                  page={i + 1}
-                  blurPage={blurPage}
-                  direction={direction}
-                  handleGoNext={goNext}
-                  handlePublish={handlePublish}
-                  isButtonDisabled={!isPageValid}
-                  handleCloseWizard={handleCloseWizard}
-                  companyName={companyName}
-                  isPublishDisabled={isPublishDisabled}
-                >
-                  {page}
-                </Page>
-              );
-            }
-          })}
+          {pages.map((page, i) => (
+            <Page
+              key={i}
+              activePage={activePage}
+              isLastPage={activePage === pages.length}
+              isLastQuestions={i === pages.length - 2}
+              page={i + 1}
+              blurPage={blurPage}
+              direction={direction}
+              handleGoNext={goNext}
+              handlePublish={handlePublish}
+              isButtonDisabled={!isPageValid}
+              handleCloseWizard={handleCloseWizard}
+              companyName={companyName}
+              isPublishDisabled={isPublishDisabled}
+            >
+              {page}
+            </Page>
+          ))}
         </div>
       </>
     </FullScreenModal>

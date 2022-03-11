@@ -12,6 +12,7 @@ import Success from '../../accelerator/project/questions/success/Success';
 import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';
 import Radiobox from '../../accelerator/project/questions/radiobox/Radiobox';
 import Description from '../../accelerator/project/questions/description/Description';
+import LongAnswer from '../../accelerator/project/questions/longAnswer/LongAnswer';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
@@ -60,13 +61,6 @@ const Page3 = () => (
   </>
 );
 
-const Page4 = () => (
-  <>
-    <h2>Page 4</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  </>
-);
-
 export default {
   title: 'Components/WizardOrdered',
   component: WizardOrdered,
@@ -96,6 +90,7 @@ export const Open: Story<Props> = Template.bind({});
 const section = questions.customQuestions.filter(i => i.type === 'section')[0].form;
 const checkboxes = questions.customQuestions.filter(i => i.type === 'checkboxes')[0];
 const radioboxes = questions.customQuestions.filter(i => i.type === 'multiChoice')[0];
+const longAnswer = questions.customQuestions.filter(i => i.type === 'longAnswer')[0];
 
 Open.args = {
   showWizard: true,
@@ -118,9 +113,9 @@ Open.args = {
   pages: [
     <Description userName={user.firstName} name="description" reply="" required />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
-    <Radiobox {...radioboxes.form} type={radioboxes.type} />,
+    <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
     <CustomQuestionsSectionProps {...section} />,
-    <Page4 />,
+    <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
     <Page2 />,
     <Page3 />,
     <Success userName={user.firstName} companyName={company.name} />,

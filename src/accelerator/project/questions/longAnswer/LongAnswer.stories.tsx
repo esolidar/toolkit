@@ -2,16 +2,16 @@ import { VFC, ReactNode } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { FormProvider, useForm } from 'react-hook-form';
-import Radiobox from './Radiobox';
-import Props from './Radiobox.types';
+import LongAnswer from './LongAnswer';
+import Props from './LongAnswer.types';
 import projectConfig from '../../../../../__mocks__/projectConfig';
 
 const questions = JSON.parse(projectConfig.data.form);
-const multiChoice = questions.customQuestions.filter(i => i.type === 'multiChoice')[0].form;
+const longAnswer = questions.customQuestions.filter(i => i.type === 'longAnswer')[0].form;
 
 export default {
-  title: 'Accelerator/Project/Questions/Radiobox',
-  component: Radiobox,
+  title: 'Accelerator/Project/Questions/LongAnswer',
+  component: LongAnswer,
   parameters: {
     jest: ['Section.test.js'],
   },
@@ -29,7 +29,7 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
 const Template: Story<Props> = (args: Props) => (
   <StorybookFormProvider>
     <div className="content-step-page">
-      <Radiobox {...args} />
+      <LongAnswer {...args} />
     </div>
   </StorybookFormProvider>
 );
@@ -37,9 +37,5 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  description: multiChoice.description,
-  options: multiChoice.options,
-  privacy: multiChoice.privacy,
-  question: multiChoice.question,
-  required: multiChoice.required,
+  ...longAnswer,
 };
