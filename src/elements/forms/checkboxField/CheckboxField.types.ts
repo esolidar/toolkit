@@ -17,6 +17,7 @@ interface Props {
   required: boolean;
   dataTestId?: string;
   onChange(e: any): void;
+  reply: number[];
 }
 
 export default Props;

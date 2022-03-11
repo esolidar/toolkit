@@ -15,6 +15,8 @@ const Checkbox = ({
   rangeMin,
   rangeMax,
   required,
+  name,
+  reply,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -31,30 +33,34 @@ const Checkbox = ({
   };
 
   return (
-    <Viewport size="xl">
-      <div className="page-content-checkbox">
-        <h2>{question}</h2>
-        <p>{description}</p>
-        {answersAllowed !== 'unlimited' && (
-          <span className="checkbox-helper-answers-allowed">
-            {answersAllowedMessage[answersAllowed]()}
-          </span>
-        )}
-        {options.map(option => (
-          <CheckboxField
-            control={control}
-            required={required}
-            onChange={handleChange}
-            key={option.id}
-            checkboxFieldProps={{
-              error: '',
-              label: option.value,
-              name: option.value,
-              value: option.id,
-            }}
-          />
-        ))}
-      </div>
+    <Viewport size="xl" centred={false}>
+      <>
+        <div className="page-content-checkbox">
+          <h2>{question}</h2>
+          <p>{description}</p>
+          {answersAllowed !== 'unlimited' && (
+            <span className="checkbox-helper-answers-allowed">
+              {answersAllowedMessage[answersAllowed]()}
+            </span>
+          )}
+          {options.map(option => (
+            <CheckboxField
+              name={name}
+              control={control}
+              required={required}
+              onChange={handleChange}
+              key={option.id}
+              reply={reply}
+              checkboxFieldProps={{
+                error: '',
+                label: option.value,
+                name: option.value,
+                value: option.id,
+              }}
+            />
+          ))}
+        </div>
+      </>
     </Viewport>
   );
 };

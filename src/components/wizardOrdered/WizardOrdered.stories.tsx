@@ -7,11 +7,11 @@ import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
 import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
-import Viewport from '../viewport';
 import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
 import Success from '../../accelerator/project/questions/success/Success';
 import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';
 import Radiobox from '../../accelerator/project/questions/radiobox/Radiobox';
+import Description from '../../accelerator/project/questions/description/Description';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
@@ -26,29 +26,6 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
     </FormProvider>
   );
 };
-
-const Page1 = ({ userName }: any) => (
-  <Viewport size="lg" centred={false}>
-    <>
-      <h2>Description</h2>
-      <p>Welcome aboard {userName}.</p>
-      <p>
-        Describe your project idea in a concise and descriptive manner, sharing all the amazing
-        things you want to achieve!
-      </p>
-      <TextareaField
-        field="Textarea_name"
-        id="textareaField-id"
-        onChange={() => {}}
-        value=""
-        maxLength={400}
-        required
-        showOptionalLabel
-        size="lg"
-      />
-    </>
-  </Viewport>
-);
 
 const Page2 = () => (
   <>
@@ -139,18 +116,16 @@ Open.args = {
     />
   ),
   pages: [
-    { page: <Checkbox {...checkboxes.form} type={checkboxes.type} /> },
-    { page: <Radiobox {...radioboxes.form} type={radioboxes.type} /> },
-    {
-      page: <CustomQuestionsSectionProps {...section} />,
-    },
-    { page: <Page1 userName={user.firstName} /> },
-    { page: <Page4 /> },
-    { page: <Page2 /> },
-    { page: <Page3 /> },
-    { page: <Success userName={user.firstName} companyName={company.name} /> },
+    <Description userName={user.firstName} name="description" reply="" required />,
+    <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
+    <Radiobox {...radioboxes.form} type={radioboxes.type} />,
+    <CustomQuestionsSectionProps {...section} />,
+    <Page4 />,
+    <Page2 />,
+    <Page3 />,
+    <Success userName={user.firstName} companyName={company.name} />,
   ],
-  validForm: true,
+  isPageValid: true,
   handleCloseWizard: () => {
     alert('handleCloseWizard');
   },

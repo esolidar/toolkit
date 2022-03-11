@@ -1,41 +1,44 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import CheckboxField from '../../checkboxField';
-import Props from './CheckboxField.types';
+import TextareaField from '../../textareaField';
+import Props from './TextareaField.types';
 
-const CheckboxFieldForm = ({
+const TextareaFieldForm = ({
   control,
   name,
   required,
-  checkboxFieldProps,
+  textareaFieldProps,
   onChange,
-  reply,
+  onBlur,
 }: Props) => {
   const {
-    field: { onChange: handleChange, name: fieldName, value, ref },
+    field: { onChange: handleChange, onBlur: handleBlur, name: fieldName, value, ref },
     fieldState: { error },
   } = useController({
     name,
     control,
     rules: { required },
-    defaultValue: checkboxFieldProps?.value,
+    defaultValue: textareaFieldProps?.defaultValue,
     shouldUnregister: true,
   });
 
   return (
-    <CheckboxField
+    <TextareaField
       onChange={e => {
         handleChange(e);
         if (onChange) onChange(e);
       }}
+      onBlur={e => {
+        handleBlur();
+        if (onBlur) onBlur(e);
+      }}
       value={value}
       field={fieldName}
       inputRef={ref}
-      checked={reply?.includes(value)}
       error={error ? error.message || true : false}
-      {...checkboxFieldProps}
+      {...textareaFieldProps}
     />
   );
 };
 
-export default CheckboxFieldForm;
+export default TextareaFieldForm;

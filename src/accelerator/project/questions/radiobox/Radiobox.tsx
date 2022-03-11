@@ -5,8 +5,8 @@ import RadioboxField from '../../../../elements/forms/radioboxField';
 
 const Radiobox = ({
   handleChange,
+  name,
   control,
-  id,
   description,
   options,
   question,
@@ -19,6 +19,7 @@ const Radiobox = ({
 
       {options.map(option => (
         <RadioboxField
+          name={name}
           control={control}
           required={required}
           onChange={handleChange}
@@ -26,7 +27,7 @@ const Radiobox = ({
           checkboxFieldProps={{
             error: '',
             label: option.value,
-            name: `field-${id}`,
+            name,
             value: option.id,
           }}
         />
