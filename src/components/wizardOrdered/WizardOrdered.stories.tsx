@@ -7,12 +7,12 @@ import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
 import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
-import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
-import Success from '../../accelerator/project/questions/success/Success';
-import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';
-import Radiobox from '../../accelerator/project/questions/radiobox/Radiobox';
-import Description from '../../accelerator/project/questions/description/Description';
-import LongAnswer from '../../accelerator/project/questions/longAnswer/LongAnswer';
+import Section from '../../accelerator/project/questions/section';
+import Success from '../../accelerator/project/questions/success';
+import Checkbox from '../../accelerator/project/questions/checkbox';
+import Radiobox from '../../accelerator/project/questions/radiobox';
+import Description from '../../accelerator/project/questions/description';
+import LongAnswer from '../../accelerator/project/questions/longAnswer';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
@@ -71,15 +71,40 @@ export default {
 
 const Template: Story<Props> = (args: Props) => {
   const [activePage, setActivePage] = useState<number>(1);
+  const [showWizard, setShowWizard] = useState<boolean>(true);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const ChangePage = page => {
     setActivePage(page);
+  };
+  const handleCloseWizard = () => {
+    setShowWizard(false);
+  };
+  const handlePublish = () => {
+    setIsSuccess(true);
   };
 
   return (
     <StorybookFormProvider>
       <div>
-        <WizardOrdered {...args} activePage={activePage} onChangePage={ChangePage} />
+        <button
+          onClick={() => {
+            setShowWizard(true);
+            setActivePage(1);
+            setIsSuccess(false);
+          }}
+        >
+          Open Wizard
+        </button>
+        <WizardOrdered
+          {...args}
+          handlePublish={handlePublish}
+          showWizard={showWizard}
+          isSuccess={isSuccess}
+          handleCloseWizard={handleCloseWizard}
+          activePage={activePage}
+          onChangePage={ChangePage}
+        />
       </div>
     </StorybookFormProvider>
   );
@@ -93,7 +118,7 @@ const radioboxes = questions.customQuestions.filter(i => i.type === 'multiChoice
 const longAnswer = questions.customQuestions.filter(i => i.type === 'longAnswer')[0];
 
 Open.args = {
-  showWizard: true,
+  // showWizard: true,
   header: (
     <WizardHeader
       disabledDarkButton={false}
@@ -114,16 +139,12 @@ Open.args = {
     <Description userName={user.firstName} name="description" reply="" required />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
-    <CustomQuestionsSectionProps {...section} />,
+    <Section {...section} />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
     <Page2 />,
     <Page3 />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
   isPageValid: true,
-  handleCloseWizard: () => {
-    alert('handleCloseWizard');
-  },
-  isSuccess: false,
   companyName: company.name,
 };

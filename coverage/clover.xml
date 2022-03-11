@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647009345040" clover="3.2.0">
-  <project timestamp="1647009345040" name="All files">
-    <metrics statements="5326" coveredstatements="3826" conditionals="4015" coveredconditionals="2501" methods="1650" coveredmethods="942" elements="10991" coveredelements="7269" complexity="0" loc="5326" ncloc="5326" packages="212" files="731" classes="731"/>
+<coverage generated="1647009756511" clover="3.2.0">
+  <project timestamp="1647009756512" name="All files">
+    <metrics statements="5326" coveredstatements="3825" conditionals="4015" coveredconditionals="2500" methods="1650" coveredmethods="942" elements="10991" coveredelements="7267" complexity="0" loc="5326" ncloc="5326" packages="212" files="737" classes="737"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -63,6 +63,9 @@
         <line num="35" count="4" type="stmt"/>
         <line num="47" count="24" type="stmt"/>
       </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\checkbox\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
     </package>
     <package name="src.accelerator.project.questions.description">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -80,6 +83,9 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\description\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.accelerator.project.questions.longAnswer">
@@ -100,6 +106,9 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="15" count="4" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\longAnswer\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.accelerator.project.questions.radiobox">
@@ -122,6 +131,9 @@
         <line num="16" count="4" type="stmt"/>
         <line num="22" count="12" type="stmt"/>
       </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\radiobox\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
     </package>
     <package name="src.accelerator.project.questions.section">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -142,6 +154,9 @@
         <line num="7" count="4" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
       </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\section\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
     </package>
     <package name="src.accelerator.project.questions.success">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -156,6 +171,9 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Projects\toolkit\src\accelerator\project\questions\success\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
     <package name="src.assets.icons.lg">
@@ -1445,7 +1463,7 @@
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\sm\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="14" type="stmt"/>
-        <line num="4" count="39" type="stmt"/>
+        <line num="4" count="38" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\sm\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5371,20 +5389,20 @@
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="84" coveredconditionals="65" methods="2" coveredmethods="2"/>
         <line num="7" count="85" type="stmt"/>
-        <line num="37" count="381" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="380" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="323" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="86" type="cond" truecount="2" falsecount="0"/>
         <line num="40" count="78" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="381" type="stmt"/>
-        <line num="70" count="381" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="381" type="stmt"/>
-        <line num="75" count="381" type="cond" truecount="5" falsecount="0"/>
+        <line num="42" count="380" type="stmt"/>
+        <line num="70" count="380" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="380" type="stmt"/>
+        <line num="75" count="380" type="cond" truecount="5" falsecount="0"/>
         <line num="77" count="237" type="stmt"/>
-        <line num="109" count="58" type="stmt"/>
+        <line num="109" count="57" type="stmt"/>
         <line num="134" count="8" type="stmt"/>
         <line num="166" count="6" type="stmt"/>
         <line num="190" count="72" type="stmt"/>
-        <line num="223" count="381" type="stmt"/>
+        <line num="223" count="380" type="stmt"/>
         <line num="227" count="85" type="stmt"/>
         <line num="253" count="85" type="stmt"/>
       </file>
@@ -5523,35 +5541,35 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="32" coveredstatements="23" conditionals="42" coveredconditionals="35" methods="8" coveredmethods="6"/>
         <line num="7" count="21" type="stmt"/>
-        <line num="36" count="60" type="stmt"/>
-        <line num="37" count="60" type="stmt"/>
-        <line num="38" count="60" type="stmt"/>
-        <line num="42" count="60" type="stmt"/>
-        <line num="43" count="60" type="stmt"/>
-        <line num="47" count="60" type="stmt"/>
-        <line num="50" count="60" type="stmt"/>
-        <line num="55" count="60" type="stmt"/>
+        <line num="36" count="59" type="stmt"/>
+        <line num="37" count="59" type="stmt"/>
+        <line num="38" count="59" type="stmt"/>
+        <line num="42" count="59" type="stmt"/>
+        <line num="43" count="59" type="stmt"/>
+        <line num="47" count="59" type="stmt"/>
+        <line num="50" count="59" type="stmt"/>
+        <line num="55" count="59" type="stmt"/>
         <line num="56" count="56" type="cond" truecount="4" falsecount="0"/>
         <line num="57" count="22" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="61" count="22" type="stmt"/>
         <line num="62" count="22" type="stmt"/>
-        <line num="67" count="60" type="stmt"/>
-        <line num="68" count="54" type="cond" truecount="4" falsecount="0"/>
-        <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="67" count="59" type="stmt"/>
+        <line num="68" count="53" type="cond" truecount="4" falsecount="0"/>
+        <line num="69" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="72" count="2" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="74" count="0" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="82" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="96" count="60" type="stmt"/>
+        <line num="96" count="59" type="stmt"/>
         <line num="153" count="21" type="stmt"/>
         <line num="183" count="21" type="stmt"/>
       </file>
@@ -6011,11 +6029,11 @@
         <line num="7" count="93" type="stmt"/>
         <line num="9" count="93" type="stmt"/>
         <line num="16" count="93" type="stmt"/>
-        <line num="25" count="532" type="stmt"/>
-        <line num="27" count="532" type="stmt"/>
-        <line num="28" count="532" type="stmt"/>
+        <line num="25" count="531" type="stmt"/>
+        <line num="27" count="531" type="stmt"/>
+        <line num="28" count="531" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="532" type="stmt"/>
+        <line num="33" count="531" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6618,12 +6636,12 @@
         <line num="38" count="59" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="53" count="59" type="stmt"/>
         <line num="55" count="59" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -6757,10 +6775,10 @@
         <line num="6" count="122" type="stmt"/>
         <line num="7" count="122" type="stmt"/>
         <line num="11" count="122" type="stmt"/>
-        <line num="13" count="72" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="73" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="42" type="stmt"/>
-        <line num="17" count="30" type="stmt"/>
-        <line num="19" count="30" type="stmt"/>
+        <line num="17" count="31" type="stmt"/>
+        <line num="19" count="31" type="stmt"/>
       </file>
       <file name="useIsFirstRender.js" path="C:\Projects\toolkit\src\hooks\useIsFirstRender.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -7070,7 +7088,7 @@
       </file>
     </package>
     <package name="src.unreleased.countdown">
-      <metrics statements="121" coveredstatements="110" conditionals="95" coveredconditionals="74" methods="12" coveredmethods="9"/>
+      <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="73" methods="12" coveredmethods="9"/>
       <file name="Countdown.stories.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.stories.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="28" count="1" type="stmt"/>
@@ -7103,7 +7121,7 @@
         <line num="155" count="1" type="stmt"/>
       </file>
       <file name="Countdown.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.tsx">
-        <metrics statements="93" coveredstatements="82" conditionals="95" coveredconditionals="74" methods="9" coveredmethods="8"/>
+        <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="73" methods="9" coveredmethods="8"/>
         <line num="9" count="5" type="stmt"/>
         <line num="18" count="58" type="stmt"/>
         <line num="19" count="58" type="stmt"/>
@@ -7141,14 +7159,14 @@
         <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="6" type="stmt"/>
-        <line num="77" count="6" type="stmt"/>
+        <line num="76" count="7" type="stmt"/>
+        <line num="77" count="7" type="stmt"/>
         <line num="79" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="80" count="6" type="stmt"/>
-        <line num="81" count="6" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="81" count="5" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="10" type="stmt"/>
-        <line num="85" count="10" type="stmt"/>
+        <line num="84" count="9" type="stmt"/>
+        <line num="85" count="9" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
@@ -7174,9 +7192,9 @@
         <line num="127" count="1" type="stmt"/>
         <line num="131" count="58" type="stmt"/>
         <line num="132" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="135" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="136" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="136" count="0" type="stmt"/>
         <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="143" count="0" type="stmt"/>
         <line num="145" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -7989,7 +8007,7 @@
       </file>
       <file name="isDefined.ts" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="126" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="124" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
