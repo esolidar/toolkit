@@ -7,7 +7,6 @@ import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
 import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
-// import Viewport from '../viewport';
 import CustomQuestionsSectionProps from '../../accelerator/project/questions/section/Section';
 import Success from '../../accelerator/project/questions/success/Success';
 import Checkbox from '../../accelerator/project/questions/checkbox/Checkbox';

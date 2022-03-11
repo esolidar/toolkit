@@ -35,10 +35,5 @@ export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   userName: user.firstName,
-  // description: multiChoice.description,
-  // options: multiChoice.options,
-  // privacy: multiChoice.privacy,
-  // question: multiChoice.question,
-  // required: multiChoice.required,
   id: 'description',
 };
