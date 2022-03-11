@@ -4,6 +4,7 @@ interface Options {
 }
 
 interface Props {
+  name: string;
   answersAllowed: 'unlimited' | 'exact' | 'range';
   description: string;
   options: Options[];
@@ -16,6 +17,7 @@ interface Props {
   id: number;
   control: any;
   handleChange(): void;
+  reply: number[];
 }
 
 export default Props;

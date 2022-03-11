@@ -11,10 +11,11 @@ const WizardOrdered = ({
   handleCloseWizard,
   pages,
   header,
-  validForm,
+  isPageValid,
   handlePublish,
   isSuccess = false,
   companyName,
+  isPublishDisabled,
 }: Props) => {
   const [blurPage, setBlurPage] = useState<boolean>(false);
   const [direction, setDirection] = useState<'up' | 'down'>(null);
@@ -59,7 +60,7 @@ const WizardOrdered = ({
           handleClickNext={goNext}
           pages={pages}
           disableClickNext={
-            activePage === pages.length || activePage === pages.length - 1 || !validForm
+            activePage === pages.length || activePage === pages.length - 1 || !isPageValid
           }
         />
       }
@@ -91,11 +92,12 @@ const WizardOrdered = ({
                   direction={direction}
                   handleGoNext={goNext}
                   handlePublish={handlePublish}
-                  isButtonDisabled={!validForm}
+                  isButtonDisabled={!isPageValid}
                   handleCloseWizard={handleCloseWizard}
                   companyName={companyName}
+                  isPublishDisabled={isPublishDisabled}
                 >
-                  {page.page}
+                  {page}
                 </Page>
               );
             }

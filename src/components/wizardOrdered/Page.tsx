@@ -32,6 +32,7 @@ interface Props {
   handlePublish(): void;
   handleCloseWizard(): void;
   isButtonDisabled: boolean;
+  isPublishDisabled: boolean;
   companyName: string;
 }
 
@@ -46,6 +47,7 @@ const Page = ({
   isLastPage,
   isLastQuestions,
   isButtonDisabled,
+  isPublishDisabled,
   handleCloseWizard,
   companyName,
 }: Props): JSX.Element => {
@@ -141,7 +143,7 @@ const Page = ({
                   extraClass="primary-full"
                   onClick={handlePublish}
                   text={intl.formatMessage({ id: 'publish' })}
-                  disabled={isButtonDisabled}
+                  disabled={isPublishDisabled}
                   dataTestId="click-publish"
                 />
               )}

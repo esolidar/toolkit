@@ -8,9 +8,10 @@ interface Props {
   handlePublish(): void;
   handleCloseWizard(): void;
   disableClickNext: boolean;
+  isPublishDisabled: boolean;
   header: JSX.Element;
   pages: any[];
-  validForm: boolean;
+  isPageValid: boolean;
   isSuccess?: boolean;
   companyName: string;
 }

@@ -8,8 +8,8 @@ interface Props {
   options: Options[];
   privacy: 'public' | 'private';
   question: string;
+  name: string;
   required?: boolean;
-  id: number;
   control: any;
   handleChange(): void;
 }
