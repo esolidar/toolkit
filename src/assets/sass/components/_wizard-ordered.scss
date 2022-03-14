@@ -12,6 +12,10 @@
     padding-right: $distance-4;
   }
 
+  .active-page {
+    scroll-behavior: smooth;
+  }
+
   .page {
     position: absolute;
     top: 0;
@@ -144,6 +148,19 @@
     margin-bottom: $distance-2;
     font-style: normal;
     font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    color: map-get($neutrals, 700);
+  }
+}
+
+.wizard-project-images {
+  &__helper {
+    display: flex;
+    margin-top: $distance-5;
+    margin-bottom: $distance-2;
+    font-style: normal;
+    font-weight: 400;
     font-size: 18px;
     line-height: 28px;
     color: map-get($neutrals, 700);

@@ -1,10 +1,21 @@
 .dropzone-box {
   max-width: 720px;
 
+  &.full-width {
+    max-width: 100% !important;
+  }
+
   .error-files,
   .has-error {
     text-align: left;
     color: map-get($theme-colors, danger);
+  }
+
+  &__images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $distance-3;
+    margin-top: $distance-2;
   }
 
   & .upload-file {
@@ -256,5 +267,59 @@
   .cropper-point.point-s,
   .cropper-point.point-e {
     opacity: 0 !important;
+  }
+}
+
+.drag-and-drop-component {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $distance-3;
+
+  &__drag {
+    opacity: 0.8;
+
+    &:hover {
+      cursor: grabbing;
+    }
+  }
+
+  .drag-and-drop-thumbs {
+    position: relative;
+
+    &__item {
+      cursor: grab;
+      border: none;
+      background: transparent;
+      padding: 0;
+      border-radius: $border-radius-1;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &__delete-button {
+      position: absolute;
+      right: $distance-1;
+      top: $distance-1;
+      border: none;
+      background-color: get-rgba(map-get($base, black), 65);
+      border-radius: 50%;
+      opacity: 0;
+      @include svg-change-color(map-get($base, white));
+      @include animate();
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    &:hover {
+      .drag-and-drop-thumbs__delete-button {
+        opacity: 1;
+      }
+    }
   }
 }

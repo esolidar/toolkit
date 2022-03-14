@@ -5,17 +5,18 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { Story, Meta } from '@storybook/react';
 import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
-import TextareaField from '../../elements/textareaField';
 import WizardHeader from '../wizard/header/WizardHeader';
 import Section from '../../accelerator/project/questions/section';
 import Success from '../../accelerator/project/questions/success';
 import Checkbox from '../../accelerator/project/questions/checkbox';
 import Radiobox from '../../accelerator/project/questions/radiobox';
 import Description from '../../accelerator/project/questions/description';
+import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
+import image from '../../../__mocks__/image';
 
 const questions = JSON.parse(projectConfig.data.form);
 
@@ -27,25 +28,6 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
     </FormProvider>
   );
 };
-
-const Page2 = () => (
-  <>
-    <h2>Other Description</h2>
-    <TextareaField
-      cssClass=""
-      defaultValue="Textarea"
-      field="Textarea_name"
-      help="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis."
-      id="textareaField-id"
-      label="Aliquam fringilla"
-      onChange={() => {}}
-      placeholder="Placeholder"
-      required
-      showOptionalLabel
-      size="lg"
-    />
-  </>
-);
 
 const Page3 = () => (
   <>
@@ -118,7 +100,6 @@ const radioboxes = questions.customQuestions.filter(i => i.type === 'multiChoice
 const longAnswer = questions.customQuestions.filter(i => i.type === 'longAnswer')[0];
 
 Open.args = {
-  // showWizard: true,
   header: (
     <WizardHeader
       disabledDarkButton={false}
@@ -141,7 +122,18 @@ Open.args = {
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
     <Section {...section} />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
-    <Page2 />,
+    <Images
+      imagesList={[
+        { ...image, id: 1 },
+        { ...image, id: 2 },
+        { ...image, id: 3 },
+      ]}
+      handleOrderImages={() => {}}
+      handleSelectImage={() => {}}
+      handleDeleteImage={() => {}}
+      imagesCount={3}
+      cropModalStatus={false}
+    />,
     <Page3 />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
