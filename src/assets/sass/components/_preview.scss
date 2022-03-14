@@ -5,8 +5,8 @@
     @include animate(outline, 100ms);
 
     img {
-      width: 216px;
-      height: 144px;
+      width: 237px !important;
+      height: 158px;
       outline: 1px solid change-color(map-get($base, black), $alpha: 0.08);
     }
 

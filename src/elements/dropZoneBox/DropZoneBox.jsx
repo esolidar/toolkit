@@ -14,6 +14,7 @@ import CustomModal from '../customModal';
 import Button from '../button';
 import Tooltip from '../tooltip';
 import lastElemOf from '../../utils/lastElemOf';
+import DragAndDrop from './dragAndDrop/DragAndDrop';
 
 const cropper = createRef(null);
 
@@ -51,6 +52,9 @@ const DropZoneBox = ({
   error,
   minWidth,
   minHeight,
+  fullWidth = false,
+  sortable,
+  handleOrderImages,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -74,25 +78,37 @@ const DropZoneBox = ({
   const convertToMb = size => `${(size / (1024 * 1024)).toFixed(0)} MB`;
 
   const ImagesPreview = () => (
-    <div className="d-flex">
-      {imagesList.map((file, idx) => (
-        <div key={file.id} className="mt-3 mb-2 mr-3">
-          {file.image.includes('http') ? (
-            <Preview
-              img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
-              handleDeleteImage={e => deleteImageGallery(e, idx)}
-            />
-          ) : (
-            <Preview
-              handleDeleteImage={e => deleteImageGallery(e, idx)}
-              img={{
-                src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
-                alt: 'thumb',
-              }}
-            />
-          )}
-        </div>
-      ))}
+    <div className="dropzone-box__images-list">
+      {sortable && (
+        <DragAndDrop
+          imagesList={imagesList}
+          env={env}
+          handleDeleteImage={deleteImageGallery}
+          handleOrderImages={handleOrderImages}
+        />
+      )}
+      {!sortable && (
+        <>
+          {imagesList.map((file, idx) => (
+            <div key={file.id}>
+              {file.image.includes('http') ? (
+                <Preview
+                  img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
+                  handleDeleteImage={e => deleteImageGallery(e, idx)}
+                />
+              ) : (
+                <Preview
+                  handleDeleteImage={e => deleteImageGallery(e, idx)}
+                  img={{
+                    src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
+                    alt: 'thumb',
+                  }}
+                />
+              )}
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 
@@ -269,7 +285,7 @@ const DropZoneBox = ({
   };
 
   return (
-    <div className="dropzone-box form-group">
+    <div className={classnames('dropzone-box form-group', { 'full-width': fullWidth })}>
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
@@ -470,6 +486,7 @@ const DropZoneBox = ({
   );
 };
 DropZoneBox.propTypes = {
+  fullWidth: PropTypes.bool,
   label: PropTypes.string,
   accept: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
@@ -510,6 +527,8 @@ DropZoneBox.propTypes = {
   error: PropTypes.string,
   minWidth: PropTypes.number,
   minHeight: PropTypes.number,
+  sortable: PropTypes.bool,
+  handleOrderImages: PropTypes.func,
 };
 
 DropZoneBox.defaultProps = {
@@ -531,5 +550,6 @@ DropZoneBox.defaultProps = {
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
+  sortable: false,
 };
 export default DropZoneBox;
