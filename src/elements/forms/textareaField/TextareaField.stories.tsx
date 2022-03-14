@@ -2,12 +2,12 @@ import { VFC, ReactNode } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { FormProvider, useForm } from 'react-hook-form';
-import RadioField from './TextareaField';
+import TextareaField from './TextareaField';
 import Props from './TextareaField.types';
 
 export default {
   title: 'Elements/Forms/TextareaField',
-  component: RadioField,
+  component: TextareaField,
   parameters: {
     jest: ['TextareaField.test.js'],
   },
@@ -25,7 +25,7 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
 const Template: Story<Props> = (args: Props) => {
   return (
     <StorybookFormProvider>
-      <RadioField {...args} />
+      <TextareaField {...args} />
     </StorybookFormProvider>
   );
 };
@@ -33,7 +33,7 @@ const Template: Story<Props> = (args: Props) => {
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  dataTestId: 'checkbox-form-field',
+  dataTestId: 'textarea-form-field',
   required: false,
   onChange: () => {},
 };

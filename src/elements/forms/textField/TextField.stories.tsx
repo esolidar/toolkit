@@ -2,14 +2,14 @@ import { VFC, ReactNode } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { FormProvider, useForm } from 'react-hook-form';
-import RadioField from './RadioField';
-import Props from './RadioField.types';
+import TextField from './TextField';
+import Props from './TextField.types';
 
 export default {
-  title: 'Elements/Forms/RadioField',
-  component: RadioField,
+  title: 'Elements/Forms/TextField',
+  component: TextField,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['TextField.test.js'],
   },
 } as Meta;
 
@@ -25,7 +25,7 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
 const Template: Story<Props> = (args: Props) => {
   return (
     <StorybookFormProvider>
-      <RadioField {...args} />
+      <TextField {...args} />
     </StorybookFormProvider>
   );
 };
@@ -33,16 +33,7 @@ const Template: Story<Props> = (args: Props) => {
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  radioboxFieldProps: {
-    label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    error: 'This field is required',
-    name: 'RadioboxField_name',
-    value: 'RadioboxField_value',
-    checked: false,
-    disabled: false,
-    dataTestId: 'radiobox-field',
-  },
-  dataTestId: 'radio-form-field',
+  dataTestId: 'text-form-field',
   required: false,
   onChange: () => {},
 };
