@@ -7,7 +7,7 @@ export default {
   title: 'Accelerator/Project/Questions/Images',
   component: Images,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['Images.test.js'],
   },
 } as Meta;
 
