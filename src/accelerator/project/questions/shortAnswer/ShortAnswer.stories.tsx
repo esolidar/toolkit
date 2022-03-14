@@ -13,7 +13,7 @@ export default {
   title: 'Accelerator/Project/Questions/ShortAnswer',
   component: ShortAnswer,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['ShortAnswer.test.js'],
   },
 } as Meta;
 

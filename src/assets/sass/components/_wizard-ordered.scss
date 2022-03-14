@@ -130,6 +130,12 @@
     line-height: 26px;
     color: map-get($neutrals, 700);
     margin: 0;
+
+    &.small {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: $distance-2;
+    }
   }
 }
 

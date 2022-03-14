@@ -13,7 +13,7 @@ export default {
   title: 'Accelerator/Project/Questions/LongAnswer',
   component: LongAnswer,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['LongAnswer.test.js'],
   },
 } as Meta;
 
