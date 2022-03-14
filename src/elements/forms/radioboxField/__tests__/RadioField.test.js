@@ -6,7 +6,7 @@ import Meta, { Default as DefaultStory } from '../RadioField.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 
-it('renders CheckboxField default component', () => {
+it('renders RadioboxField default component', () => {
   const { getByClass, getAllByClass } = render(<Default />);
 
   expect(getByClass(/radio-inline/)).toBeTruthy();
