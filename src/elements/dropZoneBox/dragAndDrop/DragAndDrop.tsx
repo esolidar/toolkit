@@ -19,7 +19,7 @@ import Preview from '../../../components/preview';
 
 interface Props {
   imagesList: any[];
-  env: any;
+  env: string;
   handleDeleteImage(): void;
   handleOrderImages(array: any): void;
 }
@@ -79,7 +79,7 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
               <div className="drag-and-drop-component__drag">
                 <Preview
                   img={{
-                    src: `${env.serverlessResizeImage}/${
+                    src: `${env}/${
                       items[items.findIndex(image => image.id === activeId)].image
                     }?width=216px&height=144px`,
                     alt: 'thumb',

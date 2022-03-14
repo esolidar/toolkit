@@ -3,6 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Viewport from '../../../../components/viewport';
 import Props from './Images.types';
 import DropZoneBox from '../../../../elements/dropZoneBox';
+import getEnvVar from '../../../../utils/getEnvVar';
 
 const maxImages = 12;
 
@@ -15,6 +16,8 @@ const Images = ({
   handleOrderImages,
 }: Props) => {
   const intl = useIntl();
+
+  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
@@ -59,9 +62,7 @@ const Images = ({
             minHeight: 470,
           }}
           imagesList={imagesList}
-          env={{
-            serverlessResizeImage: 'https://image.testesolidar.com',
-          }}
+          env={serverlessResizeImage}
           deleteImageGallery={handleDeleteImage}
           cropModalStatus={cropModalStatus}
           titleCropModal={intl.formatMessage({ id: 'auction.add.image' })}

@@ -12,7 +12,7 @@ interface Image {
 interface Props {
   value: Image;
   id: any;
-  env: any;
+  env: string;
   handleDeleteImage(id: number): void;
   index: number;
 }
@@ -43,7 +43,7 @@ const SortableItem = ({ value, id, env, handleDeleteImage, index }: Props) => {
             <Preview
               badgeText={index === 0 ? intl.formatMessage({ id: 'toolkit.cover' }) : null}
               img={{
-                src: `${env.serverlessResizeImage}/${value.image}?width=216px&height=144px`,
+                src: `${env}/${value.image}?width=216px&height=144px`,
                 alt: 'thumb',
               }}
             />
