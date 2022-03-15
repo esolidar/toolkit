@@ -13,10 +13,14 @@ import Radiobox from '../../accelerator/project/questions/radiobox';
 import Description from '../../accelerator/project/questions/description';
 import Video from '../../accelerator/project/questions/video';
 import ShortAnswer from '../../accelerator/project/questions/shortAnswer';
+import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
+import Categories from '../../accelerator/project/questions/categories';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
+import image from '../../../__mocks__/image';
+import projectCategories from '../../../__mocks__/projectCategories';
 
 const questions = JSON.parse(projectConfig.data.form);
 
@@ -28,20 +32,6 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
     </FormProvider>
   );
 };
-
-const Page3 = () => (
-  <>
-    <h2>Page 3</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tincidunt libero. Aenean
-      justo purus, venenatis tristique metus a, luctus pharetra ligula. Nullam accumsan felis nisl.
-      Integer vitae viverra lorem, egestas vehicula libero. Pellentesque viverra pellentesque tellus
-      ac mattis. Quisque laoreet vulputate erat gravida lacinia. Nunc sed hendrerit ipsum, commodo
-      rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
-      turpis.
-    </p>
-  </>
-);
 
 export default {
   title: 'Components/WizardOrdered',
@@ -95,7 +85,6 @@ const shortAnswer = questions.customQuestions.filter(({ type }) => type === 'sho
 const longAnswer = questions.customQuestions.filter(({ type }) => type === 'longAnswer')[0];
 
 Open.args = {
-  // showWizard: true,
   header: (
     <WizardHeader
       disabledDarkButton={false}
@@ -114,8 +103,29 @@ Open.args = {
   ),
   pages: [
     <Description userName={user.firstName} name="description" reply="" required />,
-    <Video name="video" reply="https://youtu.be/iik25wqIuFo" required={false} />,
-    <Page3 />,
+    <Video
+      name="video"
+      reply="https://youtu.be/iik25wqIuFo"
+      required={false}
+      onDeletePreview={() => {}}
+    />,
+    <Images
+      imagesList={[
+        { ...image, id: 1 },
+        { ...image, id: 2 },
+        { ...image, id: 3 },
+      ]}
+      handleOrderImages={() => {}}
+      handleSelectImage={() => {}}
+      handleDeleteImage={() => {}}
+      imagesCount={3}
+      cropModalStatus={false}
+    />,
+    <Categories
+      categoriesList={projectCategories.data}
+      selectedCategories={[]}
+      handleChangeCategories={() => {}}
+    />,
     <Section {...section} />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,

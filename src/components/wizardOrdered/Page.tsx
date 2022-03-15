@@ -101,7 +101,7 @@ const Page = ({
       )}
       style={{ zIndex: 100 - page }}
     >
-      <div className="page-content">
+      <div className={classnames('page-content', { 'active-page': page === activePage })}>
         <Viewport size="xl">
           <>
             <div>
