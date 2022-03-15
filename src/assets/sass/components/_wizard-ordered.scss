@@ -178,3 +178,42 @@
     }
   }
 }
+
+.page-content-categories {
+  .content-step-page {
+    p {
+      margin-bottom: 40px;
+    }
+  }
+  .empty-state {
+    .body-regular {
+      font-size: 16px;
+    }
+  }
+
+  &__list {
+    margin-top: $distance-2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $distance-2;
+  }
+
+  &__list-button {
+    display: flex;
+    align-items: center;
+    gap: $distance-2;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+
+    color: map-get($neutrals, 700);
+  }
+}
+
+.categories-modal-body {
+  padding-top: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $distance-2;
+}
