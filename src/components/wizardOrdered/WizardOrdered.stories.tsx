@@ -105,7 +105,7 @@ Open.args = {
     <Description userName={user.firstName} name="description" reply="" required />,
     <Video
       name="video"
-      reply="https://youtu.be/iik25wqIuFo"
+      reply="https://youtu.be/f7x5IeWi0v8"
       required={false}
       onDeletePreview={() => {}}
     />,
