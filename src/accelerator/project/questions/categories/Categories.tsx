@@ -6,16 +6,11 @@ import EmptyState from '../../../../components/emptyState';
 import Button from '../../../../elements/button';
 import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectCategoriesModal';
+import getEnvVar from '../../../../utils/getEnvVar';
 
 const Categories = ({ categoriesList, selectedCategories, handleChangeCategories }: Props) => {
   const intl = useIntl();
-  const [categories, setCategories] = useState<any>(selectedCategories);
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
-
-  const handleSelectCategories = ids => {
-    setCategories(ids);
-    handleChangeCategories(ids);
-  };
 
   return (
     <div className="page-content-categories">
@@ -31,7 +26,7 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
       </Viewport>
       <Viewport size="xl" centred={false}>
         <>
-          {categories.length === 0 ? (
+          {selectedCategories.length === 0 ? (
             <EmptyState
               altImage="Image"
               body={intl.formatMessage({
@@ -69,19 +64,19 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
                 />
                 <FormattedMessage
                   id="toolkit.x.categories.selected"
-                  values={{ value: categories.length }}
+                  values={{ value: selectedCategories.length }}
                 />
               </div>
               <div className="page-content-categories__list">
                 {categoriesList
-                  .filter(cat => categories.includes(cat.id))
+                  .filter(cat => selectedCategories.includes(cat.id))
                   .map(category => (
                     <CheckboxCard
                       name={`category-${category.id}`}
                       id={`selected-${category.id}`}
                       defaultImg={
                         category.image
-                          ? `${process.env.PUBLIC_CDN_UPLOADS_URL}/${category.image}`
+                          ? `${getEnvVar('CDN_UPLOADS_URL')}/${category.image}`
                           : 'noImage'
                       }
                       key={category.id}
@@ -100,10 +95,10 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
       {showCategoriesModal && (
         <SelectCategoriesModal
           categoriesList={categoriesList}
-          selectedCategories={categories}
+          selectedCategories={selectedCategories}
           onClose={() => setShowCategoriesModal(false)}
           isOpen={showCategoriesModal}
-          handleSelectCategories={handleSelectCategories}
+          handleSelectCategories={handleChangeCategories}
         />
       )}
     </div>

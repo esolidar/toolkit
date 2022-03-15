@@ -1,4 +1,4 @@
-import { VFC, ReactNode } from 'react';
+import { VFC, ReactNode, useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -23,25 +23,54 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
   );
 };
 
-const Template: Story<Props> = (args: Props) => (
-  <StorybookFormProvider>
-    <div className="content-step-page">
-      <Categories {...args} />
-    </div>
-  </StorybookFormProvider>
-);
+const TemplateEmpty: Story<Props> = (args: Props) => {
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
 
-export const Default: Story<Props> = Template.bind({});
+  const handleChangeCategories = ids => {
+    setSelectedCategories(ids);
+  };
+
+  return (
+    <StorybookFormProvider>
+      <div className="content-step-page">
+        <Categories
+          {...args}
+          handleChangeCategories={handleChangeCategories}
+          selectedCategories={selectedCategories}
+        />
+      </div>
+    </StorybookFormProvider>
+  );
+};
+
+const Template: Story<Props> = (args: Props) => {
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([275, 306, 307]);
+
+  const handleChangeCategories = ids => {
+    setSelectedCategories(ids);
+  };
+
+  return (
+    <StorybookFormProvider>
+      <div className="content-step-page">
+        <Categories
+          {...args}
+          handleChangeCategories={handleChangeCategories}
+          selectedCategories={selectedCategories}
+        />
+      </div>
+    </StorybookFormProvider>
+  );
+};
+
+export const Default: Story<Props> = TemplateEmpty.bind({});
 export const WithSelectedCategories: Story<Props> = Template.bind({});
 
 Default.args = {
   categoriesList: projectCategories.data,
   selectedCategories: [],
-  handleChangeCategories: () => {},
 };
 
 WithSelectedCategories.args = {
   categoriesList: projectCategories.data,
-  selectedCategories: [275, 306, 307],
-  handleChangeCategories: () => {},
 };

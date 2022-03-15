@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import Button from '../../../../elements/button';
 import CustomModal from '../../../../elements/customModal';
 import CheckboxCard from '../../../../elements/checkboxCard';
 import ProjectCategory from '../../../../interfaces/project/projectCategory';
+import getEnvVar from '../../../../utils/getEnvVar';
 
 interface Props {
   categoriesList: ProjectCategory[];
@@ -23,7 +24,7 @@ const SelectCategoriesModal = ({
   const intl = useIntl();
   const [selectedCategoriesList, setSelectedCategoriesList] =
     useState<number[]>(selectedCategories);
-  const noImage = `${process.env.PUBLIC_CDN_STATIC_URL}/frontend/assets/no-image.png`;
+  const noImage = `${getEnvVar('CDN_UPLOADS_URL')}/frontend/assets/no-image.png`;
 
   const handleSelectCategory = (checked, id) => {
     const categories = [...selectedCategoriesList];
@@ -35,10 +36,10 @@ const SelectCategoriesModal = ({
     setSelectedCategoriesList(categories);
   };
 
-  const handleAddCategories = () => {
+  const handleAddCategories = useCallback(() => {
     handleSelectCategories(selectedCategoriesList);
     onClose();
-  };
+  }, [selectedCategoriesList]);
 
   return (
     <CustomModal
@@ -66,7 +67,7 @@ const SelectCategoriesModal = ({
               name={`category-${category.id}`}
               id={`category-${category.id}`}
               defaultImg={
-                category.image ? `${process.env.PUBLIC_CDN_UPLOADS_URL}/${category.image}` : noImage
+                category.image ? `${getEnvVar('CDN_UPLOADS_URL')}/${category.image}` : noImage
               }
               onChange={e => handleSelectCategory(e, category.id)}
               key={category.id}
