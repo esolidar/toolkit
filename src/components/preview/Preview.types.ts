@@ -8,11 +8,14 @@ interface Image {
 
 interface Props {
   className?: string;
-  img: Image;
+  img?: Image;
   handleDeleteImage?(): void;
   fullScreen?: boolean;
   hover?: boolean;
   badgeText?: string;
+  type?: 'image' | 'video';
+  videoUrl?: string;
+  onErrorVideo?(): void;
 }
 
 export default Props;

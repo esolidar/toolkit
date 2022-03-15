@@ -21,4 +21,5 @@ it('renders Video component', () => {
   ).toBeInTheDocument();
   expect(getByText(/Enter the link for a Youtube or Vimeo video/)).toBeInTheDocument();
   expect(getByClass('form-group')).toBeTruthy();
+  expect(getByClass('esolidar-preview__video')).toBeTruthy();
 });

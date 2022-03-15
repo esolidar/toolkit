@@ -1670,10 +1670,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.258.0":
-  version "0.258.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.258.0/ea0f7cfbd810a3687d0f83dbbfb6fc4f13747ddd2c6571aa55af29dc5d39578d#4f356d305577857398332ef88a0107c8249a9806"
-  integrity sha512-wsmqYhA4LhrRXACn8eGY6aVO5xAUV05Xcxncte8XJ2GfuZiboLIZuVEGJPyKt9nIjzJoi5fKEv+5DFDL5WRBrA==
+"@esolidar/i18n@^0.262.0":
+  version "0.262.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.262.0/0967e374906ceac85f858f7800309730b40a1f5da1697edfe12d1799463fe943#38d32b02d17bcf9822ed28fb6213452cdee7adad"
+  integrity sha512-MYaLpkQvtJow+hTZB05yrVZEGJYMSBF/awNFxteJjasdxsXRYTFZc2JlzwkkTmiD5SG4rmL9NLMj7F13H0UYzw==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -14286,6 +14286,11 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-loading-skeleton@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.0.3.tgz#4f45467cf3193fb25456bc02aeb81922b82b8f1f"
+  integrity sha512-HPkEqQGwmbg1ImcYA9n4hDiLC3u92xUdU+sSfrv/9l3lNBChAubcl1azjV2WakapdkbA3gko+hPzZkZGIb/9xA==
 
 react-modal@^3.1.7:
   version "3.13.1"

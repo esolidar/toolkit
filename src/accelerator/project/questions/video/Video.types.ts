@@ -4,6 +4,7 @@ interface Props {
   required: boolean;
   id?: string;
   control?: any;
+  onDeletePreview(): void;
 }
 
 export default Props;

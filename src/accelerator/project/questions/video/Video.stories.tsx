@@ -1,4 +1,4 @@
-import { VFC, ReactNode } from 'react';
+import { VFC, ReactNode, useState, useEffect } from 'react';
 import { action } from '@storybook/addon-actions';
 import { Story, Meta } from '@storybook/react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -22,19 +22,27 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
   );
 };
 
-const Template: Story<Props> = (args: Props) => (
-  <StorybookFormProvider>
-    <div className="content-step-page">
-      <Video {...args} />
-    </div>
-  </StorybookFormProvider>
-);
+const Template: Story<Props> = (args: Props) => {
+  const [reply, setReply] = useState('');
+
+  useEffect(() => {
+    setReply(args.reply);
+  }, [args.reply]);
+
+  return (
+    <StorybookFormProvider>
+      <div className="content-step-page">
+        <Video {...args} reply={reply} onDeletePreview={() => setReply('')} />
+      </div>
+    </StorybookFormProvider>
+  );
+};
 
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   id: 'video',
   required: false,
-  reply: 'https://youtu.be/iik25wqIuFo',
+  reply: 'https://youtu.be/f7x5IeWi0v8',
   name: 'video',
 };
