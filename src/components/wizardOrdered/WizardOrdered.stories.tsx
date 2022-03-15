@@ -13,10 +13,12 @@ import Radiobox from '../../accelerator/project/questions/radiobox';
 import Description from '../../accelerator/project/questions/description';
 import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
+import Categories from '../../accelerator/project/questions/categories';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
 import image from '../../../__mocks__/image';
+import projectCategories from '../../../__mocks__/projectCategories';
 
 const questions = JSON.parse(projectConfig.data.form);
 
@@ -28,20 +30,6 @@ const StorybookFormProvider: VFC<{ children: ReactNode }> = ({ children }: any) 
     </FormProvider>
   );
 };
-
-const Page3 = () => (
-  <>
-    <h2>Page 3</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tincidunt libero. Aenean
-      justo purus, venenatis tristique metus a, luctus pharetra ligula. Nullam accumsan felis nisl.
-      Integer vitae viverra lorem, egestas vehicula libero. Pellentesque viverra pellentesque tellus
-      ac mattis. Quisque laoreet vulputate erat gravida lacinia. Nunc sed hendrerit ipsum, commodo
-      rutrum quam. Morbi velit augue, maximus in ipsum eu, aliquet aliquam lacus. Sed a libero
-      turpis.
-    </p>
-  </>
-);
 
 export default {
   title: 'Components/WizardOrdered',
@@ -118,10 +106,6 @@ Open.args = {
   ),
   pages: [
     <Description userName={user.firstName} name="description" reply="" required />,
-    <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
-    <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
-    <Section {...section} />,
-    <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
     <Images
       imagesList={[
         { ...image, id: 1 },
@@ -134,7 +118,15 @@ Open.args = {
       imagesCount={3}
       cropModalStatus={false}
     />,
-    <Page3 />,
+    <Categories
+      categoriesList={projectCategories.data}
+      selectedCategories={[]}
+      handleChangeCategories={() => {}}
+    />,
+    <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
+    <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
+    <Section {...section} />,
+    <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
   isPageValid: true,
