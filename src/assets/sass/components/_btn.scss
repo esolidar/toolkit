@@ -13,7 +13,7 @@
   }
 
   &.setVisible {
-    @include animate(opacity, 800ms, 300ms);
+    @include animate(opacity, 800ms, 0);
     opacity: 1;
   }
 }

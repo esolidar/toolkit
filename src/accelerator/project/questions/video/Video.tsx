@@ -1,39 +1,46 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './Video.types';
 import Viewport from '../../../../components/viewport';
 import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
-
-// TODO: remove onBlur, validate url with debounce
-// TODO: after validation of the url, skeleton can appear
-// TODO: input should have a loading icon
+import useDebounce from '../../../../hooks/useDebounce';
 
 const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): JSX.Element => {
   const intl = useIntl();
-  const canDisplayVideoPreview = useRef(false);
-  const [videoUrl, setVideoUrl] = useState(reply);
+  const debouncedReply = useDebounce(reply, 500);
+
+  const [isValidatingVideo, setIsValidatingVideo] = useState(false);
+  const [isVideoValid, setIsVideoValid] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (videoUrl === '' && !!reply && !canDisplayVideoPreview.current) {
-      canDisplayVideoPreview.current = true;
-      setVideoUrl(reply);
+    if (reply === '') {
+      if (error !== null) setError(null);
+      if (isValidatingVideo) setIsValidatingVideo(false);
+      if (isVideoValid) setIsVideoValid(false);
     }
   }, [reply]);
 
-  const handleBlurInput = ({ target: { value } }) => {
-    setVideoUrl(value);
-    setError(null);
-  };
+  useEffect(() => {
+    if (reply !== '') {
+      if (error !== null) setError(null);
+      if (debouncedReply !== '' && !isValidatingVideo) setIsValidatingVideo(true);
+    }
+  }, [debouncedReply]);
 
-  const handleDeleteImage = () => {
+  const handleOnDeleteImage = () => {
     onDeletePreview();
-    setVideoUrl('');
+    if (error !== null) setError(null);
+    if (isValidatingVideo) setIsValidatingVideo(false);
+    if (isVideoValid) setIsVideoValid(false);
   };
 
-  const handleErrorVideo = () => {
-    setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));
+  const handleOnFinishVideoValidation = (isValid: boolean) => {
+    setIsValidatingVideo(false);
+    setIsVideoValid(isValid);
+    if (!isValid && reply !== '')
+      setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));
   };
 
   return (
@@ -59,17 +66,16 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
             size: 'lg',
             placeholder: 'https://www.youtube.com/watch?v=myvideo',
             error,
+            isLoading: isValidatingVideo,
           }}
-          onBlur={handleBlurInput}
         />
-        {videoUrl !== '' && canDisplayVideoPreview.current && (
-          <Preview
-            type="video"
-            videoUrl={videoUrl}
-            handleDeleteImage={handleDeleteImage}
-            onErrorVideo={handleErrorVideo}
-          />
-        )}
+        <Preview
+          type="video"
+          videoUrl={debouncedReply}
+          handleDeleteImage={handleOnDeleteImage}
+          onFinishVideoValidation={handleOnFinishVideoValidation}
+          isVisible={reply !== '' && isVideoValid && !isValidatingVideo}
+        />
       </div>
     </Viewport>
   );

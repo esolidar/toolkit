@@ -15,7 +15,8 @@ interface Props {
   badgeText?: string;
   type?: 'image' | 'video';
   videoUrl?: string;
-  onErrorVideo?(): void;
+  onFinishVideoValidation?(isValid: boolean): void;
+  isVisible?: boolean;
 }
 
 export default Props;

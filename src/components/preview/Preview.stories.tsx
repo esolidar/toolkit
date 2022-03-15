@@ -71,8 +71,8 @@ VideoYoutube.args = {
   handleDeleteImage: () => {
     alert('Deleted video');
   },
-  onErrorVideo: () => {
-    alert('Error loading video');
+  onFinishVideoValidation: isValid => {
+    if (!isValid) alert('Error loading video');
   },
 };
 
@@ -83,7 +83,7 @@ VideoVimeo.args = {
   handleDeleteImage: () => {
     alert('Deleted video');
   },
-  onErrorVideo: () => {
-    alert('Error loading video');
+  onFinishVideoValidation: isValid => {
+    if (!isValid) alert('Error loading video');
   },
 };

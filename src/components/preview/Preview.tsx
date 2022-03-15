@@ -42,10 +42,12 @@ const Preview: FC<Props> = ({
   hover = true,
   type = 'image',
   videoUrl,
-  onErrorVideo,
+  onFinishVideoValidation,
+  isVisible = true,
 }: Props): JSX.Element => {
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
+  const [showVideoSkeleton, setShowVideoSkeleton] = useState<boolean>(false);
   const [videoDetails, setVideoDetails] = useState<VideoDetails>({
     title: undefined,
     provider_name: undefined,
@@ -54,13 +56,19 @@ const Preview: FC<Props> = ({
     hasError: false,
   });
 
-  const classes = classNames('esolidar-preview', className, {
-    'hover-image': (type === 'image' && hover) || (type === 'video' && !videoDetails.isLoading),
-  });
-
   useEffect(() => {
     setShowPlaceholder(!img || !img?.src);
   }, [img]);
+
+  useEffect(() => {
+    if (isVisible && !showVideoSkeleton) {
+      setShowVideoSkeleton(true);
+      setTimeout(() => {
+        setShowVideoSkeleton(false);
+      }, 800);
+    }
+    if (!isVisible && showVideoSkeleton) setShowVideoSkeleton(false);
+  }, [isVisible]);
 
   useEffect(() => {
     if (!isDefined(videoUrl)) return;
@@ -69,6 +77,7 @@ const Preview: FC<Props> = ({
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)
         .then(response => response.json())
         .then(({ title, thumbnail_url }) => {
+          if (onFinishVideoValidation) onFinishVideoValidation(true);
           setVideoDetails({
             title,
             provider_name: 'youtube',
@@ -81,6 +90,7 @@ const Preview: FC<Props> = ({
           fetch(`https://vimeo.com/api/oembed.json?url=${url}`)
             .then(response => response.json())
             .then(({ title, thumbnail_url }) => {
+              if (onFinishVideoValidation) onFinishVideoValidation(true);
               setVideoDetails({
                 title,
                 provider_name: 'vimeo',
@@ -90,7 +100,7 @@ const Preview: FC<Props> = ({
               });
             })
             .catch(() => {
-              if (onErrorVideo) onErrorVideo();
+              if (onFinishVideoValidation) onFinishVideoValidation(false);
               setVideoDetails({
                 ...videoDetails,
                 isLoading: false,
@@ -118,6 +128,14 @@ const Preview: FC<Props> = ({
     target.src = urlNoImage;
     setShowPlaceholder(true);
   };
+
+  const isVideoLoading = videoDetails.isLoading || showVideoSkeleton;
+
+  const classes = classNames('esolidar-preview', className, {
+    'hover-image': (type === 'image' && hover) || (type === 'video' && !isVideoLoading),
+  });
+
+  if (!isVisible) return <></>;
 
   if (type === 'image')
     return (
@@ -194,7 +212,7 @@ const Preview: FC<Props> = ({
       <>
         <div className={classes}>
           <div className="esolidar-preview__video">
-            {!videoDetails?.isLoading ? (
+            {!isVideoLoading ? (
               <div
                 className="esolidar-preview__video--thumbnail"
                 style={{
@@ -220,7 +238,7 @@ const Preview: FC<Props> = ({
 
             <div className="esolidar-preview__video--description">
               <div className="esolidar-preview__video--description-provider">
-                {!videoDetails?.isLoading ? (
+                {!isVideoLoading ? (
                   `${videoDetails.provider_name}.COM`
                 ) : (
                   <Skeleton width="30%" containerTestId="skeleton-provider" />
@@ -230,7 +248,7 @@ const Preview: FC<Props> = ({
                 className="esolidar-preview__video--description-title"
                 title={videoDetails?.title}
               >
-                {!videoDetails?.isLoading ? (
+                {!isVideoLoading ? (
                   videoDetails.title
                 ) : (
                   <Skeleton width="90%" containerTestId="skeleton-title" />
