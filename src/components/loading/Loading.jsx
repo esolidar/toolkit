@@ -22,7 +22,7 @@ Loading.propTypes = {
   loadingClass: PropTypes.string,
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   curtain: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['xxs', 'xs', 'sm', 'md', 'lg', 'xl']),
   white: PropTypes.bool,
 };
 
