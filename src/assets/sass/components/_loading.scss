@@ -53,6 +53,14 @@
     flex-direction: column;
   }
 
+  &.loader-xxs {
+    .loader {
+      width: 14px;
+      height: 14px;
+      border-width: 3px;
+    }
+  }
+
   &.loader-xs {
     .loader {
       margin: $distance-3 0;

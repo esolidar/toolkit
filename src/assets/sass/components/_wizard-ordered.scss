@@ -134,10 +134,17 @@
     line-height: 26px;
     color: map-get($neutrals, 700);
     margin: 0;
+
+    &.small {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: $distance-2;
+    }
   }
 }
 
-.page-content-checkbox {
+.page-content-checkbox,
+.page-content-video {
   p {
     margin-bottom: $distance-5;
   }
@@ -151,6 +158,12 @@
     font-size: 18px;
     line-height: 28px;
     color: map-get($neutrals, 700);
+  }
+}
+
+.page-content-video {
+  .form-group {
+    margin-bottom: $distance-2;
   }
 }
 

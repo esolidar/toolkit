@@ -21,6 +21,7 @@ export const Default = Template.bind({});
 export const WithError = Template.bind({});
 export const WithHelper = Template.bind({});
 export const WithIcons = Template.bind({});
+export const WithLoading = Template.bind({});
 
 Default.args = {
   type: 'text',
@@ -62,4 +63,13 @@ WithIcons.args = {
   field: 'forCompanies',
   leftIcon: { name: 'Search', show: true },
   rightIcon: { name: 'DeleteCircle', onClick: () => alert('right-button'), show: true },
+};
+
+WithLoading.args = {
+  type: 'text',
+  onChange: () => {},
+  error: '',
+  placeholder: 'placeholder',
+  field: 'forCompanies',
+  isLoading: true,
 };
