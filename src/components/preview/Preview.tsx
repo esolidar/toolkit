@@ -3,6 +3,7 @@ import React, { FC, SyntheticEvent, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Lightbox from 'react-image-lightbox';
 import Skeleton from 'react-loading-skeleton';
+import fetch from 'cross-fetch';
 import Props from './Preview.types';
 import Icon from '../../elements/icon';
 import Badge from '../../elements/badge';

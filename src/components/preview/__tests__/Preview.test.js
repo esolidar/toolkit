@@ -90,8 +90,10 @@ it('renders Preview video vimeo', async () => {
 
     await waitFor(() => {
       expect(getByClass('esolidar-preview__video--thumbnail')).toBeInTheDocument();
-      expect(getByText('youtube.COM')).toBeInTheDocument();
-      expect(getByText('Como fazer um Programa de Aceleração com a esolidar?')).toBeInTheDocument();
+      expect(getByText('vimeo.COM')).toBeInTheDocument();
+      expect(
+        getByText('Leilão de Convívio com Ruy de Carvalho + livro apoia o Grupo Lobo')
+      ).toBeInTheDocument();
       expect(getByClass('esolidar-preview__delete')).toBeInTheDocument();
 
       expect(queryByTestId('skeleton-thumbnail')).not.toBeInTheDocument();
