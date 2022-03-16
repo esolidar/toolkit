@@ -1,3 +1,23 @@
+.small-loading {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  height: 100%;
+
+  & .loader {
+    margin: unset !important;
+  }
+
+  &.setVisible {
+    @include animate(opacity, 800ms, 0);
+    opacity: 1;
+  }
+}
+
 a.btn-esolidar {
   width: fit-content;
 }
@@ -32,26 +52,6 @@ a.btn-esolidar {
       & > span {
         opacity: 0;
       }
-    }
-  }
-
-  .small-loading {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    height: 100%;
-
-    & .loader {
-      margin: unset !important;
-    }
-
-    &.setVisible {
-      @include animate(opacity, 800ms, 300ms);
-      opacity: 1;
     }
   }
 

@@ -11,6 +11,8 @@ import Success from '../../accelerator/project/questions/success';
 import Checkbox from '../../accelerator/project/questions/checkbox';
 import Radiobox from '../../accelerator/project/questions/radiobox';
 import Description from '../../accelerator/project/questions/description';
+import Video from '../../accelerator/project/questions/video';
+import ShortAnswer from '../../accelerator/project/questions/shortAnswer';
 import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
 import Categories from '../../accelerator/project/questions/categories';
@@ -46,15 +48,9 @@ const Template: Story<Props> = (args: Props) => {
   const [showWizard, setShowWizard] = useState<boolean>(true);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
-  const ChangePage = page => {
-    setActivePage(page);
-  };
-  const handleCloseWizard = () => {
-    setShowWizard(false);
-  };
-  const handlePublish = () => {
-    setIsSuccess(true);
-  };
+  const ChangePage = page => setActivePage(page);
+  const handleCloseWizard = () => setShowWizard(false);
+  const handlePublish = () => setIsSuccess(true);
 
   return (
     <StorybookFormProvider>
@@ -84,10 +80,11 @@ const Template: Story<Props> = (args: Props) => {
 
 export const Open: Story<Props> = Template.bind({});
 
-const section = questions.customQuestions.filter(i => i.type === 'section')[0].form;
-const checkboxes = questions.customQuestions.filter(i => i.type === 'checkboxes')[0];
-const radioboxes = questions.customQuestions.filter(i => i.type === 'multiChoice')[0];
-const longAnswer = questions.customQuestions.filter(i => i.type === 'longAnswer')[0];
+const section = questions.customQuestions.filter(({ type }) => type === 'section')[0].form;
+const checkboxes = questions.customQuestions.filter(({ type }) => type === 'checkboxes')[0];
+const radioboxes = questions.customQuestions.filter(({ type }) => type === 'multiChoice')[0];
+const shortAnswer = questions.customQuestions.filter(({ type }) => type === 'shortAnswer')[0];
+const longAnswer = questions.customQuestions.filter(({ type }) => type === 'longAnswer')[0];
 
 Open.args = {
   header: (
@@ -108,6 +105,12 @@ Open.args = {
   ),
   pages: [
     <Description userName={user.firstName} name="description" reply="" required />,
+    <Video
+      name="video"
+      reply="https://youtu.be/f7x5IeWi0v8"
+      required={false}
+      onDeletePreview={() => {}}
+    />,
     <Images
       imagesList={[
         {
@@ -148,9 +151,10 @@ Open.args = {
       handleSelectSdgs={() => {}}
       preferredList={[2, 3]}
     />,
+    <Section {...section} />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
-    <Section {...section} />,
+    <ShortAnswer {...shortAnswer.form} type={shortAnswer.type} reply="teste" />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],

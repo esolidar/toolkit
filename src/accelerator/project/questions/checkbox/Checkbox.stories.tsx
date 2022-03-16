@@ -13,7 +13,7 @@ export default {
   title: 'Accelerator/Project/Questions/Checkbox',
   component: Checkbox,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['Checkbox.test.js'],
   },
 } as Meta;
 

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
 import Icon from '../icon';
 
@@ -34,6 +35,7 @@ const TextField = ({
   rightIcon,
   password,
   size,
+  isLoading,
 }) => (
   <div
     className={classnames(
@@ -99,6 +101,12 @@ const TextField = ({
             />
           </div>
         )}
+        <div className="input__loading">
+          <Loading
+            loadingClass={classnames('small-loading', { setVisible: isLoading })}
+            size="xxs"
+          />
+        </div>
       </div>
     )}
     {children && children}
@@ -145,12 +153,14 @@ TextField.propTypes = {
     show: PropTypes.bool.isRequired,
   }),
   size: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 TextField.defaultProps = {
   children: null,
   showOptionalLabel: false,
   size: 'lg',
+  isLoading: false,
 };
 
 export default TextField;

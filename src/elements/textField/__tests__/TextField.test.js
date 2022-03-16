@@ -67,4 +67,10 @@ describe('TextField component', () => {
     expect(component.find('[dataTestId="input-right-icon"]').length).toBe(1);
     expect(component.find('[name="icon-x"]').length).toBe(1);
   });
+
+  it('renders TextField with loading', () => {
+    const component = shallow(<TextField isLoading />);
+
+    expect(component.find('Loading').length).toBe(1);
+  });
 });

@@ -13,7 +13,7 @@ export default {
   title: 'Accelerator/Project/Questions/Radiobox',
   component: Radiobox,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['Radiobox.test.js'],
   },
 } as Meta;
 

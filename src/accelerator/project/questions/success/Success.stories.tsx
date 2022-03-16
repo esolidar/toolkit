@@ -8,7 +8,7 @@ export default {
   title: 'Accelerator/Project/Questions/Success',
   component: Success,
   parameters: {
-    jest: ['Section.test.js'],
+    jest: ['Success.test.js'],
   },
 } as Meta;
 
