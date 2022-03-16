@@ -9,7 +9,7 @@ export default {
 
 const Template = args => (
   <Viewport size="xl" centred={true}>
-    <DropZoneBox {...args} />;
+    <DropZoneBox {...args} />
   </Viewport>
 );
 
