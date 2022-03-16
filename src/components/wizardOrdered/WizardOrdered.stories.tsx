@@ -107,18 +107,29 @@ Open.args = {
     />
   ),
   pages: [
-    <Sdg
-      sdgList={sdgList.data}
-      selectedSdgs={[1, 3]}
-      handleSelectSdgs={() => {}}
-      preferredList={[2, 3]}
-    />,
     <Description userName={user.firstName} name="description" reply="" required />,
     <Images
       imagesList={[
-        { ...image, id: 1 },
-        { ...image, id: 2 },
-        { ...image, id: 3 },
+        {
+          ...image,
+          id: 1,
+          image: 'whitelabel/20/project-config/5da1f8b5-7686-4760-9b1d-0985f4b1b9a3.jpg',
+        },
+        {
+          ...image,
+          id: 2,
+          image: 'whitelabel/20/project-config/9c768e0f-62b2-42de-a4f7-cd628202dcce.jpg',
+        },
+        {
+          ...image,
+          id: 3,
+          image: 'whitelabel/5/project-config/deaa24ad-b67d-4468-b27f-4993c2a4b4b7.jpg',
+        },
+        {
+          ...image,
+          id: 4,
+          image: 'whitelabel/21/project-config/218fc584-cf8f-4c66-a438-e2699883b45f.jpg',
+        },
       ]}
       handleOrderImages={() => {}}
       handleSelectImage={() => {}}
@@ -130,6 +141,12 @@ Open.args = {
       categoriesList={projectCategories.data}
       selectedCategories={[]}
       handleChangeCategories={() => {}}
+    />,
+    <Sdg
+      sdgList={sdgList.data}
+      selectedSdgs={[1, 3]}
+      handleSelectSdgs={() => {}}
+      preferredList={[2, 3]}
     />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
