@@ -6,13 +6,13 @@ import EmptyState from '../../../../components/emptyState';
 import Button from '../../../../elements/button';
 import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectSDGsModal';
-import getOdsList from './getOdsList';
+import getOdsList from '../../../../utils/getOdsList';
 
 const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
 
-  const formattedSdgs = getOdsList(sdgList, 'en', intl.formatMessage);
+  const formattedSdgs = getOdsList(sdgList, intl.locale, intl.formatMessage);
 
   return (
     <div className="page-content-categories">
@@ -94,7 +94,7 @@ const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) 
       </Viewport>
       {showCategoriesModal && (
         <SelectCategoriesModal
-          sdgList={getOdsList(sdgList, 'en', intl.formatMessage)}
+          sdgList={getOdsList(sdgList, intl.locale, intl.formatMessage)}
           preferredList={preferredList}
           selectedSdgs={selectedSdgs}
           onClose={() => setShowCategoriesModal(false)}

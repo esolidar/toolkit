@@ -1,4 +1,4 @@
-import getEnvVar from '../../../../utils/getEnvVar';
+import getEnvVar from '../getEnvVar';
 
 const getOdsList = (odsResponse, lang, formatMessage) => {
   return odsResponse.map(item => {
