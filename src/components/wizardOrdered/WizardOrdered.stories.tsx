@@ -14,11 +14,13 @@ import Description from '../../accelerator/project/questions/description';
 import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
 import Categories from '../../accelerator/project/questions/categories';
+import Sdg from '../../accelerator/project/questions/sdg';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
 import image from '../../../__mocks__/image';
 import projectCategories from '../../../__mocks__/projectCategories';
+import sdgList from '../../../__mocks__/sdgList';
 
 const questions = JSON.parse(projectConfig.data.form);
 
@@ -105,6 +107,12 @@ Open.args = {
     />
   ),
   pages: [
+    <Sdg
+      sdgList={sdgList.data}
+      selectedSdgs={[1, 3]}
+      handleSelectSdgs={() => {}}
+      preferredList={[2, 3]}
+    />,
     <Description userName={user.firstName} name="description" reply="" required />,
     <Images
       imagesList={[
