@@ -108,6 +108,7 @@
 
       &:focus-visible,
       &:focus {
+        width: 100%;
         outline: none;
         border-bottom: 1px solid map-get($neutrals, 200);
       }
