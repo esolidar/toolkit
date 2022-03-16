@@ -1,7 +1,7 @@
 interface Props {
   sdgList: any[];
   selectedSdgs: number[];
-  preferredList: any;
+  preferredList: number[];
   handleSelectSdgs(ids: number[]): void;
 }
 
