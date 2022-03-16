@@ -1701,10 +1701,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.263.0":
-  version "0.263.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.263.0/74ab94318ce4e361c0644f70d66e171bf2391813f457d748950d0adcb2b09b41#56d9bb2d46fec9602c3bbb172044510f2203d58c"
-  integrity sha512-3Qp/gxFLGIenWcip7mvC/XHnkOradcmZR3ZhHUxraD3EezUGQKxMQyjY9+M+sJxoSqFQw0V9+Y+g3FvFvAmD0g==
+"@esolidar/i18n@^0.264.0":
+  version "0.264.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.264.0/82c3572671e24e8e0da3df88868c832956fa82c1d4a52c57077278f529c28a98#153d1c12ebf6a70c63e01a729f3baa00233bc3d5"
+  integrity sha512-LCPJNdPld7SpovYVZYXPPEpvVH/XZNGyU5kfs/D3I0o1B4NpAM4cm95nQx9h0ibb2KJrQb7jNs8nJGF3DJfZ3w==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -14768,13 +14768,12 @@ react-toggle@^4.1.2:
   dependencies:
     classnames "^2.2.5"
 
-react-tooltip@^4.2.5:
-  version "4.2.19"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.2.19.tgz#a865fffdb62154c6079bcb273e238de6b3c57366"
-  integrity sha512-wF6h0a2nqX3UHw9aSoj77Tv/+/KIjRdb107otHtX+1wISad1QoLD+j5chrBDx7mjY1T4WKfrV2DN+iFCimdZOw==
+react-tooltip@^3.11.2:
+  version "3.11.6"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.11.6.tgz#4f9735a2a4aa50580af351ce23e74a56f41afc0c"
+  integrity sha512-nTc1yHHaPCHHURvMpf/VNF17pIZiU4zwUGFJBUVr1fZkezFC7E0VPMMVrCfDjt+IpwTHICyzlyx+1FiQ7lw5LQ==
   dependencies:
-    prop-types "^15.7.2"
-    uuid "^7.0.3"
+    prop-types "^15.6.0"
 
 react-transition-group@^2.9.0:
   version "2.9.0"
@@ -17621,11 +17620,6 @@ uuid@^3.1.0, uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-
-uuid@^7.0.3:
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
-  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 uuid@^8.3.0, uuid@^8.3.2:
   version "8.3.2"
