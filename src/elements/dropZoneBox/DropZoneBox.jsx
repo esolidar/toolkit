@@ -446,6 +446,13 @@ const DropZoneBox = ({
                           extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(90);
+                            if (
+                              cropper.current.getData().rotate === 0 ||
+                              cropper.current.getData().rotate === 180
+                            ) {
+                              cropper.current.zoomTo(0);
+                              cropper.current.moveTo(0);
+                            }
                           }}
                           icon={<Icon name="RotateCcw" size="sm" />}
                           ghost
@@ -467,6 +474,13 @@ const DropZoneBox = ({
                           extraClass="primary-full"
                           onClick={() => {
                             cropper.current.rotate(-90);
+                            if (
+                              cropper.current.getData().rotate === 0 ||
+                              cropper.current.getData().rotate === -180
+                            ) {
+                              cropper.current.zoomTo(0);
+                              cropper.current.moveTo(0);
+                            }
                           }}
                           icon={<Icon name="RotateCw" size="sm" />}
                           ghost

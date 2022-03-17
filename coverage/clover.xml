@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647535875411" clover="3.2.0">
-  <project timestamp="1647535875411" name="All files">
-    <metrics statements="5628" coveredstatements="4083" conditionals="4184" coveredconditionals="2612" methods="1774" coveredmethods="1035" elements="11586" coveredelements="7730" complexity="0" loc="5628" ncloc="5628" packages="223" files="772" classes="772"/>
+<coverage generated="1647536750331" clover="3.2.0">
+  <project timestamp="1647536750331" name="All files">
+    <metrics statements="5634" coveredstatements="4083" conditionals="4194" coveredconditionals="2612" methods="1774" coveredmethods="1035" elements="11602" coveredelements="7730" complexity="0" loc="5634" ncloc="5634" packages="223" files="772" classes="772"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -5458,7 +5458,7 @@
       </file>
     </package>
     <package name="src.components.wizard.header">
-      <metrics statements="15" coveredstatements="13" conditionals="27" coveredconditionals="19" methods="6" coveredmethods="3"/>
+      <metrics statements="15" coveredstatements="13" conditionals="29" coveredconditionals="19" methods="6" coveredmethods="3"/>
       <file name="WizardHeader.stories.tsx" path="C:\Projects\toolkit\src\components\wizard\header\WizardHeader.stories.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
@@ -5471,7 +5471,7 @@
         <line num="51" count="1" type="stmt"/>
       </file>
       <file name="WizardHeader.tsx" path="C:\Projects\toolkit\src\components\wizard\header\WizardHeader.tsx">
-        <metrics statements="7" coveredstatements="5" conditionals="27" coveredconditionals="19" methods="2" coveredmethods="2"/>
+        <metrics statements="7" coveredstatements="5" conditionals="29" coveredconditionals="19" methods="2" coveredmethods="2"/>
         <line num="11" count="4" type="stmt"/>
         <line num="30" count="6" type="stmt"/>
         <line num="32" count="6" type="stmt"/>
@@ -5999,9 +5999,9 @@
       </file>
     </package>
     <package name="src.elements.dropZoneBox">
-      <metrics statements="115" coveredstatements="28" conditionals="107" coveredconditionals="42" methods="39" coveredmethods="4"/>
+      <metrics statements="121" coveredstatements="28" conditionals="115" coveredconditionals="42" methods="39" coveredmethods="4"/>
       <file name="DropZoneBox.jsx" path="C:\Projects\toolkit\src\elements\dropZoneBox\DropZoneBox.jsx">
-        <metrics statements="115" coveredstatements="28" conditionals="107" coveredconditionals="42" methods="39" coveredmethods="4"/>
+        <metrics statements="121" coveredstatements="28" conditionals="115" coveredconditionals="42" methods="39" coveredmethods="4"/>
         <line num="19" count="9" type="stmt"/>
         <line num="21" count="9" type="stmt"/>
         <line num="60" count="16" type="stmt"/>
@@ -6114,9 +6114,15 @@
         <line num="397" count="0" type="stmt"/>
         <line num="402" count="0" type="stmt"/>
         <line num="448" count="0" type="stmt"/>
-        <line num="469" count="0" type="stmt"/>
-        <line num="501" count="9" type="stmt"/>
-        <line num="548" count="9" type="stmt"/>
+        <line num="449" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="453" count="0" type="stmt"/>
+        <line num="454" count="0" type="stmt"/>
+        <line num="476" count="0" type="stmt"/>
+        <line num="477" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="481" count="0" type="stmt"/>
+        <line num="482" count="0" type="stmt"/>
+        <line num="515" count="9" type="stmt"/>
+        <line num="562" count="9" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\dropZoneBox\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
