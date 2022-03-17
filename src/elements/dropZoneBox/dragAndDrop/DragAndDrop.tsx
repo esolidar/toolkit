@@ -47,7 +47,7 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
         const oldIndex = items.findIndex(item => active.id === item.id);
         const newIndex = items.findIndex(item => over.id === item.id);
         const ordered = arrayMove(items, oldIndex, newIndex);
-        handleOrderImages(ordered.flatMap(i => i.id));
+        handleOrderImages(ordered);
         return ordered;
       });
     }

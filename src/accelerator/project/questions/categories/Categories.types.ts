@@ -2,7 +2,7 @@ import ProjectCategory from '../../../../interfaces/project/projectCategory';
 
 interface Props {
   categoriesList: ProjectCategory[];
-  selectedCategories: number[];
+  reply: number[];
   handleChangeCategories(ids: number[]): void;
 }
 

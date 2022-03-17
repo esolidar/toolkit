@@ -17,12 +17,14 @@ import Images from '../../accelerator/project/questions/images';
 import LongAnswer from '../../accelerator/project/questions/longAnswer';
 import Categories from '../../accelerator/project/questions/categories';
 import Sdg from '../../accelerator/project/questions/sdg';
+import Files from '../../accelerator/project/questions/files';
 import projectConfig from '../../../__mocks__/projectConfig';
 import user from '../../../__mocks__/user';
 import company from '../../../__mocks__/company';
 import image from '../../../__mocks__/image';
 import projectCategories from '../../../__mocks__/projectCategories';
 import sdgList from '../../../__mocks__/sdgList';
+import projectFiles from '../../../__mocks__/projectFiles';
 
 const questions = JSON.parse(projectConfig.data.form);
 
@@ -85,6 +87,7 @@ const checkboxes = questions.customQuestions.filter(({ type }) => type === 'chec
 const radioboxes = questions.customQuestions.filter(({ type }) => type === 'multiChoice')[0];
 const shortAnswer = questions.customQuestions.filter(({ type }) => type === 'shortAnswer')[0];
 const longAnswer = questions.customQuestions.filter(({ type }) => type === 'longAnswer')[0];
+const files = questions.customQuestions.filter(({ type }) => type === 'fileUploader')[0];
 
 Open.args = {
   header: (
@@ -112,7 +115,7 @@ Open.args = {
       onDeletePreview={() => {}}
     />,
     <Images
-      imagesList={[
+      reply={[
         {
           ...image,
           id: 1,
@@ -137,17 +140,16 @@ Open.args = {
       handleOrderImages={() => {}}
       handleSelectImage={() => {}}
       handleDeleteImage={() => {}}
-      imagesCount={3}
       cropModalStatus={false}
     />,
     <Categories
       categoriesList={projectCategories.data}
-      selectedCategories={[]}
+      reply={[]}
       handleChangeCategories={() => {}}
     />,
     <Sdg
       sdgList={sdgList.data}
-      selectedSdgs={[1, 3]}
+      reply={[1, 3]}
       handleSelectSdgs={() => {}}
       preferredList={[2, 3]}
     />,
@@ -156,6 +158,7 @@ Open.args = {
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
     <ShortAnswer {...shortAnswer.form} type={shortAnswer.type} reply="teste" />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
+    <Files {...files.form} reply={projectFiles.data} />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
   isPageValid: true,

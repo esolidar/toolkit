@@ -111,12 +111,14 @@ const Preview: FC<Props> = ({
         });
     };
 
-    getVideoDetails(videoUrl);
-    setVideoDetails({
-      ...videoDetails,
-      isLoading: true,
-      hasError: false,
-    });
+    if (videoUrl !== '') {
+      getVideoDetails(videoUrl);
+      setVideoDetails({
+        ...videoDetails,
+        isLoading: true,
+        hasError: false,
+      });
+    }
   }, [videoUrl]);
 
   const handleFullscreen = () => {

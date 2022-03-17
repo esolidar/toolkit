@@ -1,6 +1,5 @@
 interface Props {
-  imagesCount: number;
-  imagesList: any[];
+  reply: any[];
   handleSelectImage(): void;
   handleDeleteImage(): void;
   handleOrderImages(): void;

@@ -8,7 +8,7 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectCategoriesModal';
 import getEnvVar from '../../../../utils/getEnvVar';
 
-const Categories = ({ categoriesList, selectedCategories, handleChangeCategories }: Props) => {
+const Categories = ({ categoriesList, reply, handleChangeCategories }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
 
@@ -26,7 +26,7 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
       </Viewport>
       <Viewport size="xl" centred={false}>
         <>
-          {selectedCategories.length === 0 ? (
+          {reply.length === 0 ? (
             <EmptyState
               altImage="Image"
               body={intl.formatMessage({
@@ -64,12 +64,12 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
                 />
                 <FormattedMessage
                   id="toolkit.x.categories.selected"
-                  values={{ value: selectedCategories.length }}
+                  values={{ value: reply.length }}
                 />
               </div>
               <div className="page-content-categories__list">
                 {categoriesList
-                  .filter(cat => selectedCategories.includes(cat.id))
+                  .filter(cat => reply.includes(cat.id))
                   .map(category => (
                     <CheckboxCard
                       name={`category-${category.id}`}
@@ -95,7 +95,7 @@ const Categories = ({ categoriesList, selectedCategories, handleChangeCategories
       {showCategoriesModal && (
         <SelectCategoriesModal
           categoriesList={categoriesList}
-          selectedCategories={selectedCategories}
+          selectedCategories={reply}
           onClose={() => setShowCategoriesModal(false)}
           isOpen={showCategoriesModal}
           handleSelectCategories={handleChangeCategories}
