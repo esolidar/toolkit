@@ -143,7 +143,7 @@ Draggable.args = {
     serverlessResizeImage: 'https://image.testesolidar.com',
   },
   deleteImageGallery: id => {
-    alert(`delete image id ${id}`);
+    alert(`delete image id - ${id}`);
   },
   handleOrderImages: array => {
     alert(JSON.stringify(array));
