@@ -67,6 +67,7 @@ const Files = ({
           <div style={{ gap: '16px', display: 'flex', flexDirection: 'column' }}>
             {reply.map(file => (
               <FileCard
+                key={file.id}
                 showDownloadButton={false}
                 title={file.name}
                 badge={!file.public ? intl.formatMessage({ id: 'toolkit.private' }) : null}

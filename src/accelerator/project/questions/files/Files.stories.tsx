@@ -28,7 +28,7 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   question: fileUploader.question,
   description: fileUploader.description,
-  reply: projectFiles.data,
+  reply: [projectFiles.data[0]],
   handleDeleteFile: id => {
     alert(id);
   },

@@ -22,12 +22,14 @@ const DeleteFileModal = ({ isOpen, onClickDelete, onClose }: Props): JSX.Element
             size="md"
             text={intl.formatMessage({ id: 'delete' })}
             onClick={onClickDelete}
+            dataTestId="delete-file"
           />
           <Button
             extraClass="dark"
             onClick={onClose}
             size="md"
             text={intl.formatMessage({ id: 'cancel' })}
+            dataTestId="close-delete-file"
           />
         </>
       }

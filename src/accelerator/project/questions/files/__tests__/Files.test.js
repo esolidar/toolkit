@@ -1,26 +1,45 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render } from '../../../../../../__customQueries__/test-utils';
+import { render, fireEvent, act } from '../../../../../../__customQueries__/test-utils';
 import Meta, { Default as DefaultStory } from '../Files.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 
-it('renders Success default component open', () => {
-  const { getByClass, getByText } = render(<Default />);
+it('renders File component', () => {
+  const { getByClass, getByText, queryByText, getAllByClass } = render(<Default />);
 
   expect(getByClass('active-page')).toBeTruthy();
+  expect(getByClass('wizard-project-files')).toBeTruthy();
+  expect(queryByText('Quisque libero ipsum, dapibus quis blandit eget')).toBeInTheDocument();
   expect(
-    getByText(
-      /We recommend at least 3 or more images to help promote and communicate your project's value./
+    queryByText(
+      /Cras fermentum semper euismod. Quisque libero ipsum, dapibus quis blandit eget, finibus at erat. Suspendisse sit amet venenatis tellus. Sed tempus, leo vel tempus malesuada/
     )
   ).toBeInTheDocument();
-  expect(
-    getByText(
-      /Your cover image should help you grab your viewers' attention, portraying a loyal representation of your idea./
-    )
-  ).toBeInTheDocument();
-  expect(
-    getByText(/Select at least one image with at least 123 by 123px smaller than 5 Mb/)
-  ).toBeInTheDocument();
+  expect(getByText(/Select up to 5 files smaller than 5 Mb/)).toBeInTheDocument();
+  expect(getByClass('drop-zone-box with-icon')).toBeInTheDocument();
+  expect(getAllByClass('file-card')).toHaveLength(1);
+});
+
+it('renders File component open delete modal', () => {
+  const { getByClass, getByText, getByTestId, getAllByClass } = render(<Default />);
+
+  expect(getAllByClass('esolidar-dropdown__toggle')).toHaveLength(1);
+  fireEvent.click(getByClass('esolidar-dropdown__toggle'));
+
+  act(() => {
+    expect(getByText('Delete')).toBeInTheDocument();
+
+    fireEvent.click(getByClass('esolidar-dropdown__item dropdown-item'));
+  });
+
+  act(() => {
+    expect(getByText('Delete file?')).toBeInTheDocument();
+    fireEvent.click(getByTestId('delete-file'));
+  });
+
+  act(() => {
+    fireEvent.click(getByTestId('close-delete-file'));
+  });
 });

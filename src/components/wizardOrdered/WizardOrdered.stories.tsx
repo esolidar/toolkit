@@ -158,7 +158,13 @@ Open.args = {
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
     <ShortAnswer {...shortAnswer.form} type={shortAnswer.type} reply="teste" />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
-    <Files {...files.form} reply={projectFiles.data} />,
+    <Files
+      {...files.form}
+      reply={projectFiles.data}
+      handleDeleteFile={() => {}}
+      handleSelectFile={() => {}}
+      onDropError={() => {}}
+    />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
   isPageValid: true,
