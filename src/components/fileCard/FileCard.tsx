@@ -34,7 +34,7 @@ const FileCard = ({
       <div className="file-card__body">
         <div className="file-card__body-title">
           {title}
-          {badge && <Badge plaintext="Private" type="text" extraClass="dark-gray" />}
+          {badge && <Badge plaintext={badge} type="text" extraClass="dark-gray" />}
         </div>
         {subtitle && <div className="file-card__body-subtitle">{subtitle}</div>}
         {helper && (

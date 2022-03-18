@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Viewport from '../../../../components/viewport';
 import Props from './Files.types';
@@ -10,6 +10,8 @@ import DeleteFileModal from './DeleteFileModal';
 
 const maxFiles = 5;
 const maxSize = 5;
+const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+const acceptedFiles = '.doc, .docx, .pdf, .xls, .xlsx, .ppt, .pptx';
 
 const Files = ({
   question,
@@ -21,9 +23,7 @@ const Files = ({
 }: Props) => {
   const intl = useIntl();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
-  const [fileToDelete, setFileToDelete] = useState<number>(null);
-
-  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+  const fileToDelete = useRef<number>(null);
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
@@ -33,7 +33,7 @@ const Files = ({
   const deleteFile = (id: number, projectId: number) => {
     if (projectId) {
       setIsOpenDeleteModal(true);
-      setFileToDelete(id);
+      fileToDelete.current = id;
     } else {
       handleDeleteFile(id);
     }
@@ -57,7 +57,7 @@ const Files = ({
             sortable
             disabled={reply.length >= maxFiles}
             maxFiles={maxFiles - reply.length}
-            accept=".doc, .docx, .pdf, .xls, .xlsx, .ppt, .pptx"
+            accept={acceptedFiles}
             onSelect={handleSelectFile}
             multiple={true}
             showImagesPreviews={false}
@@ -91,13 +91,13 @@ const Files = ({
       <DeleteFileModal
         isOpen={isOpenDeleteModal}
         onClickDelete={() => {
-          handleDeleteFile(fileToDelete);
-          setFileToDelete(null);
+          handleDeleteFile(fileToDelete.current);
+          fileToDelete.current = null;
           setIsOpenDeleteModal(false);
         }}
         onClose={() => {
           setIsOpenDeleteModal(false);
-          setFileToDelete(null);
+          fileToDelete.current = null;
         }}
       />
     </>

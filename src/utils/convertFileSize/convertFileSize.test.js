@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import convertFileSize from '.';
 
-test('call addUrlParam to add url parameter', () => {
+test('call convertFileSize', () => {
   expect(convertFileSize(1513859)).toEqual('1.44 Mb');
   expect(convertFileSize(1513859, 1)).toEqual('1.4 Mb');
   expect(convertFileSize(0)).toEqual('0 Bytes');

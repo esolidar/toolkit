@@ -7,6 +7,8 @@ import getEnvVar from '../../../../utils/getEnvVar';
 
 const maxImages = 12;
 const maxSize = 5;
+const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+const acceptedFiles = '.jpg, .jpeg, .png';
 
 const Images = ({
   reply,
@@ -16,8 +18,6 @@ const Images = ({
   handleOrderImages,
 }: Props) => {
   const intl = useIntl();
-
-  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
@@ -47,7 +47,7 @@ const Images = ({
           fullWidth
           sortable
           disabled={reply.length >= maxImages}
-          accept=".jpg, .jpeg, .png"
+          accept={acceptedFiles}
           onSelect={handleSelectImage}
           showImagesPreviews={true}
           multiple={false}
@@ -55,8 +55,6 @@ const Images = ({
             showCropper: true,
             aspectRatioW: 3,
             aspectRatioH: 2,
-            minWidth: 500,
-            minHeight: 470,
           }}
           imagesList={reply}
           env={serverlessResizeImage}
