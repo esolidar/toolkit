@@ -64,7 +64,7 @@ const Files = ({
             env={serverlessResizeImage}
             onDropError={onDropError}
           />
-          <div style={{ gap: '16px', display: 'flex', flexDirection: 'column' }}>
+          <div className="wizard-project-files__list">
             {reply.map(file => (
               <FileCard
                 key={file.id}
