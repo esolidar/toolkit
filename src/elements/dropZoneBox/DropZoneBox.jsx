@@ -55,6 +55,7 @@ const DropZoneBox = ({
   fullWidth = false,
   sortable,
   handleOrderImages,
+  onDropError,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -144,20 +145,29 @@ const DropZoneBox = ({
   };
 
   const getImageWidthAndHeight = file => {
-    return new Promise((resolve, reject) => {
-      // eslint-disable-next-line no-underscore-dangle
-      const _URL = window.URL || window.webkitURL;
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = () => reject(new Error('Something went wrong'));
-      img.src = _URL.createObjectURL(file);
-    }).then(img => {
-      return { width: img.width, height: img.height };
-    });
+    if (file.type.split('/')[0] === 'image') {
+      return new Promise((resolve, reject) => {
+        // eslint-disable-next-line no-underscore-dangle
+        const _URL = window.URL || window.webkitURL;
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Something went wrong'));
+        img.src = _URL.createObjectURL(file);
+      }).then(img => {
+        return { width: img.width, height: img.height };
+      });
+    }
+    return {};
   };
 
   const renderErrorList = (errorList, showErrors, errorTitle = false) => {
     if (errorList.length > 0 && showErrors) {
+      if (onDropError) {
+        onDropError(errorList);
+        setErrorList([]);
+        return;
+      }
+
       return (
         <div className="error-files">
           {errorTitle && (
@@ -242,6 +252,9 @@ const DropZoneBox = ({
       }
     },
     onDropRejected: async rejectedFiles => {
+      if (showErrors && onDropError && rejectedFiles.length > maxFiles)
+        onDropError([{ name: 'maxFiles', maxFiles }]);
+
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
 
@@ -543,6 +556,7 @@ DropZoneBox.propTypes = {
   minHeight: PropTypes.number,
   sortable: PropTypes.bool,
   handleOrderImages: PropTypes.func,
+  onDropError: PropTypes.func,
 };
 
 DropZoneBox.defaultProps = {
@@ -565,5 +579,6 @@ DropZoneBox.defaultProps = {
   showErrors: true,
   showIcon: true,
   sortable: false,
+  cropModalStatus: false,
 };
 export default DropZoneBox;

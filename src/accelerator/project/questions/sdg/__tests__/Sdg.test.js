@@ -78,7 +78,7 @@ it('renders Sdgs click open modal and remove 1 Sdg', () => {
   });
 
   act(() => {
-    expect(getAllByClass(/active/)).toHaveLength(2);
+    expect(getAllByClass(/active/)).toHaveLength(3);
     fireEvent.click(queryByText('Add goals'));
   });
 

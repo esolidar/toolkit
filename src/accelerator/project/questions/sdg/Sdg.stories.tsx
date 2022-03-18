@@ -21,7 +21,7 @@ const TemplateEmpty: Story<Props> = (args: Props) => {
 
   return (
     <div className="content-step-page">
-      <Sdg {...args} handleSelectSdgs={handleSelectSdgs} selectedSdgs={selectedSdgs} />
+      <Sdg {...args} handleSelectSdgs={handleSelectSdgs} reply={selectedSdgs} />
     </div>
   );
 };
@@ -34,8 +34,10 @@ const Template: Story<Props> = (args: Props) => {
   };
 
   return (
-    <div className="content-step-page">
-      <Sdg {...args} handleSelectSdgs={handleSelectSdgs} selectedSdgs={selectedSdgs} />
+    <div className="active-page">
+      <div className="content-step-page">
+        <Sdg {...args} handleSelectSdgs={handleSelectSdgs} reply={selectedSdgs} />
+      </div>
     </div>
   );
 };

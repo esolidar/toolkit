@@ -22,7 +22,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  imagesList: [
+  reply: [
     {
       ...image,
       id: 1,

@@ -6,10 +6,12 @@ import DropZoneBox from '../../../../elements/dropZoneBox';
 import getEnvVar from '../../../../utils/getEnvVar';
 
 const maxImages = 12;
+const maxSize = 5;
+const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+const acceptedFiles = '.jpg, .jpeg, .png';
 
 const Images = ({
-  imagesCount,
-  imagesList,
+  reply,
   handleSelectImage,
   handleDeleteImage,
   cropModalStatus,
@@ -17,12 +19,10 @@ const Images = ({
 }: Props) => {
   const intl = useIntl();
 
-  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
-
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
-    element.scrollTop = element.scrollHeight;
-  }, [imagesList]);
+    if (element) element.scrollTop = element.scrollHeight;
+  }, [reply]);
 
   return (
     <Viewport size="xl">
@@ -41,27 +41,22 @@ const Images = ({
           </>
         </Viewport>
         <span className="wizard-project-images__helper">
-          <FormattedMessage
-            id="toolkit.project.images.helper"
-            values={{ width: '123', heigth: '123', size: '5' }}
-          />
+          <FormattedMessage id="toolkit.project.images.helper" values={{ size: maxSize }} />
         </span>
         <DropZoneBox
           fullWidth
           sortable
-          disabled={imagesCount >= maxImages}
-          accept=".jpg, .jpeg, .png"
+          disabled={reply.length >= maxImages}
+          accept={acceptedFiles}
           onSelect={handleSelectImage}
           showImagesPreviews={true}
           multiple={false}
           hasCropper={{
             showCropper: true,
-            aspectRatioW: 5,
-            aspectRatioH: 4,
-            minWidth: 500,
-            minHeight: 470,
+            aspectRatioW: 3,
+            aspectRatioH: 2,
           }}
-          imagesList={imagesList}
+          imagesList={reply}
           env={serverlessResizeImage}
           deleteImageGallery={handleDeleteImage}
           cropModalStatus={cropModalStatus}
