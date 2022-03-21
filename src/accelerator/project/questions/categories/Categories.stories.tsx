@@ -36,7 +36,7 @@ const TemplateEmpty: Story<Props> = (args: Props) => {
         <Categories
           {...args}
           handleChangeCategories={handleChangeCategories}
-          selectedCategories={selectedCategories}
+          reply={selectedCategories}
         />
       </div>
     </StorybookFormProvider>
@@ -56,7 +56,7 @@ const Template: Story<Props> = (args: Props) => {
         <Categories
           {...args}
           handleChangeCategories={handleChangeCategories}
-          selectedCategories={selectedCategories}
+          reply={selectedCategories}
         />
       </div>
     </StorybookFormProvider>
@@ -68,7 +68,7 @@ export const WithSelectedCategories: Story<Props> = Template.bind({});
 
 Default.args = {
   categoriesList: projectCategories.data,
-  selectedCategories: [],
+  reply: [],
 };
 
 WithSelectedCategories.args = {

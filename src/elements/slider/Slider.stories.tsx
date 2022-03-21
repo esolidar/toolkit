@@ -25,6 +25,7 @@ Default.args = {
   max: 100,
   defaultValue: 50,
   step: 10,
+  reset: false,
   onChange: value => {
     console.log('value', value);
   },

@@ -227,6 +227,7 @@
 .categories-modal-body,
 .sdg-modal-body {
   padding-top: 2px;
+  padding-bottom: 2px;
   display: flex;
   flex-wrap: wrap;
   gap: $distance-2;
@@ -261,5 +262,17 @@
   &::before,
   &::after {
     display: none !important;
+  }
+}
+
+.wizard-project-files {
+  .form-group {
+    margin-bottom: $distance-2;
+  }
+
+  &__list {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
   }
 }

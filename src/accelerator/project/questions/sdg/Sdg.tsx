@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './Sdg.types';
 import Viewport from '../../../../components/viewport';
@@ -8,9 +8,15 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectSDGsModal';
 import getOdsList from '../../../../utils/getOdsList';
 
-const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) => {
+const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    const element = document.getElementsByClassName('active-page')[0];
+
+    if (element) element.scrollTop = element.scrollHeight;
+  }, [reply]);
 
   const formattedSdgs = getOdsList(sdgList, intl.locale, intl.formatMessage);
 
@@ -30,7 +36,7 @@ const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) 
       </Viewport>
       <Viewport size="xl" centred={false}>
         <>
-          {selectedSdgs.length === 0 ? (
+          {reply.length === 0 ? (
             <EmptyState
               altImage="Image"
               body={intl.formatMessage({
@@ -66,14 +72,11 @@ const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) 
                     id: 'toolkit.select.goals',
                   })}
                 />
-                <FormattedMessage
-                  id="toolkit.x.sdg.selected"
-                  values={{ value: selectedSdgs.length }}
-                />
+                <FormattedMessage id="toolkit.x.sdg.selected" values={{ value: reply.length }} />
               </div>
               <div className="page-content-categories__list">
                 {formattedSdgs
-                  .filter(cat => selectedSdgs.includes(cat.id))
+                  .filter(cat => reply.includes(cat.id))
                   .map(sdg => (
                     <CheckboxCard
                       id={`selected-${sdg.id}`}
@@ -96,7 +99,7 @@ const Sdg = ({ sdgList, selectedSdgs, handleSelectSdgs, preferredList }: Props) 
         <SelectCategoriesModal
           sdgList={getOdsList(sdgList, intl.locale, intl.formatMessage)}
           preferredList={preferredList}
-          selectedSdgs={selectedSdgs}
+          selectedSdgs={reply}
           onClose={() => setShowCategoriesModal(false)}
           isOpen={showCategoriesModal}
           handleSelectSdgs={handleSelectSdgs}

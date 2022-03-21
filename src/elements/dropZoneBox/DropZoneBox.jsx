@@ -55,11 +55,13 @@ const DropZoneBox = ({
   fullWidth = false,
   sortable,
   handleOrderImages,
+  onDropError,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+  const [resetSlider, setResetSlider] = useState(false);
 
   const intl = useIntl();
 
@@ -144,20 +146,29 @@ const DropZoneBox = ({
   };
 
   const getImageWidthAndHeight = file => {
-    return new Promise((resolve, reject) => {
-      // eslint-disable-next-line no-underscore-dangle
-      const _URL = window.URL || window.webkitURL;
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = () => reject(new Error('Something went wrong'));
-      img.src = _URL.createObjectURL(file);
-    }).then(img => {
-      return { width: img.width, height: img.height };
-    });
+    if (file.type.split('/')[0] === 'image') {
+      return new Promise((resolve, reject) => {
+        // eslint-disable-next-line no-underscore-dangle
+        const _URL = window.URL || window.webkitURL;
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Something went wrong'));
+        img.src = _URL.createObjectURL(file);
+      }).then(img => {
+        return { width: img.width, height: img.height };
+      });
+    }
+    return {};
   };
 
   const renderErrorList = (errorList, showErrors, errorTitle = false) => {
     if (errorList.length > 0 && showErrors) {
+      if (onDropError) {
+        onDropError(errorList);
+        setErrorList([]);
+        return;
+      }
+
       return (
         <div className="error-files">
           {errorTitle && (
@@ -242,6 +253,9 @@ const DropZoneBox = ({
       }
     },
     onDropRejected: async rejectedFiles => {
+      if (showErrors && onDropError && rejectedFiles.length > maxFiles)
+        onDropError([{ name: 'maxFiles', maxFiles }]);
+
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
 
@@ -280,8 +294,21 @@ const DropZoneBox = ({
   };
 
   const onSliderMoves = (value, direction) => {
+    setResetSlider(false);
     if (direction === 'right') cropper.current.zoom(0.1);
     if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
+  const rotate = degrees => {
+    if (degrees) {
+      setResetSlider(true);
+      cropper.current.rotate(degrees);
+      cropper.current.zoomTo(0);
+      const currentRotation = cropper.current.getData().rotate;
+      if (currentRotation === 0 || currentRotation === 180 || currentRotation === -180) {
+        cropper.current.moveTo(0);
+      }
+    }
   };
 
   return (
@@ -431,16 +458,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === 180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(90)}
                           icon={<Icon name="RotateCcw" size="sm" />}
                           ghost
                         />
@@ -459,16 +477,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(-90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === -180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(-90)}
                           icon={<Icon name="RotateCw" size="sm" />}
                           ghost
                         />
@@ -483,6 +492,7 @@ const DropZoneBox = ({
                       defaultValue={0}
                       showButtons={true}
                       onChange={onSliderMoves}
+                      reset={resetSlider}
                     />
                   </div>
                 </div>
@@ -543,6 +553,7 @@ DropZoneBox.propTypes = {
   minHeight: PropTypes.number,
   sortable: PropTypes.bool,
   handleOrderImages: PropTypes.func,
+  onDropError: PropTypes.func,
 };
 
 DropZoneBox.defaultProps = {
@@ -565,5 +576,6 @@ DropZoneBox.defaultProps = {
   showErrors: true,
   showIcon: true,
   sortable: false,
+  cropModalStatus: false,
 };
 export default DropZoneBox;

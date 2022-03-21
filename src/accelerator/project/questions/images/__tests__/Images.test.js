@@ -20,7 +20,5 @@ it('renders Success default component open', () => {
       /Your cover image should help you grab your viewers' attention, portraying a loyal representation of your idea./
     )
   ).toBeInTheDocument();
-  expect(
-    getByText(/Select at least one image with at least 123 by 123px smaller than 5 Mb/)
-  ).toBeInTheDocument();
+  expect(getByText(/Select at least one image smaller than 5 Mb/)).toBeInTheDocument();
 });
