@@ -26,6 +26,8 @@ const WizardHeader: FC<Props> = ({
   isLoading = false,
   isDraft = false,
   isLive = false,
+  closeWizardText = 'toolkit.cancel.program.changes',
+  showStartHereTooltip = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -40,14 +42,14 @@ const WizardHeader: FC<Props> = ({
     <div className="wizard__header">
       {closeWizard && (
         <Tooltip
-          overlay={
-            <span>
-              <FormattedMessage id="toolkit.cancel.program.changes" />
-            </span>
-          }
           placement="right"
           trigger="hover"
           className="esolidar-tooltip"
+          overlay={
+            <span>
+              <FormattedMessage id={closeWizardText} />
+            </span>
+          }
           tooltipBodyChild={
             <Button
               extraClass="primary-full"
@@ -70,19 +72,34 @@ const WizardHeader: FC<Props> = ({
 
           <h1>
             {editMode && (
-              <input
-                id="wizard-header-title-input"
-                type="text"
-                onChange={handleChangeTitle}
-                value={title}
-                onBlur={handleBlurTitle}
-                placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
-                maxLength={32}
-                size={
-                  title.length ||
-                  intl.formatMessage({ id: 'business.accelerator.entre.title' }).length
+              <Tooltip
+                type="onboarding"
+                placement="bottomLeft"
+                trigger="focus"
+                className="esolidar-tooltip"
+                displayNone={!showStartHereTooltip}
+                styleOverlay={{ maxWidth: '768px', width: '100%' }}
+                overlay={
+                  <span>
+                    <FormattedMessage id="toolkit.start.here" />
+                  </span>
                 }
-                style={{ maxWidth: '768px' }}
+                tooltipBodyChild={
+                  <input
+                    id="wizard-header-title-input"
+                    type="text"
+                    onChange={handleChangeTitle}
+                    value={title}
+                    onBlur={handleBlurTitle}
+                    placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
+                    maxLength={32}
+                    size={
+                      title.length ||
+                      intl.formatMessage({ id: 'business.accelerator.entre.title' }).length
+                    }
+                    autoComplete="off"
+                  />
+                }
               />
             )}
             {!editMode && <>{title}</>}

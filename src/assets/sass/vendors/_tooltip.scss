@@ -5,7 +5,7 @@
   visibility: visible;
   font-size: 12px;
   line-height: 1.5;
-  opacity: 0.9;
+  opacity: 1;
 }
 .rc-tooltip-hidden {
   display: none;
@@ -59,10 +59,10 @@
   left: 50%;
 }
 .rc-tooltip-placement-topLeft .rc-tooltip-arrow {
-  left: 15%;
+  left: 50%;
 }
 .rc-tooltip-placement-topRight .rc-tooltip-arrow {
-  right: 15%;
+  right: 50%;
 }
 .rc-tooltip-placement-right .rc-tooltip-arrow,
 .rc-tooltip-placement-rightTop .rc-tooltip-arrow,
@@ -76,11 +76,11 @@
   top: 50%;
 }
 .rc-tooltip-placement-rightTop .rc-tooltip-arrow {
-  top: 15%;
+  top: 50%;
   margin-top: 0;
 }
 .rc-tooltip-placement-rightBottom .rc-tooltip-arrow {
-  bottom: 15%;
+  bottom: 50%;
 }
 .rc-tooltip-placement-left .rc-tooltip-arrow,
 .rc-tooltip-placement-leftTop .rc-tooltip-arrow,
@@ -94,11 +94,11 @@
   top: 50%;
 }
 .rc-tooltip-placement-leftTop .rc-tooltip-arrow {
-  top: 15%;
+  top: 50%;
   margin-top: 0;
 }
 .rc-tooltip-placement-leftBottom .rc-tooltip-arrow {
-  bottom: 15%;
+  bottom: 50%;
 }
 .rc-tooltip-placement-bottom .rc-tooltip-arrow,
 .rc-tooltip-placement-bottomLeft .rc-tooltip-arrow,
@@ -112,10 +112,10 @@
   left: 50%;
 }
 .rc-tooltip-placement-bottomLeft .rc-tooltip-arrow {
-  left: 15%;
+  left: 50%;
 }
 .rc-tooltip-placement-bottomRight .rc-tooltip-arrow {
-  right: 15%;
+  right: 50%;
 }
 .rc-tooltip.rc-tooltip-zoom-enter,
 .rc-tooltip.rc-tooltip-zoom-leave {

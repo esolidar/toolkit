@@ -99,7 +99,7 @@
     "@dnd-kit/sortable": "^6.0.1",
     "@dnd-kit/utilities": "^3.1.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.266.0",
+    "@esolidar/i18n": "^0.269.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
