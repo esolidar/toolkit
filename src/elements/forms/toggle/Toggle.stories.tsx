@@ -9,7 +9,7 @@ export default {
   title: 'Elements/Forms/Toggle',
   component: Toggle,
   parameters: {
-    jest: ['Toggle.test.tsx'],
+    jest: ['Toggle.test.js'],
   },
 } as Meta;
 

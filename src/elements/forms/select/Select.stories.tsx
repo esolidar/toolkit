@@ -10,7 +10,7 @@ export default {
   title: 'Elements/Forms/Select',
   component: Select,
   parameters: {
-    jest: ['Select.test.tsx'],
+    jest: ['Select.test.js'],
   },
 } as Meta;
 

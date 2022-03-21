@@ -9,7 +9,7 @@ export default {
   title: 'Elements/Forms/TextFieldNumber',
   component: TextFieldNumber,
   parameters: {
-    jest: ['TextFieldNumber.test.tsx'],
+    jest: ['TextFieldNumber.test.js'],
   },
 } as Meta;
 
@@ -33,7 +33,7 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   name: 'textFieldNumber',
   required: false,
-  textFieldProps: {
+  TextfieldNumberProps: {
     showArrows: true,
     min: 12,
     max: 30,
