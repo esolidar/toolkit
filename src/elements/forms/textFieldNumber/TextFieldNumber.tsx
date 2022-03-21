@@ -1,9 +1,9 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import TextFieldNumber from '../../textFieldNumber';
+import TextFieldNumberComponent from '../../textFieldNumber';
 import Props from './TextFieldNumber.types';
 
-const TextFieldNumberForm = ({ control, name, required, textFieldProps, onChange }: Props) => {
+const TextFieldNumber = ({ control, name, required, TextfieldNumberProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value },
     fieldState: { error },
@@ -11,12 +11,12 @@ const TextFieldNumberForm = ({ control, name, required, textFieldProps, onChange
     name,
     control,
     rules: { required },
-    defaultValue: textFieldProps?.defaultValue,
+    defaultValue: TextfieldNumberProps?.defaultValue,
     shouldUnregister: true,
   });
 
   return (
-    <TextFieldNumber
+    <TextFieldNumberComponent
       onChange={e => {
         handleChange(e.value);
         if (onChange) onChange(e.value);
@@ -24,9 +24,9 @@ const TextFieldNumberForm = ({ control, name, required, textFieldProps, onChange
       value={value}
       field={fieldName}
       error={error ? error.message || true : false}
-      {...textFieldProps}
+      {...TextfieldNumberProps}
     />
   );
 };
 
-export default TextFieldNumberForm;
+export default TextFieldNumber;

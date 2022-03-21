@@ -9,7 +9,7 @@ export default {
   title: 'Elements/Forms/HtmlEditor',
   component: HtmlEditor,
   parameters: {
-    jest: ['Select.test.tsx'],
+    jest: ['HtmlEditor.test.js'],
   },
 } as Meta;
 

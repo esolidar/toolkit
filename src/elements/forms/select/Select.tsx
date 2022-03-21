@@ -1,9 +1,9 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import Select from '../../select';
+import SelectComponent from '../../select';
 import Props from './Select.types';
 
-const SelectFom = ({ control, name, required, selectFormProps, onChange }: Props) => {
+const Select = ({ control, name, required, selectFormProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value },
     fieldState: { error },
@@ -16,7 +16,7 @@ const SelectFom = ({ control, name, required, selectFormProps, onChange }: Props
   });
 
   return (
-    <Select
+    <SelectComponent
       onChange={e => {
         handleChange(e);
         if (onChange) onChange(e);
@@ -29,4 +29,4 @@ const SelectFom = ({ control, name, required, selectFormProps, onChange }: Props
   );
 };
 
-export default SelectFom;
+export default Select;

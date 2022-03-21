@@ -2,7 +2,7 @@ interface Props {
   control: any;
   name: string;
   required?: boolean | string;
-  textFieldProps?: any;
+  TextfieldNumberProps?: any;
   onChange?(e: any): any;
   onBlur?(): any;
 }

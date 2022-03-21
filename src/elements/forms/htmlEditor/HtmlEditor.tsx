@@ -1,9 +1,9 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import HtmlEditor from '../../../components/htmlEditor';
+import HtmlEditorComponent from '../../../components/htmlEditor';
 import Props from './HtmlEditor.types';
 
-const HtmlEditorForm = ({ control, name, required, htmlEditorProps, onChange, onBlur }: Props) => {
+const HtmlEditor = ({ control, name, required, htmlEditorProps, onChange, onBlur }: Props) => {
   const {
     field: { onChange: handleChange, onBlur: handleBlur, value },
     fieldState: { error },
@@ -16,7 +16,7 @@ const HtmlEditorForm = ({ control, name, required, htmlEditorProps, onChange, on
   });
 
   return (
-    <HtmlEditor
+    <HtmlEditorComponent
       initialContent={value}
       onChange={e => {
         handleChange(e);
@@ -32,4 +32,4 @@ const HtmlEditorForm = ({ control, name, required, htmlEditorProps, onChange, on
   );
 };
 
-export default HtmlEditorForm;
+export default HtmlEditor;

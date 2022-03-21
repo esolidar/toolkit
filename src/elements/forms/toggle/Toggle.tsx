@@ -1,9 +1,9 @@
 import React from 'react';
 import { useController } from 'react-hook-form';
-import Toggle from '../../toogle';
+import ToggleComponent from '../../toogle';
 import Props from './Toggle.types';
 
-const ToggleForm = ({ control, name, required, toggleProps, onChange }: Props) => {
+const Toggle = ({ control, name, required, toggleProps, onChange }: Props) => {
   const {
     field: { onChange: onChangeForm, name: fieldName, value },
   } = useController({
@@ -19,7 +19,9 @@ const ToggleForm = ({ control, name, required, toggleProps, onChange }: Props) =
     if (onChange) onChange(e);
   }, []);
 
-  return <Toggle onChange={handleChange} isChecked={value} name={fieldName} {...toggleProps} />;
+  return (
+    <ToggleComponent onChange={handleChange} isChecked={value} name={fieldName} {...toggleProps} />
+  );
 };
 
-export default ToggleForm;
+export default Toggle;
