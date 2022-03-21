@@ -163,6 +163,11 @@ const DropZoneBox = ({
   const renderErrorList = (errorList, showErrors, errorTitle = false) => {
     if (errorList.length > 0 && showErrors) {
       if (onDropError) {
+        errorList.forEach(file => {
+          const newFile = file;
+          newFile.errors[0] = 'maxSize';
+          return newFile;
+        });
         onDropError(errorList);
         setErrorList([]);
         return;

@@ -16,6 +16,8 @@ interface Props {
   isLoading: boolean;
   isDraft?: boolean;
   isLive?: boolean;
+  closeWizardText?: string;
+  showStartHereTooltip?: boolean;
 }
 
 export default Props;
