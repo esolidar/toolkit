@@ -61,6 +61,7 @@ const DropZoneBox = ({
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+  const [resetSlider, setResetSlider] = useState(false);
 
   const intl = useIntl();
 
@@ -293,8 +294,21 @@ const DropZoneBox = ({
   };
 
   const onSliderMoves = (value, direction) => {
+    setResetSlider(false);
     if (direction === 'right') cropper.current.zoom(0.1);
     if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
+  const rotate = degrees => {
+    if (degrees) {
+      setResetSlider(true);
+      cropper.current.rotate(degrees);
+      cropper.current.zoomTo(0);
+      const currentRotation = cropper.current.getData().rotate;
+      if (currentRotation === 0 || currentRotation === 180 || currentRotation === -180) {
+        cropper.current.moveTo(0);
+      }
+    }
   };
 
   return (
@@ -444,16 +458,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === 180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(90)}
                           icon={<Icon name="RotateCcw" size="sm" />}
                           ghost
                         />
@@ -472,16 +477,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(-90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === -180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(-90)}
                           icon={<Icon name="RotateCw" size="sm" />}
                           ghost
                         />
@@ -496,6 +492,7 @@ const DropZoneBox = ({
                       defaultValue={0}
                       showButtons={true}
                       onChange={onSliderMoves}
+                      reset={resetSlider}
                     />
                   </div>
                 </div>
