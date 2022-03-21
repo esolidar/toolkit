@@ -106,6 +106,7 @@ Open.args = {
       editMode={false}
     />
   ),
+  isLoading: false,
   pages: [
     <Description userName={user.firstName} name="description" reply="" required />,
     <Video

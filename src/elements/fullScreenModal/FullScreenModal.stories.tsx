@@ -1,4 +1,5 @@
 /* eslint-disable no-alert */
+import { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import FullScreenModal from './FullScreenModal';
 import Props from './FullScreenModal.types';
@@ -14,65 +15,31 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div>
-    <FullScreenModal {...args}>
-      <Viewport>
-        <div>
-          <br />
-          <br />
-          <div>Body Content Here</div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div>Body Content Here</div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div>Body Content Here</div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div>Body Content Here</div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div>Body Content Here</div>
-        </div>
-      </Viewport>
-    </FullScreenModal>
-  </div>
-);
+const Template: Story<Props> = (args: Props) => {
+  const [showModal, setShowModal] = useState<boolean>(true);
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div>
+      {showModal && (
+        <FullScreenModal {...args} showModal={showModal} closeModal={closeModal}>
+          <Viewport>
+            <div>
+              <div style={{ marginTop: '50px', marginBottom: '500px' }}>Body Content Here</div>
+              <div style={{ marginTop: '50px', marginBottom: '500px' }}>Body Content Here</div>
+              <div style={{ marginTop: '50px', marginBottom: '500px' }}>Body Content Here</div>
+              <div style={{ marginTop: '50px', marginBottom: '500px' }}>Body Content Here</div>
+              <div>Body Content Here</div>
+            </div>
+          </Viewport>
+        </FullScreenModal>
+      )}
+    </div>
+  );
+};
 
 const NoHeaderTemplate: Story<Props> = (args: Props) => (
   <div>
@@ -139,8 +106,8 @@ export const Close: Story<Props> = Template.bind({});
 export const NoHeader: Story<Props> = NoHeaderTemplate.bind({});
 
 Open.args = {
-  showModal: true,
-  closeModal: () => {},
+  ///  showModal: true,
+  // closeModal: () => {},
   header: (
     <WizardHeader
       disabledDarkButton={false}
@@ -175,12 +142,12 @@ Open.args = {
 };
 
 Close.args = {
-  showModal: false,
-  closeModal: () => {},
+  // showModal: false,
+  // closeModal: () => {},
 };
 
 NoHeader.args = {
-  showModal: true,
-  closeModal: () => {},
+  // showModal: true,
+  // closeModal: () => {},
   footer: <div className="d-flex justify-content-center align-items-center">Footer</div>,
 };

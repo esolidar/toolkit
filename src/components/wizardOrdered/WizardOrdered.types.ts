@@ -14,6 +14,7 @@ interface Props {
   isPageValid: boolean;
   isSuccess?: boolean;
   companyName: string;
+  isLoading: boolean;
 }
 
 export default Props;

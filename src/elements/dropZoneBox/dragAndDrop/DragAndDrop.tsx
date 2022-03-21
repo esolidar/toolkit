@@ -20,7 +20,7 @@ import Preview from '../../../components/preview';
 interface Props {
   imagesList: any[];
   env: string;
-  handleDeleteImage(): void;
+  handleDeleteImage(id: number, item: any): void;
   handleOrderImages(array: any): void;
 }
 
@@ -70,7 +70,7 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
                 value={item}
                 env={env}
                 index={index}
-                handleDeleteImage={handleDeleteImage}
+                handleDeleteImage={id => handleDeleteImage(id, item)}
               />
             );
           })}
