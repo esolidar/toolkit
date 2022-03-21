@@ -55,6 +55,8 @@ const Images = ({
             showCropper: true,
             aspectRatioW: 3,
             aspectRatioH: 2,
+            minWidth: 3,
+            minHeight: 2,
           }}
           imagesList={reply}
           env={serverlessResizeImage}

@@ -55,8 +55,20 @@
       background-size: cover;
       aspect-ratio: 16 / 9;
 
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: get-rgba(map-get($base, black), 65);
+        z-index: 1;
+      }
+
       > .icon-component {
         position: absolute;
+        z-index: 2;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -129,6 +141,7 @@
     font-size: 10px;
     line-height: 10px;
     color: map-get($turquoise, 500);
+    z-index: 3;
 
     &:focus,
     &:focus-visible {
@@ -164,6 +177,10 @@
       &:hover {
         outline: 2px solid map-get($turquoise, 500);
         @include animate(outline, 100ms);
+      }
+
+      &.cursor-pointer {
+        cursor: pointer;
       }
     }
   }

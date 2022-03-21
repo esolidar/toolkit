@@ -29,11 +29,16 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
     }
   }, [debouncedReply]);
 
-  const handleOnDeleteImage = () => {
+  const handleOnDeleteImage = e => {
+    e.stopPropagation();
     onDeletePreview();
     if (error !== null) setError(null);
     if (isValidatingVideo) setIsValidatingVideo(false);
     if (isVideoValid) setIsVideoValid(false);
+  };
+
+  const handleClickPreview = () => {
+    window.open(reply);
   };
 
   const handleOnFinishVideoValidation = (isValid: boolean) => {
@@ -72,7 +77,8 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
         <Preview
           type="video"
           videoUrl={debouncedReply}
-          handleDeleteImage={handleOnDeleteImage}
+          handleDeleteImage={e => handleOnDeleteImage(e)}
+          handleClickPreview={handleClickPreview}
           onFinishVideoValidation={handleOnFinishVideoValidation}
           isVisible={reply !== '' && isVideoValid && !isValidatingVideo}
         />

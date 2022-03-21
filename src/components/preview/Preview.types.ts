@@ -9,7 +9,8 @@ interface Image {
 interface Props {
   className?: string;
   img?: Image;
-  handleDeleteImage?(): void;
+  handleDeleteImage?(e: any): void;
+  handleClickPreview?(): void;
   fullScreen?: boolean;
   hover?: boolean;
   badgeText?: string;

@@ -45,6 +45,7 @@ const Preview: FC<Props> = ({
   videoUrl,
   onFinishVideoValidation,
   isVisible = true,
+  handleClickPreview,
 }: Props): JSX.Element => {
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
@@ -214,7 +215,13 @@ const Preview: FC<Props> = ({
     return (
       <>
         <div className={classes}>
-          <div className="esolidar-preview__video">
+          <div
+            className={classNames('esolidar-preview__video', {
+              'cursor-pointer': handleClickPreview,
+            })}
+            onKeyDown={handleClickPreview}
+            onClick={handleClickPreview}
+          >
             {!isVideoLoading ? (
               <div
                 className="esolidar-preview__video--thumbnail"
@@ -262,7 +269,7 @@ const Preview: FC<Props> = ({
               <button
                 type="button"
                 className="esolidar-preview__delete"
-                onClick={handleDeleteImage}
+                onClick={e => handleDeleteImage(e)}
               >
                 <Icon name="X" size="sm" />
               </button>
