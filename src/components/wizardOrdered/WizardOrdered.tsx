@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import FullScreenModal from '../../elements/fullScreenModal/FullScreenModal';
 import Footer from './Footer';
 import Page from './Page';
@@ -23,11 +23,27 @@ const WizardOrdered = ({
   const [direction, setDirection] = useState<'up' | 'down'>(null);
 
   useEffect(() => {
+    if (showWizard) {
+      const body = document.getElementsByTagName('body')[0];
+      if (body) body.classList.add('opened-wizard');
+    }
+  }, [showWizard]);
+
+  useEffect(() => {
     if (isSuccess && activePage === pages.length - 1) goNext();
   }, [isSuccess]);
 
+  useEffect(() => {
+    const wizard = document.getElementsByClassName('wizard-ordered')[0];
+
+    if (wizard) wizard.addEventListener('wheel', handleNavigation, { passive: false });
+    return () => {
+      if (wizard) return wizard.removeEventListener('wheel', handleNavigation);
+    };
+  }, [activePage, showWizard, isPageValid]);
+
   const goNext = () => {
-    if (activePage < pages.length) {
+    if (activePage < pages.length && isPageValid) {
       onChangePage(activePage + 1);
       setBlurPage(true);
       setDirection('up');
@@ -49,6 +65,25 @@ const WizardOrdered = ({
       }, 300);
     }
   };
+
+  const handleNavigation = useCallback(
+    e => {
+      const { deltaY } = e;
+      const activePageDiv = document.getElementsByClassName('active-page')[0];
+
+      if (
+        deltaY > 0 &&
+        activePage < pages.length - 1 &&
+        (activePageDiv.clientHeight >= activePageDiv.scrollHeight ||
+          activePageDiv.clientHeight + activePageDiv.scrollTop === activePageDiv.scrollHeight)
+      ) {
+        goNext();
+      } else if (deltaY < 0 && activePageDiv.scrollTop === 0 && activePage < pages.length - 1) {
+        goPrev();
+      }
+    },
+    [activePage, showWizard, isPageValid]
+  );
 
   return (
     <FullScreenModal
@@ -79,7 +114,7 @@ const WizardOrdered = ({
               }}
             />
           </div>
-          <div className="wizard-ordered">
+          <div className="wizard-ordered" id="wizard-ordered">
             {pages.map((page, i) => {
               return (
                 <Page

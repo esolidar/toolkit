@@ -1,3 +1,135 @@
+const form = {
+  title: '',
+  description: '',
+  video: '',
+  images: [],
+  categories: { show: true },
+  sdg: { required: false, preferred: [] },
+  customQuestions: [
+    {
+      type: 'section',
+      form: {
+        privacy: 'private',
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description: {
+          blocks: [
+            {
+              key: '11dm0',
+              text: 'Nulla nec sapien pharetra, lobortis diam eget, tincidunt neque. Cras vestibulum congue tellus a faucibus. Curabitur vitae convallis nulla. Ut elit est, volutpat mollis vestibulum id, efficitur vel arcu.',
+              type: 'unstyled',
+              depth: 0,
+              inlineStyleRanges: [],
+              entityRanges: [],
+              data: {},
+            },
+            {
+              key: '2i4ut',
+              text: '',
+              type: 'unstyled',
+              depth: 0,
+              inlineStyleRanges: [],
+              entityRanges: [],
+              data: {},
+            },
+            {
+              key: 'fqidp',
+              text: 'Suspendisse interdum purus commodo, eleifend enim sit amet, pharetra lorem. Aenean viverra id magna at posuere. Praesent a laoreet purus. Donec vitae felis malesuada, efficitur nibh vel, convallis metus.',
+              type: 'unstyled',
+              depth: 0,
+              inlineStyleRanges: [],
+              entityRanges: [],
+              data: {},
+            },
+            {
+              key: '2sh3j',
+              text: 'Quisque et urna quis elit mollis congue ut vitae odio.',
+              type: 'unstyled',
+              depth: 0,
+              inlineStyleRanges: [],
+              entityRanges: [],
+              data: {},
+            },
+          ],
+          entityMap: {},
+        },
+      },
+      id: 0,
+    },
+    {
+      type: 'shortAnswer',
+      form: {
+        privacy: 'public',
+        required: true,
+        question: 'Praesent eget mollis ipsum. Ut in sagittis odio?',
+        description:
+          'Vestibulum ac luctus ipsum. Suspendisse scelerisque turpis ut urna porttitor aliquet. Praesent eget leo id magna volutpat lobortis quis in nibh.',
+      },
+      id: 1,
+    },
+    {
+      type: 'longAnswer',
+      form: {
+        privacy: 'public',
+        required: true,
+        question: 'Vestibulum efficitur risus vitae eros ultrices lobortis.',
+        description:
+          'In in tempor velit. Morbi consectetur, ex sit amet aliquam sollicitudin, orci neque sodales lorem, sed scelerisque nulla ante vel justo.',
+      },
+      id: 2,
+    },
+    {
+      type: 'multiChoice',
+      form: {
+        privacy: 'public',
+        required: true,
+        question: 'In in tempor velit. Morbi consectetur',
+        description: 'Duis ultrices lorem quis quam fringilla luctus.',
+        options: [
+          { value: 'Duis ultrices lorem quis quam fringilla luctus.', id: 0 },
+          { value: 'Vestibulum efficitur risus vitae eros ultrices lobortis.', id: 1 },
+          { value: 'Lorem ipsum dolor sit amet', id: 2 },
+        ],
+      },
+      id: 3,
+      reply: '2',
+    },
+    {
+      type: 'checkboxes',
+      form: {
+        privacy: 'private',
+        required: true,
+        question: 'Cras fermentum semper euismod.',
+        description:
+          'Cras fermentum semper euismod. Quisque libero ipsum, dapibus quis blandit eget, finibus at erat. Suspendisse sit amet venenatis tellus. Sed tempus, leo vel tempus malesuada',
+        answersAllowed: 'range',
+        exact: null,
+        rangeMin: 3,
+        rangeMax: 4,
+        options: [
+          { value: 'Option 1', id: 0 },
+          { value: 'Opção 2', id: 1 },
+          { value: 'Opção 3', id: 2 },
+          { value: 'Opção 4', id: 3 },
+          { value: 'Opção 5', id: 4 },
+          { value: 'Opção 6', id: 5 },
+        ],
+      },
+      id: 4,
+    },
+    {
+      type: 'fileUploader',
+      form: {
+        privacy: 'private',
+        required: true,
+        question: 'Quisque libero ipsum, dapibus quis blandit eget',
+        description:
+          'Cras fermentum semper euismod. Quisque libero ipsum, dapibus quis blandit eget, finibus at erat. Suspendisse sit amet venenatis tellus. Sed tempus, leo vel tempus malesuada',
+      },
+      id: 5,
+    },
+  ],
+};
+
 const projectConfig = {
   request_time: 2978,
   code: 200,
@@ -18,7 +150,7 @@ const projectConfig = {
     latitude: 0,
     longitude: 0,
     summary: '',
-    form: '{"title":"","description":"","video":"","images":[],"categories":{"show":true},"sdg":{"required":false,"preferred":[]},"customQuestions":[{"type":"section","form":{"privacy":"private","title":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","description":{"blocks":[{"key":"11dm0","text":"Nulla nec sapien pharetra, lobortis diam eget, tincidunt neque. Cras vestibulum congue tellus a faucibus. Curabitur vitae convallis nulla. Ut elit est, volutpat mollis vestibulum id, efficitur vel arcu.","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"2i4ut","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"fqidp","text":"Suspendisse interdum purus commodo, eleifend enim sit amet, pharetra lorem. Aenean viverra id magna at posuere. Praesent a laoreet purus. Donec vitae felis malesuada, efficitur nibh vel, convallis metus.","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"2sh3j","text":"Quisque et urna quis elit mollis congue ut vitae odio.","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}},"id":0},{"type":"shortAnswer","form":{"privacy":"public","required":true,"question":"Praesent eget mollis ipsum. Ut in sagittis odio?","description":"Vestibulum ac luctus ipsum. Suspendisse scelerisque turpis ut urna porttitor aliquet. Praesent eget leo id magna volutpat lobortis quis in nibh."},"id":1},{"type":"longAnswer","form":{"privacy":"public","required":true,"question":"Vestibulum efficitur risus vitae eros ultrices lobortis.","description":"In in tempor velit. Morbi consectetur, ex sit amet aliquam sollicitudin, orci neque sodales lorem, sed scelerisque nulla ante vel justo."},"id":2},{"type":"multiChoice","form":{"privacy":"public","required":true,"question":"In in tempor velit. Morbi consectetur","description":"Duis ultrices lorem quis quam fringilla luctus.","options":[{"value":"Duis ultrices lorem quis quam fringilla luctus.","id":0},{"value":"Vestibulum efficitur risus vitae eros ultrices lobortis.","id":1},{"value":"Lorem ipsum dolor sit amet","id":2}]},"id":3},{"type":"checkboxes","form":{"privacy":"private","required":true,"question":"Cras fermentum semper euismod.","description":"Cras fermentum semper euismod. Quisque libero ipsum, dapibus quis blandit eget, finibus at erat. Suspendisse sit amet venenatis tellus. Sed tempus, leo vel tempus malesuada","answersAllowed":"range","exact":null,"rangeMin":3,"rangeMax":4,"options":[{"value":"Option 1","id":0},{"value":"Opção 2","id":1},{"value":"Opção 3","id":2},{"value":"Opção 4","id":3},{"value":"Opção 5","id":4},{"value":"Opção 6","id":5}]},"id":4},{"type":"fileUploader","form":{"privacy":"private","required":true,"question":"Quisque libero ipsum, dapibus quis blandit eget","description":"Cras fermentum semper euismod. Quisque libero ipsum, dapibus quis blandit eget, finibus at erat. Suspendisse sit amet venenatis tellus. Sed tempus, leo vel tempus malesuada"},"id":5}]}',
+    form: JSON.stringify(form),
     draft: '{}',
     additional_texts:
       '{"paginator":{"active":"generalDetails","edited":[],"done":["locationTime","categories","skillsAndInterests","applicationForm","generalDetails"],"published":false}}',

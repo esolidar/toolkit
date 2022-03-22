@@ -7,7 +7,7 @@ import Props from './Radiobox.types';
 import projectConfig from '../../../../../__mocks__/projectConfig';
 
 const questions = JSON.parse(projectConfig.data.form);
-const multiChoice = questions.customQuestions.filter(i => i.type === 'multiChoice')[0].form;
+const multiChoice = questions.customQuestions.filter(i => i.type === 'multiChoice')[0];
 
 export default {
   title: 'Accelerator/Project/Questions/Radiobox',
@@ -37,9 +37,10 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
-  description: multiChoice.description,
-  options: multiChoice.options,
-  privacy: multiChoice.privacy,
-  question: multiChoice.question,
-  required: multiChoice.required,
+  description: multiChoice.form.description,
+  options: multiChoice.form.options,
+  privacy: multiChoice.form.privacy,
+  question: multiChoice.form.question,
+  required: multiChoice.form.required,
+  reply: multiChoice.reply,
 };
