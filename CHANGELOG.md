@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.101.1](https://github.com/esolidar/toolkit/compare/v4.101.0...v4.101.1) Released: 22nd March 2022
+
+### Bug Fixing
+
+- Broken Crowdfunding Checkout Page [`ENG-1093`](https://github.com/esolidar/toolkit/pulls?q=ENG-1093)
+  <br>
+  <br>
+
 ## [v4.101.0](https://github.com/esolidar/toolkit/compare/v4.83.0...v4.101.0) Released: ER2208 / 08th February 2022 -> 02nd March 2022
 
 ### New features
