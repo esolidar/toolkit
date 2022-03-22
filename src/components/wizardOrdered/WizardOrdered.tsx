@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import FullScreenModal from '../../elements/fullScreenModal/FullScreenModal';
 import Footer from './Footer';
 import Page from './Page';
@@ -22,6 +22,8 @@ const WizardOrdered = ({
   const [blurPage, setBlurPage] = useState<boolean>(false);
   const [direction, setDirection] = useState<'up' | 'down'>(null);
 
+  const isWheelScrollDisabled = useRef(false);
+
   useEffect(() => {
     if (showWizard) {
       const body = document.getElementsByTagName('body')[0];
@@ -32,15 +34,6 @@ const WizardOrdered = ({
   useEffect(() => {
     if (isSuccess && activePage === pages.length - 1) goNext();
   }, [isSuccess]);
-
-  useEffect(() => {
-    const wizard = document.getElementsByClassName('wizard-ordered')[0];
-
-    if (wizard) wizard.addEventListener('wheel', handleNavigation, { passive: true });
-    return () => {
-      if (wizard) return wizard.removeEventListener('wheel', handleNavigation);
-    };
-  }, [activePage, showWizard, isPageValid]);
 
   const goNext = () => {
     if (activePage < pages.length && isPageValid) {
@@ -67,21 +60,41 @@ const WizardOrdered = ({
   };
 
   const handleNavigation = useCallback(
-    e => {
+    (e: React.WheelEvent) => {
       const { deltaY } = e;
+
+      e.stopPropagation();
+
       const activePageDiv = document.getElementsByClassName('active-page')[0];
 
+      const scrollDown = deltaY > 0;
+      const scrollUp = deltaY < 0;
+      const hasScrollOnPage = activePageDiv.clientHeight >= activePageDiv.scrollHeight;
+      const isOnScrollBottomPage =
+        activePageDiv.clientHeight + activePageDiv.scrollTop === activePageDiv.scrollHeight;
+      const isOnScrollTopPage = activePageDiv.scrollTop === 0;
+      const isLastPage = activePage <= pages.length - 1;
+
       if (
-        deltaY > 0 &&
+        scrollDown &&
         activePage < pages.length - 1 &&
-        (activePageDiv.clientHeight >= activePageDiv.scrollHeight ||
-          activePageDiv.clientHeight + activePageDiv.scrollTop === activePageDiv.scrollHeight)
+        (hasScrollOnPage || isOnScrollBottomPage)
       ) {
-        setTimeout(() => {
+        if (!isWheelScrollDisabled.current) {
+          isWheelScrollDisabled.current = true;
           goNext();
-        }, 1000);
-      } else if (deltaY < 0 && activePageDiv.scrollTop === 0 && activePage <= pages.length - 1) {
-        goPrev();
+          setTimeout(() => {
+            isWheelScrollDisabled.current = false;
+          }, 1300);
+        }
+      } else if (scrollUp && isOnScrollTopPage && isLastPage) {
+        if (!isWheelScrollDisabled.current) {
+          isWheelScrollDisabled.current = true;
+          goPrev();
+          setTimeout(() => {
+            isWheelScrollDisabled.current = false;
+          }, 1300);
+        }
       }
     },
     [activePage, showWizard, isPageValid]
@@ -116,7 +129,7 @@ const WizardOrdered = ({
               }}
             />
           </div>
-          <div className="wizard-ordered" id="wizard-ordered">
+          <div className="wizard-ordered" id="wizard-ordered" onWheel={handleNavigation}>
             {pages.map((page, i) => {
               return (
                 <Page

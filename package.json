@@ -32,6 +32,7 @@
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
+    "modulePathIgnorePatterns": ["<rootDir>/build"],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules"
     },
