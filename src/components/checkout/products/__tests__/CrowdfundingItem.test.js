@@ -310,7 +310,6 @@ describe('CrowdfundingItem component', () => {
         totalItems={1}
       />
     ).shallow();
-
     const hidden = component.find({ name: 'hidden' });
     expect(hidden.length).toBe(1);
     expect(hidden.getElement(0).props.checked).toBe(true);
