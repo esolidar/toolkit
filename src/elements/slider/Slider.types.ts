@@ -6,6 +6,7 @@ interface Props {
   step?: number;
   onChange?(value: number, direction: 'left' | 'right'): void;
   disabled?: boolean;
+  reset?: boolean;
   showButtons?: boolean;
 }
 

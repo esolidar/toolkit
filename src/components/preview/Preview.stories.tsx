@@ -19,16 +19,18 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 export const WithDeleteButton: Story<Props> = Template.bind({});
 export const Placeholder: Story<Props> = Template.bind({});
-export const BorderRadius: Story<Props> = Template.bind({});
+export const Rounded: Story<Props> = Template.bind({});
+export const VideoYoutube: Story<Props> = Template.bind({});
+export const VideoVimeo: Story<Props> = Template.bind({});
 
 Default.args = {
+  hover: false,
   img: {
     src: 'https://image.testesolidar.com/crowdfundings/esolidar_shop-907274bf-b6ea-4cf6-b52f-85b4a81fc1b0.jpg?width=216&height=144',
     alt: 'Imagem de teste',
     width: '216px',
     height: '144px',
   },
-  hover: false,
 };
 
 WithDeleteButton.args = {
@@ -51,7 +53,7 @@ Placeholder.args = {
   },
 };
 
-BorderRadius.args = {
+Rounded.args = {
   hover: true,
   img: {
     src: '',
@@ -59,5 +61,29 @@ BorderRadius.args = {
     width: '200px',
     height: '200px',
     borderRadius: '50%',
+  },
+};
+
+VideoYoutube.args = {
+  type: 'video',
+  hover: true,
+  videoUrl: 'https://youtu.be/f7x5IeWi0v8',
+  handleDeleteImage: () => {
+    alert('Deleted video');
+  },
+  onFinishVideoValidation: isValid => {
+    if (!isValid) alert('Error loading video');
+  },
+};
+
+VideoVimeo.args = {
+  type: 'video',
+  hover: true,
+  videoUrl: 'https://vimeo.com/133690861',
+  handleDeleteImage: () => {
+    alert('Deleted video');
+  },
+  onFinishVideoValidation: isValid => {
+    if (!isValid) alert('Error loading video');
   },
 };

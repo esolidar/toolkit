@@ -1,0 +1,62 @@
+.file-card {
+  display: flex;
+  background-color: map-get($background, primary);
+  outline: 1px solid map-get($neutrals, 100);
+  border-radius: $border-radius-1;
+  box-shadow: 0px 2px 4px rgba(26, 27, 28, 0.04);
+  border: none;
+  padding: $distance-2;
+  gap: $distance-2;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__body {
+    margin-right: auto;
+
+    &-title {
+      display: flex;
+      gap: $distance-1;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: map-get($base, 700);
+    }
+
+    &-subtitle {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($base, 700);
+    }
+
+    &-helper {
+      padding-top: $distance-2 !important;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($neutrals, 700);
+    }
+
+    .no-margin {
+      padding-top: 0 !important;
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: $distance-1;
+  }
+
+  &:hover {
+    &:not(.disabled) {
+      outline: 2px solid map-get($turquoise, 500);
+      @include animate(all, 100ms);
+    }
+  }
+}

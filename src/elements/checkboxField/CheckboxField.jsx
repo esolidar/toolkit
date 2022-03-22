@@ -37,7 +37,7 @@ const CheckboxField = ({
 
 CheckboxField.propTypes = {
   dataTestId: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,

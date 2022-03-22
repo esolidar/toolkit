@@ -118,6 +118,10 @@
     & .checkbox-card__icon {
       background-position: 98% 11%;
     }
+
+    & .checkbox-card__delete {
+      background-position: 98% 11%;
+    }
   }
 
   &:focus {
@@ -177,6 +181,20 @@
     height: 32px;
     line-height: 0;
     background-color: map-get($turquoise, 500);
+    border-radius: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .checkbox-card__delete {
+    position: absolute;
+    right: $distance-1;
+    top: $distance-1;
+    width: 32px;
+    height: 32px;
+    line-height: 0;
+    background-color: map-get($base, black);
     border-radius: 16px;
     align-items: center;
     display: flex;
