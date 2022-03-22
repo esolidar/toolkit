@@ -13,8 +13,6 @@ import isDefined from '../../utils/isDefined';
 import 'react-image-lightbox/style.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// TODO: ask product play icon large
-
 declare type Provider = 'vimeo' | 'youtube' | '';
 
 interface VideoDetails {
@@ -63,7 +61,7 @@ const Preview: FC<Props> = ({
   }, [img]);
 
   useEffect(() => {
-    if (isVisible && !showVideoSkeleton) {
+    if (isVisible && !showVideoSkeleton && type === 'video') {
       setShowVideoSkeleton(true);
       setTimeout(() => {
         setShowVideoSkeleton(false);

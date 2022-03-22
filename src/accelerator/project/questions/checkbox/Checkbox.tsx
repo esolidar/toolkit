@@ -45,17 +45,17 @@ const Checkbox = ({
           )}
           {options.map(option => (
             <CheckboxField
-              name={name}
+              name={`${name}-${option.id}`}
               control={control}
               required={required}
               onChange={handleChange}
               key={option.id}
-              reply={reply}
               checkboxFieldProps={{
                 error: '',
                 label: option.value,
                 name: option.value,
                 value: option.id,
+                checked: reply?.includes(option.id),
               }}
             />
           ))}

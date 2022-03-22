@@ -7,7 +7,6 @@ const ShortAnswer = ({
   name,
   control,
   id,
-  reply,
   question,
   description,
   required,
@@ -22,7 +21,6 @@ const ShortAnswer = ({
         required={required}
         textFieldProps={{
           id,
-          value: reply,
           size: 'lg',
         }}
       />

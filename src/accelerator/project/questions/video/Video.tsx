@@ -67,7 +67,6 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
           required={required}
           textFieldProps={{
             id,
-            value: reply,
             size: 'lg',
             placeholder: 'https://www.youtube.com/watch?v=myvideo',
             error,

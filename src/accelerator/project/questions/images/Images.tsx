@@ -28,8 +28,10 @@ const Images = ({
   }, [reply]);
 
   const handleConfirmDeleteImage = (id, item) => {
-    if (item.project_id) setIsOpenDeleteModal(true);
-    else handleDeleteImage(id);
+    if (item.project_id) {
+      setIsOpenDeleteModal(true);
+      fileToDelete.current = id;
+    } else handleDeleteImage(id);
   };
 
   return (

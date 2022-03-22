@@ -1,6 +1,5 @@
 interface Props {
   name: string;
-  reply: string;
   question: string;
   description: string;
   required: boolean;

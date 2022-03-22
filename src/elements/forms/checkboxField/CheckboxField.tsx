@@ -3,14 +3,7 @@ import { useController } from 'react-hook-form';
 import CheckboxField from '../../checkboxField';
 import Props from './CheckboxField.types';
 
-const CheckboxFieldForm = ({
-  control,
-  name,
-  required,
-  checkboxFieldProps,
-  onChange,
-  reply,
-}: Props) => {
+const CheckboxFieldForm = ({ control, name, required, checkboxFieldProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value, ref },
     fieldState: { error },
@@ -31,7 +24,6 @@ const CheckboxFieldForm = ({
       value={value}
       field={fieldName}
       inputRef={ref}
-      checked={reply?.includes(value)}
       error={error ? error.message || true : false}
       {...checkboxFieldProps}
     />

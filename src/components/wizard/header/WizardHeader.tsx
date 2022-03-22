@@ -91,11 +91,13 @@ const WizardHeader: FC<Props> = ({
                     onChange={handleChangeTitle}
                     value={title}
                     onBlur={handleBlurTitle}
-                    placeholder={intl.formatMessage({ id: 'business.accelerator.entre.title' })}
+                    placeholder={intl.formatMessage({
+                      id: 'toolkit.wizard-header.title.placeholder',
+                    })}
                     maxLength={32}
                     size={
                       title.length ||
-                      intl.formatMessage({ id: 'business.accelerator.entre.title' }).length
+                      intl.formatMessage({ id: 'toolkit.wizard-header.title.placeholder' }).length
                     }
                     autoComplete="off"
                   />

@@ -30,25 +30,19 @@ const SortableItem = ({ value, id, env, handleDeleteImage, index }: Props) => {
     opacity: isDragging ? 0.3 : 1,
   };
 
+  const previewImageSrc = value.image.includes('http')
+    ? `${value.image}?width=216px&height=144`
+    : `${env}/${value.image}?width=216px&height=144px`;
+
   return (
     <div ref={setNodeRef} style={style}>
       <div className="drag-and-drop-thumbs">
-        <button {...listeners} {...attributes} className="drag-and-drop-thumbs__item">
-          {value.image.includes('http') ? (
-            <Preview
-              badgeText={index === 0 ? intl.formatMessage({ id: 'toolkit.cover' }) : null}
-              img={{ src: `${value.image}?width=216px&height=144`, alt: 'thumb' }}
-            />
-          ) : (
-            <Preview
-              badgeText={index === 0 ? intl.formatMessage({ id: 'toolkit.cover' }) : null}
-              img={{
-                src: `${env}/${value.image}?width=216px&height=144px`,
-                alt: 'thumb',
-              }}
-            />
-          )}
-        </button>
+        <div {...listeners} {...attributes} className="drag-and-drop-thumbs__item">
+          <Preview
+            badgeText={index === 0 ? intl.formatMessage({ id: 'toolkit.cover' }) : null}
+            img={{ src: previewImageSrc, alt: 'thumb' }}
+          />
+        </div>
         <button
           type="button"
           className="drag-and-drop-thumbs__delete-button"
