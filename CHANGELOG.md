@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
-## [v4.101.1](https://github.com/esolidar/toolkit/compare/v4.101.0...v4.101.1) Released: 22nd March 2022
+## [v4.101.2](https://github.com/esolidar/toolkit/compare/v4.101.0...v4.101.2) Released: 22nd March 2022
 
 ### Bug Fixing
 
