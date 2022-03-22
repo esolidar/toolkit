@@ -36,7 +36,7 @@ const WizardOrdered = ({
   useEffect(() => {
     const wizard = document.getElementsByClassName('wizard-ordered')[0];
 
-    if (wizard) wizard.addEventListener('wheel', handleNavigation, { passive: false });
+    if (wizard) wizard.addEventListener('wheel', handleNavigation, { passive: true });
     return () => {
       if (wizard) return wizard.removeEventListener('wheel', handleNavigation);
     };
@@ -77,8 +77,10 @@ const WizardOrdered = ({
         (activePageDiv.clientHeight >= activePageDiv.scrollHeight ||
           activePageDiv.clientHeight + activePageDiv.scrollTop === activePageDiv.scrollHeight)
       ) {
-        goNext();
-      } else if (deltaY < 0 && activePageDiv.scrollTop === 0 && activePage < pages.length - 1) {
+        setTimeout(() => {
+          goNext();
+        }, 1000);
+      } else if (deltaY < 0 && activePageDiv.scrollTop === 0 && activePage <= pages.length - 1) {
         goPrev();
       }
     },
