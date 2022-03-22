@@ -6,37 +6,29 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import TextareaField from '../../../elements/textareaField';
+import CheckboxField from '../../../elements/checkboxField';
 import TextField from '../../../elements/textField';
 
-const InvoicingData = props => {
-  const { errors, receipt, nif, invoice_address, agree } = props.state;
+const InvoicingData = ({ state, onChangCheckBoxInvoicing, onChange }) => {
+  const { errors, receipt, nif, invoice_address, agree } = state;
 
   const intl = useIntl();
 
   return (
     <Row className="cart-item-invoice">
-      <Col sm={12}>
-        <div className="checkbox-inline">
-          <div className="form-group">
-            <label htmlFor="receipt">
-              <FormattedMessage id="checkout.receipt" />
-              <input
-                type="checkbox"
-                name="receipt"
-                id="receipt"
-                value={receipt}
-                onChange={props.onChangCheckBoxInvoicing}
-                checked={receipt === 1}
-              />
-              <div className="checkbox" />
-            </label>
-          </div>
-        </div>
+      <Col sm={12} className="mb-2">
+        <CheckboxField
+          label={intl.formatMessage({ id: 'checkout.receipt' })}
+          name="receipt"
+          checked={receipt === 1}
+          value={receipt}
+          onChange={onChangCheckBoxInvoicing}
+        />
       </Col>
       <Col sm={12}>
         <TextField
           label={intl.formatMessage({ id: 'user.nif' })}
-          onChange={props.onChange}
+          onChange={onChange}
           error={errors.nif}
           value={nif}
           field="nif"
@@ -46,7 +38,7 @@ const InvoicingData = props => {
       <Col sm={12}>
         <TextareaField
           label={intl.formatMessage({ id: 'checkout.invoice_address' })}
-          onChange={props.onChange}
+          onChange={onChange}
           error={errors.invoice_address}
           value={invoice_address}
           field="invoice_address"
@@ -54,31 +46,22 @@ const InvoicingData = props => {
         />
       </Col>
       <Col sm={12}>
-        <div className="checkbox-inline">
-          <div className="form-group">
-            <label htmlFor="agree">
+        <CheckboxField
+          label={
+            <>
               <FormattedMessage id="crowdfunding.donation.modal.agree.text" />
               &nbsp;
               <a href="/terms" target="_blank">
                 <FormattedMessage id="crowdfunding.donation.modal.agree.href" />
               </a>
-              <input
-                type="checkbox"
-                name="agree"
-                id="agree"
-                value={agree}
-                onChange={props.onChangCheckBoxInvoicing}
-                checked={agree === 1}
-              />
-              <div className="checkbox" />
-            </label>
-            {errors.agree && (
-              <div className="has-error">
-                <div className="help-block">{errors.agree}</div>
-              </div>
-            )}
-          </div>
-        </div>
+            </>
+          }
+          name="agree"
+          value={agree}
+          onChange={onChangCheckBoxInvoicing}
+          checked={agree === 1}
+          error={errors.agree}
+        />
       </Col>
     </Row>
   );
