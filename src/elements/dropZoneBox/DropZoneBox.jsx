@@ -302,12 +302,8 @@ const DropZoneBox = ({
   const rotate = degrees => {
     if (degrees) {
       setResetSlider(true);
-      cropper.current.rotate(degrees);
-      cropper.current.zoomTo(0);
       const currentRotation = cropper.current.getData().rotate;
-      if (currentRotation === 0 || currentRotation === 180 || currentRotation === -180) {
-        cropper.current.moveTo(0);
-      }
+      cropper.current.reset().rotate(currentRotation + degrees);
     }
   };
 
@@ -432,14 +428,11 @@ const DropZoneBox = ({
                 ref={cropper}
                 src={croppedFile}
                 style={{ height: 290, width: '100%' }}
-                guides={true}
-                zoomable={true}
                 viewMode={1}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
                 dragMode="move"
-                cropBoxResizable={true}
-                cropBoxMovable={false}
                 autoCropArea={1}
+                zoomOnWheel={false}
               />
               {renderErrorList(errorList, showErrors)}
               {showFooterCropper && (
