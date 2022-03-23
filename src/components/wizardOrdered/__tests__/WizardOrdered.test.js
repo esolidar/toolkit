@@ -36,3 +36,33 @@ it('renders WizardOrdered click-next', () => {
   expect(getAllByClass(/page-before/)).toHaveLength(3);
   expect(getAllByClass(/page-after/)).toHaveLength(8);
 });
+
+it('renders WizardOrdered scroll-wheel', () => {
+  const { getAllByClass, getAllByTestId } = render(<Open />);
+
+  expect(getAllByTestId('click-next')).toHaveLength(1);
+  expect(getAllByTestId('click-prev')).toHaveLength(1);
+  fireEvent.wheel(screen.getByTestId('wizard-ordered'), {
+    bubbles: true,
+    cancelable: false,
+    deltaY: 100,
+    x: 30,
+    y: 30,
+    deltaMode: WheelEvent.DOM_DELTA_LINE,
+  });
+  expect(getAllByClass(/page-before/)).toHaveLength(1);
+  expect(getAllByClass(/page-after/)).toHaveLength(10);
+  expect(getAllByTestId('click-next')).toHaveLength(1);
+  expect(getAllByTestId('click-prev')).toHaveLength(1);
+  fireEvent.wheel(screen.getByTestId('wizard-ordered'), {
+    bubbles: true,
+    cancelable: false,
+    deltaY: -100,
+    x: 30,
+    y: 30,
+    deltaMode: WheelEvent.DOM_DELTA_LINE,
+  });
+  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(17);
+  expect(getAllByClass(/page-before/)).toHaveLength(1);
+  expect(getAllByClass(/page-after/)).toHaveLength(10);
+});

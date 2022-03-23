@@ -129,7 +129,12 @@ const WizardOrdered = ({
               }}
             />
           </div>
-          <div className="wizard-ordered" id="wizard-ordered" onWheel={handleNavigation}>
+          <div
+            className="wizard-ordered"
+            data-testid="wizard-ordered"
+            id="wizard-ordered"
+            onWheel={handleNavigation}
+          >
             {pages.map((page, i) => {
               return (
                 <Page
