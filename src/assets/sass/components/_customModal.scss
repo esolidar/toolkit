@@ -5,6 +5,7 @@
 
 .modal-backdrop.show {
   opacity: 75%;
+  z-index: 9999;
 }
 
 .custom-modal {

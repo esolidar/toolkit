@@ -543,7 +543,7 @@ DropZoneBox.propTypes = {
   noDrag: PropTypes.bool,
   showImagesPreviews: PropTypes.bool,
   imagesList: PropTypes.array,
-  env: PropTypes.object,
+  env: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   imagesPreviewPosition: PropTypes.oneOf(['top', 'bottom']),
   deleteImageGallery: PropTypes.func,
   cropModalStatus: PropTypes.bool,

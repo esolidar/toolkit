@@ -17,6 +17,7 @@ const Images = ({
   handleDeleteImage,
   cropModalStatus,
   handleOrderImages,
+  onDropError,
 }: Props) => {
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const fileToDelete = useRef<number>(null);
@@ -76,6 +77,7 @@ const Images = ({
             titleCropModal={intl.formatMessage({ id: 'auction.add.image' })}
             textSaveCropModal={intl.formatMessage({ id: 'auction.add.image.crop' })}
             handleOrderImages={handleOrderImages}
+            onDropError={onDropError}
           />
         </div>
       </Viewport>
