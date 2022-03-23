@@ -6,7 +6,15 @@ import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
 import useDebounce from '../../../../hooks/useDebounce';
 
-const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): JSX.Element => {
+const Video = ({
+  name,
+  control,
+  id,
+  reply,
+  required,
+  onFinishVideoValidation,
+  onDeletePreview,
+}: Props): JSX.Element => {
   const intl = useIntl();
   const debouncedReply = useDebounce(reply, 500);
 
@@ -41,10 +49,13 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
     window.open(reply);
   };
 
-  const handleOnFinishVideoValidation = (isValid: boolean) => {
+  const handleOnFinishVideoValidation = videoDetails => {
+    const { hasError } = videoDetails;
+
     setIsValidatingVideo(false);
-    setIsVideoValid(isValid);
-    if (!isValid && reply !== '')
+    setIsVideoValid(!hasError);
+    onFinishVideoValidation(videoDetails);
+    if (hasError && reply !== '')
       setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));
   };
 

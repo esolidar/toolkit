@@ -5,6 +5,7 @@ interface Props {
   id?: string;
   control?: any;
   onDeletePreview(): void;
+  onFinishVideoValidation(videoDetails: any): void;
 }
 
 export default Props;
