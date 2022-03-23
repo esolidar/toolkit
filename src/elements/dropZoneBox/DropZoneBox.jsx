@@ -164,9 +164,7 @@ const DropZoneBox = ({
     if (errorList.length > 0 && showErrors) {
       if (onDropError) {
         errorList.forEach(file => {
-          const newFile = file;
-          newFile.errors[0] = 'maxSize';
-          return newFile;
+          return file;
         });
         onDropError(errorList);
         setErrorList([]);
@@ -258,7 +256,7 @@ const DropZoneBox = ({
     },
     onDropRejected: async rejectedFiles => {
       if (showErrors && onDropError && rejectedFiles.length > maxFiles)
-        onDropError([{ name: 'maxFiles', maxFiles }]);
+        onDropError([{ name: 'maxFiles', maxFiles, code: rejectedFiles[0].errors[0].code }]);
 
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
@@ -284,7 +282,12 @@ const DropZoneBox = ({
             } ${convertToMb(minSize)}`
           );
 
-        const fileErrorObject = { name: rejectedFile.file.name, errors };
+        const fileErrorObject = {
+          name: rejectedFile.file.name,
+          errors,
+          code: rejectedFile.errors[0].code,
+          file: rejectedFile.file,
+        };
         if (errors.length) onDropErrorFileList.push(fileErrorObject);
       });
 

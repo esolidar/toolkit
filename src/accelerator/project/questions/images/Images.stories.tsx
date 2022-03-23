@@ -63,4 +63,5 @@ Default.args = {
   ],
   handleOrderImages: () => {},
   handleDeleteImage: () => {},
+  onDropError: () => {},
 };

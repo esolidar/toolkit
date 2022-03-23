@@ -24,10 +24,12 @@ const Files = ({
   const intl = useIntl();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const fileToDelete = useRef<number>(null);
+  const [filesList, setFilesList] = useState<any>([]);
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
     element.scrollTop = element.scrollHeight;
+    setFilesList(reply);
   }, [reply]);
 
   const deleteFile = (id: number, projectId: number) => {
@@ -37,6 +39,20 @@ const Files = ({
     } else {
       handleDeleteFile(id);
     }
+  };
+
+  const onError = errorList => {
+    const files = [...filesList];
+    errorList.forEach(error => {
+      const { file } = error;
+      file.fail = true;
+      files.push(file);
+    });
+
+    setFilesList(files);
+    const element = document.getElementsByClassName('active-page')[0];
+    element.scrollTop = element.scrollHeight;
+    onDropError(errorList);
   };
 
   return (
@@ -62,29 +78,40 @@ const Files = ({
             multiple={true}
             showImagesPreviews={false}
             env={serverlessResizeImage}
-            onDropError={onDropError}
+            onDropError={onError}
           />
           <div className="wizard-project-files__list">
-            {reply.map(file => (
-              <FileCard
-                key={file.id}
-                showDownloadButton={false}
-                title={file.name}
-                badge={!file.public ? intl.formatMessage({ id: 'toolkit.private' }) : null}
-                helper={convertFileSize(file.file_size)}
-                dropdownItems={[
-                  {
-                    id: 0,
-                    leftIcon: 'Trash',
-                    onClick: () => {
-                      deleteFile(file.id, file.project_id);
-                    },
-                    show: true,
-                    text: intl.formatMessage({ id: 'delete' }),
-                  },
-                ]}
-              />
-            ))}
+            {filesList.map((file, i) => {
+              const errorBadge = file.fail ? 'error' : null;
+              const privateBadge = !file.public
+                ? intl.formatMessage({ id: 'toolkit.private' })
+                : null;
+
+              return (
+                <FileCard
+                  key={i}
+                  showDownloadButton={false}
+                  title={file.name}
+                  badge={errorBadge || privateBadge}
+                  helper={convertFileSize(file.file_size || file.size)}
+                  dropdownItems={
+                    errorBadge
+                      ? null
+                      : [
+                          {
+                            id: 0,
+                            leftIcon: 'Trash',
+                            onClick: () => {
+                              deleteFile(file.id, file.project_id);
+                            },
+                            show: true,
+                            text: intl.formatMessage({ id: 'delete' }),
+                          },
+                        ]
+                  }
+                />
+              );
+            })}
           </div>
         </div>
       </Viewport>

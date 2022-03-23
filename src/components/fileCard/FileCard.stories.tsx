@@ -21,7 +21,7 @@ export const Simple: Story<Props> = Template.bind({});
 
 Default.args = {
   showDownloadButton: true,
-  title: 'File 1',
+  title: 'esolidar - Ajudando a ajudar.pdf',
   badge: 'Private',
   subtitle:
     'Donec eleifend erat a nibh faucibus, sit amet tempor tortor pulvinar. Sed vestibulum luctus gravida.',
@@ -49,7 +49,7 @@ Simple.args = {
   disabled: true,
   image:
     'https://image.testesolidar.com/whitelabel/5/project-config/be8814f2-0970-4d54-b348-9ed205161928.jpg?width=100px&height=100px',
-  title: 'File 1',
+  title: 'esolidar - Ajudando a ajudar.pdf',
   helper: 'Uploaded on 2022-03-16 15:33:19 - 1.44 Mb',
   dropdownItems: [
     {

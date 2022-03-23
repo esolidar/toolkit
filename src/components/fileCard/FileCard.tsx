@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { useIntl } from 'react-intl';
 import Props from './FileCard.types';
 import Preview from '../preview';
 import Button from '../../elements/button';
@@ -19,6 +20,7 @@ const FileCard = ({
   className,
 }: Props) => {
   const classes = classnames('file-card', { disabled }, className);
+  const intl = useIntl();
 
   return (
     <div className={classes}>
@@ -34,7 +36,13 @@ const FileCard = ({
       <div className="file-card__body">
         <div className="file-card__body-title">
           {title}
-          {badge && <Badge plaintext={badge} type="text" extraClass="dark-gray" />}
+          {badge && (
+            <Badge
+              plaintext={badge === 'error' ? intl.formatMessage({ id: 'toolkit.failed' }) : badge}
+              icon={badge === 'error' ? 'Info' : null}
+              extraClass={badge === 'error' ? 'red' : 'white'}
+            />
+          )}
         </div>
         {subtitle && <div className="file-card__body-subtitle">{subtitle}</div>}
         {helper && (

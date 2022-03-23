@@ -65,6 +65,7 @@ const form = {
           'Vestibulum ac luctus ipsum. Suspendisse scelerisque turpis ut urna porttitor aliquet. Praesent eget leo id magna volutpat lobortis quis in nibh.',
       },
       id: 1,
+      reply: '',
     },
     {
       type: 'longAnswer',
@@ -76,6 +77,7 @@ const form = {
           'In in tempor velit. Morbi consectetur, ex sit amet aliquam sollicitudin, orci neque sodales lorem, sed scelerisque nulla ante vel justo.',
       },
       id: 2,
+      reply: '',
     },
     {
       type: 'multiChoice',

@@ -63,12 +63,16 @@ const WizardOrdered = ({
     (e: React.WheelEvent) => {
       const { deltaY } = e;
 
+      // Disable mouse wheel on modal and textarea
+      const element: any = e.target;
+      if (element.closest('.modal') || element.closest('.text-area-field')) return;
+
       e.stopPropagation();
 
       const activePageDiv = document.getElementsByClassName('active-page')[0];
 
-      const scrollDown = deltaY > 0;
-      const scrollUp = deltaY < 0;
+      const scrollDown = deltaY > 1;
+      const scrollUp = deltaY < 1;
       const hasScrollOnPage = activePageDiv.clientHeight >= activePageDiv.scrollHeight;
       const isOnScrollBottomPage =
         activePageDiv.clientHeight + activePageDiv.scrollTop === activePageDiv.scrollHeight;
