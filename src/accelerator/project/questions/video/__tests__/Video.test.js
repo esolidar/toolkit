@@ -50,7 +50,7 @@ it('renders Video component', async () => {
     expect(queryByClass('esolidar-preview__video')).not.toBeInTheDocument();
 
     await waitFor(() => {
-      expect(getByClass('esolidar-preview__video')).toBeInTheDocument();
+      expect(getByClass('esolidar-preview__video cursor-pointer')).toBeInTheDocument();
     });
   });
 });
