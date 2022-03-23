@@ -83,22 +83,34 @@ a.btn-next-step {
   }
 
   .cart-item-row {
-    height: 150px;
+    display: flex;
+    align-items: center;
 
-    @media (max-width: map-get($breakpoints, xs)) {
-      height: auto !important;
-    }
+    .cart-item-column {
+      display: flex;
+      align-items: center;
+      height: 150px;
 
-    .checkbox-inline {
-      .form-group {
-        label {
-          width: 100%;
+      @media (max-width: map-get($breakpoints, xs)) {
+        height: auto !important;
+      }
+
+      &__details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .checkbox-inline {
+        .form-group {
+          label {
+            width: 100%;
+          }
         }
       }
-    }
 
-    .checkbox {
-      top: 25px;
+      .checkbox {
+        top: 25px;
+      }
     }
   }
 }
@@ -107,7 +119,6 @@ a.btn-next-step {
   border: none;
   background: transparent;
   text-decoration: underline;
-  margin-top: 35px;
   color: map-get($main-text-colors, dark);
 
   @media (max-width: map-get($breakpoints, xs)) {
