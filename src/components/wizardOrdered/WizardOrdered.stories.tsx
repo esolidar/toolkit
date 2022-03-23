@@ -56,7 +56,7 @@ const Template: Story<Props> = (args: Props) => {
 
   return (
     <StorybookFormProvider>
-      <div>
+      <div style={{ height: '1500px' }}>
         <button
           onClick={() => {
             setShowWizard(true);
@@ -66,15 +66,33 @@ const Template: Story<Props> = (args: Props) => {
         >
           Open Wizard
         </button>
-        <WizardOrdered
-          {...args}
-          handlePublish={handlePublish}
-          showWizard={showWizard}
-          isSuccess={isSuccess}
-          handleCloseWizard={handleCloseWizard}
-          activePage={activePage}
-          onChangePage={ChangePage}
-        />
+        {showWizard && (
+          <WizardOrdered
+            {...args}
+            header={
+              <WizardHeader
+                disabledDarkButton={false}
+                closeWizard={handleCloseWizard}
+                handleDarkButton={() => {}}
+                buttonDarkText="Save & Close"
+                buttonPrimaryText="Publish"
+                handlePrimaryButton={() => {}}
+                cdnStaticUrl=""
+                disabledPrimaryButton={false}
+                isLoading={false}
+                isDraft={true}
+                title="Destino4All"
+                editMode={false}
+              />
+            }
+            handlePublish={handlePublish}
+            showWizard={showWizard}
+            isSuccess={isSuccess}
+            handleCloseWizard={handleCloseWizard}
+            activePage={activePage}
+            onChangePage={ChangePage}
+          />
+        )}
       </div>
     </StorybookFormProvider>
   );
@@ -90,25 +108,9 @@ const longAnswer = questions.customQuestions.filter(({ type }) => type === 'long
 const files = questions.customQuestions.filter(({ type }) => type === 'fileUploader')[0];
 
 Open.args = {
-  header: (
-    <WizardHeader
-      disabledDarkButton={false}
-      closeWizard={() => {}}
-      handleDarkButton={() => {}}
-      buttonDarkText="Save & Close"
-      buttonPrimaryText="Publish"
-      handlePrimaryButton={() => {}}
-      cdnStaticUrl=""
-      disabledPrimaryButton={false}
-      isLoading={false}
-      isDraft={true}
-      title="Destino4All"
-      editMode={false}
-    />
-  ),
   isLoading: false,
   pages: [
-    <Description userName={user.firstName} name="description" reply="" required />,
+    <Description userName={user.firstName} name="description" required />,
     <Video
       name="video"
       reply="https://youtu.be/f7x5IeWi0v8"

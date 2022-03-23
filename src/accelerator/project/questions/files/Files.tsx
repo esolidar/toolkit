@@ -28,7 +28,7 @@ const Files = ({
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
-    element.scrollTop = element.scrollHeight;
+    if (element) element.scrollTop = element.scrollHeight;
     setFilesList(reply);
   }, [reply]);
 
@@ -51,7 +51,7 @@ const Files = ({
 
     setFilesList(files);
     const element = document.getElementsByClassName('active-page')[0];
-    element.scrollTop = element.scrollHeight;
+    if (element) element.scrollTop = element.scrollHeight;
     onDropError(errorList);
   };
 

@@ -28,6 +28,10 @@ const WizardOrdered = ({
     if (showWizard) {
       const body = document.getElementsByTagName('body')[0];
       if (body) body.classList.add('opened-wizard');
+
+      return () => {
+        if (body) body.classList.remove('opened-wizard');
+      };
     }
   }, [showWizard]);
 
