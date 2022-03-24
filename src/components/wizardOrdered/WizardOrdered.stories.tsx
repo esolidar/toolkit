@@ -116,6 +116,7 @@ Open.args = {
       reply="https://youtu.be/f7x5IeWi0v8"
       required={false}
       onDeletePreview={() => {}}
+      onFinishVideoValidation={() => {}}
     />,
     <Images
       reply={[
