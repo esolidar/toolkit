@@ -60,6 +60,16 @@ const ProjectDetailThumb = ({
             )}
           </div>
         )}
+        {project?.categories?.length > 0 && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage id="category" />
+            </h4>
+            {project.categories.map(category => {
+              return <p className="category-name">{category.name}</p>;
+            })}
+          </div>
+        )}
         {project.category_id && (
           <div className="ods-thumb">
             <h4 style={{ color }}>
