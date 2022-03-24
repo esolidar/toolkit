@@ -9,7 +9,6 @@ import useDebounce from '../../../../hooks/useDebounce';
 const Video = ({
   name,
   control,
-  id,
   reply,
   required,
   onFinishVideoValidation,
@@ -77,7 +76,6 @@ const Video = ({
           control={control}
           required={required}
           textFieldProps={{
-            id,
             size: 'lg',
             placeholder: 'https://www.youtube.com/watch?v=myvideo',
             error,

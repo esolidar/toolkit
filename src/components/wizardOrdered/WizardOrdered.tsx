@@ -36,8 +36,18 @@ const WizardOrdered = ({
   }, [showWizard]);
 
   useEffect(() => {
-    if (isSuccess && activePage === pages.length - 1) goNext();
+    if (isSuccess) goToSuccessPage();
   }, [isSuccess]);
+
+  const goToSuccessPage = () => {
+    onChangePage(pages.length);
+    setBlurPage(true);
+    setDirection('up');
+    setTimeout(() => {
+      setBlurPage(false);
+      setDirection(null);
+    }, 300);
+  };
 
   const goNext = () => {
     if (activePage < pages.length && isPageValid) {

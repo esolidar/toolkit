@@ -526,7 +526,7 @@ const ProjectAddForm = ({
                           lower: true,
                         })}-${field.id}`}
                         value={option.id}
-                        checked={field.reply === option.id}
+                        checked={Number(field.reply) === option.id}
                       />
                     ))}
                     {errors[field.id] && (

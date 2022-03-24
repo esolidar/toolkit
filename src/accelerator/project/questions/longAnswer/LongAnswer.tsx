@@ -3,7 +3,7 @@ import Props from './LongAnswer.types';
 import Viewport from '../../../../components/viewport';
 import TextareaField from '../../../../elements/forms/textareaField';
 
-const LongAnswer = ({ name, control, id, question, description, required }: Props): JSX.Element => (
+const LongAnswer = ({ name, control, question, description, required }: Props): JSX.Element => (
   <Viewport size="lg" centred={false}>
     <div className="page-content-checkbox">
       <h2>{question}</h2>
@@ -13,7 +13,6 @@ const LongAnswer = ({ name, control, id, question, description, required }: Prop
         control={control}
         required={required}
         textareaFieldProps={{
-          id,
           size: 'lg',
         }}
       />
