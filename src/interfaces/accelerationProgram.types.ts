@@ -5,7 +5,6 @@ import Skill from './skill.types';
 interface ProgramImage extends Image {
   project_config_id: number;
 }
-
 interface AccelerationProgram {
   id?: number;
   title?: string;
@@ -23,6 +22,7 @@ interface AccelerationProgram {
   archived_at?: string | null;
   interests?: Interest[];
   form?: string;
+  location_address?: string;
 }
 
 export default AccelerationProgram;

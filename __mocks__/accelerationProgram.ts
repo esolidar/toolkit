@@ -25,6 +25,7 @@ const accelerationProgram: AccelerationProgram = {
   program_format: 'Lorem ipsum',
   who_should_apply: 'Everyone',
   location: 'Porto, Portugal',
+  location_address: '{"floor":"12","info":"Primeiro Piso"}',
   start_at: format(subDays(today, 2), dateFormat),
   closed_at: format(addDays(today, 20), dateFormat),
   ended_at: format(addDays(today, 30), dateFormat),
