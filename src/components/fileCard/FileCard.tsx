@@ -7,25 +7,41 @@ import Button from '../../elements/button';
 import Icon from '../../elements/icon';
 import Dropdown from '../../elements/dropdown';
 import Badge from '../../elements/badge';
+import convertFileSize from '../../utils/convertFileSize';
+import isDefined from '../../utils/isDefined';
 
 const FileCard = ({
   title,
   subtitle,
-  helper,
   image,
-  badge,
-  showDownloadButton,
-  dropdownItems,
+  showDownloadButton = false,
+  dropdownItems = [],
   disabled = false,
   className,
   file,
+  size,
+  dateUploaded,
+  showBadgePrivate = false,
+  showBadgeFailed = false,
 }: Props) => {
-  const classes = classnames('file-card', { disabled }, className);
   const intl = useIntl();
+  const classes = classnames('file-card', { disabled }, className);
 
-  const handleDownlodaFile = () => {
+  const handleDownloadFile = () => {
     window.open(file, title);
   };
+
+  const filteredItems = dropdownItems.filter(item => item.show !== false);
+  const showDropdownMenu = !!filteredItems.length;
+
+  const helper = [convertFileSize(Number(size))];
+
+  if (isDefined(dateUploaded))
+    helper.unshift(
+      `${intl.formatMessage({
+        id: 'toolkit.uploaded-on',
+      })} ${dateUploaded}`
+    );
 
   return (
     <div className={classes}>
@@ -41,33 +57,38 @@ const FileCard = ({
       <div className="file-card__body">
         <div className="file-card__body-title">
           {title}
-          {badge && (
+          {showBadgePrivate && (
             <Badge
-              plaintext={badge === 'error' ? intl.formatMessage({ id: 'toolkit.failed' }) : badge}
-              icon={badge === 'error' ? 'Info' : null}
-              extraClass={badge === 'error' ? 'red' : 'white'}
+              plaintext={intl.formatMessage({ id: 'toolkit.private' })}
+              extraClass="dark-gray"
+              type="text"
+            />
+          )}
+          {showBadgeFailed && (
+            <Badge
+              plaintext={intl.formatMessage({ id: 'toolkit.failed' })}
+              icon="Info"
+              extraClass="red"
             />
           )}
         </div>
         {subtitle && <div className="file-card__body-subtitle">{subtitle}</div>}
-        {helper && (
-          <div className={classnames('file-card__body-helper', { 'no-margin': !subtitle })}>
-            {helper}
-          </div>
-        )}
+        {helper && <div className="file-card__body-helper">{helper.join(' - ')}</div>}
       </div>
       <div className="file-card__buttons">
-        {showDownloadButton && (
+        {showDownloadButton && !disabled && (
           <Button
             extraClass="primary-full"
             theme="light"
             type="icon"
             ghost
-            onClick={handleDownlodaFile}
+            onCLicke={handleDownloadFile}
             icon={<Icon name="Download" />}
           />
         )}
-        {dropdownItems && <Dropdown items={dropdownItems} toggleIcon="MoreVertical" />}
+        {showDropdownMenu && !disabled && (
+          <Dropdown items={filteredItems} toggleIcon="MoreVertical" />
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ interface Props {
   disableClickPrev: boolean;
   handleClickNext(): void;
   handlePublish(): void;
-  handleCloseWizard(): void;
+  handleCloseWizard(isSuccess: boolean): void;
   disableClickNext: boolean;
   isPublishDisabled: boolean;
   header: JSX.Element;

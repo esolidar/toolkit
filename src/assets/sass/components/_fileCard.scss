@@ -23,7 +23,7 @@
       font-weight: 600;
       font-size: 16px;
       line-height: 24px;
-      color: map-get($base, 700);
+      color: map-get($base, black);
     }
 
     &-subtitle {
@@ -32,19 +32,15 @@
       font-size: 14px;
       line-height: 20px;
       color: map-get($base, 700);
+      padding-bottom: $distance-2 !important;
     }
 
     &-helper {
-      padding-top: $distance-2 !important;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
       line-height: 20px;
       color: map-get($neutrals, 700);
-    }
-
-    .no-margin {
-      padding-top: 0 !important;
     }
   }
   &__buttons {

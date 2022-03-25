@@ -6,7 +6,6 @@ import Props from './Files.types';
 import DropZoneBox from '../../../../elements/dropZoneBox';
 import FileCard from '../../../../components/fileCard';
 import getEnvVar from '../../../../utils/getEnvVar';
-import convertFileSize from '../../../../utils/convertFileSize';
 import DeleteFileModal from './DeleteFileModal';
 
 const maxFiles = 5;
@@ -105,38 +104,28 @@ const Files = ({
               duration={700}
               damping={0.1}
             >
-              {filesList.map((file, i) => {
-                const errorBadge = file.fail ? 'error' : null;
-                const privateBadge = !file.public
-                  ? intl.formatMessage({ id: 'toolkit.private' })
-                  : null;
-
-                return (
-                  <FileCard
-                    key={file.id || i}
-                    showDownloadButton={true}
-                    title={file.name}
-                    badge={errorBadge || privateBadge}
-                    file={file.file}
-                    helper={convertFileSize(file.file_size || file.size)}
-                    dropdownItems={
-                      errorBadge
-                        ? null
-                        : [
-                            {
-                              id: 0,
-                              leftIcon: 'Trash',
-                              onClick: () => {
-                                deleteFile(file.id, file.project_id);
-                              },
-                              show: true,
-                              text: intl.formatMessage({ id: 'delete' }),
-                            },
-                          ]
-                    }
-                  />
-                );
-              })}
+              {filesList.map((file, i) => (
+                <FileCard
+                  key={file.id || i}
+                  showDownloadButton={true}
+                  title={file.name}
+                  showBadgePrivate={!file.public}
+                  showBadgeFailed={file.fail}
+                  file={file.file}
+                  size={file.file_size || file.size}
+                  dropdownItems={[
+                    {
+                      id: 0,
+                      leftIcon: 'Trash',
+                      onClick: () => {
+                        deleteFile(file.id, file.project_id);
+                      },
+                      show: !file.fail,
+                      text: intl.formatMessage({ id: 'delete' }),
+                    },
+                  ]}
+                />
+              ))}
             </Fade>
           </div>
         </div>

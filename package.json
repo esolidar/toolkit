@@ -103,7 +103,7 @@
     "@dnd-kit/sortable": "^6.0.1",
     "@dnd-kit/utilities": "^3.1.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.273.0",
+    "@esolidar/i18n": "^0.276.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -251,7 +251,6 @@
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
-    "react-beautiful-dnd": "10.0.4",
     "react-loading-skeleton": "^3.0.3",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2"

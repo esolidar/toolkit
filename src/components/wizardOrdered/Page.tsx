@@ -30,7 +30,7 @@ interface Props {
   direction: string;
   handleGoNext(): void;
   handlePublish(): void;
-  handleCloseWizard(): void;
+  handleCloseWizard(isSuccess: boolean): void;
   isButtonDisabled: boolean;
   isPublishDisabled: boolean;
   companyName: string;
@@ -57,7 +57,7 @@ const Page = ({
   useInterval(
     () => {
       setTime(time - 1);
-      if (time - 1 === 0) handleCloseWizard();
+      if (time - 1 === 0) handleCloseWizard(true);
     },
     isLastPage && time > 0 ? 1000 : null
   );
