@@ -48,6 +48,7 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
       if (card.length < imagesList.length && element) element.scrollTop = element.scrollHeight;
     }
   };
+
   const handleDragEnd = event => {
     setActiveId(null);
     const { active, over } = event;

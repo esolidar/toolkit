@@ -19,9 +19,8 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
     const oldRepliesCount: number = repliesCount.current;
     repliesCount.current = reply.length;
 
-    if (oldRepliesCount <= repliesCount.current && element) {
+    if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
-    }
   }, [reply]);
 
   const formattedSdgs = getOdsList(sdgList, intl.locale, intl.formatMessage);

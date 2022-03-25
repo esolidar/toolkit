@@ -19,9 +19,8 @@ const Categories = ({ categoriesList, reply, handleChangeCategories }: Props) =>
     const oldRepliesCount: number = repliesCount.current;
     repliesCount.current = reply.length;
 
-    if (oldRepliesCount === repliesCount.current && element) {
+    if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
-    }
   }, [reply]);
 
   const handleReveal = inView => {

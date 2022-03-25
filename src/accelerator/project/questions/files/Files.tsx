@@ -33,9 +33,8 @@ const Files = ({
     const oldRepliesCount: number = repliesCount.current;
     repliesCount.current = reply.length;
 
-    if (oldRepliesCount === repliesCount.current && element) {
+    if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
-    }
 
     setFilesList(reply);
   }, [reply]);
