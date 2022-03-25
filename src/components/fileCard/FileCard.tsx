@@ -18,9 +18,14 @@ const FileCard = ({
   dropdownItems,
   disabled = false,
   className,
+  file,
 }: Props) => {
   const classes = classnames('file-card', { disabled }, className);
   const intl = useIntl();
+
+  const handleDownlodaFile = () => {
+    window.open(file, title);
+  };
 
   return (
     <div className={classes}>
@@ -58,6 +63,7 @@ const FileCard = ({
             theme="light"
             type="icon"
             ghost
+            onClick={handleDownlodaFile}
             icon={<Icon name="Download" />}
           />
         )}

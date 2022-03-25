@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { Fade } from 'react-awesome-reveal';
 import Viewport from '../../../../components/viewport';
 import Props from './Files.types';
 import DropZoneBox from '../../../../elements/dropZoneBox';
@@ -25,10 +26,17 @@ const Files = ({
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const fileToDelete = useRef<number>(null);
   const [filesList, setFilesList] = useState<any>([]);
+  const repliesCount = useRef<number>(0);
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
-    if (element) element.scrollTop = element.scrollHeight;
+    const oldRepliesCount: number = repliesCount.current;
+    repliesCount.current = reply.length;
+
+    if (oldRepliesCount === repliesCount.current && element) {
+      element.scrollTop = element.scrollHeight;
+    }
+
     setFilesList(reply);
   }, [reply]);
 
@@ -53,6 +61,15 @@ const Files = ({
     const element = document.getElementsByClassName('active-page')[0];
     if (element) element.scrollTop = element.scrollHeight;
     onDropError(errorList);
+  };
+
+  const handleReveal = inView => {
+    if (inView) {
+      const element = document.getElementsByClassName('active-page')[0];
+      const card = document.getElementsByClassName('checkbox-card');
+
+      if (card.length < reply.length && element) element.scrollTop = element.scrollHeight;
+    }
   };
 
   return (
@@ -80,38 +97,48 @@ const Files = ({
             env={serverlessResizeImage}
             onDropError={onError}
           />
-          <div className="wizard-project-files__list">
-            {filesList.map((file, i) => {
-              const errorBadge = file.fail ? 'error' : null;
-              const privateBadge = !file.public
-                ? intl.formatMessage({ id: 'toolkit.private' })
-                : null;
 
-              return (
-                <FileCard
-                  key={i}
-                  showDownloadButton={false}
-                  title={file.name}
-                  badge={errorBadge || privateBadge}
-                  helper={convertFileSize(file.file_size || file.size)}
-                  dropdownItems={
-                    errorBadge
-                      ? null
-                      : [
-                          {
-                            id: 0,
-                            leftIcon: 'Trash',
-                            onClick: () => {
-                              deleteFile(file.id, file.project_id);
+          <div className="wizard-project-files__list">
+            <Fade
+              onVisibilityChange={handleReveal}
+              cascade
+              triggerOnce={true}
+              duration={700}
+              damping={0.1}
+            >
+              {filesList.map((file, i) => {
+                const errorBadge = file.fail ? 'error' : null;
+                const privateBadge = !file.public
+                  ? intl.formatMessage({ id: 'toolkit.private' })
+                  : null;
+
+                return (
+                  <FileCard
+                    key={file.id || i}
+                    showDownloadButton={true}
+                    title={file.name}
+                    badge={errorBadge || privateBadge}
+                    file={file.file}
+                    helper={convertFileSize(file.file_size || file.size)}
+                    dropdownItems={
+                      errorBadge
+                        ? null
+                        : [
+                            {
+                              id: 0,
+                              leftIcon: 'Trash',
+                              onClick: () => {
+                                deleteFile(file.id, file.project_id);
+                              },
+                              show: true,
+                              text: intl.formatMessage({ id: 'delete' }),
                             },
-                            show: true,
-                            text: intl.formatMessage({ id: 'delete' }),
-                          },
-                        ]
-                  }
-                />
-              );
-            })}
+                          ]
+                    }
+                  />
+                );
+              })}
+            </Fade>
           </div>
         </div>
       </Viewport>

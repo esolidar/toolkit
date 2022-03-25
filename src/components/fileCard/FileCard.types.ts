@@ -8,6 +8,7 @@ interface Props {
   className?: string;
   image?: string;
   badge?: string;
+  file?: string;
 }
 
 export default Props;

@@ -14,6 +14,7 @@ import {
   sortableKeyboardCoordinates,
   rectSortingStrategy,
 } from '@dnd-kit/sortable';
+import { Fade } from 'react-awesome-reveal';
 import SortableItem from './SortableItem';
 import Preview from '../../../components/preview';
 
@@ -39,6 +40,14 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
     setActiveId(event.active.id);
   };
 
+  const handleReveal = inView => {
+    if (inView) {
+      const element = document.getElementsByClassName('active-page')[0];
+      const card = document.getElementsByClassName('checkbox-card');
+
+      if (card.length < imagesList.length && element) element.scrollTop = element.scrollHeight;
+    }
+  };
   const handleDragEnd = event => {
     setActiveId(null);
     const { active, over } = event;
@@ -62,18 +71,20 @@ const DragAndDrop = ({ imagesList = [], env, handleDeleteImage, handleOrderImage
     >
       <div className="drag-and-drop-component">
         <SortableContext items={items} strategy={rectSortingStrategy}>
-          {items.map((item, index) => {
-            return (
-              <SortableItem
-                key={item.id}
-                id={item.id}
-                value={item}
-                env={env}
-                index={index}
-                handleDeleteImage={id => handleDeleteImage(id, item)}
-              />
-            );
-          })}
+          <Fade onVisibilityChange={handleReveal} cascade duration={700} damping={0.1} triggerOnce>
+            {items.map((item, index) => {
+              return (
+                <SortableItem
+                  key={item.id}
+                  id={item.id}
+                  value={item}
+                  env={env}
+                  index={index}
+                  handleDeleteImage={id => handleDeleteImage(id, item)}
+                />
+              );
+            })}
+          </Fade>
           <DragOverlay>
             {activeId ? (
               <div className="drag-and-drop-component__drag">
