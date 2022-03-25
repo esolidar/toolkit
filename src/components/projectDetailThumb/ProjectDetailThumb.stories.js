@@ -21,9 +21,39 @@ Default.args = {
   project: {
     whitelabel_id: 1,
     category_id: 1,
-    project_category: {
-      name: 'Ambiente',
-    },
+    categories: [
+      {
+        id: 285,
+        whitelabel_id: 5,
+        project_config_id: 279,
+        name: 'Community development',
+        summary: 'Solutions that help the communities in need to thrive',
+        status: 1,
+        image: 'projects/categories/community-development.jpg',
+        updated_at: '2022-03-10 14:55:02',
+        created_at: '2022-03-10 14:55:02',
+        pivot: {
+          project_id: 204,
+          project_category_id: 285,
+        },
+      },
+      {
+        id: 286,
+        whitelabel_id: 5,
+        project_config_id: 279,
+        name: 'Biodiversity',
+        summary:
+          'Solutions that aim to lessen the impact on the biodiversity of protected areas and/or areas considered to have high biodiversity and strategies for managing impacts on biodiversity',
+        status: 1,
+        image: 'projects/categories/biodiversity.jpg',
+        updated_at: '2022-03-10 14:55:02',
+        created_at: '2022-03-10 14:55:02',
+        pivot: {
+          project_id: 204,
+          project_category_id: 286,
+        },
+      },
+    ],
     user_id: 1,
     user: {
       name: 'Joel Calheiros',

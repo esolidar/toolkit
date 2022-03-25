@@ -15,6 +15,7 @@ Default.parameters = {
 };
 Default.args = {
   project: {
+    video: 'https://www.youtube.com/watch?v=f7x5IeWi0v8&t',
     whitelabel_id: 1,
     category_id: 1,
     project_category: {

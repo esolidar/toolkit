@@ -4,7 +4,7 @@ import Props from './Description.types';
 import Viewport from '../../../../components/viewport';
 import TextareaField from '../../../../elements/forms/textareaField';
 
-const Description = ({ name, control, id, userName, required }: Props): JSX.Element => {
+const Description = ({ name, control, userName, required }: Props): JSX.Element => {
   return (
     <Viewport size="lg" centred={false}>
       <div className="page-content-checkbox">
@@ -22,7 +22,6 @@ const Description = ({ name, control, id, userName, required }: Props): JSX.Elem
           control={control}
           required={required}
           textareaFieldProps={{
-            id,
             size: 'lg',
           }}
         />

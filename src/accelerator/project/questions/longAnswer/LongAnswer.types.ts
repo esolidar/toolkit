@@ -3,7 +3,6 @@ interface Props {
   question: string;
   description: string;
   required: boolean;
-  id?: string;
   control?: any;
 }
 

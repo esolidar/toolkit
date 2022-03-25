@@ -5,7 +5,6 @@ interface Props {
   handleSelectFile(): void;
   handleDeleteFile?(id: number): void;
   onDropError?(errorList: any): void;
-  cropModalStatus: boolean;
 }
 
 export default Props;

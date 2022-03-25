@@ -16,11 +16,11 @@ Default.parameters = {
   jest: ['ProjectDetailInfo.test.js'],
 };
 Default.args = {
-  showRequestInfoView: true,
+  showRequestInfoView: false,
   project: {
     title: 'Título ',
     description: 'Descrição ',
-    video: '',
+    video: 'https://www.youtube.com/watch?v=f7x5IeWi0v8&t',
     categories: 61,
     id: 114,
     configId: 40,
@@ -243,48 +243,7 @@ Default.args = {
     requestInfoErrors: [],
     customQuestions: [
       {
-        id: 'title',
-        type: 'title',
-        title: 'Título ',
-        privacy: 'public',
-      },
-      {
-        id: 'description',
-        type: 'description',
-        title: 'Descrição ',
-        privacy: 'public',
-      },
-      {
-        id: 'video',
-        type: 'video',
-        title: 'https://www.youtube.com/watch?v=-cABBWfRqms',
-        privacy: 'public',
-      },
-      {
         id: 0,
-        type: 'section',
-        form: {
-          privacy: 'public',
-          required: false,
-          title: 'title',
-          description: {
-            blocks: [
-              {
-                key: '13g9d',
-                text: 'description',
-                type: 'unstyled',
-                depth: 0,
-                inlineStyleRanges: [],
-                entityRanges: [],
-                data: {},
-              },
-            ],
-            entityMap: {},
-          },
-        },
-      },
-      {
-        id: 1,
         type: 'shortAnswer',
         form: {
           privacy: 'public',
@@ -296,7 +255,7 @@ Default.args = {
         reply: 'A solução é Inovadora',
       },
       {
-        id: 2,
+        id: 1,
         type: 'longAnswer',
         form: {
           privacy: 'public',
@@ -308,7 +267,7 @@ Default.args = {
         reply: 'Qual o problema social/ambiental que pretende a resolver?  ',
       },
       {
-        id: 3,
+        id: 2,
         type: 'multiChoice',
         form: {
           privacy: 'private',
@@ -333,7 +292,7 @@ Default.args = {
         reply: 2,
       },
       {
-        id: 4,
+        id: 3,
         type: 'checkboxes',
         form: {
           privacy: 'public',
@@ -366,7 +325,7 @@ Default.args = {
         reply: [1, 3],
       },
       {
-        id: 5,
+        id: 4,
         type: 'section',
         form: {
           privacy: 'public',
@@ -413,75 +372,11 @@ Default.args = {
             entityMap: {},
           },
         },
-      },
-      {
-        id: 6,
-        type: 'longAnswer',
-        form: {
-          privacy: 'public',
-          required: true,
-          question: 'Qual o modelo de governança da sua Iniciativa? ',
-          description:
-            'Exemplo: Segue um modelo partilhado entre o sector publico e o sector privado.',
-        },
-        reply: 'Qual o modelo de governança da sua Iniciativa?',
-      },
-      {
-        id: 7,
-        type: 'shortAnswer',
-        form: {
-          privacy: 'private',
-          required: true,
-          question: 'O seu email',
-          description: 'Este campo apenas será visivel para os administradores do programa',
-        },
-        reply: 'O seu email ',
       },
     ],
     form: [
       {
-        id: 'title',
-        type: 'title',
-        title: 'Título ',
-        privacy: 'public',
-      },
-      {
-        id: 'description',
-        type: 'description',
-        title: 'Descrição ',
-        privacy: 'public',
-      },
-      {
-        id: 'video',
-        type: 'video',
-        title: 'https://www.youtube.com/watch?v=-cABBWfRqms',
-        privacy: 'public',
-      },
-      {
         id: 0,
-        type: 'section',
-        form: {
-          privacy: 'public',
-          required: false,
-          title: 'title',
-          description: {
-            blocks: [
-              {
-                key: '13g9d',
-                text: 'description',
-                type: 'unstyled',
-                depth: 0,
-                inlineStyleRanges: [],
-                entityRanges: [],
-                data: {},
-              },
-            ],
-            entityMap: {},
-          },
-        },
-      },
-      {
-        id: 1,
         type: 'shortAnswer',
         form: {
           privacy: 'public',
@@ -493,7 +388,7 @@ Default.args = {
         reply: 'A solução é Inovadora',
       },
       {
-        id: 2,
+        id: 1,
         type: 'longAnswer',
         form: {
           privacy: 'public',
@@ -505,7 +400,7 @@ Default.args = {
         reply: 'Qual o problema social/ambiental que pretende a resolver?  ',
       },
       {
-        id: 3,
+        id: 2,
         type: 'multiChoice',
         form: {
           privacy: 'private',
@@ -530,7 +425,7 @@ Default.args = {
         reply: 2,
       },
       {
-        id: 4,
+        id: 3,
         type: 'checkboxes',
         form: {
           privacy: 'public',
@@ -563,7 +458,7 @@ Default.args = {
         reply: [1, 3],
       },
       {
-        id: 5,
+        id: 4,
         type: 'section',
         form: {
           privacy: 'public',
@@ -610,29 +505,6 @@ Default.args = {
             entityMap: {},
           },
         },
-      },
-      {
-        id: 6,
-        type: 'longAnswer',
-        form: {
-          privacy: 'public',
-          required: true,
-          question: 'Qual o modelo de governança da sua Iniciativa? ',
-          description:
-            'Exemplo: Segue um modelo partilhado entre o sector publico e o sector privado.',
-        },
-        reply: 'Qual o modelo de governança da sua Iniciativa?',
-      },
-      {
-        id: 7,
-        type: 'shortAnswer',
-        form: {
-          privacy: 'private',
-          required: true,
-          question: 'O seu email',
-          description: 'Este campo apenas será visivel para os administradores do programa',
-        },
-        reply: 'O seu email ',
       },
     ],
   },

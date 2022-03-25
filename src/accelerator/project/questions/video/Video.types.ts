@@ -1,11 +1,10 @@
 interface Props {
-  name: string;
-  reply: string;
-  required: boolean;
-  id?: string;
   control?: any;
-  onDeletePreview(): void;
+  name: string;
+  required: boolean;
+  reply: string;
   onFinishVideoValidation(videoDetails: any): void;
+  onDeletePreview(): void;
 }
 
 export default Props;
