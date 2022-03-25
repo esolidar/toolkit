@@ -2,8 +2,9 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import Preview from '../../../components/preview';
-import Icon from '../../icon';
+import Preview from '../../preview';
+import Icon from '../../../elements/icon';
+import getEnvVar from '../../../utils/getEnvVar';
 
 interface Image {
   image: string;
@@ -17,11 +18,13 @@ interface Props {
   index: number;
 }
 
-const SortableItem = ({ value, id, env, handleDeleteImage, index }: Props) => {
+const SortableImages = ({ value, id, handleDeleteImage, index }: Props) => {
   const intl = useIntl();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id,
   });
+
+  const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
 
   const style: any = {
     transform: CSS.Transform.toString(transform),
@@ -32,10 +35,10 @@ const SortableItem = ({ value, id, env, handleDeleteImage, index }: Props) => {
 
   const previewImageSrc = value.image.includes('http')
     ? `${value.image}?width=216px&height=144`
-    : `${env}/${value.image}?width=216px&height=144px`;
+    : `${serverlessResizeImage}/${value.image}?width=216px&height=144px`;
 
   return (
-    <div ref={setNodeRef} style={style}>
+    <div ref={setNodeRef} style={style} data-testid={`image-${id}`}>
       <div className="drag-and-drop-thumbs">
         <div {...listeners} {...attributes} className="drag-and-drop-thumbs__item">
           <Preview
@@ -55,4 +58,4 @@ const SortableItem = ({ value, id, env, handleDeleteImage, index }: Props) => {
   );
 };
 
-export default SortableItem;
+export default SortableImages;

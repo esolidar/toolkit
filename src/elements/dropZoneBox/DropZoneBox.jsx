@@ -14,7 +14,6 @@ import CustomModal from '../customModal';
 import Button from '../button';
 import Tooltip from '../tooltip';
 import lastElemOf from '../../utils/lastElemOf';
-import DragAndDrop from './dragAndDrop/DragAndDrop';
 
 const cropper = createRef(null);
 
@@ -53,8 +52,6 @@ const DropZoneBox = ({
   minWidth,
   minHeight,
   fullWidth = false,
-  sortable,
-  handleOrderImages,
   onDropError,
 }) => {
   const [errorList, setErrorList] = useState([]);
@@ -80,36 +77,26 @@ const DropZoneBox = ({
 
   const ImagesPreview = () => (
     <div className="dropzone-box__images-list">
-      {sortable && (
-        <DragAndDrop
-          imagesList={imagesList}
-          env={env}
-          handleDeleteImage={deleteImageGallery}
-          handleOrderImages={handleOrderImages}
-        />
-      )}
-      {!sortable && (
-        <>
-          {imagesList.map((file, idx) => (
-            <div key={file.id}>
-              {file.image.includes('http') ? (
-                <Preview
-                  img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
-                  handleDeleteImage={e => deleteImageGallery(e, idx)}
-                />
-              ) : (
-                <Preview
-                  handleDeleteImage={e => deleteImageGallery(e, idx)}
-                  img={{
-                    src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
-                    alt: 'thumb',
-                  }}
-                />
-              )}
-            </div>
-          ))}
-        </>
-      )}
+      <div>
+        {imagesList.map((file, idx) => (
+          <div key={file.id}>
+            {file.image.includes('http') ? (
+              <Preview
+                img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+              />
+            ) : (
+              <Preview
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+                img={{
+                  src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
+                  alt: 'thumb',
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 
@@ -562,7 +549,6 @@ DropZoneBox.propTypes = {
   error: PropTypes.string,
   minWidth: PropTypes.number,
   minHeight: PropTypes.number,
-  sortable: PropTypes.bool,
   handleOrderImages: PropTypes.func,
   onDropError: PropTypes.func,
 };
@@ -586,7 +572,6 @@ DropZoneBox.defaultProps = {
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
-  sortable: false,
   cropModalStatus: false,
 };
 export default DropZoneBox;

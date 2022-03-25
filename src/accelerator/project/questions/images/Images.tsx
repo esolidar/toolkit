@@ -5,6 +5,8 @@ import Props from './Images.types';
 import DropZoneBox from '../../../../elements/dropZoneBox';
 import getEnvVar from '../../../../utils/getEnvVar';
 import DeleteImagesModal from './DeleteImagesModal';
+import DragAndDrop from '../../../../components/dragAndDrop/DragAndDrop';
+import SortableIImage from '../../../../components/dragAndDrop/components/SortableImages';
 
 const maxImages = 12;
 const maxSize = 5;
@@ -57,11 +59,9 @@ const Images = ({
           </span>
           <DropZoneBox
             fullWidth
-            sortable
             disabled={reply.length >= maxImages}
             accept={acceptedFiles}
             onSelect={handleSelectImage}
-            showImagesPreviews={true}
             multiple={false}
             hasCropper={{
               showCropper: true,
@@ -78,7 +78,17 @@ const Images = ({
             textSaveCropModal={intl.formatMessage({ id: 'auction.add.image.crop' })}
             handleOrderImages={handleOrderImages}
             onDropError={onDropError}
+            showImagesPreviews={false}
           />
+          {reply.length && (
+            <DragAndDrop
+              itemsList={reply}
+              handleDeleteItems={handleConfirmDeleteImage}
+              handleOrderItems={handleOrderImages}
+              type="images"
+              component={SortableIImage}
+            />
+          )}
         </div>
       </Viewport>
       <DeleteImagesModal
