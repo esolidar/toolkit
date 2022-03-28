@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { Fade } from 'react-awesome-reveal';
 import Viewport from '../../../../components/viewport';
 import Props from './Images.types';
 import DropZoneBox from '../../../../elements/dropZoneBox';
@@ -35,6 +36,15 @@ const Images = ({
       setIsOpenDeleteModal(true);
       fileToDelete.current = id;
     } else handleDeleteImage(id);
+  };
+
+  const handleReveal = inView => {
+    if (inView) {
+      const element = document.getElementsByClassName('active-page')[0];
+      const card = document.getElementsByClassName('drag-and-drop-images');
+
+      if (card.length < reply.length && element) element.scrollTop = element.scrollHeight;
+    }
   };
 
   return (
@@ -80,15 +90,25 @@ const Images = ({
             onDropError={onDropError}
             showImagesPreviews={false}
           />
-          {reply.length && (
-            <DragAndDrop
-              itemsList={reply}
-              handleDeleteItems={handleConfirmDeleteImage}
-              handleOrderItems={handleOrderImages}
-              type="images"
-              component={SortableIImage}
-            />
-          )}
+          <Fade
+            onVisibilityChange={handleReveal}
+            cascade
+            triggerOnce={true}
+            duration={700}
+            damping={0.1}
+          >
+            <>
+              {reply.length > 0 && (
+                <DragAndDrop
+                  itemsList={reply}
+                  handleDeleteItems={handleConfirmDeleteImage}
+                  handleOrderItems={handleOrderImages}
+                  type="images"
+                  component={SortableIImage}
+                />
+              )}
+            </>
+          </Fade>
         </div>
       </Viewport>
       <DeleteImagesModal

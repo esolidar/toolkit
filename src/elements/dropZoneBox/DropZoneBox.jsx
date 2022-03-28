@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef, useRef } from 'react';
 
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
@@ -58,6 +58,7 @@ const DropZoneBox = ({
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+  const selectedFilesCount = useRef(0);
 
   const intl = useIntl();
 
@@ -153,7 +154,7 @@ const DropZoneBox = ({
         errorList.forEach(file => {
           return file;
         });
-        onDropError(errorList);
+        onDropError(errorList, selectedFilesCount.current);
         setErrorList([]);
         return;
       }
@@ -190,11 +191,13 @@ const DropZoneBox = ({
       setErrorList([]);
       const files = [];
       const fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+      selectedFilesCount.current = fileList.length;
 
       for (let i = 0; i < fileList.length; i++) {
         const file = fileList.item(i);
         files.push(file);
       }
+
       await wait(250);
       return files;
     },
@@ -243,7 +246,10 @@ const DropZoneBox = ({
     },
     onDropRejected: async rejectedFiles => {
       if (showErrors && onDropError && rejectedFiles.length > maxFiles)
-        onDropError([{ name: 'maxFiles', maxFiles, code: rejectedFiles[0].errors[0].code }]);
+        onDropError(
+          [{ name: 'maxFiles', maxFiles, code: rejectedFiles[0].errors[0].code }],
+          selectedFilesCount.current
+        );
 
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];

@@ -24,6 +24,9 @@ const Files = ({
   const intl = useIntl();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const fileToDelete = useRef<number>(null);
+  const selectedFilesCount = useRef<number>(0);
+  const hasErrorFiles = useRef<boolean>(false);
+  const errorFiles = useRef<any>([]);
   const [filesList, setFilesList] = useState<any>([]);
   const repliesCount = useRef<number>(0);
 
@@ -32,10 +35,16 @@ const Files = ({
     const oldRepliesCount: number = repliesCount.current;
     repliesCount.current = reply.length;
 
+    if (hasErrorFiles.current) {
+      setFilesList([...reply, ...errorFiles.current]);
+    } else {
+      setFilesList(reply);
+    }
+    errorFiles.current = [];
+    hasErrorFiles.current = false;
+
     if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
-
-    setFilesList(reply);
   }, [reply]);
 
   const deleteFile = (id: number, projectId: number) => {
@@ -47,18 +56,28 @@ const Files = ({
     }
   };
 
-  const onError = errorList => {
-    const files = [...filesList];
+  const onError = (errorList, count) => {
+    selectedFilesCount.current = count;
+    const files = [];
     errorList.forEach(error => {
       const { file } = error;
       file.fail = true;
       files.push(file);
     });
-
-    setFilesList(files);
+    errorFiles.current = files;
+    setFilesList([...filesList, ...files]);
     const element = document.getElementsByClassName('active-page')[0];
     if (element) element.scrollTop = element.scrollHeight;
-    onDropError(errorList);
+    onDropError(files);
+  };
+
+  const onSubmitFiles = files => {
+    handleSelectFile(files);
+
+    const selectedFiles = selectedFilesCount.current;
+    if (selectedFiles > files.length) {
+      hasErrorFiles.current = true;
+    }
   };
 
   const handleReveal = inView => {
@@ -89,7 +108,7 @@ const Files = ({
             disabled={reply.length >= maxFiles}
             maxFiles={maxFiles - reply.length}
             accept={acceptedFiles}
-            onSelect={handleSelectFile}
+            onSelect={onSubmitFiles}
             multiple={true}
             showImagesPreviews={false}
             env={serverlessResizeImage}

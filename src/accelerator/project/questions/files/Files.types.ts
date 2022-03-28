@@ -2,7 +2,7 @@ interface Props {
   question: string;
   description: string;
   reply: any[];
-  handleSelectFile(): void;
+  handleSelectFile(files: any): void;
   handleDeleteFile?(id: number): void;
   onDropError?(errorList: any): void;
 }

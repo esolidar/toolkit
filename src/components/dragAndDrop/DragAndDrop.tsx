@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DndContext,
   closestCenter,
@@ -16,7 +16,6 @@ import {
 } from '@dnd-kit/sortable';
 import Preview from '../preview';
 import FileCard from '../fileCard';
-import convertFileSize from '../../utils/convertFileSize';
 import Props from './DragAndDrop.types';
 import getEnvVar from '../../utils/getEnvVar';
 
@@ -32,8 +31,12 @@ const DragAndDrop = ({
   privateBadge,
 }: Props) => {
   const [activeId, setActiveId] = useState(null);
-  const [items, setItems] = useState([...itemsList]);
+  const [items, setItems] = useState([]);
   const serverlessResizeImage = getEnvVar('SERVER_LESS_RESIZE_IMAGE');
+
+  useEffect(() => {
+    setItems(itemsList);
+  }, [itemsList]);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -130,8 +133,7 @@ const OverlayFile = ({ file }: any) => (
       showDownloadButton={true}
       title={file.name}
       file={file.file}
-      helper={convertFileSize(file.file_size || file.size)}
-      dropdownItems={[]}
+      size={file.file_size || file.size}
     />
   </div>
 );
