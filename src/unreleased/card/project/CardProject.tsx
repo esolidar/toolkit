@@ -12,6 +12,7 @@ const CardProject: FC<Props> = ({
   clickThumb,
   showStatus = true,
   cdnUploadsUrl = 'https://cdn.testesolidar.com',
+  dropdownItems = [],
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -35,6 +36,7 @@ const CardProject: FC<Props> = ({
       body={<Body ods={project.ods} />}
       support={support}
       average={project.review_average}
+      dropdownItems={dropdownItems}
     />
   );
 };

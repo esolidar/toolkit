@@ -1,18 +1,18 @@
 import { Story, Meta } from '@storybook/react';
-import DiscardChangesModal from './DiscardChangesModal';
-import Props from './DiscardChangesModal.types';
+import DeleteProjectModal from './DeleteProjectModal';
+import Props from './DeleteProjectModal.types';
 
 export default {
-  title: 'Components/Modals/DiscardChangesModal',
-  component: DiscardChangesModal,
+  title: 'Components/Modals/DeleteProjectModal',
+  component: DeleteProjectModal,
   parameters: {
-    jest: ['DiscardChangesModal.test.tsx'],
+    jest: ['DeleteProjectModal.test.tsx'],
   },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
   <div className="mt-5">
-    <DiscardChangesModal {...args} />
+    <DeleteProjectModal {...args} />
   </div>
 );
 
@@ -21,7 +21,7 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   isOpen: true,
   onClickConfirm: () => {
-    alert('Clicked confirm');
+    alert('Clicked delete');
   },
   onClickCancel: () => {
     alert('Clicked cancel');

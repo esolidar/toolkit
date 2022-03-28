@@ -26,6 +26,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Default: Story<Props> = Template.bind({});
 export const WithoutStatus: Story<Props> = Template.bind({});
+export const WithKebakMenu: Story<Props> = Template.bind({});
 
 Default.args = {
   project,
@@ -40,4 +41,32 @@ WithoutStatus.args = {
   communityUrl: 'https://community.testesolidar.com/',
   currency: 'EUR',
   showStatus: false,
+};
+
+WithKebakMenu.args = {
+  project,
+  clickThumb: () => alert('clicked'),
+  communityUrl: 'https://community.testesolidar.com/',
+  currency: 'EUR',
+  showStatus: false,
+  dropdownItems: [
+    {
+      id: 0,
+      leftIcon: 'Edit2',
+      onClick: () => {
+        alert('Clicked edit');
+      },
+      show: true,
+      text: 'Edit',
+    },
+    {
+      id: 1,
+      leftIcon: 'Trash',
+      onClick: () => {
+        alert('Clicked delete');
+      },
+      show: true,
+      text: 'Delete',
+    },
+  ],
 };
