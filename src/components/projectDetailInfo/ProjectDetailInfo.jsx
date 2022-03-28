@@ -101,17 +101,19 @@ const ProjectDetailInfo = ({
       )}
       <div className="box">
         <p>{project.description}</p>
-        <div>
-          <h4 style={{ color }}>
-            <FormattedMessage id="video" />
-          </h4>
-          <Preview
-            type="video"
-            videoUrl={project.video}
-            handleClickPreview={handleClickPreview}
-            isVisible
-          />
-        </div>
+        {project.video !== '' && (
+          <div>
+            <h4 style={{ color }}>
+              <FormattedMessage id="video" />
+            </h4>
+            <Preview
+              type="video"
+              videoUrl={project.video}
+              handleClickPreview={handleClickPreview}
+              isVisible
+            />
+          </div>
+        )}
         {form && (
           <Row>
             <Col sm={12}>
