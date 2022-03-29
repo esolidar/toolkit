@@ -167,7 +167,7 @@ const Page = ({
                 <div className="wizard-success__buttons">
                   <Button
                     extraClass="secondary"
-                    onClick={handleCloseWizard}
+                    onClick={() => handleCloseWizard(true)}
                     text={intl.formatMessage({ id: 'close' })}
                     dataTestId="click-close"
                   />
