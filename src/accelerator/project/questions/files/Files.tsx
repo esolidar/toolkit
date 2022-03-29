@@ -68,7 +68,8 @@ const Files = ({
     setFilesList([...filesList, ...files]);
     const element = document.getElementsByClassName('active-page')[0];
     if (element) element.scrollTop = element.scrollHeight;
-    onDropError(files);
+
+    onDropError(errorList);
   };
 
   const onSubmitFiles = files => {
