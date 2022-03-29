@@ -81,23 +81,10 @@ const Page = ({
               { rangeMin, rangeMax }
             )
             .toLowerCase()}`;
-        break;
+        return intl.formatMessage({ id: 'toolkit.please.select.option' });
 
       case 'multiChoice':
-        if (answersAllowed === 'exact')
-          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-            .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
-            .toLowerCase()}`;
-        if (answersAllowed === 'range')
-          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-            .formatMessage(
-              {
-                id: 'toolkit.checkbox.range.range',
-              },
-              { rangeMin, rangeMax }
-            )
-            .toLowerCase()}`;
-        break;
+        return intl.formatMessage({ id: 'toolkit.please.select.option' });
 
       case 'fileUploader':
         return intl.formatMessage({ id: 'toolkit.please.select.files' });
@@ -111,29 +98,6 @@ const Page = ({
       default:
         break;
     }
-
-    // debugger;
-    // if (type === 'checkboxes') {
-    //   if (answersAllowed === 'exact')
-    //     return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-    //       .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
-    //       .toLowerCase()}`;
-    //   if (answersAllowed === 'range')
-    //     return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-    //       .formatMessage(
-    //         {
-    //           id: 'toolkit.checkbox.range.range',
-    //         },
-    //         { rangeMin, rangeMax }
-    //       )
-    //       .toLowerCase()}`;
-    // } else if (type === 'multiChoice') {
-    //   return intl.formatMessage({ id: 'toolkit.please.select.option' });
-    // } else if (type === 'fileUploader') {
-    //   return intl.formatMessage({ id: 'toolkit.please.select.files' });
-    // }
-
-    // return intl.formatMessage({ id: 'toolkit.please.fill.form' });
   };
 
   return (
@@ -186,13 +150,18 @@ const Page = ({
                 </div>
               )}
               {isLastQuestions && (
-                <Button
-                  extraClass="primary-full"
-                  onClick={handlePublish}
-                  text={intl.formatMessage({ id: 'publish' })}
-                  disabled={isPublishDisabled}
-                  dataTestId="click-publish"
-                />
+                <div
+                  data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
+                  style={{ display: 'inline-block' }}
+                >
+                  <Button
+                    extraClass="primary-full"
+                    onClick={handlePublish}
+                    text={intl.formatMessage({ id: 'publish' })}
+                    disabled={isPublishDisabled}
+                    dataTestId="click-publish"
+                  />
+                </div>
               )}
               {isLastPage && (
                 <div className="wizard-success__buttons">
@@ -211,7 +180,7 @@ const Page = ({
           </>
         </Viewport>
       </div>
-      <ReactTooltip className="page-content__tooltip" />
+      <ReactTooltip className="tooltip-component" />
     </div>
   );
 };
