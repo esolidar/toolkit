@@ -28,7 +28,7 @@ const CardProject: FC<Props> = ({
       image={
         project.images && project.images.length > 0
           ? `${cdnUploadsUrl}/${project.images[0].image}`
-          : ''
+          : null
       }
       countdown={<Status project={project} />}
       showCountdown={showStatus}

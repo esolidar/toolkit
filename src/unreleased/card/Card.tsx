@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import Badge from '../../elements/badge';
 import Dropdown from '../../elements/dropdown';
 import isDefined from '../../utils/isDefined';
+import getEnvVar from '../../utils/getEnvVar';
 import Props from './Card.types';
 
 const Card: FC<Props> = ({
@@ -23,6 +24,10 @@ const Card: FC<Props> = ({
     if (isDefined(clickThumb)) clickThumb();
   };
 
+  const urlNoImage: string = `${getEnvVar(
+    'CDN_STATIC_URL'
+  )}/frontend/assets/placeholders/image.svg`;
+
   return (
     <div
       className="card-component"
@@ -37,7 +42,8 @@ const Card: FC<Props> = ({
         <div
           className="bg-image"
           style={{
-            backgroundImage: `url('${image}`,
+            backgroundImage: `url('${image || urlNoImage}`,
+            backgroundSize: image ? 'cover' : 'auto',
           }}
         />
         {average && (
