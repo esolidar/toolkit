@@ -2,7 +2,7 @@ interface Props {
   name: string;
   userName: string;
   required: boolean;
-  control: any;
+  control?: any;
 }
 
 export default Props;

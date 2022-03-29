@@ -8,7 +8,7 @@ import Viewport from '../viewport';
 import useInterval from '../../hooks/useInterval';
 
 interface ChildrenProps {
-  type: 'checkboxes' | 'multiChoice';
+  type: 'checkboxes' | 'multiChoice' | 'fileUploader' | 'shortAnswer' | 'longAnswer';
   exact?: number;
   rangeMin?: number;
   rangeMax?: number;
@@ -66,25 +66,74 @@ const Page = ({
     const { props } = children;
     const { type, answersAllowed, exact, rangeMin, rangeMax } = props;
 
-    if (type === 'checkboxes') {
-      if (answersAllowed === 'exact')
-        return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-          .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
-          .toLowerCase()}`;
-      if (answersAllowed === 'range')
-        return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
-          .formatMessage(
-            {
-              id: 'toolkit.checkbox.range.range',
-            },
-            { rangeMin, rangeMax }
-          )
-          .toLowerCase()}`;
+    switch (type) {
+      case 'checkboxes':
+        if (answersAllowed === 'exact')
+          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+            .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
+            .toLowerCase()}`;
+        if (answersAllowed === 'range')
+          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+            .formatMessage(
+              {
+                id: 'toolkit.checkbox.range.range',
+              },
+              { rangeMin, rangeMax }
+            )
+            .toLowerCase()}`;
+        break;
+
+      case 'multiChoice':
+        if (answersAllowed === 'exact')
+          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+            .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
+            .toLowerCase()}`;
+        if (answersAllowed === 'range')
+          return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+            .formatMessage(
+              {
+                id: 'toolkit.checkbox.range.range',
+              },
+              { rangeMin, rangeMax }
+            )
+            .toLowerCase()}`;
+        break;
+
+      case 'fileUploader':
+        return intl.formatMessage({ id: 'toolkit.please.select.files' });
+
+      case 'shortAnswer':
+        return intl.formatMessage({ id: 'toolkit.please.fill.form' });
+
+      case 'longAnswer':
+        return intl.formatMessage({ id: 'toolkit.please.fill.form' });
+
+      default:
+        break;
     }
 
-    if (type === 'multiChoice') {
-      return intl.formatMessage({ id: 'toolkit.please.select.option' });
-    }
+    // debugger;
+    // if (type === 'checkboxes') {
+    //   if (answersAllowed === 'exact')
+    //     return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+    //       .formatMessage({ id: 'toolkit.checkbox.range.exact' }, { value: exact })
+    //       .toLowerCase()}`;
+    //   if (answersAllowed === 'range')
+    //     return `${intl.formatMessage({ id: 'toolkit.please' })} ${intl
+    //       .formatMessage(
+    //         {
+    //           id: 'toolkit.checkbox.range.range',
+    //         },
+    //         { rangeMin, rangeMax }
+    //       )
+    //       .toLowerCase()}`;
+    // } else if (type === 'multiChoice') {
+    //   return intl.formatMessage({ id: 'toolkit.please.select.option' });
+    // } else if (type === 'fileUploader') {
+    //   return intl.formatMessage({ id: 'toolkit.please.select.files' });
+    // }
+
+    // return intl.formatMessage({ id: 'toolkit.please.fill.form' });
   };
 
   return (
