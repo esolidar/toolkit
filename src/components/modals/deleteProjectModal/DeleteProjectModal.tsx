@@ -2,9 +2,9 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import Button from '../../../elements/button';
 import CustomModal from '../../../elements/customModal';
-import Props from './DiscardChangesModal.types';
+import Props from './DeleteProjectModal.types';
 
-const DiscardChangesModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): JSX.Element => {
+const DeleteProjectModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -14,7 +14,7 @@ const DiscardChangesModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): 
         <>
           <Button
             extraClass="danger-full"
-            text={intl.formatMessage({ id: 'toolkit.discard.close' })}
+            text={intl.formatMessage({ id: 'delete' })}
             onClick={onClickConfirm}
           />
           <Button
@@ -24,11 +24,11 @@ const DiscardChangesModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): 
           />
         </>
       }
-      title={intl.formatMessage({ id: 'toolkit.discard.changes' })}
-      showBody={false}
+      bodyChildren={<div>{intl.formatMessage({ id: 'toolkit.delete.project.help' })}</div>}
+      title={intl.formatMessage({ id: 'toolkit.delete.project' })}
       closeButton={false}
     />
   );
 };
 
-export default DiscardChangesModal;
+export default DeleteProjectModal;

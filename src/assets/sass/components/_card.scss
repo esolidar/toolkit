@@ -4,7 +4,6 @@
   overflow: hidden;
   margin-bottom: 30px;
   border-radius: $distance-1;
-  cursor: pointer;
 
   &:hover {
     .bg-image {
@@ -39,8 +38,19 @@
   &__body {
     margin-left: $distance-2;
     margin-right: $distance-2;
-    height: 244px;
+    height: 151px;
     position: relative;
+    border-bottom: 1px solid map-get($grays, 300);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $distance-4;
+    padding-bottom: $distance-2;
+    margin-left: $distance-2;
+    margin-right: $distance-2;
   }
 
   &__average {
@@ -83,17 +93,10 @@
   }
 
   &__support {
-    padding-bottom: $distance-2;
-    padding-top: $distance-4;
-    border-top: 1px solid map-get($grays, 300);
     font-size: 15px;
     color: map-get($grays, 900);
     letter-spacing: -0.3px;
     line-height: 22px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
     a {
       color: map-get($grays, 900);

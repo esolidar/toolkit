@@ -2,11 +2,11 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render, fireEvent } from '../../../../../__customQueries__/test-utils';
-import Meta, { Default as DefaultStory } from '../DiscardChangesModal.stories';
+import Meta, { Default as DefaultStory } from '../DeleteProjectModal.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 
-it('renders DiscardChangesModal Default', done => {
+it('renders DeleteProjectModal Default', done => {
   const handleClick = () => {
     done();
   };
@@ -15,9 +15,12 @@ it('renders DiscardChangesModal Default', done => {
     <Default onClose={handleClick} onClickConfirm={handleClick} onClickCancel={handleClick} />
   );
   expect(getByTestId('modal')).toBeInTheDocument();
-  expect(getByText('Discard changes?')).toBeInTheDocument();
+  expect(getByText('Delete Project?')).toBeInTheDocument();
+  expect(
+    getByText('By deleting, you won’t recover the project’s data and files.')
+  ).toBeInTheDocument();
 
-  const primaryButton = getByText('Discard & Close');
+  const primaryButton = getByText('Delete');
   expect(primaryButton).toBeInTheDocument();
   fireEvent.click(primaryButton);
 
