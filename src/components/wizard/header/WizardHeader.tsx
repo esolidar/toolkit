@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
@@ -30,13 +30,23 @@ const WizardHeader: FC<Props> = ({
   showStartHereTooltip = false,
 }: Props): JSX.Element => {
   const intl = useIntl();
+  const [canShowStartHereTooltip, setCanShowStartHereTooltip] = useState(false);
+  const [isWizardAnimationOver, setIsWizardAnimationOver] = useState(false);
 
   useEffect(() => {
     if (editMode && title === '') {
       const element = document.getElementById('wizard-header-title-input');
       if (isDefined(element)) cursorFocus(element, 0);
     }
+
+    setTimeout(() => {
+      setIsWizardAnimationOver(true);
+    }, 700);
   }, []);
+
+  useEffect(() => {
+    if (isWizardAnimationOver) setCanShowStartHereTooltip(showStartHereTooltip);
+  }, [isWizardAnimationOver, showStartHereTooltip]);
 
   return (
     <div className="wizard__header">
@@ -68,7 +78,6 @@ const WizardHeader: FC<Props> = ({
           {subtitle && !editMode && (
             <span className="wizard__header__title__subtitle">{subtitle}</span>
           )}
-
           <h1>
             {editMode && (
               <Tooltip
@@ -76,8 +85,9 @@ const WizardHeader: FC<Props> = ({
                 placement="bottomLeft"
                 trigger="focus"
                 className="esolidar-tooltip"
-                displayNone={!showStartHereTooltip}
+                displayNone={!canShowStartHereTooltip}
                 styleOverlay={{ maxWidth: '768px' }}
+                transitionName="rc-tooltip-zoom"
                 overlay={
                   <span>
                     <FormattedMessage id="toolkit.start.here" />
