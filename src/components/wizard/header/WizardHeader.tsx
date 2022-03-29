@@ -56,9 +56,8 @@ const WizardHeader: FC<Props> = ({
               dataTestId="btnCloseWizard"
               ghost
               theme="light"
-              size="md"
               type="icon"
-              onClick={closeWizard}
+              onClick={() => closeWizard(false)}
               icon={<Icon name="X" size="sm" />}
             />
           }

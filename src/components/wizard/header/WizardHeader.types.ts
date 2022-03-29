@@ -1,6 +1,6 @@
 interface Props {
   editMode?: boolean;
-  closeWizard(): void;
+  closeWizard(isSuccess: boolean): void;
   title?: string;
   subtitle?: string;
   buttonDarkText: string;
