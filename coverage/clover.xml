@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647954594670" clover="3.2.0">
-  <project timestamp="1647954594670" name="All files">
+<coverage generated="1648552751451" clover="3.2.0">
+  <project timestamp="1648552751451" name="All files">
     <metrics statements="5118" coveredstatements="3637" conditionals="3919" coveredconditionals="2437" methods="1559" coveredmethods="882" elements="10596" coveredelements="6956" complexity="0" loc="5118" ncloc="5118" packages="200" files="701" classes="701"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
@@ -4057,50 +4057,50 @@
       <metrics statements="44" coveredstatements="21" conditionals="57" coveredconditionals="19" methods="18" coveredmethods="5"/>
       <file name="ProjectAddForm.jsx" path="/Users/pedroguia/Projects/toolkit/src/components/projectAddForm/ProjectAddForm.jsx">
         <metrics statements="44" coveredstatements="21" conditionals="57" coveredconditionals="19" methods="18" coveredmethods="5"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="43" count="3" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="77" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="78" count="3" type="stmt"/>
-        <line num="81" count="36" type="cond" truecount="10" falsecount="0"/>
-        <line num="83" count="3" type="stmt"/>
-        <line num="90" count="3" type="stmt"/>
-        <line num="93" count="6" type="stmt"/>
-        <line num="106" count="6" type="stmt"/>
-        <line num="120" count="3" type="stmt"/>
-        <line num="133" count="3" type="stmt"/>
-        <line num="140" count="3" type="stmt"/>
-        <line num="168" count="3" type="stmt"/>
-        <line num="184" count="0" type="stmt"/>
-        <line num="213" count="3" type="stmt"/>
-        <line num="222" count="9" type="stmt"/>
-        <line num="225" count="0" type="stmt"/>
-        <line num="251" count="3" type="stmt"/>
-        <line num="260" count="9" type="stmt"/>
-        <line num="263" count="0" type="stmt"/>
-        <line num="297" count="3" type="stmt"/>
-        <line num="304" count="0" type="stmt"/>
-        <line num="390" count="0" type="stmt"/>
-        <line num="418" count="0" type="stmt"/>
-        <line num="420" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="424" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="428" count="0" type="cond" truecount="0" falsecount="6"/>
-        <line num="430" count="0" type="stmt"/>
-        <line num="444" count="0" type="stmt"/>
-        <line num="457" count="0" type="stmt"/>
-        <line num="471" count="0" type="stmt"/>
-        <line num="480" count="0" type="stmt"/>
-        <line num="483" count="0" type="stmt"/>
-        <line num="509" count="0" type="stmt"/>
-        <line num="518" count="0" type="stmt"/>
-        <line num="521" count="0" type="stmt"/>
-        <line num="551" count="0" type="stmt"/>
-        <line num="558" count="1" type="stmt"/>
-        <line num="579" count="1" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="78" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="36" type="cond" truecount="10" falsecount="0"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
+        <line num="94" count="6" type="stmt"/>
+        <line num="107" count="6" type="stmt"/>
+        <line num="121" count="3" type="stmt"/>
+        <line num="134" count="3" type="stmt"/>
+        <line num="141" count="3" type="stmt"/>
+        <line num="169" count="3" type="stmt"/>
+        <line num="185" count="0" type="stmt"/>
+        <line num="214" count="3" type="stmt"/>
+        <line num="223" count="9" type="stmt"/>
+        <line num="226" count="0" type="stmt"/>
+        <line num="252" count="3" type="stmt"/>
+        <line num="261" count="9" type="stmt"/>
+        <line num="264" count="0" type="stmt"/>
+        <line num="298" count="3" type="stmt"/>
+        <line num="305" count="0" type="stmt"/>
+        <line num="391" count="0" type="stmt"/>
+        <line num="419" count="0" type="stmt"/>
+        <line num="421" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="425" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="429" count="0" type="cond" truecount="0" falsecount="6"/>
+        <line num="431" count="0" type="stmt"/>
+        <line num="445" count="0" type="stmt"/>
+        <line num="458" count="0" type="stmt"/>
+        <line num="472" count="0" type="stmt"/>
+        <line num="481" count="0" type="stmt"/>
+        <line num="484" count="0" type="stmt"/>
+        <line num="510" count="0" type="stmt"/>
+        <line num="519" count="0" type="stmt"/>
+        <line num="522" count="0" type="stmt"/>
+        <line num="552" count="0" type="stmt"/>
+        <line num="559" count="1" type="stmt"/>
+        <line num="580" count="1" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/pedroguia/Projects/toolkit/src/components/projectAddForm/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -16,8 +16,9 @@ import InputLabel from '../../elements/inputLabel';
 import slugify from '../../utils/slugify';
 import isArray from '../../utils/isArray';
 import rawDraftToHtml from '../../utils/rawDraftToHtml';
+import getEnvVar from '../../utils/getEnvVar';
 import Loading from '../loading';
-import { cdnStaticUrl, cdnUploadsUrl } from '../../constants/env';
+import { cdnStaticUrl } from '../../constants/env';
 
 const ProjectAddForm = ({
   color,
@@ -335,7 +336,7 @@ const ProjectAddForm = ({
         deleteImageGallery={deleteImageGallery}
         disabled={false}
         env={{
-          serverlessResizeImage: cdnUploadsUrl,
+          serverlessResizeImage: getEnvVar('cdn_uploads_url'),
         }}
         inputLabelProps={{
           help: uploadImagesLabel,
