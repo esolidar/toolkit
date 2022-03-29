@@ -77,7 +77,7 @@ const WizardHeader: FC<Props> = ({
                 trigger="focus"
                 className="esolidar-tooltip"
                 displayNone={!showStartHereTooltip}
-                styleOverlay={{ maxWidth: '768px', width: '100%' }}
+                styleOverlay={{ maxWidth: '768px' }}
                 overlay={
                   <span>
                     <FormattedMessage id="toolkit.start.here" />

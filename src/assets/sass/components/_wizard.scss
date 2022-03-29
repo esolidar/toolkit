@@ -111,6 +111,17 @@
         width: 100%;
         outline: none;
         border-bottom: 1px solid map-get($neutrals, 200);
+
+        &:parent {
+          width: 100% !important;
+        }
+      }
+    }
+
+    .tooltipOverlay {
+      width: auto;
+      &:focus-within {
+        width: 100%;
       }
     }
   }
