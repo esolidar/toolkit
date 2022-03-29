@@ -33,14 +33,10 @@ const Files = ({
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
     const oldRepliesCount: number = repliesCount.current;
+    selectedFilesCount.current = 0;
     repliesCount.current = reply.length;
 
-    if (hasErrorFiles.current) {
-      setFilesList([...reply, ...errorFiles.current]);
-    } else {
-      setFilesList(reply);
-    }
-    errorFiles.current = [];
+    setFilesList([...reply, ...errorFiles.current]);
 
     if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
@@ -67,7 +63,7 @@ const Files = ({
     setFilesList([...filesList, ...files]);
     const element = document.getElementsByClassName('active-page')[0];
     if (element) element.scrollTop = element.scrollHeight;
-    hasErrorFiles.current = true;
+
     onDropError(errorList);
   };
 
@@ -77,6 +73,10 @@ const Files = ({
     const selectedFiles = selectedFilesCount.current;
     if (selectedFiles > files.length) {
       hasErrorFiles.current = true;
+      selectedFilesCount.current = 0;
+    } else {
+      hasErrorFiles.current = false;
+      errorFiles.current = [];
     }
   };
 
@@ -126,7 +126,7 @@ const Files = ({
               {filesList.map((file, i) => (
                 <FileCard
                   key={file.id || `error-${i}`}
-                  showDownloadButton={true}
+                  showDownloadButton={!file.fail}
                   title={file.name}
                   showBadgePrivate={!file.public}
                   showBadgeFailed={file.fail}
