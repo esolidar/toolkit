@@ -154,6 +154,7 @@ const DropZoneBox = ({
         errorList.forEach(file => {
           return file;
         });
+
         onDropError(errorList, selectedFilesCount.current);
         setErrorList([]);
         return;
@@ -245,12 +246,6 @@ const DropZoneBox = ({
       }
     },
     onDropRejected: async rejectedFiles => {
-      if (showErrors && onDropError && rejectedFiles.length > maxFiles)
-        onDropError(
-          [{ name: 'maxFiles', maxFiles, code: rejectedFiles[0].errors[0].code }],
-          selectedFilesCount.current
-        );
-
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
 

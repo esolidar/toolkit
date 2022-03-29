@@ -22,12 +22,14 @@ const CardProject: FC<Props> = ({
     revert: true,
   };
 
+  const defaultImage = project.images.find(image => image.default === 1);
+
   return (
     <Card
       clickThumb={clickThumb}
       image={
         project.images && project.images.length > 0
-          ? `${cdnUploadsUrl}/${project.images[0].image}`
+          ? `${cdnUploadsUrl}/${defaultImage?.image || project.images[0].image}`
           : null
       }
       countdown={<Status project={project} />}

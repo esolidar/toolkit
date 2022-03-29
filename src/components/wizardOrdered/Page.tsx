@@ -96,7 +96,7 @@ const Page = ({
         return intl.formatMessage({ id: 'toolkit.please.fill.form' });
 
       default:
-        break;
+        return intl.formatMessage({ id: 'toolkit.please.fill.form' });
     }
   };
 

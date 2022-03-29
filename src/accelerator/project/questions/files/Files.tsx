@@ -41,11 +41,10 @@ const Files = ({
       setFilesList(reply);
     }
     errorFiles.current = [];
-    hasErrorFiles.current = false;
 
     if (oldRepliesCount <= repliesCount.current && element)
       element.scrollTop = element.scrollHeight;
-  }, [reply]);
+  }, [reply, hasErrorFiles.current]);
 
   const deleteFile = (id: number, projectId: number) => {
     if (projectId) {
@@ -68,7 +67,7 @@ const Files = ({
     setFilesList([...filesList, ...files]);
     const element = document.getElementsByClassName('active-page')[0];
     if (element) element.scrollTop = element.scrollHeight;
-
+    hasErrorFiles.current = true;
     onDropError(errorList);
   };
 
@@ -126,7 +125,7 @@ const Files = ({
             >
               {filesList.map((file, i) => (
                 <FileCard
-                  key={file.id || i}
+                  key={file.id || `error-${i}`}
                   showDownloadButton={true}
                   title={file.name}
                   showBadgePrivate={!file.public}
