@@ -10,7 +10,7 @@ interface Props {
   handleDarkButton(): void;
   handlePrimaryButton(): void;
   handleChangeTitle?(): void;
-  handleBlurTitle?(): void;
+  handleBlurTitle?(e: any): void;
   disabledDarkButton: boolean;
   disabledPrimaryButton: boolean;
   isLoading: boolean;

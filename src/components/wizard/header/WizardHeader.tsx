@@ -22,7 +22,7 @@ const WizardHeader: FC<Props> = ({
   disabledPrimaryButton,
   editMode = false,
   handleChangeTitle,
-  handleBlurTitle,
+  handleBlurTitle = () => {},
   isLoading = false,
   isDraft = false,
   isLive = false,
@@ -35,14 +35,15 @@ const WizardHeader: FC<Props> = ({
   const [canShowStartHereTooltip, setCanShowStartHereTooltip] = useState(false);
   const [isWizardAnimationOver, setIsWizardAnimationOver] = useState(false);
 
-  useEffect(() => {
+  const getInputWidth = () => {
     const element = document.getElementById('wizard-header-title-input');
     if (isDefined(element)) {
       setInputWidth(`${document.getElementById('wizard-header-title-input').clientWidth}px`);
     }
-  }, [title]);
+  };
 
   useEffect(() => {
+    getInputWidth();
     if (editMode && title === '') {
       const element = document.getElementById('wizard-header-title-input');
       if (isDefined(element)) cursorFocus(element, 0);
@@ -108,7 +109,10 @@ const WizardHeader: FC<Props> = ({
                     type="text"
                     onChange={handleChangeTitle}
                     value={title}
-                    onBlur={handleBlurTitle}
+                    onBlur={e => {
+                      handleBlurTitle(e);
+                      getInputWidth();
+                    }}
                     placeholder={intl.formatMessage({
                       id: 'toolkit.wizard-header.title.placeholder',
                     })}
