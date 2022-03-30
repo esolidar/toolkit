@@ -28,6 +28,7 @@ const WizardHeader: FC<Props> = ({
   isLive = false,
   closeWizardText = 'toolkit.cancel.program.changes',
   showStartHereTooltip = false,
+  isSuccess,
 }: Props): JSX.Element => {
   const [inputWidth, setInputWidth] = useState(undefined);
   const intl = useIntl();
@@ -145,7 +146,7 @@ const WizardHeader: FC<Props> = ({
         {buttonPrimaryText && (
           <div
             data-tip={
-              disabledPrimaryButton
+              disabledPrimaryButton && !isSuccess
                 ? intl.formatMessage({ id: 'toolkit.please.complete.steps' })
                 : ''
             }
