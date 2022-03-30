@@ -246,6 +246,9 @@ const DropZoneBox = ({
       }
     },
     onDropRejected: async rejectedFiles => {
+      if (showErrors && onDropError && rejectedFiles.length > maxFiles)
+        onDropError([{ code: 'too-many-files', maxFiles }]);
+
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
 

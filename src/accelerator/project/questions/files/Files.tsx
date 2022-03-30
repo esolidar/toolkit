@@ -56,8 +56,10 @@ const Files = ({
     const files = [];
     errorList.forEach(error => {
       const { file } = error;
-      file.fail = true;
-      files.push(file);
+      if (file) {
+        file.fail = true;
+        files.push(file);
+      }
     });
     errorFiles.current = files;
     setFilesList([...filesList, ...files]);
