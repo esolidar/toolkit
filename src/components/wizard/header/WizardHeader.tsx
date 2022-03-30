@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
@@ -125,16 +126,26 @@ const WizardHeader: FC<Props> = ({
           disabled={disabledDarkButton}
         />
         {buttonPrimaryText && (
-          <Button
-            withLoading={true}
-            isLoading={isLoading}
-            extraClass="primary-full"
-            onClick={handlePrimaryButton}
-            text={buttonPrimaryText}
-            disabled={disabledPrimaryButton}
-          />
+          <div
+            data-tip={
+              disabledPrimaryButton
+                ? intl.formatMessage({ id: 'toolkit.please.complete.steps' })
+                : ''
+            }
+            data-place="bottom"
+          >
+            <Button
+              withLoading={true}
+              isLoading={isLoading}
+              extraClass="primary-full"
+              onClick={handlePrimaryButton}
+              text={buttonPrimaryText}
+              disabled={disabledPrimaryButton}
+            />
+          </div>
         )}
       </div>
+      <ReactTooltip className="tooltip-component" />
     </div>
   );
 };

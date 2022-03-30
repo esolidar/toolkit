@@ -289,3 +289,7 @@ body.opened-wizard {
     flex-direction: column;
   }
 }
+
+.project-file-item {
+  animation-fill-mode: backwards !important;
+}

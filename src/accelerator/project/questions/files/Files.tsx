@@ -122,11 +122,12 @@ const Files = ({
               triggerOnce={true}
               duration={700}
               damping={0.1}
+              className="project-file-item"
             >
               {filesList.map((file, i) => (
                 <FileCard
                   key={file.id || `error-${i}`}
-                  showDownloadButton={!file.fail}
+                  showDownloadButton={false}
                   title={file.name}
                   showBadgePrivate={!file.public}
                   showBadgeFailed={file.fail}

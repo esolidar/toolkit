@@ -78,7 +78,7 @@ const Template: Story<Props> = (args: Props) => {
                 buttonPrimaryText="Publish"
                 handlePrimaryButton={() => {}}
                 cdnStaticUrl=""
-                disabledPrimaryButton={false}
+                disabledPrimaryButton={true}
                 isLoading={false}
                 isDraft={true}
                 title="Destino4All"
@@ -110,14 +110,6 @@ const files = questions.customQuestions.filter(({ type }) => type === 'fileUploa
 Open.args = {
   isLoading: false,
   pages: [
-    <Files
-      {...files.form}
-      reply={projectFiles.data}
-      handleDeleteFile={() => {}}
-      handleSelectFile={() => {}}
-      onDropError={() => {}}
-      type={files.type}
-    />,
     <Description userName={user.firstName} name="description" required />,
     <Video
       name="video"
@@ -153,24 +145,34 @@ Open.args = {
       handleSelectImage={() => {}}
       handleDeleteImage={() => {}}
       cropModalStatus={false}
+      type="image"
     />,
     <Categories
       categoriesList={projectCategories.data}
       reply={[]}
       handleChangeCategories={() => {}}
+      type="categories"
     />,
     <Sdg
       sdgList={sdgList.data}
       reply={[1, 3]}
       handleSelectSdgs={() => {}}
       preferredList={[2, 3]}
+      type="sdg"
     />,
     <Section {...section} />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
     <Radiobox {...radioboxes.form} type={radioboxes.type} reply="2" />,
     <ShortAnswer {...shortAnswer.form} type={shortAnswer.type} reply="teste" />,
     <LongAnswer {...longAnswer.form} type={checkboxes.type} reply="teste" />,
-
+    <Files
+      {...files.form}
+      reply={projectFiles.data}
+      handleDeleteFile={() => {}}
+      handleSelectFile={() => {}}
+      onDropError={() => {}}
+      type={files.type}
+    />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
   isPageValid: false,

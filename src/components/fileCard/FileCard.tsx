@@ -82,7 +82,7 @@ const FileCard = ({
             theme="light"
             type="icon"
             ghost
-            onCLicke={handleDownloadFile}
+            onClick={handleDownloadFile}
             icon={<Icon name="Download" />}
           />
         )}

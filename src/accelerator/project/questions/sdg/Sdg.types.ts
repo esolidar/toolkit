@@ -3,6 +3,7 @@ interface Props {
   reply: number[];
   preferredList: number[];
   handleSelectSdgs(ids: number[]): void;
+  type?: string;
 }
 
 export default Props;
