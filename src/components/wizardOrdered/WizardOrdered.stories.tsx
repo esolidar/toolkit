@@ -175,6 +175,6 @@ Open.args = {
     />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],
-  isPageValid: false,
+  isPageValid: true,
   companyName: company.name,
 };

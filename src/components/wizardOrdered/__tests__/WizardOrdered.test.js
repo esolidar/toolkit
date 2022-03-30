@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render, screen, fireEvent } from '../../../../__customQueries__/test-utils';
+import { render, screen, fireEvent, act } from '../../../../__customQueries__/test-utils';
 import Meta, { Open as OpenStory } from '../WizardOrdered.stories';
 
 const Open = composeStory(OpenStory, Meta);
@@ -20,21 +20,34 @@ it('renders WizardOrdered default component open', () => {
 
 it('renders WizardOrdered click-next', () => {
   const { getAllByClass, getAllByTestId } = render(<Open />);
-
   expect(getAllByTestId('click-next')).toHaveLength(1);
   expect(getAllByTestId('click-prev')).toHaveLength(1);
-  fireEvent.click(screen.getByTestId('click-next'));
-  expect(getAllByClass(/page-before/)).toHaveLength(1);
-  expect(getAllByClass(/page-after/)).toHaveLength(10);
-  expect(getAllByTestId('click-next')).toHaveLength(1);
-  expect(getAllByTestId('click-prev')).toHaveLength(1);
-  fireEvent.click(screen.getByTestId('click-next'));
-  fireEvent.click(screen.getByTestId('click-next'));
-  fireEvent.click(screen.getByTestId('click-next'));
-  fireEvent.click(screen.getByTestId('click-prev'));
-  expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(17);
-  expect(getAllByClass(/page-before/)).toHaveLength(3);
-  expect(getAllByClass(/page-after/)).toHaveLength(8);
+  act(() => {
+    fireEvent.click(screen.getByTestId('click-next'));
+  });
+  act(() => {
+    expect(getAllByClass(/page-before/)).toHaveLength(1);
+    expect(getAllByClass(/page-after/)).toHaveLength(10);
+    expect(getAllByTestId('click-next')).toHaveLength(1);
+    expect(getAllByTestId('click-prev')).toHaveLength(1);
+  });
+  act(() => {
+    fireEvent.click(screen.getByTestId('click-next'));
+  });
+  act(() => {
+    fireEvent.click(screen.getByTestId('click-next'));
+  });
+  act(() => {
+    fireEvent.click(screen.getByTestId('click-next'));
+  });
+  act(() => {
+    fireEvent.click(screen.getByTestId('click-prev'));
+  });
+  act(() => {
+    expect(getAllByClass('esolidar-viewport size-xl centred')).toHaveLength(17);
+    expect(getAllByClass(/page-before/)).toHaveLength(3);
+    expect(getAllByClass(/page-after/)).toHaveLength(8);
+  });
 });
 
 it('renders WizardOrdered scroll-wheel', () => {
