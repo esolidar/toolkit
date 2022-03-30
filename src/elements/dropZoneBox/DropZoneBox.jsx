@@ -59,6 +59,7 @@ const DropZoneBox = ({
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
   const selectedFilesCount = useRef(0);
+  const [resetSlider, setResetSlider] = useState(false);
 
   const intl = useIntl();
 
@@ -154,7 +155,6 @@ const DropZoneBox = ({
         errorList.forEach(file => {
           return file;
         });
-
         onDropError(errorList, selectedFilesCount.current);
         setErrorList([]);
         return;
@@ -247,7 +247,7 @@ const DropZoneBox = ({
     },
     onDropRejected: async rejectedFiles => {
       if (showErrors && onDropError && rejectedFiles.length > maxFiles)
-        onDropError([{ code: 'too-many-files', maxFiles }]);
+        onDropError([{ code: 'too-many-files', name: 'maxFiles', maxFiles }]);
 
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
@@ -292,8 +292,17 @@ const DropZoneBox = ({
   };
 
   const onSliderMoves = (value, direction) => {
+    setResetSlider(false);
     if (direction === 'right') cropper.current.zoom(0.1);
     if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
+  const rotate = degrees => {
+    if (degrees) {
+      setResetSlider(true);
+      const currentRotation = cropper.current.getData().rotate;
+      cropper.current.reset().rotate(currentRotation + degrees);
+    }
   };
 
   return (
@@ -417,14 +426,11 @@ const DropZoneBox = ({
                 ref={cropper}
                 src={croppedFile}
                 style={{ height: 290, width: '100%' }}
-                guides={true}
-                zoomable={true}
                 viewMode={1}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
                 dragMode="move"
-                cropBoxResizable={true}
-                cropBoxMovable={false}
                 autoCropArea={1}
+                zoomOnWheel={false}
               />
               {renderErrorList(errorList, showErrors)}
               {showFooterCropper && (
@@ -443,16 +449,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === 180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(90)}
                           icon={<Icon name="RotateCcw" size="sm" />}
                           ghost
                         />
@@ -471,16 +468,7 @@ const DropZoneBox = ({
                         <Button
                           className="dropzone-footer__buttons-rotate"
                           extraClass="primary-full"
-                          onClick={() => {
-                            cropper.current.rotate(-90);
-                            if (
-                              cropper.current.getData().rotate === 0 ||
-                              cropper.current.getData().rotate === -180
-                            ) {
-                              cropper.current.zoomTo(0);
-                              cropper.current.moveTo(0);
-                            }
-                          }}
+                          onClick={() => rotate(-90)}
                           icon={<Icon name="RotateCw" size="sm" />}
                           ghost
                         />
@@ -495,6 +483,7 @@ const DropZoneBox = ({
                       defaultValue={0}
                       showButtons={true}
                       onChange={onSliderMoves}
+                      reset={resetSlider}
                     />
                   </div>
                 </div>

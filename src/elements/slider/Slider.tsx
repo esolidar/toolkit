@@ -14,6 +14,7 @@ const SliderComponent: FC<Props> = ({
   disabled = false,
   showButtons = false,
   step = 1,
+  reset = false,
   onChange,
 }: Props): JSX.Element => {
   const classes = classNames('esolidar-slider', className);
@@ -22,6 +23,12 @@ const SliderComponent: FC<Props> = ({
   useEffect(() => {
     setValue(defaultValue);
   }, [defaultValue]);
+
+  useEffect(() => {
+    if (reset) {
+      setValue(0);
+    }
+  }, [reset]);
 
   const handleClickPlus = () => {
     const val = value + step > max ? max : value + step;

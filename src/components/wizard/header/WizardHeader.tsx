@@ -60,27 +60,23 @@ const WizardHeader: FC<Props> = ({
   return (
     <div className="wizard__header">
       {closeWizard && (
-        <Tooltip
-          placement="right"
-          trigger="hover"
-          className="esolidar-tooltip"
-          overlay={
-            <span>
-              <FormattedMessage id={closeWizardText} />
-            </span>
+        <div
+          data-tip={
+            disabledPrimaryButton && !isSuccess ? intl.formatMessage({ id: closeWizardText }) : ''
           }
-          tooltipBodyChild={
-            <Button
-              extraClass="primary-full"
-              dataTestId="btnCloseWizard"
-              ghost
-              theme="light"
-              type="icon"
-              onClick={() => closeWizard(false)}
-              icon={<Icon name="X" size="sm" />}
-            />
-          }
-        />
+          data-place="right"
+          data-offset="{'top': 0, 'right': 20}"
+        >
+          <Button
+            extraClass="primary-full"
+            dataTestId="btnCloseWizard"
+            ghost
+            theme="light"
+            type="icon"
+            onClick={() => closeWizard(false)}
+            icon={<Icon name="X" size="sm" />}
+          />
+        </div>
       )}
       <div className="wizard__header__title">
         <div>

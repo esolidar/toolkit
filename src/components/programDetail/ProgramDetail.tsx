@@ -62,6 +62,16 @@ const ProgramDetail = ({
     borderRadius: '0px',
   };
 
+  const programLocation = programConfig => {
+    let location = programConfig?.location;
+    if (programConfig?.location_address) {
+      const locationAddress = JSON.parse(programConfig?.location_address);
+      if (locationAddress?.floor) location = `${location}, ${locationAddress?.floor}`;
+      if (locationAddress?.info) location = `${location}, ${locationAddress?.info}`;
+    }
+    return location;
+  };
+
   return (
     <Viewport size={viewportSize} className="accelerator-view">
       <>
@@ -123,7 +133,7 @@ const ProgramDetail = ({
               <p>
                 <Icon iconClass="icon-ic-location" />
                 {!programConfig.remote && programConfig.location
-                  ? programConfig.location
+                  ? programLocation(programConfig)
                   : programConfig.remote
                   ? intl.formatMessage({ id: 'remote' })
                   : intl.formatMessage({ id: 'toolkit.acceleration.preview.location' })}

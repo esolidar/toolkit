@@ -106,7 +106,6 @@ const Files = ({
           </span>
           <DropZoneBox
             fullWidth
-            sortable
             disabled={reply.length >= maxFiles}
             maxFiles={maxFiles - reply.length}
             accept={acceptedFiles}

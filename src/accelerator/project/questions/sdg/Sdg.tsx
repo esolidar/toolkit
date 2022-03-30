@@ -23,6 +23,12 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
       element.scrollTop = element.scrollHeight;
   }, [reply]);
 
+  useEffect(() => {
+    const element = document.getElementsByClassName('active-page')[0];
+
+    if (element) element.scrollTop = element.scrollHeight;
+  }, [reply]);
+
   const formattedSdgs = getOdsList(sdgList, intl.locale, intl.formatMessage);
 
   const handleReveal = inView => {
