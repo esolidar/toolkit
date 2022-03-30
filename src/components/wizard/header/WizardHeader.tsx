@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
@@ -143,7 +142,6 @@ const WizardHeader: FC<Props> = ({
                 : ''
             }
             data-place="bottom"
-            data-for="disabledPrimaryButton"
           >
             <Button
               withLoading={true}
@@ -156,7 +154,6 @@ const WizardHeader: FC<Props> = ({
           </div>
         )}
       </div>
-      <ReactTooltip className="tooltip-component" id="disabledPrimaryButton" />
     </div>
   );
 };

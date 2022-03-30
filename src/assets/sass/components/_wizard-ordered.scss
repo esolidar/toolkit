@@ -189,18 +189,6 @@ body.opened-wizard {
   }
 }
 
-.tooltip-component {
-  color: map-get($base, white) !important;
-  background-color: map-get($base, black) !important;
-  &.place-top {
-    &:after {
-      border-top-color: transparent !important;
-      border-top-style: none !important;
-      border-top-width: 0 !important;
-    }
-  }
-}
-
 .page-content-categories {
   .content-step-page {
     p {
@@ -262,7 +250,6 @@ body.opened-wizard {
     }
   }
 }
-
 .tooltip-component {
   color: map-get($base, white) !important;
   background-color: map-get($base, black) !important;
@@ -271,6 +258,15 @@ body.opened-wizard {
   font-size: 14px !important;
   line-height: 20px !important;
   opacity: 1 !important;
+  z-index: 99999 !important;
+
+  &.place-top {
+    &:after {
+      border-top-color: transparent !important;
+      border-top-style: none !important;
+      border-top-width: 0 !important;
+    }
+  }
 
   &::before,
   &::after {

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
 import classnames from 'classnames';
 import { useIntl, FormattedMessage } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
 import Button from '../../elements/button';
 import Viewport from '../viewport';
 import useInterval from '../../hooks/useInterval';
@@ -61,6 +61,10 @@ const Page = ({
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [time, setTime] = useState<number>(5);
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, []);
 
   useInterval(
     () => {
@@ -139,7 +143,6 @@ const Page = ({
                     },
                     { companyName }
                   )}
-                  data-for="submit-project-page"
                 >
                   <FormattedMessage id="toolkit.private" />
                 </span>
@@ -151,7 +154,7 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
-                  data-for="submit-project-page"
+                  data-place="top"
                 >
                   <Button
                     extraClass="primary-full"
@@ -166,7 +169,6 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
-                  data-for="submit-project-page"
                 >
                   <Button
                     extraClass="primary-full"
@@ -194,7 +196,6 @@ const Page = ({
           </>
         </Viewport>
       </div>
-      <ReactTooltip className="tooltip-component" id="submit-project-page" />
     </div>
   );
 };

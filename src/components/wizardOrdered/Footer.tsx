@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { useIntl } from 'react-intl';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
@@ -24,7 +23,7 @@ const Footer = ({
   const intl = useIntl();
   return (
     <div className={className}>
-      <div data-tip={intl.formatMessage({ id: 'toolkit.prev' })} data-for="footer">
+      <div data-tip={intl.formatMessage({ id: 'toolkit.prev' })}>
         <Button
           extraClass="primary-full"
           onClick={handleClickPrev}
@@ -34,7 +33,7 @@ const Footer = ({
           dataTestId="click-prev"
         />
       </div>
-      <div data-tip={intl.formatMessage({ id: 'toolkit.next' })} data-for="footer">
+      <div data-tip={intl.formatMessage({ id: 'toolkit.next' })}>
         <Button
           extraClass="primary-full"
           onClick={handleClickNext}
@@ -44,7 +43,6 @@ const Footer = ({
           dataTestId="click-next"
         />
       </div>
-      <ReactTooltip className="tooltip-component" id="footer" />
     </div>
   );
 };

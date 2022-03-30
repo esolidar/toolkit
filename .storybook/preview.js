@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import 'bootstrap/dist/css/bootstrap.css';
 import '!style-loader!css-loader!sass-loader!../src/index.scss';
 import '!style-loader!css-loader!sass-loader!../src/assets/sass/_storybook-body.scss';
@@ -48,3 +50,12 @@ export const parameters = {
     list: [{ name: 'Whitelabel client', class: 'whitelabel-client-theme' }],
   },
 };
+
+export const decorators = [
+  Story => (
+    <>
+      <ReactTooltip className="tooltip-component" />
+      <Story />
+    </>
+  ),
+];
