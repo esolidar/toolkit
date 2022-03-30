@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
@@ -29,7 +29,15 @@ const WizardHeader: FC<Props> = ({
   closeWizardText = 'toolkit.cancel.program.changes',
   showStartHereTooltip = false,
 }: Props): JSX.Element => {
+  const [inputWidth, setInputWidth] = useState(undefined);
   const intl = useIntl();
+
+  useEffect(() => {
+    const element = document.getElementById('wizard-header-title-input');
+    if (isDefined(element)) {
+      setInputWidth(`${document.getElementById('wizard-header-title-input').clientWidth}px`);
+    }
+  }, [title]);
 
   useEffect(() => {
     if (editMode && title === '') {
@@ -77,7 +85,10 @@ const WizardHeader: FC<Props> = ({
                 trigger="focus"
                 className="esolidar-tooltip"
                 displayNone={!showStartHereTooltip}
-                styleOverlay={{ maxWidth: '768px' }}
+                styleOverlay={{
+                  maxWidth: '768px',
+                  width: inputWidth,
+                }}
                 overlay={
                   <span>
                     <FormattedMessage id="toolkit.start.here" />
