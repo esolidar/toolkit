@@ -139,6 +139,7 @@ const Page = ({
                     },
                     { companyName }
                   )}
+                  data-for="submit-project-page"
                 >
                   <FormattedMessage id="toolkit.private" />
                 </span>
@@ -150,6 +151,7 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
+                  data-for="submit-project-page"
                 >
                   <Button
                     extraClass="primary-full"
@@ -164,6 +166,7 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
+                  data-for="submit-project-page"
                 >
                   <Button
                     extraClass="primary-full"
@@ -191,7 +194,7 @@ const Page = ({
           </>
         </Viewport>
       </div>
-      <ReactTooltip className="tooltip-component" />
+      <ReactTooltip className="tooltip-component" id="submit-project-page" />
     </div>
   );
 };

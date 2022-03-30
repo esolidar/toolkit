@@ -143,6 +143,7 @@ const WizardHeader: FC<Props> = ({
                 : ''
             }
             data-place="bottom"
+            data-for="disabledPrimaryButton"
           >
             <Button
               withLoading={true}
@@ -155,7 +156,7 @@ const WizardHeader: FC<Props> = ({
           </div>
         )}
       </div>
-      <ReactTooltip className="tooltip-component" />
+      <ReactTooltip className="tooltip-component" id="disabledPrimaryButton" />
     </div>
   );
 };

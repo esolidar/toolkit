@@ -24,7 +24,7 @@ const Footer = ({
   const intl = useIntl();
   return (
     <div className={className}>
-      <div data-tip={intl.formatMessage({ id: 'toolkit.prev' })}>
+      <div data-tip={intl.formatMessage({ id: 'toolkit.prev' })} data-for="footer">
         <Button
           extraClass="primary-full"
           onClick={handleClickPrev}
@@ -34,7 +34,7 @@ const Footer = ({
           dataTestId="click-prev"
         />
       </div>
-      <div data-tip={intl.formatMessage({ id: 'toolkit.next' })}>
+      <div data-tip={intl.formatMessage({ id: 'toolkit.next' })} data-for="footer">
         <Button
           extraClass="primary-full"
           onClick={handleClickNext}
@@ -44,7 +44,7 @@ const Footer = ({
           dataTestId="click-next"
         />
       </div>
-      <ReactTooltip className="tooltip-component" />
+      <ReactTooltip className="tooltip-component" id="footer" />
     </div>
   );
 };
