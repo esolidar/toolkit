@@ -29,9 +29,17 @@ const WizardHeader: FC<Props> = ({
   closeWizardText = 'toolkit.cancel.program.changes',
   showStartHereTooltip = false,
 }: Props): JSX.Element => {
+  const [inputWidth, setInputWidth] = useState(undefined);
   const intl = useIntl();
   const [canShowStartHereTooltip, setCanShowStartHereTooltip] = useState(false);
   const [isWizardAnimationOver, setIsWizardAnimationOver] = useState(false);
+
+  useEffect(() => {
+    const element = document.getElementById('wizard-header-title-input');
+    if (isDefined(element)) {
+      setInputWidth(`${document.getElementById('wizard-header-title-input').clientWidth}px`);
+    }
+  }, [title]);
 
   useEffect(() => {
     if (editMode && title === '') {
@@ -86,7 +94,7 @@ const WizardHeader: FC<Props> = ({
                 trigger="focus"
                 className="esolidar-tooltip"
                 displayNone={!canShowStartHereTooltip}
-                styleOverlay={{ maxWidth: '768px' }}
+                styleOverlay={{ maxWidth: '768px', width: inputWidth }}
                 transitionName="rc-tooltip-zoom"
                 overlay={
                   <span>
