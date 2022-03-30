@@ -8,7 +8,15 @@ import Viewport from '../viewport';
 import useInterval from '../../hooks/useInterval';
 
 interface ChildrenProps {
-  type: 'checkboxes' | 'multiChoice' | 'fileUploader' | 'shortAnswer' | 'longAnswer';
+  type:
+    | 'checkboxes'
+    | 'multiChoice'
+    | 'fileUploader'
+    | 'shortAnswer'
+    | 'longAnswer'
+    | 'image'
+    | 'sdg'
+    | 'categories';
   exact?: number;
   rangeMin?: number;
   rangeMax?: number;
@@ -86,14 +94,17 @@ const Page = ({
       case 'multiChoice':
         return intl.formatMessage({ id: 'toolkit.please.select.option' });
 
+      case 'image':
+        return intl.formatMessage({ id: 'toolkit.please.select.images' });
+
+      case 'sdg':
+        return intl.formatMessage({ id: 'toolkit.please.select.sdg' });
+
+      case 'categories':
+        return intl.formatMessage({ id: 'toolkit.please.select.categories' });
+
       case 'fileUploader':
         return intl.formatMessage({ id: 'toolkit.please.select.files' });
-
-      case 'shortAnswer':
-        return intl.formatMessage({ id: 'toolkit.please.fill.form' });
-
-      case 'longAnswer':
-        return intl.formatMessage({ id: 'toolkit.please.fill.form' });
 
       default:
         return intl.formatMessage({ id: 'toolkit.please.fill.form' });
@@ -128,6 +139,7 @@ const Page = ({
                     },
                     { companyName }
                   )}
+                  data-for="submit-project-page"
                 >
                   <FormattedMessage id="toolkit.private" />
                 </span>
@@ -139,6 +151,7 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
+                  data-for="submit-project-page"
                 >
                   <Button
                     extraClass="primary-full"
@@ -153,6 +166,7 @@ const Page = ({
                 <div
                   data-tip={isButtonDisabled ? disabledMessageTooltip() : ''}
                   style={{ display: 'inline-block' }}
+                  data-for="submit-project-page"
                 >
                   <Button
                     extraClass="primary-full"
@@ -180,7 +194,7 @@ const Page = ({
           </>
         </Viewport>
       </div>
-      <ReactTooltip className="tooltip-component" />
+      <ReactTooltip className="tooltip-component" id="submit-project-page" />
     </div>
   );
 };

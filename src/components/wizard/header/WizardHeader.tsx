@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
 import Props from './WizardHeader.types';
 import Badge from '../../../elements/badge';
 import Button from '../../../elements/button';
@@ -31,6 +32,8 @@ const WizardHeader: FC<Props> = ({
 }: Props): JSX.Element => {
   const [inputWidth, setInputWidth] = useState(undefined);
   const intl = useIntl();
+  const [canShowStartHereTooltip, setCanShowStartHereTooltip] = useState(false);
+  const [isWizardAnimationOver, setIsWizardAnimationOver] = useState(false);
 
   useEffect(() => {
     const element = document.getElementById('wizard-header-title-input');
@@ -44,7 +47,15 @@ const WizardHeader: FC<Props> = ({
       const element = document.getElementById('wizard-header-title-input');
       if (isDefined(element)) cursorFocus(element, 0);
     }
+
+    setTimeout(() => {
+      setIsWizardAnimationOver(true);
+    }, 700);
   }, []);
+
+  useEffect(() => {
+    if (isWizardAnimationOver) setCanShowStartHereTooltip(showStartHereTooltip);
+  }, [isWizardAnimationOver, showStartHereTooltip]);
 
   return (
     <div className="wizard__header">
@@ -76,7 +87,6 @@ const WizardHeader: FC<Props> = ({
           {subtitle && !editMode && (
             <span className="wizard__header__title__subtitle">{subtitle}</span>
           )}
-
           <h1>
             {editMode && (
               <Tooltip
@@ -84,11 +94,9 @@ const WizardHeader: FC<Props> = ({
                 placement="bottomLeft"
                 trigger="focus"
                 className="esolidar-tooltip"
-                displayNone={!showStartHereTooltip}
-                styleOverlay={{
-                  maxWidth: '768px',
-                  width: inputWidth,
-                }}
+                displayNone={!canShowStartHereTooltip}
+                styleOverlay={{ maxWidth: '768px', width: inputWidth }}
+                transitionName="rc-tooltip-zoom"
                 overlay={
                   <span>
                     <FormattedMessage id="toolkit.start.here" />
@@ -136,16 +144,27 @@ const WizardHeader: FC<Props> = ({
           disabled={disabledDarkButton}
         />
         {buttonPrimaryText && (
-          <Button
-            withLoading={true}
-            isLoading={isLoading}
-            extraClass="primary-full"
-            onClick={handlePrimaryButton}
-            text={buttonPrimaryText}
-            disabled={disabledPrimaryButton}
-          />
+          <div
+            data-tip={
+              disabledPrimaryButton
+                ? intl.formatMessage({ id: 'toolkit.please.complete.steps' })
+                : ''
+            }
+            data-place="bottom"
+            data-for="disabledPrimaryButton"
+          >
+            <Button
+              withLoading={true}
+              isLoading={isLoading}
+              extraClass="primary-full"
+              onClick={handlePrimaryButton}
+              text={buttonPrimaryText}
+              disabled={disabledPrimaryButton}
+            />
+          </div>
         )}
       </div>
+      <ReactTooltip className="tooltip-component" id="disabledPrimaryButton" />
     </div>
   );
 };
