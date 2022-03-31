@@ -11,7 +11,6 @@ interface Props {
   name: string;
   required?: boolean;
   control: any;
-  handleChange(): void;
   reply: string | number;
 }
 

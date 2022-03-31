@@ -1,6 +1,6 @@
 interface Props {
   editMode?: boolean;
-  closeWizard(): void;
+  closeWizard(isSuccess: boolean): void;
   title?: string;
   subtitle?: string;
   buttonDarkText: string;
@@ -10,12 +10,15 @@ interface Props {
   handleDarkButton(): void;
   handlePrimaryButton(): void;
   handleChangeTitle?(): void;
-  handleBlurTitle?(): void;
+  handleBlurTitle?(e: any): void;
   disabledDarkButton: boolean;
   disabledPrimaryButton: boolean;
   isLoading: boolean;
   isDraft?: boolean;
   isLive?: boolean;
+  closeWizardText?: string;
+  showStartHereTooltip?: boolean;
+  isSuccess?: boolean;
 }
 
 export default Props;

@@ -154,7 +154,7 @@ CustomModal.propTypes = {
   actionsChildren: PropTypes.node,
   backdrop: PropTypes.oneOf(['static', true, false]),
   centered: PropTypes.bool,
-  bodyChildren: PropTypes.node.isRequired,
+  bodyChildren: PropTypes.node,
   bodyClassName: PropTypes.string,
   bodyPadding: PropTypes.string,
   closeButton: PropTypes.bool,

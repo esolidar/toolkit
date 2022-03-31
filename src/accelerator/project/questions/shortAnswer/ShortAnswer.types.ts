@@ -1,11 +1,9 @@
 interface Props {
+  control?: any;
   name: string;
-  reply: string;
+  required: boolean;
   question: string;
   description: string;
-  required: boolean;
-  id?: string;
-  control?: any;
 }
 
 export default Props;

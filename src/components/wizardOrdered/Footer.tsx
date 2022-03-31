@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { useIntl } from 'react-intl';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
@@ -44,7 +43,6 @@ const Footer = ({
           dataTestId="click-next"
         />
       </div>
-      <ReactTooltip className="tooltip-component" />
     </div>
   );
 };

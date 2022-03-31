@@ -7,7 +7,7 @@ interface Support {
 }
 
 interface Props {
-  clickThumb(): void;
+  clickThumb?(): void;
   image: string;
   countdown?: any;
   title: string;
@@ -16,6 +16,7 @@ interface Props {
   isPrivate?: boolean;
   average?: number;
   showCountdown?: boolean;
+  dropdownItems?: any;
 }
 
 export default Props;

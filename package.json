@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.117.4",
+  "version": "4.118.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -31,6 +31,9 @@
     ],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/build"
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules"
@@ -64,6 +67,7 @@
     "prop-types": "^15.7.2",
     "rc-tooltip": "^4.0.3",
     "react": "^16.14.0",
+    "react-awesome-reveal": "^3.8.1",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-table": "^4.3.1",
     "react-copy-to-clipboard": "^5.0.2",
@@ -99,7 +103,7 @@
     "@dnd-kit/sortable": "^6.0.1",
     "@dnd-kit/utilities": "^3.1.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.266.0",
+    "@esolidar/i18n": "^0.285.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -172,6 +176,7 @@
     "rc-tooltip": "^5.1.1",
     "react": "^17.0.2",
     "react-async-script-loader": "^0.3.0",
+    "react-awesome-reveal": "^3.8.1",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-table": "^4.3.1",
     "react-cookies": "^0.1.1",
@@ -246,7 +251,6 @@
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
-    "react-beautiful-dnd": "10.0.4",
     "react-loading-skeleton": "^3.0.3",
     "styled-components": "^5.3.3",
     "uuid": "^8.3.2"

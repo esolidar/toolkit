@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from '../../utils/isEmpty';
+import Preview from '../preview';
 import Button from '../../elements/button';
 import CheckboxField from '../../elements/checkboxField';
 import TextareaField from '../../elements/textareaField';
@@ -87,6 +88,10 @@ const ProjectDetailInfo = ({
     );
   }
 
+  const handleClickPreview = () => {
+    window.open(project.video);
+  };
+
   return (
     <div className="project-detail-info">
       {showRequestInfoView && (
@@ -95,8 +100,22 @@ const ProjectDetailInfo = ({
         </div>
       )}
       <div className="box">
-        <Row>
-          {form && (
+        <p>{project.description}</p>
+        {project.video !== '' && (
+          <div>
+            <h4 style={{ color }}>
+              <FormattedMessage id="video" />
+            </h4>
+            <Preview
+              type="video"
+              videoUrl={project.video}
+              handleClickPreview={handleClickPreview}
+              isVisible
+            />
+          </div>
+        )}
+        {form && (
+          <Row>
             <Col sm={12}>
               {form.map((question, index) => (
                 <NewQuestion
@@ -113,8 +132,8 @@ const ProjectDetailInfo = ({
                 />
               ))}
             </Col>
-          )}
-        </Row>
+          </Row>
+        )}
       </div>
       {showRequestInfoView && (
         <div className="in-review-info bottom">
@@ -190,7 +209,7 @@ const NewQuestion = ({
 
   let options = [];
   if (type === 'multiChoice') {
-    options = question.form.options.filter(i => i.id === question.reply);
+    options = question.form.options.filter(i => i.id === Number(question.reply));
   }
   if (type === 'checkboxes') {
     question?.reply?.map(reply => {
@@ -201,16 +220,6 @@ const NewQuestion = ({
   return (
     <div className={questionGroupClassName.join(' ')} key={id}>
       <div className="answer">
-        {type === 'description' && <p>{question.title}</p>}
-        {/* TODO: uncomment on phase 2  */}
-        {/* {type === 'video' && (
-          <div>
-            <h4 style={{ color }}>
-              <FormattedMessage id="video" />
-            </h4>
-            <p>{question.title}</p>
-          </div>
-        )} */}
         {type === 'section' && (
           <div>
             <h4 style={{ color }}>

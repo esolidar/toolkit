@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef, useRef } from 'react';
 
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
@@ -14,7 +14,6 @@ import CustomModal from '../customModal';
 import Button from '../button';
 import Tooltip from '../tooltip';
 import lastElemOf from '../../utils/lastElemOf';
-import DragAndDrop from './dragAndDrop/DragAndDrop';
 
 const cropper = createRef(null);
 
@@ -53,14 +52,13 @@ const DropZoneBox = ({
   minWidth,
   minHeight,
   fullWidth = false,
-  sortable,
-  handleOrderImages,
   onDropError,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+  const selectedFilesCount = useRef(0);
   const [resetSlider, setResetSlider] = useState(false);
 
   const intl = useIntl();
@@ -81,36 +79,26 @@ const DropZoneBox = ({
 
   const ImagesPreview = () => (
     <div className="dropzone-box__images-list">
-      {sortable && (
-        <DragAndDrop
-          imagesList={imagesList}
-          env={env}
-          handleDeleteImage={deleteImageGallery}
-          handleOrderImages={handleOrderImages}
-        />
-      )}
-      {!sortable && (
-        <>
-          {imagesList.map((file, idx) => (
-            <div key={file.id}>
-              {file.image.includes('http') ? (
-                <Preview
-                  img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
-                  handleDeleteImage={e => deleteImageGallery(e, idx)}
-                />
-              ) : (
-                <Preview
-                  handleDeleteImage={e => deleteImageGallery(e, idx)}
-                  img={{
-                    src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
-                    alt: 'thumb',
-                  }}
-                />
-              )}
-            </div>
-          ))}
-        </>
-      )}
+      <div>
+        {imagesList.map((file, idx) => (
+          <div key={file.id}>
+            {file.image.includes('http') ? (
+              <Preview
+                img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+              />
+            ) : (
+              <Preview
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+                img={{
+                  src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
+                  alt: 'thumb',
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 
@@ -164,7 +152,10 @@ const DropZoneBox = ({
   const renderErrorList = (errorList, showErrors, errorTitle = false) => {
     if (errorList.length > 0 && showErrors) {
       if (onDropError) {
-        onDropError(errorList);
+        errorList.forEach(file => {
+          return file;
+        });
+        onDropError(errorList, selectedFilesCount.current);
         setErrorList([]);
         return;
       }
@@ -201,11 +192,13 @@ const DropZoneBox = ({
       setErrorList([]);
       const files = [];
       const fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+      selectedFilesCount.current = fileList.length;
 
       for (let i = 0; i < fileList.length; i++) {
         const file = fileList.item(i);
         files.push(file);
       }
+
       await wait(250);
       return files;
     },
@@ -254,7 +247,7 @@ const DropZoneBox = ({
     },
     onDropRejected: async rejectedFiles => {
       if (showErrors && onDropError && rejectedFiles.length > maxFiles)
-        onDropError([{ name: 'maxFiles', maxFiles }]);
+        onDropError([{ code: 'too-many-files', name: 'maxFiles', maxFiles }]);
 
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
@@ -280,7 +273,12 @@ const DropZoneBox = ({
             } ${convertToMb(minSize)}`
           );
 
-        const fileErrorObject = { name: rejectedFile.file.name, errors };
+        const fileErrorObject = {
+          name: rejectedFile.file.name,
+          errors,
+          code: rejectedFile.errors[0].code,
+          file: rejectedFile.file,
+        };
         if (errors.length) onDropErrorFileList.push(fileErrorObject);
       });
 
@@ -528,7 +526,7 @@ DropZoneBox.propTypes = {
   noDrag: PropTypes.bool,
   showImagesPreviews: PropTypes.bool,
   imagesList: PropTypes.array,
-  env: PropTypes.object,
+  env: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   imagesPreviewPosition: PropTypes.oneOf(['top', 'bottom']),
   deleteImageGallery: PropTypes.func,
   cropModalStatus: PropTypes.bool,
@@ -544,7 +542,6 @@ DropZoneBox.propTypes = {
   error: PropTypes.string,
   minWidth: PropTypes.number,
   minHeight: PropTypes.number,
-  sortable: PropTypes.bool,
   handleOrderImages: PropTypes.func,
   onDropError: PropTypes.func,
 };
@@ -568,7 +565,6 @@ DropZoneBox.defaultProps = {
   showFooterCropper: false,
   showErrors: true,
   showIcon: true,
-  sortable: false,
   cropModalStatus: false,
 };
 export default DropZoneBox;

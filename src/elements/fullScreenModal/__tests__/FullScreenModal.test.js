@@ -19,9 +19,9 @@ it('renders Open modal', () => {
 });
 
 it('renders Close modal', () => {
-  const { getByClass } = render(<Close />);
+  const { queryByClass } = render(<Close />);
 
-  expect(getByClass('fullscreen-modal closed')).toBeTruthy();
+  expect(queryByClass('fullscreen-modal')).not.toBeInTheDocument();
 });
 
 it('renders NoHeaderl modal', () => {

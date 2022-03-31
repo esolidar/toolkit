@@ -56,7 +56,7 @@ const Template: Story<Props> = (args: Props) => {
 
   return (
     <StorybookFormProvider>
-      <div>
+      <div style={{ height: '1500px' }}>
         <button
           onClick={() => {
             setShowWizard(true);
@@ -66,15 +66,33 @@ const Template: Story<Props> = (args: Props) => {
         >
           Open Wizard
         </button>
-        <WizardOrdered
-          {...args}
-          handlePublish={handlePublish}
-          showWizard={showWizard}
-          isSuccess={isSuccess}
-          handleCloseWizard={handleCloseWizard}
-          activePage={activePage}
-          onChangePage={ChangePage}
-        />
+        {showWizard && (
+          <WizardOrdered
+            {...args}
+            header={
+              <WizardHeader
+                disabledDarkButton={false}
+                closeWizard={handleCloseWizard}
+                handleDarkButton={() => {}}
+                buttonDarkText="Save & Close"
+                buttonPrimaryText="Publish"
+                handlePrimaryButton={() => {}}
+                cdnStaticUrl=""
+                disabledPrimaryButton={true}
+                isLoading={false}
+                isDraft={true}
+                title="Destino4All"
+                editMode={false}
+              />
+            }
+            handlePublish={handlePublish}
+            showWizard={showWizard}
+            isSuccess={isSuccess}
+            handleCloseWizard={handleCloseWizard}
+            activePage={activePage}
+            onChangePage={ChangePage}
+          />
+        )}
       </div>
     </StorybookFormProvider>
   );
@@ -90,29 +108,15 @@ const longAnswer = questions.customQuestions.filter(({ type }) => type === 'long
 const files = questions.customQuestions.filter(({ type }) => type === 'fileUploader')[0];
 
 Open.args = {
-  header: (
-    <WizardHeader
-      disabledDarkButton={false}
-      closeWizard={() => {}}
-      handleDarkButton={() => {}}
-      buttonDarkText="Save & Close"
-      buttonPrimaryText="Publish"
-      handlePrimaryButton={() => {}}
-      cdnStaticUrl=""
-      disabledPrimaryButton={false}
-      isLoading={false}
-      isDraft={true}
-      title="Destino4All"
-      editMode={false}
-    />
-  ),
+  isLoading: false,
   pages: [
-    <Description userName={user.firstName} name="description" reply="" required />,
+    <Description userName={user.firstName} name="description" required />,
     <Video
       name="video"
       reply="https://youtu.be/f7x5IeWi0v8"
       required={false}
       onDeletePreview={() => {}}
+      onFinishVideoValidation={() => {}}
     />,
     <Images
       reply={[
@@ -141,17 +145,20 @@ Open.args = {
       handleSelectImage={() => {}}
       handleDeleteImage={() => {}}
       cropModalStatus={false}
+      type="image"
     />,
     <Categories
       categoriesList={projectCategories.data}
       reply={[]}
       handleChangeCategories={() => {}}
+      type="categories"
     />,
     <Sdg
       sdgList={sdgList.data}
       reply={[1, 3]}
       handleSelectSdgs={() => {}}
       preferredList={[2, 3]}
+      type="sdg"
     />,
     <Section {...section} />,
     <Checkbox {...checkboxes.form} type={checkboxes.type} reply={[0, 3]} />,
@@ -164,6 +171,7 @@ Open.args = {
       handleDeleteFile={() => {}}
       handleSelectFile={() => {}}
       onDropError={() => {}}
+      type={files.type}
     />,
     <Success userName={user.firstName} companyName={company.name} />,
   ],

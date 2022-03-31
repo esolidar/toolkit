@@ -6,7 +6,14 @@ import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
 import useDebounce from '../../../../hooks/useDebounce';
 
-const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): JSX.Element => {
+const Video = ({
+  name,
+  control,
+  reply,
+  required,
+  onFinishVideoValidation,
+  onDeletePreview,
+}: Props): JSX.Element => {
   const intl = useIntl();
   const debouncedReply = useDebounce(reply, 500);
 
@@ -29,17 +36,25 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
     }
   }, [debouncedReply]);
 
-  const handleOnDeleteImage = () => {
+  const handleOnDeleteImage = e => {
+    e.stopPropagation();
     onDeletePreview();
     if (error !== null) setError(null);
     if (isValidatingVideo) setIsValidatingVideo(false);
     if (isVideoValid) setIsVideoValid(false);
   };
 
-  const handleOnFinishVideoValidation = (isValid: boolean) => {
+  const handleClickPreview = () => {
+    window.open(reply);
+  };
+
+  const handleOnFinishVideoValidation = videoDetails => {
+    const { hasError } = videoDetails;
+
     setIsValidatingVideo(false);
-    setIsVideoValid(isValid);
-    if (!isValid && reply !== '')
+    setIsVideoValid(!hasError);
+    onFinishVideoValidation(videoDetails);
+    if (hasError && reply !== '')
       setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));
   };
 
@@ -61,8 +76,6 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
           control={control}
           required={required}
           textFieldProps={{
-            id,
-            value: reply,
             size: 'lg',
             placeholder: 'https://www.youtube.com/watch?v=myvideo',
             error,
@@ -72,7 +85,8 @@ const Video = ({ name, control, id, reply, required, onDeletePreview }: Props): 
         <Preview
           type="video"
           videoUrl={debouncedReply}
-          handleDeleteImage={handleOnDeleteImage}
+          handleDeleteImage={e => handleOnDeleteImage(e)}
+          handleClickPreview={handleClickPreview}
           onFinishVideoValidation={handleOnFinishVideoValidation}
           isVisible={reply !== '' && isVideoValid && !isValidatingVideo}
         />

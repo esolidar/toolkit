@@ -17,7 +17,7 @@ it('renders Wizard default component open', () => {
 });
 
 it('renders Wizard default component closed', () => {
-  const { getByClass } = render(<Close />);
+  const { queryByClass } = render(<Close />);
 
-  expect(getByClass('fullscreen-modal closed')).toBeTruthy();
+  expect(queryByClass('fullscreen-modal')).not.toBeInTheDocument();
 });

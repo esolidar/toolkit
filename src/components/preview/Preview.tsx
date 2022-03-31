@@ -13,8 +13,6 @@ import isDefined from '../../utils/isDefined';
 import 'react-image-lightbox/style.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// TODO: ask product play icon large
-
 declare type Provider = 'vimeo' | 'youtube' | '';
 
 interface VideoDetails {
@@ -34,6 +32,14 @@ const getVideoThumbnailSrc = (videoDetails: VideoDetails): string => {
   return `https://img.youtube.com/vi/${thumbnail_url}/maxresdefault.jpg`;
 };
 
+const defaultVideoDetails = {
+  title: undefined,
+  provider_name: undefined,
+  thumbnail_url: undefined,
+  isLoading: true,
+  hasError: false,
+};
+
 const Preview: FC<Props> = ({
   className,
   img,
@@ -45,24 +51,19 @@ const Preview: FC<Props> = ({
   videoUrl,
   onFinishVideoValidation,
   isVisible = true,
+  handleClickPreview,
 }: Props): JSX.Element => {
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
   const [showVideoSkeleton, setShowVideoSkeleton] = useState<boolean>(false);
-  const [videoDetails, setVideoDetails] = useState<VideoDetails>({
-    title: undefined,
-    provider_name: undefined,
-    thumbnail_url: undefined,
-    isLoading: true,
-    hasError: false,
-  });
+  const [videoDetails, setVideoDetails] = useState<VideoDetails>(defaultVideoDetails);
 
   useEffect(() => {
     setShowPlaceholder(!img || !img?.src);
   }, [img]);
 
   useEffect(() => {
-    if (isVisible && !showVideoSkeleton) {
+    if (isVisible && !showVideoSkeleton && type === 'video') {
       setShowVideoSkeleton(true);
       setTimeout(() => {
         setShowVideoSkeleton(false);
@@ -78,35 +79,41 @@ const Preview: FC<Props> = ({
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)
         .then(response => response.json())
         .then(({ title, thumbnail_url }) => {
-          if (onFinishVideoValidation) onFinishVideoValidation(true);
-          setVideoDetails({
+          const newVideoDetails: VideoDetails = {
             title,
             provider_name: 'youtube',
             thumbnail_url: thumbnail_url.split('/')[4],
             isLoading: false,
             hasError: false,
-          });
+          };
+
+          if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
+          setVideoDetails(newVideoDetails);
         })
         .catch(() => {
           fetch(`https://vimeo.com/api/oembed.json?url=${url}`)
             .then(response => response.json())
             .then(({ title, thumbnail_url }) => {
-              if (onFinishVideoValidation) onFinishVideoValidation(true);
-              setVideoDetails({
+              const newVideoDetails: VideoDetails = {
                 title,
                 provider_name: 'vimeo',
                 thumbnail_url,
                 isLoading: false,
                 hasError: false,
-              });
+              };
+
+              if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
+              setVideoDetails(newVideoDetails);
             })
             .catch(() => {
-              if (onFinishVideoValidation) onFinishVideoValidation(false);
-              setVideoDetails({
+              const newVideoDetails: VideoDetails = {
                 ...videoDetails,
                 isLoading: false,
                 hasError: true,
-              });
+              };
+
+              if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
+              setVideoDetails(newVideoDetails);
             });
         });
     };
@@ -214,7 +221,13 @@ const Preview: FC<Props> = ({
     return (
       <>
         <div className={classes}>
-          <div className="esolidar-preview__video">
+          <div
+            className={classNames('esolidar-preview__video', {
+              'cursor-pointer': handleClickPreview,
+            })}
+            onKeyDown={handleClickPreview}
+            onClick={handleClickPreview}
+          >
             {!isVideoLoading ? (
               <div
                 className="esolidar-preview__video--thumbnail"
@@ -262,7 +275,7 @@ const Preview: FC<Props> = ({
               <button
                 type="button"
                 className="esolidar-preview__delete"
-                onClick={handleDeleteImage}
+                onClick={e => handleDeleteImage(e)}
               >
                 <Icon name="X" size="sm" />
               </button>

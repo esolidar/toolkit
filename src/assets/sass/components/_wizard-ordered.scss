@@ -1,3 +1,7 @@
+body.opened-wizard {
+  overflow: hidden;
+}
+
 .wizard-ordered {
   position: relative;
   overflow: hidden;
@@ -178,17 +182,10 @@
     line-height: 28px;
     color: map-get($neutrals, 700);
   }
-}
 
-.tooltip-component {
-  color: map-get($base, white) !important;
-  background-color: map-get($base, black) !important;
-  &.place-top {
-    &:after {
-      border-top-color: transparent !important;
-      border-top-style: none !important;
-      border-top-width: 0 !important;
-    }
+  .esolidar-preview__image {
+    width: 237px;
+    height: 158px;
   }
 }
 
@@ -209,6 +206,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: $distance-2;
+
+    & > div {
+      width: 100%;
+    }
   }
 
   &__list-button {
@@ -249,7 +250,6 @@
     }
   }
 }
-
 .tooltip-component {
   color: map-get($base, white) !important;
   background-color: map-get($base, black) !important;
@@ -258,6 +258,15 @@
   font-size: 14px !important;
   line-height: 20px !important;
   opacity: 1 !important;
+  z-index: 99999 !important;
+
+  &.place-top {
+    &:after {
+      border-top-color: transparent !important;
+      border-top-style: none !important;
+      border-top-width: 0 !important;
+    }
+  }
 
   &::before,
   &::after {
@@ -275,4 +284,8 @@
     display: flex;
     flex-direction: column;
   }
+}
+
+.project-file-item {
+  animation-fill-mode: backwards !important;
 }

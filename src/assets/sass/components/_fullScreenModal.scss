@@ -10,6 +10,9 @@
 
   &.open {
     left: 0;
+    animation: animateModal 500ms;
+    -moz-animation: animateModal 500ms; /* Firefox */
+    -webkit-animation: animateModal 500ms; /* Safari and Chrome */
   }
 
   &.closed {
@@ -29,5 +32,30 @@
 
   &__body {
     overflow: auto;
+  }
+}
+
+@keyframes animateModal {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@-moz-keyframes animateModal {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@-webkit-keyframes animateModal {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
   }
 }

@@ -15,5 +15,7 @@ interface Props {
     | 'bottomRight';
   displayNone?: boolean;
   type?: 'default' | 'onboarding';
+  styleOverlay?: any;
+  transitionName?: string;
 }
 export default Props;

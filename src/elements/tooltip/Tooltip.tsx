@@ -12,6 +12,8 @@ const Tooltip: FC<Props> = ({
   placement = 'right',
   displayNone,
   type = 'default',
+  styleOverlay,
+  transitionName,
 }: Props): JSX.Element => {
   const classes = classNames(
     'tooltip',
@@ -28,8 +30,9 @@ const Tooltip: FC<Props> = ({
         placement={placement}
         trigger={trigger}
         overlay={overlay}
+        transitionName={transitionName}
       >
-        <span className={bodyChildClasses} data-testid="tooltipOverlay">
+        <span className={bodyChildClasses} data-testid="tooltipOverlay" style={styleOverlay}>
           {tooltipBodyChild}
         </span>
       </RcTooltip>

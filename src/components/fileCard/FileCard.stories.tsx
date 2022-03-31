@@ -17,47 +17,58 @@ const Template: Story<Props> = (args: Props) => (
 );
 
 export const Default: Story<Props> = Template.bind({});
-export const Simple: Story<Props> = Template.bind({});
+export const Disabled: Story<Props> = Template.bind({});
+export const WithDateUploaded: Story<Props> = Template.bind({});
+export const WithDescription: Story<Props> = Template.bind({});
+export const WithBadges: Story<Props> = Template.bind({});
+export const WithOptions: Story<Props> = Template.bind({});
 
 Default.args = {
-  showDownloadButton: true,
-  title: 'File 1',
-  badge: 'Private',
-  subtitle:
-    'Donec eleifend erat a nibh faucibus, sit amet tempor tortor pulvinar. Sed vestibulum luctus gravida.',
-  helper: 'Uploaded on 2022-03-16 15:33:19 - 1.44 Mb',
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
+};
+
+Disabled.args = {
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
+  disabled: true,
+};
+
+WithDateUploaded.args = {
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
+  dateUploaded: '2022-03-25 12:00:01',
+};
+
+WithDescription.args = {
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
+  subtitle: 'Donec eleifend erat a nibh faucibus.',
+};
+
+WithBadges.args = {
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
+  showBadgePrivate: true,
+  showBadgeFailed: true,
+};
+
+WithOptions.args = {
+  title: 'esolidar - Ajudando a ajudar.pdf',
+  size: 15650,
   dropdownItems: [
     {
       id: 0,
       leftIcon: 'Edit2',
       onClick: () => {},
-      show: true,
       text: 'Edit',
     },
     {
-      id: 0,
+      id: 1,
       leftIcon: 'Trash',
       onClick: () => {},
-      show: true,
       text: 'Delete',
     },
   ],
-};
-
-Simple.args = {
-  showDownloadButton: false,
-  disabled: true,
-  image:
-    'https://image.testesolidar.com/whitelabel/5/project-config/be8814f2-0970-4d54-b348-9ed205161928.jpg?width=100px&height=100px',
-  title: 'File 1',
-  helper: 'Uploaded on 2022-03-16 15:33:19 - 1.44 Mb',
-  dropdownItems: [
-    {
-      id: 0,
-      leftIcon: 'Trash',
-      onClick: () => {},
-      show: true,
-      text: 'Delete',
-    },
-  ],
+  showDownloadButton: true,
 };

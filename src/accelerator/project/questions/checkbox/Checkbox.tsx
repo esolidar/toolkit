@@ -17,6 +17,7 @@ const Checkbox = ({
   required,
   name,
   reply,
+  id,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -45,17 +46,17 @@ const Checkbox = ({
           )}
           {options.map(option => (
             <CheckboxField
-              name={name}
+              name={`${name}-${option.id}`}
               control={control}
               required={required}
               onChange={handleChange}
               key={option.id}
-              reply={reply}
               checkboxFieldProps={{
                 error: '',
                 label: option.value,
-                name: option.value,
+                name: `${name}-${id}-${option.id}`,
                 value: option.id,
+                checked: reply?.includes(option.id),
               }}
             />
           ))}

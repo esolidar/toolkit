@@ -46,6 +46,7 @@ EditTitle.args = {
   disabledPrimaryButton: true,
   isDraft: true,
   isLive: true,
+  showStartHereTooltip: true,
 };
 
 NoSubtitle.args = {

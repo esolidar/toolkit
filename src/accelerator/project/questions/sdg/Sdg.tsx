@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { Fade } from 'react-awesome-reveal';
 import Props from './Sdg.types';
 import Viewport from '../../../../components/viewport';
 import EmptyState from '../../../../components/emptyState';
@@ -11,6 +12,16 @@ import getOdsList from '../../../../utils/getOdsList';
 const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
+  const repliesCount = useRef<number>(0);
+
+  useEffect(() => {
+    const element = document.getElementsByClassName('active-page')[0];
+    const oldRepliesCount: number = repliesCount.current;
+    repliesCount.current = reply.length;
+
+    if (oldRepliesCount <= repliesCount.current && element)
+      element.scrollTop = element.scrollHeight;
+  }, [reply]);
 
   useEffect(() => {
     const element = document.getElementsByClassName('active-page')[0];
@@ -19,6 +30,14 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
   }, [reply]);
 
   const formattedSdgs = getOdsList(sdgList, intl.locale, intl.formatMessage);
+
+  const handleReveal = inView => {
+    if (inView) {
+      const element = document.getElementsByClassName('active-page')[0];
+      const card = document.getElementsByClassName('checkbox-card');
+      if (card.length <= reply.length && element) element.scrollTop = element.scrollHeight;
+    }
+  };
 
   return (
     <div className="page-content-categories">
@@ -74,22 +93,31 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList }: Props) => {
                 />
                 <FormattedMessage id="toolkit.x.sdg.selected" values={{ value: reply.length }} />
               </div>
+
               <div className="page-content-categories__list">
-                {formattedSdgs
-                  .filter(cat => reply.includes(cat.id))
-                  .map(sdg => (
-                    <CheckboxCard
-                      id={`selected-${sdg.id}`}
-                      key={sdg.id}
-                      disabledHover={true}
-                      style={{ maxWidth: '100%' }}
-                      name={`sdg-${sdg.id}`}
-                      defaultImg={sdg.image}
-                      size="lg"
-                      subtitle={sdg.description}
-                      title={sdg.name}
-                    />
-                  ))}
+                <Fade
+                  onVisibilityChange={handleReveal}
+                  cascade
+                  triggerOnce={true}
+                  duration={700}
+                  damping={0.1}
+                >
+                  {formattedSdgs
+                    .filter(cat => reply.includes(cat.id))
+                    .map(sdg => (
+                      <CheckboxCard
+                        key={sdg.id}
+                        id={`selected-${sdg.id}`}
+                        disabledHover={true}
+                        style={{ maxWidth: '100%' }}
+                        name={`sdg-${sdg.id}`}
+                        defaultImg={sdg.image}
+                        size="lg"
+                        subtitle={sdg.description}
+                        title={sdg.name}
+                      />
+                    ))}
+                </Fade>
               </div>
             </>
           )}

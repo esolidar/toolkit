@@ -8,6 +8,7 @@ interface Props {
   currency: CurrencySmall;
   showStatus?: boolean;
   cdnUploadsUrl: string;
+  dropdownItems?: any;
 }
 
 export default Props;

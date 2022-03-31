@@ -12,6 +12,7 @@ const CardProject: FC<Props> = ({
   clickThumb,
   showStatus = true,
   cdnUploadsUrl = 'https://cdn.testesolidar.com',
+  dropdownItems = [],
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -21,13 +22,15 @@ const CardProject: FC<Props> = ({
     revert: true,
   };
 
+  const defaultImage = project.images.find(image => image.default === 1);
+
   return (
     <Card
       clickThumb={clickThumb}
       image={
         project.images && project.images.length > 0
-          ? `${cdnUploadsUrl}/${project.images[0].image}`
-          : ''
+          ? `${cdnUploadsUrl}/${defaultImage?.image || project.images[0].image}`
+          : null
       }
       countdown={<Status project={project} />}
       showCountdown={showStatus}
@@ -35,6 +38,7 @@ const CardProject: FC<Props> = ({
       body={<Body ods={project.ods} />}
       support={support}
       average={project.review_average}
+      dropdownItems={dropdownItems}
     />
   );
 };

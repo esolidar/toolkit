@@ -16,7 +16,7 @@ interface Props {
   radioboxFieldProps: RadioboxFieldProps;
   required: boolean;
   dataTestId?: string;
-  onChange(e: any): void;
+  onChange?(e: any): void;
 }
 
 export default Props;

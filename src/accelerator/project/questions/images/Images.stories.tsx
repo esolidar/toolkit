@@ -26,6 +26,7 @@ Default.args = {
     {
       ...image,
       id: 1,
+      project_id: 123,
       image: 'whitelabel/20/project-config/5da1f8b5-7686-4760-9b1d-0985f4b1b9a3.jpg',
     },
     {
@@ -62,4 +63,5 @@ Default.args = {
   ],
   handleOrderImages: () => {},
   handleDeleteImage: () => {},
+  onDropError: () => {},
 };

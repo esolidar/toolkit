@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { FormattedMessage } from 'react-intl';
-import ReactTooltip from 'react-tooltip';
 import Props from './title.types';
 import Icon from '../../components/icon';
 
@@ -44,7 +43,6 @@ const Title: FC<Props> = ({
               data-place={icon.tooltipPlacement || 'top'}
             >
               <Icon iconClass={icon.class} />
-              <ReactTooltip effect="solid" />
             </span>
           ) : (
             <a

@@ -113,6 +113,14 @@
         border-bottom: 1px solid map-get($neutrals, 200);
       }
     }
+
+    .tooltipOverlay {
+      @include animate();
+
+      &:focus-within {
+        width: 100% !important;
+      }
+    }
   }
 
   h1 {
@@ -207,7 +215,6 @@
       font-weight: 700;
     }
     &__subtitle {
-      color: map-get($neutrals, 700);
       font-size: 16px;
       line-height: 24px;
       font-weight: 400;

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import classNames from 'classnames';
 import WizardHeader from './header';
 import WizardPaginator from './paginator';
@@ -69,17 +69,9 @@ const Wizard: FC<Props> = ({
     [y]
   );
 
-  useEffect(() => {
-    const wizard = document.getElementsByClassName('wizard')[0];
-    wizard.addEventListener('scroll', handleNavigation, true);
-    return () => {
-      if (wizard) return wizard.removeEventListener('scroll', handleNavigation);
-    };
-  }, []);
-
   return (
     <FullScreenModal showModal={showWizard}>
-      <div className="wizard" id="wizard">
+      <div className="wizard" id="wizard" onScroll={handleNavigation}>
         <div
           className={classNames(
             { 'wizard-container-simple': !showPaginator },

@@ -8,6 +8,7 @@ const image = {
   position: 1,
   updated_at: '2020-01-31 14:17:20',
   created_at: '2020-01-31 14:16:37',
+  project_id: null,
   thumbs: {
     standard: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7-STANDARD.jpg',
     detail: 'requests/43dffe5e-1b23-4217-9e58-5c187fa129b7-DETAIL.jpg',
