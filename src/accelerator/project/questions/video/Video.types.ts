@@ -1,4 +1,5 @@
 interface Props {
+  id: string;
   control?: any;
   name: string;
   required: boolean;

@@ -40,4 +40,5 @@ Default.args = {
     alert('onDeletePreview');
   },
   name: 'video',
+  onFinishVideoValidation: () => {},
 };
