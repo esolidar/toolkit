@@ -4,7 +4,12 @@ import Button from '../../../elements/button';
 import CustomModal from '../../../elements/customModal';
 import Props from './DeleteProjectModal.types';
 
-const DeleteProjectModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): JSX.Element => {
+const DeleteProjectModal = ({
+  isOpen,
+  onClickConfirm,
+  onClickCancel,
+  isConfirmDisabled = false,
+}: Props): JSX.Element => {
   const intl = useIntl();
 
   return (
@@ -16,6 +21,7 @@ const DeleteProjectModal = ({ isOpen, onClickConfirm, onClickCancel }: Props): J
             extraClass="danger-full"
             text={intl.formatMessage({ id: 'delete' })}
             onClick={onClickConfirm}
+            disabled={isConfirmDisabled}
           />
           <Button
             extraClass="dark"
