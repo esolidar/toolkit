@@ -198,6 +198,6 @@ describe('ProjectThumb component', () => {
 
   it('renders ProjectThumb edit button with PENDING stuts', () => {
     const component = shallow(<ProjectThumb {...propsPending} />);
-    expect(component.find('.edit-button').length).toBe(1);
+    expect(component.find('ForwardRef').length).toBe(2);
   });
 });
