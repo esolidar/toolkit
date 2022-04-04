@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from 'react';
-
+import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
 import IBAN from 'iban';
 import { Col, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import TextField from '../../elements/textField';
 import ConfirmModal from '../../elements/confirmModal';
 import Button from '../../elements/button';
 import isEmpty from '../../utils/isEmpty';
+import Icon from '../../elements/icon';
 
 const DeleteButton = ({ handleDeleteClick, idx }) => {
   const intl = useIntl();
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, []);
 
   return (
-    <button
-      type="button"
-      className="edit-button"
-      style={{ float: 'right', color: '#888' }}
-      onClick={() => handleDeleteClick(idx)}
+    <div
+      data-tip={intl.formatMessage({ id: 'bank.account.delete' })}
+      style={{ marginLeft: 'auto' }}
     >
-      <FontAwesomeIcon
-        icon={faTrash}
-        className="mr-1"
-        title={intl.formatMessage({ id: 'bank.account.delete' })}
+      <Button
+        ghost
+        extraClass="primary-full"
+        icon={<Icon name="Trash" />}
+        onClick={() => handleDeleteClick(idx)}
+        type="icon"
+        theme="light"
       />
-    </button>
+    </div>
   );
 };
 
@@ -235,20 +238,18 @@ const BankAccount = ({
                         body={intl.formatMessage({ id: 'bank.account.delete.body' })}
                         confirmText={intl.formatMessage({ id: 'delete' })}
                         cancelText={intl.formatMessage({ id: 'cancel' })}
-                        style={{ float: 'right', color: '#888' }}
+                        style={{ marginLeft: 'auto' }}
                       >
-                        <button
-                          type="button"
-                          className="edit-button"
-                          style={{ float: 'right', color: '#888' }}
-                          data-testid={`btn-delete-international-account-${i}`}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="mr-1"
-                            title={intl.formatMessage({ id: 'bank.account.delete' })}
+                        <div data-tip={intl.formatMessage({ id: 'bank.account.delete' })}>
+                          <Button
+                            dataTestId={`btn-delete-international-account-${i}`}
+                            ghost
+                            extraClass="primary-full"
+                            icon={<Icon name="Trash" />}
+                            type="icon"
+                            theme="light"
                           />
-                        </button>
+                        </div>
                       </ConfirmModal>
                     )}
                   </h4>
@@ -326,20 +327,18 @@ const BankAccount = ({
                         body={intl.formatMessage({ id: 'bank.account.delete.body' })}
                         confirmText={intl.formatMessage({ id: 'delete' })}
                         cancelText={intl.formatMessage({ id: 'cancel' })}
-                        style={{ float: 'right', color: '#888' }}
+                        style={{ marginLeft: 'auto' }}
                       >
-                        <button
-                          type="button"
-                          className="edit-button"
-                          style={{ float: 'right', color: '#888' }}
-                          data-testid={`btn-delete-national-account-${i}`}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="mr-1"
-                            title={intl.formatMessage({ id: 'bank.account.delete' })}
+                        <div data-tip={intl.formatMessage({ id: 'bank.account.delete' })}>
+                          <Button
+                            dataTestId={`btn-delete-national-account-${i}`}
+                            ghost
+                            extraClass="primary-full"
+                            icon={<Icon name="Trash" />}
+                            type="icon"
+                            theme="light"
                           />
-                        </button>
+                        </div>
                       </ConfirmModal>
                     )}
                   </h4>
@@ -422,20 +421,18 @@ const BankAccount = ({
                         body={intl.formatMessage({ id: 'bank.account.delete.body' })}
                         confirmText={intl.formatMessage({ id: 'delete' })}
                         cancelText={intl.formatMessage({ id: 'cancel' })}
-                        style={{ float: 'right', color: '#888' }}
+                        style={{ marginLeft: 'auto' }}
                       >
-                        <button
-                          type="button"
-                          className="edit-button"
-                          style={{ float: 'right', color: '#888' }}
-                          data-testid={`btn-delete-national-account-${i}`}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="mr-1"
-                            title={intl.formatMessage({ id: 'bank.account.delete' })}
+                        <div data-tip={intl.formatMessage({ id: 'bank.account.delete' })}>
+                          <Button
+                            dataTestId={`btn-delete-national-account-${i}`}
+                            ghost
+                            extraClass="primary-full"
+                            icon={<Icon name="Trash" />}
+                            type="icon"
+                            theme="light"
                           />
-                        </button>
+                        </div>
                       </ConfirmModal>
                     )}
                   </h4>
@@ -500,20 +497,18 @@ const BankAccount = ({
                         body={intl.formatMessage({ id: 'bank.account.delete.body' })}
                         confirmText={intl.formatMessage({ id: 'delete' })}
                         cancelText={intl.formatMessage({ id: 'cancel' })}
-                        style={{ float: 'right', color: '#888' }}
+                        style={{ marginLeft: 'auto' }}
                       >
-                        <button
-                          type="button"
-                          className="edit-button"
-                          style={{ float: 'right', color: '#888' }}
-                          data-testid={`btn-delete-national-account-${i}`}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="mr-1"
-                            title={intl.formatMessage({ id: 'bank.account.delete' })}
+                        <div data-tip={intl.formatMessage({ id: 'bank.account.delete' })}>
+                          <Button
+                            dataTestId={`btn-delete-national-account-${i}`}
+                            ghost
+                            extraClass="primary-full"
+                            icon={<Icon name="Trash" />}
+                            type="icon"
+                            theme="light"
                           />
-                        </button>
+                        </div>
                       </ConfirmModal>
                     )}
                   </h4>
@@ -577,19 +572,17 @@ const BankAccount = ({
                         body={intl.formatMessage({ id: 'bank.account.delete.body' })}
                         confirmText={intl.formatMessage({ id: 'delete' })}
                         cancelText={intl.formatMessage({ id: 'cancel' })}
-                        style={{ float: 'right', color: '#888' }}
+                        style={{ marginLeft: 'auto' }}
                       >
-                        <button
-                          type="button"
-                          className="edit-button"
-                          style={{ float: 'right', color: '#888' }}
-                        >
-                          <FontAwesomeIcon
-                            icon={faTrash}
-                            className="mr-1"
-                            title={intl.formatMessage({ id: 'bank.account.delete' })}
+                        <div data-tip={intl.formatMessage({ id: 'bank.account.delete' })}>
+                          <Button
+                            ghost
+                            extraClass="primary-full"
+                            icon={<Icon name="Trash" />}
+                            type="icon"
+                            theme="light"
                           />
-                        </button>
+                        </div>
                       </ConfirmModal>
                     )}
                   </h4>

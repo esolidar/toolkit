@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from '../../utils/isEmpty';
 import Preview from '../preview';
@@ -10,6 +8,7 @@ import Button from '../../elements/button';
 import CheckboxField from '../../elements/checkboxField';
 import TextareaField from '../../elements/textareaField';
 import rawDraftToHtml from '../../utils/rawDraftToHtml';
+import Icon from '../../elements/icon';
 
 const ProjectDetailInfo = ({
   project,
@@ -188,9 +187,7 @@ const NewQuestion = ({
 
   if (type === 'title') return null;
 
-  const PrivateIcon = () => (
-    <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />
-  );
+  const PrivateIcon = () => <Icon name="LockBold" size="sm" className="ml-2" />;
 
   const questionGroupClassName = ['question-group'];
   if (showRequestInfoView && !['title', 'paragraph'].includes(type))
@@ -312,9 +309,7 @@ const Question = ({
 
   if (type === 'dropdown' || type === 'upload-images') return null;
 
-  const PrivateIcon = () => (
-    <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />
-  );
+  const PrivateIcon = () => <Icon name="LockBold" size="sm" className="ml-2" />;
 
   const questionGroupClassName = ['question-group'];
   if (showRequestInfoView && !['title', 'paragraph'].includes(type))
