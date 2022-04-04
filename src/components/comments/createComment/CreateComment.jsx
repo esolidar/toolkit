@@ -61,12 +61,6 @@ const CreateComment = props => {
             type="icon"
             theme="light"
           />
-
-          {/* <FontAwesomeIcon
-            icon={faPaperPlane}
-            className="mr-1 d-lg-none mt-3"
-            onClick={e => addMessage(e, true)}
-          /> */}
         </div>
       </div>
     </div>
