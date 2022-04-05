@@ -2,8 +2,8 @@ import ProjectCategory from '../../../../interfaces/project/projectCategory';
 
 interface Props {
   categoriesList: ProjectCategory[];
+  isValid: boolean;
   required: boolean;
-  requiredField: boolean;
   reply: number[];
   handleChangeCategories(ids: number[]): void;
   type?: string;

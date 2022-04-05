@@ -9,7 +9,7 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectCategoriesModal';
 import getEnvVar from '../../../../utils/getEnvVar';
 
-const Categories = ({ categoriesList, reply, handleChangeCategories, requiredField }: Props) => {
+const Categories = ({ categoriesList, reply, handleChangeCategories, required }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
   const repliesCount = useRef<number>(0);
@@ -38,7 +38,7 @@ const Categories = ({ categoriesList, reply, handleChangeCategories, requiredFie
         <div className="content-step-page">
           <h2>
             <FormattedMessage id="categories" />
-            {!requiredField && (
+            {!required && (
               <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
             )}
           </h2>

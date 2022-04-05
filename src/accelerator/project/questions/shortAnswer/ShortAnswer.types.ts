@@ -1,8 +1,8 @@
 interface Props {
   control?: any;
   name: string;
+  isValid: boolean;
   required: boolean;
-  requiredField: boolean;
   question: string;
   description: string;
 }

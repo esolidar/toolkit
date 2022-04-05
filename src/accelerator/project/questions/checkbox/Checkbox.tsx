@@ -15,7 +15,6 @@ const Checkbox = ({
   rangeMin,
   rangeMax,
   required,
-  requiredField,
   name,
   reply,
   id,
@@ -40,7 +39,7 @@ const Checkbox = ({
         <div className="page-content-checkbox">
           <h2>
             {question}
-            {!requiredField && (
+            {!required && (
               <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
             )}
           </h2>

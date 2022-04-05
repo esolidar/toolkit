@@ -4,21 +4,14 @@ import Props from './ShortAnswer.types';
 import Viewport from '../../../../components/viewport';
 import TextField from '../../../../elements/forms/textField';
 
-const ShortAnswer = ({
-  name,
-  control,
-  question,
-  description,
-  required,
-  requiredField,
-}: Props): JSX.Element => {
+const ShortAnswer = ({ name, control, question, description, required }: Props): JSX.Element => {
   const intl = useIntl();
   return (
     <Viewport size="lg" centred={false}>
       <div className="page-content-checkbox">
         <h2>
           {question}
-          {!requiredField && (
+          {!required && (
             <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
           )}
         </h2>

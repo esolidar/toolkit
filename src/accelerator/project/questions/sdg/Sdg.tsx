@@ -9,7 +9,7 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectSDGsModal';
 import getOdsList from '../../../../utils/getOdsList';
 
-const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, requiredField }: Props) => {
+const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, required }: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
   const repliesCount = useRef<number>(0);
@@ -45,7 +45,7 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, requiredField }:
         <div className="content-step-page">
           <h2>
             <FormattedMessage id="toolkit.accelerator.appForm.form.sdgs" />
-            {!requiredField && (
+            {!required && (
               <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
             )}
           </h2>
