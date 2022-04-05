@@ -14,6 +14,7 @@ interface Props {
   rangeMin?: number;
   rangeMax?: number;
   required?: boolean;
+  requiredField: boolean;
   id: number;
   control: any;
   handleChange(): void;

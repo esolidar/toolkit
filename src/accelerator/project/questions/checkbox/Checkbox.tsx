@@ -15,6 +15,7 @@ const Checkbox = ({
   rangeMin,
   rangeMax,
   required,
+  requiredField,
   name,
   reply,
   id,
@@ -37,7 +38,12 @@ const Checkbox = ({
     <Viewport size="xl" centred={false}>
       <>
         <div className="page-content-checkbox">
-          <h2>{question}</h2>
+          <h2>
+            {question}
+            {!requiredField && (
+              <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
+            )}
+          </h2>
           <p>{description}</p>
           {answersAllowed !== 'unlimited' && (
             <span className="checkbox-helper-answers-allowed">

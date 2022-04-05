@@ -61,7 +61,10 @@ const Video = ({
   return (
     <Viewport size="lg" centred={false}>
       <div className="page-content-video">
-        <h2>{intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video' })}</h2>
+        <h2>
+          {intl.formatMessage({ id: 'toolkit.accelerator.appForm.form.video' })}
+          <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
+        </h2>
         <p>
           <FormattedMessage id="toolkit.project.video.description-1" />
           <br />
