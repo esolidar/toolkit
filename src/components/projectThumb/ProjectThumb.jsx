@@ -5,12 +5,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen } from '@fortawesome/free-solid-svg-icons/faPen';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
 import Button from '../../elements/button';
-import slugify from '../../utils/slugify';
+import slugify from '../../utils/slugify/slugify';
 import { cdnStaticUrl } from '../../constants/env';
+import Icon from '../../elements/icon';
 
 const ProjectThumb = ({
   project,
@@ -73,14 +71,14 @@ const ProjectThumb = ({
           <div className={`${project.status} status-bar`}>
             {['DRAFT', 'PENDING'].includes(project.status) &&
               project.user_id === JSON.parse(localStorage.user || '{}').id && (
-                <button type="button" className="edit-button hover" onClick={editThumb}>
-                  <FontAwesomeIcon
-                    icon={faPen}
-                    className="mr-1"
-                    title={intl.formatMessage({ id: 'project.edit' })}
-                  />
-                  <FormattedMessage id="project.edit" />
-                </button>
+                <Button
+                  ghost
+                  extraClass="primary-full"
+                  icon={<Icon name="Edit2" title={intl.formatMessage({ id: 'project.edit' })} />}
+                  onClick={editThumb}
+                  type="icon"
+                  theme="light"
+                />
               )}
             <div className="status">{status}</div>
             <OverlayTrigger
@@ -91,12 +89,15 @@ const ProjectThumb = ({
                 </Tooltip>
               }
             >
-              <FontAwesomeIcon
-                icon={faExternalLinkAlt}
-                className="ml-2 hover"
+              <Button
+                ghost
+                extraClass="primary-full"
+                icon={
+                  <Icon name="ExternalLink" title={intl.formatMessage({ id: 'open.new.tab' })} />
+                }
                 onClick={handleClickOpenTab}
-                style={{ cursor: 'pointer' }}
-                title={intl.formatMessage({ id: 'open.new.tab' })}
+                type="icon"
+                theme="light"
               />
             </OverlayTrigger>
           </div>

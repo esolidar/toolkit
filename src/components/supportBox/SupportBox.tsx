@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Props from './SupportBox.types';
 import Button from '../../elements/button';
-import slugify from '../../utils/slugify';
+import slugify from '../../utils/slugify/slugify';
 
 const SupportBox: FC<Props> = ({ campaign, communityUrl = '/' }: Props): JSX.Element => {
   const intl = useIntl();

@@ -4,12 +4,11 @@ import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Rating from 'react-rating';
 import { FormattedMessage } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import TextareaField from '../../elements/textareaField';
 import Button from '../../elements/button';
-import { getEmployeeName, isDefined } from '../../utils';
+import getEmployeeName from '../../utils/getEmployeeName';
+import isDefined from '../../utils/isDefined';
+import Icon from '../../elements/icon';
 
 const Reviews = ({
   averageRate,
@@ -43,8 +42,8 @@ const Reviews = ({
           </div>
           <Rating
             className="rating"
-            emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-            fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+            emptySymbol={<Icon className="empty" name="Star" />}
+            fullSymbol={<Icon className="full" name="StarBold" />}
             readonly={true}
             initialRating={averageRate}
           />
@@ -77,8 +76,8 @@ const Reviews = ({
                 <div className="name">{getEmployeeName(companyId, review.user)}</div>
                 <Rating
                   className="rating"
-                  emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-                  fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                  emptySymbol={<Icon className="empty" name="Star" />}
+                  fullSymbol={<Icon className="full" name="StarBold" />}
                   readonly={true}
                   initialRating={review.rate || 0}
                 />
@@ -119,8 +118,8 @@ const Reviews = ({
                 {!showEditReviewForm && (
                   <Rating
                     className="rating"
-                    emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-                    fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                    emptySymbol={<Icon className="empty" name="Star" />}
+                    fullSymbol={<Icon className="full" name="StarBold" />}
                     readonly={true}
                     initialRating={isDefined(userReview) ? userReview.rate : 0}
                   />
@@ -155,8 +154,8 @@ const Reviews = ({
                       <FormattedMessage id="projects.review.rate" />
                       <Rating
                         className="rating"
-                        emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-                        fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                        emptySymbol={<Icon className="empty" name="Star" />}
+                        fullSymbol={<Icon className="full" name="StarBold" />}
                         initialRating={review.rate}
                         onChange={rate => onChangeRate(rate)}
                       />
@@ -168,7 +167,7 @@ const Reviews = ({
                       style={{ display: 'inline' }}
                       data-testid="rate-error"
                     >
-                      <span className="help-block">{errors.rate}</span>
+                      <div className="help-block">{errors.rate}</div>
                     </div>
                   )}
                   <div className="actions">

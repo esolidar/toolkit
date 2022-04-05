@@ -1,0 +1,21 @@
+.esolidar-container {
+  padding: $distance-4;
+
+  &.container-border {
+    border-style: solid;
+    border-color: map-get($neutrals, 100);
+  }
+
+  &.container-shadow {
+    box-shadow: 0px 2px 4px rgba(26, 27, 28, 0.04);
+    box-sizing: border-box;
+  }
+
+  &.container-rounded {
+    border-radius: $distance-1;
+  }
+
+  &.container-background {
+    background-color: map-get($background, secondary);
+  }
+}

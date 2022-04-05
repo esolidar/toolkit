@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import Tooltip from 'rc-tooltip';
 import CountdownThumb from '../countdown';
-import { convertToMyCurrency } from '../../utils/index';
+import convertToMyCurrency from '../../utils/convertToMyCurrency';
 
 const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();

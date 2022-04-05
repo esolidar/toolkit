@@ -1,3 +1,17 @@
+@mixin checked-icon($top, $left, $height, $width) {
+  position: absolute;
+  content: '';
+  top: $top;
+  left: $left;
+  border: solid white;
+  border-width: 0 0.145em 0.145em 0;
+  display: block;
+  -webkit-transform: translateY(-65%) translateX(-50%) rotate(45deg);
+  transform: translateY(-65%) translateX(-50%) rotate(45deg);
+  height: $height;
+  width: $width;
+}
+
 .checkbox-inline {
   position: relative;
   padding: 0;
@@ -10,38 +24,135 @@
       position: absolute;
       visibility: hidden;
       margin: 0;
+
+      & ~ .checkbox {
+        position: relative;
+        background-color: map-get($base, white);
+        border: 2px solid change-color(map-get($base, black), $alpha: 0.08);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.sm {
+          width: 16px;
+          height: 16px;
+          min-width: 16px;
+          min-height: 16px;
+        }
+
+        &.md {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
+        }
+
+        &.lg {
+          width: 24px;
+          height: 24px;
+          min-width: 24px;
+          min-height: 24px;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        @include animate();
+      }
+
+      & ~ .label {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
 
     input[type='checkbox']:checked ~ .checkbox {
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 16px;
-        height: 16px;
-        background: url('#{$cdn-static-url}/frontend/assets/checkbox.svg') 0 -16px no-repeat;
+      background-color: map-get($turquoise, 500);
+      border-color: map-get($turquoise, 500);
+
+      &.sm {
+        &::after {
+          @include checked-icon(6px, 6px, 9px, 5px);
+        }
+      }
+
+      &.md {
+        &::after {
+          @include checked-icon(8px, 8px, 12px, 6px);
+        }
+      }
+
+      &.lg {
+        &::after {
+          @include checked-icon(10px, 10px, 12px, 6px);
+        }
+      }
+    }
+
+    input[type='checkbox']:checked:disabled {
+      & ~ .checkbox {
+        background-color: map-get($neutrals, 400);
+        border-color: map-get($neutrals, 400);
+
+        &.sm {
+          &::after {
+            @include checked-icon(6px, 6px, 9px, 5px);
+          }
+        }
+
+        &.md {
+          &::after {
+            @include checked-icon(8px, 8px, 12px, 6px);
+          }
+        }
+
+        &.lg {
+          &::after {
+            @include checked-icon(10px, 10px, 12px, 6px);
+          }
+        }
+
+        &:hover {
+          cursor: default;
+        }
+      }
+
+      & ~ .label {
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+
+    input[type='checkbox']:disabled {
+      & ~ .checkbox {
+        background-color: change-color(map-get($base, black), $alpha: 0.08);
+        border-color: map-get($neutrals, 400);
+
+        &:hover {
+          cursor: default;
+        }
+      }
+
+      & ~ .label {
+        &:hover {
+          cursor: default;
+        }
       }
     }
 
     label {
       position: relative;
-      padding-left: 25px;
-    }
-
-    .checkbox {
-      left: 0px;
-      top: 0px;
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: url('#{$cdn-static-url}/frontend/assets/checkbox.svg') 0 0 no-repeat;
+      display: flex;
+      align-items: center;
+      gap: $distance-1;
     }
 
     span {
       position: relative;
-
       font-size: 15px;
       color: map-get($input, label-color);
       letter-spacing: 0;
@@ -53,22 +164,15 @@
     .label {
       &.sm {
         font-size: 14px;
-        margin-top: -1px;
       }
 
       &.md {
         font-size: 16px;
-        margin-top: -3px;
       }
 
       &.lg {
         font-size: 18px;
-        margin-top: -5px;
       }
     }
-  }
-
-  .help-block {
-    color: map-get($theme-colors, danger);
   }
 }

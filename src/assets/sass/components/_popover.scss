@@ -1,0 +1,63 @@
+.popover-component-trigger {
+  &:hover,
+  &:active,
+  &:focus,
+  & > span[aria-describedby='bootstrap-popover'] {
+    cursor: pointer;
+    color: map-get($theme-colors, primary);
+
+    & > *:not(i) {
+      text-decoration: underline;
+    }
+  }
+}
+
+.esolidar-popover {
+  &.size-sm {
+    min-width: map-get($widths, sm) !important;
+  }
+  &.size-md {
+    min-width: map-get($widths, md) !important;
+  }
+  &.size-lg {
+    min-width: map-get($widths, lg) !important;
+  }
+}
+
+#bootstrap-popover {
+  padding: $distance-3;
+  border-color: map-get($neutrals, 200);
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px rgba(26, 27, 28, 0.04);
+
+  .bootstrap-popover-header {
+    padding-bottom: $distance-1;
+    margin-bottom: $distance-2;
+    border-bottom: 1px solid map-get($neutrals, 200);
+
+    .profile-avatar__name {
+      font-weight: bold;
+    }
+  }
+  .bootstrap-popover-body {
+    color: map-get($base, black);
+    font-size: 13px;
+    line-height: 16px;
+
+    p {
+      margin-bottom: $distance-1;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 0px;
+      display: inline;
+    }
+  }
+
+  & > .arrow {
+    display: none !important;
+  }
+}

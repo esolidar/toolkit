@@ -5,7 +5,9 @@ import moment from 'moment-timezone';
 import { Row, Col, Container } from 'react-bootstrap';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import Sticky from 'react-sticky-el';
-import { getEmployeeName, filterUnique, slugify } from '../../utils';
+import getEmployeeName from '../../utils/getEmployeeName/getEmployeeName';
+import filterUnique from '../../utils/filterUnique/filterUnique';
+import slugify from '../../utils/slugify/slugify';
 import Button from '../../elements/button';
 import NoMatch from '../noMatch';
 import Loading from '../loading';
@@ -25,8 +27,8 @@ import CheckboxField from '../../elements/checkboxField';
 import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
-import isEmpty from '../../utils/isEmpty';
-import ValidateTelephone from '../validateTelephone';
+import isEmpty from '../../utils/isEmpty/isEmpty';
+import ValidateTelephone from '../../elements/validateTelephone';
 import SupportBox from '../supportBox';
 
 const AuctionDetail = ({
@@ -72,6 +74,7 @@ const AuctionDetail = ({
   primaryColor,
   domainUrl,
   locale,
+  partialThumbPath,
 }) => {
   const intl = useIntl();
   // Modals
@@ -847,7 +850,7 @@ const AuctionDetail = ({
           <NoMatch
             color={primaryColor}
             errorMessage={intl.formatMessage({ id: 'auction.not.found' })}
-            link="/auction/list"
+            link={`/${intl.locale}/needs/auction/list`}
             linkText={intl.formatMessage({ id: 'back.to.auctions' })}
           />
         </Row>
@@ -878,7 +881,7 @@ const AuctionDetail = ({
                     dataTestId="btn-private-cancel"
                     className="auction-private-cancel mr-3"
                     extraClass="dark"
-                    href="/auction/list"
+                    href={`/${intl.locale}/needs/auction/list`}
                     text={intl.formatMessage({ id: 'cancel' })}
                   />
                   <Button
@@ -1113,6 +1116,7 @@ const AuctionDetail = ({
                     cols={12}
                     showStatus={false}
                     status=""
+                    url={partialThumbPath ? `/${partialThumbPath}/projects` : '/projects'}
                   />
                 </Row>
               )}
@@ -1130,6 +1134,7 @@ const AuctionDetail = ({
               buttonTitle={intl.formatMessage({ id: 'auction.detail.seeAll' })}
               primaryColor={primaryColor}
               env={env}
+              partialThumbPath={partialThumbPath}
             />
           )}
         </>
@@ -1437,6 +1442,7 @@ AuctionDetail.propTypes = {
   primaryColor: PropTypes.string,
   domainUrl: PropTypes.string,
   locale: PropTypes.string,
+  partialThumbPath: PropTypes.string,
 };
 
 export default AuctionDetail;

@@ -1,12 +1,18 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, createRef, useRef } from 'react';
 
 import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage, useIntl } from 'react-intl';
+import classnames from 'classnames';
 import Cropper from 'react-cropper';
 import Loading from '../../components/loading';
+import InputLabel from '../inputLabel';
+import Preview from '../../components/preview';
+import Slider from '../slider';
+import Icon from '../icon';
 import CustomModal from '../customModal';
 import Button from '../button';
+import Tooltip from '../tooltip';
 import lastElemOf from '../../utils/lastElemOf';
 
 const cropper = createRef(null);
@@ -36,18 +42,29 @@ const DropZoneBox = ({
   textSaveCropModal,
   modalClassName,
   isLoading,
-  label,
   hasError,
+  showIcon,
+  inputLabelProps,
+  label,
+  showFooterCropper,
+  showErrors,
+  error,
+  minWidth,
+  minHeight,
+  fullWidth = false,
+  onDropError,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
   const [disableCroppedImage, setDisableCroppedImage] = useState(false);
+  const selectedFilesCount = useRef(0);
+  const [resetSlider, setResetSlider] = useState(false);
 
   const intl = useIntl();
 
-  const minWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
-  const minHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
+  const cropMinWidth = !hasCropper || !hasCropper.minWidth ? 500 : hasCropper.minWidth;
+  const cropMinHeight = !hasCropper || !hasCropper.minHeight ? 470 : hasCropper.minHeight;
 
   useEffect(() => {
     if (!cropModalStatus) {
@@ -61,28 +78,27 @@ const DropZoneBox = ({
   const convertToMb = size => `${(size / (1024 * 1024)).toFixed(0)} MB`;
 
   const ImagesPreview = () => (
-    <div className="d-flex">
-      {imagesList.map((file, idx) => (
-        <div key={file.id} className="gallery-thumb mt-3 mb-2 mr-3">
-          {file.image.includes('http') ? (
-            <img src={`${file.image}?width=64&height=64`} alt="thumb" />
-          ) : (
-            <img
-              src={`${env.serverlessResizeImage}/${file.image}?width=64&height=64`}
-              alt="thumb"
-            />
-          )}
-
-          <button
-            type="button"
-            className="btn-delete-image"
-            data-image-id={file.id}
-            onClick={e => deleteImageGallery(e, idx)}
-          >
-            x
-          </button>
-        </div>
-      ))}
+    <div className="dropzone-box__images-list">
+      <div>
+        {imagesList.map((file, idx) => (
+          <div key={file.id}>
+            {file.image.includes('http') ? (
+              <Preview
+                img={{ src: `${file.image}?width=216px&height=144`, alt: 'thumb' }}
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+              />
+            ) : (
+              <Preview
+                handleDeleteImage={e => deleteImageGallery(e, idx)}
+                img={{
+                  src: `${env.serverlessResizeImage}/${file.image}?width=216px&height=144`,
+                  alt: 'thumb',
+                }}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 
@@ -104,8 +120,8 @@ const DropZoneBox = ({
       message: intl.formatMessage(
         { id: 'document.files.modal.error.dimensions' },
         {
-          width: minWidth,
-          height: minHeight,
+          width: minWidth || cropMinWidth,
+          height: minHeight || cropMinHeight,
         }
       ),
     },
@@ -114,6 +130,52 @@ const DropZoneBox = ({
   const toggleModalCropper = () => {
     setDisableCroppedImage(false);
     setCropperModal(false);
+    setErrorList([]);
+  };
+
+  const getImageWidthAndHeight = file => {
+    if (file.type.split('/')[0] === 'image') {
+      return new Promise((resolve, reject) => {
+        // eslint-disable-next-line no-underscore-dangle
+        const _URL = window.URL || window.webkitURL;
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Something went wrong'));
+        img.src = _URL.createObjectURL(file);
+      }).then(img => {
+        return { width: img.width, height: img.height };
+      });
+    }
+    return {};
+  };
+
+  const renderErrorList = (errorList, showErrors, errorTitle = false) => {
+    if (errorList.length > 0 && showErrors) {
+      if (onDropError) {
+        errorList.forEach(file => {
+          return file;
+        });
+        onDropError(errorList, selectedFilesCount.current);
+        setErrorList([]);
+        return;
+      }
+
+      return (
+        <div className="error-files">
+          {errorTitle && (
+            <div className="error">
+              <FormattedMessage id="document.files.modal.error.files" />
+            </div>
+          )}
+          {errorList.map((file, idx) => (
+            <div key={idx} className="error ml-2 d-block">
+              {file.name && ` ${file.name}: `}
+              {` ${file.errors.join(', ')}`}
+            </div>
+          ))}
+        </div>
+      );
+    }
   };
 
   const { getRootProps, getInputProps, open } = useDropzone({
@@ -130,62 +192,93 @@ const DropZoneBox = ({
       setErrorList([]);
       const files = [];
       const fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+      selectedFilesCount.current = fileList.length;
 
       for (let i = 0; i < fileList.length; i++) {
         const file = fileList.item(i);
         files.push(file);
       }
+
       await wait(250);
       return files;
     },
     onDrop: () => {},
     onDropAccepted: async acceptedFiles => {
+      const errors = [];
       if (hasCropper && hasCropper.showCropper) {
         const reader = new FileReader();
         const file = acceptedFiles[0];
+        const imagesAttributes = await getImageWidthAndHeight(file);
 
-        reader.onloadend = () => {
-          setCroppedFile(reader.result);
-        };
+        if (imagesAttributes?.height < minHeight && imagesAttributes?.width < minWidth) {
+          errors.push({
+            name: '',
+            errors: [`${errorMessages.find(messageObj => messageObj.id === 'dimensions').message}`],
+          });
+          setErrorList(errors);
+        } else {
+          reader.onloadend = () => {
+            setCroppedFile(reader.result);
+          };
 
-        reader.readAsDataURL(file);
-        setCropperModal(true);
+          reader.readAsDataURL(file);
+          setCropperModal(true);
+        }
       } else {
-        onSelect(
-          acceptedFiles.map(file =>
-            Object.assign(file, {
+        const getData = await Promise.all(
+          acceptedFiles.map(async file => {
+            const imagesAttributes = await getImageWidthAndHeight(file);
+            if (imagesAttributes?.height < minHeight && imagesAttributes?.width < minWidth) {
+              return errors.push({
+                name: file.name,
+                errors: [
+                  `${errorMessages.find(messageObj => messageObj.id === 'dimensions').message}`,
+                ],
+              });
+            }
+            return Object.assign(file, {
               preview: URL.createObjectURL(file),
-            })
-          )
+            });
+          })
         );
+        setErrorList(errors);
+        onSelect(getData);
       }
     },
     onDropRejected: async rejectedFiles => {
+      if (showErrors && onDropError && rejectedFiles.length > maxFiles)
+        onDropError([{ code: 'too-many-files', name: 'maxFiles', maxFiles }]);
+
       const fileExtensionOf = extension => lastElemOf(extension.split('.')).toLowerCase();
       const onDropErrorFileList = [];
 
       rejectedFiles.forEach(rejectedFile => {
-        const extension = fileExtensionOf(rejectedFile.name);
+        const extension = fileExtensionOf(rejectedFile.file.name);
         const errors = [];
         const acceptExtensionArray = accept.split(',').map(item => item.trim().toLocaleLowerCase());
         const extensionExist = acceptExtensionArray.includes(`.${extension}`);
 
         if (!extensionExist)
           errors.push(errorMessages.find(messageObj => messageObj.id === 'extensionError').message);
-        if (rejectedFile.size > maxSize)
+        if (rejectedFile.file.size > maxSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'maxSizeError').message
             } ${convertToMb(maxSize)}`
           );
-        if (rejectedFile.size < minSize)
+        if (rejectedFile.file.size < minSize)
           errors.push(
             `${
               errorMessages.find(messageObj => messageObj.id === 'minSizeError').message
             } ${convertToMb(minSize)}`
           );
 
-        const fileErrorObject = { name: rejectedFile.name, errors };
+        const fileErrorObject = {
+          name: rejectedFile.file.name,
+          errors,
+          code: rejectedFile.errors[0].code,
+          file: rejectedFile.file,
+        };
         if (errors.length) onDropErrorFileList.push(fileErrorObject);
       });
 
@@ -198,110 +291,133 @@ const DropZoneBox = ({
     toggleModalCropper();
   };
 
+  const onSliderMoves = (value, direction) => {
+    setResetSlider(false);
+    if (direction === 'right') cropper.current.zoom(0.1);
+    if (direction === 'left') cropper.current.zoom(-0.1);
+  };
+
+  const rotate = degrees => {
+    if (degrees) {
+      setResetSlider(true);
+      const currentRotation = cropper.current.getData().rotate;
+      cropper.current.reset().rotate(currentRotation + degrees);
+    }
+  };
+
   return (
-    <div className="dropzone-box">
+    <div className={classnames('dropzone-box form-group', { 'full-width': fullWidth })}>
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'top' && (
         <ImagesPreview />
       )}
-      {label && (
-        <label htmlFor="dropzone" className="control-label">
-          {label}
-        </label>
-      )}
+      {label && <InputLabel label={label} field="dropzone" />}
+      {inputLabelProps && <InputLabel {...inputLabelProps} field="dropzone" />}
       {showDropArea && (
-        <div
-          {...getRootProps({ className: 'dropZone' })}
-          className={`upload-file ${className} ${disabled ? 'disabled' : ''}`}
-        >
+        <div {...getRootProps({ className: 'dropZone' })} className={`upload-file ${className}`}>
           <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          <div className={hasError ? 'required-field' : ''}>
+          <div
+            className={classnames(
+              { 'required-field': hasError },
+              'drop-zone-box',
+              {
+                'with-icon': showIcon,
+              },
+              { disabled }
+            )}
+          >
             {isLoading && <Loading />}
             {!isLoading && (
-              <p>
-                <strong>
-                  <FormattedMessage id="document.files.modal.drop" />
-                </strong>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.acceptedFiles" values={{ accept }} />
-                </small>
-                <br />
-                <small>
-                  <FormattedMessage id="document.files.modal.maxSize" />
-                </small>
-              </p>
+              <>
+                {showIcon && (
+                  <div className="drop-icon">
+                    <Icon name="UploadCloud" size="lg" />
+                  </div>
+                )}
+                <div>
+                  <FormattedMessage
+                    id="dropzonebox.text"
+                    values={{
+                      a: <a href="#">{intl.formatMessage({ id: 'dropzonebox.a' })}</a>,
+                    }}
+                  />
+                </div>
+              </>
             )}
           </div>
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
         </div>
       )}
       {!showDropArea && (
-        <span onClick={open} onKeyPress={() => {}} className={className}>
-          <input name="dropzone" {...getInputProps()} disabled={isLoading} />
-          {children}
-          {errorList.length > 0 && (
-            <div className="text-left error-files">
-              <div className="error">
-                <FormattedMessage id="document.files.modal.error.files" />
-              </div>
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name}: ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
-            </div>
-          )}
-        </span>
+        <>
+          <span onClick={open} onKeyPress={() => {}} className={className}>
+            <input name="dropzone" {...getInputProps()} disabled={isLoading} />
+            {children}
+          </span>
+        </>
       )}
 
       {showImagesPreviews && imagesList.length > 0 && imagesPreviewPosition === 'bottom' && (
         <ImagesPreview />
       )}
 
+      {renderErrorList(errorList, showErrors, true)}
+
+      {error && (
+        <div
+          className="form-group has-error"
+          style={{
+            width: '100%',
+            display: 'inline-block',
+            marginBottom: '15px',
+            marginTop: '-15px',
+          }}
+        >
+          <div className="help-block">{error}</div>
+        </div>
+      )}
+
       {cropperModal && (
         <CustomModal
+          bodyClassName="dropzone-box"
           actionsChildren={
-            <Button
-              extraClass="success-full"
-              onClick={() => {
-                cropper.current.getCroppedCanvas().toBlob(
-                  blob => {
-                    const imageWidth = cropper.current.getCroppedCanvas().width;
-                    const imageHeight = cropper.current.getCroppedCanvas().height;
-                    if (imageWidth > minWidth && imageHeight > minHeight) {
-                      setDisableCroppedImage(true);
-                      handleSubmitCroppedImage(blob);
-                    } else {
-                      const errors = [];
-                      errors.push({
-                        name: '',
-                        errors: [
-                          `${
-                            errorMessages.find(messageObj => messageObj.id === 'dimensions').message
-                          }`,
-                        ],
-                      });
-                      setErrorList(errors);
-                    }
-                  },
-                  'image/jpeg',
-                  1
-                );
-              }}
-              text={textSaveCropModal}
-              disabled={disableCroppedImage}
-            />
+            <div className="footer-buttons">
+              <Button
+                extraClass="secondary"
+                onClick={toggleModalCropper}
+                text={intl.formatMessage({ id: 'cancel' })}
+              />
+              <Button
+                extraClass="success-full"
+                onClick={() => {
+                  cropper.current.getCroppedCanvas().toBlob(
+                    blob => {
+                      const imageWidth = cropper.current.getCroppedCanvas().width;
+                      const imageHeight = cropper.current.getCroppedCanvas().height;
+                      if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
+                        setDisableCroppedImage(true);
+                        handleSubmitCroppedImage(blob);
+                        setErrorList([]);
+                      } else {
+                        const errors = [];
+                        errors.push({
+                          name: '',
+                          errors: [
+                            `${
+                              errorMessages.find(messageObj => messageObj.id === 'dimensions')
+                                .message
+                            }`,
+                          ],
+                        });
+                        setErrorList(errors);
+                      }
+                    },
+                    'image/jpeg',
+                    0.7
+                  );
+                }}
+                text={textSaveCropModal || intl.formatMessage({ id: 'save' })}
+                disabled={disableCroppedImage}
+              />
+            </div>
           }
           bodyChildren={
             <>
@@ -309,25 +425,75 @@ const DropZoneBox = ({
               <Cropper
                 ref={cropper}
                 src={croppedFile}
-                style={{ height: 400, width: '100%' }}
-                guides={true}
-                zoomable={false}
+                style={{ height: 290, width: '100%' }}
                 viewMode={1}
                 aspectRatio={hasCropper.aspectRatioW / hasCropper.aspectRatioH}
+                dragMode="move"
+                autoCropArea={1}
+                zoomOnWheel={false}
               />
-              {errorList.map((file, idx) => (
-                <div key={idx} className="error ml-2">{`- ${file.name} ${file.errors.join(
-                  ', '
-                )}.`}</div>
-              ))}
+              {renderErrorList(errorList, showErrors)}
+              {showFooterCropper && (
+                <div className="dropzone-footer">
+                  <div className="dropzone-footer__buttons">
+                    <Tooltip
+                      overlay={
+                        <span>
+                          <FormattedMessage id="rotate.left" />
+                        </span>
+                      }
+                      placement="right"
+                      trigger="hover"
+                      className="esolidar-tooltip"
+                      tooltipBodyChild={
+                        <Button
+                          className="dropzone-footer__buttons-rotate"
+                          extraClass="primary-full"
+                          onClick={() => rotate(90)}
+                          icon={<Icon name="RotateCcw" size="sm" />}
+                          ghost
+                        />
+                      }
+                    />
+                    <Tooltip
+                      overlay={
+                        <span>
+                          <FormattedMessage id="rotate.right" />
+                        </span>
+                      }
+                      placement="right"
+                      trigger="hover"
+                      className="esolidar-tooltip"
+                      tooltipBodyChild={
+                        <Button
+                          className="dropzone-footer__buttons-rotate"
+                          extraClass="primary-full"
+                          onClick={() => rotate(-90)}
+                          icon={<Icon name="RotateCw" size="sm" />}
+                          ghost
+                        />
+                      }
+                    />
+                  </div>
+                  <div className="dropzone-footer__slider">
+                    <Slider
+                      min={0}
+                      max={100}
+                      step={10}
+                      defaultValue={0}
+                      showButtons={true}
+                      onChange={onSliderMoves}
+                      reset={resetSlider}
+                    />
+                  </div>
+                </div>
+              )}
             </>
           }
-          dividerBottom={true}
-          dividerTop={true}
           onHide={toggleModalCropper}
           show={cropperModal}
           size="md"
-          title={titleCropModal}
+          title={titleCropModal || intl.formatMessage({ id: 'modal.crop.title' })}
           dialogClassName={modalClassName}
         />
       )}
@@ -335,6 +501,7 @@ const DropZoneBox = ({
   );
 };
 DropZoneBox.propTypes = {
+  fullWidth: PropTypes.bool,
   label: PropTypes.string,
   accept: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
@@ -359,7 +526,7 @@ DropZoneBox.propTypes = {
   noDrag: PropTypes.bool,
   showImagesPreviews: PropTypes.bool,
   imagesList: PropTypes.array,
-  env: PropTypes.object,
+  env: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   imagesPreviewPosition: PropTypes.oneOf(['top', 'bottom']),
   deleteImageGallery: PropTypes.func,
   cropModalStatus: PropTypes.bool,
@@ -368,6 +535,15 @@ DropZoneBox.propTypes = {
   modalClassName: PropTypes.string,
   isLoading: PropTypes.bool,
   hasError: PropTypes.bool,
+  inputLabelProps: PropTypes.object,
+  showIcon: PropTypes.bool,
+  showFooterCropper: PropTypes.bool,
+  showErrors: PropTypes.bool,
+  error: PropTypes.string,
+  minWidth: PropTypes.number,
+  minHeight: PropTypes.number,
+  handleOrderImages: PropTypes.func,
+  onDropError: PropTypes.func,
 };
 
 DropZoneBox.defaultProps = {
@@ -385,8 +561,10 @@ DropZoneBox.defaultProps = {
   noDrag: false,
   imagesPreviewPosition: 'bottom',
   imagesList: [],
-  titleCropModal: 'Add Files',
-  textSaveCropModal: 'Add',
   isLoading: false,
+  showFooterCropper: false,
+  showErrors: true,
+  showIcon: true,
+  cropModalStatus: false,
 };
 export default DropZoneBox;

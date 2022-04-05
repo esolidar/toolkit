@@ -4,6 +4,7 @@
   &-title {
     font-weight: bold;
     padding: $distance-1 $distance-3 $distance-1 $distance-3;
+    white-space: nowrap;
   }
 
   .dropdown-toggle {
@@ -21,19 +22,13 @@
     }
 
     &::after {
-      display: inline-block;
-      margin-left: 0.255em;
-      vertical-align: 0;
-      content: '';
-      border-top: 0.3em solid;
-      border-right: 0.3em solid transparent;
-      border-bottom: 0;
-      border-left: 0.3em solid transparent;
+      display: none;
     }
 
     > img {
-      height: 40px;
+      height: 48px;
       border-radius: 50%;
+      margin-right: 13px;
 
       @media (max-width: map-get($breakpoints, xs)) {
         height: 30px;
@@ -46,27 +41,30 @@
     border-radius: 18px;
     text-align: left;
     padding: $distance-2 0px;
-    top: 20px !important;
+    top: 67px !important;
     position: absolute !important;
-    inset: 0px auto auto 0px;
     margin: 0px !important;
-    transform: translate(-129px, 46px) !important;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: map-get($elevation, 100);
 
     .dropdown-item {
       padding: $distance-1 $distance-3 $distance-1 $distance-3;
       font-size: 16px;
       border-radius: 8px;
-      color: map-get($main-text-colors, title);
+      color: map-get($neutrals, 900);
 
-      &:hover {
-        background-color: map-get($background, secondary);
-        color: map-get($main-text-colors, title);
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-visible {
+        background-color: transparent;
+        color: map-get($turquoise, 500);
+        outline: none;
       }
     }
 
     .dropdown-divider {
       margin: $distance-1 $distance-3;
+      border-color: map-get($neutrals, 400);
     }
 
     .user-top-menu-option {

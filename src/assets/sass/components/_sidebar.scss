@@ -1,0 +1,186 @@
+.sidebarNavigation {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: 268px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  margin-left: 0px;
+  @include animate(margin-left);
+  @include thin-scroll-bar();
+
+  &--relative {
+    position: relative;
+  }
+
+  &__sidebar {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 1px;
+    flex-direction: column;
+    background-color: #fff;
+    border-right: 1px solid map-get($neutrals, 100);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: $distance-3;
+
+    justify-content: flex-start;
+
+    .sidebarNavigation__header--logo {
+      min-width: 60px;
+      text-align: center;
+
+      img {
+        width: 60px;
+        height: 40px;
+      }
+    }
+
+    &--logo {
+      img {
+        max-width: 120px;
+      }
+    }
+
+    &--companyName {
+      color: map-get($main-text-colors, title);
+      font-size: 18px;
+      min-width: 105px;
+      border-left: 1px solid map-get($neutrals, 400);
+      padding-left: $distance-2;
+      margin-left: $distance-2;
+      @include line-clamp(1);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($theme-colors, primary);
+        text-decoration: none;
+      }
+    }
+  }
+  &__collapsed--button {
+    @include svg-change-color(map-get($neutrals, 400));
+    & > svg {
+      cursor: pointer;
+      position: absolute;
+      bottom: 43px;
+      right: 21px;
+    }
+
+    &:not(.sidebarNavigation__collapsed--button--disabled) {
+      &:hover,
+      &:active,
+      &:focus {
+        @include svg-change-color(map-get($neutrals, 700));
+      }
+    }
+    &--disabled > svg {
+      cursor: default;
+    }
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    padding: 0px $distance-3 0px $distance-3;
+
+    &--align-items-end {
+      align-items: flex-end;
+    }
+  }
+  &__mainMenu {
+    position: relative;
+    height: auto;
+    width: 100%;
+  }
+  &__bottomMenu {
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(100vh - 232px);
+    width: 220px;
+    padding-bottom: $distance-10;
+
+    .menu__list {
+      border-top: 1px solid map-get($neutrals, 200);
+      margin-top: $distance-3;
+      padding-top: $distance-3;
+    }
+  }
+
+  &__submenu {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    width: 268px;
+    padding: $distance-3 $distance-3 0px $distance-3;
+    border-right: 1px solid map-get($neutrals, 100);
+    position: absolute;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+    @include animate(margin, 700ms);
+
+    &--open {
+      margin-left: 268px;
+    }
+
+    &--close {
+      margin-left: -550px;
+      @include animate(margin, 2500ms);
+    }
+
+    &--header {
+      padding-bottom: $distance-3;
+
+      h6 {
+        font-size: 12px;
+        line-height: 16px;
+        text-align: left;
+        text-transform: uppercase;
+        color: map-get($neutrals, 700);
+        margin-top: $distance-1;
+        margin-bottom: 0px;
+        padding: $distance-1;
+      }
+    }
+    .menu__item {
+      padding: 19px $distance-2;
+    }
+  }
+
+  &--isCollapsed {
+    margin-left: -154px;
+
+    .sidebarNavigation__header {
+      justify-content: flex-end;
+
+      &--logo {
+        min-width: 70px;
+      }
+    }
+    .sidebarNavigation__mainMenu {
+      width: auto;
+    }
+    .sidebarNavigation__bottomMenu {
+      width: auto;
+    }
+  }
+  .tooltipOverlay {
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+  }
+}

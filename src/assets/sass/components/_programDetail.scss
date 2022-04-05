@@ -1,0 +1,181 @@
+.accelerator-view {
+  margin-top: $distance-10;
+  position: relative;
+
+  @media (max-width: map-get($breakpoints, xs)) {
+    .accelerator-view {
+      margin-top: $distance-2;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+
+    @media (max-width: map-get($breakpoints, md)) {
+      position: relative;
+    }
+
+    img,
+    .esolidar-preview__no-image,
+    .esolidar-preview__image {
+      outline: 0px;
+      border: 0px;
+
+      @media (max-width: map-get($breakpoints, md)) {
+        width: 100% !important;
+        height: auto !important;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 50%);
+    }
+  }
+
+  .accelerator-view__title {
+    color: map-get($main-text-colors, title) !important;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 64px;
+    max-width: 560px;
+    margin-top: $distance-3;
+
+    &.preview-color {
+      color: map-get($main-text-colors, dark) !important;
+    }
+  }
+
+  &__intro {
+    margin-top: $distance-5;
+    max-width: 752px;
+    background-color: map-get($base, white);
+    font-size: 18px;
+    line-height: 28px;
+    padding-top: $distance-4;
+    padding-right: $distance-4;
+    min-height: 190px;
+
+    @media (max-width: map-get($breakpoints, md)) {
+      margin-top: $distance-1;
+      max-width: 100%;
+    }
+
+    &.preview-color {
+      color: map-get($main-text-colors, dark) !important;
+    }
+  }
+
+  &__h2 {
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: $distance-2;
+  }
+
+  &__description {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    max-width: map-get($widths, lg);
+
+    &.preview-color {
+      color: map-get($main-text-colors, dark) !important;
+    }
+  }
+
+  &__format {
+    margin-top: $distance-9;
+  }
+
+  &__when {
+    margin-top: $distance-7;
+
+    p {
+      padding: 0;
+      margin: 0;
+
+      i {
+        margin-right: $distance-1;
+        color: map-get($neutrals, 400);
+      }
+    }
+  }
+
+  &__apply {
+    margin-top: $distance-7;
+  }
+
+  &__skills {
+    margin-top: $distance-7;
+
+    &-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+
+  &__sub-title {
+    margin-top: $distance-4;
+  }
+
+  &__bottom-submit {
+    margin-top: $distance-9;
+
+    &-container {
+      padding: $distance-1;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        flex-direction: column;
+      }
+
+      h3 {
+        margin: 0;
+        padding: 0;
+        margin-bottom: $distance-2;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 48px;
+      }
+
+      &-p {
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: $distance-2;
+      }
+
+      &-footer {
+        padding: 0;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($neutrals, 700);
+      }
+    }
+  }
+
+  &__running-projects {
+    margin-top: $distance-9;
+  }
+
+  &__interests-list {
+    display: flex;
+    gap: $distance-2;
+  }
+}

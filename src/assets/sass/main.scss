@@ -1,0 +1,94 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: map-get($main-text-colors, title) !important;
+  font-weight: 700 !important;
+  font-family: map-get($fonts, main);
+  margin-bottom: $distance-1;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 21px;
+  line-height: 25px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+body {
+  font-family: map-get($fonts, main);
+  font-weight: 400;
+}
+
+.body {
+  &-regular {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: map-get($neutrals, 700);
+  }
+
+  &-small {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 700);
+  }
+}
+
+hr {
+  margin: $distance-8 0;
+}
+
+.form-group {
+  .control-label {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    color: map-get($base, black);
+    letter-spacing: 0;
+    display: block;
+  }
+
+  .help {
+    font-size: 13px;
+    color: map-get($main-text-colors, dark);
+    line-height: 19px;
+    margin-bottom: $distance-2;
+    letter-spacing: 0;
+    display: block;
+  }
+
+  .size-sm {
+    max-width: map-get($widths, sm);
+  }
+  .size-md {
+    max-width: map-get($widths, md);
+  }
+  .size-lg {
+    max-width: map-get($widths, lg);
+  }
+}
+
+.help-block {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: map-get($neutrals, 700);
+  margin-top: $distance-1;
+}
+
+.has-error {
+  .help-block {
+    color: map-get($negative, 500);
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const CheckboxField = ({
   value,
@@ -11,9 +12,9 @@ const CheckboxField = ({
   disabled,
   id,
   dataTestId,
-  size = 'md',
+  size,
 }) => (
-  <div className="checkbox-inline">
+  <div className={classnames('checkbox-inline', { 'has-error': error })}>
     <div className="form-group">
       <label htmlFor={name}>
         <input
@@ -26,17 +27,17 @@ const CheckboxField = ({
           checked={checked}
           disabled={disabled}
         />
-        <div className={`label ${size}`}>{label}</div>
-        <div className="checkbox" />
+        <div className={classnames('checkbox', { [size]: size })} />
+        {label && <div className={`label ${size}`}>{label}</div>}
       </label>
     </div>
-    {error && <span className="help-block">{error}</span>}
+    {error && <div className="help-block">{error}</div>}
   </div>
 );
 
 CheckboxField.propTypes = {
   dataTestId: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
@@ -45,6 +46,10 @@ CheckboxField.propTypes = {
   disabled: PropTypes.bool,
   id: PropTypes.string,
   size: PropTypes.string,
+};
+
+CheckboxField.defaultProps = {
+  size: 'md',
 };
 
 export default CheckboxField;

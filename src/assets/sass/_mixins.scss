@@ -83,19 +83,24 @@
   }
 }
 
-@mixin animate() {
-  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1);
+@mixin animate($prop: all, $ms: 500ms, $dl: 0ms) {
+  -webkit-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1);
   /* older webkit */
-  -webkit-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -moz-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  -o-transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
-  transition: all 700ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -webkit-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -moz-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  -o-transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
+  transition: $prop $ms cubic-bezier(0.115, 0.65, 0.215, 1.005);
   -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1);
   /* older webkit */
   -webkit-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   -moz-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   -o-transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
   transition-timing-function: cubic-bezier(0.115, 0.65, 0.215, 1.005);
+
+  -webkit-transition-delay: $dl;
+  -moz-transition-delay: $dl;
+  -o-transition-delay: $dl;
+  transition-delay: $dl;
 }
 
 @mixin text-overflow-ellipsis {
@@ -104,10 +109,20 @@
   overflow: hidden;
 }
 
+@mixin text-multiline-ellipsis($lines) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
 @mixin box-shadow($shadow...) {
-  -webkit-box-shadow: $shadow;
-  -moz-box-shadow: $shadow;
-  box-shadow: $shadow;
+  -webkit-box-shadow: $shadow !important;
+  -moz-box-shadow: $shadow !important;
+  box-shadow: $shadow !important;
 }
 
 @mixin dropdown-arrow-before($left: 91%, $left-xs: 79%) {
@@ -160,7 +175,9 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #9f9f9f;
+    background: map-get($neutrals, 200);
+    border-radius: $border-radius-1;
+    min-height: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -172,18 +189,99 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #f0f0f0;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:hover {
-    background: #e8e8e8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-track:active {
-    background: #c8c8c8;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-corner {
     background: transparent;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    min-height: 10px;
+  }
+}
+
+@mixin border($color: $turquoise) {
+  border: 2px solid map-get($color, 500);
+}
+
+@mixin input-focus() {
+  border: none;
+  box-sizing: border-box;
+  outline: 2px solid map-get($turquoise, 500) !important;
+  box-shadow: 0px 0px 0px 6px rgba(12, 131, 128, 0.08);
+  @include animate();
+}
+
+@mixin input-hover() {
+  border: none;
+  outline: 2px solid map-get($turquoise, 500);
+  @include animate(all);
+}
+
+@mixin input-disabled() {
+  border: none;
+  color: map-get($neutrals, 700) !important;
+  border: none !important;
+  background-color: map-get($background, secondary) !important;
+  outline: 1px solid map-get($neutrals, 200);
+  @include animate();
+}
+
+@mixin input-disabled-hover() {
+  border: none;
+  outline: 1px solid map-get($neutrals, 200);
+}
+
+@mixin input-form() {
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: map-get($neutrals, 900);
+  resize: none;
+  box-shadow: none;
+  line-height: 1.8;
+  outline: 1px solid map-get($neutrals, 200);
+  border-radius: $border-radius-1 !important;
+  background-color: map-get($base, white);
+  @include animate();
+}
+
+@mixin input-form-error() {
+  border: none;
+  outline: 2px solid map-get($negative, 500);
+  @include animate();
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: none !important;
+    outline: 2px solid map-get($negative, 500) !important;
+  }
+  &:focus {
+    box-shadow: 0px 0px 0px 4px rgba(183, 69, 32, 0.08);
+  }
+}
+
+@mixin line-clamp($lines: 4) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}
+
+@mixin svg-change-color($color: map-get($neutrals, 700)) {
+  .icon-component {
+    path {
+      fill: $color;
+    }
   }
 }

@@ -1,22 +1,61 @@
 $border-radius: 3px;
-$border-color: #ddd;
-$background-color: #eee;
+$border-color: map-get($neutrals, 100);
+$background-color: map-get($base, white);
 $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238, 238, 238, 1) 100%);
 
+.htmlEditor {
+  &-sm {
+    max-width: map-get($widths, sm);
+  }
+  &-md {
+    max-width: map-get($widths, md);
+  }
+  &-lg {
+    max-width: map-get($widths, lg);
+  }
+}
+
 .rdw {
+  &-text-align-wrapper,
+  &-image-wrapper {
+    margin-bottom: 0px !important;
+  }
   &-editor {
     &-wrapper {
-      border: 1px solid $border-color !important;
+      @include thin-scroll-bar();
+
+      padding: $distance-2 !important;
+      border: 0.132rem solid $border-color !important;
       background-color: white !important;
+      border-radius: $border-radius-1;
+
+      @include animate();
+
+      &-disabled {
+        @include input-disabled();
+        @include svg-change-color(map-get($neutrals, 400));
+        outline: none !important;
+        border: 0.132rem solid $border-color !important;
+        box-shadow: none;
+      }
 
       &-error {
-        border: 1px solid red !important;
+        border: 2px solid map-get($negative, 500) !important;
+        outline: unset !important;
+        box-shadow: none !important;
       }
 
       &-focus {
         &:not(.rdw-editor-wrapper-mui) {
-          box-shadow: 0 0 0 1px $border-color;
-          border-color: $border-color !important;
+          @include input-focus();
+        }
+      }
+
+      &:hover {
+        &:not(.rdw-editor-wrapper-disabled) {
+          border: 2px solid map-get($turquoise, 500) !important;
+          outline: none !important;
+          box-shadow: none;
         }
       }
 
@@ -31,8 +70,8 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 
         &.rdw-editor-wrapper-focus {
           &.rdw-editor-wrapper-error {
-            box-shadow: 0 0 0 1px red;
-            border-color: red !important;
+            box-shadow: 0 0 0 1px map-get($negative, 500);
+            border-color: map-get($negative, 500) !important;
           }
 
           &:not(.rdw-editor-wrapper-error) {
@@ -44,23 +83,113 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
     }
 
     &-main {
-      padding: 10px 15px !important;
-      height: 350px !important;
-      overflow: hidden !important;
+      & .disabled {
+        border-bottom: none !important;
+      }
+
+      & .DraftEditor-root {
+        & .public-DraftEditor-content {
+          height: 172px !important;
+        }
+
+        & .public-DraftEditorPlaceholder-root {
+          color: map-get($neutrals, 400);
+          font-size: 16px;
+        }
+      }
     }
 
     &-toolbar {
-      padding: 10px 0 0 0 !important;
-      margin: 0 10px !important;
       border: unset !important;
-      border-bottom: 1px solid $border-color !important;
+      margin: 0 !important;
+      padding: unset !important;
+      padding-left: 2px !important;
+      padding-top: 2px !important;
+      gap: 2px !important;
+      margin-bottom: $distance-3 !important;
+      @include animate();
+
+      & .rdw-inline-wrapper {
+        margin-bottom: 0 !important;
+        gap: 2px;
+      }
+
+      & .rdw-list-wrapper {
+        margin-bottom: 0 !important;
+        gap: 2px;
+      }
+
+      & .rdw-link-wrapper {
+        margin-bottom: 0 !important;
+        gap: 2px;
+      }
+
+      .rdw-option {
+        &-wrapper {
+          &:hover,
+          &:active,
+          &:focus-visible {
+            box-shadow: none !important;
+            outline: none !important;
+          }
+        }
+      }
+
+      &.disabled {
+        @include animate();
+        @include input-disabled();
+        border-top: none !important;
+        outline: none !important;
+
+        .rdw-option {
+          &-wrapper {
+            &:hover,
+            &:active,
+            &:focus-visible {
+              box-shadow: none !important;
+              outline: none !important;
+              cursor: default;
+            }
+          }
+        }
+      }
+
+      &:not(.disabled) {
+        .rdw-option {
+          &-wrapper {
+            &:hover {
+              box-shadow: none !important;
+              background-color: get-rgba(map-get($turquoise, 500)) !important;
+
+              @include svg-change-color(map-get($turquoise, 500));
+            }
+          }
+        }
+      }
+
+      .rdw-option {
+        &-wrapper {
+          border: none !important;
+          padding: 0 !important;
+          width: 24px !important;
+          height: 24px !important;
+          border-radius: $border-radius !important;
+          background-color: transparent !important;
+          margin: 0px;
+        }
+
+        &-active {
+          box-shadow: none !important;
+          @include svg-change-color(map-get($turquoise, 500));
+        }
+      }
     }
   }
 
   &-embedded {
     &-modal {
       width: 265px !important;
-      height: 210px !important;
+      height: 250px !important;
 
       &-header-label:first-of-type {
         width: 110px !important;
@@ -87,27 +216,7 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   &-link {
     &-modal {
       width: 265px !important;
-      height: 240px !important;
-    }
-  }
-
-  &-option {
-    &-wrapper {
-      border: none !important;
-      padding: 0 !important;
-      width: 30px !important;
-      height: 30px !important;
-      border-radius: $border-radius !important;
-
-      &:hover {
-        box-shadow: none !important;
-        background: $background-gradient !important;
-      }
-    }
-
-    &-active {
-      box-shadow: none !important;
-      background-color: $background-color !important;
+      height: 200px !important;
     }
   }
 
@@ -208,21 +317,31 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
   }
 }
 
-.public-Draft.Editor-content {
-  max-height: 340px !important;
-  overflow-y: auto !important;
+.rdw-link-modal {
+  border-radius: $border-radius-1 !important;
+  box-shadow: map-get($elevation, 200) !important;
+  top: 35px !important;
+  bottom: auto !important;
+  padding: $distance-1 !important;
 
-  h1 {
-    color: inherit !important;
+  &-target-option {
+    display: none;
+  }
+
+  &-buttonsection {
+    margin-top: 4px !important;
   }
 }
 
 .rdw-image-modal-alt-input,
 .rdw-image-modal-size-input,
-.rdw-link-modal-input,
-.rdw-embedded-modal-size-input {
-  height: 30px !important;
+.rdw-embedded-modal-size-input,
+.rdw-link-modal-input {
+  height: 32px !important;
   padding: 0 7px !important;
+  margin: 0 !important;
+  margin-bottom: $distance-1 !important;
+  border-radius: 4px !important;
 }
 
 .rdw-image-modal-btn,
@@ -230,14 +349,17 @@ $background-gradient: linear-gradient(0deg, rgba(217, 217, 217, 1) 0%, rgba(238,
 .rdw-link-modal-btn {
   min-width: 80px !important;
   height: unset !important;
-  border-radius: $border-radius !important;
+  border-radius: $border-radius-1 !important;
   padding: 5px 10px !important;
 
   &:hover {
     box-shadow: none !important;
-
     &:enabled {
-      background: $background-gradient !important;
+      border: 1px solid map-get($neutrals, 700) !important;
+    }
+
+    &:disabled {
+      cursor: default !important;
     }
   }
 }

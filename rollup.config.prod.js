@@ -1,14 +1,14 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import babel from '@rollup/plugin-babel';
 import bundleScss from 'rollup-plugin-bundle-scss';
 import copy from 'rollup-plugin-copy-assets';
 import json from '@rollup/plugin-json';
 import { terser } from 'rollup-plugin-terser';
-import getFiles from './src/utils/getFiles';
+import getFiles from './src/utils/getFiles/getFiles';
 import pkg from './package.json';
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
@@ -17,12 +17,14 @@ const excludedExtensions = ['.stories.js', '.stories.tsx', '.test.js', '.test.ts
 export default {
   input: [
     'src/index.js',
+    ...getFiles('src/accelerator', extensions, excludedExtensions),
     ...getFiles('src/components', extensions, excludedExtensions),
     ...getFiles('src/constants', extensions, excludedExtensions),
     ...getFiles('src/elements', extensions, excludedExtensions),
     ...getFiles('src/unreleased', extensions, excludedExtensions),
     ...getFiles('src/hooks', extensions, excludedExtensions),
     ...getFiles('src/utils', extensions, excludedExtensions),
+    ...getFiles('src/user', extensions, excludedExtensions),
     ...getFiles('__mocks__', extensions, excludedExtensions),
     ...getFiles('__customQueries__', extensions, excludedExtensions),
   ],
@@ -54,11 +56,11 @@ export default {
         '@babel/plugin-transform-react-jsx',
       ],
     }),
-    typescript({ useTsconfigDeclarationDir: true, rollupCommonJSResolveHack: true }),
+    typescript(),
     commonjs(),
     json(),
     copy({
-      assets: ['src/assets/'],
+      assets: ['src/assets/icons', 'src/assets/sass'],
     }),
     postcss({
       plugins: [],

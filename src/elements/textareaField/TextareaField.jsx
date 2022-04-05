@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
 import InputLabel from '../inputLabel';
-import { isDefined } from '../../utils';
+import Icon from '../../components/icon';
+import Button from '../button';
+import isDefined from '../../utils/isDefined';
 
 const TextareaField = ({
   field,
@@ -28,6 +30,10 @@ const TextareaField = ({
   dataTestId,
   autofocus,
   onKeyDown,
+  onBlur,
+  size,
+  editButton = false,
+  inputLabelProps = false,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -44,6 +50,8 @@ const TextareaField = ({
     }
   }
 
+  const [editMode, setEditMode] = useState(editButton);
+
   return (
     <div
       className={classnames(
@@ -54,27 +62,61 @@ const TextareaField = ({
         className
       )}
     >
-      {label && <InputLabel field={field} label={label} showOptionalLabel={showOptionalLabel} />}
-      {help && <p className="help">{help}</p>}
-      <textarea
-        id={id || field}
-        disabled={disabled}
-        onChange={onChange}
-        value={value}
-        defaultValue={defaultValue}
-        name={field}
-        maxLength={maxLength || ''}
-        placeholder={placeholder}
-        className={error ? `${cssClass} form-control required-field` : `${cssClass} form-control`}
-        onPaste={onPaste}
-        onKeyDown={onKeyDown}
-        data-testid={dataTestId}
-        // eslint-disable-next-line jsx-a11y/no-autofocus
-        autoFocus={autofocus}
-      />
+      {label && (
+        <InputLabel
+          field={field}
+          label={label}
+          showOptionalLabel={showOptionalLabel}
+          help={help}
+          size={size}
+        />
+      )}
+      {inputLabelProps && <InputLabel {...inputLabelProps} />}
+      <div className={classnames(`size-${size}`, ' relative')}>
+        {editMode && (
+          <div className="edit-button-mode">
+            <Button
+              className=""
+              extraClass="secondary"
+              fullWidth={false}
+              icon={<Icon iconClass="icon-edit-2" />}
+              onClick={() => setEditMode(false)}
+              size="md"
+              type="icon"
+            />
+          </div>
+        )}
+        <textarea
+          id={id || field}
+          disabled={editMode || disabled}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
+          defaultValue={defaultValue}
+          name={field}
+          maxLength={maxLength || ''}
+          placeholder={placeholder}
+          className={classnames(
+            'form-control',
+            { footer: maxLength },
+            { 'required-field': error },
+            cssClass
+          )}
+          onPaste={onPaste}
+          onKeyDown={onKeyDown}
+          data-testid={dataTestId}
+          // eslint-disable-next-line jsx-a11y/no-autofocus
+          autoFocus={autofocus}
+        />
+        {maxLength && !disabled && (
+          <div className="footer-maxlength">
+            {value?.length}/{maxLength}
+          </div>
+        )}
+      </div>
       {info && <span className="footer-label-info">{info}</span>}
-      {error && <span className="help-block">{error}</span>}
-      {message && <span className="help-block">{message}</span>}
+      {error && <div className="help-block">{error}</div>}
+      {message && <div className="help-block">{message}</div>}
     </div>
   );
 };
@@ -102,10 +144,16 @@ TextareaField.propTypes = {
   dataTestId: PropTypes.string,
   autofocus: PropTypes.bool,
   onKeyDown: PropTypes.func,
+  onBlur: PropTypes.func,
+  size: PropTypes.string,
+  editButton: PropTypes.bool,
+  inputLabelProps: PropTypes.object,
 };
 
 TextareaField.defaultProps = {
   showOptionalLabel: false,
+  cssClass: '',
+  size: 'lg',
 };
 
 export default TextareaField;

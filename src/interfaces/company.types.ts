@@ -11,6 +11,7 @@ interface Company {
   id: number;
   code: string;
   name: string;
+  acronym: string;
   email: string;
   vat: string;
   company_id?: number;

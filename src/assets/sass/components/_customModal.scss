@@ -5,44 +5,54 @@
 
 .modal-backdrop.show {
   opacity: 75%;
+  z-index: 9999;
 }
 
 .custom-modal {
-  &__title {
-    font-weight: 700;
-    color: map-get($base, black);
-    margin-right: $distance-1;
-  }
-
   .modal-content {
-    padding: $distance-1;
     border-radius: $border-radius-2;
     box-shadow: 0px 0px 16px 0px #00000026;
     border: 1px solid map-get($neutrals, 200);
+    @include thin-scroll-bar();
+
+    @media (max-height: map-get($breakpoints, md)) {
+      max-height: calc(100vh - 3.5rem) !important;
+    }
 
     .modal-header {
-      padding: $distance-2;
+      padding: $distance-3;
+      padding-bottom: $distance-2;
 
       & .modal-title {
         display: flex;
-        align-items: center;
+        gap: $distance-1;
+        justify-content: space-between;
         width: 100%;
 
-        & .icon-close {
-          margin-left: auto;
-          cursor: pointer;
-          font-size: 12px;
+        & .custom-modal__title {
+          font-weight: 700;
+          color: map-get($base, black);
+          display: flex;
+          flex-wrap: wrap;
+          gap: $distance-1;
+
+          &-icon {
+            margin-right: $distance-3;
+          }
         }
       }
     }
     .modal-body {
-      padding: 0 $distance-2 $distance-1 $distance-2;
+      padding: 0 $distance-3;
+      @include thin-scroll-bar();
     }
 
     .modal-footer {
-      padding: $distance-2;
+      padding: $distance-3;
+      gap: $distance-2;
 
       & > * {
+        gap: $distance-2;
         margin: 0;
       }
     }

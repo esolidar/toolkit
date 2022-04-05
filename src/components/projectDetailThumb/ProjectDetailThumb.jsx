@@ -4,14 +4,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import Rating from 'react-rating';
 import SelectField from '../../elements/selectField';
 import LightboxGallery from '../lightboxGallery';
 import Button from '../../elements/button';
 import { cdnStaticUrl } from '../../constants/env';
+import Icon from '../../elements/icon';
 
 const ProjectDetailThumb = ({
   project,
@@ -50,8 +48,8 @@ const ProjectDetailThumb = ({
             {project.review_average ? (
               <Rating
                 className="rating ml-1"
-                emptySymbol={<FontAwesomeIcon className="empty" icon={farStar} />}
-                fullSymbol={<FontAwesomeIcon className="full" icon={faStar} />}
+                emptySymbol={<Icon className="empty" name="Star" />}
+                fullSymbol={<Icon className="full" name="StarBold" />}
                 readonly={true}
                 initialRating={project.review_average}
               />
@@ -60,12 +58,24 @@ const ProjectDetailThumb = ({
             )}
           </div>
         )}
-        <div className="ods-thumb">
-          <h4 style={{ color }}>
-            <FormattedMessage id="category" />
-          </h4>
-          <p className="category-name">{project.project_category.name}</p>
-        </div>
+        {project?.categories?.length > 0 && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage id="category" />
+            </h4>
+            {project.categories.map(category => {
+              return <p className="category-name">{category.name}</p>;
+            })}
+          </div>
+        )}
+        {project.category_id && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage id="category" />
+            </h4>
+            <p className="category-name">{project.project_category?.name}</p>
+          </div>
+        )}
         <div className="ods-thumb">
           <h4 style={{ color }}>
             <FormattedMessage id="ods" />
@@ -129,7 +139,7 @@ const ProjectDetailThumb = ({
               extraClass="info-full w-100"
               onClick={() => admin.changeStatus('REQUEST_INFO')}
               text={admin.requestInfoText}
-              icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />}
+              icon={<Icon name="InfoBold" className="mr-2" />}
               disabled={showRequestInfoView}
             />
           )}

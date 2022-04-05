@@ -28,15 +28,6 @@
     resize: none;
   }
 
-  .has-error {
-    .help-block {
-      color: map-get($colors, red) !important;
-      font-size: 12px;
-      top: -10px;
-      position: relative;
-    }
-  }
-
   .btn-submit {
     width: 100%;
     margin-top: 20px;

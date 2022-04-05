@@ -5,32 +5,28 @@ import classnames from 'classnames';
 import InputLabel from '../../elements/inputLabel';
 import Button from '../../elements/button';
 import DropZoneBox from '../../elements/dropZoneBox';
-import Icon from '../icon';
+import isDefined from '../../utils/isDefined';
+import Icon from '../../elements/icon';
 import { Props } from './ChangeProfileUserImage.types';
 
 const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
-  const noImage = `${env.cdnStatic}/frontend/assets/no-image/upload.svg`;
+  const hasNoImage: boolean = thumb?.includes('no-image') || thumb === '' || !isDefined(thumb);
 
   const handleOnSelect = file => {
     const type = typeof file.name === 'string' ? 'file' : 'blob';
     const thumb = type === 'blob' ? URL.createObjectURL(file[0]) : file[0].preview;
 
-    onDrop({
-      image: file,
-      thumb,
-    });
+    onDrop({ image: file, thumb });
   };
 
-  const onClick = () => {
-    document.getElementById('change-profile-user-image__button-upload').click();
-  };
+  const onClick = () => document.getElementById('change-profile-user-image__button-upload').click();
 
   return (
     <div className="change-profile-user-image">
       <InputLabel
-        cssClass="change-profile-user-image-title"
+        className="change-profile-user-image-title"
         label={intl.formatMessage({ id: 'toolkit.profile.picture' })}
       />
       <div
@@ -40,12 +36,15 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
       >
         <div className="thumb-box">
           <div
-            onKeyPress={thumb === noImage ? onClick : () => {}}
-            onClick={thumb === noImage ? onClick : () => {}}
+            onKeyPress={onClick}
+            onClick={onClick}
             className="thumb"
             data-testid="thumb-change-profile-user-image"
-            style={{ backgroundImage: `url(${thumb})` }}
-          />
+            // style={{ backgroundImage: `url(${hasNoImage ? '' : thumb})` }}
+          >
+            {hasNoImage && <Icon name="Camera" />}
+            {!hasNoImage && <img src={thumb} alt="thumb" width="148px" />}
+          </div>
           <DropZoneBox
             accept=".jpg, .jpeg, .png"
             onSelect={handleOnSelect}
@@ -67,15 +66,17 @@ const ChangeProfileUserImage: FC<Props> = ({ thumb, errors, onDrop, env }: Props
             <Button
               id="change-profile-user-image__button-upload"
               extraClass="dark"
-              className={classnames({ 'change-profile-user-image__no-button': thumb === noImage })}
+              className={classnames({
+                'change-profile-user-image__no-button': hasNoImage,
+              })}
               type="file"
               text=""
               dataTestId="button-change-profile-user-image"
-              icon={<Icon iconClass="icon-edit-2" />}
+              icon={<Icon name="Edit2" size="sm" />}
             />
           </DropZoneBox>
         </div>
-        {errors.image && <span className="help-block">{errors.image}</span>}
+        {errors.image && <div className="help-block">{errors.image}</div>}
       </div>
     </div>
   );

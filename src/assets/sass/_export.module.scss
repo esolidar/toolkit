@@ -159,6 +159,7 @@
     _400: map-get($elevation, 400);
     _500: map-get($elevation, 500);
   }
+
   main-text-colors: {
     light: map-get($main-text-colors, light);
     dark: map-get($main-text-colors, dark);
@@ -236,4 +237,7 @@
   distance-4: $distance-4;
   distance-5: $distance-5;
   distance-16: $distance-16;
+
+  border-radius-1: $border-radius-1;
+  border-radius-2: $border-radius-2;
 }

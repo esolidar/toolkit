@@ -1,0 +1,43 @@
+.acceleratorSubmitProjectBox {
+  &__submit {
+    margin-top: $distance-4;
+
+    p {
+      padding: 0;
+      padding-top: $distance-2;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($neutrals, 700);
+    }
+
+    &-soon {
+      display: flex;
+      background-color: map-get($blue, 0);
+      padding: $distance-2;
+      border-radius: $border-radius-1;
+
+      @include svg-change-color(map-get($blue, 500));
+
+      svg {
+        margin-right: $distance-1;
+      }
+
+      h4 {
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        margin-top: $distance-1;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: map-get($base, black);
+      }
+    }
+  }
+}

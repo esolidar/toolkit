@@ -4,7 +4,7 @@ import ProgressBar from '../../progressBar/ProgressBar';
 import Props from './CardCrowdfunding.types';
 import Card from '../Card';
 import Countdown from '../../countdown/Countdown';
-import slugify from '../../../utils/slugify';
+import slugify from '../../../utils/slugify/slugify';
 import { cdnUploadsUrl, cdnStaticUrl } from '../../../constants/env';
 
 const CardCrowdfunding: FC<Props> = ({

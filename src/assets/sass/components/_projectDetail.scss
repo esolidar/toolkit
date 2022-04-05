@@ -81,6 +81,7 @@
   .category-name {
     padding: 0 5px;
     color: map-get($main-text-colors, dark);
+    margin-bottom: $distance-1;
   }
 
   .project-thumb {

@@ -5,11 +5,11 @@ import { Elements, StripeProvider } from 'react-stripe-elements';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { NotificationManager } from 'react-notifications';
 import StripeCheckoutFormSca from '../stripe/StripeCheckoutFormSca';
-import { filterUnique } from '../../utils';
+import filterUnique from '../../utils/filterUnique';
 import Loading from '../loading';
 import RadioField from '../../elements/radioField';
 import Button from '../../elements/button';
-import isEmpty from '../../utils/isEmpty';
+import isEmpty from '../../utils/isEmpty/isEmpty';
 
 const CreditCardList = ({
   getStripeCreditCardlist,

@@ -2,8 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Loading from '../../components/loading';
 import InputLabel from '../inputLabel';
-import Icon from '../../components/icon';
+import Icon from '../icon';
 
 const TextField = ({
   field,
@@ -28,26 +29,44 @@ const TextField = ({
   inputRef,
   children,
   info,
+  inputLabelProps,
   showOptionalLabel,
   leftIcon,
   rightIcon,
+  password,
+  size,
+  isLoading,
 }) => (
   <div
-    className={classnames('form-group', { 'has-error': error || message }, { required }, className)}
+    className={classnames(
+      { 'form-group': !password },
+      { 'has-error': error || message },
+      { required },
+      className
+    )}
   >
     {label && (
-      <InputLabel field={id || field} label={label} showOptionalLabel={showOptionalLabel} />
+      <InputLabel
+        field={id || field}
+        label={label}
+        showOptionalLabel={showOptionalLabel}
+        help={help}
+        size={size}
+      />
     )}
-    {help && <p className="help">{help}</p>}
+    {inputLabelProps && <InputLabel {...inputLabelProps} />}
     {!children && (
-      <div className="input">
+      <div className={classnames(`size-${size}`, 'input')}>
         {leftIcon?.show && (
-          <Icon
-            iconClass={`icon left ${leftIcon?.name}`}
-            onClick={leftIcon?.onClick}
-            style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-left-icon"
-          />
+          <div className="icon left">
+            <Icon
+              name={leftIcon?.name}
+              size="sm"
+              onClick={leftIcon?.onClick}
+              style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+              dataTestId="input-left-icon"
+            />
+          </div>
         )}
         <input
           data-testid={dataTestId}
@@ -67,30 +86,40 @@ const TextField = ({
           className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
           style={{
-            paddingLeft: leftIcon?.show ? '36px' : '12px',
-            paddingRight: rightIcon?.show ? '36px' : '12px',
+            paddingLeft: leftIcon?.show ? '40px' : '12px',
+            paddingRight: rightIcon?.show ? '40px' : '12px',
           }}
         />
         {rightIcon?.show && (
-          <Icon
-            iconClass={`icon right ${rightIcon?.name}`}
-            onClick={rightIcon?.onClick}
-            style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-            dataTestId="input-right-icon"
-          />
+          <div className="icon right">
+            <Icon
+              name={rightIcon?.name}
+              size="sm"
+              onClick={rightIcon?.onClick}
+              style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+              dataTestId="input-right-icon"
+            />
+          </div>
         )}
+        <div className="input__loading">
+          <Loading
+            loadingClass={classnames('small-loading', { setVisible: isLoading })}
+            size="xxs"
+          />
+        </div>
       </div>
     )}
     {children && children}
     {info && <span className="footer-label-info">{info}</span>}
-    {error && <span className="help-block">{error}</span>}
-    {message && <span className="help-block">{message}</span>}
+    {error && <div className="help-block">{error}</div>}
+    {message && <div className="help-block">{message}</div>}
   </div>
 );
 
 TextField.propTypes = {
   dataTestId: PropTypes.string,
   info: PropTypes.string,
+  inputLabelProps: PropTypes.object,
   field: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -98,7 +127,7 @@ TextField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.bool]),
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
@@ -109,9 +138,10 @@ TextField.propTypes = {
   help: PropTypes.string,
   required: PropTypes.bool,
   className: PropTypes.string,
-  inputRef: PropTypes.object,
+  inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   children: PropTypes.node,
   showOptionalLabel: PropTypes.bool,
+  password: PropTypes.bool,
   leftIcon: PropTypes.shape({
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func,
@@ -122,11 +152,15 @@ TextField.propTypes = {
     onClick: PropTypes.func,
     show: PropTypes.bool.isRequired,
   }),
+  size: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 TextField.defaultProps = {
   children: null,
   showOptionalLabel: false,
+  size: 'lg',
+  isLoading: false,
 };
 
 export default TextField;

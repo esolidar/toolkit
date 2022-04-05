@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import CheckboxField from '../../../elements/checkboxField';
 import TextareaField from '../../../elements/textareaField';
 
 const CrowdfundingItem = ({
@@ -38,13 +39,13 @@ const CrowdfundingItem = ({
 
   return (
     <div className="cart-item box">
-      <Row>
-        <Col sm={8} xs={12} className="cart-item-row">
+      <Row className="cart-item-row">
+        <Col sm={8} xs={12} className="cart-item-column">
           <div className="checkbox-inline">
             <div className="form-group">
               <label htmlFor="addCart" className={totalItems === 1 ? 'p-0' : ''}>
                 <BrowserView device={isBrowser}>
-                  <div>
+                  <>
                     {item.campaign.images.length > 0 && (
                       <img
                         className="js-image-thumb-browser"
@@ -57,10 +58,10 @@ const CrowdfundingItem = ({
                         alt={campaignTitle()}
                       />
                     )}
-                  </div>
+                  </>
                 </BrowserView>
                 <MobileView device={isMobile}>
-                  <div>
+                  <>
                     {item.campaign.images.length > 0 && (
                       <img
                         src={
@@ -72,26 +73,26 @@ const CrowdfundingItem = ({
                         style={{ width: 95 }}
                       />
                     )}
-                  </div>
+                  </>
                 </MobileView>
-                <div>
-                  {item.campaign.images.length === 0 && (
-                    <img src={campaignImage} style={{ width: 95 }} alt={campaignTitle()} />
+                {item.campaign.images.length === 0 && (
+                  <img src={campaignImage} style={{ width: 95 }} alt={campaignTitle()} />
+                )}
+                <div className="cart-item-column__details">
+                  <h3>{campaignTitle()}</h3>
+                  <BrowserView device={isBrowser}>
+                    <p className="paragraph" title={item.campaign.description}>
+                      {item.campaign.description}
+                    </p>
+                  </BrowserView>
+                  {item.campaign.institution && (
+                    <div className="checkout-supports">
+                      {intl.formatMessage({ id: 'checkout.suports' })}
+                      &nbsp;
+                      <strong>{item.campaign.institution.name}</strong>
+                    </div>
                   )}
                 </div>
-                <h3>{campaignTitle()}</h3>
-                <BrowserView device={isBrowser}>
-                  <p className="paragraph" title={item.campaign.description}>
-                    {item.campaign.description}
-                  </p>
-                </BrowserView>
-                {item.campaign.institution && (
-                  <div className="checkout-supports">
-                    {intl.formatMessage({ id: 'checkout.suports' })}
-                    &nbsp;
-                    <strong>{item.campaign.institution.name}</strong>
-                  </div>
-                )}
                 <input
                   type="checkbox"
                   name="checked"
@@ -117,22 +118,13 @@ const CrowdfundingItem = ({
       </Row>
       <Row>
         <Col xs={12}>
-          <div className="checkbox-inline">
-            <div className="form-group">
-              <label htmlFor="hidden">
-                <FormattedMessage id="crowdfunding.donation.checkout.anonymous" />
-                <input
-                  type="checkbox"
-                  name="hidden"
-                  id="hidden"
-                  value={item.hidden}
-                  onChange={e => onChangCheckBox(e, indx)}
-                  checked={+item.extra.hidden === 1}
-                />
-                <div className="checkbox" />
-              </label>
-            </div>
-          </div>
+          <CheckboxField
+            label={intl.formatMessage({ id: 'crowdfunding.donation.checkout.anonymous' })}
+            name="hidden"
+            value={item.hidden}
+            onChange={e => onChangCheckBox(e, indx)}
+            checked={+item.extra.hidden === 1}
+          />
         </Col>
         <Col xs={12}>
           <TextareaField

@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from '../index';
+import Icon from '../../icon';
+import Badge from '../../badge';
 
 const onClickFunc = jest.fn();
 
@@ -41,13 +41,10 @@ describe('Button component', () => {
 
   it('renders Button icon prop', () => {
     const component = shallow(
-      <Button
-        extraClass="danger"
-        to="login"
-        icon={<FontAwesomeIcon icon={faInfoCircle} className="mr-2" />}
-      />
+      <Button extraClass="danger" to="login" icon={<Icon name="Auction" />} />
     );
-    expect(component.find('FontAwesomeIcon').length).toBe(1);
+    console.log(component.debug());
+    expect(component.find('Icon').prop('name')).toEqual('Auction');
   });
 
   it('renders Button classes from fullWidth prop', () => {
@@ -63,5 +60,37 @@ describe('Button component', () => {
   it('renders Button classes from size prop', () => {
     const component = shallow(<Button extraClass="danger" to="login" size="lg" />);
     expect(component.find('.btn-lg').length).toBe(1);
+  });
+
+  it('renders Button with loading', () => {
+    const component = shallow(
+      <Button extraClass="info-full" withLoading={true} isLoading={true} />
+    );
+    expect(component.find('Loading').prop('loadingClass')).toBe('small-loading d-block');
+    expect(component.find('Loading').prop('white')).toBe(true);
+  });
+
+  it('renders Button with iconLeft', () => {
+    const component = shallow(
+      <Button extraClass="info-full" iconLeft={<Icon name="ArrowLeft" />} />
+    );
+    expect(component.find('.btn-esolidar__icon-left').length).toBe(1);
+    expect(component.find('Icon').prop('name')).toEqual('ArrowLeft');
+  });
+
+  it('renders Button with iconRight', () => {
+    const component = shallow(
+      <Button extraClass="info-full" iconRight={<Icon name="ArrowLeft" />} />
+    );
+    expect(component.find('.btn-esolidar__icon-right').length).toBe(1);
+    expect(component.find('Icon').prop('name')).toEqual('ArrowLeft');
+  });
+
+  it('renders Button with badge', () => {
+    const component = shallow(
+      <Button extraClass="info-full" badge={<Badge text="badgeText" size="xs" />} />
+    );
+    expect(component.find('.btn-esolidar__badge').length).toBe(1);
+    expect(component.find('Badge').prop('text')).toBe('badgeText');
   });
 });

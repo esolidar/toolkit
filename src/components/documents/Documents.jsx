@@ -3,17 +3,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Modal } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import Pagination from '../../elements/pagination';
 import Loading from '../loading';
-import Icon from '../icon';
+import FileCard from '../fileCard';
 import TextField from '../../elements/textField';
 import Button from '../../elements/button';
 
 const Documents = ({
   isLoadingSearch,
   documents,
-  downloadText,
   noResultsText,
   activePage,
   per_page,
@@ -29,15 +28,8 @@ const Documents = ({
   openModalDelete,
   showDeleteModal,
   closeModal,
-  colSm,
 }) => {
-  const formatBytes = bytes => {
-    const kb = 1024;
-    const ndx = Math.floor(Math.log(bytes) / Math.log(kb));
-    const fileSizeTypes = ['bytes', 'Kb', 'Mb', 'Gb', 'Tb', 'pb', 'eb', 'zb', 'yb'];
-
-    return `${(bytes / kb / kb).toFixed(2)} ${fileSizeTypes[ndx]}`;
-  };
+  const intl = useIntl();
 
   const renderDocuments = () => {
     if (isLoadingSearch) {
@@ -46,52 +38,29 @@ const Documents = ({
 
     if (documents.length > 0) {
       return documents.map(document => {
-        const fileUserOwner = document.user_id ? document.user_id : 0;
+        const fileOwner = document.user_id || 0;
         const userId = localStorage.user ? JSON.parse(localStorage.user).id : '';
-        let icon;
-        switch (document.file_type) {
-          case 'application/pdf':
-            icon = 'icon-pdf';
-            break;
-
-          case 'application/msword':
-            icon = 'icon-ic-doc';
-            break;
-
-          case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
-            icon = 'icon-ic-ppt';
-            break;
-
-          default:
-            icon = 'icon-ic-txt';
-        }
 
         return (
           <div className="document-row" key={document.id}>
-            {document.title ? <h3>{document.title}</h3> : <h3>{decodeURI(document.name)}</h3>}
-            {document.summary && <p>{document.summary}</p>}
-            <Icon iconClass={icon} />
-            &nbsp;
-            <a
-              href={document.file}
-              className="download-file"
-              rel="noopener noreferrer"
-              target="_blank"
-              title={document.title}
-            >
-              {downloadText}
-              &nbsp;
-              {formatBytes(document.file_size)}
-            </a>
-            {openModalDelete && fileUserOwner === userId && (
-              <button
-                type="button"
-                className="deleteButton"
-                onClick={() => openModalDelete(document.id)}
-              >
-                <Icon iconClass="icon-icon-delete" />
-              </button>
-            )}
+            <FileCard
+              title={document.title || decodeURI(document.name)}
+              subtitle={document.summary}
+              showBadgePrivate={!document.public}
+              size={document.file_size}
+              dateUploaded={document.created_at}
+              file={document.file}
+              dropdownItems={[
+                {
+                  id: 0,
+                  leftIcon: 'Trash',
+                  onClick: () => openModalDelete(document.id),
+                  show: fileOwner === userId,
+                  text: intl.formatMessage({ id: 'delete' }),
+                },
+              ]}
+              showDownloadButton
+            />
           </div>
         );
       });
@@ -100,7 +69,7 @@ const Documents = ({
   };
 
   return (
-    <Col sm={colSm || 9} lg={9} className="documents">
+    <Col sm={12} className="documents">
       {headerTitleText && (
         <div className="box">
           <h3>{headerTitleText}</h3>
@@ -115,6 +84,7 @@ const Documents = ({
         placeholder={searchPlaceholder}
         defaultValue={searchValue}
         field="search"
+        size="xl"
       />
       {renderDocuments()}
       <Row>
@@ -161,7 +131,6 @@ const Documents = ({
 Documents.propTypes = {
   isLoadingSearch: PropTypes.bool.isRequired,
   documents: PropTypes.array.isRequired,
-  downloadText: PropTypes.string.isRequired,
   noResultsText: PropTypes.string.isRequired,
   headerTitleText: PropTypes.string,
   headerSubtitleText: PropTypes.string,
@@ -177,7 +146,6 @@ Documents.propTypes = {
   openModalDelete: PropTypes.func,
   showDeleteModal: PropTypes.bool,
   closeModal: PropTypes.func,
-  colSm: PropTypes.number,
 };
 
 export default Documents;

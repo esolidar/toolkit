@@ -7,6 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import classnames from 'classnames';
 import Button from '../../elements/button';
 import Pagination from '../../elements/pagination';
+import ListFooter from '../../unreleased/listFooter';
 import SelectField from '../../elements/selectField';
 import Loading from '../loading';
 
@@ -27,6 +28,9 @@ const InstitutionListSelect = ({
   isLoading,
   user_id,
   removeInstitutionSelected,
+  institutionRowButtonText,
+  listFooter,
+  onChangeSelectPerPage,
 }) => {
   const intl = useIntl();
 
@@ -72,17 +76,31 @@ const InstitutionListSelect = ({
                 onChange={onChange}
                 userId={Number(user_id)}
                 removeInstitutionSelected={removeInstitutionSelected}
+                institutionRowButtonText={institutionRowButtonText}
               />
             ))
           )}
-          {error && <span className="help-block">{error}</span>}
+          {error && <div className="help-block">{error}</div>}
           {institutions.length > 0 && (
-            <Pagination
-              activePage={pagination.activePage}
-              itemsCountPerPage={pagination.itemsCountPerPage}
-              totalItemsCount={pagination.totalItemsCount}
-              onChange={handlePageChange}
-            />
+            <>
+              {listFooter ? (
+                <ListFooter
+                  labelResultText={pagination.totalResultText}
+                  onChangeSelectPerPage={onChangeSelectPerPage}
+                  onChangePagination={handlePageChange}
+                  total={pagination.totalItemsCount}
+                  current_page={pagination.activePage}
+                  per_page={pagination.itemsCountPerPage}
+                />
+              ) : (
+                <Pagination
+                  activePage={pagination.activePage}
+                  itemsCountPerPage={pagination.itemsCountPerPage}
+                  totalItemsCount={pagination.totalItemsCount}
+                  onChange={handlePageChange}
+                />
+              )}
+            </>
           )}
         </Col>
       )}
@@ -98,8 +116,8 @@ InstitutionListSelect.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
 
-  NoResultsText: PropTypes.string.isRequired,
-  selectCategoryText: PropTypes.string.isRequired,
+  NoResultsText: PropTypes.string,
+  selectCategoryText: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   search: PropTypes.string,
   placeholderSearch: PropTypes.string,
@@ -108,10 +126,14 @@ InstitutionListSelect.propTypes = {
     activePage: PropTypes.number.isRequired,
     itemsCountPerPage: PropTypes.number.isRequired,
     totalItemsCount: PropTypes.number.isRequired,
+    totalResultText: PropTypes.string,
   }),
   isLoading: PropTypes.bool,
   user_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeInstitutionSelected: PropTypes.func,
+  institutionRowButtonText: PropTypes.string,
+  listFooter: PropTypes.bool,
+  onChangeSelectPerPage: PropTypes.func,
 };
 
 InstitutionListSelect.defaultProps = {
@@ -124,6 +146,7 @@ const InstitutionRow = ({
   onChange,
   userId,
   removeInstitutionSelected,
+  institutionRowButtonText,
 }) => {
   const intl = useIntl();
   const { id, name, image, user_id } = institution;
@@ -146,9 +169,12 @@ const InstitutionRow = ({
       </div>
       <Button
         extraClass={isSelected ? 'info-full' : 'info'}
-        text={intl.formatMessage({
-          id: isSelected ? 'selected' : 'select',
-        })}
+        text={
+          institutionRowButtonText ||
+          intl.formatMessage({
+            id: isSelected ? 'selected' : 'select',
+          })
+        }
         onClick={() => {
           if (isSameUserId && removeInstitutionSelected) removeInstitutionSelected();
           else if (!isSameUserId) onChange(institution);
@@ -170,6 +196,7 @@ InstitutionRow.propTypes = {
   onChange: PropTypes.func,
   removeInstitutionSelected: PropTypes.func,
   userId: PropTypes.any,
+  institutionRowButtonText: PropTypes.string,
 };
 
 export default InstitutionListSelect;

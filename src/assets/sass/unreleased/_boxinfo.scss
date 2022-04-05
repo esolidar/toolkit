@@ -1,0 +1,13 @@
+.esolidar-box-info {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &__button {
+    margin-left: $distance-5;
+  }
+}

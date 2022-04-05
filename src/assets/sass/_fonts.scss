@@ -1,7 +1,7 @@
 $path: $cdn-static-url + '/frontend/fonts/';
 $avenir-font-path: $path + 'avenir/';
 $have-heart-one-font-path: $path + 'haveHeartOne/';
-$icomoon-font-path: $path + 'icomoon/';
+$icomoon-font-path: $path + 'icomoon/v1.1.0';
 $notification-font-path: $path + 'notification/';
 $slick-font-path: $path + 'slick/';
 $athletics-regular-font-path: $path + 'athletics-regular/';
@@ -61,11 +61,11 @@ $anticon-font-path: '//at.alicdn.com/t/font_1434092639_4910953';
 
 @font-face {
   font-family: 'icomoon';
-  src: url($icomoon-font-path + 'v1.0.0/icomoon.eot');
-  src: url($icomoon-font-path + 'v1.0.0/icomoon.eot') format('embedded-opentype'),
-    url($icomoon-font-path + 'v1.0.0/icomoon.ttf') format('truetype'),
-    url($icomoon-font-path + 'v1.0.0/icomoon.woff') format('woff'),
-    url($icomoon-font-path + 'v1.0.0/icomoon.svg') format('svg');
+  src: url($icomoon-font-path + '/icomoon.eot');
+  src: url($icomoon-font-path + '/icomoon.eot') format('embedded-opentype'),
+    url($icomoon-font-path + '/icomoon.ttf') format('truetype'),
+    url($icomoon-font-path + '/icomoon.woff') format('woff'),
+    url($icomoon-font-path + '/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

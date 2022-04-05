@@ -20,7 +20,7 @@ $border_left_color_1: #cacaca;
   }
 
   .hint {
-    margin: 15px 0;
+    margin: $distance-2 0;
     font-style: italic;
     color: $color_1;
   }
@@ -1082,8 +1082,8 @@ $border_left_color_1: #cacaca;
       z-index: 13;
       position: relative;
       width: 65px;
-      height: 34px;
-      padding: 0 0 0 15px;
+      height: 36px;
+      padding: 0 0 0 $distance-2;
       border-radius: 3px 0 0 3px;
       border: none;
 
@@ -1102,10 +1102,12 @@ $border_left_color_1: #cacaca;
         background: url('#{$cdn-static-url}/frontend/icons/caret.png') no-repeat 50% 50%;
         height: 7px;
         width: 10px;
+        border: none;
       }
 
       .arrow.up {
         border-top: none;
+        border: none;
       }
     }
 

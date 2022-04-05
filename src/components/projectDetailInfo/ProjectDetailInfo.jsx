@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row } from 'react-bootstrap';
 import isEmpty from '../../utils/isEmpty';
+import Preview from '../preview';
 import Button from '../../elements/button';
 import CheckboxField from '../../elements/checkboxField';
 import TextareaField from '../../elements/textareaField';
+import rawDraftToHtml from '../../utils/rawDraftToHtml';
+import Icon from '../../elements/icon';
 
 const ProjectDetailInfo = ({
   project,
@@ -24,10 +25,71 @@ const ProjectDetailInfo = ({
 
   if (isEmpty(project) || !project) return <div />;
 
-  const { form, requestInfoErrors = [] } = project;
+  const { form, requestInfoErrors = [], customQuestions } = project;
 
   const totalQuestions = form.length;
   const selectedQuestions = form.filter(item => item.selected === true).length;
+
+  if (!customQuestions) {
+    return (
+      <div className="project-detail-info">
+        {showRequestInfoView && (
+          <div className="in-review-info top">
+            <FormattedMessage id="project.requestInfo.title" />
+          </div>
+        )}
+        <div className="box">
+          <Row>
+            {form && (
+              <Col sm={12}>
+                {form.map((question, index) => (
+                  <Question
+                    key={question.position}
+                    question={question}
+                    index={index}
+                    color={color}
+                    showRequestInfoView={showRequestInfoView}
+                    handleToggleFieldSelected={handleToggleFieldSelected}
+                    handleChangeFieldObs={handleChangeFieldObs}
+                    ods={question.type === 'ods' ? { images: project.ods, lang } : null}
+                    staticUrl={staticUrl}
+                    error={requestInfoErrors.includes(index)}
+                  />
+                ))}
+              </Col>
+            )}
+          </Row>
+        </div>
+        {showRequestInfoView && (
+          <div className="in-review-info bottom">
+            <div className="mr-auto">
+              <FormattedMessage
+                id="project.requestInfo.count"
+                values={{ selectedQuestions, totalQuestions }}
+              />
+            </div>
+            <Button
+              type="button"
+              extraClass="dark mr-2"
+              onClick={handleCancelRequestInfo}
+              text={intl.formatMessage({ id: 'cancel' })}
+            />
+            <Button
+              type="button"
+              extraClass="primary-full"
+              onClick={handleSubmitRequestInfo}
+              text={intl.formatMessage({ id: 'submit' })}
+              disabled={selectedQuestions === 0 || requestInfoErrors.length > 0}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  const handleClickPreview = () => {
+    window.open(project.video);
+  };
 
   return (
     <div className="project-detail-info">
@@ -37,12 +99,26 @@ const ProjectDetailInfo = ({
         </div>
       )}
       <div className="box">
-        <Row>
-          {form && (
+        <p>{project.description}</p>
+        {project.video !== '' && (
+          <div>
+            <h4 style={{ color }}>
+              <FormattedMessage id="video" />
+            </h4>
+            <Preview
+              type="video"
+              videoUrl={project.video}
+              handleClickPreview={handleClickPreview}
+              isVisible
+            />
+          </div>
+        )}
+        {form && (
+          <Row>
             <Col sm={12}>
               {form.map((question, index) => (
-                <Question
-                  key={question.position}
+                <NewQuestion
+                  key={question.id}
                   question={question}
                   index={index}
                   color={color}
@@ -55,8 +131,8 @@ const ProjectDetailInfo = ({
                 />
               ))}
             </Col>
-          )}
-        </Row>
+          </Row>
+        )}
       </div>
       {showRequestInfoView && (
         <div className="in-review-info bottom">
@@ -97,6 +173,126 @@ ProjectDetailInfo.propTypes = {
   staticUrl: PropTypes.string,
 };
 
+const NewQuestion = ({
+  question,
+  index,
+  color,
+  showRequestInfoView,
+  handleToggleFieldSelected,
+  handleChangeFieldObs,
+  error,
+}) => {
+  const intl = useIntl();
+  const { form, id, type, selected, obs } = question;
+
+  if (type === 'title') return null;
+
+  const PrivateIcon = () => <Icon name="LockBold" size="sm" className="ml-2" />;
+
+  const questionGroupClassName = ['question-group'];
+  if (showRequestInfoView && !['title', 'paragraph'].includes(type))
+    questionGroupClassName.push('in-review');
+  if (selected) questionGroupClassName.push('selected');
+  if (selected && error) questionGroupClassName.push('error');
+  const isDescriptionString = typeof question.form?.description === 'string';
+
+  const isDescriptionEmpty = isDescriptionString
+    ? question.form?.description
+    : question.form?.description.blocks[0].text;
+
+  const descriptionPreview = isDescriptionString
+    ? question.description
+    : rawDraftToHtml(question.form?.description, 1);
+
+  let options = [];
+  if (type === 'multiChoice') {
+    options = question.form.options.filter(i => i.id === Number(question.reply));
+  }
+  if (type === 'checkboxes') {
+    question?.reply?.map(reply => {
+      options.push(question.form.options.find(i => i.id === reply));
+    });
+  }
+
+  return (
+    <div className={questionGroupClassName.join(' ')} key={id}>
+      <div className="answer">
+        {type === 'section' && (
+          <div>
+            <h4 style={{ color }}>
+              {form.title}
+              {form.privacy === 'private' && <PrivateIcon />}
+            </h4>
+            {isDescriptionEmpty && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: descriptionPreview,
+                }}
+              />
+            )}
+          </div>
+        )}
+        {type === 'shortAnswer' && (
+          <div>
+            <h4 style={{ color }}>
+              {question.form.question}
+              {question.form.privacy === 'private' && <PrivateIcon />}
+            </h4>
+            <p>{question.reply}</p>
+          </div>
+        )}
+        {type === 'longAnswer' && (
+          <div>
+            <h4 style={{ color }}>
+              {question.form.question}
+              {question.form.privacy === 'private' && <PrivateIcon />}
+            </h4>
+            {question.reply?.split('\n').map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
+          </div>
+        )}
+        {(type === 'multiChoice' || type === 'checkboxes') && (
+          <div>
+            <h4 style={{ color }}>
+              {question.form.question}
+              {question.form.privacy === 'private' && <PrivateIcon />}
+            </h4>
+            <ul>
+              {options.map(option => (
+                <li key={index}>{option.value}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {showRequestInfoView && !['section'].includes(type) && (
+          <CheckboxField
+            onChange={e => handleToggleFieldSelected(e, index)}
+            name={`${question.id}-selected`}
+            checked={selected}
+          />
+        )}
+      </div>
+      {selected && (
+        <TextareaField
+          label={intl.formatMessage({ id: 'project.comments' })}
+          className="description"
+          placeholder={intl.formatMessage({ id: 'project.tickets.requestInfo.comments' })}
+          onChange={e => handleChangeFieldObs(e, index)}
+          field={`${question.id}-description`}
+          resize={true}
+          value={obs}
+        />
+      )}
+      {selected && error && (
+        <p className="mt-1 text-danger">
+          <FormattedMessage id="form.required" />
+        </p>
+      )}
+    </div>
+  );
+};
+
 const Question = ({
   question,
   index,
@@ -113,9 +309,7 @@ const Question = ({
 
   if (type === 'dropdown' || type === 'upload-images') return null;
 
-  const PrivateIcon = () => (
-    <FontAwesomeIcon icon={faLock} className="ml-2 text-secondary" style={{ width: '12px' }} />
-  );
+  const PrivateIcon = () => <Icon name="LockBold" size="sm" className="ml-2" />;
 
   const questionGroupClassName = ['question-group'];
   if (showRequestInfoView && !['title', 'paragraph'].includes(type))
@@ -208,6 +402,20 @@ const Question = ({
       )}
     </div>
   );
+};
+
+NewQuestion.propTypes = {
+  color: PropTypes.string,
+  index: PropTypes.number,
+  handleToggleFieldSelected: PropTypes.func,
+  handleChangeFieldObs: PropTypes.func,
+  question: PropTypes.object,
+  showRequestInfoView: PropTypes.bool,
+  ods: PropTypes.shape({
+    images: PropTypes.array,
+    lang: PropTypes.string,
+  }),
+  error: PropTypes.bool,
 };
 
 Question.propTypes = {

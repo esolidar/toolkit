@@ -15,8 +15,15 @@ describe('InputLabel component', () => {
     expect(component.find('.label-optional')).toHaveLength(1);
   });
 
-  it('renders cssClass correctly', () => {
-    const component = shallow(<InputLabel field="fiend-name" label="Label" cssClass="new-class" />);
+  it('renders private icon correctly', () => {
+    const component = shallow(<InputLabel field="fiend-name" label="Label" isPrivate />);
+    expect(component.find('Tooltip')).toHaveLength(1);
+  });
+
+  it('renders className correctly', () => {
+    const component = shallow(
+      <InputLabel field="fiend-name" label="Label" className="new-class" />
+    );
     expect(component.find('.new-class')).toHaveLength(1);
   });
 });

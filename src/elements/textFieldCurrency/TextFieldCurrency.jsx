@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
-import { removeAllButLast } from '../../utils/removeAllButLast';
+import removeAllButLast from '../../utils/removeAllButLast';
 import isDefined from '../../utils/isDefined';
 import TextField from '../textField';
 

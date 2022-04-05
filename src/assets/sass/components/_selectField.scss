@@ -11,16 +11,67 @@
       flex-wrap: wrap;
 
       label {
-        align-self: center;
+        margin-top: 11px;
       }
     }
   }
 
-  &__info {
-    white-space: pre;
-    label {
-      margin-bottom: 0;
+  &.form-group {
+    position: relative;
+    margin-bottom: $distance-4;
+  }
+
+  .select-field__input {
+    position: relative;
+
+    & .icon {
+      position: absolute;
+      top: 0.2rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: map-get($theme-colors, dark);
+
+      &.left {
+        left: 0.2rem;
+      }
     }
+
+    select {
+      background: url('#{$cdn-static-url}/frontend/icons/caret.png') no-repeat;
+      background-position: right 17px top 17px; /* Change the px value here to change the distance */
+      -moz-appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 0 34px;
+    }
+
+    .form-control {
+      @include input-form();
+
+      &:hover {
+        @include input-hover();
+      }
+
+      &:focus {
+        @include input-focus();
+      }
+    }
+
+    .form-control[disabled] {
+      @include input-disabled();
+    }
+
+    .required-field {
+      border-color: map-get($theme-colors, danger) !important;
+    }
+  }
+
+  &__info {
+    white-space: pre-wrap;
 
     .label-help {
       font-size: 12px;
@@ -29,5 +80,35 @@
 
   &__input {
     width: 100%;
+
+    &.after {
+      &::after {
+        content: ' ';
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 1)
+        );
+        height: 33px;
+        width: 40px;
+        position: absolute;
+        right: 29px;
+        top: 2px;
+      }
+    }
+  }
+}
+
+.select-field.read-only {
+  .control-label {
+    line-height: 24px;
+  }
+
+  .label-read {
+    .control-label {
+      line-height: 24px;
+      color: map-get($neutrals, 900);
+    }
   }
 }

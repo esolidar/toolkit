@@ -1,33 +1,100 @@
 .dropzone-box {
+  max-width: 720px;
+
+  &.full-width {
+    max-width: 100% !important;
+  }
+
+  .error-files,
+  .has-error {
+    text-align: left;
+    color: map-get($theme-colors, danger);
+  }
+
+  &__images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $distance-3;
+    margin-top: $distance-2;
+  }
+
   & .upload-file {
-    & > div:first-of-type {
+    .drop-zone-box {
       text-align: center;
-      padding: 20px 25px;
       margin: 0;
-      background-color: #fafafa;
-      color: #bdbdbd;
-      border-color: #eeeeee;
+      background-color: white;
+      color: map-get($neutrals, 700);
+      border-color: map-get($neutrals, 200);
       border-style: dashed;
+      border-width: 2px;
       transition: all 0.2s ease;
-      display: block !important;
+      border-radius: $border-radius-1;
+      min-height: 160px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      &.with-icon {
+        min-height: 240px;
+      }
+
+      .drop-icon {
+        margin-bottom: $distance-2;
+        background-color: map-get($background, secondary);
+        border-radius: 50%;
+        padding: $distance-2;
+      }
+
+      i {
+        margin-bottom: $distance-2;
+        font-size: 60px;
+      }
+
+      a {
+        color: map-get($theme-colors, primary);
+        text-decoration: underline;
+      }
 
       &:focus {
         outline: none !important;
+        border-color: map-get($theme-colors, primary);
+      }
+
+      &:hover {
+        border-color: map-get($theme-colors, primary);
+        color: map-get($theme-colors, primary);
+        @include animate();
+
+        @include svg-change-color(map-get($theme-colors, primary));
       }
 
       p {
+        color: map-get($neutrals, 700);
+        margin: 0;
+
         .error {
           font-size: 12px;
-        }
-
-        &:hover {
-          border-color: #d9d9d9;
-          transition: all 0.2s ease;
         }
       }
 
       .Loading {
         min-height: 122px;
+      }
+
+      &.disabled {
+        background-color: map-get($base, white);
+        border-color: map-get($neutrals, 200) !important;
+        color: map-get($theme-colors, dark);
+        @include svg-change-color(map-get($theme-colors, dark));
+
+        a {
+          color: map-get($theme-colors, dark);
+        }
+
+        &:hover {
+          cursor: no-drop;
+        }
       }
     }
 
@@ -38,12 +105,6 @@
 
     &:hover {
       cursor: pointer;
-    }
-
-    &.disabled {
-      &:hover {
-        cursor: no-drop;
-      }
     }
   }
 
@@ -73,5 +134,138 @@
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
+  }
+}
+
+.footer-buttons {
+  display: flex;
+  gap: $distance-2;
+}
+
+.dropzone-footer {
+  display: flex;
+  margin-top: $distance-2;
+  margin-bottom: $distance-1;
+
+  &__buttons {
+    display: flex;
+    gap: $distance-2;
+    padding-right: $distance-2;
+    border-right: 1px solid map-get($neutrals, 200);
+
+    &-rotate {
+      min-width: 40px;
+      gap: 0;
+    }
+  }
+
+  &__slider {
+    flex-grow: 1;
+    padding-left: $distance-3;
+
+    .disabled {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.cropper-container {
+  .cropper-wrap-box,
+  .cropper-modal {
+    background-color: transparent;
+  }
+
+  &.cropper-bg {
+    background-image: none;
+    background-color: map-get($background, secondary);
+    border: 1px solid map-get($neutrals, 200);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cropper-view-box {
+    outline: 2px solid map-get($theme-colors, primary);
+  }
+
+  .cropper-dashed {
+    border: none;
+  }
+
+  .cropper-point {
+    width: 3px;
+    height: 3px;
+    opacity: 1;
+    background-color: map-get($theme-colors, primary);
+  }
+
+  .cropper-line {
+    opacity: 0;
+  }
+
+  .cropper-point.point-ne {
+    width: 20px;
+    top: -4px;
+    right: -4px;
+    &:after {
+      content: '';
+      right: 0;
+      top: 0;
+      background: map-get($theme-colors, primary);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-nw {
+    width: 20px;
+    top: -4px;
+    left: -4px;
+    &:after {
+      content: '';
+      left: 0;
+      top: 0;
+      background: map-get($theme-colors, primary);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-sw {
+    width: 20px;
+    bottom: -4px;
+    left: -4px;
+    &:after {
+      content: '';
+      left: 0;
+      bottom: 0px;
+      background: map-get($theme-colors, primary);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-se {
+    width: 20px;
+    bottom: -4px;
+    right: -4px;
+    &:after {
+      content: '';
+      right: 0;
+      bottom: 0;
+      background: map-get($theme-colors, primary);
+      width: 4px;
+      position: absolute;
+      height: 20px;
+    }
+  }
+
+  .cropper-point.point-n,
+  .cropper-point.point-w,
+  .cropper-point.point-s,
+  .cropper-point.point-e {
+    opacity: 0 !important;
   }
 }

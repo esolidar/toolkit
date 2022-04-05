@@ -101,7 +101,7 @@
 
   .table-header {
     border: 1px solid transparent;
-    background: map-get($theme-colors, primary);
+    background: map-get($neutrals, 200);
     border-radius: 4px 4px 0 0;
     margin-bottom: 0;
 

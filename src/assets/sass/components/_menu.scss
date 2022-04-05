@@ -1,0 +1,106 @@
+.menu {
+  &__list {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  &__listItem {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    list-style: none;
+  }
+
+  &__item {
+    min-width: 100%;
+    height: 100%;
+    text-align: left;
+    border-radius: $distance-1;
+    padding: $distance-2 19px;
+    color: map-get($main-text-colors, dark);
+    position: relative;
+    border: 0px;
+    background-color: transparent;
+    line-height: 18px;
+    display: flex;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    @include animate(background-color);
+
+    &:not(div) {
+      &:hover,
+      &:active,
+      &:focus {
+        @include svg-change-color(map-get($theme-colors, primary));
+        text-decoration: none;
+        color: map-get($theme-colors, primary);
+        outline: none;
+      }
+    }
+    &--active {
+      background-color: get-rgba(map-get($turquoise, 500));
+      color: map-get($theme-colors, primary);
+
+      @include svg-change-color(map-get($theme-colors, primary));
+    }
+
+    &:disabled,
+    &--disabled {
+      color: map-get($theme-colors, dark);
+      pointer-events: none;
+    }
+
+    &--notification span:after {
+      content: '';
+      background: map-get($negative, 400);
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+      position: absolute;
+      top: 50%;
+      right: -$distance-2;
+      transform: translateY(-50%);
+    }
+
+    &--separator {
+      width: 100%;
+      border-top: 1px solid map-get($neutrals, 200);
+      margin: $distance-3 0 $distance-3 0;
+    }
+
+    &--text {
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    svg {
+      display: flex;
+      align-self: center;
+      margin-right: 11px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      position: relative;
+      max-width: 80%;
+      height: 100%;
+      font-weight: 600;
+    }
+  }
+
+  &--isCollapsed {
+    svg {
+      margin-right: 0px;
+    }
+
+    .menu__item {
+      min-width: auto;
+      padding: 19px 21px;
+
+      &--text {
+        display: none;
+      }
+    }
+  }
+}

@@ -4,25 +4,140 @@ import TextareaField from './TextareaField';
 export default {
   title: 'Elements/TextareaField',
   component: TextareaField,
+  argTypes: {
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
-const Template = args => <TextareaField {...args} />;
-
+const Template = args => (
+  <div style={{ maxWidth: '550px' }}>
+    <TextareaField {...args} />
+  </div>
+);
 export const Default = Template.bind({});
+export const MaxLength = Template.bind({});
+export const Error = Template.bind({});
+export const Disabled = Template.bind({});
+export const Sm = Template.bind({});
+export const Md = Template.bind({});
+export const Lg = Template.bind({});
+export const EditButton = Template.bind({});
+
 Default.parameters = {
   jest: ['TextareaField.test.js'],
 };
+
 Default.args = {
+  resize: true,
   id: 'textareaField-id',
   label: 'Lorem Ipsum',
-  error: 'error',
   placeholder: 'Placeholder',
   onChange: () => console.log('test'),
   field: 'Textarea_name',
   defaultValue: 'Textarea',
-  message: 'Mensagem',
-  maxLength: 100,
   required: true,
-  value: '',
-  // 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis. Duis quis sem non lorem venenatis scelerisque vel euismod magna. Fusce aliquet nunc rutrum libero scelerisque ornare. Nullam ac lacus quis dolor egestas tempor eget et ligula. Sed eget convallis elit. Quisque finibus in metus quis blandit. Fusce porta lobortis nisl id pellentesque. Cras venenatis eros in dolor scelerisque gravida. orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis. Duis quis sem non lorem venenatis scelerisque vel euismod magna. Fusce aliquet nunc rutrum libero scelerisque ornare. Nullam ac lacus quis dolor egestas tempor eget et ligula. Sed eget convallis elit. Quisque finibus in metus quis blandit. Fusce porta lobortis nisl id pellentesque. Cras venenatis eros in dolor scelerisque gravida.',
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
+};
+
+MaxLength.args = {
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
+};
+
+Error.args = {
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  error: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+};
+
+Disabled.args = {
+  disabled: true,
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+};
+
+Sm.args = {
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
+  size: 'sm',
+};
+
+Md.args = {
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
+  size: 'md',
+};
+
+Lg.args = {
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  value: 'Textarea',
+  maxLength: 400,
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
+  size: 'lg',
+};
+
+EditButton.args = {
+  editButton: true,
+  resize: true,
+  id: 'textareaField-id',
+  label: 'Lorem Ipsum',
+  placeholder: 'Placeholder',
+  onChange: () => console.log('test'),
+  field: 'Textarea_name',
+  defaultValue: 'Textarea',
+  required: true,
+  showOptionalLabel: true,
+  help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam fringilla lorem quis magna rhoncus, iaculis ullamcorper tortor venenatis.',
 };

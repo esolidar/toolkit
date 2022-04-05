@@ -1,0 +1,50 @@
+.programItemList {
+  cursor: pointer;
+  border: 1px solid map-get($neutrals, 100);
+  border-radius: $border-radius-1;
+  margin-bottom: $distance-2;
+  padding-right: $distance-2;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    outline: 2px solid map-get($turquoise, 500) !important;
+    @include animate(all, 100ms);
+
+    .edit-category-button {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__left-column {
+    flex-grow: 1;
+    padding: $distance-2;
+    display: flex;
+    gap: $distance-2;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 24px;
+
+    &-header {
+      display: flex;
+      gap: $distance-1;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($neutrals, 700);
+      margin-bottom: 0;
+      @include line-clamp(2);
+    }
+  }
+
+  .edit-category-button {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+}

@@ -25,7 +25,7 @@ import BankAccount from '../bankAccounts';
 import InputLabel from '../../elements/inputLabel';
 import RadioField from '../../elements/radioField';
 import validateAuctionForm from './validations';
-import { isEmpty } from '../../utils';
+import isEmpty from '../../utils/isEmpty';
 
 /**
  * Auction add form.
@@ -659,7 +659,7 @@ const AuctionAddForm = ({
                       value={form.title}
                       field="title"
                       fieldTranslate="title"
-                      maxLength="255"
+                      maxLength="75"
                       autofocus={true}
                     />
                   </Col>
@@ -679,10 +679,9 @@ const AuctionAddForm = ({
                       <InputLabel
                         label={intl.formatMessage({ id: 'auction.tags' })}
                         showOptionalLabel={true}
+                        help={<FormattedMessage id="auction.tags.help" />}
+                        style={{ marginBottom: 0 }}
                       />
-                      <p className="help">
-                        <FormattedMessage id="auction.tags.help" />
-                      </p>
                       <ReactTags
                         tags={form.tagsArray}
                         handleInputBlur={handleAddition}
@@ -794,7 +793,7 @@ const AuctionAddForm = ({
                       isLoading={updloadFileIsLoading}
                       hasError={!isEmpty(errors) && !!errors.images}
                     />
-                    {errors.images && <span className="help-block">{errors.images}</span>}
+                    {errors.images && <div className="help-block">{errors.images}</div>}
                   </div>
                   <Col sm={12}>
                     <TextField
@@ -905,6 +904,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.payment.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                   <Col sm={12}>
@@ -920,6 +920,7 @@ const AuctionAddForm = ({
                         id: 'auction.description.shipping.placeholder',
                       })}
                       resize={true}
+                      maxLength={1000}
                     />
                   </Col>
                 </Row>
@@ -1047,7 +1048,7 @@ const AuctionAddForm = ({
                       data-testid="select-institution"
                       className="title-help"
                     >
-                      <FormattedMessage id="auction.beneficiary" />
+                      <FormattedMessage id="toolkit.beneficiary" />
                     </h3>
                   </Col>
                   {showProjects && hasProjects && (
@@ -1076,7 +1077,7 @@ const AuctionAddForm = ({
                   )}
                   {errors.beneficiary && (
                     <Col sm={12} className={classnames({ 'has-error': errors.beneficiary })}>
-                      <span className="help-block">{errors.beneficiary}</span>
+                      <div className="help-block">{errors.beneficiary}</div>
                     </Col>
                   )}
                   {((showInstitutions && beneficiary === 'institution') ||
@@ -1139,7 +1140,7 @@ const AuctionAddForm = ({
                                 })}
                               >
                                 {errors.projectIds && (
-                                  <span className="help-block d-block">{errors.projectIds}</span>
+                                  <div className="help-block d-block">{errors.projectIds}</div>
                                 )}
                               </Col>
                             </Row>
@@ -1201,7 +1202,7 @@ const AuctionAddForm = ({
                     />
                     {errors.bankAccount && (
                       <div className="has-error">
-                        <span className="help-block">{errors.bankAccount}</span>
+                        <div className="help-block">{errors.bankAccount}</div>
                       </div>
                     )}
                   </Col>
@@ -1217,7 +1218,7 @@ const AuctionAddForm = ({
                   )}
                   {isEmpty(hasWhitelabel) && (
                     <Col sm={12}>
-                      <span className="subtext">
+                      <span className="subtext mb-3">
                         <FormattedMessage id="auction.add.submit.text" />
                       </span>
                     </Col>

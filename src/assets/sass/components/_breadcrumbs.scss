@@ -1,0 +1,35 @@
+.esolidar-breadcrumbs {
+  display: flex;
+  gap: $distance-1;
+  margin-bottom: $distance-2;
+
+  @include svg-change-color(map-get($neutrals, 700));
+
+  &__button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 900);
+
+    &.disabled-item {
+      color: map-get($neutrals, 400);
+      cursor: default;
+
+      &:hover {
+        color: map-get($neutrals, 400);
+      }
+    }
+
+    &:hover {
+      color: map-get($turquoise, 500);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

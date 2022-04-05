@@ -1,28 +1,62 @@
 .component-title {
-  &-back {
-    color: map-get($turquoise, 500);
+  &__back {
+    color: map-get($theme-colors, primary);
     font-size: 14px;
     width: fit-content;
+    border: 0px;
+    background: transparent;
 
-    &:hover {
-      color: map-get($turquoise, 500);
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($theme-colors, primary);
       text-decoration: underline;
+      outline: none;
     }
   }
 
-  &-h1 {
+  &__h1 {
+    position: relative;
     font-size: 26px;
     color: map-get($grays, 900);
     font-weight: 600;
     margin: 0;
     padding: 0;
+    margin-bottom: $distance-1 !important;
   }
 
-  &-subtitle {
+  &__icon,
+  &__icon--disabled {
+    color: map-get($theme-colors, primary);
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    margin-left: $distance-1;
+    font-size: 20px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: map-get($theme-colors, primary);
+      text-decoration: none;
+    }
+
+    &--disabled {
+      color: map-get($neutrals, 700);
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: map-get($neutrals, 700);
+      }
+    }
+  }
+
+  &__subtitle {
     font-size: 14px;
   }
 
-  &-supporting {
+  &__supporting {
     font-size: 14px;
     color: map-get($grays, 700);
 
@@ -33,7 +67,7 @@
       font-size: 15px;
 
       &:hover {
-        color: map-get($turquoise, 500);
+        color: map-get($theme-colors, primary);
       }
     }
 

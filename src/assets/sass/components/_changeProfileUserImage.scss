@@ -8,13 +8,13 @@
     display: inline-block;
     text-align: center;
     margin: 0 !important;
+    overflow: hidden;
 
     #change-profile-user-image__button-upload {
       min-width: 40px;
       width: 40px;
       height: 40px;
       position: absolute;
-      bottom: 0;
       left: 105px;
       padding: 0 11px;
     }
@@ -28,6 +28,10 @@
       background-position: 50% 50%;
       border-radius: 50%;
       border: 2px solid map-get($neutrals, 100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
 
       &:hover {
         cursor: pointer;
@@ -46,9 +50,16 @@
 
   .dropzone-box {
     text-align: center;
+    top: -50px;
+
+    .btn-esolidar__icon-left {
+      margin-right: -10px !important;
+    }
 
     .error-files {
       margin-top: 15px;
+      top: 33px;
+      position: absolute;
     }
   }
 }

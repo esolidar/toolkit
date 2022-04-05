@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import Icon from '../../../elements/icon';
+import Button from '../../../elements/button';
 
 const CreateComment = props => {
   const {
@@ -53,10 +53,13 @@ const CreateComment = props => {
             placeholder={intl.formatMessage({ id: 'commentHere' })}
             maxLength="500"
           />
-          <FontAwesomeIcon
-            icon={faPaperPlane}
-            className="mr-1 d-lg-none mt-3"
+          <Button
+            ghost
+            extraClass="primary-full"
+            icon={<Icon name="Send" />}
             onClick={e => addMessage(e, true)}
+            type="icon"
+            theme="light"
           />
         </div>
       </div>

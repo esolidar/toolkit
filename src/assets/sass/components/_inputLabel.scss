@@ -1,0 +1,24 @@
+.input-label-component {
+  &__label {
+    display: flex;
+    align-items: center;
+    margin-bottom: $distance-1;
+
+    label {
+      margin-bottom: unset;
+      @include text-overflow-ellipsis;
+    }
+
+    .label-optional {
+      margin-left: $distance-1;
+      font-size: 14px;
+      color: map-get($main-text-colors, dark);
+      text-transform: lowercase;
+      font-weight: 100;
+    }
+
+    .tooltipOverlay {
+      margin-left: $distance-1;
+    }
+  }
+}

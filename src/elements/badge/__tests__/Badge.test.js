@@ -19,7 +19,7 @@ it('renders Badge default', () => {
   const { getByTestId, getByText, getByClass } = render(<Default />);
 
   expect(getByTestId('badge-component')).toBeInTheDocument();
-  expect(getByClass(/badge__default/)).toBeInTheDocument();
+  expect(getByClass(/type-default__default/)).toBeInTheDocument();
   expect(getByText('Private')).toBeInTheDocument();
 });
 
@@ -27,7 +27,7 @@ it('renders Badge PlainText', () => {
   const { getByTestId, getByText, getByClass } = render(<PlainText />);
 
   expect(getByTestId('badge-component')).toBeInTheDocument();
-  expect(getByClass(/badge__success/)).toBeInTheDocument();
+  expect(getByClass(/type-default__success/)).toBeInTheDocument();
   expect(getByText('Plaintext')).toBeInTheDocument();
 });
 
@@ -36,7 +36,7 @@ it('renders Badge Icon', () => {
 
   expect(getByTestId('badge-component')).toBeInTheDocument();
   expect(getByTestId('badge-icon')).toBeInTheDocument();
-  expect(getByClass(/badge__default/)).toBeInTheDocument();
+  expect(getByClass(/type-default__default/)).toBeInTheDocument();
   expect(getByText('Private')).toBeInTheDocument();
 });
 
