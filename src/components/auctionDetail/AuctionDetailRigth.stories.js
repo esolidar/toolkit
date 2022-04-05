@@ -49,20 +49,21 @@ Default.args = {
   },
   isEnded: false,
   isCommingSoon: false,
-  handleClickBid: () => {},
   error: '',
   minValue: 10,
-  showModalSubscribe: () => {},
   user: {
     currency: {
       small: 'EUR',
     },
   },
   inputBidValue: 10,
-  valueBidTextField: () => {},
   primaryColor: variables['theme-colors-primary'],
   inputRef: {},
   env: {
     cdn_uploads_url: '',
   },
+  handleClickBid: () => {},
+  showModalSubscribe: () => {},
+  valueBidTextField: () => {},
+  handleOnblurBidValue: () => {},
 };

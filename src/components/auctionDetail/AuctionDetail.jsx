@@ -28,6 +28,7 @@ import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
 import SliderImagesLightbox from '../sliderImagesLightbox';
 import isEmpty from '../../utils/isEmpty/isEmpty';
+import removeUrlParam from '../../utils/removeUrlParam';
 import ValidateTelephone from '../../elements/validateTelephone';
 import SupportBox from '../supportBox';
 
@@ -75,6 +76,9 @@ const AuctionDetail = ({
   domainUrl,
   locale,
   partialThumbPath,
+  onblurBidTextField = () => {},
+  bidValue,
+  defaultCountry,
 }) => {
   const intl = useIntl();
   // Modals
@@ -234,6 +238,7 @@ const AuctionDetail = ({
 
   useEffect(() => {
     if (newBid.code === 200) {
+      removeUrlParam('v');
       setIsShowModal(false);
       setShowPhoneValidate(false);
       setIsConfirmBid(false);
@@ -493,6 +498,62 @@ const AuctionDetail = ({
     if (confirmPhone.code === 200) setHasPhoneValidate(true);
   }, [confirmPhone]);
 
+  const handleClickBid = value => {
+    if (!requireLogin()) {
+      return;
+    }
+
+    // StartBid
+    if (!auctionDetailInfo.last_bid) {
+      if (
+        value < auctionDetailInfo.bid_start ||
+        value > auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval
+      ) {
+        setError(
+          intl.formatMessage(
+            { id: 'auction.detail.error.startBidInvalid' },
+            {
+              bidStart: auctionDetailInfo.bid_start,
+              maxBid: auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval,
+            }
+          )
+        );
+        return;
+      }
+    }
+
+    if (auctionDetailInfo.last_bid) {
+      if (
+        value <= auctionDetailInfo.last_bid.value ||
+        value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval ||
+        value < auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval
+      ) {
+        setError(
+          intl.formatMessage(
+            { id: 'auction.detail.error.startBidInvalid' },
+            {
+              bidStart: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval,
+              maxBid: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval,
+            }
+          )
+        );
+        return;
+      }
+    }
+    const { phones } = JSON.parse(localStorage.user || '{ "phones": [] }');
+    setShowPhoneValidate(phones.some(phone => phone.verified === 1));
+    setIsShowModal(true);
+    setError('');
+    setValueBid(value);
+  };
+
+  useEffect(() => {
+    if (bidValue && !isEmpty(auctionDetailInfo)) {
+      setValueBid(bidValue);
+      handleClickBid(bidValue);
+    }
+  }, [bidValue, auctionDetailInfo]);
+
   if (isLoadingAuction) return <Loading />;
 
   const auctionTitle = () => {
@@ -557,55 +618,6 @@ const AuctionDetail = ({
     setIsCheckedEmailFirstBid(false);
     setIsCheckedEmail24H(false);
     setIsShowModalSubscribe(false);
-  };
-
-  const handleClickBid = value => {
-    if (!requireLogin()) {
-      return;
-    }
-
-    // StartBid
-    if (!auctionDetailInfo.last_bid) {
-      if (
-        value < auctionDetailInfo.bid_start ||
-        value > auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval
-      ) {
-        setError(
-          intl.formatMessage(
-            { id: 'auction.detail.error.startBidInvalid' },
-            {
-              bidStart: auctionDetailInfo.bid_start,
-              maxBid: auctionDetailInfo.bid_start + auctionDetailInfo.bid_max_interval,
-            }
-          )
-        );
-        return;
-      }
-    }
-
-    if (auctionDetailInfo.last_bid) {
-      if (
-        value <= auctionDetailInfo.last_bid.value ||
-        value > auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval ||
-        value < auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval
-      ) {
-        setError(
-          intl.formatMessage(
-            { id: 'auction.detail.error.startBidInvalid' },
-            {
-              bidStart: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_interval,
-              maxBid: auctionDetailInfo.last_bid.value + auctionDetailInfo.bid_max_interval,
-            }
-          )
-        );
-        return;
-      }
-    }
-    const { phones } = JSON.parse(localStorage.user || '{ "phones": [] }');
-    setShowPhoneValidate(phones.some(phone => phone.verified === 1));
-    setIsShowModal(true);
-    setError('');
-    setValueBid(value);
   };
 
   const showMoreContributes = () => {
@@ -805,6 +817,10 @@ const AuctionDetail = ({
     setValue(e.target.value.replace(/[^0-9]/gi, ''));
   };
 
+  const handleOnblurBidValue = e => {
+    onblurBidTextField(e.target.value.replace(/[^0-9]/gi, ''));
+  };
+
   const handleMinValue = () => {
     if (!auctionDetailInfo.last_bid) return auctionDetailInfo.bid_start;
     if (auctionDetailInfo.last_bid)
@@ -996,6 +1012,7 @@ const AuctionDetail = ({
                       user={user}
                       inputBidValue={value}
                       valueBidTextField={valueBidTextField}
+                      handleOnblurBidValue={handleOnblurBidValue}
                       primaryColor={primaryColor}
                       env={env}
                       inputRef={inputRef}
@@ -1205,12 +1222,14 @@ const AuctionDetail = ({
                 )}
                 {!showPhoneValidate && (
                   <ValidateTelephone
+                    defaultCountry={defaultCountry}
                     localStorage={localStorage}
                     mobileValidatePost={mobileValidatePost}
                     validatePhone={validatePhone}
                     mobileConfirmPost={mobileConfirmPost}
                     confirmPhone={confirmPhone}
                     hasError={!hasPhoneValidate && hasSubmitModalBid}
+                    verifiedPhone={!showPhoneValidate ? 0 : 1}
                   />
                 )}
                 <div className="mb-2">
@@ -1443,6 +1462,9 @@ AuctionDetail.propTypes = {
   domainUrl: PropTypes.string,
   locale: PropTypes.string,
   partialThumbPath: PropTypes.string,
+  onblurBidTextField: PropTypes.func,
+  bidValue: PropTypes.number,
+  defaultCountry: PropTypes.string,
 };
 
 export default AuctionDetail;
