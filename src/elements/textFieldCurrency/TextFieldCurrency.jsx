@@ -45,15 +45,26 @@ class TextFieldCurrency extends Component {
 
   onChange = e => {
     e.persist();
-    const el = e.target;
-    const inputValue = el.value;
+    const { value } = e.target;
+    const inputValue = value
+      ? removeAllButLast(value.replace(/[^\d,.]/g, '').replace(',', '.'), '.')
+      : '';
 
-    this.setState({
-      value: inputValue
-        ? removeAllButLast(inputValue.replace(/[^\d,.]/g, '').replace(',', '.'), '.')
-        : '',
-      formattedValue: el.value,
-    });
+    this.setState(
+      {
+        value: inputValue,
+        formattedValue: value,
+      },
+      () => {
+        const valueObj = {
+          formattedValue: this.state.formattedValue,
+          value: this.state.value,
+          floatValue: parseFloat(this.state.value),
+        };
+
+        this.props.onChange(valueObj);
+      }
+    );
   };
 
   onFocus = e => {
