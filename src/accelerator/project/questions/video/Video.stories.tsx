@@ -41,4 +41,5 @@ Default.args = {
   },
   name: 'video',
   onFinishVideoValidation: () => {},
+  onClearReply: () => {},
 };

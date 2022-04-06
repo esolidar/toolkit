@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Lightbox from 'react-image-lightbox';
 import Skeleton from 'react-loading-skeleton';
 import fetch from 'cross-fetch';
-import Props from './Preview.types';
+import Props, { VideoDetails } from './Preview.types';
 import Icon from '../../elements/icon';
 import Badge from '../../elements/badge';
 import Button from '../../elements/button';
@@ -13,31 +13,11 @@ import isDefined from '../../utils/isDefined';
 import 'react-image-lightbox/style.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-declare type Provider = 'vimeo' | 'youtube' | '';
-
-interface VideoDetails {
-  title: string;
-  provider_name: Provider;
-  thumbnail_url: string;
-  isLoading: boolean;
-  hasError: boolean;
-}
-
 const urlNoImage: string = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
 
-const getVideoThumbnailSrc = (videoDetails: VideoDetails): string => {
-  const { provider_name, thumbnail_url } = videoDetails;
-
-  if (provider_name === 'vimeo') return thumbnail_url;
-  return `https://img.youtube.com/vi/${thumbnail_url}/maxresdefault.jpg`;
-};
-
-const defaultVideoDetails = {
-  title: undefined,
-  provider_name: undefined,
-  thumbnail_url: undefined,
-  isLoading: true,
-  hasError: false,
+const getVideoThumbnailSrc = (providerName: string, thumbnailUrl: string): string => {
+  if (providerName === 'vimeo') return thumbnailUrl;
+  return `https://img.youtube.com/vi/${thumbnailUrl}/maxresdefault.jpg`;
 };
 
 const Preview: FC<Props> = ({
@@ -52,11 +32,11 @@ const Preview: FC<Props> = ({
   onFinishVideoValidation,
   isVisible = true,
   handleClickPreview,
+  videoDetails,
 }: Props): JSX.Element => {
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
   const [showVideoSkeleton, setShowVideoSkeleton] = useState<boolean>(false);
-  const [videoDetails, setVideoDetails] = useState<VideoDetails>(defaultVideoDetails);
 
   useEffect(() => {
     setShowPlaceholder(!img || !img?.src);
@@ -79,52 +59,67 @@ const Preview: FC<Props> = ({
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)
         .then(response => response.json())
         .then(({ title, thumbnail_url }) => {
+          const providerName = 'youtube';
+          const thumbnailUrl = thumbnail_url.split('/')[4];
+
           const newVideoDetails: VideoDetails = {
             title,
-            provider_name: 'youtube',
-            thumbnail_url: thumbnail_url.split('/')[4],
+            providerName,
+            thumbnailUrl,
+            thumbnailImage: `url(${getVideoThumbnailSrc(providerName, thumbnailUrl)})`,
+            videoUrl,
             isLoading: false,
             hasError: false,
           };
 
           if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
-          setVideoDetails(newVideoDetails);
         })
         .catch(() => {
           fetch(`https://vimeo.com/api/oembed.json?url=${url}`)
             .then(response => response.json())
-            .then(({ title, thumbnail_url }) => {
+            .then(({ title, thumbnail_url: thumbnailUrl }) => {
+              const providerName = 'vimeo';
+
               const newVideoDetails: VideoDetails = {
                 title,
-                provider_name: 'vimeo',
-                thumbnail_url,
+                providerName,
+                thumbnailUrl,
+                thumbnailImage: `url(${getVideoThumbnailSrc(providerName, thumbnailUrl)})`,
+                videoUrl,
                 isLoading: false,
                 hasError: false,
               };
 
               if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
-              setVideoDetails(newVideoDetails);
             })
             .catch(() => {
               const newVideoDetails: VideoDetails = {
-                ...videoDetails,
+                title: undefined,
+                providerName: undefined,
+                thumbnailUrl: undefined,
+                thumbnailImage: undefined,
+                videoUrl: undefined,
                 isLoading: false,
                 hasError: true,
               };
 
               if (onFinishVideoValidation) onFinishVideoValidation(newVideoDetails);
-              setVideoDetails(newVideoDetails);
             });
         });
     };
 
     if (videoUrl !== '') {
       getVideoDetails(videoUrl);
-      setVideoDetails({
-        ...videoDetails,
-        isLoading: true,
-        hasError: false,
-      });
+      if (onFinishVideoValidation)
+        onFinishVideoValidation({
+          title: undefined,
+          providerName: undefined,
+          thumbnailUrl: undefined,
+          thumbnailImage: undefined,
+          videoUrl: undefined,
+          isLoading: true,
+          hasError: false,
+        });
     }
   }, [videoUrl]);
 
@@ -139,7 +134,8 @@ const Preview: FC<Props> = ({
     setShowPlaceholder(true);
   };
 
-  const isVideoLoading = videoDetails.isLoading || showVideoSkeleton;
+  const isVideoLoading = type === 'video' && (videoDetails?.isLoading || showVideoSkeleton);
+  console.log('isVideoLoading', isVideoLoading);
 
   const classes = classNames('esolidar-preview', className, {
     'hover-image': (type === 'image' && hover) || (type === 'video' && !isVideoLoading),
@@ -216,8 +212,8 @@ const Preview: FC<Props> = ({
       </>
     );
 
-  if (type === 'video' && videoDetails.hasError) return <></>;
-  if (type === 'video' && !videoDetails.hasError) {
+  if (type === 'video' && videoDetails?.hasError) return <></>;
+  if (type === 'video' && !videoDetails?.hasError) {
     return (
       <>
         <div className={classes}>
@@ -232,11 +228,9 @@ const Preview: FC<Props> = ({
               <div
                 className="esolidar-preview__video--thumbnail"
                 style={{
-                  backgroundImage: `url(${getVideoThumbnailSrc(videoDetails)})`,
+                  backgroundImage: videoDetails?.thumbnailImage,
                 }}
-              >
-                {/* <Icon name="AlertTriangle" size="lg" /> */}
-              </div>
+              />
             ) : (
               <div
                 className="esolidar-preview__no-image"
@@ -255,7 +249,7 @@ const Preview: FC<Props> = ({
             <div className="esolidar-preview__video--description">
               <div className="esolidar-preview__video--description-provider">
                 {!isVideoLoading ? (
-                  `${videoDetails.provider_name}.COM`
+                  `${videoDetails?.providerName}.COM`
                 ) : (
                   <Skeleton width="30%" containerTestId="skeleton-provider" />
                 )}
@@ -265,7 +259,7 @@ const Preview: FC<Props> = ({
                 title={videoDetails?.title}
               >
                 {!isVideoLoading ? (
-                  videoDetails.title
+                  videoDetails?.title
                 ) : (
                   <Skeleton width="90%" containerTestId="skeleton-title" />
                 )}

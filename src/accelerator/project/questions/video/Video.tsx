@@ -5,6 +5,7 @@ import Viewport from '../../../../components/viewport';
 import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
 import useDebounce from '../../../../hooks/useDebounce';
+import useIsFirstRender from '../../../../hooks/useIsFirstRender';
 
 const Video = ({
   name,
@@ -13,19 +14,23 @@ const Video = ({
   required,
   onFinishVideoValidation,
   onDeletePreview,
+  videoDetails,
+  onClearReply,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const debouncedReply = useDebounce(reply, 500);
+  const isFirstRender = useIsFirstRender();
 
   const [isValidatingVideo, setIsValidatingVideo] = useState(false);
   const [isVideoValid, setIsVideoValid] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (reply === '') {
+    if (reply === '' && !isFirstRender) {
       if (error !== null) setError(null);
       if (isValidatingVideo) setIsValidatingVideo(false);
       if (isVideoValid) setIsVideoValid(false);
+      onClearReply();
     }
   }, [reply]);
 
@@ -92,6 +97,7 @@ const Video = ({
           handleClickPreview={handleClickPreview}
           onFinishVideoValidation={handleOnFinishVideoValidation}
           isVisible={reply !== '' && isVideoValid && !isValidatingVideo}
+          videoDetails={videoDetails}
         />
       </div>
     </Viewport>
