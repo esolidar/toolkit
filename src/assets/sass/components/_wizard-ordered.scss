@@ -129,6 +129,14 @@ body.opened-wizard {
     letter-spacing: -0.02em;
     color: map-get($base, black);
     margin-bottom: $distance-2;
+
+    .h2-optional {
+      padding-left: $distance-2;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+      color: map-get($neutrals, 700);
+    }
   }
 
   p {

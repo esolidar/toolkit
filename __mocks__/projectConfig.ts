@@ -59,8 +59,8 @@ const form = {
       type: 'shortAnswer',
       form: {
         privacy: 'public',
-        required: true,
-        question: 'Praesent eget mollis ipsum. Ut in sagittis odio?',
+        required: false,
+        question: 'Praesent eget mollis ipsum?',
         description:
           'Vestibulum ac luctus ipsum. Suspendisse scelerisque turpis ut urna porttitor aliquet. Praesent eget leo id magna volutpat lobortis quis in nibh.',
       },
@@ -71,7 +71,7 @@ const form = {
       type: 'longAnswer',
       form: {
         privacy: 'public',
-        required: true,
+        required: false,
         question: 'Vestibulum efficitur risus vitae eros ultrices lobortis.',
         description:
           'In in tempor velit. Morbi consectetur, ex sit amet aliquam sollicitudin, orci neque sodales lorem, sed scelerisque nulla ante vel justo.',

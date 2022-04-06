@@ -20,6 +20,7 @@ const Files = ({
   onDropError,
   handleDeleteFile,
   handleSelectFile,
+  required,
 }: Props) => {
   const intl = useIntl();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
@@ -97,7 +98,12 @@ const Files = ({
         <div className="wizard-project-files">
           <Viewport size="lg" centred={false}>
             <>
-              <h2>{question}</h2>
+              <h2>
+                {question}
+                {!required && (
+                  <span className="h2-optional">({intl.formatMessage({ id: 'optional' })})</span>
+                )}
+              </h2>
               <p>{description}</p>
             </>
           </Viewport>

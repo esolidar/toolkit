@@ -13,7 +13,8 @@ interface Props {
   exact?: number;
   rangeMin?: number;
   rangeMax?: number;
-  required?: boolean;
+  isValid?: boolean;
+  required: boolean;
   id: number;
   control: any;
   handleChange(): void;

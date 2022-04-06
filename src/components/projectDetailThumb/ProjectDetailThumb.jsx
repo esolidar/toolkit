@@ -76,19 +76,21 @@ const ProjectDetailThumb = ({
             <p className="category-name">{project.project_category?.name}</p>
           </div>
         )}
-        <div className="ods-thumb">
-          <h4 style={{ color }}>
-            <FormattedMessage id="ods" />
-          </h4>
-          {project.ods.map(item => (
-            <img
-              key={item.id}
-              className="ods"
-              src={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${item.tag_name}.png`}
-              alt={item.tag_name}
-            />
-          ))}
-        </div>
+        {project.ods.length > 0 && (
+          <div className="ods-thumb">
+            <h4 style={{ color }}>
+              <FormattedMessage id="ods" />
+            </h4>
+            {project.ods.map(item => (
+              <img
+                key={item.id}
+                className="ods"
+                src={`${cdnStaticUrl}/frontend/assets/ods/${lang}/${item.tag_name}.png`}
+                alt={item.tag_name}
+              />
+            ))}
+          </div>
+        )}
         {!project.cover && (
           <div className="owner">
             <img

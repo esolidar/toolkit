@@ -38,4 +38,5 @@ export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   ...shortAnswer,
+  requiredField: false,
 };
