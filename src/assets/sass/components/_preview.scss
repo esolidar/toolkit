@@ -65,14 +65,6 @@
         background: get-rgba(map-get($base, black), 65);
         z-index: 1;
       }
-
-      > .icon-component {
-        position: absolute;
-        z-index: 2;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
     }
 
     &--description {

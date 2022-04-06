@@ -235,7 +235,7 @@ const Preview: FC<Props> = ({
                   backgroundImage: `url(${getVideoThumbnailSrc(videoDetails)})`,
                 }}
               >
-                <Icon name="AlertTriangle" size="lg" />
+                {/* <Icon name="AlertTriangle" size="lg" /> */}
               </div>
             ) : (
               <div
