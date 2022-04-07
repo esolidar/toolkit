@@ -4,8 +4,10 @@
   overflow: hidden;
   margin-bottom: 30px;
   border-radius: $distance-1;
+  @include box-shadow(map-get($elevation, 50));
 
   &:hover {
+    @include box-shadow(map-get($elevation, 100));
     .bg-image {
       -ms-transform: scale(1.1, 1.1);
       -webkit-transform: scale(1.1, 1.1);
@@ -131,6 +133,7 @@
     font-size: 12px;
     color: map-get($main-text-colors, dark);
   }
+
   .card-auction-bid {
     font-size: 16px;
     font-weight: 700;
@@ -144,8 +147,9 @@
     text-align: center;
     background: map-get($colors, white);
     border-radius: $border-radius-1;
-    border: 1px solid change-color(map-get($base, black), $alpha: 0.04);
+    border: 1px solid change-color(map-get($base, black), $alpha: 0.08);
     padding: 22px;
+    @include box-shadow(map-get($elevation, 50));
   }
 
   .project__ods {

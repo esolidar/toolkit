@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import Props from './FilterGroup.types';
 import Badge from '../badge';
 import Icon from '../icon';
@@ -20,7 +21,9 @@ const FilterGroup: FC<Props> = ({ groupName, items, onChange }: Props): JSX.Elem
         <div className="filter-group-btn-label">
           <Icon name={item.icon} />
           <span>{item.title}</span>
-          {item.counter && <Badge size="xs" className="counter" plaintext={item.counter} />}
+          {item.counter && item.counter !== '0' && (
+            <Badge size="xs" className="counter" plaintext={item.counter} />
+          )}
         </div>
       </label>
     ))}
