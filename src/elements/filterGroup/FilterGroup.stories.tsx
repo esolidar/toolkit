@@ -55,7 +55,7 @@ WithCounter.args = {
     {
       title: 'Environment ',
       value: 'environment ',
-      counter: '7',
+      counter: '0',
     },
     {
       title: 'Social',
@@ -84,7 +84,7 @@ WithIcon.args = {
     {
       title: 'Environment ',
       value: 'environment ',
-      counter: '7',
+      counter: '0',
       icon: 'Projects',
     },
     {
