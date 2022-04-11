@@ -25,6 +25,7 @@ const AuctionDetailRigth = ({
   env,
   domainUrl,
   locale,
+  handleOnblurBidValue,
 }) => {
   const intl = useIntl();
 
@@ -146,6 +147,7 @@ const AuctionDetailRigth = ({
                   className="bid-input"
                   type="text"
                   onChange={valueBidTextField}
+                  onBlur={handleOnblurBidValue}
                   error={error}
                   value={inputBidValue}
                   placeholder={intl.formatMessage(
@@ -244,6 +246,7 @@ AuctionDetailRigth.propTypes = {
   inputRef: PropTypes.object,
   domainUrl: PropTypes.string,
   locale: PropTypes.string,
+  handleOnblurBidValue: PropTypes.func,
 };
 
 export default AuctionDetailRigth;

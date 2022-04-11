@@ -37,16 +37,16 @@ const Video = ({
 
   useEffect(() => {
     if (
-      videoDetails.hasError !== true &&
-      isDefined(videoDetails.videoUrl) &&
-      videoDetails.videoUrl !== '' &&
+      videoDetails?.hasError !== true &&
+      isDefined(videoDetails?.videoUrl) &&
+      videoDetails?.videoUrl !== '' &&
       !isVideoValid
     )
       setIsVideoValid(true);
   }, [videoDetails]);
 
   useEffect(() => {
-    if (reply !== '' && reply !== videoDetails.videoUrl) {
+    if (reply !== '' && reply !== videoDetails?.videoUrl) {
       if (error !== null) setError(null);
       if (debouncedReply !== '' && !isValidatingVideo) setIsValidatingVideo(true);
     }

@@ -211,7 +211,7 @@ Reviews.propTypes = {
   submitReview: PropTypes.func.isRequired,
   texts: PropTypes.object,
   totalReviews: PropTypes.number.isRequired,
-  userReview: PropTypes.object.isRequired,
+  userReview: PropTypes.object,
 };
 
 Reviews.defaultProps = {

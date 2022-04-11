@@ -13,8 +13,8 @@ export interface VideoDetails {
   title: string;
   providerName: Provider;
   thumbnailUrl: string;
-  isLoading: boolean;
-  hasError: boolean;
+  isLoading?: boolean;
+  hasError?: boolean;
   videoUrl: string;
 }
 

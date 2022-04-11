@@ -22,6 +22,7 @@ export const Placeholder: Story<Props> = Template.bind({});
 export const Rounded: Story<Props> = Template.bind({});
 export const VideoYoutube: Story<Props> = Template.bind({});
 export const VideoVimeo: Story<Props> = Template.bind({});
+export const VideoLoading: Story<Props> = Template.bind({});
 
 Default.args = {
   hover: false,
@@ -68,6 +69,12 @@ VideoYoutube.args = {
   type: 'video',
   hover: true,
   videoUrl: 'https://youtu.be/f7x5IeWi0v8',
+  videoDetails: {
+    providerName: 'youtube',
+    title: 'Como fazer um Programa de Aceleração com a esolidar?',
+    thumbnailUrl: 'url(https://img.youtube.com/vi/f7x5IeWi0v8/maxresdefault.jpg)',
+    videoUrl: '',
+  },
   handleDeleteImage: () => {
     alert('Deleted video');
   },
@@ -80,10 +87,30 @@ VideoVimeo.args = {
   type: 'video',
   hover: true,
   videoUrl: 'https://vimeo.com/133690861',
+  videoDetails: {
+    providerName: 'vimeo',
+    title: 'Leilão de Convívio com Ruy de Carvalho + livro apoia o Grupo Lobo',
+    thumbnailUrl:
+      'url(https://i.vimeocdn.com/video/526856989-de0b3e28b396cb957091ade1f5fe568fe433042c74e1f01068e29ddb71fd0e2a-d_640)',
+    videoUrl: '',
+  },
   handleDeleteImage: () => {
     alert('Deleted video');
   },
   onFinishVideoValidation: isValid => {
     if (!isValid) alert('Error loading video');
+  },
+};
+
+VideoLoading.args = {
+  type: 'video',
+  videoUrl: 'https://vimeo.com/133690861',
+  videoDetails: {
+    providerName: undefined,
+    title: undefined,
+    thumbnailUrl: undefined,
+    videoUrl: undefined,
+    isLoading: true,
+    hasError: false,
   },
 };

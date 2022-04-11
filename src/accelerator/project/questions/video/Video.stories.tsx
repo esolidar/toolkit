@@ -42,4 +42,10 @@ Default.args = {
   name: 'video',
   onFinishVideoValidation: () => {},
   onClearReply: () => {},
+  videoDetails: {
+    providerName: 'youtube',
+    title: 'Como fazer um Programa de Aceleração com a esolidar?',
+    thumbnailUrl: 'url(https://img.youtube.com/vi/f7x5IeWi0v8/maxresdefault.jpg)',
+    videoUrl: 'https://www.youtube.com/watch?v=f7x5IeWi0v8&ab_channel=esolidar',
+  },
 };

@@ -47,7 +47,7 @@ const Preview: FC<Props> = ({
   }, [isVisible]);
 
   useEffect(() => {
-    if (!isDefined(videoUrl) || videoUrl === videoDetails.videoUrl) return;
+    if (!isDefined(videoUrl) || videoUrl === videoDetails?.videoUrl) return;
 
     const getVideoDetails = async url => {
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)

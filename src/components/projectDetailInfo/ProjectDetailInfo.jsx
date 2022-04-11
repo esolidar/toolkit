@@ -209,12 +209,14 @@ const NewQuestion = ({
 
   let options = [];
   if (type === 'multiChoice') {
-    options = question.form.options.filter(i => i.id === Number(question.reply));
+    if (question.reply)
+      options = question.form.options.filter(i => i.id === Number(question.reply));
   }
   if (type === 'checkboxes') {
-    question?.reply?.map(reply => {
-      options.push(question.form.options.find(i => i.id === reply));
-    });
+    if (question?.reply?.length > 0)
+      question?.reply?.map(reply => {
+        options.push(question.form.options.find(i => i.id === reply));
+      });
   }
 
   return (
@@ -235,7 +237,7 @@ const NewQuestion = ({
             )}
           </div>
         )}
-        {type === 'shortAnswer' && (
+        {type === 'shortAnswer' && question.reply && (
           <div>
             <h4 style={{ color }}>
               {question.form.question}
@@ -244,7 +246,7 @@ const NewQuestion = ({
             <p>{question.reply}</p>
           </div>
         )}
-        {type === 'longAnswer' && (
+        {type === 'longAnswer' && question.reply && (
           <div>
             <h4 style={{ color }}>
               {question.form.question}
@@ -255,7 +257,7 @@ const NewQuestion = ({
             ))}
           </div>
         )}
-        {(type === 'multiChoice' || type === 'checkboxes') && (
+        {(type === 'multiChoice' || type === 'checkboxes') && options.length > 0 && (
           <div>
             <h4 style={{ color }}>
               {question.form.question}
@@ -374,9 +376,8 @@ const Question = ({
                 {name}
                 {isPrivate && <PrivateIcon />}
               </h4>
-              {reply.split('\n').map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+              {typeof reply === 'string' &&
+                reply.split('\n').map((item, index) => <p key={index}>{item}</p>)}
             </div>
           )}
         {showRequestInfoView && !['title', 'paragraph'].includes(type) && (

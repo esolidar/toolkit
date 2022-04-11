@@ -9,17 +9,17 @@
   }
 
   &-btn-label {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    line-height: 28px;
     color: map-get($neutrals, 700);
-    font-weight: 600;
-    padding: $distance-1 $distance-2;
+    padding: 10px $distance-2;
     background-color: white;
     border-radius: $border-radius-1;
     cursor: pointer;
-    line-height: 21px;
     @include animate();
 
     .icon-component {
@@ -43,12 +43,14 @@
 
     &:hover {
       background-color: change-color(map-get($turquoise, 500), $alpha: 0.08);
+      color: map-get($turquoise, 500);
+      @include svg-change-color(map-get($turquoise, 500));
       @include animate();
 
       .counter {
         background-color: map-get($turquoise, 500);
         color: white;
-        @include animate();
+        @include animate(0ms);
       }
     }
 
@@ -99,7 +101,7 @@
 
   &__radio[type='radio'][disabled]:checked ~ &-btn-label {
     color: map-get($neutrals, 400);
-    background-color: map-get($neutrals, 100);
+    background-color: map-get($background, secondary);
     cursor: not-allowed;
 
     .counter {
