@@ -1,9 +1,21 @@
+/* eslint-disable camelcase */
 interface Image {
   src: string;
   alt?: string;
   width?: string;
   height?: string;
   borderRadius?: string;
+}
+
+declare type Provider = 'vimeo' | 'youtube' | '';
+
+export interface VideoDetails {
+  title: string;
+  providerName: Provider;
+  thumbnailUrl: string;
+  isLoading?: boolean;
+  hasError?: boolean;
+  videoUrl: string;
 }
 
 interface Props {
@@ -18,6 +30,7 @@ interface Props {
   videoUrl?: string;
   onFinishVideoValidation?(videoDetails: any): void;
   isVisible?: boolean;
+  videoDetails?: VideoDetails;
 }
 
 export default Props;

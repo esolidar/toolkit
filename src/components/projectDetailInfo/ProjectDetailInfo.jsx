@@ -9,6 +9,7 @@ import CheckboxField from '../../elements/checkboxField';
 import TextareaField from '../../elements/textareaField';
 import rawDraftToHtml from '../../utils/rawDraftToHtml';
 import Icon from '../../elements/icon';
+import isDefined from '../../utils/isDefined';
 
 const ProjectDetailInfo = ({
   project,
@@ -26,6 +27,7 @@ const ProjectDetailInfo = ({
   if (isEmpty(project) || !project) return <div />;
 
   const { form, requestInfoErrors = [], customQuestions } = project;
+  const video = isDefined(project.video) && project.video !== '' ? JSON.parse(project.video) : null;
 
   const totalQuestions = form.length;
   const selectedQuestions = form.filter(item => item.selected === true).length;
@@ -88,7 +90,7 @@ const ProjectDetailInfo = ({
   }
 
   const handleClickPreview = () => {
-    window.open(project.video);
+    window.open(video.videoUrl);
   };
 
   return (
@@ -100,14 +102,15 @@ const ProjectDetailInfo = ({
       )}
       <div className="box">
         <p>{project.description}</p>
-        {project.video !== '' && (
+        {isDefined(video) && !isEmpty(video) && (
           <div>
             <h4 style={{ color }}>
               <FormattedMessage id="video" />
             </h4>
             <Preview
               type="video"
-              videoUrl={project.video}
+              videoUrl={video.videoUrl}
+              videoDetails={video}
               handleClickPreview={handleClickPreview}
               isVisible
             />

@@ -5,6 +5,8 @@ import Viewport from '../../../../components/viewport';
 import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
 import useDebounce from '../../../../hooks/useDebounce';
+import useIsFirstRender from '../../../../hooks/useIsFirstRender';
+import isDefined from '../../../../utils/isDefined';
 
 const Video = ({
   name,
@@ -13,24 +15,38 @@ const Video = ({
   required,
   onFinishVideoValidation,
   onDeletePreview,
+  videoDetails,
+  onClearReply,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const debouncedReply = useDebounce(reply, 500);
+  const isFirstRender = useIsFirstRender();
 
   const [isValidatingVideo, setIsValidatingVideo] = useState(false);
   const [isVideoValid, setIsVideoValid] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (reply === '') {
+    if (reply === '' && !isFirstRender) {
       if (error !== null) setError(null);
       if (isValidatingVideo) setIsValidatingVideo(false);
       if (isVideoValid) setIsVideoValid(false);
+      onClearReply();
     }
   }, [reply]);
 
   useEffect(() => {
-    if (reply !== '') {
+    if (
+      videoDetails?.hasError !== true &&
+      isDefined(videoDetails?.videoUrl) &&
+      videoDetails?.videoUrl !== '' &&
+      !isVideoValid
+    )
+      setIsVideoValid(true);
+  }, [videoDetails]);
+
+  useEffect(() => {
+    if (reply !== '' && reply !== videoDetails?.videoUrl) {
       if (error !== null) setError(null);
       if (debouncedReply !== '' && !isValidatingVideo) setIsValidatingVideo(true);
     }
@@ -52,7 +68,6 @@ const Video = ({
     const { hasError } = videoDetails;
 
     setIsValidatingVideo(false);
-    setIsVideoValid(!hasError);
     onFinishVideoValidation(videoDetails);
     if (hasError && reply !== '')
       setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));
@@ -92,6 +107,7 @@ const Video = ({
           handleClickPreview={handleClickPreview}
           onFinishVideoValidation={handleOnFinishVideoValidation}
           isVisible={reply !== '' && isVideoValid && !isValidatingVideo}
+          videoDetails={videoDetails}
         />
       </div>
     </Viewport>

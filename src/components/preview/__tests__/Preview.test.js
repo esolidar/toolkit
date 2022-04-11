@@ -1,18 +1,20 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render, act, waitFor } from '../../../../__customQueries__/test-utils';
+import { render, act } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   Placeholder,
   VideoYoutube as VideoYoutubeStory,
   VideoVimeo as VideoVimeoStory,
+  VideoLoading as VideoLoadingStory,
 } from '../Preview.stories';
 
 const DefaultComponent = composeStory(DefaultStory, Meta);
 const PlaceholderComponent = composeStory(Placeholder, Meta);
 const VideoYoutube = composeStory(VideoYoutubeStory, Meta);
 const VideoVimeo = composeStory(VideoVimeoStory, Meta);
+const VideoLoading = composeStory(VideoLoadingStory, Meta);
 
 const videoResponse = {
   status: 200,
@@ -53,52 +55,49 @@ it('renders Preview', () => {
 
 it('renders Preview video youtube', async () => {
   await act(async () => {
-    const { getByText, getByClass, queryByClass, getByTestId, queryByTestId } = render(
-      <VideoYoutube />
-    );
-    expect(getByClass('esolidar-preview')).toBeInTheDocument();
+    const { getByText, getByClass, queryByTestId } = render(<VideoYoutube />);
+
+    expect(getByClass('esolidar-preview hover-image')).toBeInTheDocument();
     expect(getByClass('esolidar-preview__video')).toBeInTheDocument();
-    expect(getByTestId('skeleton-thumbnail')).toBeInTheDocument();
-    expect(getByTestId('skeleton-provider')).toBeInTheDocument();
-    expect(getByTestId('skeleton-title')).toBeInTheDocument();
-    expect(queryByClass('esolidar-preview__delete')).not.toBeInTheDocument();
+    expect(getByClass('esolidar-preview__video--thumbnail')).toBeInTheDocument();
+    expect(getByText('youtube.COM')).toBeInTheDocument();
+    expect(getByText('Como fazer um Programa de Aceleração com a esolidar?')).toBeInTheDocument();
+    expect(getByClass('esolidar-preview__delete')).toBeInTheDocument();
 
-    await waitFor(() => {
-      expect(getByClass('esolidar-preview__video--thumbnail')).toBeInTheDocument();
-      expect(getByText('youtube.COM')).toBeInTheDocument();
-      expect(getByText('Como fazer um Programa de Aceleração com a esolidar?')).toBeInTheDocument();
-      expect(getByClass('esolidar-preview__delete')).toBeInTheDocument();
-
-      expect(queryByTestId('skeleton-thumbnail')).not.toBeInTheDocument();
-      expect(queryByTestId('skeleton-provider')).not.toBeInTheDocument();
-      expect(queryByTestId('skeleton-title')).not.toBeInTheDocument();
-    });
+    expect(queryByTestId('skeleton-thumbnail')).not.toBeInTheDocument();
+    expect(queryByTestId('skeleton-provider')).not.toBeInTheDocument();
+    expect(queryByTestId('skeleton-title')).not.toBeInTheDocument();
   });
 });
 
 it('renders Preview video vimeo', async () => {
   await act(async () => {
-    const { getByText, getByClass, queryByClass, getByTestId, queryByTestId } = render(
-      <VideoVimeo />
-    );
+    const { getByText, getByClass, queryByTestId } = render(<VideoVimeo />);
+
+    expect(getByClass('esolidar-preview hover-image')).toBeInTheDocument();
+    expect(getByClass('esolidar-preview__video')).toBeInTheDocument();
+    expect(getByClass('esolidar-preview__video--thumbnail')).toBeInTheDocument();
+    expect(getByText('vimeo.COM')).toBeInTheDocument();
+    expect(
+      getByText('Leilão de Convívio com Ruy de Carvalho + livro apoia o Grupo Lobo')
+    ).toBeInTheDocument();
+    expect(getByClass('esolidar-preview__delete')).toBeInTheDocument();
+
+    expect(queryByTestId('skeleton-thumbnail')).not.toBeInTheDocument();
+    expect(queryByTestId('skeleton-provider')).not.toBeInTheDocument();
+    expect(queryByTestId('skeleton-title')).not.toBeInTheDocument();
+  });
+});
+
+it('renders Preview video loading', async () => {
+  await act(async () => {
+    const { getByClass, queryByClass, getByTestId } = render(<VideoLoading />);
+
     expect(getByClass('esolidar-preview')).toBeInTheDocument();
     expect(getByClass('esolidar-preview__video')).toBeInTheDocument();
     expect(getByTestId('skeleton-thumbnail')).toBeInTheDocument();
     expect(getByTestId('skeleton-provider')).toBeInTheDocument();
     expect(getByTestId('skeleton-title')).toBeInTheDocument();
     expect(queryByClass('esolidar-preview__delete')).not.toBeInTheDocument();
-
-    await waitFor(() => {
-      expect(getByClass('esolidar-preview__video--thumbnail')).toBeInTheDocument();
-      expect(getByText('vimeo.COM')).toBeInTheDocument();
-      expect(
-        getByText('Leilão de Convívio com Ruy de Carvalho + livro apoia o Grupo Lobo')
-      ).toBeInTheDocument();
-      expect(getByClass('esolidar-preview__delete')).toBeInTheDocument();
-
-      expect(queryByTestId('skeleton-thumbnail')).not.toBeInTheDocument();
-      expect(queryByTestId('skeleton-provider')).not.toBeInTheDocument();
-      expect(queryByTestId('skeleton-title')).not.toBeInTheDocument();
-    });
   });
 });
