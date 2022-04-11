@@ -777,8 +777,8 @@ const AuctionAddForm = ({
                       multiple={false}
                       hasCropper={{
                         showCropper: true,
-                        aspectRatioW: 5,
-                        aspectRatioH: 4,
+                        aspectRatioW: 50,
+                        aspectRatioH: 47,
                         minWidth: 500,
                         minHeight: 470,
                       }}
