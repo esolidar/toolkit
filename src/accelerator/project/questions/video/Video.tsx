@@ -6,6 +6,7 @@ import Preview from '../../../../components/preview';
 import TextField from '../../../../elements/forms/textField';
 import useDebounce from '../../../../hooks/useDebounce';
 import useIsFirstRender from '../../../../hooks/useIsFirstRender';
+import isDefined from '../../../../utils/isDefined';
 
 const Video = ({
   name,
@@ -35,7 +36,17 @@ const Video = ({
   }, [reply]);
 
   useEffect(() => {
-    if (reply !== '') {
+    if (
+      videoDetails.hasError !== true &&
+      isDefined(videoDetails.videoUrl) &&
+      videoDetails.videoUrl !== '' &&
+      !isVideoValid
+    )
+      setIsVideoValid(true);
+  }, [videoDetails]);
+
+  useEffect(() => {
+    if (reply !== '' && reply !== videoDetails.videoUrl) {
       if (error !== null) setError(null);
       if (debouncedReply !== '' && !isValidatingVideo) setIsValidatingVideo(true);
     }
@@ -57,7 +68,6 @@ const Video = ({
     const { hasError } = videoDetails;
 
     setIsValidatingVideo(false);
-    setIsVideoValid(!hasError);
     onFinishVideoValidation(videoDetails);
     if (hasError && reply !== '')
       setError(intl.formatMessage({ id: 'toolkit.project.video.error' }));

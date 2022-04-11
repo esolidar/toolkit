@@ -15,7 +15,6 @@ export interface VideoDetails {
   thumbnailUrl: string;
   isLoading: boolean;
   hasError: boolean;
-  thumbnailImage: string;
   videoUrl: string;
 }
 
