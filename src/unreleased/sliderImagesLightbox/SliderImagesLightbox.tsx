@@ -77,8 +77,7 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
             /(?:http?s?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g;
 
           if (vimeo.test(image.video)) {
-            const url = image.video;
-            const result = url.split('com/');
+            const result = image.video.split('com/');
             const videoUrl = result[1].split('&');
 
             return (
@@ -93,14 +92,9 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
             );
           }
           if (youtube.test(image.video)) {
-            let videoUrl;
             const result = image.video.split('v=');
-
-            if (result.length > 1) {
-              videoUrl = result.reverse();
-            } else {
-              videoUrl = image.video.split('/').reverse();
-            }
+            const videoUrl =
+              result.length > 1 ? result.reverse() : image.video.split('/').reverse();
 
             return (
               <iframe
@@ -137,7 +131,9 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
           >
             <div
               style={{
-                backgroundImage: `url("${`${env.serverlessResizeImage}/${image.image}`}")`,
+                backgroundImage: `url("${
+                  image.thumbs ? image.thumbs.detail : `${serverlessResizeImage}/${image.image}`
+                }")`,
                 width: '100%',
                 height: '100%',
               }}
@@ -156,12 +152,19 @@ const SliderImagesLightbox: FC<Props> = ({ imagesProps, videoProps, env }: Props
       });
     }
     return (
-      <img
-        data-testid="no-image"
-        src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
-        style={{ width: '100%' }}
-        alt="no-pic"
-      />
+      <button type="button" className="open-lightbox" disabled>
+        <div
+          style={{
+            backgroundImage: `url("${`${env.cdn_static_url}/frontend/assets/no-image.jpg`}")`,
+          }}
+        >
+          <img
+            src={`${env.cdn_static_url}/frontend/assets/no-image.jpg`}
+            alt="no-pic"
+            data-testid="no-image"
+          />
+        </div>
+      </button>
     );
   };
 
