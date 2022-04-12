@@ -4,6 +4,45 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.122.0](https://github.com/esolidar/toolkit/compare/v4.101.3...v4.122.0) Released: ER2214 / 07th March 2022 -> 11th April 2022
+
+### New features
+
+- Create FullScreenModal component [`ENG-857`](https://github.com/esolidar/toolkit/pulls?q=ENG-857)
+- Create WizardOrdered component [`ENG-946`](https://github.com/esolidar/toolkit/pulls?q=ENG-946)
+- Create submitProject/pages/Description [`ENG-1001`](https://github.com/esolidar/toolkit/pulls?q=ENG-1001)
+- Create submitProject/pages/Video [`ENG-1005`](https://github.com/esolidar/toolkit/pulls?q=ENG-1005)
+- Create submitProject/pages/Images [`ENG-1008`](https://github.com/esolidar/toolkit/pulls?q=ENG-1008)
+- Implement drag and drop in images previews [`ENG-1009`](https://github.com/esolidar/toolkit/pulls?q=ENG-1009)
+- Create submitProject/pages/Categories [`ENG-1010`](https://github.com/esolidar/toolkit/pulls?q=ENG-1010)
+- Create submitProject/pages/Sdg [`ENG-1011`](https://github.com/esolidar/toolkit/pulls?q=ENG-1011)
+- Create submitProject/pages/Checkbox [`ENG-1012`](https://github.com/esolidar/toolkit/pulls?q=ENG-1012)
+- Create submitProject/pages/Radio [`ENG-1014`](https://github.com/esolidar/toolkit/pulls?q=ENG-1014)
+- Create submitProject/pages/ShortAnswer [`ENG-1016`](https://github.com/esolidar/toolkit/pulls?q=ENG-1016)
+- Create submitProject/pages/LongAnswer [`ENG-1018`](https://github.com/esolidar/toolkit/pulls?q=ENG-1018)
+- Create submitProject/pages/Section [`ENG-1020`](https://github.com/esolidar/toolkit/pulls?q=ENG-1020)
+- Create submitProject/pages/File [`ENG-1022`](https://github.com/esolidar/toolkit/pulls?q=ENG-1022)
+- Create submitProject/pages/success [`ENG-1025`](https://github.com/esolidar/toolkit/pulls?q=ENG-1025)
+- Create File preview Card [`ENG-1081`](https://github.com/esolidar/toolkit/pulls?q=ENG-1081)
+- Create DeleteProjectModal component [`ENG-1111`](https://github.com/esolidar/toolkit/pulls?q=ENG-1111)
+
+### Enhancements
+
+- Improve Wizard's header width when it is not focused [`ENG-951`](https://github.com/esolidar/toolkit/pulls?q=ENG-951)
+- Add prop variant to Tooltip [`ENG-1003`](https://github.com/esolidar/toolkit/pulls?q=ENG-1003)
+- Add video feature to the Preview component [`ENG-1006`](https://github.com/esolidar/toolkit/pulls?q=ENG-1006)
+- Add prop custom button to Dropdown component [`ENG-1029`](https://github.com/esolidar/toolkit/pulls?q=ENG-1029)
+- Add prop and icon loading in TextField component [`ENG-1065`](https://github.com/esolidar/toolkit/pulls?q=ENG-1065)
+- Add kebab menu to the ProjectCard component [`ENG-1112`](https://github.com/esolidar/toolkit/pulls?q=ENG-1112)
+- Update tabs badge when is "0" text [`ENG-1424`](https://github.com/esolidar/toolkit/pulls?q=ENG-1424)
+
+### Bug Fixing
+
+- Acceleration Program -> Step 1: Rotate Crop zooms in on the image [`ENG-984`](https://github.com/esolidar/toolkit/pulls?q=ENG-984)
+- Acceleration Program -> Step 2: Remote location does not appear in a draft preview [`ENG-985`](https://github.com/esolidar/toolkit/pulls?q=ENG-985)
+  <br>
+  <br>
+
 ## [v4.101.3](https://github.com/esolidar/toolkit/compare/v4.101.0...v4.101.3) Released: 22nd March 2022
 
 ### Bug Fixing
