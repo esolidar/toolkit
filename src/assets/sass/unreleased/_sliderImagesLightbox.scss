@@ -212,7 +212,7 @@ $slick-opacity-not-active: 0.25;
         max-width: 100%;
         max-height: 100%;
         height: auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 3 / 2;
         object-fit: contain;
         backdrop-filter: blur(50px);
       }
@@ -293,7 +293,7 @@ $slick-opacity-not-active: 0.25;
   flex-direction: column;
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   margin-bottom: 60px;
 
   @media (max-width: map-get($breakpoints, xs)) {
@@ -305,36 +305,26 @@ $slick-opacity-not-active: 0.25;
     }
   }
 
-  .prev-arrow,
+  .prev-arrow {
+    opacity: 0;
+    left: 8px;
+    background: map-get($neutrals, 900)
+      url('https://static.esolidar.com/frontend/icons/ic-slide-left.svg') 50% 50% no-repeat;
+  }
   .next-arrow {
     opacity: 0;
+    right: 8px;
+    background: map-get($neutrals, 900)
+      url('https://static.esolidar.com/frontend/icons/ic-slide-right.svg') 50% 50% no-repeat;
   }
 
   &:hover {
     .next-arrow,
     .prev-arrow {
-      width: 40px;
-      height: 90px;
-      background: map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-left.svg')
-          50% 50% no-repeat,
-        map-get($colors, black) url('#{$cdn-static-url}/frontend/icons/ic-slide-right.svg') 50% 50%
-          no-repeat;
-      position: absolute;
-      display: block;
-      line-height: 0;
-      font-size: 0;
-      cursor: pointer;
-      color: transparent;
-      top: 45%;
-      -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-      padding: 0;
-      border: none;
-      outline: none;
-      z-index: 9;
+      width: 35px;
+      height: 35px;
       opacity: 0.8;
-      border-radius: 0 3px 3px 0;
+      border-radius: 50%;
     }
   }
 

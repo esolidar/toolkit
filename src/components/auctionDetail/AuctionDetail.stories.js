@@ -111,6 +111,20 @@ Default.args = {
               'https://cdn.testesolidar.com/products/a5ecae84-050b-4945-abdd-13c77dd9e301-THUMB.jpeg',
           },
         },
+        {
+          id: 194,
+          image_name:
+            'https://cdn.testesolidar.com/products/adc89e21-9413-471d-87ac-2571344be096.jpeg',
+          thumbs: {
+            standard:
+              'https://cdn.testesolidar.com/products/adc89e21-9413-471d-87ac-2571344be096-STANDARD.jpeg',
+            detail:
+              'https://cdn.testesolidar.com/products/adc89e21-9413-471d-87ac-2571344be096-DETAIL.jpeg',
+            pin: 'https://cdn.testesolidar.com/products/adc89e21-9413-471d-87ac-2571344be096-PIN.jpeg',
+            thumb:
+              'https://cdn.testesolidar.com/products/adc89e21-9413-471d-87ac-2571344be096-THUMB.jpeg',
+          },
+        },
       ],
       currency: {
         id: 1,

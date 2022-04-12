@@ -26,7 +26,7 @@ import DescriptionDetail from '../descriptionDetail';
 import CheckboxField from '../../elements/checkboxField';
 import ContributesListBox from '../contributesListBox';
 import ConvertToMyTimezone from '../convertToMyTimezone';
-import SliderImagesLightbox from '../sliderImagesLightbox';
+import SliderImagesLightbox from '../../unreleased/sliderImagesLightbox';
 import isEmpty from '../../utils/isEmpty/isEmpty';
 import removeUrlParam from '../../utils/removeUrlParam';
 import ValidateTelephone from '../../elements/validateTelephone';
@@ -985,8 +985,8 @@ const AuctionDetail = ({
                     <Col md={7} data-testid="slide-image-multiple">
                       {auctionDetailInfo.images && auctionDetailInfo.images.length > 0 && (
                         <SliderImagesLightbox
-                          video={auctionDetailInfo.video}
-                          images={auctionDetailInfo.images}
+                          videoProps={auctionDetailInfo.video}
+                          imagesProps={auctionDetailInfo.images}
                           env={env}
                         />
                       )}
