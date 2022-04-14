@@ -5,7 +5,7 @@ export interface Item {
   rightIcon?: string;
   href?: string;
   onClick?(): void;
-  show: boolean;
+  show?: boolean;
   disabled?: boolean;
   divider?: boolean;
 }

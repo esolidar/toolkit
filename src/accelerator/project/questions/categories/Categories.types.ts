@@ -7,6 +7,7 @@ interface Props {
   reply: number[];
   handleChangeCategories(ids: number[]): void;
   type?: string;
+  onClickDelete(categoryId: number): void;
 }
 
 export default Props;

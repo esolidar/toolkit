@@ -29,6 +29,7 @@ const Template: Story<Props> = (args: Props) => {
 export const Small = Template.bind({});
 export const Medium = Template.bind({});
 export const Large = Template.bind({});
+export const LargeWithDropdown = Template.bind({});
 
 Small.args = {
   id: 'checkboxCard-sm',
@@ -54,4 +55,22 @@ Large.args = {
     'End hunger, achieve food security and improved nutrition and promote sustainable agriculture',
   title: 'Zero hunger',
   className: 'large',
+};
+
+LargeWithDropdown.args = {
+  id: 'checkboxCard-lg',
+  defaultImg: `${cdnStaticUrl}/frontend/assets/ods/pt/ods-1.png`,
+  size: 'lg',
+  subtitle:
+    'End hunger, achieve food security and improved nutrition and promote sustainable agriculture',
+  title: 'Zero hunger',
+  className: 'large',
+  dropdownItems: [
+    {
+      id: 0,
+      text: 'Delete',
+      leftIcon: 'Trash',
+      onClick: () => alert('You clicked delete!'),
+    },
+  ],
 };
