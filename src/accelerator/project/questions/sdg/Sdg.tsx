@@ -87,7 +87,7 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, required }: Prop
             <>
               <div className="page-content-categories__list-button">
                 <Button
-                  extraClass="primary-full"
+                  extraClass="secondary"
                   onClick={() => setShowCategoriesModal(true)}
                   dataTestId="edit-goals"
                   text={intl.formatMessage({

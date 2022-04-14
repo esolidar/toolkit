@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1649925631920" clover="3.2.0">
-  <project timestamp="1649925631920" name="All files">
+<coverage generated="1649926044437" clover="3.2.0">
+  <project timestamp="1649926044438" name="All files">
     <metrics statements="5947" coveredstatements="4297" conditionals="4401" coveredconditionals="2739" methods="1867" coveredmethods="1073" elements="12215" coveredelements="8109" complexity="0" loc="5947" ncloc="5947" packages="231" files="793" classes="793"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
@@ -1826,7 +1826,7 @@
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\sm\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="21" type="stmt"/>
-        <line num="4" count="114" type="stmt"/>
+        <line num="4" count="112" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\sm\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6020,20 +6020,20 @@
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="84" coveredconditionals="65" methods="2" coveredmethods="2"/>
         <line num="7" count="96" type="stmt"/>
-        <line num="37" count="555" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="553" type="cond" truecount="2" falsecount="0"/>
         <line num="38" count="422" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="75" type="cond" truecount="2" falsecount="0"/>
         <line num="40" count="67" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="555" type="stmt"/>
-        <line num="70" count="555" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="555" type="stmt"/>
-        <line num="75" count="555" type="cond" truecount="5" falsecount="0"/>
+        <line num="42" count="553" type="stmt"/>
+        <line num="70" count="553" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="553" type="stmt"/>
+        <line num="75" count="553" type="cond" truecount="5" falsecount="0"/>
         <line num="77" count="347" type="stmt"/>
-        <line num="109" count="133" type="stmt"/>
+        <line num="109" count="131" type="stmt"/>
         <line num="134" count="8" type="stmt"/>
         <line num="166" count="6" type="stmt"/>
         <line num="190" count="61" type="stmt"/>
-        <line num="223" count="555" type="stmt"/>
+        <line num="223" count="553" type="stmt"/>
         <line num="227" count="96" type="stmt"/>
         <line num="253" count="96" type="stmt"/>
       </file>
@@ -6172,35 +6172,35 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="32" coveredstatements="23" conditionals="42" coveredconditionals="35" methods="8" coveredmethods="6"/>
         <line num="7" count="28" type="stmt"/>
-        <line num="36" count="88" type="stmt"/>
-        <line num="37" count="88" type="stmt"/>
-        <line num="38" count="88" type="stmt"/>
-        <line num="42" count="88" type="stmt"/>
-        <line num="43" count="88" type="stmt"/>
-        <line num="47" count="88" type="stmt"/>
-        <line num="50" count="88" type="stmt"/>
-        <line num="55" count="88" type="stmt"/>
+        <line num="36" count="86" type="stmt"/>
+        <line num="37" count="86" type="stmt"/>
+        <line num="38" count="86" type="stmt"/>
+        <line num="42" count="86" type="stmt"/>
+        <line num="43" count="86" type="stmt"/>
+        <line num="47" count="86" type="stmt"/>
+        <line num="50" count="86" type="stmt"/>
+        <line num="55" count="86" type="stmt"/>
         <line num="56" count="73" type="cond" truecount="4" falsecount="0"/>
         <line num="57" count="29" type="stmt"/>
-        <line num="58" count="3" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="61" count="29" type="stmt"/>
         <line num="62" count="29" type="stmt"/>
-        <line num="67" count="88" type="stmt"/>
-        <line num="68" count="70" type="cond" truecount="4" falsecount="0"/>
-        <line num="69" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="67" count="86" type="stmt"/>
+        <line num="68" count="68" type="cond" truecount="4" falsecount="0"/>
+        <line num="69" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
         <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="74" count="0" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="78" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="82" count="0" type="stmt"/>
         <line num="84" count="0" type="stmt"/>
-        <line num="87" count="3" type="stmt"/>
-        <line num="88" count="3" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="96" count="88" type="stmt"/>
+        <line num="96" count="86" type="stmt"/>
         <line num="153" count="28" type="stmt"/>
         <line num="183" count="28" type="stmt"/>
       </file>
@@ -6803,11 +6803,11 @@
         <line num="7" count="108" type="stmt"/>
         <line num="9" count="108" type="stmt"/>
         <line num="16" count="108" type="stmt"/>
-        <line num="25" count="970" type="stmt"/>
-        <line num="27" count="970" type="stmt"/>
-        <line num="28" count="970" type="stmt"/>
+        <line num="25" count="968" type="stmt"/>
+        <line num="27" count="968" type="stmt"/>
+        <line num="28" count="968" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="970" type="stmt"/>
+        <line num="33" count="968" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -7418,12 +7418,12 @@
         <line num="38" count="58" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
+        <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="43" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
         <line num="53" count="58" type="stmt"/>
         <line num="55" count="58" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -8837,7 +8837,7 @@
       </file>
       <file name="isDefined.ts" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="327" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="326" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
