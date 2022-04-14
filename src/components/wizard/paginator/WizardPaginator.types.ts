@@ -8,7 +8,6 @@ export interface PageStatus {
 interface Props {
   pages: any;
   pageStatus: PageStatus;
-  cdnStaticUrl: string;
   handleChangeTab(i: number): void;
 }
 

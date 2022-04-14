@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import classNames from 'classnames';
 import Props from './WizardPaginator.types';
 import Icon from '../../../elements/icon';
 import isArray from '../../../utils/isArray';
@@ -44,8 +45,8 @@ const WizardPaginator: FC<Props> = ({ pages, handleChangeTab }: Props): JSX.Elem
       } else text = 'paginator.published';
     } else {
       text = 'paginator.not-done-yet';
-      if (newPageStatus.active === page) text = 'paginator.current.step';
-      else if (newPageStatus.done.find(done => page === done) === page) {
+
+      if (newPageStatus.done.find(done => page === done) === page) {
         text = 'paginator.done';
         showIcon = true;
       }
@@ -67,18 +68,22 @@ const WizardPaginator: FC<Props> = ({ pages, handleChangeTab }: Props): JSX.Elem
           type="button"
           key={page}
           onClick={() => handleChangeTab(page)}
-          className={
-            newPageStatus.active === page
-              ? 'wizard__paginator__item active'
-              : 'wizard__paginator__item inactive'
-          }
+          className={classNames(
+            'wizard__paginator__item',
+            { active: newPageStatus.active === page },
+            { inactive: newPageStatus.active !== page }
+          )}
           style={{ width: `${JSON.stringify(100 / pagesToArray.length)}%` }}
         >
           <div>
             <div className="wizard__paginator__item__title">
               <span className="page-title">{intl.formatMessage({ id: page })}</span>
             </div>
-            <div className="wizard__paginator__item__subtitle">
+            <div
+              className={classNames('wizard__paginator__item__subtitle', {
+                done: currentPageLabel(page).text === 'paginator.done',
+              })}
+            >
               {currentPageLabel(page).showIcon && <Icon name="Check" size="sm" />}
               <FormattedMessage id={currentPageLabel(page).text} />
             </div>
