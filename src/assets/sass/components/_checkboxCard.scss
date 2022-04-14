@@ -45,6 +45,10 @@
         @include text-multiline-ellipsis(2);
       }
     }
+
+    .checkbox-card__dropdown {
+      display: none;
+    }
   }
 
   &.md {
@@ -75,6 +79,10 @@
         font-size: 14px;
         line-height: 24px;
       }
+    }
+
+    .checkbox-card__dropdown {
+      display: none;
     }
   }
 
@@ -113,6 +121,11 @@
         line-height: 20px;
         text-align: left;
       }
+    }
+
+    .checkbox-card__dropdown {
+      margin-top: 10px;
+      margin-left: auto;
     }
 
     & .checkbox-card__icon {

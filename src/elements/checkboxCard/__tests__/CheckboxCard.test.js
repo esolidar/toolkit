@@ -6,11 +6,13 @@ import Meta, {
   Small as SmallStory,
   Medium as MediumStory,
   Large as LargeStory,
+  LargeWithDropdown as LargeWithDropdownStory,
 } from '../CheckboxCard.stories';
 
 const Small = composeStory(SmallStory, Meta);
 const Medium = composeStory(MediumStory, Meta);
 const Large = composeStory(LargeStory, Meta);
+const LargeWithDropdown = composeStory(LargeWithDropdownStory, Meta);
 
 it('renders CheckboxCard Small', () => {
   const { getById, getByText, getByClass, queryByClass } = render(<Small />);
@@ -47,6 +49,7 @@ it('renders CheckboxCard Large', () => {
   const card = getById('checkboxCard-lg');
   expect(card).toBeInTheDocument();
   expect(getByClass('checkbox-card__image')).toBeInTheDocument();
+  expect(queryByClass('checkbox-card__dropdown')).not.toBeInTheDocument();
   expect(getByClass(/lg/)).toBeInTheDocument();
   expect(getByText('Zero hunger')).toBeInTheDocument();
   expect(
@@ -59,4 +62,12 @@ it('renders CheckboxCard Large', () => {
   userEvent.click(card);
   expect(getByClass(/active/)).toBeInTheDocument();
   expect(getByClass(/large/)).toBeInTheDocument();
+});
+
+it('renders CheckboxCard LargeWithDropdown', () => {
+  const { getById, getByClass } = render(<LargeWithDropdown />);
+
+  const card = getById('checkboxCard-lg');
+  expect(card).toBeInTheDocument();
+  expect(getByClass('checkbox-card__dropdown')).toBeInTheDocument();
 });
