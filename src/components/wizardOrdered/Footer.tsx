@@ -25,7 +25,7 @@ const Footer = ({
     <div className={className}>
       <div data-tip={intl.formatMessage({ id: 'toolkit.prev' })}>
         <Button
-          extraClass="primary-full"
+          extraClass="secondary"
           onClick={handleClickPrev}
           disabled={disableClickPrev}
           icon={<Icon name="ChevronUp" />}
@@ -35,7 +35,7 @@ const Footer = ({
       </div>
       <div data-tip={intl.formatMessage({ id: 'toolkit.next' })}>
         <Button
-          extraClass="primary-full"
+          extraClass="secondary"
           onClick={handleClickNext}
           disabled={disableClickNext || pages.length === 0}
           icon={<Icon name="ChevronDown" />}
