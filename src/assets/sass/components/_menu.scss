@@ -17,7 +17,7 @@
     text-align: left;
     border-radius: $distance-1;
     padding: $distance-2 19px;
-    color: map-get($main-text-colors, dark);
+    color: map-get($base, black);
     position: relative;
     border: 0px;
     background-color: transparent;
@@ -26,6 +26,7 @@
     vertical-align: middle;
     flex-wrap: wrap;
     @include animate(background-color);
+    @include svg-change-color(map-get($base, black));
 
     &:not(div) {
       &:hover,
@@ -35,6 +36,17 @@
         text-decoration: none;
         color: map-get($theme-colors, primary);
         outline: none;
+      }
+      &:focus-visible {
+        background-color: map-get($base, white);
+        color: map-get($turquoise, 500);
+        @include svg-change-color(map-get($turquoise, 500));
+        box-shadow: 0px 0px 0px 4px rgba(12, 131, 128, 0.08);
+      }
+      &:active {
+        background-color: get-rgba(map-get($turquoise, 500), 24);
+        color: map-get($turquoise, 500);
+        @include svg-change-color(map-get($turquoise, 500));
       }
     }
     &--active {
@@ -52,7 +64,7 @@
 
     &--notification span:after {
       content: '';
-      background: map-get($negative, 400);
+      background: map-get($turquoise, 500);
       border-radius: 50%;
       height: 8px;
       width: 8px;
