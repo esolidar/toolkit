@@ -129,7 +129,7 @@ const Files = ({
               triggerOnce={true}
               duration={700}
               damping={0.1}
-              className="project-file-item"
+              className="project-fade-item"
             >
               {filesList.map((file, i) => (
                 <FileCard

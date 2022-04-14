@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import Props from './CheckboxCard.types';
 import Preview from '../../components/preview';
 import Icon from '../icon';
+import Dropdown from '../dropdown';
 
 const CheckboxCard: FC<Props> = ({
   disabled = false,
@@ -19,6 +20,7 @@ const CheckboxCard: FC<Props> = ({
   title,
   className,
   style,
+  dropdownItems = [],
 }: Props): JSX.Element => {
   const classes = classnames(
     'checkbox-card',
@@ -58,6 +60,11 @@ const CheckboxCard: FC<Props> = ({
         <strong className="checkbox-card__info--title">{title}</strong>
         {size !== 'sm' && <div className="checkbox-card__info--subtitle">{subtitle}</div>}
       </div>
+      {!!dropdownItems.length && (
+        <div className="checkbox-card__dropdown">
+          <Dropdown items={dropdownItems} />
+        </div>
+      )}
       <div className="checkbox-card__icon">
         <Icon name="Check" color="#fff" size="sm" />
       </div>

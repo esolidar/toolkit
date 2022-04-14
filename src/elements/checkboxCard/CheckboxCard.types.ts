@@ -1,3 +1,5 @@
+import { Item } from '../dropdown/Dropdown.types';
+
 interface Props {
   disabled?: boolean;
   id?: string;
@@ -13,6 +15,7 @@ interface Props {
   title: string;
   className?: string;
   style?: React.CSSProperties;
+  dropdownItems?: Item[];
 }
 
 export default Props;

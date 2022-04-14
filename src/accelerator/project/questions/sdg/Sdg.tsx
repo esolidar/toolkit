@@ -9,7 +9,14 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectSDGsModal';
 import getOdsList from '../../../../utils/getOdsList';
 
-const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, required }: Props) => {
+const Sdg = ({
+  sdgList,
+  reply,
+  handleSelectSdgs,
+  preferredList,
+  required,
+  onClickDelete,
+}: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
   const repliesCount = useRef<number>(0);
@@ -104,6 +111,7 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, required }: Prop
                   triggerOnce={true}
                   duration={700}
                   damping={0.1}
+                  className="project-fade-item"
                 >
                   {formattedSdgs
                     .filter(cat => reply.includes(cat.id))
@@ -118,6 +126,14 @@ const Sdg = ({ sdgList, reply, handleSelectSdgs, preferredList, required }: Prop
                         size="lg"
                         subtitle={sdg.description}
                         title={sdg.name}
+                        dropdownItems={[
+                          {
+                            id: 0,
+                            text: intl.formatMessage({ id: 'delete' }),
+                            leftIcon: 'Trash',
+                            onClick: () => onClickDelete(sdg.id),
+                          },
+                        ]}
                       />
                     ))}
                 </Fade>

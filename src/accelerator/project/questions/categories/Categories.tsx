@@ -9,7 +9,13 @@ import CheckboxCard from '../../../../elements/checkboxCard';
 import SelectCategoriesModal from './SelectCategoriesModal';
 import getEnvVar from '../../../../utils/getEnvVar';
 
-const Categories = ({ categoriesList, reply, handleChangeCategories, required }: Props) => {
+const Categories = ({
+  categoriesList,
+  reply,
+  handleChangeCategories,
+  required,
+  onClickDelete,
+}: Props) => {
   const intl = useIntl();
   const [showCategoriesModal, setShowCategoriesModal] = useState<boolean>(false);
   const repliesCount = useRef<number>(0);
@@ -98,6 +104,7 @@ const Categories = ({ categoriesList, reply, handleChangeCategories, required }:
                   triggerOnce={true}
                   duration={700}
                   damping={0.1}
+                  className="project-fade-item"
                 >
                   {categoriesList
                     .filter(cat => reply.includes(cat.id))
@@ -116,6 +123,14 @@ const Categories = ({ categoriesList, reply, handleChangeCategories, required }:
                         title={category.name}
                         disabledHover={true}
                         style={{ maxWidth: '100%' }}
+                        dropdownItems={[
+                          {
+                            id: 0,
+                            text: intl.formatMessage({ id: 'delete' }),
+                            leftIcon: 'Trash',
+                            onClick: () => onClickDelete(category.id),
+                          },
+                        ]}
                       />
                     ))}
                 </Fade>

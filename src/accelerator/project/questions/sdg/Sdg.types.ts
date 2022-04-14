@@ -6,6 +6,7 @@ interface Props {
   preferredList: number[];
   handleSelectSdgs(ids: number[]): void;
   type?: string;
+  onClickDelete(sdgId: number): void;
 }
 
 export default Props;
