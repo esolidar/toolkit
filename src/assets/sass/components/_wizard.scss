@@ -213,11 +213,13 @@
       font-size: 18px;
       line-height: 24px;
       font-weight: 700;
+      color: map-get($base, black);
     }
     &__subtitle {
       font-size: 16px;
       line-height: 24px;
       font-weight: 400;
+      color: map-get($neutrals, 700);
 
       @include svg-change-color(map-get($turquoise, 300));
       .icon-component {
@@ -238,11 +240,22 @@
         right: 0;
         background: map-get($turquoise, 500);
       }
+
+      .page-title {
+        color: map-get($turquoise, 500);
+      }
+
+      .wizard__paginator__item__subtitle {
+        color: map-get($base, black);
+      }
+
+      .done {
+        color: map-get($turquoise, 500);
+      }
     }
 
     &.inactive {
       color: map-get($neutrals, 700);
-      // border-bottom: 1px solid map-get($neutrals, 100);
     }
   }
 }

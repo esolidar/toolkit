@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import FullScreenModal from './FullScreenModal';
 import Props from './FullScreenModal.types';
-import WizardHeader from '../../components/wizard/header/WizardHeader';
+import WizardHeader from './headers/wizard/Header';
 import WizardFooter from '../../components/wizard/footer/WizardFooter';
 import Viewport from '../../components/viewport';
 

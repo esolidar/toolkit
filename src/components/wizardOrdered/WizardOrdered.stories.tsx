@@ -5,7 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { Story, Meta } from '@storybook/react';
 import WizardOrdered from './WizardOrdered';
 import Props from './WizardOrdered.types';
-import WizardHeader from '../wizard/header/WizardHeader';
+import WizardHeader from '../../elements/fullScreenModal/headers/wizard/Header';
 import Section from '../../accelerator/project/questions/section';
 import Success from '../../accelerator/project/questions/success';
 import Checkbox from '../../accelerator/project/questions/checkbox';

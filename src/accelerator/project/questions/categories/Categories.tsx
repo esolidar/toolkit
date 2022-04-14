@@ -84,7 +84,7 @@ const Categories = ({
             <>
               <div className="page-content-categories__list-button">
                 <Button
-                  extraClass="primary-full"
+                  extraClass="secondary"
                   onClick={() => setShowCategoriesModal(true)}
                   dataTestId="edit-categories"
                   text={intl.formatMessage({

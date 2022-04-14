@@ -1,7 +1,16 @@
 /* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
+import { useState } from 'react';
 import WizardPaginator from './WizardPaginator';
 import Props from './WizardPaginator.types';
+import PAGES from '../../../constants/pages';
+
+const pages = {
+  published: false,
+  active: 'generalDetails',
+  edited: [],
+  done: ['skillsAndInterests', 'applicationForm'],
+};
 
 export default {
   title: 'Components/Wizard/WizardPaginator',
@@ -11,43 +20,40 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div style={{ width: '100%' }}>
-    <WizardPaginator {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => {
+  const [paginator, setPaginator] = useState(pages);
+
+  const handleChangeTab = newPage => {
+    const newPaginator = { ...paginator };
+    newPaginator.active = PAGES[newPage];
+
+    setPaginator(newPaginator);
+  };
+
+  return (
+    <div style={{ width: '100%' }}>
+      <WizardPaginator pages={paginator} {...args} handleChangeTab={handleChangeTab} />
+    </div>
+  );
+};
 
 export const Default: Story<Props> = Template.bind({});
 export const Published: Story<Props> = Template.bind({});
 export const Old: Story<Props> = Template.bind({});
 
-Default.args = {
-  handleChangeTab: () => {},
-  // pages: PAGES,
-  pages: {
-    published: false,
-    active: 'applicationForm',
-    edited: ['generalDetails', 'categories'],
-    done: ['locationTime', 'categories'],
-  },
-  cdnStaticUrl: 'https://static.esolidar.com',
-};
+Default.args = {};
 
 Published.args = {
-  handleChangeTab: () => {},
-  // pages: PAGES,
   pages: {
     published: true,
-    active: 'categories',
+    active: 'locationTime',
     edited: ['generalDetails', 'categories'],
     done: ['locationTime', 'categories'],
   },
-  cdnStaticUrl: 'https://static.esolidar.com',
 };
 
 Old.args = {
   handleChangeTab: () => {},
-
   pages: [
     {
       title: 'General details',
@@ -75,5 +81,4 @@ Old.args = {
       active: false,
     },
   ],
-  cdnStaticUrl: 'https://static.esolidar.com',
 };
