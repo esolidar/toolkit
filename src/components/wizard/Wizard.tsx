@@ -1,6 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import classNames from 'classnames';
-import WizardHeader from './header';
+import WizardHeader from '../../elements/fullScreenModal/headers/wizard/Header';
 import WizardPaginator from './paginator';
 import WizardFooter from './footer';
 import Props from './Wizard.types';
@@ -101,7 +101,6 @@ const Wizard: FC<Props> = ({
             <WizardPaginator
               pages={pages}
               pageStatus={pageStatus}
-              cdnStaticUrl={cdnStaticUrl}
               handleChangeTab={handleChangeTab}
             />
           )}

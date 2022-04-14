@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import Props from './WizardHeader.types';
-import Badge from '../../../elements/badge';
-import Button from '../../../elements/button';
-import Icon from '../../../elements/icon';
-import isDefined from '../../../utils/isDefined';
-import cursorFocus from '../../../utils/cursorFocus';
-import Tooltip from '../../../elements/tooltip';
+import Props from './Header.types';
+import Badge from '../../../badge';
+import Button from '../../../button';
+import Icon from '../../../icon';
+import isDefined from '../../../../utils/isDefined';
+import cursorFocus from '../../../../utils/cursorFocus';
+import Tooltip from '../../../tooltip';
 
 const WizardHeader: FC<Props> = ({
   closeWizard,

@@ -1,10 +1,10 @@
 /* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
-import WizardHeader from './WizardHeader';
-import Props from './WizardHeader.types';
+import WizardHeader from './Header';
+import Props from './Header.types';
 
 export default {
-  title: 'Components/Wizard/WizardHeader',
+  title: 'Elements/FullScreenModal/headers/WizardHeader',
   component: WizardHeader,
   parameters: {
     jest: ['Card.test.tsx'],
