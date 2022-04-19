@@ -2,37 +2,158 @@
   &__header {
     border: none;
     margin-bottom: $distance-2;
+    gap: $distance-1;
 
     & .nav-item {
-      color: map-get($main-text-colors, dark);
+      display: flex;
+      align-items: center;
+      gap: $distance-1 / 2;
       font-weight: 600;
-      font-size: 21px;
-      border-color: transparent;
-      padding: $distance-1;
+      font-size: 16px;
+      line-height: 24px;
+      border: none;
+      border-radius: $border-radius-1;
+      background-color: transparent;
+      color: map-get($neutrals, 700);
 
-      @media (max-width: map-get($breakpoints, md)) {
-        font-size: 18px;
+      @include svg-change-color(map-get($neutrals, 700));
+      @include animate();
+
+      .badge.type-default__default {
+        color: map-get($neutrals, 700);
+        background-color: map-get($neutrals, 100);
       }
 
-      @media (max-width: map-get($breakpoints, sm)) {
+      @media (max-width: map-get($breakpoints, md)) {
         font-size: 14px;
       }
 
-      &:hover,
-      :focus {
-        color: map-get($theme-colors, primary);
-        border-color: transparent;
+      @media (max-width: map-get($breakpoints, sm)) {
+        font-size: 12px;
       }
 
-      &.active {
-        border-color: transparent;
-        border-bottom: 2px solid map-get($theme-colors, primary);
-        color: map-get($theme-colors, primary);
+      &:hover {
+        background-color: get-rgba(map-get($turquoise, 500));
+        color: map-get($turquoise, 500);
+        @include svg-change-color(map-get($turquoise, 500));
+
+        .badge.type-default__default {
+          color: map-get($base, white);
+          background-color: map-get($turquoise, 500);
+        }
+      }
+
+      &:active {
+        background-color: get-rgba(map-get($turquoise, 500));
+        color: map-get($turquoise, 500);
+        @include svg-change-color(map-get($turquoise, 500));
+        outline: 2px solid map-get($turquoise, 500);
+
+        .badge.type-default__default {
+          color: map-get($base, white);
+          background-color: map-get($turquoise, 500);
+        }
+      }
+
+      &:focus,
+      &:focus-within {
         background-color: transparent;
+        color: map-get($turquoise, 500);
+        @include svg-change-color(map-get($turquoise, 500));
+        outline: 2px solid map-get($turquoise, 500);
+
+        .badge.type-default__default {
+          color: map-get($base, white);
+          background-color: map-get($turquoise, 500);
+        }
       }
 
       &.disabled {
-        color: map-get($theme-colors-light, dark);
+        color: map-get($neutrals, 400);
+        @include svg-change-color(map-get($neutrals, 400));
+
+        .badge.type-default__default {
+          color: map-get($neutrals, 400);
+          background-color: map-get($neutrals, 100);
+        }
+      }
+
+      &.active {
+        &:hover {
+          background-color: get-rgba(map-get($turquoise, 500), 24);
+          color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
+
+          .badge.type-default__default {
+            color: map-get($base, white);
+            background-color: map-get($turquoise, 500);
+          }
+        }
+
+        &:active {
+          background-color: get-rgba(map-get($turquoise, 500), 24);
+          color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
+          outline: 2px solid map-get($turquoise, 500);
+
+          .badge.type-default__default {
+            color: map-get($base, white);
+            background-color: map-get($turquoise, 500);
+          }
+        }
+
+        &:focus,
+        &:focus-within {
+          background-color: map-get($background, secondary);
+          color: map-get($turquoise, 500);
+          @include svg-change-color(map-get($turquoise, 500));
+          outline: 2px solid map-get($turquoise, 500);
+
+          .badge.type-default__default {
+            color: map-get($base, white);
+            background-color: map-get($neutrals, 700);
+          }
+        }
+
+        &.disabled {
+          color: map-get($neutrals, 400);
+          @include svg-change-color(map-get($neutrals, 400));
+
+          .badge.type-default__default {
+            color: map-get($base, white);
+            background-color: map-get($neutrals, 400);
+          }
+        }
+      }
+    }
+  }
+
+  &__md.nav-item {
+    height: 40px;
+
+    &.active {
+      background-color: map-get($background, secondary);
+      color: map-get($base, black);
+      @include svg-change-color(map-get($neutrals, 700));
+
+      .badge.type-default__default {
+        color: map-get($base, white);
+        background-color: map-get($neutrals, 700);
+      }
+    }
+  }
+
+  &__lg.nav-item {
+    height: 44px;
+
+    &.active {
+      background-color: get-rgba(map-get($turquoise, 500));
+      color: map-get($turquoise, 500);
+      @include svg-change-color(map-get($turquoise, 500));
+
+      .badge.type-default__default {
+        color: map-get($base, white);
+        background-color: map-get($turquoise, 500);
       }
     }
   }

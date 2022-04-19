@@ -1,62 +1,51 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { composeStories } from '@storybook/testing-react';
+import { render, waitFor } from '../../../../__customQueries__/test-utils';
 import * as stories from '../Tabs.stories';
 
-const { Default } = composeStories(stories);
+const { Default, WithCounter, WithIcon } = composeStories(stories);
 
-test('renders every elements of the component', async () => {
-  render(<Default />);
-
-  await waitFor(() => {
-    const tabsComponent = screen.getByRole('tablist');
-    expect(tabsComponent).toBeInTheDocument();
-
-    const tabsList = screen.queryAllByRole('tab');
-    expect(tabsList).toHaveLength(3);
-
-    const tabsContentList = screen.queryAllByRole('tabpanel');
-    expect(tabsContentList).toHaveLength(1);
-    expect(screen.getByText('Personal content')).toBeInTheDocument();
-  });
-});
-
-test('renders every tab text in the screen', async () => {
-  render(<Default />);
+test('renders every elements of the Default component', async () => {
+  const { getByRole, queryAllByRole, getByText, getById } = render(<Default />);
 
   await waitFor(() => {
-    expect(screen.getByText('Corporate')).toBeInTheDocument();
-    expect(screen.getByText('Personal')).toBeInTheDocument();
-    expect(screen.getByText('Nonprofit')).toBeInTheDocument();
-  });
-});
+    expect(getByRole('tablist')).toBeInTheDocument();
+    expect(queryAllByRole('tab')).toHaveLength(3);
+    expect(queryAllByRole('tabpanel')).toHaveLength(1);
 
-test('renders active tab on first load', async () => {
-  render(<Default />);
+    expect(getByText('Corporate')).toBeInTheDocument();
+    expect(getByText('Personal')).toBeInTheDocument();
+    expect(getByText('Disabled')).toBeInTheDocument();
+    expect(getByText('Corporate content')).toBeInTheDocument();
 
-  await waitFor(() => {
-    const activeTab = screen.getByText('Personal');
+    const activeTab = getById('tabs-tab-corporate');
     expect(activeTab).toHaveClass('active');
+
+    const disabledTab = getById('tabs-tab-disabled');
+    expect(disabledTab).toHaveClass('disabled');
   });
 });
 
 test('changes active tab on click', async () => {
-  render(<Default />);
+  const { getById } = render(<Default />);
 
   await waitFor(() => {
-    const corporateTab = screen.getByText('Corporate');
-    userEvent.click(corporateTab);
-    expect(corporateTab).toHaveClass('active');
+    const personalTab = getById('tabs-tab-personal');
+    userEvent.click(personalTab);
+    expect(personalTab).toHaveClass('active');
   });
 });
 
-test('renders disabled tab', async () => {
-  render(<Default />);
+test('renders tabs with counter', async () => {
+  const { getAllByTestId } = render(<WithCounter />);
 
-  await waitFor(() => {
-    const disabledTab = screen.getByText('Nonprofit');
-    expect(disabledTab).toHaveClass('disabled');
-  });
+  expect(getAllByTestId('badge-component')).toHaveLength(3);
+});
+
+test('renders tabs with icon', async () => {
+  const { getAllByClass } = render(<WithIcon />);
+
+  expect(getAllByClass(/icon-component/)).toHaveLength(3);
 });
