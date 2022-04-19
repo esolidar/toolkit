@@ -5,8 +5,10 @@ import classnames from 'classnames';
 import TabsBts from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import isDefined from '../../utils/isDefined';
+import Icon from '../icon';
+import Badge from '../badge';
 
-const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
+const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md' }) => {
   const [activeTab, setActiveTab] = useState(null);
 
   useEffect(() => {
@@ -31,13 +33,20 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList }) => {
           <Tab
             key={tab.key}
             eventKey={tab.key}
-            title={tab.title}
+            title={
+              <>
+                {tab.icon && <Icon name={tab.icon} />}
+                <span> {tab.title}</span>
+                {tab.counter && <Badge size="xs" plaintext={tab.counter} />}
+              </>
+            }
             disabled={tab.disabled}
             tabClassName={classnames(
               'client__primary--color-hover',
               'client__primary--color-active',
               'client__primary--border-bottom-color-active',
-              tab.className
+              tab.className,
+              `esolidar-tabs__${size}`
             )}
           >
             {tab.content}
@@ -60,8 +69,11 @@ Tabs.propTypes = {
       disabled: PropTypes.boolean,
       key: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      icon: PropTypes.string,
+      counter: PropTypes.number,
     })
   ).isRequired,
+  size: PropTypes.string,
 };
 
 export default Tabs;
