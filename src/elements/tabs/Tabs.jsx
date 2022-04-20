@@ -20,6 +20,8 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md'
     if (isDefined(onChange)) onChange(key);
   };
 
+  const filteredTabs = tabsList.filter(item => item.show !== false);
+
   return (
     <div className="esolidar-tabs">
       <TabsBts
@@ -29,7 +31,7 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md'
         onSelect={onSelect}
         className="esolidar-tabs__header"
       >
-        {tabsList.map(tab => (
+        {filteredTabs.map(tab => (
           <Tab
             key={tab.key}
             eventKey={tab.key}
@@ -71,6 +73,7 @@ Tabs.propTypes = {
       title: PropTypes.string.isRequired,
       icon: PropTypes.string,
       counter: PropTypes.number,
+      show: PropTypes.boolean,
     })
   ).isRequired,
   size: PropTypes.string,

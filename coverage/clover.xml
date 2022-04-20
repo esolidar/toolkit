@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650450877906" clover="3.2.0">
-  <project timestamp="1650450877906" name="All files">
-    <metrics statements="5964" coveredstatements="4302" conditionals="4409" coveredconditionals="2744" methods="1872" coveredmethods="1072" elements="12245" coveredelements="8118" complexity="0" loc="5964" ncloc="5964" packages="231" files="792" classes="792"/>
+<coverage generated="1650466165619" clover="3.2.0">
+  <project timestamp="1650466165619" name="All files">
+    <metrics statements="5965" coveredstatements="4303" conditionals="4409" coveredconditionals="2744" methods="1873" coveredmethods="1073" elements="12247" coveredelements="8120" complexity="0" loc="5965" ncloc="5965" packages="231" files="792" classes="792"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/pedroguia/Projects/toolkit/__customQueries__/queryByClass.js">
@@ -7236,9 +7236,9 @@
       </file>
     </package>
     <package name="src.elements.tabs">
-      <metrics statements="19" coveredstatements="19" conditionals="7" coveredconditionals="6" methods="9" coveredmethods="6"/>
+      <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="6" methods="10" coveredmethods="7"/>
       <file name="Tabs.jsx" path="/Users/pedroguia/Projects/toolkit/src/elements/tabs/Tabs.jsx">
-        <metrics statements="10" coveredstatements="10" conditionals="7" coveredconditionals="6" methods="4" coveredmethods="4"/>
+        <metrics statements="11" coveredstatements="11" conditionals="7" coveredconditionals="6" methods="5" coveredmethods="5"/>
         <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="9" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
@@ -7246,9 +7246,10 @@
         <line num="18" count="9" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="9" type="stmt"/>
-        <line num="33" count="27" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
+        <line num="23" count="27" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="35" count="27" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
       </file>
       <file name="Tabs.stories.js" path="/Users/pedroguia/Projects/toolkit/src/elements/tabs/Tabs.stories.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
