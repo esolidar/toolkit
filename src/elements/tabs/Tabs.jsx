@@ -8,7 +8,7 @@ import isDefined from '../../utils/isDefined';
 import Icon from '../icon';
 import Badge from '../badge';
 
-const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md' }) => {
+const Tabs = ({ activeKey, className, defaultActiveKey, id, onChange, tabsList, size = 'md' }) => {
   const [activeTab, setActiveTab] = useState(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md'
         defaultActiveKey={defaultActiveKey}
         id={id}
         onSelect={onSelect}
-        className="esolidar-tabs__header"
+        className={`esolidar-tabs__header ${className}`}
       >
         {filteredTabs.map(tab => (
           <Tab
@@ -61,6 +61,7 @@ const Tabs = ({ activeKey, defaultActiveKey, id, onChange, tabsList, size = 'md'
 
 Tabs.propTypes = {
   activeKey: PropTypes.string,
+  className: PropTypes.string,
   defaultActiveKey: PropTypes.string.isRequired,
   id: PropTypes.string,
   onChange: PropTypes.func,
