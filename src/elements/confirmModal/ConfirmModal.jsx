@@ -66,14 +66,13 @@ const ConfirmModal = props => {
         size={props.size || 'sm'}
         actionsChildren={
           <>
-            {cancelButton}
             <Button
               extraClass={props.confirmClass}
-              className="ml-2"
               onClick={onConfirm}
               text={props.confirmText}
               dataTestId="btn-confirm"
             />
+            {cancelButton}
           </>
         }
       />
