@@ -104,7 +104,7 @@ const CustomOption: FC<CustomOptionProps> = ({
   isSelected,
   isDisabled,
 }: CustomOptionProps): JSX.Element => {
-  const { show, leftIcon, label, description, isLabelBold } = data;
+  const { show, leftIcon, label, description, isLabelBold, value } = data;
 
   const optionClasses: string = classNames(
     'esolidar-select__option',
@@ -113,6 +113,9 @@ const CustomOption: FC<CustomOptionProps> = ({
     },
     { 'esolidar-select__option--is-disabled': isDisabled }
   );
+
+  if (value === 'horizontal-separator')
+    return <div className="esolidar-select__option--separator" />;
 
   return show ? (
     <div {...innerProps} className={optionClasses}>

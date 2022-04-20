@@ -18,6 +18,7 @@ const options = [
     className: 'option-label-bold',
     isLabelBold: true,
   },
+
   {
     value: 'second',
     label: 'This enabled option has an icon',
@@ -29,6 +30,10 @@ const options = [
     label: 'This enabled option has an icon and description',
     description: 'Only visible to Acme Inc admins',
     leftIcon: <Icon name="PublicBold" size="sm" dataTestId="PublicBold" />,
+  },
+  {
+    value: 'horizontal-separator',
+    label: '',
   },
   {
     value: 'fourth',

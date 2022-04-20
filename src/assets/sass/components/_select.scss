@@ -141,6 +141,21 @@
           }
         }
 
+        &--separator {
+          position: relative;
+          margin-bottom: 18px;
+
+          &::after {
+            border-top: 1px solid map-get($neutrals, 400);
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 1px;
+          }
+        }
+
         &:hover,
         &:focus,
         &:active {

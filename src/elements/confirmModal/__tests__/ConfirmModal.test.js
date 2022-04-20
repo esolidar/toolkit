@@ -63,6 +63,6 @@ test('simulate click on button', async () => {
     expect(modal).toBeInTheDocument();
     expect(body).toHaveTextContent('Are you sure?');
     expect(footer).toBeInTheDocument();
-    expect(footer).toHaveTextContent('CancelConfirm');
+    expect(footer).toHaveTextContent('ConfirmCancel');
   });
 });
