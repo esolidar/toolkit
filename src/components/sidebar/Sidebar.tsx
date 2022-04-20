@@ -134,7 +134,7 @@ const Sidebar: FC<Props> = ({
               })}
             >
               <Icon
-                name="SidebarCollapse"
+                name={isCollapsed ? 'SidebarExpand' : 'SidebarCollapse'}
                 onClick={() => !isOpenSubMenu && collapseSidebar(!isCollapsed)}
               />
             </div>
