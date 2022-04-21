@@ -13,6 +13,8 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => <Dropdown {...args} />;
+export const Tooltip = Template.bind({});
+export const CustomButton = Template.bind({});
 
 export const Default = Template.bind({});
 Default.args = {
@@ -53,7 +55,23 @@ Default.args = {
   toggleIcon: 'MoreVertical',
 };
 
-export const CustomButton = Template.bind({});
+Tooltip.args = {
+  items: [
+    {
+      id: 0,
+      text: 'Action',
+      leftIcon: 'Edit2',
+      rightIcon: 'ExternalLink',
+      onClick: () => alert('You clicked first item!'),
+      tooltip: {
+        overlay: 'delete',
+        placement: 'top',
+        displayNone: false,
+      },
+    },
+  ],
+};
+
 CustomButton.args = {
   items: [
     {

@@ -1,3 +1,5 @@
+import Tooltip from '../tooltip/Tooltip.types';
+
 export interface Item {
   id: number;
   text: string;
@@ -8,6 +10,7 @@ export interface Item {
   show?: boolean;
   disabled?: boolean;
   divider?: boolean;
+  tooltip?: Tooltip;
 }
 
 interface Props {
