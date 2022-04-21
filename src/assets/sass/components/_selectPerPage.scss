@@ -8,5 +8,6 @@
   & > select {
     width: 75px;
     margin-left: 15px;
+    border-radius: $border-radius-1 !important;
   }
 }

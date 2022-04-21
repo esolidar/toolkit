@@ -175,7 +175,7 @@ CustomModal.propTypes = {
   style: PropTypes.object,
   subtitle: PropTypes.string,
   subtitleClassName: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   titleClassName: PropTypes.string,
   iconTitle: PropTypes.string,
 };
