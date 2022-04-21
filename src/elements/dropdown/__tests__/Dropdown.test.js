@@ -5,10 +5,12 @@ import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
   CustomButton as CustomButtonStory,
+  Tooltip as TooltipStory,
 } from '../Dropdown.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 const CustomButton = composeStory(CustomButtonStory, Meta);
+const Tooltip = composeStory(TooltipStory, Meta);
 
 it('renders dropdown menu when button is clicked', () => {
   const { getByText, queryByClass, queryByText, queryAllByClass } = render(<Default />);
@@ -48,4 +50,13 @@ it('renders custom button', () => {
   const { getByTestId } = render(<CustomButton />);
 
   expect(getByTestId('customButton')).toBeInTheDocument();
+});
+
+it('renders with Tooltip', () => {
+  const { getByTestId, queryByClass } = render(<Tooltip />);
+
+  const toggle = queryByClass('btn-esolidar__icon');
+  userEvent.click(toggle);
+
+  expect(getByTestId('tooltipOverlay')).toBeInTheDocument();
 });
