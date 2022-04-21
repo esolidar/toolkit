@@ -68,6 +68,7 @@ const Select: FC<Props> = ({
         isDisabled={isDisabled}
         isMulti={false}
         isSearchable={isSearchable}
+        menuPlacement="auto"
         name={name}
         noOptionsMessage={() => intl.formatMessage({ id: 'toolkit.select.noOptions' })}
         onChange={(option: Option) => {
