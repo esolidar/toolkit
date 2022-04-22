@@ -27,7 +27,7 @@
   > .active > span:hover,
   > .active > a:focus,
   > .active > span:focus {
-    z-index: 3;
+    z-index: 0;
     cursor: default;
     border: 1px solid map-get($turquoise, 500);
     background-color: map-get($turquoise, 500);
