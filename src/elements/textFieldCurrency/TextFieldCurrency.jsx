@@ -13,10 +13,11 @@ class TextFieldCurrency extends Component {
       style: 'currency',
       currency: this.props.prefix,
     }),
+    onBlur: false,
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
+    if (this.state.onBlur && prevProps.value !== this.props.value) {
       this.updateState(
         {
           formattedValue: this.props.intl.formatNumber(this.props.value, {
@@ -54,6 +55,7 @@ class TextFieldCurrency extends Component {
       {
         value: inputValue,
         formattedValue: value,
+        onBlur: false,
       },
       () => {
         const valueObj = {
@@ -105,6 +107,7 @@ class TextFieldCurrency extends Component {
       {
         value: value ? Number(value).toFixed(this.props.decimalScale) : '',
         formattedValue: el.value,
+        onBlur: true,
       },
       () => {
         const valueObj = {
