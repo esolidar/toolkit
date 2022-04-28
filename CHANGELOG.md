@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.126.0](https://github.com/esolidar/toolkit/compare/v4.122.0...v4.126.0) Released: ER2217 / 19th April 2022 -> 29th April 2022
+
+### New features
+
+- Add optional kebab menu in CheckboxCard component [`ENG-1462`](https://github.com/esolidar/toolkit/pulls?q=ENG-1462)
+
+### Enhancements
+
+- Refactor Wizard component [`ENG-945`](https://github.com/esolidar/toolkit/pulls?q=ENG-945)
+- Update style of the Sidebar-Menu-Option [`ENG-1142`](https://github.com/esolidar/toolkit/pulls?q=ENG-1142)
+- Update style of the Wizard Pagination [`ENG-1152`](https://github.com/esolidar/toolkit/pulls?q=ENG-1152)
+- Update style of the Wizard buttons [`ENG-1264`](https://github.com/esolidar/toolkit/pulls?q=ENG-1264)
+- Update style of the Select button in some Submit Project pages [`ENG-1416`](https://github.com/esolidar/toolkit/pulls?q=ENG-1416)
+- Update "Tab" component style according to new design [`ENG-1483`](https://github.com/esolidar/toolkit/pulls?q=ENG-1483)
+
+### Bug Fixing
+
+- Sidebar collapse/expand button icon doesn't change depending on its state [`ENG-1432`](https://github.com/esolidar/toolkit/pulls?q=ENG-1432)
+  <br>
+  <br>
+
 ## [v4.122.0](https://github.com/esolidar/toolkit/compare/v4.101.3...v4.122.0) Released: ER2214 / 07th March 2022 -> 11th April 2022
 
 ### New features
