@@ -6,10 +6,20 @@ export default {
   component: Tabs,
   parameters: {
     jest: ['Tabs.test.tsx'],
+    // fixtures: {
+    //   auth: {
+    //     user: 'Pedro',
+    //     token: 'https://example.com/data.json',
+    //     data: {
+    //       user: 'Pedro',
+    //       token: 'https://example.com/data.json',
+    //     },
+    //   },
+    // },
   },
 };
 
-const Template = args => <Tabs {...args} />;
+const Template = (args, fixtures) => <Tabs {...args} {...fixtures} />;
 
 export const Default = Template.bind({});
 export const Large = Template.bind({});

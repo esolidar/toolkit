@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import '!style-loader!css-loader!sass-loader!../src/index.scss';
 import '!style-loader!css-loader!sass-loader!../src/assets/sass/_storybook-body.scss';
@@ -31,6 +32,26 @@ addDecorator(
   })
 );
 
+const ROOT_URL = 'https://apidev.testesolidar.com/v1/';
+
+const data = {
+  email: 'pedro@esolidar.com',
+  password: '123456',
+};
+
+axios
+  .post(`${ROOT_URL}auth`, data)
+  .then(function (response) {
+    const { data } = response.data;
+
+    window.localStorage.setItem('token', data.token);
+    window.localStorage.setItem('user', JSON.stringify(data.user));
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -48,6 +69,17 @@ export const parameters = {
   },
   themes: {
     list: [{ name: 'Whitelabel client', class: 'whitelabel-client-theme' }],
+  },
+  fixtures: {
+    auth: {
+      admin: JSON.stringify({ token: window.localStorage.getItem('token') }),
+      member: {
+        token: window.localStorage.getItem('token'),
+        name: JSON.parse(window.localStorage.getItem('user')).name,
+        email: JSON.parse(window.localStorage.getItem('user')).email,
+        isAdmin: Boolean(JSON.parse(window.localStorage.getItem('user')).is_admin),
+      },
+    },
   },
 };
 

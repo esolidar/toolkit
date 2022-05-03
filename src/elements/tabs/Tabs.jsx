@@ -8,7 +8,23 @@ import isDefined from '../../utils/isDefined';
 import Icon from '../icon';
 import Badge from '../badge';
 
-const Tabs = ({ activeKey, className, defaultActiveKey, id, onChange, tabsList, size = 'md' }) => {
+const Tabs = ({
+  activeKey,
+  className,
+  defaultActiveKey,
+  id,
+  onChange,
+  tabsList,
+  size = 'md',
+  auth,
+  fixtures,
+  token,
+  user,
+  collection,
+  isLoggedIn,
+}) => {
+  const userData = useGetUser({ enabled: isLoggedIn });
+
   const [activeTab, setActiveTab] = useState(null);
 
   useEffect(() => {
@@ -21,6 +37,12 @@ const Tabs = ({ activeKey, className, defaultActiveKey, id, onChange, tabsList, 
   };
 
   const filteredTabs = tabsList.filter(item => item.show !== false);
+
+  console.log('fixtures', fixtures);
+  console.log('auth', auth);
+  console.log('token', token);
+  console.log('user', user);
+  console.log('collection', collection);
 
   return (
     <div className="esolidar-tabs">

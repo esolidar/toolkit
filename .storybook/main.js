@@ -13,6 +13,7 @@ module.exports = {
     'storybook-dark-mode',
     '@storybook/addon-viewport',
     'storybook-addon-themes',
+    'storybook-fixtures',
   ],
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
