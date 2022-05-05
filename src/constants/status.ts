@@ -1,3 +1,5 @@
+import { ProjectStatus } from '../interfaces/project/project';
+
 interface Status {
   draft?: string;
   active?: string;
@@ -14,45 +16,33 @@ interface Status {
   ended?: string;
 }
 
-export const API_STATUS: Status = {
-  draft: 'draft',
-  active: 'active',
-  pending: 'pending',
-  reviewed: 'reviewed',
-  inReview: 'inReview',
-  approved: 'approved',
-  completed: 'completed',
-  rejected: 'rejected',
-  suspended: 'suspended',
+export const ACCELERATION_PROGRAM: Status = {
   soon: 'soon',
   running: 'running',
   closed: 'closed',
   ended: 'ended',
 };
 
-export const ACCELERATION_PROGRAM: Status = {
-  [API_STATUS.soon]: 'soon',
-  [API_STATUS.running]: 'running',
-  [API_STATUS.closed]: 'closed',
-  [API_STATUS.ended]: 'ended',
+type IProject = {
+  [key: string]: ProjectStatus;
 };
 
-export const PROJECT: Status = {
-  [API_STATUS.draft]: 'DRAFT',
-  [API_STATUS.pending]: 'PENDING',
-  [API_STATUS.reviewed]: 'REVIEWED',
-  [API_STATUS.inReview]: 'IN_REVIEW',
-  [API_STATUS.approved]: 'APPROVED',
-  [API_STATUS.completed]: 'COMPLETED',
-  [API_STATUS.rejected]: 'REJECTED',
+export const PROJECT: IProject = {
+  draft: 'DRAFT',
+  pending: 'PENDING',
+  inReview: 'IN_REVIEW',
+  reviewed: 'REVIEWED',
+  rejected: 'REJECTED',
+  approved: 'APPROVED',
+  completed: 'COMPLETED',
 };
 
 export const AUCTION: Status = {
   // ENUM('A', 'S', 'B', 'P', 'F', 'D', 'DRAFT')
-  [API_STATUS.draft]: 'DRAFT',
+  draft: 'DRAFT',
 };
 
 export const CROWDFUNDING: Status = {
   // ENUM('pending', 'approved', 'rejected', 'completed')
-  [API_STATUS.pending]: 'pending',
+  pending: 'pending',
 };

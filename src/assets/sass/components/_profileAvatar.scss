@@ -28,25 +28,45 @@
     }
   }
 
-  &__name {
-    color: map-get($base, black);
-    @include text-overflow-ellipsis();
-
+  &__info {
     &.margin {
       margin-left: $distance-2;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        margin-left: $distance-1;
+      }
     }
 
-    &.click:hover {
-      cursor: pointer;
+    &--name {
+      color: map-get($base, black);
+      font-size: 18px;
+      line-height: 24px;
+      @include text-overflow-ellipsis();
+
+      &.click:hover {
+        cursor: pointer;
+        color: map-get($theme-colors, primary);
+      }
+
+      &.bold {
+        font-weight: 700;
+      }
+    }
+
+    &--link {
       color: map-get($theme-colors, primary);
-    }
-
-    @media (max-width: map-get($breakpoints, xs)) {
-      margin-left: $distance-1;
-    }
-
-    &.bold {
+      font-size: 14px;
       font-weight: 600;
+      line-height: 20px;
+      @include animate();
+
+      &:hover {
+        color: map-get($theme-colors-dark, primary);
+
+        & .text {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

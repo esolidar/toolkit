@@ -1,7 +1,19 @@
+import Ods from '../../interfaces/ods.types';
 import getEnvVar from '../getEnvVar';
 
-const getOdsList = (odsResponse, lang, formatMessage) => {
-  return odsResponse.map(item => {
+interface ODS {
+  id: number;
+  image: string;
+  name: string;
+  description: string;
+}
+
+interface IFormatMessage {
+  (param: any): void;
+}
+
+const getOdsList = (odsResponse: any, lang: string, formatMessage: IFormatMessage): ODS[] => {
+  return odsResponse.map((item: Ods) => {
     if (!item.status) return;
 
     return {
