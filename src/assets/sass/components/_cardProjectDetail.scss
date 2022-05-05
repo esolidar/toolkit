@@ -1,0 +1,105 @@
+.card-project-detail {
+  max-width: 400px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $distance-2;
+  border-radius: $border-radius-1;
+  border: 1px solid map-get($neutrals, 200);
+  padding: $distance-3;
+  padding-bottom: $distance-4;
+  color: map-get($neutrals, 700);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  &__ods-section {
+    &--title {
+      margin-bottom: 0;
+
+      & .popover-component-trigger {
+        margin-left: $distance-1;
+
+        & > svg {
+          vertical-align: inherit;
+        }
+      }
+    }
+
+    &--description {
+      margin-bottom: $distance-2;
+    }
+
+    &--list {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $distance-1;
+
+      & > img {
+        height: 40px;
+        width: 40px;
+        border-radius: $border-radius-1 / 2;
+      }
+    }
+  }
+
+  &__review-section {
+    display: flex;
+    flex-direction: column;
+    gap: $distance-2;
+    margin: $distance-2 0;
+
+    &.active {
+      border-radius: $border-radius-1;
+      background-color: map-get($background, secondary);
+      padding: $distance-2;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        padding: $distance-1;
+      }
+    }
+
+    &--rating {
+      display: flex;
+      align-items: center;
+      gap: $distance-2;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        gap: $distance-1;
+      }
+
+      &-full {
+        @include svg-change-color(map-get($warning, 200));
+      }
+
+      & > p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 0;
+
+        @media (max-width: map-get($breakpoints, xs)) {
+          font-size: 14px;
+        }
+
+        &.has-rating::first-letter {
+          color: map-get($base, black);
+        }
+      }
+    }
+
+    & .form-group {
+      margin-bottom: 0;
+    }
+
+    &--comment-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: $distance-2;
+    }
+  }
+}

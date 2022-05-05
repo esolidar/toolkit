@@ -6,7 +6,7 @@ import auction from '../../../../__mocks__/auction';
 import recipient from '../../../../__mocks__/recipient';
 
 export default {
-  title: 'Unreleased/Card/auction',
+  title: 'Unreleased/Card/CardAuction',
   component: CardAuction,
   parameters: {
     jest: ['Card.test.tsx'],

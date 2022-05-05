@@ -7,6 +7,15 @@ import Thumbs from '../thumbs.types';
 import ProjectCommon from './projectCommon';
 import ProjectCrowdfunding from './projectCrowdfunding';
 
+export declare type ProjectStatus =
+  | 'DRAFT'
+  | 'PENDING'
+  | 'IN_REVIEW'
+  | 'REVIEWED'
+  | 'REJECTED'
+  | 'APPROVED'
+  | 'COMPLETED';
+
 interface ProjectCategory {
   id: number;
   whitelabel_id: number;

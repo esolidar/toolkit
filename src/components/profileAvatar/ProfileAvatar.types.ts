@@ -4,6 +4,8 @@ interface Props {
   thumb?: string;
   thumbSize?: 'sm' | 'md' | 'lg';
   href?: string;
+  buttonUrl?: string;
+  buttonText?: string;
 }
 
 export default Props;
