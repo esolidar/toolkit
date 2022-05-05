@@ -36,9 +36,9 @@ jobs:
         id: get_pull_request_ref
         uses: octokit/request-action@v2.x
         with:
-          route: GET /repos/{repository}/pulls/{issue_id}
+          route: GET /repos/{repository}/pulls/{pull}
           repository: ${{ github.repository }}
-          issue_id: ${{ github.event.issue.number }}
+          pull: ${{ github.event.pull_request.number }}
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
