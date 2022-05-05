@@ -36,7 +36,7 @@ jobs:
         id: get_pull_request_ref
         uses: octokit/request-action@v2.x
         with:
-          route: GET /repos/:repository/pulls/:issue_id
+          route: GET /repos/{repository}/pulls/{issue_id}
           repository: ${{ github.repository }}
           issue_id: ${{ github.event.issue.number }}
         env:
@@ -46,7 +46,7 @@ jobs:
         id: create_deployment
         uses: octokit/request-action@v2.x
         with:
-          route: POST /repos/:repository/deployments
+          route: POST /repos/{repository}/deployments
           repository: ${{ github.repository }}
           ref: ${{ fromJson(steps.get_pull_request_ref.outputs.data).head.ref }}
           environment: dev
