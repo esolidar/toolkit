@@ -23,6 +23,7 @@ export const WithoutGoBackFunc: Story<Props> = Template.bind({});
 export const TitleWithIcon: Story<Props> = Template.bind({});
 export const TitleWithIconDisabled: Story<Props> = Template.bind({});
 export const TitleOnly: Story<Props> = Template.bind({});
+export const WithRating: Story<Props> = Template.bind({});
 
 Default.args = {
   title: 'Crowdfunding title',
@@ -68,4 +69,9 @@ TitleWithIconDisabled.args = {
 
 TitleOnly.args = {
   title: 'Crowdfunding title',
+};
+WithRating.args = {
+  title: 'Crowdfunding title',
+  rating: 4,
+  showRating: true,
 };

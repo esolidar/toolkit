@@ -14,6 +14,8 @@ interface Props {
   goBackUrl?: string;
   onClickGoBack?(): void;
   icon?: Icon;
+  rating?: number;
+  showRating?: boolean;
 }
 
 export default Props;
