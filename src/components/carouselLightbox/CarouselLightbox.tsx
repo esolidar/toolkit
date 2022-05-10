@@ -73,7 +73,6 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   const splitArrayIntoChunks = (array, size) => {
     const chunks = [];
     let i = 0;
-    let firstElement = 0;
     do {
       if (i === 0) {
         chunks.push(array.slice(i, (i += size)));
@@ -85,9 +84,6 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
           ...array.slice(i, (i += newSize)),
         ];
         chunks.push(newArray);
-        if (firstElement === 0) {
-          firstElement += 1;
-        }
       }
     } while (i < array.length);
     return chunks;
