@@ -30,6 +30,8 @@ const Button = React.forwardRef(
       isLoading,
       ghost,
       theme,
+      onMouseEnter,
+      onMouseLeave,
     },
     ref
   ) => {
@@ -80,10 +82,12 @@ const Button = React.forwardRef(
               data-testid={dataTestId}
               id={id}
               type="button"
-              onClick={onClick}
               className={classes}
               disabled={disabled || isLoading}
               style={style}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
             >
               {withLoading && (
                 <Loading
@@ -112,10 +116,12 @@ const Button = React.forwardRef(
               data-testid={dataTestId}
               id={id}
               type="button"
-              onClick={onClick}
               className={classes}
               disabled={disabled || isLoading}
               style={style}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
             >
               {withLoading && (
                 <Loading
@@ -235,7 +241,6 @@ Button.propTypes = {
   iconLeft: PropTypes.node,
   iconRight: PropTypes.node,
   id: PropTypes.string,
-  onClick: PropTypes.func,
   rel: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
   style: PropTypes.object,
@@ -248,6 +253,9 @@ Button.propTypes = {
   isLoading: PropTypes.bool,
   ghost: PropTypes.bool,
   theme: PropTypes.oneOf(['light', 'dark']),
+  onClick: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 Button.defaultProps = {
