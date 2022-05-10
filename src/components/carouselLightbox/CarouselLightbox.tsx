@@ -16,6 +16,7 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   const [thumbnailsPosition, setThumbnailsPosition] = useState<number>(0);
   const [isOpenLightbox, setIsOpenLightbox] = useState<boolean>(false);
   const [activeTemp, setActiveTemp] = useState<number>(null);
+  const [thumbnailsNumber, setThumbnailsNumber] = useState<number>(6);
 
   const items = listItems.sort((a, b) => (a.type > b.type ? -1 : 1));
 
@@ -43,11 +44,12 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   }, [currentIndex]);
 
   useEffect(() => {
-    const thumbnailNumber = isMobile ? 4 : 6;
-    const thumbnailsImages = splitArrayIntoChunks(items, thumbnailNumber);
+    const size = isMobile ? 4 : 6;
+    const thumbnailsImages = splitArrayIntoChunks(items, size);
     if (items.length > 1) {
       setThumbnails(thumbnailsImages);
     }
+    setThumbnailsNumber(size);
   }, []);
 
   const setCorrectThumbnailList = thisIndex => {
@@ -78,7 +80,7 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
       } else {
         const newSize = size - 2;
         const newArray = [
-          chunks[chunks.length - 1][firstElement],
+          chunks[chunks.length - 1][size - 2],
           chunks[chunks.length - 1][size - 1],
           ...array.slice(i, (i += newSize)),
         ];
@@ -103,10 +105,9 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   };
 
   const handleThumbSlideLeft = () => {
-    let index = items.findIndex(item => item.url === thumbnails[thumbnailsPosition - 1][1].url);
-    if (thumbnailsPosition === 1) {
-      index = 0;
-    }
+    const index = items.findIndex(
+      item => item.url === thumbnails[thumbnailsPosition - 1][thumbnailsNumber - 2].url
+    );
     setThumbnailsPosition(thumbnailsPosition - 1);
     setPosition(index);
     setCurrentIndex(index);
