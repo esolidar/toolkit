@@ -5,7 +5,6 @@ interface Ods {
   status: boolean;
   updated_at: string;
   created_at: string;
-  laravel_through_key: number;
   name: string;
 }
 

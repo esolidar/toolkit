@@ -5,7 +5,7 @@ import Props from './CardProject.types';
 import project from '../../../../__mocks__/project';
 
 export default {
-  title: 'Unreleased/Card/project',
+  title: 'Unreleased/Card/CardProject',
   component: CardProject,
   parameters: {
     jest: ['Card.test.tsx'],

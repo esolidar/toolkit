@@ -11,6 +11,8 @@ const ProfileAvatar: FC<Props> = ({
   thumb = 'https://static.testesolidar.com/frontend/assets/no-image/user.svg',
   thumbSize = 'lg',
   href,
+  buttonUrl,
+  buttonText,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const alt: string = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
@@ -30,20 +32,32 @@ const ProfileAvatar: FC<Props> = ({
           onClick={onClick}
         />
       )}
-      {name && (
-        <div
-          className={classnames(
-            'profile-avatar__name',
-            'client__primary--color-hover',
-            { margin: thumb },
-            { bold: isNameBold },
-            { click: href }
-          )}
-          onClick={onClick}
-        >
-          {name}
-        </div>
-      )}
+      <div className={classnames('profile-avatar__info', { margin: thumb })}>
+        {name && (
+          <div
+            className={classnames(
+              'profile-avatar__info--name',
+              'client__primary--color-hover',
+              { margin: thumb },
+              { bold: isNameBold },
+              { click: href }
+            )}
+            onClick={onClick}
+          >
+            {name}
+          </div>
+        )}
+        {buttonText && (
+          <a
+            className="profile-avatar__info--link"
+            href={buttonUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {buttonText}
+          </a>
+        )}
+      </div>
     </div>
   );
 };

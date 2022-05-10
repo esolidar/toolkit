@@ -6,7 +6,7 @@ import crowdfunding from '../../../../__mocks__/crowdfunding';
 import campaign from '../../../../__mocks__/campaign';
 
 export default {
-  title: 'Unreleased/Card/crowdfunding',
+  title: 'Unreleased/Card/CardCrowdfunding',
   component: CardCrowdfunding,
   parameters: {
     jest: ['Card.test.tsx'],

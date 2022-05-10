@@ -15,7 +15,7 @@ const WithButton = composeStory(WithButtonStory, Meta);
 it('renders list crowdfunding with title and Subtitle', () => {
   const { getAllByClass, getByClass } = render(<Default />);
 
-  expect(getByClass('component-title__h1')).toHaveTextContent('Initiatives');
+  expect(getByClass('component-title__main--h1')).toHaveTextContent('Initiatives');
   expect(getAllByClass('component-title__subtitle')).toBeTruthy();
   expect(getAllByClass('card-component')).toBeTruthy();
   expect(getAllByClass('component-list-footer')).toBeTruthy();
@@ -25,7 +25,7 @@ it('renders list crowdfunding with title and Subtitle', () => {
 it('renders list crowdfunding without title and Subtitle', () => {
   const { getByClass, getAllByClass } = render(<WithoutTitleAndSubtitle />);
 
-  expect(getByClass('component-title__h1')).toHaveTextContent('');
+  expect(getByClass('component-title__main--h1')).toHaveTextContent('');
   expect(getByClass('component-title__subtitle')).toHaveTextContent('');
   expect(getAllByClass('card-component')).toBeTruthy();
   expect(getByClass('component-list-footer')).toBeTruthy();

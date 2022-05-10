@@ -15,39 +15,61 @@
     }
   }
 
-  &__h1 {
-    position: relative;
-    font-size: 26px;
-    color: map-get($grays, 900);
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    margin-bottom: $distance-1 !important;
-  }
+  &__main {
+    display: flex;
+    align-items: center;
+    margin-bottom: $distance-1;
+    gap: $distance-1;
 
-  &__icon,
-  &__icon--disabled {
-    color: map-get($theme-colors, primary);
-    text-decoration: none;
-    position: absolute;
-    top: 2px;
-    margin-left: $distance-1;
-    font-size: 20px;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: map-get($theme-colors, primary);
-      text-decoration: none;
+    &--h1 {
+      // position: relative;
+      font-size: 26px;
+      color: map-get($grays, 900);
+      font-weight: 600;
+      margin: 0;
+      // padding: 0;
     }
 
-    &--disabled {
-      color: map-get($neutrals, 700);
+    &--rating {
+      display: flex;
+      align-items: center;
+      gap: $distance-1 / 2;
+      @include svg-change-color(map-get($warning, 200));
+
+      & > p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 0;
+        color: map-get($neutrals, 700);
+
+        &.has-rating::first-letter {
+          color: map-get($base, black);
+        }
+      }
+    }
+
+    &--icon,
+    &--icon--disabled {
+      color: map-get($theme-colors, primary);
+      text-decoration: none;
+      font-size: 20px;
 
       &:hover,
       &:focus,
       &:active {
+        color: map-get($theme-colors, primary);
+        text-decoration: none;
+      }
+
+      &--disabled {
         color: map-get($neutrals, 700);
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: map-get($neutrals, 700);
+        }
       }
     }
   }

@@ -16,6 +16,7 @@ export const Default: Story<Props> = Template.bind({});
 export const WithLink: Story<Props> = Template.bind({});
 export const WithDefaultThumb: Story<Props> = Template.bind({});
 export const WithoutName: Story<Props> = Template.bind({});
+export const WithButton: Story<Props> = Template.bind({});
 
 Default.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
@@ -34,4 +35,12 @@ WithDefaultThumb.args = {
 
 WithoutName.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
+};
+
+WithButton.args = {
+  thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
+  name: 'Joel F. Calheiros',
+  buttonText: 'View program details',
+  buttonUrl: 'https://www.esolidar.com/',
+  isNameBold: true,
 };
