@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.129.0",
+  "version": "4.129.1",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
