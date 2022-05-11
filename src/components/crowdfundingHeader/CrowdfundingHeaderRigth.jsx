@@ -57,7 +57,7 @@ const CrowdfundingHeaderRigth = ({
           sibsCc={campaign.product.payment_method.sibs_cc}
           cdnStaticUrl={env.cdn_static_url}
         />
-        {!!campaign.company && !!campaign.company.brands.length && (
+        {!!campaign.company && !!campaign.company.brands?.length && (
           <SupportedSection
             href={`${env.esolidar_url}b/${campaign.company.brands[0].username}`}
             imgSrc={campaign.company.brands[0].logo_thumbs.thumb}
