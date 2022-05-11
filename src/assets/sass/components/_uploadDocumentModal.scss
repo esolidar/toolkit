@@ -1,0 +1,39 @@
+.uploadDocumentModal {
+  .modal-content {
+    @media (min-height: map-get($breakpoints, md)) {
+      max-height: 730px !important;
+    }
+
+    .modal-body {
+      .upload-file {
+        margin: 0;
+      }
+    }
+  }
+
+  &__form {
+    .form-group:first-child {
+      margin-top: $distance-1;
+    }
+    .form-group.label-field-image {
+      margin-bottom: 0;
+    }
+    .form-group:last-child {
+      margin-bottom: $distance-3;
+    }
+    .help {
+      margin-bottom: $distance-3;
+    }
+    textarea {
+      min-height: 112px !important;
+    }
+
+    .with-icon {
+      min-height: 160px !important;
+    }
+
+    .media-image-thumb {
+      margin-bottom: 22px;
+    }
+  }
+}
