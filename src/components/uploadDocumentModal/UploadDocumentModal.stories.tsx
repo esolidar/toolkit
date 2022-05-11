@@ -16,4 +16,12 @@ export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   openModal: true,
+  disabledUploadButton: false,
+  handlOnCloseModal: () => {},
+  handleClickSave: form => {
+    console.log('form:', form);
+  },
+  handleClickCancel: () => {
+    console.log('aqui');
+  },
 };

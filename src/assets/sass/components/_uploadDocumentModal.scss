@@ -15,7 +15,7 @@
     .form-group:first-child {
       margin-top: $distance-1;
     }
-    .form-group.label-field-image {
+    .form-group.label-field-file {
       margin-bottom: 0;
     }
     .form-group:last-child {
@@ -34,6 +34,19 @@
 
     .media-image-thumb {
       margin-bottom: 22px;
+    }
+    .file-card {
+      margin-bottom: $distance-2;
+    }
+    .private {
+      display: flex;
+      align-items: center;
+      gap: $distance-2;
+      margin-bottom: $distance-2;
+
+      .control-label {
+        font-weight: 400;
+      }
     }
   }
 }

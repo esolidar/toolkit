@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useIntl } from 'react-intl';
 import CustomModal from '../../elements/customModal';
 import Button from '../../elements/button';
@@ -6,25 +6,37 @@ import TextField from '../../elements/textField';
 import TextareaField from '../../elements/textareaField';
 import DropZoneBox from '../../elements/dropZoneBox';
 import InputLabel from '../../elements/inputLabel';
-import Preview from '../preview';
-import getEnvVar from '../../utils/getEnvVar';
-import Props, { ModalBodyProps } from './UploadDocumentModal.types';
+import FileCard from '../fileCard';
+import Toggle from '../../elements/toogle';
+import Props, { Form, ModalBodyProps } from './UploadDocumentModal.types';
 
-const DEFAULT_FORM = { id: null, name: '', summary: '', file: '', status: 1 };
+const DEFAULT_FORM = {
+  name: '',
+  description: '',
+  file: null,
+  public: true,
+  file_size: null,
+};
 
 const UploadDocumentModal: FC<Props> = ({
   openModal = false,
-  form = DEFAULT_FORM,
   handlOnCloseModal,
-  handleClickUpload,
+  handleClickSave,
   handleClickCancel,
   disabledUploadButton,
   errors,
-  handleChangeForm,
-  handleBlurForm,
-  handleOnDropFile,
 }: Props): JSX.Element => {
+  const [form, setForm] = useState<Form>(DEFAULT_FORM);
+
   const intl = useIntl();
+
+  const handleChangeForm = ({ target: { value, name, checked = undefined } }) => {
+    let newValue = value;
+    if (checked) newValue = false;
+    const newForm = { ...form };
+    newForm[name] = newValue;
+    setForm(newForm);
+  };
 
   return (
     <CustomModal
@@ -42,8 +54,8 @@ const UploadDocumentModal: FC<Props> = ({
             <Button
               extraClass="primary-full"
               size="md"
-              text={intl.formatMessage({ id: 'upload' })}
-              onClick={handleClickUpload}
+              text={intl.formatMessage({ id: 'save' })}
+              onClick={() => handleClickSave(form)}
               disabled={disabledUploadButton}
             />
           </div>
@@ -55,14 +67,13 @@ const UploadDocumentModal: FC<Props> = ({
           errors={errors}
           form={form}
           onChangeForm={handleChangeForm}
-          onBlurForm={handleBlurForm}
-          onDropFile={handleOnDropFile}
+          onDropFile={file => handleChangeForm({ target: { value: file, name: 'file' } })}
         />
       }
       onHide={handlOnCloseModal}
       size="md"
       title={intl.formatMessage({
-        id: 'title',
+        id: 'toolkit.upload.document.title',
       })}
     />
   );
@@ -73,13 +84,12 @@ export default UploadDocumentModal;
 const ModalBody: FC<ModalBodyProps> = ({
   form = DEFAULT_FORM,
   onChangeForm,
-  onBlurForm,
   errors,
   onDropFile,
 }: ModalBodyProps): JSX.Element => {
   const intl = useIntl();
 
-  const { id, name, summary, file } = form;
+  const { name, description, file, public: isPublic, file_size: fileSize } = form;
 
   return (
     <div className="uploadDocumentModal__Body">
@@ -89,55 +99,30 @@ const ModalBody: FC<ModalBodyProps> = ({
           label={intl.formatMessage({ id: 'name' })}
           value={name}
           onChange={onChangeForm}
-          onBlur={e => onBlurForm(e, id)}
           error={errors?.name}
         />
         <TextareaField
           maxLength={240}
-          field="summary"
+          field="description"
           onChange={onChangeForm}
           label={intl.formatMessage({ id: 'description' })}
-          value={summary}
-          help={intl.formatMessage({ id: 'helper description' })}
+          value={description}
         />
-        <div className="form-group label-field-image">
+        <div className="form-group label-field-file">
           <InputLabel
-            help={intl.formatMessage({ id: 'helper' })}
-            label={intl.formatMessage({ id: 'File' })}
+            label={intl.formatMessage({ id: 'file' })}
+            help={intl.formatMessage({ id: 'toolkit.upload.document.file.helper' })}
           />
         </div>
-        {file && (
-          <a href="https://www.w3schools.com">
-            <Preview
-              className="media-image-thumb"
-              img={{
-                src: file ? `${getEnvVar('CDN_UPLOADS_URL')}/frontend/assets/no-image.png` : null,
-                alt: name,
-                width: '80px',
-                height: '80px',
-              }}
-              hover={false}
-            />
-          </a>
-        )}
+        {file && <FileCard title={name} showBadgePrivate={isPublic} size={fileSize} file={file} />}
         <DropZoneBox
-          showFooterCropper={true}
           showDropArea={!file}
           multiple={false}
-          accept=".jpg, .jpeg, .png"
+          accept=".jpeg,.jpg,.png,.doc,.odt,.pdf,.xls,.ods,.ppt,.odp,.csv,.text,.txt,.pptx,.xlsx,.xltx,.docx"
           onSelect={onDropFile}
-          hasCropper={{
-            showCropper: true,
-            aspectRatioW: 1,
-            aspectRatioH: 1,
-            minWidth: 400,
-            minHeight: 400,
-          }}
-          showImagesPreviews={false}
           env={{
             serverlessResizeImage: process.env.PUBLIC_SERVER_LESS_RESIZE_IMAGE,
           }}
-          deleteImageGallery={() => {}}
           icon="icon-ic-file-upload"
           minWidth={400}
           minHeight={400}
@@ -147,10 +132,20 @@ const ModalBody: FC<ModalBodyProps> = ({
               extraClass="primary-full"
               size="sm"
               type="button"
-              text={intl.formatMessage({ id: 'upload' })}
+              text={intl.formatMessage({ id: 'toolkit.upload.document.file.replace' })}
             />
           )}
         </DropZoneBox>
+        <div className="private">
+          <div className="private-toogle">
+            <Toggle isChecked={!isPublic} name="public" onChange={onChangeForm} />
+          </div>
+          <InputLabel
+            field="public"
+            fontWeight={400}
+            label={intl.formatMessage({ id: 'toolkit.upload.document.file.private' })}
+          />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,15 @@
-interface Form {
+/* eslint-disable camelcase */
+export interface Form {
   id?: number;
   name: string;
-  summary: string;
+  description: string;
   file: string;
-  status: number;
+  public: boolean;
+  file_size: number;
+  file_type?: string;
+  created_at?: string;
+  updated_at?: string;
+  user_id?: number;
 }
 
 interface Errors {
@@ -13,22 +19,18 @@ interface Errors {
 export interface ModalBodyProps {
   form: Form;
   errors: Errors;
-  onChangeForm(): void;
-  onBlurForm(event: any, id: number): void;
-  onDropFile(): void;
+  onChangeForm(event: any): void;
+  onDropFile(file: any): void;
 }
 
 interface Props {
   openModal?: boolean;
   form: Form;
   disabledUploadButton?: boolean;
-  errors: Errors;
+  errors?: Errors;
   handlOnCloseModal(): void;
-  handleClickUpload(): void;
+  handleClickSave(form: Form): void;
   handleClickCancel(): void;
-  handleChangeForm(): void;
-  handleBlurForm(): void;
-  handleOnDropFile(): void;
 }
 
 export default Props;
