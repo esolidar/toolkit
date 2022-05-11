@@ -7,7 +7,35 @@ import classnames from 'classnames';
 import { isMobile } from 'react-device-detect';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
+import sortBy from '../../utils/sortBy';
 import Props from './CarouselLightbox.types';
+
+const splitArrayIntoChunks = (array, size) => {
+  const chunks = [];
+  let i = 0;
+  do {
+    if (i === 0) {
+      chunks.push(array.slice(i, (i += size)));
+    } else {
+      const newSize = size - 2;
+      const newArray = [
+        chunks[chunks.length - 1][size - 2],
+        chunks[chunks.length - 1][size - 1],
+        ...array.slice(i, (i += newSize)),
+      ];
+      chunks.push(newArray);
+    }
+  } while (i < array.length);
+  return chunks;
+};
+
+const videoStopper = () => {
+  if (typeof window !== 'undefined') {
+    document.querySelectorAll('iframe').forEach(video => {
+      video.src = video.src;
+    });
+  }
+};
 
 const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX.Element => {
   const [position, setPosition] = useState<number>(0);
@@ -18,7 +46,7 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   const [activeTemp, setActiveTemp] = useState<number>(null);
   const [thumbnailsNumber, setThumbnailsNumber] = useState<number>(6);
 
-  const items = listItems.sort((a, b) => (a.type > b.type ? -1 : 1));
+  const items = sortBy(listItems, 'type', 'desc');
 
   const Swipehandlers = useSwipeable({
     onSwipedLeft: () => {
@@ -53,7 +81,7 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   }, []);
 
   const setCorrectThumbnailList = thisIndex => {
-    thumbnails.map((arrayItem, indx) => {
+    thumbnails.forEach((arrayItem, indx) => {
       const newThumbnailsList = [];
       if (indx > 0) {
         newThumbnailsList.push(...arrayItem.slice(1, -1));
@@ -67,26 +95,6 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
         setThumbnailsPosition(indx);
       }
     });
-    return '';
-  };
-
-  const splitArrayIntoChunks = (array, size) => {
-    const chunks = [];
-    let i = 0;
-    do {
-      if (i === 0) {
-        chunks.push(array.slice(i, (i += size)));
-      } else {
-        const newSize = size - 2;
-        const newArray = [
-          chunks[chunks.length - 1][size - 2],
-          chunks[chunks.length - 1][size - 1],
-          ...array.slice(i, (i += newSize)),
-        ];
-        chunks.push(newArray);
-      }
-    } while (i < array.length);
-    return chunks;
   };
 
   const next = () => {
@@ -114,16 +122,6 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
     setThumbnailsPosition(thumbnailsPosition + 1);
     setPosition(index);
     setCurrentIndex(index);
-  };
-
-  const videoStopper = () => {
-    if (typeof window !== 'undefined') {
-      document.querySelectorAll('iframe').forEach(video => {
-        video.src = video.src;
-      });
-    } else {
-      return '';
-    }
   };
 
   return (
