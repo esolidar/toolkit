@@ -23,8 +23,6 @@ const UploadDocumentModal: FC<Props> = ({
   handlOnCloseModal,
   handleClickSave,
   handleClickCancel,
-  disabledUploadButton,
-  errors,
 }: Props): JSX.Element => {
   const [form, setForm] = useState<Form>(DEFAULT_FORM);
 
@@ -32,9 +30,18 @@ const UploadDocumentModal: FC<Props> = ({
 
   const handleChangeForm = ({ target: { value, name, checked = undefined } }) => {
     let newValue = value;
+    const newForm: Form = { ...form };
     if (checked) newValue = false;
-    const newForm = { ...form };
-    newForm[name] = newValue;
+    if (name === 'file') {
+      value.forEach(doc => {
+        newForm.name = form.name || doc.name;
+        newForm.file = doc;
+        newForm.file_type = doc.type;
+        newForm.file_size = doc.size;
+      });
+    } else {
+      newForm[name] = newValue;
+    }
     setForm(newForm);
   };
 
@@ -56,7 +63,7 @@ const UploadDocumentModal: FC<Props> = ({
               size="md"
               text={intl.formatMessage({ id: 'save' })}
               onClick={() => handleClickSave(form)}
-              disabled={disabledUploadButton}
+              disabled={!form.file || !form.name}
             />
           </div>
         </>
@@ -64,7 +71,6 @@ const UploadDocumentModal: FC<Props> = ({
       backdrop="static"
       bodyChildren={
         <ModalBody
-          errors={errors}
           form={form}
           onChangeForm={handleChangeForm}
           onDropFile={file => handleChangeForm({ target: { value: file, name: 'file' } })}
@@ -84,7 +90,6 @@ export default UploadDocumentModal;
 const ModalBody: FC<ModalBodyProps> = ({
   form = DEFAULT_FORM,
   onChangeForm,
-  errors,
   onDropFile,
 }: ModalBodyProps): JSX.Element => {
   const intl = useIntl();
@@ -99,14 +104,16 @@ const ModalBody: FC<ModalBodyProps> = ({
           label={intl.formatMessage({ id: 'name' })}
           value={name}
           onChange={onChangeForm}
-          error={errors?.name}
+          dataTestId="name"
         />
         <TextareaField
           maxLength={240}
           field="description"
           onChange={onChangeForm}
           label={intl.formatMessage({ id: 'description' })}
+          showOptionalLabel={true}
           value={description}
+          dataTestId="description"
         />
         <div className="form-group label-field-file">
           <InputLabel
@@ -114,7 +121,7 @@ const ModalBody: FC<ModalBodyProps> = ({
             help={intl.formatMessage({ id: 'toolkit.upload.document.file.helper' })}
           />
         </div>
-        {file && <FileCard title={name} showBadgePrivate={isPublic} size={fileSize} file={file} />}
+        {file && <FileCard title={name} showBadgePrivate={!isPublic} size={fileSize} file={file} />}
         <DropZoneBox
           showDropArea={!file}
           multiple={false}

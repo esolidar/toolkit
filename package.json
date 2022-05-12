@@ -1,6 +1,6 @@
 {
   "name": "@esolidar/toolkit",
-  "version": "4.129.1",
+  "version": "4.130.0",
   "description": "eSolidar toolkit",
   "main": "build/index.js",
   "files": [
@@ -98,7 +98,7 @@
     "@dnd-kit/sortable": "^6.0.1",
     "@dnd-kit/utilities": "^3.1.0",
     "@esolidar/eslint-config-esolidar": "^0.0.6",
-    "@esolidar/i18n": "^0.307.0",
+    "@esolidar/i18n": "^0.313.0",
     "@esolidar/react-draft-wysiwyg": "1.20.0",
     "@react-mock/state": "^0.1.8",
     "@rollup/plugin-babel": "^5.3.0",

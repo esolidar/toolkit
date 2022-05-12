@@ -2,23 +2,18 @@
 export interface Form {
   id?: number;
   name: string;
-  description: string;
+  description?: string;
   file: string;
-  public: boolean;
-  file_size: number;
+  public?: boolean;
+  file_size?: number;
   file_type?: string;
   created_at?: string;
   updated_at?: string;
   user_id?: number;
 }
 
-interface Errors {
-  name: string;
-}
-
 export interface ModalBodyProps {
   form: Form;
-  errors: Errors;
   onChangeForm(event: any): void;
   onDropFile(file: any): void;
 }
@@ -26,8 +21,6 @@ export interface ModalBodyProps {
 interface Props {
   openModal?: boolean;
   form: Form;
-  disabledUploadButton?: boolean;
-  errors?: Errors;
   handlOnCloseModal(): void;
   handleClickSave(form: Form): void;
   handleClickCancel(): void;
