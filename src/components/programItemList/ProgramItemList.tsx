@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import Preview from '../preview';
 import Dropdown from '../../elements/dropdown';
 import Badge from '../../elements/badge';
+import getEnvVar from '../../utils/getEnvVar';
 import Props from './ProgramItemList.types';
 
 const ProgramItemList = ({
@@ -27,7 +28,7 @@ const ProgramItemList = ({
         <Preview
           img={{
             src: image
-              ? `${process.env.NEXT_PUBLIC_server_less_resize_image}/${image}?width=56&height=56`
+              ? `${getEnvVar('SERVER_LESS_RESIZE_IMAGE')}/${image}?width=56&height=56`
               : null,
             alt: title,
             width: '56px',
