@@ -16,6 +16,7 @@ const DEFAULT_FORM = {
   file: null,
   public: true,
   file_size: null,
+  fileName: null,
 };
 
 const UploadDocumentModal: FC<Props> = ({
@@ -29,12 +30,12 @@ const UploadDocumentModal: FC<Props> = ({
   const intl = useIntl();
 
   const handleChangeForm = ({ target: { value, name, checked = undefined } }) => {
-    let newValue = value;
+    let newValue: any = value;
     const newForm: Form = { ...form };
     if (checked) newValue = false;
     if (name === 'file') {
       value.forEach(doc => {
-        newForm.name = form.name || doc.name;
+        newForm.fileName = doc.name;
         newForm.file = doc;
         newForm.file_type = doc.type;
         newForm.file_size = doc.size;
@@ -94,7 +95,7 @@ const ModalBody: FC<ModalBodyProps> = ({
 }: ModalBodyProps): JSX.Element => {
   const intl = useIntl();
 
-  const { name, description, file, public: isPublic, file_size: fileSize } = form;
+  const { name, description, file, public: isPublic, file_size: fileSize, fileName } = form;
 
   return (
     <div className="uploadDocumentModal__Body">
@@ -121,18 +122,15 @@ const ModalBody: FC<ModalBodyProps> = ({
             help={intl.formatMessage({ id: 'toolkit.upload.document.file.helper' })}
           />
         </div>
-        {file && <FileCard title={name} showBadgePrivate={!isPublic} size={fileSize} file={file} />}
+        {file && (
+          <FileCard title={fileName} showBadgePrivate={!isPublic} size={fileSize} file={file} />
+        )}
         <DropZoneBox
           showDropArea={!file}
           multiple={false}
           accept=".jpeg,.jpg,.png,.doc,.odt,.pdf,.xls,.ods,.ppt,.odp,.csv,.text,.txt,.pptx,.xlsx,.xltx,.docx"
           onSelect={onDropFile}
-          env={{
-            serverlessResizeImage: process.env.PUBLIC_SERVER_LESS_RESIZE_IMAGE,
-          }}
           icon="icon-ic-file-upload"
-          minWidth={400}
-          minHeight={400}
         >
           {file && (
             <Button
