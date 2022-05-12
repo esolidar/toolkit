@@ -6,6 +6,7 @@
 
 const getEnvVar = (varName: string): string =>
   process.env[`NEXT_PUBLIC_${varName.toLowerCase()}`] ||
+  process.env[`NEXT_PUBLIC_${varName.toUpperCase()}`] ||
   process.env[`PUBLIC_${varName.toUpperCase()}`];
 
 export default getEnvVar;
