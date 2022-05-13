@@ -173,4 +173,56 @@
       font-weight: bold;
     }
   }
+  &__logo {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: $distance-2;
+    left: $distance-2;
+    border-radius: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 9;
+    border: 1px solid get-rgba(map-get($base, black), 8);
+  }
+
+  // CardNonProfit
+  &.cardNonProfit {
+    .card-component__body {
+      height: 210px;
+    }
+
+    .card-component__body {
+      border-bottom: 0px;
+    }
+  }
+
+  &__cardNonProfit {
+    &-donation-button {
+      margin-top: 28px;
+    }
+    &-body {
+      &-location-label {
+        font-size: 12px;
+        line-height: 16px;
+        color: map-get($main-text-colors, dark);
+        min-height: 18px;
+      }
+      &-location {
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($main-text-colors, title);
+        margin-bottom: $distance-3;
+        min-height: 22px;
+      }
+      &-summary {
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($main-text-colors, dark);
+
+        @include text-multiline-ellipsis(3);
+      }
+    }
+  }
 }
