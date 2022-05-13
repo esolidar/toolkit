@@ -5,7 +5,7 @@ import Props from './CardNonProfit.types';
 import institution from '../../../../__mocks__/institution';
 
 export default {
-  title: 'Components/CardNonProfit',
+  title: 'Components/card/CardNonProfit',
   component: CardNonProfit,
   parameters: {
     jest: ['Card.test.tsx'],
