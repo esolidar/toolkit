@@ -14,8 +14,8 @@ export interface CardBodyProps {
 
 interface Props {
   npo: Npo;
-  handleClickThumb?(): void;
-  handleClickDonate(): void;
+  onClickThumb?(): void;
+  onClickDonate(): void;
 }
 
 export default Props;

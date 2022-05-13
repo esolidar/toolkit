@@ -14,6 +14,7 @@ const Dropdown: FC<Props> = ({
   customButton,
   toggleIcon = 'MoreVertical',
   items,
+  dropAlign = 'left',
 }: Props): JSX.Element => {
   const handleClick = item => {
     item.onClick();
@@ -26,7 +27,7 @@ const Dropdown: FC<Props> = ({
       <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
         {customButton || defaultButton(toggleIcon)}
       </DropdownBTS.Toggle>
-      <DropdownBTS.Menu className="esolidar-dropdown__menu">
+      <DropdownBTS.Menu className="esolidar-dropdown__menu" align={dropAlign}>
         {filteredItems.map(item => {
           if (item.divider)
             return <DropdownBTS.Divider className="esolidar-dropdown__divider" key={item.id} />;
