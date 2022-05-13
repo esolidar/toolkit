@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import Props, { CardBodyProps } from './CardNonProfit.types';
 import Card from '../Card';
+import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
 
 const CardNonProfit: FC<Props> = ({
@@ -18,7 +19,7 @@ const CardNonProfit: FC<Props> = ({
       className="cardNonProfit"
       logo={logo}
       clickThumb={handleClickThumb}
-      image={image}
+      image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : null}
       title={name}
       middleContent={
         <Button
