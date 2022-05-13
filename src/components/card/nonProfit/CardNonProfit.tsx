@@ -5,11 +5,7 @@ import Card from '../Card';
 import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
 
-const CardNonProfit: FC<Props> = ({
-  npo,
-  handleClickThumb,
-  handleClickDonate,
-}: Props): JSX.Element => {
+const CardNonProfit: FC<Props> = ({ npo, onClickThumb, onClickDonate }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
   const { s3_cover_key: image, s3_image_key: logo, name, summary, location } = npo;
@@ -18,14 +14,17 @@ const CardNonProfit: FC<Props> = ({
     <Card
       className="cardNonProfit"
       logo={logo}
-      clickThumb={handleClickThumb}
+      clickThumb={onClickThumb}
       image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : null}
       title={name}
       middleContent={
         <Button
           fullWidth={true}
           extraClass="primary-full card-component__cardNonProfit-donation-button"
-          onClick={handleClickDonate}
+          onClick={e => {
+            e.stopPropagation();
+            onClickDonate();
+          }}
           dataTestId="npo-donate"
           text={intl.formatMessage({
             id: 'toolkit.donate',

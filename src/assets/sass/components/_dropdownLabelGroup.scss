@@ -1,0 +1,78 @@
+.DropdownLabelGroup {
+  position: relative;
+  display: inline-flex;
+  box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4);
+  border-radius: $border-radius-1;
+
+  &__prepend {
+    color: map-get($main-text-colors, dark);
+    background-color: map-get($background, secondary);
+    display: flex;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius-1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: $distance-1 $distance-2 $distance-1 $distance-2;
+    outline: 1px solid map-get($neutrals, 200);
+    border-right: 0px;
+  }
+
+  &__label-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    position: relative;
+    top: 0.5px;
+  }
+
+  &__dropdown {
+    position: relative;
+    border-radius: $border-radius-1;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    border: 1px solid map-get($base, white);
+    outline: 1px solid map-get($neutrals, 200);
+    left: 0.5px;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-within,
+    &.open {
+      border: 1px solid map-get($neutrals, 700);
+      outline: 1px solid map-get($neutrals, 700);
+    }
+
+    &-content {
+      line-height: 16px;
+      padding: $distance-1 $distance-2 $distance-1 $distance-2;
+
+      svg:first-child {
+        margin-right: 10px;
+      }
+
+      svg:last-child {
+        margin-left: 10px;
+      }
+    }
+
+    .dropdown-menu.show {
+      top: $distance-1 !important;
+    }
+  }
+
+  &__dropdown-text {
+    color: map-get($main-text-colors, title);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    position: relative;
+    top: 0.5px;
+  }
+}
