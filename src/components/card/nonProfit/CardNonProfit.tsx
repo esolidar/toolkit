@@ -2,10 +2,7 @@ import React, { FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import Props, { CardBodyProps } from './CardNonProfit.types';
 import Card from '../Card';
-import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
-
-const urlNoImage: string = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
 
 const CardNonProfit: FC<Props> = ({
   npo,
@@ -18,10 +15,10 @@ const CardNonProfit: FC<Props> = ({
 
   return (
     <Card
-      extraClass="cardNonProfit"
+      className="cardNonProfit"
       logo={logo}
       clickThumb={handleClickThumb}
-      image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : urlNoImage}
+      image={image}
       title={name}
       middleContent={
         <Button

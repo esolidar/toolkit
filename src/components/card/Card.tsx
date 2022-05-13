@@ -19,7 +19,7 @@ const Card: FC<Props> = ({
   isPrivate = false,
   average,
   dropdownItems = [],
-  extraClass,
+  className,
 }: Props): JSX.Element => {
   const filteredItems = dropdownItems.filter(item => item.show !== false);
   const showDropdownMenu = !!filteredItems.length;
@@ -30,7 +30,7 @@ const Card: FC<Props> = ({
 
   return (
     <div
-      className={classnames('card-component', extraClass)}
+      className={classnames('card-component', className)}
       onClick={handleClickThumb}
       onKeyDown={handleClickThumb}
       style={{

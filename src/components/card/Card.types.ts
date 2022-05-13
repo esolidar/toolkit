@@ -17,7 +17,7 @@ interface Props {
   isPrivate?: boolean;
   average?: number;
   dropdownItems?: any;
-  extraClass?: string;
+  className?: string;
 }
 
 export default Props;

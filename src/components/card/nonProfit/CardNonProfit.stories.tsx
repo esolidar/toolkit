@@ -8,13 +8,7 @@ export default {
   title: 'Components/card/CardNonProfit',
   component: CardNonProfit,
   parameters: {
-    jest: ['Card.test.tsx'],
-  },
-  argTypes: {
-    currency: {
-      options: ['EUR', 'USD', 'BRL', 'GBP'],
-      control: { type: 'radio' },
-    },
+    jest: ['CardNonProfit.test.js'],
   },
 } as Meta;
 
