@@ -126,7 +126,7 @@ const ModalBody: FC<ModalBodyProps> = ({
           {showLinkedin && (
             <li>
               <a
-                href={`http://www.linkedin.com/shareArticle?mini=true&url=${windowLocationHref}&title=${title}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${windowLocationHref}&title=${title}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="linkedin"

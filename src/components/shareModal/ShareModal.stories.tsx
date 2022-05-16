@@ -16,6 +16,7 @@ export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   openModal: true,
-  title: 'Lorem ipsum Title',
-  windowLocationHref: 'linkto.esolidar.com/xpto',
+  title: 'Esolidar be the change',
+  windowLocationHref:
+    'https://bethechange.esolidar.com/pt/needs/crowdfunding/detail/174-apoie-as-pessoas-diretamente-afetadas-pela-guerra-na-ucrania',
 };
