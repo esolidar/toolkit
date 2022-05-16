@@ -1,6 +1,6 @@
 .shareModal {
   .modal-body {
-    padding: 0 $distance-4 $distance-4 $distance-4 !important;
+    padding: 0 $distance-3 $distance-4 $distance-3 !important;
   }
 
   &.modal-sm {
@@ -11,7 +11,7 @@
 
   ul {
     padding: 0;
-    margin: 0;
+    margin: 0 $distance-1 0 $distance-1;
     li {
       list-style: none;
       margin-bottom: $distance-2;
@@ -96,10 +96,10 @@
   color: map-get($base, black);
   background-color: map-get($background, secondary) !important;
   outline: 1px solid map-get($neutrals, 200);
-  @include box-shadow(0px 2px 2px get-rgba(map-get($base, black)));
+  @include box-shadow(0px 2px 2px get-rgba(map-get($base, black), 4));
 
   &:focus {
-    @include box-shadow(0px 2px 2px get-rgba(map-get($base, black)));
+    @include box-shadow(0px 2px 2px get-rgba(map-get($base, black), 4));
   }
 
   .text {
@@ -113,7 +113,7 @@
     justify-content: space-between;
 
     &__left {
-      max-width: 180px;
+      max-width: 200px;
       @include text-overflow-ellipsis();
     }
     &__right {
