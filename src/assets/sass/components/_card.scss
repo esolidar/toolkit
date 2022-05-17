@@ -191,6 +191,11 @@
 
     .card-component__body {
       height: 210px;
+
+      @media (max-width: map-get($breakpoints, xs)) {
+        height: auto;
+        padding-bottom: $distance-2;
+      }
     }
 
     .card-component__body {
