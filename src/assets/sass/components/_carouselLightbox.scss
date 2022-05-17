@@ -1,14 +1,13 @@
 .carouselLightbox {
-  width: 584px;
+  width: 100%;
+  max-width: 584px;
   height: 387px;
 
   @media (max-width: map-get($breakpoints, sm)) {
-    width: 100%;
     height: 327px;
   }
 
   @media (max-width: map-get($breakpoints, xs)) {
-    width: 100%;
     height: 218px;
   }
 
