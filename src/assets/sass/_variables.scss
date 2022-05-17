@@ -293,6 +293,14 @@ $running-color: #31bd79;
 $soon-color: map-get($colors, light-blue);
 $pending-color: map-get($colors, orange);
 
+$social: (
+  facebook: #3b5998,
+  twitter: #1da1f2,
+  linkedin: #037fb2,
+  whatsApp: #25d366,
+  email: #6c7679,
+);
+
 $distance-1: 8px;
 $distance-2: 16px;
 $distance-3: 24px;
