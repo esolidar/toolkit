@@ -8,7 +8,23 @@ import Button from '../../../elements/button';
 const CardNonProfit: FC<Props> = ({ npo, onClickThumb, onClickDonate }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
-  const { s3_cover_key: image, s3_image_key: logo, name, summary, location } = npo;
+  const { s3_cover_key: image, s3_image_key: logo, name, location, short_bio: shortBio } = npo;
+
+  let summaryText = '';
+
+  switch (intl.locale) {
+    case 'pt':
+      summaryText = shortBio?.pt || '';
+      break;
+
+    case 'br':
+      summaryText = shortBio?.br || '';
+      break;
+
+    default:
+      summaryText = shortBio?.en || '';
+      break;
+  }
 
   return (
     <Card
@@ -31,7 +47,7 @@ const CardNonProfit: FC<Props> = ({ npo, onClickThumb, onClickDonate }: Props): 
           })}
         />
       }
-      body={<CardBody summary={summary} location={location} />}
+      body={<CardBody summary={summaryText} location={location} />}
     />
   );
 };
