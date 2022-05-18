@@ -17,6 +17,7 @@ export interface ModalBodyProps {
 }
 
 interface Props extends ModalBodyProps {
+  stickToBottomMobile: boolean;
   onCloseModal(): void;
   openModal: boolean;
 }

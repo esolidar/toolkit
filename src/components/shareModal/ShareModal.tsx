@@ -17,6 +17,7 @@ const ShareModal: FC<Props> = ({
   onCloseModal,
   openModal,
   onClickCopyToClipboard,
+  stickToBottomMobile,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -29,6 +30,7 @@ const ShareModal: FC<Props> = ({
       title={intl.formatMessage({ id: 'share' })}
       dialogClassName="shareModal"
       backdrop="static"
+      stickToBottomMobile={stickToBottomMobile}
       bodyChildren={
         <ModalBody
           title={title}

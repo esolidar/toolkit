@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652871917973" clover="3.2.0">
-  <project timestamp="1652871917974" name="All files">
-    <metrics statements="6189" coveredstatements="4489" conditionals="4602" coveredconditionals="2880" methods="1945" coveredmethods="1116" elements="12736" coveredelements="8485" complexity="0" loc="6189" ncloc="6189" packages="238" files="806" classes="806"/>
+<coverage generated="1652886959861" clover="3.2.0">
+  <project timestamp="1652886959861" name="All files">
+    <metrics statements="6189" coveredstatements="4483" conditionals="4602" coveredconditionals="2877" methods="1945" coveredmethods="1115" elements="12736" coveredelements="8475" complexity="0" loc="6189" ncloc="6189" packages="238" files="806" classes="806"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="601" type="stmt"/>
+        <line num="3" count="602" type="stmt"/>
         <line num="5" count="111" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="111" type="stmt"/>
-        <line num="8" count="9" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
         <line num="10" count="111" type="stmt"/>
       </file>
       <file name="queryById.js" path="C:\Projects\toolkit\__customQueries__\queryById.js">
@@ -5332,20 +5332,20 @@
       <file name="ShareModal.tsx" path="C:\Projects\toolkit\src\components\shareModal\ShareModal.tsx">
         <metrics statements="15" coveredstatements="10" conditionals="20" coveredconditionals="19" methods="6" coveredmethods="3"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
         <line num="64" count="1" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="182" count="1" type="stmt"/>
-        <line num="183" count="1" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="184" count="1" type="stmt"/>
+        <line num="185" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.shareNetwork">
@@ -7708,19 +7708,19 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
       <file name="TextareaField.jsx" path="C:\Projects\toolkit\src\elements\textareaField\TextareaField.jsx">
-        <metrics statements="15" coveredstatements="14" conditionals="33" coveredconditionals="28" methods="3" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="8" conditionals="33" coveredconditionals="25" methods="3" coveredmethods="1"/>
         <line num="10" count="26" type="stmt"/>
         <line num="38" count="65" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="30" type="cond" truecount="1" falsecount="1"/>
         <line num="40" count="30" type="stmt"/>
-        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="3" type="stmt"/>
-        <line num="47" count="3" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
         <line num="53" count="65" type="stmt"/>
         <line num="55" count="65" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
@@ -9139,7 +9139,7 @@
       </file>
       <file name="isDefined.ts" path="C:\Projects\toolkit\src\utils\isDefined\isDefined.ts">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="5" count="354" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="351" type="cond" truecount="2" falsecount="0"/>
       </file>
     </package>
     <package name="src.utils.isEmpty">
