@@ -31,6 +31,7 @@
   &__info {
     &.margin {
       margin-left: $distance-2;
+      overflow: hidden;
 
       @media (max-width: map-get($breakpoints, xs)) {
         margin-left: $distance-1;
