@@ -10,21 +10,7 @@ const CardNonProfit: FC<Props> = ({ npo, onClickThumb, onClickDonate }: Props): 
 
   const { s3_cover_key: image, s3_image_key: logo, name, location, short_bio: shortBio } = npo;
 
-  let summaryText = '';
-
-  switch (intl.locale) {
-    case 'pt':
-      summaryText = shortBio?.pt || '';
-      break;
-
-    case 'br':
-      summaryText = shortBio?.br || '';
-      break;
-
-    default:
-      summaryText = shortBio?.en || '';
-      break;
-  }
+  const summaryText = shortBio?.[intl.locale] || '';
 
   return (
     <Card

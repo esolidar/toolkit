@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652869952790" clover="3.2.0">
-  <project timestamp="1652869952791" name="All files">
-    <metrics statements="6196" coveredstatements="4492" conditionals="4609" coveredconditionals="2881" methods="1945" coveredmethods="1116" elements="12750" coveredelements="8489" complexity="0" loc="6196" ncloc="6196" packages="238" files="806" classes="806"/>
+<coverage generated="1652870413933" clover="3.2.0">
+  <project timestamp="1652870413933" name="All files">
+    <metrics statements="6189" coveredstatements="4490" conditionals="4602" coveredconditionals="2881" methods="1945" coveredmethods="1116" elements="12736" coveredelements="8487" complexity="0" loc="6189" ncloc="6189" packages="238" files="806" classes="806"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="603" type="stmt"/>
+        <line num="3" count="602" type="stmt"/>
         <line num="5" count="111" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="111" type="stmt"/>
-        <line num="8" count="11" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
         <line num="10" count="111" type="stmt"/>
       </file>
       <file name="queryById.js" path="C:\Projects\toolkit\__customQueries__\queryById.js">
@@ -2890,7 +2890,7 @@
       </file>
     </package>
     <package name="src.components.card.nonProfit">
-      <metrics statements="21" coveredstatements="15" conditionals="13" coveredconditionals="5" methods="5" coveredmethods="3"/>
+      <metrics statements="14" coveredstatements="12" conditionals="6" coveredconditionals="4" methods="5" coveredmethods="3"/>
       <file name="CardNonProfit.stories.tsx" path="C:\Projects\toolkit\src\components\card\nonProfit\CardNonProfit.stories.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="15" count="1" type="stmt"/>
@@ -2899,24 +2899,17 @@
         <line num="23" count="1" type="stmt"/>
       </file>
       <file name="CardNonProfit.tsx" path="C:\Projects\toolkit\src\components\card\nonProfit\CardNonProfit.tsx">
-        <metrics statements="17" coveredstatements="11" conditionals="13" coveredconditionals="5" methods="3" coveredmethods="2"/>
+        <metrics statements="10" coveredstatements="8" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="1" falsecount="2"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cardProjectDetail">
@@ -7875,10 +7868,10 @@
         <line num="6" count="166" type="stmt"/>
         <line num="7" count="166" type="stmt"/>
         <line num="11" count="166" type="stmt"/>
-        <line num="13" count="85" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="87" type="cond" truecount="2" falsecount="0"/>
         <line num="14" count="54" type="stmt"/>
-        <line num="17" count="31" type="stmt"/>
-        <line num="19" count="31" type="stmt"/>
+        <line num="17" count="33" type="stmt"/>
+        <line num="19" count="33" type="stmt"/>
       </file>
       <file name="useIsFirstRender.ts" path="C:\Projects\toolkit\src\hooks\useIsFirstRender.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -8193,7 +8186,7 @@
       </file>
     </package>
     <package name="src.unreleased.countdown">
-      <metrics statements="121" coveredstatements="109" conditionals="95" coveredconditionals="73" methods="12" coveredmethods="9"/>
+      <metrics statements="121" coveredstatements="110" conditionals="95" coveredconditionals="74" methods="12" coveredmethods="9"/>
       <file name="Countdown.stories.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.stories.tsx">
         <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="28" count="1" type="stmt"/>
@@ -8226,7 +8219,7 @@
         <line num="155" count="1" type="stmt"/>
       </file>
       <file name="Countdown.tsx" path="C:\Projects\toolkit\src\unreleased\countdown\Countdown.tsx">
-        <metrics statements="93" coveredstatements="81" conditionals="95" coveredconditionals="73" methods="9" coveredmethods="8"/>
+        <metrics statements="93" coveredstatements="82" conditionals="95" coveredconditionals="74" methods="9" coveredmethods="8"/>
         <line num="9" count="5" type="stmt"/>
         <line num="18" count="58" type="stmt"/>
         <line num="19" count="58" type="stmt"/>
@@ -8264,14 +8257,14 @@
         <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="7" type="stmt"/>
-        <line num="77" count="7" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
+        <line num="77" count="6" type="stmt"/>
         <line num="79" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="80" count="5" type="stmt"/>
-        <line num="81" count="5" type="stmt"/>
+        <line num="80" count="6" type="stmt"/>
+        <line num="81" count="6" type="stmt"/>
         <line num="83" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="84" count="9" type="stmt"/>
-        <line num="85" count="9" type="stmt"/>
+        <line num="84" count="7" type="stmt"/>
+        <line num="85" count="7" type="stmt"/>
         <line num="88" count="11" type="stmt"/>
         <line num="90" count="11" type="cond" truecount="1" falsecount="1"/>
         <line num="92" count="11" type="cond" truecount="4" falsecount="0"/>
@@ -8297,9 +8290,9 @@
         <line num="127" count="1" type="stmt"/>
         <line num="131" count="58" type="stmt"/>
         <line num="132" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="133" count="1" type="stmt"/>
-        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="136" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="135" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="136" count="1" type="stmt"/>
         <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="143" count="0" type="stmt"/>
         <line num="145" count="0" type="cond" truecount="0" falsecount="2"/>
