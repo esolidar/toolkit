@@ -23,4 +23,5 @@ Default.args = {
       leftIcon: 'DeleteCircle',
     },
   ],
+  fullWidth: false,
 };
