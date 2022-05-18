@@ -31,6 +31,8 @@ Default.args = {
   title: 'Title',
   size: 'md',
   scrollable: false,
+  dialogClassName: 'teste',
+  fullscreenMobile: true,
 };
 
 WithScroll.args = {

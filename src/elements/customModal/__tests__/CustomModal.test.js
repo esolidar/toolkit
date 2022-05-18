@@ -11,11 +11,12 @@ const WithScroll = composeStory(WithScrollStory, Meta);
 
 describe('CustomModal component', () => {
   it('renders "CustomModal" correctly', () => {
-    const { getByTestId } = render(<Default />);
+    const { getByTestId, getByClass } = render(<Default />);
     expect(getByTestId('modal')).toBeInTheDocument();
     expect(getByTestId('header')).toBeInTheDocument();
     expect(getByTestId('title')).toBeInTheDocument();
     expect(getByTestId('body')).toBeInTheDocument();
+    expect(getByClass(/fullscreenMobile/)).toBeInTheDocument();
   });
 
   it('renders subtitle if prop "subtitle" is defined', () => {
