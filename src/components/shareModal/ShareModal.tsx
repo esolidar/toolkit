@@ -17,7 +17,7 @@ const ShareModal: FC<Props> = ({
   onCloseModal,
   openModal,
   onClickCopyToClipboard,
-  stickToBottomMobile,
+  stickToBottomMobile = true,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
