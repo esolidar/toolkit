@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
+import classnames from 'classnames';
 import Icon from '../icon';
 import Button from '../button';
 
@@ -32,6 +33,7 @@ const CustomModal = ({
   title,
   titleClassName,
   iconTitle,
+  fullscreenMobile,
 }) => {
   const [modalDividerBottom, setModalDividerBottom] = useState(false);
   const [modalDividerTop, setModalDividerTop] = useState(false);
@@ -97,7 +99,9 @@ const CustomModal = ({
     <Modal
       backdrop={backdrop}
       centered={centered}
-      dialogClassName={`custom-modal ${dialogClassName}`}
+      dialogClassName={classnames('custom-modal', dialogClassName, {
+        fullscreenMobile,
+      })}
       onHide={onHide}
       scrollable={scrollable}
       show={show}
@@ -178,6 +182,7 @@ CustomModal.propTypes = {
   title: PropTypes.string,
   titleClassName: PropTypes.string,
   iconTitle: PropTypes.string,
+  fullscreenMobile: PropTypes.bool,
 };
 
 CustomModal.defaultProps = {
@@ -198,6 +203,7 @@ CustomModal.defaultProps = {
   subtitle: '',
   subtitleClassName: '',
   titleClassName: '',
+  fullscreenMobile: false,
 };
 
 export default CustomModal;

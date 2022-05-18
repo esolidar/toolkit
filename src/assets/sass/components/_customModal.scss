@@ -9,6 +9,21 @@
 }
 
 .custom-modal {
+  &.fullscreenMobile {
+    margin: 0px;
+    min-height: 100%;
+
+    @media (max-width: map-get($breakpoints, sm)) {
+      .modal-content {
+        height: 100%;
+        max-height: 100% !important;
+        border-radius: 0px;
+        border: 0px;
+        box-shadow: none;
+      }
+    }
+  }
+
   .modal-content {
     border-radius: $border-radius-2;
     box-shadow: 0px 0px 16px 0px #00000026;
