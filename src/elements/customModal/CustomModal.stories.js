@@ -33,6 +33,7 @@ Default.args = {
   scrollable: false,
   dialogClassName: 'teste',
   fullscreenMobile: true,
+  stickToBottomMobile: false,
 };
 
 WithScroll.args = {

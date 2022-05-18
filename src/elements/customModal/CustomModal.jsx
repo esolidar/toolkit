@@ -34,6 +34,7 @@ const CustomModal = ({
   titleClassName,
   iconTitle,
   fullscreenMobile,
+  stickToBottomMobile,
 }) => {
   const [modalDividerBottom, setModalDividerBottom] = useState(false);
   const [modalDividerTop, setModalDividerTop] = useState(false);
@@ -99,9 +100,12 @@ const CustomModal = ({
     <Modal
       backdrop={backdrop}
       centered={centered}
-      dialogClassName={classnames('custom-modal', dialogClassName, {
-        fullscreenMobile,
-      })}
+      dialogClassName={classnames(
+        'custom-modal',
+        dialogClassName,
+        { fullscreenMobile },
+        { stickToBottomMobile }
+      )}
       onHide={onHide}
       scrollable={scrollable}
       show={show}
@@ -183,6 +187,7 @@ CustomModal.propTypes = {
   titleClassName: PropTypes.string,
   iconTitle: PropTypes.string,
   fullscreenMobile: PropTypes.bool,
+  stickToBottomMobile: PropTypes.bool,
 };
 
 CustomModal.defaultProps = {

@@ -9,6 +9,7 @@ export interface CustomDropdownButtonProps {
 interface Props extends CustomDropdownButtonProps {
   labelText: string;
   dropdownItems: Item[];
+  fullWidth: boolean;
 }
 
 export default Props;

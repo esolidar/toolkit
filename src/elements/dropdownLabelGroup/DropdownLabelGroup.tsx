@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import classnames from 'classnames';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Props, { CustomDropdownButtonProps } from './DropdownLabelGroup.types';
@@ -9,8 +10,9 @@ const DropdownLabelGroup: FC<Props> = ({
   iconLeft,
   iconRight,
   dropdownItems,
+  fullWidth,
 }: Props): JSX.Element => (
-  <div className="DropdownLabelGroup">
+  <div className={classnames('DropdownLabelGroup', { fullWidth })}>
     <div className="DropdownLabelGroup__prepend">
       <span className="DropdownLabelGroup__label-text">{labelText}</span>
     </div>
