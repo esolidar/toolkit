@@ -92,21 +92,24 @@ const TextField = ({
         />
         {rightIcon?.show && (
           <div className="icon right">
-            <Icon
-              name={rightIcon?.name}
-              size="sm"
-              onClick={rightIcon?.onClick}
-              style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-              dataTestId="input-right-icon"
+            <div onClick={rightIcon?.onClick} onKeyDown={rightIcon?.onClick}>
+              <Icon
+                name={rightIcon?.name}
+                size="sm"
+                style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+                dataTestId="input-right-icon"
+              />
+            </div>
+          </div>
+        )}
+        {isLoading && (
+          <div className="input__loading">
+            <Loading
+              loadingClass={classnames('small-loading', { setVisible: isLoading })}
+              size="xxs"
             />
           </div>
         )}
-        <div className="input__loading">
-          <Loading
-            loadingClass={classnames('small-loading', { setVisible: isLoading })}
-            size="xxs"
-          />
-        </div>
       </div>
     )}
     {children && children}
