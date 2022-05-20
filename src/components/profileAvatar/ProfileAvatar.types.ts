@@ -6,6 +6,7 @@ interface Props {
   href?: string;
   buttonUrl?: string;
   buttonText?: string;
+  buttonIconRight?: JSX.Element;
 }
 
 export default Props;

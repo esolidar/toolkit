@@ -3,6 +3,7 @@
 import React, { FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import classnames from 'classnames';
+import Button from '../../elements/button';
 import Props from './ProfileAvatar.types';
 
 const ProfileAvatar: FC<Props> = ({
@@ -13,6 +14,7 @@ const ProfileAvatar: FC<Props> = ({
   href,
   buttonUrl,
   buttonText,
+  buttonIconRight,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const alt: string = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
@@ -48,14 +50,14 @@ const ProfileAvatar: FC<Props> = ({
           </div>
         )}
         {buttonText && (
-          <a
+          <Button
             className="profile-avatar__info--link"
             href={buttonUrl}
             target="_blank"
-            rel="noreferrer"
-          >
-            {buttonText}
-          </a>
+            text={buttonText}
+            type="link"
+            iconRight={buttonIconRight}
+          />
         )}
       </div>
     </div>

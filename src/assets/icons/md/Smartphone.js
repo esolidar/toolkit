@@ -9,11 +9,11 @@ const SvgSmartphone = props => (
     viewBox={props.viewBox}
     {...props}
   >
-    <path fill={props.color} d="M11 16a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2z" />
+    <path fill="#6C7679" d="M11 16a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" />
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M5 2a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5zm1 18V4h12v16H6z"
+      d="M5 2a1 1 0 0 0-1 1v18a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H5Zm1 18V4h12v16H6Z"
       clipRule="evenodd"
     />
   </svg>

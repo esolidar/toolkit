@@ -10,7 +10,7 @@ const SvgChevronDown = props => (
     {...props}
   >
     <path
-      stroke={props.color}
+      stroke="#6C7679"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.5}

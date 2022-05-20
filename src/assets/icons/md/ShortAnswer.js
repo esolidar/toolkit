@@ -10,9 +10,9 @@ const SvgShortAnswer = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M3 12a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"
+      d="M3 12a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z"
       clipRule="evenodd"
     />
   </svg>

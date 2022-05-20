@@ -55,11 +55,15 @@
     }
 
     &--link {
+      padding: 0 !important;
+      height: auto !important;
+      font-size: 14px !important;
       color: map-get($theme-colors, primary);
-      font-size: 14px;
       font-weight: 600;
       line-height: 20px;
+      gap: 8px !important;
       @include animate();
+      @include svg-change-color(map-get($neutrals, 700));
 
       &:hover {
         color: map-get($theme-colors-dark, primary);

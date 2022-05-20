@@ -10,9 +10,9 @@ const SvgSection = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M5 4a1 1 0 0 0-1 1v2a1 1 0 0 1-2 0V5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v2a1 1 0 1 1-2 0V5a1 1 0 0 0-1-1h-6v16h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3V4H5z"
+      d="M5 4a1 1 0 0 0-1 1v2a1 1 0 0 1-2 0V5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v2a1 1 0 1 1-2 0V5a1 1 0 0 0-1-1h-6v16h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3V4H5Z"
       clipRule="evenodd"
     />
   </svg>

@@ -10,9 +10,9 @@ const SvgPause = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M5 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5zm1 14V6h3v12H6zm8-14a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-5zm1 14V6h3v12h-3z"
+      d="M5 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5Zm1 14V6h3v12H6Zm8-14a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-5Zm1 14V6h3v12h-3Z"
       clipRule="evenodd"
     />
   </svg>
