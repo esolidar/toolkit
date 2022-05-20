@@ -10,9 +10,9 @@ const SvgLockBold = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm3.172-4.828A4 4 0 0 1 16 8v2H8V8a4 4 0 0 1 1.172-2.828zM12 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+      d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1Zm3.172-4.828A4 4 0 0 1 16 8v2H8V8a4 4 0 0 1 1.172-2.828ZM12 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
       clipRule="evenodd"
     />
   </svg>

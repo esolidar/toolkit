@@ -10,8 +10,8 @@ const SvgLongAnswer = props => (
     {...props}
   >
     <path
-      fill={props.color}
-      d="M3 5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm1 6a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4z"
+      fill="#6C7679"
+      d="M3 5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm1 6a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
     />
   </svg>
 );

@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import ProfileAvatar from './ProfileAvatar';
+import Icon from '../../elements/icon';
 import Props from './ProfileAvatar.types';
 
 export default {
@@ -43,4 +44,5 @@ WithButton.args = {
   buttonText: 'View program details',
   buttonUrl: 'https://www.esolidar.com/',
   isNameBold: true,
+  buttonIconRight: <Icon name="ExternalLink" size="xs" />,
 };

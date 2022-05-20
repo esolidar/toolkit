@@ -10,12 +10,12 @@ const SvgBell = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M19 15.998V9A7 7 0 1 0 5 9v6.998H3a1 1 0 0 0 0 2h2.937L6 18h12c.021 0 .042 0 .063-.002H21a1 1 0 1 0 0-2h-2zM12 4a5 5 0 0 0-5 5v6.998h10V9a5 5 0 0 0-5-5z"
+      d="M19 15.998V9A7 7 0 1 0 5 9v6.998H3a1 1 0 0 0 0 2h2.937L6 18h12c.021 0 .042 0 .063-.002H21a1 1 0 1 0 0-2h-2ZM12 4a5 5 0 0 0-5 5v6.998h10V9a5 5 0 0 0-5-5Z"
       clipRule="evenodd"
     />
-    <path fill={props.color} d="M10 20.998a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1z" />
+    <path fill="#6C7679" d="M10 20.998a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1Z" />
   </svg>
 );
 

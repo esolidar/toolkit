@@ -93,6 +93,7 @@ export { default as HeartBold } from './HeartBold';
 export { default as Heart } from './Heart';
 export { default as Home } from './Home';
 export { default as HourGlass } from './HourGlass';
+export { default as ImageSingle } from './ImageSingle';
 export { default as Image } from './Image';
 export { default as InfoBold } from './InfoBold';
 export { default as Info } from './Info';

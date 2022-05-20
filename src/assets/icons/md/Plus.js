@@ -10,8 +10,8 @@ const SvgPlus = props => (
     {...props}
   >
     <path
-      fill={props.color}
-      d="M13 3a1 1 0 1 0-2 0v8H3a1 1 0 1 0 0 2h8v8a1 1 0 1 0 2 0v-8h8a1 1 0 1 0 0-2h-8V3z"
+      fill="#6C7679"
+      d="M13 3a1 1 0 1 0-2 0v8H3a1 1 0 1 0 0 2h8v8a1 1 0 1 0 2 0v-8h8a1 1 0 1 0 0-2h-8V3Z"
     />
   </svg>
 );

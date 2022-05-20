@@ -79,4 +79,5 @@ it('renders ProfileAvatar with button', () => {
   expect(getByClass(/profile-avatar__info--name /)).toBeInTheDocument();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
   expect(getByText('View program details')).toBeInTheDocument();
+  expect(getByClass('btn-esolidar__icon-right')).toBeInTheDocument();
 });

@@ -10,9 +10,9 @@ const SvgDollarSign = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M12 2a1 1 0 0 1 1 1v2h2a1 1 0 1 1 0 2h-3a2 2 0 0 0 0 4 4 4 0 0 1 1 7.873V21a1 1 0 1 1-2 0v-2H9a1 1 0 1 1 0-2h3a2 2 0 0 0 0-4 4 4 0 0 1-1-7.873V3a1 1 0 0 1 1-1z"
+      d="M12 2a1 1 0 0 1 1 1v2h2a1 1 0 1 1 0 2h-3a2 2 0 0 0 0 4 4 4 0 0 1 1 7.873V21a1 1 0 1 1-2 0v-2H9a1 1 0 1 1 0-2h3a2 2 0 0 0 0-4 4 4 0 0 1-1-7.873V3a1 1 0 0 1 1-1Z"
       clipRule="evenodd"
     />
   </svg>

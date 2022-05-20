@@ -10,9 +10,9 @@ const SvgMinus = props => (
     {...props}
   >
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M1.25 7.75A.75.75 0 0 1 2 7h11.75a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75z"
+      d="M1.25 7.75A.75.75 0 0 1 2 7h11.75a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75Z"
       clipRule="evenodd"
     />
   </svg>

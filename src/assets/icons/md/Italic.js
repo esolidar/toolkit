@@ -10,8 +10,8 @@ const SvgItalic = props => (
     {...props}
   >
     <path
-      fill={props.color}
-      d="M21 2H9a1 1 0 0 0 0 2h4.61L8.28 20H3a1 1 0 0 0 0 2h12a1 1 0 0 0 0-2h-4.61l5.33-16H21a1 1 0 1 0 0-2z"
+      fill="#6C7679"
+      d="M21 2H9a1 1 0 0 0 0 2h4.61L8.28 20H3a1 1 0 0 0 0 2h12a1 1 0 0 0 0-2h-4.61l5.33-16H21a1 1 0 1 0 0-2Z"
     />
   </svg>
 );

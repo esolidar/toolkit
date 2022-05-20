@@ -10,13 +10,13 @@ const SvgSidebarCollapse = props => (
     {...props}
   >
     <path
-      fill={props.color}
-      d="M16.707 9.707a1 1 0 0 0-1.414-1.414l-3 3a1 1 0 0 0 0 1.414l3 3a1 1 0 0 0 1.414-1.414L14.414 12l2.293-2.293z"
+      fill="#6C7679"
+      d="M16.707 9.707a1 1 0 0 0-1.414-1.414l-3 3a1 1 0 0 0 0 1.414l3 3a1 1 0 0 0 1.414-1.414L14.414 12l2.293-2.293Z"
     />
     <path
-      fill={props.color}
+      fill="#6C7679"
       fillRule="evenodd"
-      d="M5 22h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3zM5 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3V4H5zm5 0v16h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9z"
+      d="M5 22h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3ZM5 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3V4H5Zm5 0v16h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9Z"
       clipRule="evenodd"
     />
   </svg>
