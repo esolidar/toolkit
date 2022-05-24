@@ -7,7 +7,7 @@
   @include box-shadow(map-get($elevation, 50));
 
   &:hover {
-    @include box-shadow(map-get($elevation, 100));
+    @include box-shadow(map-get($elevation, 500));
     .bg-image {
       -ms-transform: scale(1.1, 1.1);
       -webkit-transform: scale(1.1, 1.1);

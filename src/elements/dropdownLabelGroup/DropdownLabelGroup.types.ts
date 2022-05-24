@@ -10,6 +10,7 @@ interface Props extends CustomDropdownButtonProps {
   labelText: string;
   dropdownItems: Item[];
   fullWidth: boolean;
+  transparent?: boolean;
 }
 
 export default Props;
