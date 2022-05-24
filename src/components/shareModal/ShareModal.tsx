@@ -80,7 +80,7 @@ const ModalBody: FC<ModalBodyProps> = ({
       {showCopyToClipboard && (
         <Codebox
           onClick={handleClickCopyToClipboard}
-          textLeft={windowLocationHref}
+          textLeft={windowLocationHref.replace(/(^\w+:|^)\/\//, '')}
           textRight={intl.formatMessage({ id: 'copy' })}
         />
       )}
@@ -88,7 +88,15 @@ const ModalBody: FC<ModalBodyProps> = ({
       <ul>
         {showFacebook && (
           <li>
-            <a onClick={fbShare} title="Facebook" data-testid="share-facebook" role="presentation">
+            <a
+              href="#"
+              onClick={e => {
+                e.preventDefault();
+                fbShare();
+              }}
+              title="Facebook"
+              data-testid="share-facebook"
+            >
               <Button
                 className="share-icon share-facebook"
                 icon={<Icon name="Facebook" />}

@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     border-radius: $border-radius-1;
-    outline: 1px solid map-get($base, white);
+    // outline: 1px solid map-get($base, white);
     border: 1px solid get-rgba(map-get($base, black), 8);
     overflow: hidden;
 
@@ -36,14 +36,18 @@
 
     &:hover {
       cursor: pointer;
-      outline: 1px solid map-get($theme-colors, primary);
-      border: 1px solid map-get($theme-colors, primary);
-
-      .btn-gallery-left-nav,
-      .btn-gallery-right-nav {
-        display: flex;
-      }
     }
+
+    // &:hover {
+    //   cursor: pointer;
+    //   outline: 1px solid map-get($theme-colors, primary);
+    //   border: 1px solid map-get($theme-colors, primary);
+
+    //   .btn-gallery-left-nav,
+    //   .btn-gallery-right-nav {
+    //     display: flex;
+    //   }
+    // }
 
     .btn-gallery-left-nav,
     .btn-gallery-right-nav {

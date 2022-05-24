@@ -11,8 +11,9 @@ const DropdownLabelGroup: FC<Props> = ({
   iconRight,
   dropdownItems,
   fullWidth,
+  transparent = false,
 }: Props): JSX.Element => (
-  <div className={classnames('DropdownLabelGroup', { fullWidth })}>
+  <div className={classnames('DropdownLabelGroup', { fullWidth }, { transparent })}>
     <div className="DropdownLabelGroup__prepend">
       <span className="DropdownLabelGroup__label-text">{labelText}</span>
     </div>
