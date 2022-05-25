@@ -98,7 +98,7 @@ class MultiSelectField extends Component {
     });
 
     const classes = classNames(
-      'esolidar-select',
+      'esolidar-select multi',
       { 'esolidar-select-error': !!error },
       `size-${size}`,
       { 'full-width': fullWidth }

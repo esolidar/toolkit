@@ -225,4 +225,10 @@
       color: map-get($negative, 500);
     }
   }
+
+  &.multi {
+    .esolidar-select__option--is-focused {
+      background-color: transparent;
+    }
+  }
 }

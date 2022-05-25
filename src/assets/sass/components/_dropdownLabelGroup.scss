@@ -18,6 +18,7 @@
     padding: $distance-1 $distance-2 $distance-1 $distance-2;
     outline: 1px solid map-get($neutrals, 200);
     border-right: 0px;
+    min-width: 100px;
   }
 
   &__label-text {
@@ -35,7 +36,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
-    border: 1px solid map-get($base, white);
+    border: 1px solid transparent;
     outline: 1px solid map-get($neutrals, 200);
     left: 0.5px;
 
@@ -86,6 +87,7 @@
       &-content {
         display: flex;
         justify-content: space-between;
+        align-items: center;
       }
     }
   }
