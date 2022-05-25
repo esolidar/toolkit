@@ -63,10 +63,11 @@
       line-height: 20px;
       gap: 8px !important;
       @include animate();
-      @include svg-change-color(map-get($neutrals, 700));
+      @include svg-change-color(map-get($theme-colors, primary));
 
       &:hover {
         color: map-get($theme-colors-dark, primary);
+        @include svg-change-color(map-get($theme-colors-dark, primary));
 
         & .text {
           text-decoration: underline;

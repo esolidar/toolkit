@@ -187,8 +187,6 @@
 
   // CardNonProfit
   &.cardNonProfit {
-    @include box-shadow(0px 2px 4px get-rgba(map-get($base, black), 4));
-
     .card-component__body {
       height: 210px;
 
