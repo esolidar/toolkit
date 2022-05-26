@@ -44,17 +44,29 @@ class MultiSelectField extends Component {
     );
   };
 
-  Menu = props => {
+  MenuList = props => {
     if (this.props.labelHeader)
       return (
-        <components.Menu {...props}>
+        <components.MenuList {...props}>
           <div className="label-header-options">{this.props.labelHeader}</div>
           {props.children}
-        </components.Menu>
+        </components.MenuList>
       );
 
-    return <components.Menu {...props} />;
+    return <components.MenuList {...props} />;
   };
+
+  // Menu = props => {
+  //   // if (this.props.labelHeader)
+  //   //   return (
+  //   //     <components.Menu {...props}>
+  //   //       <div className="label-header-options">{this.props.labelHeader}</div>
+  //   //       {props.children}
+  //   //     </components.Menu>
+  //   //   );
+
+  //   return <components.Menu {...props} />;
+  // };
 
   Option = props => {
     return (
@@ -124,13 +136,15 @@ class MultiSelectField extends Component {
             IndicatorSeparator: () => null,
             DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
             Option: this.Option,
-            Menu: this.Menu,
+            // Menu: this.Menu,
+            MenuList: this.MenuList,
             ValueContainer: this.ValueContainer,
           }}
           value={this.state.optionSelected}
           onChange={this.handleChange}
           allowSelectAll={showSelectAll}
           menuWidth={menuWidth}
+          blurInputOnSelect={false}
         />
 
         {!!helper && <div className={helperTextClasses}>{helper}</div>}

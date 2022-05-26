@@ -5,6 +5,7 @@
 
   &__thumb {
     border-radius: 50%;
+    border: 1px solid get-rgba(map-get($base, black));
 
     &.click:hover {
       cursor: pointer;
