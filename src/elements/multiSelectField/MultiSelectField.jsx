@@ -56,18 +56,6 @@ class MultiSelectField extends Component {
     return <components.MenuList {...props} />;
   };
 
-  // Menu = props => {
-  //   // if (this.props.labelHeader)
-  //   //   return (
-  //   //     <components.Menu {...props}>
-  //   //       <div className="label-header-options">{this.props.labelHeader}</div>
-  //   //       {props.children}
-  //   //     </components.Menu>
-  //   //   );
-
-  //   return <components.Menu {...props} />;
-  // };
-
   Option = props => {
     return (
       <div>
