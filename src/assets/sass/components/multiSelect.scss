@@ -6,10 +6,15 @@
       line-height: 24px;
     }
   }
+
   .esolidar-select__option--is-selected {
     label {
       color: map-get($turquoise, 500);
     }
+  }
+
+  .esolidar-select__option.esolidar-select__option--is-selected {
+    background-color: map-get($base, white);
   }
 
   .checkbox-inline {
@@ -22,9 +27,9 @@
     font-size: 14px;
     line-height: 20px;
     color: map-get($neutrals, 700);
-    margin-left: $distance-3;
-    margin-right: $distance-3;
-    margin-top: $distance-2;
+    margin-left: $distance-1;
+    margin-right: $distance-1;
+    margin-bottom: $distance-2;
   }
 
   .esolidar-select__value-container {
@@ -63,5 +68,6 @@
 
   .esolidar-select__menu {
     min-width: map-get($widths, sm);
+    overflow: hidden;
   }
 }
