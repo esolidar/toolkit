@@ -4,6 +4,7 @@
   overflow: hidden;
   margin-bottom: 30px;
   border-radius: $distance-1;
+  @include animate();
   @include box-shadow(map-get($elevation, 50));
 
   &:hover {
