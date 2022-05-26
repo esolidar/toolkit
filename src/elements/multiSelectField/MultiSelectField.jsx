@@ -124,7 +124,6 @@ class MultiSelectField extends Component {
             IndicatorSeparator: () => null,
             DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
             Option: this.Option,
-            // Menu: this.Menu,
             MenuList: this.MenuList,
             ValueContainer: this.ValueContainer,
           }}
