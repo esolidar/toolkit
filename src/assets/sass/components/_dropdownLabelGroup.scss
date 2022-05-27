@@ -78,11 +78,10 @@
   }
 
   &.fullWidth {
-    width: 100%;
+    display: flex;
 
     .DropdownLabelGroup__dropdown {
-      width: 100%;
-      justify-content: space-between;
+      flex: 1;
 
       &-content {
         display: flex;
