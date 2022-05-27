@@ -105,6 +105,7 @@ export { default as Linkedin } from './Linkedin';
 export { default as Loader } from './Loader';
 export { default as LockBold } from './LockBold';
 export { default as Lock } from './Lock';
+export { default as Logout } from './Logout';
 export { default as LongAnswer } from './LongAnswer';
 export { default as MapPinBold } from './MapPinBold';
 export { default as MapPin } from './MapPin';

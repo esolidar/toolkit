@@ -25,7 +25,7 @@ export const Default = Template.bind({});
 export const Transparent = TemplateBlack.bind({});
 
 Default.args = {
-  labelText: '345cUSD',
+  labelText: '345 cUSD',
   dropdownText: 'z0x7F38...fD41',
   dropdownItems: [
     {
@@ -38,7 +38,7 @@ Default.args = {
 };
 
 Transparent.args = {
-  labelText: '345cUSD',
+  labelText: '345 cUSD',
   dropdownText: 'z0x7F38...fD41',
   dropdownItems: [
     {

@@ -19,7 +19,7 @@ it('renders DropdownLabelGroup default', () => {
   expect(getByClass('esolidar-dropdown dropdown')).toBeInTheDocument();
   expect(getByClass('esolidar-dropdown__toggle')).toBeInTheDocument();
   expect(getByClass('icon-component')).toBeInTheDocument();
-  expect(getByText('345cUSD')).toBeInTheDocument();
+  expect(getByText('345 cUSD')).toBeInTheDocument();
   expect(queryByClass(/esolidar-dropdown__menu/)).not.toBeInTheDocument();
 });
 
@@ -33,7 +33,7 @@ it('renders DropdownLabelGroup transparent', () => {
   expect(getByClass('esolidar-dropdown dropdown')).toBeInTheDocument();
   expect(getByClass('esolidar-dropdown__toggle')).toBeInTheDocument();
   expect(getByClass('icon-component')).toBeInTheDocument();
-  expect(getByText('345cUSD')).toBeInTheDocument();
+  expect(getByText('345 cUSD')).toBeInTheDocument();
   expect(queryByClass(/esolidar-dropdown__menu/)).not.toBeInTheDocument();
 });
 
