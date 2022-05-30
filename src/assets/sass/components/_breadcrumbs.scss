@@ -1,9 +1,14 @@
 .esolidar-breadcrumbs {
   display: flex;
+  align-items: center;
   gap: $distance-1;
   margin-bottom: $distance-2;
 
   @include svg-change-color(map-get($neutrals, 700));
+
+  @media (max-width: map-get($breakpoints, sm)) {
+    gap: 0;
+  }
 
   &__button {
     border: none;
@@ -14,6 +19,7 @@
     font-size: 14px;
     line-height: 20px;
     color: map-get($neutrals, 900);
+    white-space: nowrap;
 
     &.disabled-item {
       color: map-get($neutrals, 400);

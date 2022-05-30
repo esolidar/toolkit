@@ -47,7 +47,7 @@
         background-color: get-rgba(map-get($turquoise, 500));
         color: map-get($turquoise, 500);
         @include svg-change-color(map-get($turquoise, 500));
-        outline: 2px solid map-get($turquoise, 500);
+        box-shadow: 0 0 0 2px map-get($turquoise, 500);
 
         .badge.type-default__default {
           color: map-get($base, white);
@@ -60,7 +60,7 @@
         background-color: transparent;
         color: map-get($turquoise, 500);
         @include svg-change-color(map-get($turquoise, 500));
-        outline: 2px solid map-get($turquoise, 500);
+        box-shadow: 0 0 0 2px map-get($turquoise, 500);
 
         .badge.type-default__default {
           color: map-get($base, white);
@@ -94,7 +94,7 @@
           background-color: get-rgba(map-get($turquoise, 500), 24);
           color: map-get($turquoise, 500);
           @include svg-change-color(map-get($turquoise, 500));
-          outline: 2px solid map-get($turquoise, 500);
+          box-shadow: 0 0 0 2px map-get($turquoise, 500);
 
           .badge.type-default__default {
             color: map-get($base, white);
@@ -107,7 +107,7 @@
           background-color: map-get($background, secondary);
           color: map-get($turquoise, 500);
           @include svg-change-color(map-get($turquoise, 500));
-          outline: 2px solid map-get($turquoise, 500);
+          box-shadow: 0 0 0 2px map-get($turquoise, 500);
 
           .badge.type-default__default {
             color: map-get($base, white);

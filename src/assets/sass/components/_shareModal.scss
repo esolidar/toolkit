@@ -110,8 +110,8 @@
   line-height: 24px;
   color: map-get($base, black);
   background-color: map-get($background, secondary) !important;
-  outline: 1px solid map-get($neutrals, 200);
-  @include box-shadow(0px 2px 2px get-rgba(map-get($base, black), 4));
+  box-shadow: 0 0 0 1px map-get($neutrals, 200), 0px 2px 2px get-rgba(map-get($base, black), 4);
+  @include box-shadow();
 
   &:focus {
     @include box-shadow(0px 2px 2px get-rgba(map-get($base, black), 4));

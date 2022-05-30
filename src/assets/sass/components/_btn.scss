@@ -201,26 +201,26 @@ a.btn-esolidar {
       &:not(.btn-ghost) {
         color: map-get($base, black);
         background-color: transparent;
-        border: 1px solid transparent;
-        outline: 1px solid get-rgba(map-get($base, black), 24);
-        box-shadow: none;
+        border: 1px solid get-rgba(map-get($base, black), 24);
         @include svg-change-color(map-get($base, black));
 
         &:hover:not(.disabled):not(:active) {
           background-color: map-get($base, white);
-          outline-color: map-get($neutrals, 900);
           border-color: map-get($neutrals, 900);
+          box-shadow: 0 0 0 1px map-get($neutrals, 900);
         }
 
         &:active {
-          background-color: map-get($neutrals, 100) !important;
-          color: map-get($base, black) !important;
-          outline-color: get-rgba(map-get($base, black), 24) !important;
-          border-color: transparent !important;
+          background-color: map-get($neutrals, 100);
+          color: map-get($base, black);
+          border-color: 1px map-get($neutrals, 900);
+          box-shadow: 0 0 0 1px map-get($neutrals, 900),
+            0px 0px 0px 4px get-rgba(map-get($neutrals, 700));
         }
 
         &:focus {
-          @include box-shadow(0px 0px 0px 4px get-rgba(map-get($turquoise, 500)));
+          border-color: get-rgba(map-get($base, black), 24);
+          box-shadow: 0px 0px 0px 4px get-rgba(map-get($neutrals, 700));
         }
 
         &.disabled {

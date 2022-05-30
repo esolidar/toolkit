@@ -6,7 +6,7 @@
     img {
       width: 237px;
       height: 158px;
-      outline: 1px solid change-color(map-get($base, black), $alpha: 0.08);
+      box-shadow: 0 0 0 1px change-color(map-get($base, black), $alpha: 0.08);
     }
 
     &-fullscreen {
@@ -42,7 +42,7 @@
     height: auto;
     background-color: map-get($base, white);
     box-shadow: map-get($elevation, 50);
-    outline: 1px solid map-get($neutrals, 200);
+    box-shadow: 0 0 0 1px map-get($neutrals, 200);
     border-radius: $border-radius-1;
     overflow: hidden;
 
@@ -159,7 +159,7 @@
     .esolidar-preview__image {
       &:hover {
         img {
-          outline: 2px solid map-get($turquoise, 500);
+          box-shadow: 0 0 0 2px map-get($turquoise, 500);
           @include animate(outline, 100ms);
         }
       }
@@ -167,7 +167,7 @@
 
     .esolidar-preview__video {
       &:hover {
-        outline: 2px solid map-get($turquoise, 500);
+        box-shadow: 0 0 0 2px map-get($turquoise, 500);
         @include animate(outline, 100ms);
       }
 
