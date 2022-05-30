@@ -214,60 +214,52 @@
 }
 
 @mixin input-focus() {
-  border: none;
+  border-color: transparent;
   box-sizing: border-box;
-  outline: 2px solid map-get($turquoise, 500) !important;
-  box-shadow: 0px 0px 0px 6px rgba(12, 131, 128, 0.08);
-  @include animate();
+  box-shadow: 0 0 0 2px map-get($turquoise, 500), 0px 0px 0px 6px rgba(12, 131, 128, 0.08) !important;
 }
 
 @mixin input-hover() {
-  border: none;
-  outline: 2px solid map-get($turquoise, 500);
-  @include animate(all);
+  border-color: transparent;
+  box-shadow: 0 0 0 2px map-get($turquoise, 500) !important;
 }
 
 @mixin input-disabled() {
-  border: none;
   color: map-get($neutrals, 700) !important;
-  border: none !important;
+  border-color: transparent;
   background-color: map-get($background, secondary) !important;
-  outline: 1px solid map-get($neutrals, 200);
+  box-shadow: 0 0 0 1px map-get($neutrals, 200) !important;
   @include animate();
 }
 
 @mixin input-disabled-hover() {
-  border: none;
-  outline: 1px solid map-get($neutrals, 200);
+  border-color: transparent;
+  box-shadow: 0 0 0 1px map-get($neutrals, 200) !important;
 }
 
 @mixin input-form() {
-  border: none;
+  border: 1px solid map-get($neutrals, 200);
   font-size: 16px;
   font-weight: 400;
   color: map-get($neutrals, 900);
   resize: none;
-  box-shadow: none;
+  box-shadow: none !important;
   line-height: 1.8;
-  outline: 1px solid map-get($neutrals, 200);
   border-radius: $border-radius-1 !important;
   background-color: map-get($base, white);
   @include animate();
 }
 
 @mixin input-form-error() {
-  border: none;
-  outline: 2px solid map-get($negative, 500);
+  border-color: transparent;
+  box-shadow: 0 0 0 2px map-get($negative, 500) !important;
   @include animate();
 
   &:hover,
   &:active,
   &:focus {
-    border: none !important;
-    outline: 2px solid map-get($negative, 500) !important;
-  }
-  &:focus {
-    box-shadow: 0px 0px 0px 4px rgba(183, 69, 32, 0.08);
+    border-color: transparent;
+    box-shadow: 0 0 0 2px map-get($negative, 500) !important;
   }
 }
 

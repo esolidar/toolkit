@@ -184,7 +184,7 @@
   }
 
   .cropper-view-box {
-    outline: 2px solid map-get($theme-colors, primary);
+    box-shadow: 0 0 0 2px map-get($theme-colors, primary);
   }
 
   .cropper-dashed {

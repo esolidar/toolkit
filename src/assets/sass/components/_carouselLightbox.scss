@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     border-radius: $border-radius-1;
-    // outline: 1px solid map-get($base, white);
+    // box-shadow: 0 0 0 1px map-get($base, white);
     border: 1px solid get-rgba(map-get($base, black), 8);
     overflow: hidden;
 
@@ -40,7 +40,7 @@
 
     // &:hover {
     //   cursor: pointer;
-    //   outline: 1px solid map-get($theme-colors, primary);
+    // box-shadow: 0 0 0 1px map-get($theme-colors, primary);
     //   border: 1px solid map-get($theme-colors, primary);
 
     //   .btn-gallery-left-nav,
@@ -68,7 +68,7 @@
       }
 
       &:hover ~ img {
-        outline: 1px solid map-get($theme-colors, primary);
+        box-shadow: 0 0 0 1px map-get($theme-colors, primary);
         border: 1px solid map-get($theme-colors, primary);
       }
     }
@@ -100,7 +100,7 @@
       height: 60px;
       cursor: pointer;
       border-radius: $border-radius-1;
-      outline: 1px solid get-rgba(map-get($base, black), 8);
+      box-shadow: 0 0 0 1px get-rgba(map-get($base, black), 8);
       margin-left: $distance-1 / 2;
       margin-right: $distance-1 / 2;
       background: get-rgba(map-get($base, black), 8);
@@ -115,7 +115,7 @@
       &:hover,
       &:focus,
       &.active {
-        outline: 2px solid map-get($theme-colors, primary);
+        box-shadow: 0 0 0 2px map-get($theme-colors, primary);
         background: map-get($theme-colors, primary);
       }
 
@@ -130,7 +130,7 @@
     &:hover {
       img.active {
         &:not(.hover) {
-          outline: 1px solid get-rgba(map-get($base, black), 8);
+          box-shadow: 0 0 0 1px get-rgba(map-get($base, black), 8);
         }
       }
       .gradient {
@@ -160,7 +160,7 @@
       }
 
       &:hover ~ img.active {
-        outline: 2px solid map-get($theme-colors, primary);
+        box-shadow: 0 0 0 2px map-get($theme-colors, primary);
         background: map-get($theme-colors, primary);
       }
     }
