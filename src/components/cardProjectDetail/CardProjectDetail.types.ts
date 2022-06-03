@@ -29,6 +29,15 @@ export interface IInitialValues {
   changeStatusModal: IChangeStatusModal;
 }
 
+interface FollowProps {
+  followers: any;
+  href: string;
+  onClickCopyToClipboard(): void;
+  onClickFollow(): void;
+  onClickUnFollow(): void;
+  title: string;
+}
+
 interface Props {
   odsList?: Ods[];
   status: ProjectStatus;
@@ -39,12 +48,7 @@ interface Props {
   onChangeRating?(newRating: number): void;
   onChangeStatus?(newStatus: string): void;
   onSaveComment?(comment: string): void;
-  follower: any;
-  href: string;
-  onClickCopyToClipboard(): void;
-  onClickFollow(): void;
-  onClickUnFollow(): void;
-  title: string;
+  followProps: FollowProps;
 }
 
 export default Props;

@@ -22,9 +22,9 @@ export const Default: Story<Props> = Template.bind({});
 export const Following: Story<Props> = Template.bind({});
 
 Default.args = {
-  follower: {
-    followers: 0,
-    follow: false,
+  followers: {
+    followersCount: 0,
+    following: false,
   },
   href: 'http://www.esolidar.com',
   onClickCopyToClipboard: () => {},
@@ -32,9 +32,9 @@ Default.args = {
 };
 
 Following.args = {
-  follower: {
-    followers: 34,
-    follow: true,
+  followers: {
+    followersCount: 34,
+    following: true,
   },
   href: 'http://www.esolidar.com',
   onClickCopyToClipboard: () => {},

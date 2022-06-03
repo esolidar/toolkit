@@ -10,6 +10,8 @@
 
 .esolidar-dropdown {
   &__toggle {
+    all: unset;
+
     &:hover {
       text-decoration: none;
 

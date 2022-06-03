@@ -4,6 +4,7 @@ interface Props {
   id: string;
   label: string;
   error: string;
+  info: string;
   value: string;
   field: string;
   showPassword?: boolean;

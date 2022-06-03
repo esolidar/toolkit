@@ -90,12 +90,7 @@ const CardProjectDetail: FC<Props> = ({
   organizedBy,
   rating,
   status,
-  follower,
-  href,
-  onClickCopyToClipboard,
-  onClickFollow,
-  onClickUnFollow,
-  title,
+  followProps,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [showCommentInput, setShowCommentInput] = useState<boolean>(initialValues.showCommentInput);
@@ -261,17 +256,10 @@ const CardProjectDetail: FC<Props> = ({
             isNameBold
           />
         </div>
-        {(status === 'APPROVED' || status === 'COMPLETED') && (
+        {(status === PROJECT.approved || status === PROJECT.completed) && (
           <>
             <div className="card-project-detail__separator" />
-            <Follow
-              title={title}
-              follower={follower}
-              href={href}
-              onClickCopyToClipboard={onClickCopyToClipboard}
-              onClickFollow={onClickFollow}
-              onClickUnFollow={onClickUnFollow}
-            />
+            <Follow {...followProps} />
           </>
         )}
       </div>

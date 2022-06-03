@@ -7,7 +7,7 @@ import ShareModal from '../shareModal';
 import Props from './Follow.types';
 
 const Follow: FC<Props> = ({
-  follower,
+  followers,
   href,
   onClickCopyToClipboard,
   disabled = false,
@@ -36,17 +36,17 @@ const Follow: FC<Props> = ({
         >
           <Button
             className={classnames(
-              { 'follow-btn': !follower.follow },
-              { 'following-btn': follower.follow }
+              { 'follow-btn': !followers.following },
+              { 'following-btn': followers.following }
             )}
-            text={follower.follow ? followButtonText : intl.formatMessage({ id: 'toolkit.follow' })}
-            theme={follower.follow ? 'dark' : 'light'}
-            type="button"
-            extraClass=""
+            text={
+              followers.following ? followButtonText : intl.formatMessage({ id: 'toolkit.follow' })
+            }
+            theme={followers.following ? 'dark' : 'light'}
             disabled={disabled}
-            ghost={!!follower.follow}
+            ghost={!!followers.following}
             onClick={() => {
-              if (follower.follow) onClickUnFollow();
+              if (followers.following) onClickUnFollow();
               else onClickFollow();
             }}
           />
@@ -54,16 +54,13 @@ const Follow: FC<Props> = ({
         <div>
           <FormattedMessage
             id="toolkit.followers.count"
-            values={{ value: follower?.followers || 0 }}
+            values={{ value: followers?.followersCount || 0 }}
           />
         </div>
         <div className="follow-component__share">
           <Button
             text={intl.formatMessage({ id: 'share' })}
-            theme="light"
-            type="button"
             extraClass="primary-full"
-            fullWidth={false}
             ghost
             onClick={() => setIsShareModalOpen(true)}
             iconLeft={<Icon name="Share3" />}

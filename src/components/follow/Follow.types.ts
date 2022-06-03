@@ -1,5 +1,10 @@
+interface Followers {
+  followersCount: number;
+  following: boolean;
+}
+
 interface Props {
-  follower: any;
+  followers: Followers;
   href: string;
   title: string;
   onClickCopyToClipboard(): void;
