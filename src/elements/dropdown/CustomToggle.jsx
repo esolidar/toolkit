@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const CustomToggle = React.forwardRef(({ onClick, children }, ref) => (
-  <a
+const CustomToggle = forwardRef(({ onClick, children }, ref) => (
+  <button
     className="esolidar-dropdown__toggle"
-    href=""
     ref={ref}
     onClick={e => {
       e.preventDefault();
@@ -12,7 +11,7 @@ const CustomToggle = React.forwardRef(({ onClick, children }, ref) => (
     }}
   >
     {children}
-  </a>
+  </button>
 ));
 
 CustomToggle.propTypes = {

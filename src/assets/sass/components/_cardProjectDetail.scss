@@ -102,4 +102,10 @@
       gap: $distance-2;
     }
   }
+
+  &__separator {
+    margin-top: $distance-1;
+    margin-bottom: $distance-1;
+    border-top: 1px solid map-get($neutrals, 200);
+  }
 }

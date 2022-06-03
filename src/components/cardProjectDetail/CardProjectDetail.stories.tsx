@@ -2,13 +2,14 @@ import { Story, Meta } from '@storybook/react';
 import CardProjectDetail from './CardProjectDetail';
 import Props from './CardProjectDetail.types';
 import sdgList from '../../../__mocks__/sdgList';
+import { PROJECT } from '../../constants/status';
 
 export default {
   title: 'Components/projects/CardProjectDetail',
   component: CardProjectDetail,
   argTypes: {
     status: {
-      options: ['DRAFT', 'PENDING', 'IN_REVIEW', 'REVIEWED', 'REJECTED', 'APPROVED', 'COMPLETED'],
+      options: Object.values(PROJECT),
       control: { type: 'select' },
     },
   },
@@ -32,6 +33,17 @@ Default.args = {
     buttonUrl: 'https://www.esolidar.com/',
   },
   rating: 0,
+  followProps: {
+    followers: {
+      followersCount: 0,
+      following: false,
+    },
+    href: 'https://www.esolidar.com',
+    onClickCopyToClipboard: () => {},
+    onClickFollow: () => {},
+    onClickUnFollow: () => {},
+    title: 'Esolidar be the change',
+  },
 };
 
 Admin.args = {
@@ -44,6 +56,17 @@ Admin.args = {
   },
   rating: 4,
   isAdmin: true,
+  followProps: {
+    followers: {
+      followersCount: 34,
+      following: true,
+    },
+    href: 'https://www.esolidar.com',
+    onClickCopyToClipboard: () => {},
+    onClickFollow: () => {},
+    onClickUnFollow: () => {},
+    title: 'Esolidar be the change',
+  },
 };
 
 Loading.args = {
@@ -55,4 +78,15 @@ Loading.args = {
   },
   rating: 0,
   isLoading: true,
+  followProps: {
+    followers: {
+      followersCount: 0,
+      following: false,
+    },
+    href: 'https://www.esolidar.com',
+    onClickCopyToClipboard: () => {},
+    onClickFollow: () => {},
+    onClickUnFollow: () => {},
+    title: 'Esolidar be the change',
+  },
 };

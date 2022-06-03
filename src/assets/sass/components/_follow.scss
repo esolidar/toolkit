@@ -1,0 +1,60 @@
+.follow-component {
+  display: flex;
+  align-items: center;
+  gap: $distance-2;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: map-get($neutrals, 700);
+
+  .follow-btn {
+    border: none;
+    background-color: map-get($background, secondary);
+
+    &:hover,
+    &:active {
+      background-color: map-get($neutrals, 900) !important;
+      color: map-get($base, white);
+    }
+  }
+
+  .following-btn {
+    border: 1px solid map-get($neutrals, 200);
+    background-color: map-get($base, white);
+    filter: drop-shadow(0px 2px 2px rgba(26, 27, 28, 0.04));
+
+    &:hover {
+      border: 1px solid transparent;
+      background-color: get-rgba(map-get($negative, 500));
+      color: map-get($negative, 500);
+      filter: none;
+    }
+
+    &:focus {
+      border: 1px solid transparent;
+      background-color: map-get($base, white);
+      color: map-get($negative, 500);
+      box-shadow: 0px 0px 0px 4px rgba(183, 69, 32, 0.08);
+    }
+
+    &:active {
+      border: 1px solid transparent;
+      background-color: map-get($negative, 500);
+      color: map-get($base, white);
+      box-shadow: none;
+    }
+
+    &:disabled {
+      border: 1px solid map-get($neutrals, 200);
+      background-color: map-get($background, secondary);
+      color: map-get($neutrals, 400);
+      box-shadow: none;
+      opacity: 1;
+    }
+  }
+
+  &__share {
+    margin-left: auto;
+  }
+}

@@ -8,6 +8,7 @@ const PasswordField: FC<Props> = ({
   id,
   label,
   error,
+  info,
   value,
   field,
   showPassword = false,
@@ -32,6 +33,7 @@ const PasswordField: FC<Props> = ({
           id={id}
           onChange={onChange}
           onBlur={onBlur}
+          info={info}
           type={showPasswordText ? 'text' : 'password'}
           error={error}
           value={value}

@@ -43,7 +43,7 @@ const Button = React.forwardRef(
 
     const classes = classnames(
       'btn-esolidar',
-      `btn-${extraClass}`,
+      { [`btn-${extraClass}`]: extraClass },
       `btn-${size}`,
       { [`btn-ghost btn-ghost-${theme}`]: ghost },
       { 'btn-icon': type === 'icon' },

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useIntl, IntlShape } from 'react-intl';
-import Rating from 'react-rating';
 import Skeleton from 'react-loading-skeleton';
+import Rating from 'react-rating';
 import Props, {
   IStatusOption,
   IOdsPopoverLink,
@@ -21,6 +21,7 @@ import { PROJECT } from '../../constants/status';
 import getOdsList from '../../utils/getOdsList';
 import isDefined from '../../utils/isDefined';
 import { ProjectStatus } from '../../interfaces/project/project';
+import Follow from '../follow';
 
 /** TODO: i18n copy
  *  Not rated yet PT | BR - toolkit.card-project-detail.review.placeholder
@@ -89,6 +90,7 @@ const CardProjectDetail: FC<Props> = ({
   organizedBy,
   rating,
   status,
+  followProps,
 }: Props): JSX.Element => {
   const intl = useIntl();
   const [showCommentInput, setShowCommentInput] = useState<boolean>(initialValues.showCommentInput);
@@ -254,6 +256,12 @@ const CardProjectDetail: FC<Props> = ({
             isNameBold
           />
         </div>
+        {(status === PROJECT.approved || status === PROJECT.completed) && followProps && (
+          <>
+            <div className="card-project-detail__separator" />
+            <Follow {...followProps} />
+          </>
+        )}
       </div>
       <CustomModal
         show={changeStatusModal.isOpen}

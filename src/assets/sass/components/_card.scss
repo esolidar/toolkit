@@ -191,6 +191,10 @@
     .card-component__body {
       height: 210px;
 
+      .card-component__title {
+        @include text-multiline-ellipsis(1);
+      }
+
       @media (max-width: map-get($breakpoints, xs)) {
         height: auto;
         padding-bottom: $distance-2;
