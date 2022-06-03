@@ -263,6 +263,7 @@ const CardProjectDetail: FC<Props> = ({
         </div>
         {(status === 'APPROVED' || status === 'COMPLETED') && (
           <div>
+            <div className="card-project-detail__separator" />
             <Follow
               title={title}
               follower={follower}
