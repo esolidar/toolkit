@@ -32,6 +32,9 @@ Default.args = {
     buttonUrl: 'https://www.esolidar.com/',
   },
   rating: 0,
+  follower: {},
+  href: 'hppt://www.esolidar.com',
+  onClickCopyToClipboard: () => {},
 };
 
 Admin.args = {
@@ -44,6 +47,9 @@ Admin.args = {
   },
   rating: 4,
   isAdmin: true,
+  follower: {},
+  href: 'hppt://www.esolidar.com',
+  onClickCopyToClipboard: () => {},
 };
 
 Loading.args = {
@@ -55,4 +61,7 @@ Loading.args = {
   },
   rating: 0,
   isLoading: true,
+  follower: {},
+  href: 'hppt://www.esolidar.com',
+  onClickCopyToClipboard: () => {},
 };

@@ -39,6 +39,12 @@ interface Props {
   onChangeRating?(newRating: number): void;
   onChangeStatus?(newStatus: string): void;
   onSaveComment?(comment: string): void;
+  follower: any;
+  href: string;
+  onClickCopyToClipboard(): void;
+  onClickFollow(): void;
+  onClickUnFollow(): void;
+  title: string;
 }
 
 export default Props;
