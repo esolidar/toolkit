@@ -262,7 +262,7 @@ const CardProjectDetail: FC<Props> = ({
           />
         </div>
         {(status === 'APPROVED' || status === 'COMPLETED') && (
-          <div>
+          <>
             <div className="card-project-detail__separator" />
             <Follow
               title={title}
@@ -272,7 +272,7 @@ const CardProjectDetail: FC<Props> = ({
               onClickFollow={onClickFollow}
               onClickUnFollow={onClickUnFollow}
             />
-          </div>
+          </>
         )}
       </div>
       <CustomModal
