@@ -191,7 +191,8 @@
     .card-component__body {
       height: 210px;
 
-      .card-component__title {
+      .card-component__title,
+      .card-component__cardNonProfit-body-location {
         @include text-multiline-ellipsis(1);
       }
 
