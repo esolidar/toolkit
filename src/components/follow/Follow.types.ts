@@ -3,7 +3,7 @@ interface Followers {
   following: boolean;
 }
 
-interface Props {
+interface FollowProps {
   followers: Followers;
   href: string;
   title: string;
@@ -13,4 +13,4 @@ interface Props {
   onClickUnFollow(): void;
 }
 
-export default Props;
+export default FollowProps;

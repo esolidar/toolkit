@@ -2,6 +2,7 @@ import Ods from '../../interfaces/ods.types';
 import { ProjectStatus } from '../../interfaces/project/project';
 import { BadgeExtraClass } from '../../elements/badge/Badge.types';
 import ProfileAvatar from '../profileAvatar/ProfileAvatar.types';
+import FollowProps from '../follow/Follow.types';
 
 export type IBadgeInfo = {
   [key in string]: { text: string; extraClass: BadgeExtraClass };
@@ -29,15 +30,6 @@ export interface IInitialValues {
   changeStatusModal: IChangeStatusModal;
 }
 
-interface FollowProps {
-  followers: any;
-  href: string;
-  onClickCopyToClipboard(): void;
-  onClickFollow(): void;
-  onClickUnFollow(): void;
-  title: string;
-}
-
 interface Props {
   odsList?: Ods[];
   status: ProjectStatus;
@@ -48,7 +40,7 @@ interface Props {
   onChangeRating?(newRating: number): void;
   onChangeStatus?(newStatus: string): void;
   onSaveComment?(comment: string): void;
-  followProps: FollowProps;
+  followProps?: FollowProps;
 }
 
 export default Props;

@@ -5,12 +5,6 @@ import Props from './Follow.types';
 export default {
   title: 'Components/Follow',
   component: Follow,
-  argTypes: {
-    status: {
-      options: ['DRAFT', 'PENDING', 'IN_REVIEW', 'REVIEWED', 'REJECTED', 'APPROVED', 'COMPLETED'],
-      control: { type: 'select' },
-    },
-  },
   parameters: {
     jest: ['CardProjectDetail.test.tsx'],
   },

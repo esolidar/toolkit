@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
 import ShareModal from '../shareModal';
-import Props from './Follow.types';
+import FollowProps from './Follow.types';
 
-const Follow: FC<Props> = ({
+const Follow: FC<FollowProps> = ({
   followers,
   href,
   onClickCopyToClipboard,
@@ -14,7 +14,7 @@ const Follow: FC<Props> = ({
   onClickFollow,
   onClickUnFollow,
   title,
-}: Props): JSX.Element => {
+}: FollowProps): JSX.Element => {
   const intl: IntlShape = useIntl();
   const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
   const [followButtonText, setFollowButtonText] = useState<string>(

@@ -256,7 +256,7 @@ const CardProjectDetail: FC<Props> = ({
             isNameBold
           />
         </div>
-        {(status === PROJECT.approved || status === PROJECT.completed) && (
+        {(status === PROJECT.approved || status === PROJECT.completed) && followProps && (
           <>
             <div className="card-project-detail__separator" />
             <Follow {...followProps} />
