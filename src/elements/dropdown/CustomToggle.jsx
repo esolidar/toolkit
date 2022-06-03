@@ -4,7 +4,6 @@ import React, { forwardRef } from 'react';
 const CustomToggle = forwardRef(({ onClick, children }, ref) => (
   <button
     className="esolidar-dropdown__toggle"
-    href=""
     ref={ref}
     onClick={e => {
       e.preventDefault();
