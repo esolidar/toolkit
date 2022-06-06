@@ -29,14 +29,7 @@ const Card: FC<Props> = ({
   };
 
   return (
-    <div
-      className={classnames('card-component', className)}
-      onClick={handleClickThumb}
-      onKeyDown={handleClickThumb}
-      style={{
-        cursor: isDefined(clickThumb) ? 'pointer' : 'default',
-      }}
-    >
+    <div className={classnames('card-component', className)}>
       {isPrivate && <Badge text="toolkit.private" className="card-component__badge" />}
       <div className="card-component__image">
         {logo && (
@@ -66,9 +59,19 @@ const Card: FC<Props> = ({
         )}
       </div>
       <div className="card-component__body">
-        {middleContent && <div className="card-component__countdown">{middleContent}</div>}
+        {middleContent && (
+          <div className="card-component__body--relative">
+            <div className="card-component__countdown">{middleContent}</div>
+          </div>
+        )}
         <div className="card-component__title" title={title}>
-          {title}
+          {isDefined(clickThumb) ? (
+            <a onClick={handleClickThumb} onKeyDown={handleClickThumb}>
+              {title}
+            </a>
+          ) : (
+            <>{title}</>
+          )}
         </div>
         <div className="card-component__body-middle">{body}</div>
       </div>
@@ -82,12 +85,11 @@ const Card: FC<Props> = ({
             )}
             {support.url && support.name && (
               <a
-                onClick={e => {
-                  e.stopPropagation();
-                }}
+                className="card-component__actions"
                 href={support.url}
                 title={support.name}
                 target={support.target}
+                rel={support.target === '_blank' ? 'noopener noreferrer' : null}
                 data-testid="supporting-url"
               >
                 {support.name}
@@ -103,7 +105,11 @@ const Card: FC<Props> = ({
               </div>
             )}
           </div>
-          {showDropdownMenu && <Dropdown items={filteredItems} />}
+          {showDropdownMenu && (
+            <div className="card-component__actions">
+              <Dropdown items={filteredItems} />
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -16,6 +16,7 @@ export interface Item {
 interface Props {
   customButton?: JSX.Element;
   toggleIcon?: string;
+  id?: string;
   items: Item[];
   dropAlign?: 'left' | 'right';
 }
