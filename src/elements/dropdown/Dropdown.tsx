@@ -13,6 +13,7 @@ const defaultButton = toggleIcon => (
 const Dropdown: FC<Props> = ({
   customButton,
   toggleIcon = 'MoreVertical',
+  id = '0',
   items,
   dropAlign = 'left',
 }: Props): JSX.Element => {
@@ -23,8 +24,8 @@ const Dropdown: FC<Props> = ({
   const filteredItems: Item[] = items.map(item => ({ ...item, show: item.show !== false }));
 
   return (
-    <DropdownBTS className="esolidar-dropdown" onClick={e => e.stopPropagation()}>
-      <DropdownBTS.Toggle as={CustomToggle} id="dropdown-custom-components">
+    <DropdownBTS className="esolidar-dropdown">
+      <DropdownBTS.Toggle as={CustomToggle} id={`dropdown-custom-components-${id}`}>
         {customButton || defaultButton(toggleIcon)}
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu" align={dropAlign}>
