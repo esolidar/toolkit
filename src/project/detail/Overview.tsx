@@ -1,0 +1,195 @@
+import React, { useState } from 'react';
+import Tabs from '../../elements/tabs';
+import CardProjectDetail from '../../components/cardProjectDetail';
+import CarouselLightbox from '../../components/carouselLightbox';
+import Viewport from '../../components/viewport';
+import isDefined from '../../utils/isDefined';
+import sortBy from '../../utils/sortBy';
+import isEmpty from '../../utils/isEmpty';
+import CustomQuestions from './CustomQuestions';
+import Initiatives from './Initiatives';
+import DocumentsTab from './DocumentsTab';
+import getRoute from '../../utils/getRoute';
+import Updates from './Updates';
+import Comments from './Comments';
+import Props from './Overview.types';
+
+const Overview = ({
+  program,
+  project,
+  isOwner,
+  handleFollow,
+  handleUnfollow,
+  handleCopyToClipboard,
+  locale,
+  host,
+  company,
+  isAdmin = false,
+}: Props) => {
+  const {
+    name: companyName,
+    thumbs: { thumb: companyImage },
+  } = company;
+
+  const [key, setKey] = useState<string>('about');
+
+  const handleChangeTab = key => {
+    setKey(key);
+  };
+
+  const publicForm = isDefined(project.form) ? [...JSON.parse(project?.form)] : [];
+  const privateForm = isDefined(project.private_form) ? [...JSON.parse(project?.private_form)] : [];
+  const form = sortBy([...publicForm, ...privateForm], 'id');
+  const files = form.filter(file => file.type === 'fileUploader').flatMap(file => file.reply);
+
+  const getYoutubeVideoId = (url: string): string | boolean => {
+    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[7].length === 11 ? match[7] : false;
+  };
+
+  const imageGallery = () => {
+    const images = [];
+
+    if (!isEmpty(JSON.parse(project.video || '{}'))) {
+      const video = JSON.parse(project.video);
+      const videoThumb = video.thumbnailUrl?.match(/\(([^)]+)\)/)[1];
+
+      if (video.providerName === 'vimeo') {
+        const videoId = video.videoUrl.split('/').splice(-1)[0];
+
+        const vimeo = {
+          altTag: videoId,
+          thumbnail: videoThumb,
+          type: 'video',
+          url: `https://player.vimeo.com/video/${videoId}`,
+        };
+
+        images.push(vimeo);
+      } else {
+        const videoId = getYoutubeVideoId(video.videoUrl);
+
+        const youtube = {
+          altTag: videoId,
+          thumbnail: `https://img.youtube.com/vi/${videoId}/default.jpg`,
+          type: 'video',
+          url: `https://www.youtube.com/embed/${videoId}`,
+        };
+
+        images.push(youtube);
+      }
+    }
+
+    project.images.forEach(image => {
+      images.push({
+        altTag: image.id,
+        thumbnail: `${process.env.PUBLIC_SERVER_LESS_RESIZE_IMAGE}/${image.image}?width=90&heigth=60`,
+        type: 'photo',
+        url: `${process.env.PUBLIC_CDN_UPLOADS_URL}/${image.image}`,
+      });
+    });
+
+    return images;
+  };
+
+  return (
+    <Viewport>
+      <div className="project-detail-component">
+        <div className="project-detail-component__columns">
+          <div className="project-detail-component__columns--left">
+            <CarouselLightbox listItems={imageGallery()} />
+            <div className="project-detail-component__content">
+              <Tabs
+                defaultActiveKey={key}
+                onChange={k => handleChangeTab(k)}
+                tabsList={[
+                  {
+                    content: (
+                      <div className="project-detail-component__content-description">
+                        {project.description?.split('\n').map((item, index) => (
+                          <p key={index}>{item}</p>
+                        ))}
+                        {form.length > 0 && <hr />}
+                        {form.map(question => (
+                          <div
+                            key={question.id}
+                            className="project-detail-component__content-custom"
+                          >
+                            <CustomQuestions question={question} />
+                          </div>
+                        ))}
+                      </div>
+                    ),
+                    key: 'about',
+                    title: 'About',
+                  },
+                  {
+                    content: <DocumentsTab files={files} isOwner={isOwner} />,
+                    key: 'documents',
+                    title: 'Documents',
+                  },
+                  {
+                    content: <Updates />,
+                    key: 'updated',
+                    title: 'Updates',
+                  },
+                  {
+                    content: <Comments />,
+                    key: 'comments',
+                    title: 'Comments',
+                  },
+                ]}
+              />
+            </div>
+          </div>
+          <CardProjectDetail
+            odsList={project.ods}
+            onChangeRating={() => {}}
+            onChangeStatus={() => {}}
+            onSaveComment={() => {}}
+            organizedBy={{
+              thumb: companyImage,
+              name: companyName,
+              buttonUrl: getRoute.public.accelerator.program.DETAIL(locale, program.id),
+            }}
+            rating={project.review_average}
+            status={project.status}
+            isAdmin={isAdmin}
+            followProps={{
+              followers: {
+                followersCount: isOwner ? project.followers_count + 1 : project.followers_count,
+                following: isOwner || project.following,
+              },
+              href: `https://${host}${getRoute.public.accelerator.project.DETAIL(
+                locale,
+                program.id,
+                project.id,
+                project.title
+              )}`,
+              onClickFollow: handleFollow,
+              onClickUnFollow: handleUnfollow,
+              onClickCopyToClipboard: handleCopyToClipboard,
+              title: project.title,
+              disabled: isOwner,
+            }}
+          />
+        </div>
+
+        {(project.status === 'APPROVED' || project.status === 'COMPLETED') && key === 'about' && (
+          <div className="project-detail-component__initiatives">
+            <Initiatives
+              auctions={project.auctions}
+              crowdfundings={project.crowdfundings}
+              isOwner={isOwner}
+              programId={program.id}
+              projectId={project.id}
+              locale={locale}
+            />
+          </div>
+        )}
+      </div>
+    </Viewport>
+  );
+};
+
+export default Overview;
