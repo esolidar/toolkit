@@ -42,7 +42,7 @@ const Card: FC<Props> = ({
         <div
           className="bg-image"
           style={{
-            backgroundImage: `url('${image || urlNoImage}`,
+            backgroundImage: `url('${image || urlNoImage}')`,
             backgroundSize: image ? 'cover' : 'auto',
           }}
         />

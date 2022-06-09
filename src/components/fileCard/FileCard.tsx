@@ -49,8 +49,6 @@ const FileCard = ({
         img={{
           src: image || null,
           alt: title,
-          width: '56px',
-          height: '56px',
         }}
         hover={false}
       />
