@@ -30,7 +30,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
       let thumb = '';
       let userName = '';
       if (user) {
-        thumb = user?.institution?.thumbs.thumb || user.thumbs.thumb;
+        thumb = user?.institution?.thumbs?.thumb || user.thumbs.thumb;
         userName = user?.institution?.sigla || user.name;
       }
       const lastUserId =
@@ -42,8 +42,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
 
       const isImage = type => {
         const typeImages = ['jpg', 'jpeg', 'png', 'gif'];
-        if (typeImages.includes(type)) return true;
-        return false;
+        return typeImages.includes(type);
       };
 
       return (
