@@ -8,6 +8,17 @@
   @include animate();
   @include box-shadow(map-get($elevation, 50));
 
+  a {
+    text-decoration: none;
+    color: initial;
+    cursor: pointer;
+  }
+
+  &__actions {
+    position: relative;
+    z-index: 2;
+  }
+
   &:hover {
     @include box-shadow(map-get($elevation, 500));
     .bg-image {
@@ -43,8 +54,11 @@
     margin-left: $distance-2;
     margin-right: $distance-2;
     height: 151px;
-    position: relative;
     border-bottom: 1px solid map-get($grays, 300);
+
+    &--relative {
+      position: relative;
+    }
   }
 
   &__footer {
@@ -90,6 +104,15 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+
+    a::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__progressbar {
@@ -127,8 +150,8 @@
   &__badge {
     position: absolute;
     z-index: 1;
-    top: $distance-4;
-    left: $distance-4;
+    top: $distance-2;
+    left: $distance-2;
   }
 
   .card-auction-subtitle {
