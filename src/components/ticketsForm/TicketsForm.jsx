@@ -308,6 +308,7 @@ const TicketsForm = ({
                         value={editTicket.text}
                         message=""
                         required={true}
+                        resize
                       />
                     </div>
                   </Col>

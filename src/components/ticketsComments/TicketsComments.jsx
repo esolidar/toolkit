@@ -21,8 +21,8 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
   const renderComments = () =>
     ticketComments.map((ticketComment, index) => {
       const {
+        id: ticketId,
         text,
-        ticket_id: ticketId,
         created_at: createdAt,
         attachment_files: files = [],
       } = ticketComment?.project_comment || ticketComment;
