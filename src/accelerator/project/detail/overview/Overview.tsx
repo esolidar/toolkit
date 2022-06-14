@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import Tabs from '../../elements/tabs';
-import CardProjectDetail from '../../components/cardProjectDetail';
-import CarouselLightbox from '../../components/carouselLightbox';
-import Viewport from '../../components/viewport';
-import isDefined from '../../utils/isDefined';
-import sortBy from '../../utils/sortBy';
-import isEmpty from '../../utils/isEmpty';
+import { useIntl } from 'react-intl';
+import Tabs from '../../../../elements/tabs';
+import CardProjectDetail from '../../../../components/cardProjectDetail';
+import CarouselLightbox from '../../../../components/carouselLightbox';
+import Viewport from '../../../../components/viewport';
+import isDefined from '../../../../utils/isDefined';
+import sortBy from '../../../../utils/sortBy';
+import isEmpty from '../../../../utils/isEmpty';
+import getRoute from '../../../../utils/getRoute';
 import CustomQuestions from './CustomQuestions';
 import Initiatives from './Initiatives';
 import DocumentsTab from './DocumentsTab';
-import getRoute from '../../utils/getRoute';
 import Updates from './Updates';
 import Comments from './Comments';
 import Props from './Overview.types';
+import getEnvVar from '../../../../utils/getEnvVar';
 
 const Overview = ({
   program,
@@ -25,12 +27,16 @@ const Overview = ({
   host,
   company,
   isAdmin = false,
+  handleChangeRating,
+  handleChangeStatus,
+  handleSaveComment,
 }: Props) => {
   const {
     name: companyName,
     thumbs: { thumb: companyImage },
   } = company;
 
+  const intl = useIntl();
   const [key, setKey] = useState<string>('about');
 
   const handleChangeTab = key => {
@@ -83,9 +89,9 @@ const Overview = ({
     project.images.forEach(image => {
       images.push({
         altTag: image.id,
-        thumbnail: `${process.env.PUBLIC_SERVER_LESS_RESIZE_IMAGE}/${image.image}?width=90&heigth=60`,
+        thumbnail: `${getEnvVar('SERVER_LESS_RESIZE_IMAGE')}/${image.image}?width=90&heigth=60`,
         type: 'photo',
-        url: `${process.env.PUBLIC_CDN_UPLOADS_URL}/${image.image}`,
+        url: `${getEnvVar('CDN_UPLOADS_URL')}/${image.image}`,
       });
     });
 
@@ -115,28 +121,28 @@ const Overview = ({
                             key={question.id}
                             className="project-detail-component__content-custom"
                           >
-                            <CustomQuestions question={question} />
+                            <CustomQuestions question={question} companyName={company.name} />
                           </div>
                         ))}
                       </div>
                     ),
                     key: 'about',
-                    title: 'About',
+                    title: intl.formatMessage({ id: 'toolkit.about' }),
                   },
                   {
                     content: <DocumentsTab files={files} isOwner={isOwner} />,
                     key: 'documents',
-                    title: 'Documents',
+                    title: intl.formatMessage({ id: 'toolkit.documents' }),
                   },
                   {
                     content: <Updates />,
                     key: 'updated',
-                    title: 'Updates',
+                    title: intl.formatMessage({ id: 'toolkit.updates' }),
                   },
                   {
                     content: <Comments />,
                     key: 'comments',
-                    title: 'Comments',
+                    title: intl.formatMessage({ id: 'toolkit.comments' }),
                   },
                 ]}
               />
@@ -144,9 +150,9 @@ const Overview = ({
           </div>
           <CardProjectDetail
             odsList={project.ods}
-            onChangeRating={() => {}}
-            onChangeStatus={() => {}}
-            onSaveComment={() => {}}
+            onChangeRating={handleChangeRating}
+            onChangeStatus={handleChangeStatus}
+            onSaveComment={handleSaveComment}
             organizedBy={{
               thumb: companyImage,
               name: companyName,

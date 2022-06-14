@@ -1,16 +1,12 @@
 import React from 'react';
 import { FormattedMessage, useIntl, IntlShape } from 'react-intl';
 import slugify from 'slugify';
-// import { useRouter } from 'next/router';
-import CardCrowdfunding from '../../unreleased/card/crowdfunding';
-import Container from '../../elements/container';
-import Button from '../../elements/button';
-import sortBy from '../../utils/sortBy';
-import CardAuction from '../../unreleased/card/auction';
-import getRoute from '../../utils/getRoute';
-
-// import isExceptionPages from '../../../../../../shared/utils/isExceptionPages';
-// import PropsContext from '../../../../../../contexts/PropsContext';
+import CardCrowdfunding from '../../../../unreleased/card/crowdfunding';
+import Container from '../../../../elements/container';
+import Button from '../../../../elements/button';
+import sortBy from '../../../../utils/sortBy';
+import CardAuction from '../../../../unreleased/card/auction';
+import getRoute from '../../../../utils/getRoute';
 
 interface Props {
   auctions: any;
@@ -19,6 +15,8 @@ interface Props {
   programId: number;
   projectId: number;
   showTitle?: boolean;
+  isAdmin?: boolean;
+  locale: string;
 }
 
 const Initiatives = ({
@@ -28,13 +26,10 @@ const Initiatives = ({
   programId,
   projectId,
   showTitle = true,
+  isAdmin = false,
   locale,
-  router,
-  isExceptionPages = () => {},
 }: Props) => {
   const intl: IntlShape = useIntl();
-  // const { locale } = useContext(PropsContext);
-  // const router = useRouter();
   const initiatives = [];
 
   auctions.forEach(auction => {
@@ -50,15 +45,24 @@ const Initiatives = ({
     initiatives.push(item);
   });
 
-  const isExceptionPage = isExceptionPages(router?.pathname);
-
-  const thumbLink = (id, auctionTitle) => {
-    const path = isExceptionPage ? 'about' : 'needs';
-    window.location.href = `/${locale}/${path}/auction/detail/${id}-${slugify(auctionTitle, {
+  const itemTitle = (title: string) => {
+    return slugify(title, {
       replacement: '-',
       remove: /[?$*_+~./,()'"!\-:@]/g,
       lower: true,
-    })}`;
+    });
+  };
+
+  const cowdfundingUrl = (id: number, title: string) => {
+    if (isAdmin) {
+      window.location.href = `/crowdfunding/public/detail/${id}-${itemTitle(title)}`;
+    } else {
+      window.location.href = `/${locale}/needs/crowdfunding/detail/${id}-${itemTitle(title)}`;
+    }
+  };
+
+  const auctionUrl = (id: number, title: string) => {
+    window.location.href = `/${locale}/needs/auction/detail/${id}-${itemTitle(title)}`;
   };
 
   const initiativesOrdered = sortBy(initiatives, 'dateAdded');
@@ -111,7 +115,7 @@ const Initiatives = ({
               extraClass="primary-full"
               onClick={() => {}}
               size="md"
-              text={intl.formatMessage({ id: 'New initiative' })}
+              text={intl.formatMessage({ id: 'whitelabel.new-initiative' })}
             />
           </div>
         </Container>
@@ -128,8 +132,7 @@ const Initiatives = ({
                 <div className="auction-thumb" key={item.id}>
                   <CardAuction
                     auction={item}
-                    clickThumb={() => thumbLink(item.id, auctionTitle)}
-                    communityUrl="https://community.testesolidar.com/"
+                    clickThumb={() => auctionUrl(item.id, auctionTitle)}
                     currency={item.currency.small}
                   />
                 </div>
@@ -140,7 +143,7 @@ const Initiatives = ({
               <div className="crowdfunding-thumb" key={item.id}>
                 <CardCrowdfunding
                   crowdfunding={item}
-                  clickThumb={() => thumbLink(item.id, item.title)}
+                  clickThumb={() => cowdfundingUrl(item.id, item.title)}
                 />
               </div>
             );

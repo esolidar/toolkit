@@ -2,10 +2,10 @@
 import { Story, Meta } from '@storybook/react';
 import Overview from './Overview';
 import Props from './Overview.types';
-import projectPendingOverview from '../../../__mocks__/projectPendingOverview';
-import projectApprovedOverview from '../../../__mocks__/projectApprovedOverview';
-import program from '../../../__mocks__/program';
-import company from '../../../__mocks__/company';
+import projectPendingOverview from '../../../../../__mocks__/projectPendingOverview';
+import projectApprovedOverview from '../../../../../__mocks__/projectApprovedOverview';
+import program from '../../../../../__mocks__/program';
+import company from '../../../../../__mocks__/company';
 
 export default {
   title: 'Accelerator/Project/Detail/Overview',

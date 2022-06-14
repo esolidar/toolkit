@@ -4,7 +4,7 @@ import { CurrencySmall } from '../../../interfaces/currency.types';
 interface Props {
   auction?: Auction;
   clickThumb(): void;
-  communityUrl: string;
+  communityUrl?: string;
   currency: CurrencySmall;
 }
 

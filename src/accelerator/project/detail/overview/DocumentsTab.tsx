@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { FormattedMessage, IntlShape, useIntl } from 'react-intl';
-import FileCard from '../../components/fileCard';
-import Container from '../../elements/container';
-import Button from '../../elements/button';
+import FileCard from '../../../../components/fileCard';
+import Container from '../../../../elements/container';
+import Button from '../../../../elements/button';
 
 interface File {
   id: number;
@@ -22,7 +22,7 @@ interface Props {
 const DocumentsTab = ({ files, isOwner }: Props) => {
   const intl: IntlShape = useIntl();
   return (
-    <div className="project-detail-component__documents">
+    <div className="project-detail-component__content-documents">
       {files.length > 0 && (
         <>
           {files.map(file => (
@@ -39,7 +39,7 @@ const DocumentsTab = ({ files, isOwner }: Props) => {
       )}
       {files.length === 0 && (
         <Container>
-          <div className="project-detail-component__documents-empty">
+          <div className="project-detail-component__content-documents-empty">
             <h3>
               {isOwner ? (
                 <FormattedMessage id="You haven’t uploaded documents yet" />
@@ -58,7 +58,7 @@ const DocumentsTab = ({ files, isOwner }: Props) => {
               <Button
                 extraClass="secondary"
                 onClick={() => {}}
-                text={intl.formatMessage({ id: 'Upload document' })}
+                text={intl.formatMessage({ id: 'toolkit.upload-document' })}
                 size="xl"
               />
             )}

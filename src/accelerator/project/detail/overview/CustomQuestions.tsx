@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import Badge from '../../elements/badge';
-import rawDraftToHtml from '../../utils/rawDraftToHtml';
+import Badge from '../../../../elements/badge';
+import rawDraftToHtml from '../../../../utils/rawDraftToHtml';
 
 interface Options {
   id: number;
@@ -26,9 +26,10 @@ interface Question {
 
 interface Props {
   question: Question;
+  companyName: string;
 }
 
-const CustomQuestions = ({ question }: Props) => {
+const CustomQuestions = ({ question, companyName }: Props) => {
   const isDescriptionString = typeof question.form?.description === 'string';
 
   const isDescriptionEmpty = isDescriptionString
@@ -44,7 +45,7 @@ const CustomQuestions = ({ question }: Props) => {
       <>
         <h3>
           {question.form.title || question.form.question}
-          {question.form.privacy === 'private' && <PrivateBadge />}
+          {question.form.privacy === 'private' && <PrivateBadge companyName={companyName} />}
         </h3>
         {isDescriptionEmpty && (
           <div
@@ -75,7 +76,7 @@ const CustomQuestions = ({ question }: Props) => {
       <>
         <h3>
           {question.form.question}
-          {question.form.privacy === 'private' && <PrivateBadge />}
+          {question.form.privacy === 'private' && <PrivateBadge companyName={companyName} />}
         </h3>
         <ul>{getReplyValue()}</ul>
       </>
@@ -88,7 +89,7 @@ const CustomQuestions = ({ question }: Props) => {
     <>
       <h3>
         {question.form?.title || question.form?.question || question.name}
-        {question.form?.privacy === 'private' && <PrivateBadge />}
+        {question.form?.privacy === 'private' && <PrivateBadge companyName={companyName} />}
       </h3>
 
       {question.reply && typeof question.reply === 'string' && <p>{question.reply}</p>}
@@ -98,10 +99,22 @@ const CustomQuestions = ({ question }: Props) => {
 
 export default CustomQuestions;
 
-const PrivateBadge = () => {
+interface PrivateBadgeProps {
+  companyName: string;
+}
+
+const PrivateBadge = ({ companyName }: PrivateBadgeProps) => {
   const intl = useIntl();
   return (
-    <div data-tip={intl.formatMessage({ id: 'Visible only to Acme inc’s admins' })}>
+    <div
+      data-tip={intl.formatMessage(
+        {
+          id: 'toolkit.visible.only.admins',
+          defaultMessage: 'Visible only to {companyName}’s admins',
+        },
+        { companyName }
+      )}
+    >
       <Badge extraClass="white" size="md" text="toolkit.private" />
     </div>
   );

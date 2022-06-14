@@ -43,6 +43,7 @@ const odsPopoverLink: IOdsPopoverLink = {
 };
 
 const getStatusOptions = (intl: IntlShape): IStatusOption[] => [
+  // ('DRAFT', 'PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED')
   {
     value: PROJECT.pending,
     label: intl.formatMessage({ id: 'toolkit.status.new' }),
@@ -239,7 +240,7 @@ const CardProjectDetail: FC<Props> = ({
                       <Button
                         extraClass="primary-full"
                         text={intl.formatMessage({ id: 'toolkit.comment' })}
-                        onClick={onSaveComment}
+                        onClick={() => onSaveComment(comment)}
                       />
                     </div>
                   </>

@@ -1,4 +1,4 @@
-import Company from '../../interfaces/company.types';
+import Company from '../../../../interfaces/company.types';
 
 interface Props {
   program: any;
@@ -11,6 +11,9 @@ interface Props {
   locale: string;
   host: string;
   isAdmin?: boolean;
+  handleChangeRating(): void;
+  handleChangeStatus(): void;
+  handleSaveComment(): void;
 }
 
 export default Props;
