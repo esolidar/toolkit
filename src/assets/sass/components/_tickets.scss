@@ -64,7 +64,7 @@
 
     &.reverse {
       flex-direction: row-reverse;
-      gap: 16px;
+      gap: $distance-2;
 
       .profile-avatar__info.margin {
         display: none;

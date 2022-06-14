@@ -40,10 +40,7 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
         reverse = !reverse;
       }
 
-      const isImage = type => {
-        const typeImages = ['jpg', 'jpeg', 'png', 'gif'];
-        return typeImages.includes(type);
-      };
+      const isImage = type => ['jpg', 'jpeg', 'png', 'gif'].includes(type);
 
       return (
         <div className={classNames('ticketCard__comment', { reverse })} key={ticketId}>
@@ -78,14 +75,14 @@ const TicketsComments = ({ ticketComments, activePage, total, handlePageChange, 
               )}
             </div>
             {files.length > 0 &&
-              files.map((file, index) => (
+              files.map(file => (
                 <FileCard
                   showDownloadButton={true}
                   title={file.name}
                   image={isImage(file.file_type) && file.file}
                   file={file.file}
                   size={file.file_size || file.size}
-                  key={index}
+                  key={file.id}
                 />
               ))}
             <Tooltip
