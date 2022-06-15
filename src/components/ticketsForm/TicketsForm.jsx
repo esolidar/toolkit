@@ -32,7 +32,7 @@ const TicketsForm = ({
   hideText,
   editTicket,
   showAddFilesButtton,
-  showModalFiles,
+  showModalFiles = false,
   toggleModalFiles,
   searchFiles,
   search,
@@ -56,7 +56,7 @@ const TicketsForm = ({
   types,
   loadOptionsUsers,
   updateValueUsers,
-  showModalSimpleFiles,
+  showModalSimpleFiles = false,
   toggleModalSimpleFiles,
   assignedDefault,
   disabledAssignedSelect,
@@ -308,6 +308,7 @@ const TicketsForm = ({
                         value={editTicket.text}
                         message=""
                         required={true}
+                        resize
                       />
                     </div>
                   </Col>

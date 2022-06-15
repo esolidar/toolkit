@@ -1,24 +1,23 @@
 .carouselLightbox {
   width: 100%;
   max-width: 584px;
-  height: 387px;
-
-  @media (max-width: map-get($breakpoints, sm)) {
-    height: 327px;
-  }
-
-  @media (max-width: map-get($breakpoints, xs)) {
-    height: 218px;
-  }
 
   &__image-gallery-slides {
     position: relative;
     width: 100%;
-    height: 100%;
     border-radius: $border-radius-1;
     // box-shadow: 0 0 0 1px map-get($base, white);
     border: 1px solid get-rgba(map-get($base, black), 8);
     overflow: hidden;
+    height: 387px;
+
+    @media (max-width: map-get($breakpoints, sm)) {
+      height: 327px;
+    }
+
+    @media (max-width: map-get($breakpoints, xs)) {
+      height: 218px;
+    }
 
     & > div {
       position: absolute;
@@ -104,6 +103,7 @@
       margin-left: $distance-1 / 2;
       margin-right: $distance-1 / 2;
       background: get-rgba(map-get($base, black), 8);
+      object-fit: cover;
 
       @media (max-width: map-get($breakpoints, sm)) {
         min-width: 75px;

@@ -8,6 +8,26 @@
   gap: $distance-2;
   @include animate();
 
+  .esolidar-preview {
+    &__image {
+      width: 56px;
+      height: 56px;
+
+      img {
+        width: 100% !important;
+        height: 100%;
+      }
+    }
+    &__no-image {
+      width: 56px;
+      height: 56px;
+
+      img {
+        margin: 16px 10px;
+      }
+    }
+  }
+
   p {
     padding: 0;
     margin: 0;

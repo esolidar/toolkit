@@ -27,10 +27,10 @@ const Follow: FC<FollowProps> = ({
         <div
           className="follow-component__button"
           onMouseOver={() => {
-            setFollowButtonText(intl.formatMessage({ id: 'toolkit.unfollow' }));
+            if (!disabled) setFollowButtonText(intl.formatMessage({ id: 'toolkit.unfollow' }));
           }}
           onMouseLeave={() => {
-            setFollowButtonText(intl.formatMessage({ id: 'toolkit.following' }));
+            if (!disabled) setFollowButtonText(intl.formatMessage({ id: 'toolkit.following' }));
           }}
           onFocus={() => {}}
         >

@@ -7,6 +7,7 @@
       width: 237px;
       height: 158px;
       box-shadow: 0 0 0 1px change-color(map-get($base, black), $alpha: 0.08);
+      object-fit: cover;
     }
 
     &-fullscreen {
