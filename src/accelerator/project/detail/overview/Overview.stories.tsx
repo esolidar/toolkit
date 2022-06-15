@@ -6,6 +6,7 @@ import projectPendingOverview from '../../../../../__mocks__/projectPendingOverv
 import projectApprovedOverview from '../../../../../__mocks__/projectApprovedOverview';
 import program from '../../../../../__mocks__/program';
 import company from '../../../../../__mocks__/company';
+import projectFiles from '../../../../../__mocks__/projectFiles';
 
 export default {
   title: 'Accelerator/Project/Detail/Overview',
@@ -23,6 +24,7 @@ const Template: Story<Props> = (args: Props) => (
 
 export const Pending: Story<Props> = Template.bind({});
 export const Approved: Story<Props> = Template.bind({});
+export const Admin: Story<Props> = Template.bind({});
 
 Pending.args = {
   program,
@@ -34,7 +36,8 @@ Pending.args = {
   locale: 'en',
   host: 'https://whietelabe.testesolidar.com',
   company,
-  isAdmin: true,
+  isAdmin: false,
+  files: [],
 };
 
 Approved.args = {
@@ -48,4 +51,19 @@ Approved.args = {
   host: 'https://whietelabe.testesolidar.com',
   company,
   isAdmin: false,
+  files: projectFiles,
+};
+
+Admin.args = {
+  program,
+  project: projectApprovedOverview,
+  isOwner: true,
+  handleFollow: () => {},
+  handleUnfollow: () => {},
+  handleCopyToClipboard: () => {},
+  locale: 'en',
+  host: 'https://whietelabe.testesolidar.com',
+  company,
+  isAdmin: true,
+  files: [],
 };

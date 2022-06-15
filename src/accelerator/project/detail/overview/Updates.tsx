@@ -7,10 +7,10 @@ const Updates = () => (
     <Container borderSize={1} rounded>
       <div>
         <h3>
-          <FormattedMessage id="Updates are inactive for the moment" />
+          <FormattedMessage id="toolkit.updates.inactive.title" />
         </h3>
         <p>
-          <FormattedMessage id="Once your project is approved, you can notify the public about news and your current progress" />
+          <FormattedMessage id="toolkit.updates.inactive.text" />
         </p>
       </div>
     </Container>

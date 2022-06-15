@@ -23,7 +23,7 @@ const DocumentsTab = ({ files, isOwner }: Props) => {
   const intl: IntlShape = useIntl();
   return (
     <div className="project-detail-component__content-documents">
-      {files.length > 0 && (
+      {files?.length > 0 && (
         <>
           {files.map(file => (
             <FileCard
@@ -37,21 +37,21 @@ const DocumentsTab = ({ files, isOwner }: Props) => {
           ))}
         </>
       )}
-      {files.length === 0 && (
+      {files?.length === 0 && (
         <Container>
           <div className="project-detail-component__content-documents-empty">
             <h3>
               {isOwner ? (
-                <FormattedMessage id="You haven’t uploaded documents yet" />
+                <FormattedMessage id="toolkit.uploads.owner.empty.title" />
               ) : (
-                <FormattedMessage id="No documents uploaded yet" />
+                <FormattedMessage id="toolkit.uploads.empty.title" />
               )}
             </h3>
             <p>
               {isOwner ? (
-                <FormattedMessage id="Complement your project details" />
+                <FormattedMessage id="toolkit.uploads.owner.empty.text" />
               ) : (
-                <FormattedMessage id="Documents uploaded by the project owner will be displayed here" />
+                <FormattedMessage id="toolkit.uploads.empty.text" />
               )}
             </p>
             {isOwner && (

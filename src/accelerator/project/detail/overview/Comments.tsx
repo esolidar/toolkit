@@ -7,10 +7,10 @@ const Comments = () => (
     <Container borderSize={1} rounded>
       <div>
         <h3>
-          <FormattedMessage id="Comments are inactive for the moment" />
+          <FormattedMessage id="toolkit.comments.inactive.title" />
         </h3>
         <p>
-          <FormattedMessage id="Once your project is approved, it will become available for public engagement" />
+          <FormattedMessage id="toolkit.comments.inactive.text" />
         </p>
       </div>
     </Container>

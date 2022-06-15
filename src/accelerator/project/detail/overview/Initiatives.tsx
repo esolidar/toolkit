@@ -72,10 +72,10 @@ const Initiatives = ({
       <Container borderSize={1} rounded>
         <div className="project-detail-component__initiatives-empty">
           <h3>
-            <FormattedMessage id="No initiatives at the moment" />
+            <FormattedMessage id="toolkit.initiatives.owner.empty.title" />
           </h3>
           <p>
-            <FormattedMessage id="Once the project's owner creates initiatives, they'll be displayed here" />
+            <FormattedMessage id="toolkit.initiatives.owner.empty.text" />
           </p>
         </div>
       </Container>
@@ -87,7 +87,7 @@ const Initiatives = ({
       {showTitle && (
         <>
           <h2>
-            <FormattedMessage id="Initiatives" />
+            <FormattedMessage id="toolkit.initiatives" />
             {initiativesOrdered.length > 3 && (
               <Button
                 text="See all"
@@ -97,7 +97,7 @@ const Initiatives = ({
             )}
           </h2>
           <p>
-            <FormattedMessage id="Initiatives supporting this project" />
+            <FormattedMessage id="toolkit.initiatives.supporting.project" />
           </p>
         </>
       )}
@@ -105,10 +105,10 @@ const Initiatives = ({
         <Container borderSize={1} rounded>
           <div className="project-detail-component__initiatives-empty">
             <h3>
-              <FormattedMessage id="You haven’t created any initiatives yet" />
+              <FormattedMessage id="toolkit.initiatives.empty.title" />
             </h3>
             <p>
-              <FormattedMessage id="Initiaitives will help you to support your project needs" />
+              <FormattedMessage id="toolkit.initiatives.empty.text" />
             </p>
             <Button
               className=""

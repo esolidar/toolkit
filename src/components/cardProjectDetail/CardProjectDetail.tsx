@@ -240,7 +240,10 @@ const CardProjectDetail: FC<Props> = ({
                       <Button
                         extraClass="primary-full"
                         text={intl.formatMessage({ id: 'toolkit.comment' })}
-                        onClick={() => onSaveComment(comment)}
+                        onClick={() => {
+                          onSaveComment(comment);
+                          handleClickDismissComment();
+                        }}
                       />
                     </div>
                   </>

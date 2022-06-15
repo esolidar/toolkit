@@ -14,6 +14,7 @@ interface Props {
   handleChangeRating(): void;
   handleChangeStatus(): void;
   handleSaveComment(): void;
+  files: any;
 }
 
 export default Props;

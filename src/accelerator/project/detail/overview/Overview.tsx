@@ -30,6 +30,7 @@ const Overview = ({
   handleChangeRating,
   handleChangeStatus,
   handleSaveComment,
+  files,
 }: Props) => {
   const {
     name: companyName,
@@ -46,7 +47,7 @@ const Overview = ({
   const publicForm = isDefined(project.form) ? [...JSON.parse(project?.form)] : [];
   const privateForm = isDefined(project.private_form) ? [...JSON.parse(project?.private_form)] : [];
   const form = sortBy([...publicForm, ...privateForm], 'id');
-  const files = form.filter(file => file.type === 'fileUploader').flatMap(file => file.reply);
+  // const files = form.filter(file => file.type === 'fileUploader').flatMap(file => file.reply);
 
   const getYoutubeVideoId = (url: string): string | boolean => {
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -130,7 +131,7 @@ const Overview = ({
                     title: intl.formatMessage({ id: 'toolkit.about' }),
                   },
                   {
-                    content: <DocumentsTab files={files} isOwner={isOwner} />,
+                    content: <DocumentsTab files={files?.data} isOwner={isOwner} />,
                     key: 'documents',
                     title: intl.formatMessage({ id: 'toolkit.documents' }),
                   },
@@ -158,13 +159,14 @@ const Overview = ({
               name: companyName,
               buttonUrl: getRoute.public.accelerator.program.DETAIL(locale, program.id),
             }}
-            rating={project.review_average}
+            rating={project.last_review}
             status={project.status}
             isAdmin={isAdmin}
             followProps={{
               followers: {
-                followersCount: isOwner ? project.followers_count + 1 : project.followers_count,
-                following: isOwner || project.following,
+                followersCount:
+                  isOwner || isAdmin ? project.followers_count + 1 : project.followers_count,
+                following: isOwner || isAdmin || project.following,
               },
               href: `https://${host}${getRoute.public.accelerator.project.DETAIL(
                 locale,

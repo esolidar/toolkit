@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
+import ReactTooltip from 'react-tooltip';
 import Badge from '../../../../elements/badge';
 import rawDraftToHtml from '../../../../utils/rawDraftToHtml';
 
@@ -39,6 +40,10 @@ const CustomQuestions = ({ question, companyName }: Props) => {
   const descriptionPreview = isDescriptionString
     ? question.description
     : rawDraftToHtml(question.form?.description, 1);
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+  }, []);
 
   if (question.type === 'section') {
     return (
@@ -110,7 +115,6 @@ const PrivateBadge = ({ companyName }: PrivateBadgeProps) => {
       data-tip={intl.formatMessage(
         {
           id: 'toolkit.visible.only.admins',
-          defaultMessage: 'Visible only to {companyName}’s admins',
         },
         { companyName }
       )}
