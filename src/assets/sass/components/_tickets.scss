@@ -57,6 +57,53 @@
   p {
     margin-bottom: 20px;
   }
+
+  &__comment {
+    display: flex;
+    margin-bottom: $distance-4;
+
+    &.reverse {
+      flex-direction: row-reverse;
+      gap: $distance-2;
+
+      .profile-avatar__info.margin {
+        display: none;
+      }
+    }
+
+    &-text {
+      &-content {
+        color: map-get($base, black);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        padding: $distance-2;
+        border: 1px solid map-get($neutrals, 200);
+        border-radius: $border-radius-1;
+        box-shadow: map-get($elevation, 25);
+      }
+    }
+
+    &-content {
+      width: 100%;
+
+      .file-card {
+        margin-top: $distance-2;
+      }
+
+      time {
+        display: inline-block;
+        color: map-get($neutrals, 700);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        margin-top: $distance-1;
+      }
+    }
+  }
 }
 
 .tickets-page {
