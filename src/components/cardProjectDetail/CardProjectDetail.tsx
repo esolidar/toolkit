@@ -31,7 +31,7 @@ const badgeInfo: IBadgeInfo = {
   [PROJECT.draft]: { text: 'toolkit.status.draft', extraClass: 'white' },
   [PROJECT.pending]: { text: 'toolkit.status.new', extraClass: 'dark-blue' },
   [PROJECT.inReview]: { text: 'toolkit.status.on-hold', extraClass: 'black' },
-  [PROJECT.reviewed]: { text: 'toolkit.status.reviewed', extraClass: 'dark-gray' },
+  // [PROJECT.reviewed]: { text: 'toolkit.status.reviewed', extraClass: 'dark-gray' },
   [PROJECT.rejected]: { text: 'toolkit.status.rejected', extraClass: 'red' },
   [PROJECT.completed]: { text: 'toolkit.status.completed', extraClass: 'green' },
 };
@@ -43,7 +43,6 @@ const odsPopoverLink: IOdsPopoverLink = {
 };
 
 const getStatusOptions = (intl: IntlShape): IStatusOption[] => [
-  // ('DRAFT', 'PENDING', 'IN_REVIEW', 'APPROVED', 'COMPLETED', 'REJECTED')
   {
     value: PROJECT.pending,
     label: intl.formatMessage({ id: 'toolkit.status.new' }),
@@ -54,11 +53,11 @@ const getStatusOptions = (intl: IntlShape): IStatusOption[] => [
     label: intl.formatMessage({ id: 'toolkit.status.on-hold' }),
     description: intl.formatMessage({ id: 'toolkit.status.on-hold.description' }),
   },
-  {
-    value: PROJECT.reviewed,
-    label: intl.formatMessage({ id: 'toolkit.status.reviewed' }),
-    description: intl.formatMessage({ id: 'toolkit.status.reviewed.description' }),
-  },
+  // {
+  //   value: PROJECT.reviewed,
+  //   label: intl.formatMessage({ id: 'toolkit.status.reviewed' }),
+  //   description: intl.formatMessage({ id: 'toolkit.status.reviewed.description' }),
+  // },
   {
     value: PROJECT.rejected,
     label: intl.formatMessage({ id: 'toolkit.status.rejected' }),
@@ -262,8 +261,12 @@ const CardProjectDetail: FC<Props> = ({
         </div>
         {(status === PROJECT.approved || status === PROJECT.completed) && followProps && (
           <>
-            <div className="card-project-detail__separator" />
-            <Follow {...followProps} />
+            {!isAdmin && (
+              <>
+                <div className="card-project-detail__separator" />
+                <Follow {...followProps} />
+              </>
+            )}
           </>
         )}
       </div>

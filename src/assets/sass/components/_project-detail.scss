@@ -85,6 +85,10 @@
         color: map-get($base, black);
       }
     }
+
+    .click:hover {
+      color: map-get($base, black) !important;
+    }
   }
 
   &__initiatives {
@@ -115,7 +119,6 @@
   }
 
   &__content {
-    margin-top: 50px;
     padding-top: $distance-5;
 
     h3 {
@@ -131,7 +134,7 @@
 
     p {
       @extend .body-regular;
-      color: map-get($base, black);
+      color: map-get($base, black) !important;
     }
 
     &-description {

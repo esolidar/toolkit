@@ -40,6 +40,7 @@ interface Project {
   title: string;
   description: string;
   form?: string;
+  last_review: number;
   private_form?: string;
   status: string;
   uuid: string;

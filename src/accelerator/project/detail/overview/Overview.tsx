@@ -47,7 +47,6 @@ const Overview = ({
   const publicForm = isDefined(project.form) ? [...JSON.parse(project?.form)] : [];
   const privateForm = isDefined(project.private_form) ? [...JSON.parse(project?.private_form)] : [];
   const form = sortBy([...publicForm, ...privateForm], 'id');
-  // const files = form.filter(file => file.type === 'fileUploader').flatMap(file => file.reply);
 
   const getYoutubeVideoId = (url: string): string | boolean => {
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -158,6 +157,7 @@ const Overview = ({
               thumb: companyImage,
               name: companyName,
               buttonUrl: getRoute.public.accelerator.program.DETAIL(locale, program.id),
+              href: getRoute.public.accelerator.program.DETAIL(locale, program.id),
             }}
             rating={project.last_review}
             status={project.status}

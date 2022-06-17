@@ -9,6 +9,7 @@ interface Props {
   showStatus?: boolean;
   cdnUploadsUrl: string;
   dropdownItems?: any;
+  isAdmin?: boolean;
 }
 
 export default Props;
