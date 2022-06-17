@@ -23,9 +23,10 @@
 
     &--h1 {
       // position: relative;
-      font-size: 26px;
+      font-size: 36px;
       color: map-get($grays, 900);
-      font-weight: 600;
+      font-weight: 700;
+      line-height: 48px;
       margin: 0;
       // padding: 0;
     }

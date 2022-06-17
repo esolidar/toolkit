@@ -5,7 +5,7 @@ interface Props {
   crowdfunding?: Crowdfunding;
   campaign?: Campaign;
   clickThumb(): void;
-  communityUrl: string;
+  communityUrl?: string;
 }
 
 export default Props;

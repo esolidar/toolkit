@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Row, Col } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 import moment from 'moment';
 import Tooltip from 'rc-tooltip';
 import CountdownThumb from '../countdown';
-import convertToMyCurrency from '../../utils/convertToMyCurrency';
 
 const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
   const today = moment(new Date(), 'YYYY-MM-DD HH:mm').toDate();
@@ -87,10 +85,11 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
                 id={`last-bid-value-${auction.id}`}
                 style={{ color: primaryColor }}
               >
-                {convertToMyCurrency(
-                  auction.last_bid ? auction.last_bid.value : auction.bid_start,
-                  auction.currency
-                )}
+                <FormattedNumber
+                  value={auction.last_bid ? auction.last_bid.value : auction.bid_start}
+                  style="currency"
+                  currency={auction.currency.small}
+                />
               </Col>
             </Row>
           )}
@@ -101,15 +100,16 @@ const AuctionThumb = ({ auction, primaryColor, env, onExpiry, lang }) => {
               </Col>
               {auction.last_bid && (
                 <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
-                  {convertToMyCurrency(
-                    auction.last_bid ? auction.last_bid.value : auction.bid_start,
-                    auction.currency
-                  )}
+                  <FormattedNumber
+                    value={auction.last_bid ? auction.last_bid.value : auction.bid_start}
+                    style="currency"
+                    currency={auction.currency.small}
+                  />
                 </Col>
               )}
               {!auction.last_bid && (
                 <Col xs={7} className="last-bid-value text-right" style={{ color: primaryColor }}>
-                  {convertToMyCurrency('0', auction.currency)}
+                  <FormattedNumber value={0} style="currency" currency={auction.currency.small} />
                 </Col>
               )}
             </Row>

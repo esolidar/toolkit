@@ -13,6 +13,7 @@ const CardProject: FC<Props> = ({
   showStatus = true,
   cdnUploadsUrl = 'https://cdn.testesolidar.com',
   dropdownItems = [],
+  isAdmin = false,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -37,7 +38,7 @@ const CardProject: FC<Props> = ({
       title={project.title}
       body={<Body ods={project.ods} />}
       support={support}
-      average={project.review_average}
+      average={isAdmin ? project.last_review : null}
       dropdownItems={dropdownItems}
     />
   );
