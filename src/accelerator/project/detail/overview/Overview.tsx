@@ -31,6 +31,7 @@ const Overview = ({
   handleChangeStatus,
   handleSaveComment,
   files,
+  handleAddInitiative,
 }: Props) => {
   const {
     name: companyName,
@@ -192,6 +193,7 @@ const Overview = ({
               programId={program.id}
               projectId={project.id}
               locale={locale}
+              handleAddInitiative={handleAddInitiative}
             />
           </div>
         )}

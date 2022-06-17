@@ -4,8 +4,8 @@ interface Props {
   program: any;
   project: any;
   isOwner: boolean;
-  handleFollow(): void;
-  handleUnfollow(): void;
+  handleFollow?(): void;
+  handleUnfollow?(): void;
   handleCopyToClipboard(): void;
   company: Company;
   locale: string;
@@ -14,6 +14,7 @@ interface Props {
   handleChangeRating(): void;
   handleChangeStatus(): void;
   handleSaveComment(): void;
+  handleAddInitiative(): void;
   files: any;
 }
 

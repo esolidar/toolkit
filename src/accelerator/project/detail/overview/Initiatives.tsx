@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage, useIntl, IntlShape } from 'react-intl';
-import slugify from 'slugify';
 import CardCrowdfunding from '../../../../unreleased/card/crowdfunding';
 import Container from '../../../../elements/container';
 import Button from '../../../../elements/button';
 import sortBy from '../../../../utils/sortBy';
 import CardAuction from '../../../../unreleased/card/auction';
 import getRoute from '../../../../utils/getRoute';
+import slugify from '../../../../utils/slugify';
 
 interface Props {
   auctions: any;
@@ -17,6 +17,7 @@ interface Props {
   showTitle?: boolean;
   isAdmin?: boolean;
   locale: string;
+  handleAddInitiative(): void;
 }
 
 const Initiatives = ({
@@ -28,6 +29,7 @@ const Initiatives = ({
   showTitle = true,
   isAdmin = false,
   locale,
+  handleAddInitiative,
 }: Props) => {
   const intl: IntlShape = useIntl();
   const initiatives = [];
@@ -45,24 +47,16 @@ const Initiatives = ({
     initiatives.push(item);
   });
 
-  const itemTitle = (title: string) => {
-    return slugify(title, {
-      replacement: '-',
-      remove: /[?$*_+~./,()'"!\-:@]/g,
-      lower: true,
-    });
-  };
-
-  const cowdfundingUrl = (id: number, title: string) => {
+  const crowdfundingUrl = (id: number, title: string) => {
     if (isAdmin) {
-      window.location.href = `/crowdfunding/public/detail/${id}-${itemTitle(title)}`;
+      window.location.href = `/crowdfunding/public/detail/${id}-${slugify(title)}`;
     } else {
-      window.location.href = `/${locale}/needs/crowdfunding/detail/${id}-${itemTitle(title)}`;
+      window.location.href = `/${locale}/needs/crowdfunding/detail/${id}-${slugify(title)}`;
     }
   };
 
   const auctionUrl = (id: number, title: string) => {
-    window.location.href = `/${locale}/needs/auction/detail/${id}-${itemTitle(title)}`;
+    window.location.href = `/${locale}/needs/auction/detail/${id}-${slugify(title)}`;
   };
 
   const initiativesOrdered = sortBy(initiatives, 'dateAdded');
@@ -90,7 +84,7 @@ const Initiatives = ({
             <FormattedMessage id="toolkit.initiatives" />
             {initiativesOrdered.length > 3 && (
               <Button
-                text="See all"
+                text={intl.formatMessage({ id: 'see.all' })}
                 extraClass="secondary"
                 href={getRoute.public.accelerator.project.INITIATIVES(locale, programId, projectId)}
               />
@@ -111,9 +105,8 @@ const Initiatives = ({
               <FormattedMessage id="toolkit.initiatives.empty.text" />
             </p>
             <Button
-              className=""
               extraClass="primary-full"
-              onClick={() => {}}
+              onClick={handleAddInitiative}
               size="md"
               text={intl.formatMessage({ id: 'whitelabel.new-initiative' })}
             />
@@ -143,7 +136,7 @@ const Initiatives = ({
               <div className="crowdfunding-thumb" key={item.id}>
                 <CardCrowdfunding
                   crowdfunding={item}
-                  clickThumb={() => cowdfundingUrl(item.id, item.title)}
+                  clickThumb={() => crowdfundingUrl(item.id, item.title)}
                 />
               </div>
             );
