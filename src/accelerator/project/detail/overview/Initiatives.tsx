@@ -16,7 +16,7 @@ interface Props {
   projectId: number;
   showTitle?: boolean;
   isAdmin?: boolean;
-  locale: string;
+  locale?: string;
   handleAddInitiative(): void;
 }
 
@@ -51,12 +51,16 @@ const Initiatives = ({
     if (isAdmin) {
       window.location.href = `/crowdfunding/public/detail/${id}-${slugify(title)}`;
     } else {
-      window.location.href = `/${locale}/needs/crowdfunding/detail/${id}-${slugify(title)}`;
+      window.location.href = locale
+        ? `/${locale}/needs/crowdfunding/detail/${id}-${slugify(title)}`
+        : `/needs/crowdfunding/detail/${id}-${slugify(title)}`;
     }
   };
 
   const auctionUrl = (id: number, title: string) => {
-    window.location.href = `/${locale}/needs/auction/detail/${id}-${slugify(title)}`;
+    window.location.href = locale
+      ? `/${locale}/needs/auction/detail/${id}-${slugify(title)}`
+      : `/needs/auction/detail/${id}-${slugify(title)}`;
   };
 
   const initiativesOrdered = sortBy(initiatives, 'dateAdded');
@@ -87,6 +91,14 @@ const Initiatives = ({
                 text={intl.formatMessage({ id: 'see.all' })}
                 extraClass="secondary"
                 href={getRoute.public.accelerator.project.INITIATIVES(locale, programId, projectId)}
+              />
+            )}
+            {initiativesOrdered.length > 0 && initiativesOrdered.length < 3 && (
+              <Button
+                extraClass="primary-full"
+                onClick={handleAddInitiative}
+                size="md"
+                text={intl.formatMessage({ id: 'whitelabel.new-initiative' })}
               />
             )}
           </h2>

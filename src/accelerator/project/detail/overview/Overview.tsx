@@ -157,8 +157,14 @@ const Overview = ({
             organizedBy={{
               thumb: companyImage,
               name: companyName,
-              buttonUrl: getRoute.public.accelerator.program.DETAIL(locale, program.id),
-              href: getRoute.public.accelerator.program.DETAIL(locale, program.id),
+              buttonUrl: `https://${host}${getRoute.public.accelerator.program.DETAIL(
+                locale,
+                program.id
+              )}`,
+              href: `https://${host}${getRoute.public.accelerator.program.DETAIL(
+                locale,
+                program.id
+              )}`,
             }}
             rating={project.last_review}
             status={project.status}

@@ -34,7 +34,7 @@ Pending.args = {
   handleUnfollow: () => {},
   handleCopyToClipboard: () => {},
   locale: 'en',
-  host: 'https://whietelabe.testesolidar.com',
+  host: 'whietelabe.testesolidar.com',
   company,
   isAdmin: false,
   files: [],

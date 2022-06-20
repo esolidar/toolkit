@@ -21,6 +21,8 @@ interface Props {
 
 const DocumentsTab = ({ files, isOwner }: Props) => {
   const intl: IntlShape = useIntl();
+  const showAddButton = false;
+
   return (
     <div className="project-detail-component__content-documents">
       {files?.length > 0 && (
@@ -54,7 +56,7 @@ const DocumentsTab = ({ files, isOwner }: Props) => {
                 <FormattedMessage id="toolkit.uploads.empty.text" />
               )}
             </p>
-            {isOwner && (
+            {isOwner && showAddButton && (
               <Button
                 extraClass="secondary"
                 onClick={() => {}}
