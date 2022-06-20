@@ -8,7 +8,7 @@ interface Props {
   handleUnfollow?(): void;
   handleCopyToClipboard(): void;
   company: Company;
-  locale: string;
+  locale?: string;
   host: string;
   isAdmin?: boolean;
   handleChangeRating(): void;
