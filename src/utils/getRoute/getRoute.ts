@@ -35,6 +35,10 @@ export const getRoute = {
       REGISTER: (locale: string, data?: string) =>
         locale ? `/${locale}/auth/register${data && data}` : `/auth/register${data && data}`,
     },
+    needs: {
+      CROWDFUNDING: (locale: string) =>
+        locale ? `/${locale}/needs/crowdfundings` : '/needs/crowdfundings',
+    },
   },
   private: {
     accelerator: {
