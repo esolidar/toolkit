@@ -67,16 +67,39 @@ const Initiatives = ({
 
   if (!isOwner && initiatives.length === 0) {
     return (
-      <Container borderSize={1} rounded>
-        <div className="project-detail-component__initiatives-empty">
-          <h3>
-            <FormattedMessage id="toolkit.initiatives.owner.empty.title" />
-          </h3>
-          <p>
-            <FormattedMessage id="toolkit.initiatives.owner.empty.text" />
-          </p>
-        </div>
-      </Container>
+      <>
+        {showTitle && (
+          <>
+            <h2>
+              <FormattedMessage id="toolkit.initiatives" />
+              {initiativesOrdered.length > 3 && (
+                <Button
+                  text={intl.formatMessage({ id: 'see.all' })}
+                  extraClass="secondary"
+                  href={getRoute.public.accelerator.project.INITIATIVES(
+                    locale,
+                    programId,
+                    projectId
+                  )}
+                />
+              )}
+            </h2>
+            <p>
+              <FormattedMessage id="toolkit.initiatives.supporting.project" />
+            </p>
+          </>
+        )}
+        <Container borderSize={1} rounded>
+          <div className="project-detail-component__initiatives-empty">
+            <h3>
+              <FormattedMessage id="toolkit.initiatives.owner.empty.title" />
+            </h3>
+            <p>
+              <FormattedMessage id="toolkit.initiatives.owner.empty.text" />
+            </p>
+          </div>
+        </Container>
+      </>
     );
   }
 
