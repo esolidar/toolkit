@@ -3,7 +3,7 @@ interface Props {
   defaultChecked?: boolean;
   isChecked?: boolean;
   name?: string;
-  onChange?(): void;
+  onChange?(event: any): void;
   inputRef?: any;
   isDisabled?: boolean;
 }

@@ -11,6 +11,7 @@ import convertFileSize from '../../utils/convertFileSize';
 import isDefined from '../../utils/isDefined';
 
 const FileCard = ({
+  url,
   title,
   subtitle,
   image,
@@ -34,7 +35,7 @@ const FileCard = ({
   const filteredItems = dropdownItems.filter(item => item.show !== false);
   const showDropdownMenu = !!filteredItems.length;
 
-  const helper = [convertFileSize(Number(size))];
+  const helper = size ? [convertFileSize(Number(size))] : null;
 
   if (isDefined(dateUploaded))
     helper.unshift(
@@ -49,10 +50,13 @@ const FileCard = ({
         img={{
           src: image || null,
           alt: title,
+          width: url ? '140px' : undefined,
+          height: url ? '94px' : undefined,
         }}
         hover={false}
       />
       <div className="file-card__body">
+        {url && <div className="file-card__body-url">{url}</div>}
         <div className="file-card__body-title">
           {title}
           {showBadgePrivate && (
@@ -70,7 +74,11 @@ const FileCard = ({
             />
           )}
         </div>
-        {subtitle && <div className="file-card__body-subtitle">{subtitle}</div>}
+        {subtitle && (
+          <div className={classnames('file-card__body-subtitle', { 'no-margin': !helper })}>
+            {subtitle}
+          </div>
+        )}
         {helper && <div className="file-card__body-helper">{helper.join(' - ')}</div>}
       </div>
       <div className="file-card__buttons">

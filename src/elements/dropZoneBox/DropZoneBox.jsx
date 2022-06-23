@@ -53,7 +53,9 @@ const DropZoneBox = ({
   minHeight,
   fullWidth = false,
   onDropError,
+  isDropZoneOpen,
 }) => {
+  console.log('accept', accept);
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
@@ -285,6 +287,11 @@ const DropZoneBox = ({
       setErrorList(onDropErrorFileList);
     },
   });
+
+  useEffect(() => {
+    // eslint-disable-next-line no-param-reassign
+    if (isDropZoneOpen) isDropZoneOpen.current = open;
+  }, []);
 
   const handleSubmitCroppedImage = blob => {
     onSelect([blob]);
@@ -544,6 +551,7 @@ DropZoneBox.propTypes = {
   minHeight: PropTypes.number,
   handleOrderImages: PropTypes.func,
   onDropError: PropTypes.func,
+  isDropZoneOpen: PropTypes.object,
 };
 
 DropZoneBox.defaultProps = {

@@ -55,7 +55,10 @@ const UploadDocumentModal: FC<Props> = ({
           <div className="d-flex">
             <Button
               extraClass="dark"
-              onClick={handleClickCancel}
+              onClick={() => {
+                setForm(DEFAULT_FORM);
+                handleClickCancel();
+              }}
               size="md"
               text={intl.formatMessage({ id: 'cancel' })}
             />
@@ -77,7 +80,10 @@ const UploadDocumentModal: FC<Props> = ({
           onDropFile={file => handleChangeForm({ target: { value: file, name: 'file' } })}
         />
       }
-      onHide={handlOnCloseModal}
+      onHide={() => {
+        setForm(DEFAULT_FORM);
+        handlOnCloseModal();
+      }}
       size="md"
       title={intl.formatMessage({
         id: 'toolkit.upload.document.title',
