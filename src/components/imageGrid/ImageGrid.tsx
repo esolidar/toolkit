@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useState, useRef } from 'react';
 import Lightbox from 'react-image-lightbox';
 import classnames from 'classnames';
 import { isMobile } from 'react-device-detect';

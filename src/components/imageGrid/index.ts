@@ -1,1 +1,1 @@
-export { default } from './CarouselLightbox';
+export { default } from './ImageGrid';

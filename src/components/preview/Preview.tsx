@@ -7,7 +7,6 @@ import fetch from 'cross-fetch';
 import Props, { VideoDetails } from './Preview.types';
 import Icon from '../../elements/icon';
 import Badge from '../../elements/badge';
-import Button from '../../elements/button';
 import getEnvVar from '../../utils/getEnvVar';
 import isDefined from '../../utils/isDefined';
 import 'react-image-lightbox/style.css';
