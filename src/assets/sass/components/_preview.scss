@@ -171,10 +171,9 @@
         box-shadow: 0 0 0 2px map-get($turquoise, 500);
         @include animate(outline, 100ms);
       }
-
-      &.cursor-pointer {
-        cursor: pointer;
-      }
+    }
+    .cursor-pointer {
+      cursor: pointer;
     }
   }
 }
