@@ -18,8 +18,6 @@ const ImageGrid: FC<Props> = ({
   const imagesRef = useRef([]);
   const { length } = items;
 
-  useEffect(() => {}, []);
-
   const handleImageClick = index => {
     setCurrentIndex(index);
     setIsOpenLightbox(true);
