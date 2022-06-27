@@ -13,7 +13,7 @@ export default {
 
 const Template: Story<Props> = (args: Props) => (
   <div
-    style={{ maxWidth: '640px', padding: '16px', border: '2px solid #0C8380', borderRadius: '8px' }}
+    style={{ maxWidth: '645px', padding: '16px', border: '2px solid #0C8380', borderRadius: '8px' }}
   >
     <ImageGrid {...args} />
   </div>

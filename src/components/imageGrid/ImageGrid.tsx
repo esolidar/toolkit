@@ -1,7 +1,9 @@
 import React, { FC, useState, useRef } from 'react';
+import { IntlShape, useIntl } from 'react-intl';
 import Lightbox from 'react-image-lightbox';
 import classnames from 'classnames';
 import { isMobile } from 'react-device-detect';
+import Button from '../../elements/button';
 import Preview from '../preview';
 import Icon from '../../elements/icon';
 import Props from './ImageGrid.types';
@@ -15,12 +17,18 @@ const ImageGrid: FC<Props> = ({
   const [isOpenLightbox, setIsOpenLightbox] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  const intl: IntlShape = useIntl();
   const imagesRef = useRef([]);
   const { length } = items;
 
   const handleImageClick = index => {
     setCurrentIndex(index);
     setIsOpenLightbox(true);
+  };
+
+  const handleDeleteImage = (e, id) => {
+    e.stopPropagation();
+    onDeleteImage(id);
   };
 
   return (
@@ -63,7 +71,7 @@ const ImageGrid: FC<Props> = ({
             <div className="imageGrid__image" style={{ width, height }} key={item.id}>
               <Preview
                 img={{ src: item.image, alt: 'thumb', width: '100%', height }}
-                handleDeleteImage={editMode ? () => onDeleteImage(item.id) : undefined}
+                handleDeleteImage={editMode ? e => handleDeleteImage(e, item.id) : undefined}
                 handleClickPreview={() => handleImageClick(index)}
                 isVisible
               />
@@ -101,13 +109,12 @@ const ImageGrid: FC<Props> = ({
           toolbarButtons={
             editMode
               ? [
-                  <button
-                    type="button"
-                    className="esolidar-preview__delete"
-                    onClick={() => onDeleteImage(items[currentIndex].id)}
-                  >
-                    <Icon name="X" size="sm" />
-                  </button>,
+                  <Button
+                    extraClass="overlay"
+                    text={intl.formatMessage({ id: 'delete' })}
+                    iconLeft={<Icon name="Trash" />}
+                    onClick={e => handleDeleteImage(e, items[currentIndex].id)}
+                  />,
                 ]
               : undefined
           }

@@ -56,16 +56,25 @@
   .ril-close {
     outline: none;
   }
-  .esolidar-preview__delete {
-    top: 115%;
-    right: 5%;
-    @include svg-change-color(map-get($base, white));
+  .ril-next-button,
+  .ril-prev-button {
+    width: 40px;
+    height: 40px;
+    background-size: 10px;
+    background-position: center center;
+    background-color: get-rgba(map-get($colors, white), 16);
+    border-radius: 100%;
+    padding: 0px;
   }
-
-  &:hover {
-    .esolidar-preview__delete {
-      background-color: get-rgba(map-get($base, black), 65);
-      opacity: 1;
-    }
+  .ril-next-button {
+    right: 3%;
+  }
+  .ril-prev-button {
+    left: 3%;
+  }
+  .btn-overlay {
+    position: absolute;
+    top: 120%;
+    right: 5%;
   }
 }
