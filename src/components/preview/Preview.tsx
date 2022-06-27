@@ -156,10 +156,20 @@ const Preview: FC<Props> = ({
         <div className={classes}>
           {!showPlaceholder ? (
             <div
-              className="esolidar-preview__image"
+              className={classNames('esolidar-preview__image', {
+                'cursor-pointer': fullScreen,
+              })}
               style={{
                 width: img?.width,
                 height: img?.height,
+              }}
+              onKeyDown={() => {
+                if (typeof handleClickPreview !== 'undefined') handleClickPreview();
+                if (fullScreen) handleFullscreen();
+              }}
+              onClick={() => {
+                if (typeof handleClickPreview !== 'undefined') handleClickPreview();
+                if (fullScreen) handleFullscreen();
               }}
             >
               <img
@@ -180,15 +190,6 @@ const Preview: FC<Props> = ({
                 >
                   <Icon name="X" size="sm" />
                 </button>
-              )}
-              {fullScreen && (
-                <Button
-                  className="esolidar-preview__image-fullscreen"
-                  extraClass="primary-full"
-                  onClick={handleFullscreen}
-                  icon={<Icon name="icon-camera" />}
-                  ghost
-                />
               )}
               {badgeText && (
                 <div className="esolidar-preview__image-badge">
