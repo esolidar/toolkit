@@ -7,6 +7,31 @@ import Meta, { Default as DefaultStory, Reply as ReplyStory } from '../CreateCom
 const Default = composeStory(DefaultStory, Meta);
 const Reply = composeStory(ReplyStory, Meta);
 
+const videoResponse = {
+  status: 200,
+  data: {
+    title: 'Como fazer um Programa de Aceleração com a esolidar?',
+    author_name: 'esolidar',
+    author_url: 'https://www.youtube.com/c/Esolidar',
+    type: 'video',
+    height: 200,
+    width: 356,
+    version: '1.0',
+    provider_name: 'YouTube',
+    provider_url: 'https://www.youtube.com/',
+    thumbnail_height: 360,
+    thumbnail_width: 480,
+    thumbnail_url: 'https://i.ytimg.com/vi/f7x5IeWi0v8/hqdefault.jpg',
+    html: '<iframe width="356" height="200" src="https://www.youtube.com/embed/f7x5IeWi0v8?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+  },
+};
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(videoResponse.data),
+  })
+);
+
 it('renders Success default component open', () => {
   const { getByClass, getByText, getByTestId } = render(<Default />);
 
