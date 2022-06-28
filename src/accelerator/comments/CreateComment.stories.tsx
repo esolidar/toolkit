@@ -21,19 +21,22 @@ const Template: Story<Props> = (args: Props) => {
   const [imagesList, setImagesList] = useState<any[]>([]);
 
   const postFiles = form => {
-    const data = {
-      user_id: 3,
-      name: form.name,
-      description: form.description,
-      file: 'file.pdf',
-      file_type: 'jpg',
-      file_size: form.file_size,
-      public: form.public,
-      is_form_file: true,
-      id: files.length,
-    };
     const list = [...files];
-    list.push(data);
+    form.forEach(file => {
+      const data = {
+        user_id: 3,
+        name: file.name,
+        description: file.description,
+        file: 'file.pdf',
+        file_type: 'jpg',
+        file_size: file.file_size,
+        public: file.public,
+        is_form_file: true,
+        id: files.length,
+      };
+      list.push(data);
+    });
+
     setFiles(list);
   };
 
@@ -42,9 +45,13 @@ const Template: Story<Props> = (args: Props) => {
     setScraper(urlData);
   };
 
-  const postUploadImages = () => {
+  const postUploadImages = (files: any[]) => {
     const images = [...imagesList];
-    images.push(image);
+    files.forEach((img, indx) => {
+      const newImage = { ...image, id: indx };
+
+      images.push(newImage);
+    });
     setImagesList(images);
   };
 
@@ -71,6 +78,7 @@ Default.args = {
   placeholderText: 'Share ideas, suggestions or initiaves for this project...',
   postDeleteFile: () => {},
   postDeleteImage: () => {},
+  onDropError: () => {},
 };
 
 Reply.args = {
@@ -81,4 +89,5 @@ Reply.args = {
   placeholderText: 'Leave a comment...',
   postDeleteFile: () => {},
   postDeleteImage: () => {},
+  onDropError: () => {},
 };

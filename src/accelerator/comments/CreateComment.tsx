@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC, useRef } from 'react';
-import { IntlShape, useIntl } from 'react-intl';
+import { FormattedMessage, IntlShape, useIntl } from 'react-intl';
 import classNames from 'classnames';
 import ProfileAvatar from '../../components/profileAvatar';
 import TextareaField from '../../elements/textareaField';
@@ -13,6 +13,14 @@ import FileCard from '../../components/fileCard';
 import DropZoneBox from '../../elements/dropZoneBox';
 import getEnvVar from '../../utils/getEnvVar';
 import Preview from '../../components/preview';
+import CustomModal from '../../elements/customModal';
+
+const fileTypes = '.doc,.pdf,.xls,.ppt,.pptx,.xlsx,.docx';
+const fileSize = 20000000; // 20Mb
+const maxFiles = 3;
+const imageTypes = '.jpg, .jpeg, .png';
+const imageSize = 5000000; // 5Mb
+const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
   type = 'comment',
@@ -28,16 +36,19 @@ const CreateComment: FC<Props> = ({
   scrapper,
   placeholderText,
   images,
+  onDropError,
 }: Props) => {
   const intl: IntlShape = useIntl();
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [text, setText] = useState<string>('');
-  const [videoData, setVideoData] = useState<any>(null);
-  const [urlData, setUrlData] = useState<any>(null);
-  const [imageList, setImageList] = useState<any>(images || []);
   const [filesData, setFilesData] = useState<any[]>(files);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
-  const isDropZoneOpen = useRef(null);
+  const [imageList, setImageList] = useState<any>(images || []);
+  const [isOpenModalUploads, setIsOpenModalUploads] = useState<boolean>(false);
+  const [text, setText] = useState<string>('');
+  const [urlData, setUrlData] = useState<any>(null);
+  const [videoData, setVideoData] = useState<any>(null);
+  const isDropZoneOpen = useRef<any>(null);
+  const isUrlCardDisabled = useRef<boolean>(null);
 
   const handleEditMode = () => {
     setEditMode(true);
@@ -75,32 +86,23 @@ const CreateComment: FC<Props> = ({
 
   const handleChange = async e => {
     const { value } = e.target;
+    if (value === '') isUrlCardDisabled.current = false;
+
     const urlRegex = /(https?:\/\/[^ ]*)/;
-    const url = text.match(urlRegex);
+    const url = value.match(urlRegex);
     setText(value);
 
-    if (url && !videoData && !urlData) {
+    if (
+      url &&
+      !videoData &&
+      !urlData &&
+      !isUrlCardDisabled.current &&
+      imageList.length === 0 &&
+      filesData.length === 0
+    ) {
+      isUrlCardDisabled.current = true;
       getUrlData(url[1]);
     }
-  };
-
-  const handdlePaste = e => {
-    e.clipboardData.items[0].getAsString(text => {
-      const message = text;
-      let url;
-      const regex = new RegExp(/(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi);
-      const isAbsolute = new RegExp('^([a-z]+://|//)', 'i');
-      const tempUrl = regex.exec(message);
-      if (tempUrl !== null) {
-        url = tempUrl[0].trim();
-        if (!isAbsolute.test(url)) {
-          url = `http://${url}`;
-        }
-      }
-      if (url && !videoData && !urlData) {
-        getUrlData(url);
-      }
-    });
   };
 
   const handleClickCancel = () => {
@@ -113,9 +115,15 @@ const CreateComment: FC<Props> = ({
   };
 
   const handleDeleteFile = (id: number) => {
-    postDeleteFile(id);
     const filtered = filesData.filter(file => file.id !== id);
     setFilesData(filtered);
+    postDeleteFile(id);
+  };
+
+  const handleDeleteImage = (id: number) => {
+    const filtered = imageList.filter(file => file.id !== id);
+    setImageList(filtered);
+    postDeleteImage(id);
   };
 
   useEffect(() => {
@@ -138,16 +146,19 @@ const CreateComment: FC<Props> = ({
       leftIcon: 'Image',
       onClick: handleAddImages,
       show: true,
-      text: intl.formatMessage({ id: 'Add images' }),
+      text: intl.formatMessage({ id: 'toolkit.add.images' }),
     },
     {
       id: 0,
       leftIcon: 'Attachment',
       onClick: handleAddFiles,
       show: true,
-      text: intl.formatMessage({ id: 'Add documents' }),
+      text: intl.formatMessage({ id: 'toolkit.add.documents' }),
     },
   ];
+
+  const isDisabledAttachments =
+    !!videoData || !!urlData || imageList.length > 0 || filesData.length > 0;
 
   return (
     <>
@@ -166,7 +177,6 @@ const CreateComment: FC<Props> = ({
           <Comment
             user={user}
             editMode={editMode}
-            handdlePaste={handdlePaste}
             text={text}
             handleChange={handleChange}
             placeholderText={placeholderText}
@@ -175,13 +185,13 @@ const CreateComment: FC<Props> = ({
         {type === 'reply' && (
           <Reply
             user={user}
-            handdlePaste={handdlePaste}
             text={text}
             handleChange={handleChange}
             videoData={videoData}
             handlePostComment={handlePostComment}
             placeholderText={placeholderText}
             attachmentOptions={attachmentOptions}
+            isDisabledAttachments={isDisabledAttachments}
           />
         )}
 
@@ -193,7 +203,7 @@ const CreateComment: FC<Props> = ({
                   {/* TODO: Change this for new image grid component */}
                   {imageList.map(image => (
                     <Preview
-                      handleDeleteImage={postDeleteImage}
+                      handleDeleteImage={() => handleDeleteImage(image.id)}
                       img={{
                         alt: 'Imagem de teste',
                         src: `${getEnvVar('SERVER_LESS_RESIZE_IMAGE')}/${
@@ -268,11 +278,12 @@ const CreateComment: FC<Props> = ({
               <div className="accelerator-comment-create__buttons">
                 <Dropdown
                   items={attachmentOptions}
+                  disabled={isDisabledAttachments}
                   customButton={
                     <Button
                       extraClass="secondary"
                       className="attachment-btn"
-                      disabled={!!videoData}
+                      disabled={isDisabledAttachments}
                       iconLeft={<Icon name="Plus" size="sm" />}
                       iconRight={<Icon name="Attachment" size="sm" />}
                     />
@@ -280,6 +291,7 @@ const CreateComment: FC<Props> = ({
                 />
                 <Button
                   extraClass="secondary"
+                  dataTestId="cancel-btn"
                   onClick={handleClickCancel}
                   size="md"
                   text={intl.formatMessage({ id: 'cancel' })}
@@ -289,7 +301,7 @@ const CreateComment: FC<Props> = ({
                   onClick={() => handlePostComment({ text, video: videoData })}
                   size="md"
                   disabled={text.length === 0}
-                  text={intl.formatMessage({ id: 'Post' })}
+                  text={intl.formatMessage({ id: 'feed.create.post' })}
                 />
               </div>
             )}
@@ -300,15 +312,65 @@ const CreateComment: FC<Props> = ({
         showDropArea={false}
         multiple={true}
         isDropZoneOpen={isDropZoneOpen}
-        accept={
-          fileType === 'image'
-            ? '.jpg, .jpeg, .png'
-            : '.doc,.odt,.pdf,.xls,.ods,.ppt,.odp,.csv,.text,.txt,.pptx,.xlsx,.xltx,.docx'
-        }
+        accept={fileType === 'image' ? imageTypes : fileTypes}
         onSelect={files => {
           if (fileType === 'image') postUploadImages(files);
           else postUploadFiles(files);
         }}
+        maxFiles={fileType === 'image' ? maxImages : maxFiles}
+        maxSize={fileType === 'image' ? imageSize : fileSize}
+        onDropError={(errorList: any) => {
+          setIsOpenModalUploads(true);
+          onDropError(errorList);
+        }}
+      />
+      <CustomModal
+        show={isOpenModalUploads}
+        actionsChildren={
+          <>
+            <Button
+              extraClass="primary-full"
+              size="md"
+              text={
+                fileType === 'image'
+                  ? intl.formatMessage({ id: 'toolkit.select.images' })
+                  : intl.formatMessage({ id: 'toolkit.select.documents' })
+              }
+              onClick={() => {
+                if (fileType === 'image') handleAddImages();
+                else handleAddFiles();
+
+                setIsOpenModalUploads(false);
+              }}
+              dataTestId="delete-file"
+            />
+            <Button
+              extraClass="dark"
+              onClick={() => setIsOpenModalUploads(false)}
+              size="md"
+              text={intl.formatMessage({ id: 'cancel' })}
+              dataTestId="close-delete-file"
+            />
+          </>
+        }
+        onHide={() => {
+          setIsOpenModalUploads(false);
+        }}
+        bodyChildren={
+          <p>
+            {fileType === 'image' ? (
+              <FormattedMessage id="toolkit.upload.images.error.size" />
+            ) : (
+              <FormattedMessage id="toolkit.upload.documents.error.size" />
+            )}
+          </p>
+        }
+        title={
+          fileType === 'image'
+            ? intl.formatMessage({ id: 'toolkit.upload.images' })
+            : intl.formatMessage({ id: 'toolkit.upload.documents' })
+        }
+        size="md"
       />
     </>
   );
@@ -321,22 +383,14 @@ const Comment: FC<CommentProps> = ({
   editMode,
   handleChange,
   text,
-  handdlePaste,
   placeholderText,
 }: CommentProps) => {
-  const intl: IntlShape = useIntl();
   return (
     <>
       <ProfileAvatar
         thumb={user?.thumbs?.thumb}
         className={!editMode ? 'placeholder-text' : ''}
-        name={
-          editMode
-            ? user?.name
-            : intl.formatMessage({
-                id: 'Share ideas, suggestions or initiaves for this project...',
-              })
-        }
+        name={editMode ? user?.name : placeholderText}
       />
       {editMode && (
         <div className="feed-create-post-body" data-testid="body">
@@ -348,7 +402,6 @@ const Comment: FC<CommentProps> = ({
             onChange={handleChange}
             placeholder={placeholderText}
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
-            onPaste={handdlePaste}
             dataTestId="text"
             autofocus={true}
           />
@@ -362,11 +415,11 @@ const Reply: FC<ReplyProps> = ({
   user,
   handleChange,
   text,
-  handdlePaste,
   attachmentOptions,
   videoData,
   handlePostComment,
   placeholderText,
+  isDisabledAttachments,
 }: ReplyProps) => {
   const intl: IntlShape = useIntl();
   return (
@@ -381,12 +434,12 @@ const Reply: FC<ReplyProps> = ({
           onChange={handleChange}
           placeholder={placeholderText}
           value={text.replace(/<\/?[^>]+(>|$)/g, '')}
-          onPaste={handdlePaste}
           dataTestId="text"
         />
       </div>
       <Dropdown
         items={attachmentOptions}
+        disabled={isDisabledAttachments}
         customButton={
           <Button
             extraClass="primary-full"
@@ -395,7 +448,7 @@ const Reply: FC<ReplyProps> = ({
             ghost
             size="sm"
             theme="light"
-            disabled={!!videoData}
+            disabled={isDisabledAttachments}
             icon={<Icon name="Attachment" size="sm" />}
           />
         }
@@ -406,7 +459,7 @@ const Reply: FC<ReplyProps> = ({
           onClick={() => handlePostComment({ text, video: videoData })}
           size="sm"
           disabled={text.length === 0}
-          text={intl.formatMessage({ id: 'Post' })}
+          text={intl.formatMessage({ id: 'feed-create-post-body' })}
         />
       )}
     </div>
