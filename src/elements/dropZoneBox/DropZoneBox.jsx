@@ -55,7 +55,6 @@ const DropZoneBox = ({
   onDropError,
   isDropZoneOpen,
 }) => {
-  console.log('accept', accept);
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
