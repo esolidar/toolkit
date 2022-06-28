@@ -31,8 +31,6 @@ const ImageGrid: FC<Props> = ({
     setCurrentIndex(currentImage);
   }, [items]);
 
-  console.log('items', imagesLightboxList, currentIndex, imagesLightboxList[currentIndex]);
-
   const handleImageClick = index => {
     setCurrentIndex(index);
     setIsOpenLightbox(true);
@@ -46,10 +44,6 @@ const ImageGrid: FC<Props> = ({
   return (
     <div className={classnames('imageGrid', { displayInline: type === 'inline' })}>
       {items.map((item, index) => {
-        // if (imagesRef.current.indexOf(item.image) < 0) {
-        //   imagesRef.current = [...imagesRef.current, validateImageSrc(item.image)];
-        // }
-
         let width = '100%';
         let height = isMobile ? 'calc(395px/2)' : '395px';
 
