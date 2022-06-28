@@ -55,6 +55,7 @@ const DropZoneBox = ({
   onDropError,
   isDropZoneOpen,
 }) => {
+  console.log('accept', accept);
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
   const [croppedFile, setCroppedFile] = useState(null);
@@ -293,7 +294,6 @@ const DropZoneBox = ({
   }, []);
 
   const handleSubmitCroppedImage = blob => {
-    debugger;
     onSelect([blob]);
     toggleModalCropper();
   };
@@ -395,35 +395,31 @@ const DropZoneBox = ({
               <Button
                 extraClass="success-full"
                 onClick={() => {
-                  const a = cropper.current.getCroppedCanvas().toDataURL();
-                  debugger;
-                  // cropper.current.getCroppedCanvas().toBlob(
-                  //   blob => {
-                  //     const imageWidth = cropper.current.getCroppedCanvas().width;
-                  //     const imageHeight = cropper.current.getCroppedCanvas().height;
-                  //     if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
-                  //       console.log(imageWidth, imageHeight, cropper.current.cropper.url);
-                  //       debugger;
-                  //       setDisableCroppedImage(true);
-                  //       handleSubmitCroppedImage(blob);
-                  //       setErrorList([]);
-                  //     } else {
-                  //       const errors = [];
-                  //       errors.push({
-                  //         name: '',
-                  //         errors: [
-                  //           `${
-                  //             errorMessages.find(messageObj => messageObj.id === 'dimensions')
-                  //               .message
-                  //           }`,
-                  //         ],
-                  //       });
-                  //       setErrorList(errors);
-                  //     }
-                  //   },
-                  //   'image/jpeg',
-                  //   0.7
-                  // );
+                  cropper.current.getCroppedCanvas().toBlob(
+                    blob => {
+                      const imageWidth = cropper.current.getCroppedCanvas().width;
+                      const imageHeight = cropper.current.getCroppedCanvas().height;
+                      if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
+                        setDisableCroppedImage(true);
+                        handleSubmitCroppedImage(blob);
+                        setErrorList([]);
+                      } else {
+                        const errors = [];
+                        errors.push({
+                          name: '',
+                          errors: [
+                            `${
+                              errorMessages.find(messageObj => messageObj.id === 'dimensions')
+                                .message
+                            }`,
+                          ],
+                        });
+                        setErrorList(errors);
+                      }
+                    },
+                    'image/jpeg',
+                    0.7
+                  );
                 }}
                 text={textSaveCropModal || intl.formatMessage({ id: 'save' })}
                 disabled={disableCroppedImage}

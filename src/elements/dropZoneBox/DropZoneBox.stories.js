@@ -19,7 +19,6 @@ export const WithCropper = Template.bind({});
 export const WithoutIcon = Template.bind({});
 export const Draggable = Template.bind({});
 export const Disabled = Template.bind({});
-export const Rodrigo = Template.bind({});
 
 Default.parameters = {
   jest: ['DropZoneBox.test.js'],
@@ -175,29 +174,4 @@ Disabled.args = {
     help: 'This will be your program main image. Select a JPG, JPEG or PNG image up to 5Mb. ',
   },
   disabled: true,
-};
-
-Rodrigo.args = {
-  showFooterCropper: true,
-  hasCropper: {
-    showCropper: true,
-    aspectRatioW: 3,
-    aspectRatioH: 2,
-    minWidth: 3,
-    minHeight: 2,
-  },
-  accept: '.jpg, .jpeg, .png',
-  onSelect: () => {},
-  showImagesPreviews: true,
-  imagesList: [],
-  env: {
-    serverlessResizeImage: 'https://image.testesolidar.com',
-  },
-  deleteImageGallery: () => {},
-  inputLabelProps: {
-    label: 'Image',
-    help: 'This will be your program main image. Select a JPG, JPEG or PNG image up to 5Mb. ',
-  },
-  minWidth: 1200,
-  minHeight: 675,
 };
