@@ -17,7 +17,7 @@ import Props, { CommentProps, ReplyProps } from './CreateComment.types';
 const fileTypes = '.doc,.pdf,.xls,.ppt,.pptx,.xlsx,.docx';
 const fileSize = 20000000; // 20Mb
 const maxFiles = 3;
-const imageTypes = '.jpg, .jpeg, .png';
+const imageTypes = '.jpg, .jpeg, .png, .gif';
 const imageSize = 5000000; // 5Mb
 const maxImages = 99;
 

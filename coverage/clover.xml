@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1656424700573" clover="3.2.0">
-  <project timestamp="1656424700574" name="All files">
-    <metrics statements="6557" coveredstatements="4773" conditionals="4940" coveredconditionals="3108" methods="2096" coveredmethods="1185" elements="13593" coveredelements="9066" complexity="0" loc="6557" ncloc="6557" packages="246" files="844" classes="844"/>
+<coverage generated="1656433605618" clover="3.2.0">
+  <project timestamp="1656433605618" name="All files">
+    <metrics statements="6556" coveredstatements="4773" conditionals="4940" coveredconditionals="3108" methods="2096" coveredmethods="1185" elements="13592" coveredelements="9066" complexity="0" loc="6556" ncloc="6556" packages="246" files="844" classes="844"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -2123,7 +2123,7 @@
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\sm\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="24" type="stmt"/>
-        <line num="4" count="135" type="stmt"/>
+        <line num="4" count="134" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\sm\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6666,20 +6666,20 @@
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="92" coveredconditionals="72" methods="2" coveredmethods="2"/>
         <line num="7" count="108" type="stmt"/>
-        <line num="39" count="759" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="758" type="cond" truecount="2" falsecount="0"/>
         <line num="40" count="479" type="cond" truecount="2" falsecount="0"/>
         <line num="41" count="91" type="cond" truecount="2" falsecount="0"/>
         <line num="42" count="83" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="759" type="stmt"/>
-        <line num="72" count="759" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="759" type="stmt"/>
-        <line num="77" count="759" type="cond" truecount="5" falsecount="0"/>
+        <line num="44" count="758" type="stmt"/>
+        <line num="72" count="758" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="758" type="stmt"/>
+        <line num="77" count="758" type="cond" truecount="5" falsecount="0"/>
         <line num="79" count="388" type="stmt"/>
-        <line num="113" count="280" type="stmt"/>
+        <line num="113" count="279" type="stmt"/>
         <line num="140" count="8" type="stmt"/>
         <line num="172" count="6" type="stmt"/>
         <line num="196" count="77" type="stmt"/>
-        <line num="229" count="759" type="stmt"/>
+        <line num="229" count="758" type="stmt"/>
         <line num="233" count="108" type="stmt"/>
         <line num="261" count="108" type="stmt"/>
       </file>
@@ -6821,35 +6821,35 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="32" coveredstatements="23" conditionals="42" coveredconditionals="35" methods="8" coveredmethods="6"/>
         <line num="8" count="34" type="stmt"/>
-        <line num="39" count="118" type="stmt"/>
-        <line num="40" count="118" type="stmt"/>
-        <line num="41" count="118" type="stmt"/>
-        <line num="45" count="118" type="stmt"/>
-        <line num="46" count="118" type="stmt"/>
-        <line num="50" count="118" type="stmt"/>
-        <line num="53" count="118" type="stmt"/>
-        <line num="58" count="118" type="stmt"/>
+        <line num="39" count="117" type="stmt"/>
+        <line num="40" count="117" type="stmt"/>
+        <line num="41" count="117" type="stmt"/>
+        <line num="45" count="117" type="stmt"/>
+        <line num="46" count="117" type="stmt"/>
+        <line num="50" count="117" type="stmt"/>
+        <line num="53" count="117" type="stmt"/>
+        <line num="58" count="117" type="stmt"/>
         <line num="59" count="88" type="cond" truecount="4" falsecount="0"/>
         <line num="60" count="34" type="stmt"/>
-        <line num="61" count="4" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
         <line num="64" count="34" type="stmt"/>
         <line num="65" count="34" type="stmt"/>
-        <line num="70" count="118" type="stmt"/>
-        <line num="71" count="86" type="cond" truecount="4" falsecount="0"/>
-        <line num="72" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="70" count="117" type="stmt"/>
+        <line num="71" count="85" type="cond" truecount="4" falsecount="0"/>
+        <line num="72" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="73" count="0" type="stmt"/>
-        <line num="75" count="4" type="stmt"/>
+        <line num="75" count="3" type="stmt"/>
         <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="77" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="85" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
-        <line num="90" count="4" type="stmt"/>
-        <line num="91" count="4" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
         <line num="92" count="0" type="stmt"/>
         <line num="93" count="0" type="stmt"/>
-        <line num="99" count="118" type="stmt"/>
+        <line num="99" count="117" type="stmt"/>
         <line num="161" count="34" type="stmt"/>
         <line num="193" count="34" type="stmt"/>
       </file>
@@ -6947,9 +6947,9 @@
       </file>
     </package>
     <package name="src.elements.dropZoneBox">
-      <metrics statements="129" coveredstatements="32" conditionals="107" coveredconditionals="38" methods="42" coveredmethods="4"/>
+      <metrics statements="128" coveredstatements="32" conditionals="107" coveredconditionals="38" methods="42" coveredmethods="4"/>
       <file name="DropZoneBox.jsx" path="C:\Projects\toolkit\src\elements\dropZoneBox\DropZoneBox.jsx">
-        <metrics statements="129" coveredstatements="32" conditionals="107" coveredconditionals="38" methods="42" coveredmethods="4"/>
+        <metrics statements="128" coveredstatements="32" conditionals="107" coveredconditionals="38" methods="42" coveredmethods="4"/>
         <line num="18" count="11" type="stmt"/>
         <line num="20" count="11" type="stmt"/>
         <line num="58" count="46" type="stmt"/>
@@ -7053,32 +7053,31 @@
         <line num="295" count="46" type="stmt"/>
         <line num="296" count="0" type="stmt"/>
         <line num="297" count="0" type="stmt"/>
-        <line num="298" count="0" type="stmt"/>
-        <line num="301" count="46" type="stmt"/>
-        <line num="302" count="0" type="stmt"/>
+        <line num="300" count="46" type="stmt"/>
+        <line num="301" count="0" type="stmt"/>
+        <line num="302" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="303" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="304" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="307" count="46" type="stmt"/>
-        <line num="308" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="306" count="46" type="stmt"/>
+        <line num="307" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="308" count="0" type="stmt"/>
         <line num="309" count="0" type="stmt"/>
         <line num="310" count="0" type="stmt"/>
-        <line num="311" count="0" type="stmt"/>
-        <line num="315" count="46" type="stmt"/>
-        <line num="398" count="0" type="stmt"/>
-        <line num="400" count="0" type="stmt"/>
-        <line num="401" count="0" type="stmt"/>
-        <line num="402" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="403" count="0" type="stmt"/>
+        <line num="314" count="46" type="stmt"/>
+        <line num="397" count="0" type="stmt"/>
         <line num="404" count="0" type="stmt"/>
         <line num="405" count="0" type="stmt"/>
-        <line num="407" count="0" type="stmt"/>
+        <line num="407" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="408" count="0" type="stmt"/>
+        <line num="409" count="0" type="stmt"/>
+        <line num="410" count="0" type="stmt"/>
         <line num="412" count="0" type="stmt"/>
+        <line num="413" count="0" type="stmt"/>
         <line num="417" count="0" type="stmt"/>
-        <line num="459" count="0" type="stmt"/>
-        <line num="478" count="0" type="stmt"/>
-        <line num="510" count="11" type="stmt"/>
-        <line num="557" count="11" type="stmt"/>
+        <line num="422" count="0" type="stmt"/>
+        <line num="464" count="0" type="stmt"/>
+        <line num="483" count="0" type="stmt"/>
+        <line num="515" count="11" type="stmt"/>
+        <line num="562" count="11" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\dropZoneBox\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -7520,11 +7519,11 @@
         <line num="7" count="122" type="stmt"/>
         <line num="9" count="122" type="stmt"/>
         <line num="16" count="122" type="stmt"/>
-        <line num="25" count="1198" type="stmt"/>
-        <line num="27" count="1198" type="stmt"/>
-        <line num="28" count="1198" type="stmt"/>
+        <line num="25" count="1197" type="stmt"/>
+        <line num="27" count="1197" type="stmt"/>
+        <line num="28" count="1197" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="1198" type="stmt"/>
+        <line num="33" count="1197" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
