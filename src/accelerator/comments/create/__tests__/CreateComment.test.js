@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
-import { render, fireEvent, act } from '../../../../__customQueries__/test-utils';
+import { render, fireEvent, act } from '../../../../../__customQueries__/test-utils';
 import Meta, { Default as DefaultStory, Reply as ReplyStory } from '../CreateComment.stories';
 
 const Default = composeStory(DefaultStory, Meta);

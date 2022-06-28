@@ -1,18 +1,18 @@
 import React, { useState, useEffect, FC, useRef } from 'react';
 import { FormattedMessage, IntlShape, useIntl } from 'react-intl';
 import classNames from 'classnames';
-import ProfileAvatar from '../../components/profileAvatar';
-import TextareaField from '../../elements/textareaField';
-import Button from '../../elements/button';
-import Dropdown from '../../elements/dropdown';
-import Icon from '../../elements/icon';
+import ProfileAvatar from '../../../components/profileAvatar';
+import TextareaField from '../../../elements/textareaField';
+import Button from '../../../elements/button';
+import Dropdown from '../../../elements/dropdown';
+import Icon from '../../../elements/icon';
+import parseYouTube from '../../../utils/parseYouTube';
+import parseVimeo from '../../../utils/parseVimeo';
+import FileCard from '../../../components/fileCard';
+import DropZoneBox from '../../../elements/dropZoneBox';
+import CustomModal from '../../../elements/customModal';
+import ImageGrid from '../../../components/imageGrid';
 import Props, { CommentProps, ReplyProps } from './CreateComment.types';
-import parseYouTube from '../../utils/parseYouTube';
-import parseVimeo from '../../utils/parseVimeo';
-import FileCard from '../../components/fileCard';
-import DropZoneBox from '../../elements/dropZoneBox';
-import CustomModal from '../../elements/customModal';
-import ImageGrid from '../../components/imageGrid';
 
 const fileTypes = '.doc,.pdf,.xls,.ppt,.pptx,.xlsx,.docx';
 const fileSize = 20000000; // 20Mb
@@ -142,14 +142,14 @@ const CreateComment: FC<Props> = ({
 
   const attachmentOptions = [
     {
-      id: 0,
+      id: 1,
       leftIcon: 'Image',
       onClick: handleAddImages,
       show: true,
       text: intl.formatMessage({ id: 'toolkit.add.images' }),
     },
     {
-      id: 0,
+      id: 2,
       leftIcon: 'Attachment',
       onClick: handleAddFiles,
       show: true,

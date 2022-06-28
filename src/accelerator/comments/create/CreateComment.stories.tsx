@@ -3,10 +3,10 @@ import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
 import CreateComment from './CreateComment';
 import Props from './CreateComment.types';
-import user from '../../../__mocks__/user';
-import scraperData from '../../../__mocks__/scraper';
-import image from '../../../__mocks__/image';
-import images from '../../../__mocks__/images';
+import user from '../../../../__mocks__/user';
+import scraperData from '../../../../__mocks__/scraper';
+import image from '../../../../__mocks__/image';
+import images from '../../../../__mocks__/images';
 
 export default {
   title: 'Accelerator/Comment/Create',

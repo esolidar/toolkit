@@ -1,4 +1,4 @@
-import User from '../../interfaces/user.types';
+import User from '../../../interfaces/user.types';
 
 interface Props {
   type: 'comment' | 'reply';
