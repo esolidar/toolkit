@@ -11,9 +11,8 @@ import parseYouTube from '../../utils/parseYouTube';
 import parseVimeo from '../../utils/parseVimeo';
 import FileCard from '../../components/fileCard';
 import DropZoneBox from '../../elements/dropZoneBox';
-import getEnvVar from '../../utils/getEnvVar';
-import Preview from '../../components/preview';
 import CustomModal from '../../elements/customModal';
+import ImageGrid from '../../components/imageGrid';
 
 const fileTypes = '.doc,.pdf,.xls,.ppt,.pptx,.xlsx,.docx';
 const fileSize = 20000000; // 20Mb
@@ -24,7 +23,7 @@ const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
   type = 'comment',
-  // comment, // TODO: See if is necessary comment prop
+  comment,
   user,
   files,
   handlePostComment,
@@ -36,6 +35,7 @@ const CreateComment: FC<Props> = ({
   scrapper,
   placeholderText,
   images,
+  galleryType,
   onDropError,
 }: Props) => {
   const intl: IntlShape = useIntl();
@@ -185,6 +185,7 @@ const CreateComment: FC<Props> = ({
         {type === 'reply' && (
           <Reply
             user={user}
+            comment={comment}
             text={text}
             handleChange={handleChange}
             videoData={videoData}
@@ -200,20 +201,12 @@ const CreateComment: FC<Props> = ({
             <div className="accelerator-comment-create__attachments">
               {imageList.length > 0 && (
                 <div className="accelerator-comment-create__attachments-images">
-                  {/* TODO: Change this for new image grid component */}
-                  {imageList.map(image => (
-                    <Preview
-                      handleDeleteImage={() => handleDeleteImage(image.id)}
-                      img={{
-                        alt: 'Imagem de teste',
-                        src: `${getEnvVar('SERVER_LESS_RESIZE_IMAGE')}/${
-                          image.image
-                        }?width=136&height=92`,
-                        width: '136px',
-                        height: '92px',
-                      }}
-                    />
-                  ))}
+                  <ImageGrid
+                    editMode={true}
+                    items={imageList}
+                    type={galleryType}
+                    onDeleteImage={handleDeleteImage}
+                  />
                 </div>
               )}
               {filesData?.map(file => {
@@ -412,6 +405,7 @@ const Comment: FC<CommentProps> = ({
 };
 
 const Reply: FC<ReplyProps> = ({
+  comment,
   user,
   handleChange,
   text,
@@ -456,10 +450,10 @@ const Reply: FC<ReplyProps> = ({
       {text.length > 0 && (
         <Button
           extraClass="primary-full"
-          onClick={() => handlePostComment({ text, video: videoData })}
+          onClick={() => handlePostComment({ text, video: videoData, comment })}
           size="sm"
           disabled={text.length === 0}
-          text={intl.formatMessage({ id: 'feed-create-post-body' })}
+          text={intl.formatMessage({ id: 'feed.create.post' })}
         />
       )}
     </div>

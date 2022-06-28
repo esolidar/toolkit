@@ -9,6 +9,7 @@ import Icon from '../../elements/icon';
 import Badge from '../../elements/badge';
 import getEnvVar from '../../utils/getEnvVar';
 import isDefined from '../../utils/isDefined';
+import validateImageSrc from '../../utils/validateImageSrc';
 import 'react-image-lightbox/style.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -172,7 +173,7 @@ const Preview: FC<Props> = ({
               }}
             >
               <img
-                src={img?.src}
+                src={validateImageSrc(img?.src)}
                 onError={handleImageError}
                 alt={img?.alt}
                 style={{

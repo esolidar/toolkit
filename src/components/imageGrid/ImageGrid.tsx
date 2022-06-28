@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import Lightbox from 'react-image-lightbox';
 import classnames from 'classnames';
@@ -7,6 +7,7 @@ import Button from '../../elements/button';
 import Preview from '../preview';
 import Icon from '../../elements/icon';
 import Props from './ImageGrid.types';
+import validateImageSrc from '../../utils/validateImageSrc';
 
 const ImageGrid: FC<Props> = ({
   items,
@@ -18,8 +19,19 @@ const ImageGrid: FC<Props> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const intl: IntlShape = useIntl();
-  const imagesRef = useRef([]);
   const { length } = items;
+
+  const imagesLightboxList = items.flatMap(image => {
+    const url = validateImageSrc(image.image);
+    return url;
+  });
+
+  useEffect(() => {
+    const currentImage = currentIndex >= length - 1 ? length - 1 : currentIndex;
+    setCurrentIndex(currentImage);
+  }, [items]);
+
+  console.log('items', imagesLightboxList, currentIndex, imagesLightboxList[currentIndex]);
 
   const handleImageClick = index => {
     setCurrentIndex(index);
@@ -34,9 +46,9 @@ const ImageGrid: FC<Props> = ({
   return (
     <div className={classnames('imageGrid', { displayInline: type === 'inline' })}>
       {items.map((item, index) => {
-        if (imagesRef.current.indexOf(item.image) < 0) {
-          imagesRef.current = [...imagesRef.current, item.image];
-        }
+        // if (imagesRef.current.indexOf(item.image) < 0) {
+        //   imagesRef.current = [...imagesRef.current, validateImageSrc(item.image)];
+        // }
 
         let width = '100%';
         let height = isMobile ? 'calc(395px/2)' : '395px';
@@ -75,9 +87,9 @@ const ImageGrid: FC<Props> = ({
                 handleClickPreview={() => handleImageClick(index)}
                 isVisible
               />
-              {index === 3 && (
+              {index === 3 && length > 4 && (
                 <button className="load-more" onClick={() => handleImageClick(index)}>
-                  + {length - 3}
+                  + {length - 4}
                 </button>
               )}
             </div>
@@ -86,25 +98,25 @@ const ImageGrid: FC<Props> = ({
 
       {isOpenLightbox && (
         <Lightbox
-          mainSrc={imagesRef.current[currentIndex]}
+          mainSrc={imagesLightboxList[currentIndex]}
           nextSrc={
-            (currentIndex + 1) % imagesRef.current.length > 0 &&
-            imagesRef.current[(currentIndex + 1) % imagesRef.current.length]
+            (currentIndex + 1) % imagesLightboxList.length > 0 &&
+            imagesLightboxList[(currentIndex + 1) % imagesLightboxList.length]
           }
           prevSrc={
-            (currentIndex + imagesRef.current.length - 1) % imagesRef.current.length <
-              imagesRef.current.length - 1 &&
-            imagesRef.current[
-              (currentIndex + imagesRef.current.length - 1) % imagesRef.current.length
+            (currentIndex + imagesLightboxList.length - 1) % imagesLightboxList.length <
+              imagesLightboxList.length - 1 &&
+            imagesLightboxList[
+              (currentIndex + imagesLightboxList.length - 1) % imagesLightboxList.length
             ]
           }
           onCloseRequest={() => setIsOpenLightbox(false)}
           onMovePrevRequest={() =>
             setCurrentIndex(
-              (currentIndex + imagesRef.current.length - 1) % imagesRef.current.length
+              (currentIndex + imagesLightboxList.length - 1) % imagesLightboxList.length
             )
           }
-          onMoveNextRequest={() => setCurrentIndex((currentIndex + 1) % imagesRef.current.length)}
+          onMoveNextRequest={() => setCurrentIndex((currentIndex + 1) % imagesLightboxList.length)}
           enableZoom={false}
           toolbarButtons={
             editMode
@@ -113,7 +125,9 @@ const ImageGrid: FC<Props> = ({
                     extraClass="overlay"
                     text={intl.formatMessage({ id: 'delete' })}
                     iconLeft={<Icon name="Trash" />}
-                    onClick={e => handleDeleteImage(e, items[currentIndex].id)}
+                    onClick={e => {
+                      handleDeleteImage(e, items[currentIndex]?.id);
+                    }}
                   />,
                 ]
               : undefined

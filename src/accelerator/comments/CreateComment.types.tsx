@@ -16,6 +16,7 @@ interface Props {
   scrapper: any;
   placeholderText?: string;
   images: any[];
+  galleryType: 'grid' | 'inline';
 }
 
 export interface CommentProps {
@@ -27,6 +28,7 @@ export interface CommentProps {
 }
 export interface ReplyProps {
   user: User;
+  comment?: any;
   handleChange(e: any): void;
   handlePostComment(data: any): void;
   text: string;

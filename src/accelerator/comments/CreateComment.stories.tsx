@@ -6,6 +6,7 @@ import Props from './CreateComment.types';
 import user from '../../../__mocks__/user';
 import scraperData from '../../../__mocks__/scraper';
 import image from '../../../__mocks__/image';
+import images from '../../../__mocks__/images';
 
 export default {
   title: 'Accelerator/Comment/Create',
@@ -46,13 +47,15 @@ const Template: Story<Props> = (args: Props) => {
   };
 
   const postUploadImages = (files: any[]) => {
-    const images = [...imagesList];
+    const newImages = [...imagesList];
     files.forEach((img, indx) => {
-      const newImage = { ...image, id: indx };
+      let newImage = {};
+      if (indx === 0) newImage = { ...image, id: indx, image: image.image };
+      else newImage = { ...image, id: indx, image: images[indx].image };
 
-      images.push(newImage);
+      newImages.push(newImage);
     });
-    setImagesList(images);
+    setImagesList(newImages);
   };
 
   return (
@@ -79,6 +82,7 @@ Default.args = {
   postDeleteFile: () => {},
   postDeleteImage: () => {},
   onDropError: () => {},
+  galleryType: 'grid',
 };
 
 Reply.args = {
@@ -90,4 +94,5 @@ Reply.args = {
   postDeleteFile: () => {},
   postDeleteImage: () => {},
   onDropError: () => {},
+  galleryType: 'inline',
 };
