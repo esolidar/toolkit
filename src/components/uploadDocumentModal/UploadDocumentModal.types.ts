@@ -17,7 +17,6 @@ export interface ModalBodyProps {
 
 interface Props {
   openModal?: boolean;
-  form: Form;
   handlOnCloseModal(): void;
   handleClickSave(form: Form): void;
   handleClickCancel(): void;

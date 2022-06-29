@@ -103,7 +103,7 @@ const Button = React.forwardRef(
                     {iconLeft}
                   </span>
                 )}
-                <span className="text">{text}</span>
+                {text && <span className="text">{text}</span>}
                 {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
                 {badge && <span className="btn-esolidar__badge">{badge}</span>}
               </span>
@@ -161,7 +161,7 @@ const Button = React.forwardRef(
                     {iconLeft}
                   </span>
                 )}
-                <span className="text">{text}</span>
+                {text && <span className="text">{text}</span>}
                 {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
                 {badge && <span className="btn-esolidar__badge">{badge}</span>}
               </span>
@@ -185,7 +185,7 @@ const Button = React.forwardRef(
                     {iconLeft}
                   </span>
                 )}
-                <span className="text">{text}</span>
+                {text && <span className="text">{text}</span>}
                 {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
                 {badge && <span className="btn-esolidar__badge">{badge}</span>}
               </span>
@@ -217,7 +217,7 @@ const Button = React.forwardRef(
                     {iconLeft}
                   </span>
                 )}
-                <span className="text">{text}</span>
+                {text && <span className="text">{text}</span>}
                 {iconRight && <span className="btn-esolidar__icon-right">{iconRight}</span>}
                 {badge && <span className="btn-esolidar__badge">{badge}</span>}
               </div>

@@ -36,6 +36,15 @@
   &__body {
     margin-right: auto;
 
+    &-url {
+      display: flex;
+      margin-bottom: $distance-2;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($neutrals, 700);
+    }
+
     &-title {
       display: flex;
       gap: $distance-1;
@@ -51,8 +60,12 @@
       font-weight: 400;
       font-size: 14px;
       line-height: 20px;
-      color: map-get($base, 700);
+      color: map-get($neutrals, 700);
       padding-bottom: $distance-2 !important;
+
+      &.no-margin {
+        padding-bottom: 0 !important;
+      }
     }
 
     &-helper {
