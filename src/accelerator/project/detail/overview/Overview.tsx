@@ -39,6 +39,7 @@ const Overview = ({
   } = company;
 
   const intl = useIntl();
+
   const [key, setKey] = useState<string>('about');
 
   const handleChangeTab = key => {
