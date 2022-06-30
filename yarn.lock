@@ -1740,10 +1740,10 @@
   resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
   integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
-"@esolidar/i18n@^0.356.0":
-  version "0.356.0"
-  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.356.0/4efab3db15b8dde3a12342cf53279f94b5ec1b164e35fad2e73c4d118bc0c107#968322498da2bf7962e4e4e3c076d032741f5d95"
-  integrity sha512-4sAzRrY7dRgjK2FC8VBLER4lnLxokBXNLmEeRIxEWA69psTZaJXXQ3Ln9GpXkvTSypW67hMjMQw9Ih5kYnpNTA==
+"@esolidar/i18n@^0.358.0":
+  version "0.358.0"
+  resolved "https://npm.pkg.github.com/download/@esolidar/i18n/0.358.0/e4ad91a39fe8652889948ddc29cbdbb8627ef31c2ad5566c4301d17363be1899#4a1b4da7452a2fb201c91b53ecf42d1e42050e69"
+  integrity sha512-NMMQiSmOvvNUMlESuIdQjFSaLWuI7kCoC+v2Rpm2WkNr+5crHBTo0tfjwWeQttvY1xGg2I+li64cTVNDtAm0Zw==
   dependencies:
     readline-sync "^1.4.10"
 
@@ -6717,10 +6717,15 @@ date-fns-tz@^1.1.3:
   resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-1.1.4.tgz#38282c2bfab08946a4e9bb89d733451e5525048b"
   integrity sha512-lQ+FF7xUxxRuRqIY7H/lagnT3PhhSnnvtGHzjE5WZKwRyLU7glJfLys05SZ7zHlEr6RXWiqkmgWq4nCkcElR+g==
 
-date-fns@^2.0.1, date-fns@^2.16.1:
+date-fns@^2.0.1:
   version "2.21.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.21.3.tgz#8f5f6889d7a96bbcc1f0ea50239b397a83357f9b"
   integrity sha512-HeYdzCaFflc1i4tGbj7JKMjM4cKGYoyxwcIIkHzNgCkX8xXDNJDZXgDDVchIWpN4eQc3lH37WarduXFZJOtxfw==
+
+date-fns@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
 
 de-indent@^1.0.2:
   version "1.0.2"

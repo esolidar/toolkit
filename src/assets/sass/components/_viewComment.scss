@@ -1,0 +1,35 @@
+.view-comment {
+  background: map-get($colors, white);
+  padding: $distance-3;
+  border: 1px solid map-get($neutrals, 200);
+  border-radius: $distance-1;
+
+  &__header {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  &__content {
+    margin-top: $distance-2;
+    color: map-get($base, black);
+  }
+
+  &__social {
+    font-size: 14px;
+    font-weight: 300;
+    color: map-get($neutrals, 700);
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background: map-get($neutrals, 200);
+  }
+
+  &--inline {
+    display: flex;
+    gap: $distance-2;
+    margin: $distance-2 0;
+  }
+}
