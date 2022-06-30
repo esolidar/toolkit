@@ -202,6 +202,13 @@ Link.args = {
   href: '#',
 };
 
+export const Overlay = Template.bind({});
+Overlay.args = {
+  extraClass: 'overlay',
+  target: '_blank',
+  href: '#',
+};
+
 const Grid = ({ children }) => (
   <div className="p-1 d-flex align-items-center flex-wrap" style={{ gap: '8px' }}>
     {children}

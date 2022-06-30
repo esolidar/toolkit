@@ -1,0 +1,80 @@
+.imageGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $distance-2;
+
+  &.displayInline {
+    flex-wrap: nowrap;
+  }
+
+  &__image {
+    position: relative;
+    display: inline-block;
+
+    .esolidar-preview__image img {
+      width: 100% !important;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .load-more {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: get-rgba(map-get($base, black), 65);
+      color: map-get($colors, white);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      opacity: 0.8;
+      z-index: 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0px;
+      border-radius: $border-radius-1;
+    }
+  }
+}
+.ReactModal__Content {
+  .ril__toolbarRightSide {
+    padding-right: $distance-2;
+
+    .ril__builtinButton {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .ril__caption,
+  .ril__toolbar {
+    background-color: transparent;
+  }
+  .ril__navButtons,
+  .ril-toolbar__item,
+  .ril-close {
+    outline: none;
+  }
+  .ril-next-button,
+  .ril-prev-button {
+    width: 40px;
+    height: 40px;
+    background-size: 10px;
+    background-position: center center;
+    background-color: get-rgba(map-get($colors, white), 16);
+    border-radius: 100%;
+    padding: 0px;
+  }
+  .ril-next-button {
+    right: 3%;
+  }
+  .ril-prev-button {
+    left: 3%;
+  }
+  .btn-overlay {
+    position: absolute;
+    top: 6px;
+    right: 56px;
+  }
+}
