@@ -17,6 +17,7 @@ interface Props {
   placeholderText?: string;
   images: any[];
   galleryType: 'grid' | 'inline';
+  reference?: any;
 }
 
 export interface CommentProps {
@@ -25,6 +26,7 @@ export interface CommentProps {
   handleChange(e: any): void;
   text: string;
   placeholderText?: string;
+  reference?: any;
 }
 export interface ReplyProps {
   user: User;
@@ -36,6 +38,7 @@ export interface ReplyProps {
   videoData: any;
   attachmentOptions: any;
   isDisabledAttachments: boolean;
+  reference?: any;
 }
 
 export default Props;

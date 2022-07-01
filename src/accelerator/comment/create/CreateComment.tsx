@@ -36,6 +36,7 @@ const CreateComment: FC<Props> = ({
   placeholderText,
   images,
   galleryType,
+  reference,
   onDropError,
 }: Props) => {
   const intl: IntlShape = useIntl();
@@ -180,6 +181,7 @@ const CreateComment: FC<Props> = ({
             text={text}
             handleChange={handleChange}
             placeholderText={placeholderText}
+            reference={reference}
           />
         )}
         {type === 'reply' && (
@@ -193,6 +195,7 @@ const CreateComment: FC<Props> = ({
             placeholderText={placeholderText}
             attachmentOptions={attachmentOptions}
             isDisabledAttachments={isDisabledAttachments}
+            reference={reference}
           />
         )}
 
@@ -377,6 +380,7 @@ const Comment: FC<CommentProps> = ({
   handleChange,
   text,
   placeholderText,
+  reference,
 }: CommentProps) => {
   return (
     <>
@@ -388,6 +392,7 @@ const Comment: FC<CommentProps> = ({
       {editMode && (
         <div className="feed-create-post-body" data-testid="body">
           <TextareaField
+            reference={reference}
             field="text"
             id="text"
             resize
@@ -414,6 +419,7 @@ const Reply: FC<ReplyProps> = ({
   handlePostComment,
   placeholderText,
   isDisabledAttachments,
+  reference,
 }: ReplyProps) => {
   const intl: IntlShape = useIntl();
   return (
@@ -421,6 +427,7 @@ const Reply: FC<ReplyProps> = ({
       <ProfileAvatar thumb={user?.thumbs?.thumb} thumbSize="md" />
       <div className="accelerator-comment-create__reply-input">
         <TextareaField
+          reference={reference}
           field="text"
           id="text"
           resize

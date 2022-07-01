@@ -4,7 +4,6 @@
   padding: $distance-3;
   border-radius: $border-radius-1;
   position: relative;
-  margin-bottom: $distance-3;
   box-shadow: map-get($elevation, 50);
 
   &.comment-reply-box {
