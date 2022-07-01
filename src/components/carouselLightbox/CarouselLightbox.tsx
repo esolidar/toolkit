@@ -31,13 +31,17 @@ const splitArrayIntoChunks = (array, size) => {
 
 const videoStopper = () => {
   if (typeof window !== 'undefined') {
-    document.querySelectorAll('iframe').forEach(video => {
-      video.src = video.src;
+    const containerElement = document.getElementById('carouselLightbox');
+    containerElement.querySelectorAll('iframe').forEach(v => {
+      v.src = v.src;
+    });
+    containerElement.querySelectorAll('video').forEach(v => {
+      v.pause();
     });
   }
 };
 
-const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX.Element => {
+const CarouselLightbox: FC<Props> = ({ listItems }: Props): JSX.Element => {
   const [position, setPosition] = useState<number>(0);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [thumbnails, setThumbnails] = useState<any>([]);
@@ -68,10 +72,6 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
   });
 
   useEffect(() => {
-    videoStopper();
-  }, [currentIndex]);
-
-  useEffect(() => {
     const size = isMobile ? 4 : 6;
     const thumbnailsImages = splitArrayIntoChunks(items, size);
     if (items.length > 1) {
@@ -79,6 +79,10 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
     }
     setThumbnailsNumber(size);
   }, []);
+
+  useEffect(() => {
+    videoStopper();
+  }, [currentIndex]);
 
   const setCorrectThumbnailList = thisIndex => {
     thumbnails.forEach((arrayItem, indx) => {
@@ -126,7 +130,7 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
 
   return (
     <>
-      <div className="carouselLightbox">
+      <div className="carouselLightbox" id="carouselLightbox">
         <div {...Swipehandlers} className="carouselLightbox__image-gallery-slides">
           {items.map((item, index) => {
             if (item.type === 'video') {
@@ -142,9 +146,9 @@ const CarouselLightbox: FC<Props> = ({ listItems, autoplay = true }: Props): JSX
                   <iframe
                     width="100%"
                     height="100%"
-                    src={`${item?.url}?autoplay=${autoplay && currentIndex === index}`}
+                    src={item?.url}
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title={item?.altTag}
                   />

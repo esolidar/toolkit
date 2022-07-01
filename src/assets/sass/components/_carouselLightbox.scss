@@ -37,16 +37,16 @@
       cursor: pointer;
     }
 
-    // &:hover {
-    //   cursor: pointer;
-    // box-shadow: 0 0 0 1px map-get($theme-colors, primary);
-    //   border: 1px solid map-get($theme-colors, primary);
+    &:hover {
+      cursor: pointer;
+      // box-shadow: 0 0 0 1px map-get($theme-colors, primary);
+      //   border: 1px solid map-get($theme-colors, primary);
 
-    //   .btn-gallery-left-nav,
-    //   .btn-gallery-right-nav {
-    //     display: flex;
-    //   }
-    // }
+      .btn-gallery-left-nav,
+      .btn-gallery-right-nav {
+        display: flex;
+      }
+    }
 
     .btn-gallery-left-nav,
     .btn-gallery-right-nav {
