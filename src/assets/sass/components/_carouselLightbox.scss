@@ -86,6 +86,7 @@
     position: relative;
     margin-top: 15px;
     margin-bottom: 1px;
+    gap: $distance-1;
 
     @media (max-width: map-get($breakpoints, sm)) {
       justify-content: space-between;
@@ -100,8 +101,6 @@
       cursor: pointer;
       border-radius: $border-radius-1;
       box-shadow: 0 0 0 1px get-rgba(map-get($base, black), 8);
-      margin-left: $distance-1 / 2;
-      margin-right: $distance-1 / 2;
       background: get-rgba(map-get($base, black), 8);
       object-fit: cover;
 
@@ -181,7 +180,7 @@
 
     .next-left {
       @extend .gradient;
-      left: 0;
+      left: -1px;
       background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 1) 0%,

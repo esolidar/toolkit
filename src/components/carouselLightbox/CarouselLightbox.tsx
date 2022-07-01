@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-self-assign */
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import ReactImageVideoLightbox from 'react-image-video-lightbox';
 import classnames from 'classnames';
@@ -51,6 +51,7 @@ const CarouselLightbox: FC<Props> = ({ listItems }: Props): JSX.Element => {
   const [thumbnailsNumber, setThumbnailsNumber] = useState<number>(6);
 
   const items = sortBy(listItems, 'type', 'desc');
+  const prevCurrentIndexRef = useRef(0);
 
   const Swipehandlers = useSwipeable({
     onSwipedLeft: () => {
@@ -81,7 +82,10 @@ const CarouselLightbox: FC<Props> = ({ listItems }: Props): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    videoStopper();
+    if (items[prevCurrentIndexRef.current]?.type === 'video') {
+      videoStopper();
+    }
+    prevCurrentIndexRef.current = currentIndex;
   }, [currentIndex]);
 
   const setCorrectThumbnailList = thisIndex => {
