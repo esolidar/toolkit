@@ -150,7 +150,7 @@ TextareaField.propTypes = {
   size: PropTypes.string,
   editButton: PropTypes.bool,
   inputLabelProps: PropTypes.object,
-  reference: PropTypes.string,
+  reference: PropTypes.object,
 };
 
 TextareaField.defaultProps = {

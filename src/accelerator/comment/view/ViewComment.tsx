@@ -1,4 +1,4 @@
-import React, { useState, useRef, FC } from 'react';
+import React, { useEffect, useState, useRef, FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import Props from './ViewComment.types';
 import ProfileAvatar from '../../../components/profileAvatar';
@@ -11,27 +11,35 @@ import ImageGrid from '../../../components/imageGrid';
 import FileCard from '../../../components/fileCard';
 import Preview from '../../../components/preview';
 import ShareModal from '../../../components/shareModal';
-import CreateComment from '../create';
-import user from '../../../../__mocks__/user';
+// import CreateComment from '../create';
 
 const ViewComment: FC<Props> = ({
   thumb,
   name,
   date,
-  dropdown,
   text,
-  social,
-  reply,
   images,
   preview,
   files,
   liked = false,
+  share,
+  likes = 0,
+  comments = 0,
 }: Props) => {
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
 
   const [isLiked, setIsLiked] = useState(liked);
+  // const [isReply, setIsReply] = useState(false);
   const [showShare, setShowShare] = useState(false);
+
+  useEffect(() => {
+    setIsLiked(liked);
+  }, [liked]);
+
+  // const handleReply = () => {
+  //   setIsReply(!isReply);
+  // };
 
   const handleLiked = () => {
     setIsLiked(!isLiked);
@@ -43,7 +51,7 @@ const ViewComment: FC<Props> = ({
 
   return (
     <>
-      <div className="view-comment">
+      <div className="view-comment view-comment--border">
         <div className="view-comment__header">
           <ProfileAvatar
             thumb={thumb}
@@ -51,19 +59,23 @@ const ViewComment: FC<Props> = ({
             date={dateDistance({ date, formatMessage: intl.formatMessage })}
             thumbSize="lg"
           />
-          {dropdown.length > 0 && <Dropdown items={dropdown} toggleIcon="MoreVertical" />}
+          <Dropdown items={[]} toggleIcon="MoreVertical" />
         </div>
 
         <div className="view-comment__content">
-          <ReadMoreText text={text} charLimit="512" />
+          <ReadMoreText text={text} charLimit={512} />
         </div>
-        {images.length > 0 && (
+
+        {images && images.length > 0 && (
           <ImageGrid items={images} type="grid" editMode={false} onDeleteImage={() => {}} />
         )}
-        {files.length > 0 &&
+
+        {files &&
+          files.length > 0 &&
           files.map(({ title, size }, key) => (
             <FileCard key={key} size={size} title={title} showDownloadButton />
           ))}
+
         {preview &&
           (preview.type === 'image' ? (
             <FileCard url={preview.url} title={preview.title} />
@@ -71,76 +83,69 @@ const ViewComment: FC<Props> = ({
             <Preview
               hover
               type="video"
-              videoDetails={{
-                providerName: 'youtube',
-                thumbnailUrl: 'url(https://img.youtube.com/vi/f7x5IeWi0v8/maxresdefault.jpg)',
-                title: 'Como fazer um Programa de Aceleração com a esolidar?',
-                videoUrl: '',
-              }}
-              videoUrl="https://youtu.be/f7x5IeWi0v8"
+              videoDetails={preview.videoDetails}
+              videoUrl={preview.videoUrl}
+              handleClickPreview={() => window.open(preview.videoUrl)}
             />
           ))}
-        {social && (
-          <>
-            <div className="view-comment__social view-comment--inline">
-              <div>0 likes</div>
-              <div>0 comments</div>
-            </div>
-            <div className="view-comment__line" />
-            <div className="view-comment--inline">
-              <Button
-                onClick={handleLiked}
-                extraClass={isLiked ? 'secondary view-comment--liked' : 'secondary'}
-                ghost
-                theme="dark"
-                text="Like"
-                iconLeft={<Icon name={isLiked ? 'ThumbsUpBold' : 'ThumbsUp'} />}
-              />
-              <Button
-                onClick={handleFocus}
-                extraClass="secondary"
-                ghost
-                theme="dark"
-                text="Comment"
-                iconLeft={<Icon name="Comment" />}
-              />
-              <Button
-                onClick={() => setShowShare(true)}
-                extraClass="secondary"
-                ghost
-                theme="dark"
-                text="Share"
-                iconLeft={<Icon name="Share3" />}
-              />
-            </div>
 
-            <CreateComment
-              reference={inputEl}
-              isAdmin={false}
-              user={user}
-              type="reply"
-              placeholderText="Leave a comment..."
-              postDeleteFile={() => {}}
-              postDeleteImage={() => {}}
-              onDropError={() => {}}
-              galleryType="inline"
-              files={[]}
-              scrapper={null}
-              handlePostComment={() => {}}
-              postUploadFiles={() => {}}
-              getScraper={() => {}}
-              postUploadImages={() => {}}
-              images={[]}
-            />
-          </>
-        )}
-        {reply && <Button extraClass="secondary" text="Reply" />}
+        <div className="view-comment__social view-comment--inline">
+          <div>{intl.formatMessage({ id: 'toolkit.comments.like' }, { value: likes })}</div>
+          <div>{intl.formatMessage({ id: 'toolkit.comments.comment' }, { value: comments })}</div>
+        </div>
+        <div className="view-comment__line" />
+        <div className="view-comment--inline">
+          <Button
+            onClick={handleLiked}
+            extraClass={isLiked ? 'secondary view-comment--liked' : 'secondary'}
+            ghost
+            theme="dark"
+            text={intl.formatMessage({ id: 'like' })}
+            iconLeft={<Icon name={isLiked ? 'ThumbsUpBold' : 'ThumbsUp'} />}
+          />
+          <Button
+            onClick={handleFocus}
+            extraClass="secondary"
+            ghost
+            theme="dark"
+            text={intl.formatMessage({ id: 'comment' })}
+            iconLeft={<Icon name="Comment" />}
+          />
+          <Button
+            onClick={() => setShowShare(true)}
+            extraClass="secondary"
+            ghost
+            theme="dark"
+            text={intl.formatMessage({ id: 'share' })}
+            iconLeft={<Icon name="Share3" />}
+          />
+        </div>
+
+        {/* <CreateComment
+              {...createCommentProps}
+              // reference={inputEl}
+              // isAdmin={false}
+              // user={user}
+              // type="reply"
+              // galleryType="inline"
+              // placeholderText={intl.formatMessage({ id: 'commentHere' })}
+              // postDeleteFile={() => {}}
+              // postDeleteImage={() => {}}
+              // onDropError={() => {}}
+              // files={[]}
+              // scrapper={null}
+              // handlePostComment={() => {}}
+              // postUploadFiles={() => {}}
+              // getScraper={() => {}}
+              // postUploadImages={() => {}}
+              // images={[]}
+            /> */}
       </div>
 
       <ShareModal
         openModal={showShare}
-        title="Esolidar be the change"
-        windowLocationHref="https://www.bethechange.esolidar.com/pt/needs/crowdfunding/detail/174-apoie-as-pessoas-diretamente-afetadas-pela-guerra-na-ucrania"
+        title={share?.title}
+        windowLocationHref={share?.url}
         showFacebook
         showTwitter
         showLinkedin

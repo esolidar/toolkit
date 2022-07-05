@@ -2,6 +2,7 @@
 import { Story, Meta } from '@storybook/react';
 import ViewComment from './ViewComment';
 import Props from './ViewComment.types';
+import user from '../../../../__mocks__/user';
 
 export default {
   title: 'Accelerator/Comment/View',
@@ -31,71 +32,28 @@ Default.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      href: '#/action-2',
-      id: 0,
-      leftIcon: '',
-      text: 'Report',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Block',
-      text: 'Block person',
-    },
-    {
-      href: '#/action-3',
-      id: 2,
-      leftIcon: 'Trash',
-      text: 'Delete',
-    },
-  ],
-  social: true,
-  reply: false,
-  files: [],
-  images: [],
-  preview: null,
+  likes: 2,
+  comments: 1,
+  liked: false,
+  share: {
+    title: 'Esolidar Comment',
+    url: 'https://www.esolidar.com',
+  },
   text,
+  user,
 };
 
 ImageSingle.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      id: 0,
-      leftIcon: 'Edit2',
-      onClick: () => {},
-      rightIcon: 'ExternalLink',
-      text: 'Action',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Share3',
-      text: 'Another action',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 3,
-      leftIcon: 'Trash',
-      text: 'Something else',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 4,
-      rightIcon: 'Lock',
-      show: false,
-      text: 'Hidden',
-    },
-  ],
-  social: true,
-  reply: false,
-  files: [],
+  likes: 2,
+  comments: 1,
+  liked: false,
+  share: {
+    title: 'Esolidar Comment',
+    url: 'https://www.esolidar.com',
+  },
   images: [
     {
       created_at: '2022-06-23 16:04:57',
@@ -106,7 +64,6 @@ ImageSingle.args = {
       streamImage: 'amazons3',
     },
   ],
-  preview: null,
   text,
 };
 
@@ -114,39 +71,13 @@ ImageMultiple.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      id: 0,
-      leftIcon: 'Edit2',
-      onClick: () => {},
-      rightIcon: 'ExternalLink',
-      text: 'Action',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Share3',
-      text: 'Another action',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 3,
-      leftIcon: 'Trash',
-      text: 'Something else',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 4,
-      rightIcon: 'Lock',
-      show: false,
-      text: 'Hidden',
-    },
-  ],
-  social: true,
-  reply: false,
-  files: [],
+  likes: 2,
+  comments: 1,
+  liked: false,
+  share: {
+    title: 'Esolidar Comment',
+    url: 'https://www.esolidar.com',
+  },
   images: [
     {
       created_at: '2022-06-23 16:04:57',
@@ -158,14 +89,21 @@ ImageMultiple.args = {
     },
     {
       created_at: '2022-06-23 16:04:57',
-      id: 867,
+      id: 869,
+      image: 'https://picsum.photos/id/1018/1000/600/',
+      image_size: null,
+      image_type: null,
+      streamImage: 'amazons3',
+    },
+    {
+      created_at: '2022-06-23 16:04:57',
+      id: 879,
       image: 'https://picsum.photos/id/1018/1000/600/',
       image_size: null,
       image_type: null,
       streamImage: 'amazons3',
     },
   ],
-  preview: null,
   text,
 };
 
@@ -173,49 +111,22 @@ PreviewVideo.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      id: 0,
-      leftIcon: 'Edit2',
-      onClick: () => {},
-      rightIcon: 'ExternalLink',
-      text: 'Action',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Share3',
-      text: 'Another action',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 3,
-      leftIcon: 'Trash',
-      text: 'Something else',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 4,
-      rightIcon: 'Lock',
-      show: false,
-      text: 'Hidden',
-    },
-  ],
-  social: true,
-  reply: false,
-  files: [],
-  images: [],
+  likes: 2,
+  comments: 1,
+  liked: false,
+  share: {
+    title: 'Esolidar Comment',
+    url: 'https://www.esolidar.com',
+  },
   preview: {
     type: 'video',
+    videoUrl: 'https://youtu.be/f7x5IeWi0v8',
     videoDetails: {
       providerName: 'youtube',
       thumbnailUrl: 'url(https://img.youtube.com/vi/f7x5IeWi0v8/maxresdefault.jpg)',
       title: 'Como fazer um Programa de Aceleração com a esolidar?',
       videoUrl: '',
     },
-    videoUrl: 'https://youtu.be/f7x5IeWi0v8',
   },
   text,
 };
@@ -224,40 +135,10 @@ PreviewWebsite.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      id: 0,
-      leftIcon: 'Edit2',
-      onClick: () => {},
-      rightIcon: 'ExternalLink',
-      text: 'Action',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Share3',
-      text: 'Another action',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 3,
-      leftIcon: 'Trash',
-      text: 'Something else',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 4,
-      rightIcon: 'Lock',
-      show: false,
-      text: 'Hidden',
-    },
-  ],
-  social: true,
-  reply: false,
-  files: [],
-  images: [],
+  share: {
+    title: 'Esolidar Comment',
+    url: 'https://www.esolidar.com',
+  },
   preview: {
     type: 'image',
     url: 'www.esolidar.com',
@@ -270,43 +151,9 @@ Files.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
   date: new Date('2022-06-21 15:20:47'),
-  dropdown: [
-    {
-      id: 0,
-      leftIcon: 'Edit2',
-      onClick: () => {},
-      rightIcon: 'ExternalLink',
-      text: 'Action',
-    },
-    {
-      href: '#/action-2',
-      id: 1,
-      leftIcon: 'Share3',
-      text: 'Another action',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 3,
-      leftIcon: 'Trash',
-      text: 'Something else',
-    },
-    {
-      disabled: true,
-      href: '#/action-3',
-      id: 4,
-      rightIcon: 'Lock',
-      show: false,
-      text: 'Hidden',
-    },
-  ],
-  social: true,
-  reply: false,
   files: [
     { title: 'Teste.pdf', size: '1231' },
     { title: 'Teste.pdf', size: '1231' },
   ],
-  images: [],
-  preview: null,
   text,
 };
