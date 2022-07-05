@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.139.0](https://github.com/esolidar/toolkit/compare/v4.126.0...v4.139.0) Released: ER2226 / 01st June 2022 -> 05th July 2022
+
+### New features
+
+- Create CardProjectDetail component [`ENG-1646`](https://github.com/esolidar/toolkit/pulls?q=ENG-1646)
+- Create ProjectDetail view [`ENG-1649`](https://github.com/esolidar/toolkit/pulls?q=ENG-1649)
+- Add follow feature to the ProjectDetailCard component [`ENG-1652`](https://github.com/esolidar/toolkit/pulls?q=ENG-1652)
+
+### Enhancements
+
+- Improve some styles that are not working in Safari [`ENG-2022`](https://github.com/esolidar/toolkit/pulls?q=ENG-2022)
+- Enhancing accessibility in dropdown, table and card [`ENG-2037`](https://github.com/esolidar/toolkit/pulls?q=ENG-2037)
+- Remove autoplay from CarouselLightbox [`ENG-2078`](https://github.com/esolidar/toolkit/pulls?q=ENG-2078)
+  <br>
+  <br>
+
 ## [v4.126.0](https://github.com/esolidar/toolkit/compare/v4.122.0...v4.126.0) Released: ER2217 / 19th April 2022 -> 29th April 2022
 
 ### New features
