@@ -1,17 +1,23 @@
+/* eslint-disable camelcase */
+import User from '../../interfaces/user.types';
 import CreateComment from '../comment/create/CreateComment.types';
 
-export interface NoteSingleProps {
-  thumb: string;
-  name: string;
-  date: Date;
+interface Note {
+  user: User;
+  created_at: string;
   text: string;
-  createCommentArgs: CreateComment;
   images?: any[];
   preview?: any;
   files?: any[];
-  reply?: boolean;
-  repliesTotal?: number;
+  repliesCount?: number;
   replies?: any[];
+  scraping_data: any;
+}
+
+export interface NoteSingleProps {
+  note: Note;
+  createCommentArgs: CreateComment;
+  reply?: boolean;
 }
 
 interface Props {
