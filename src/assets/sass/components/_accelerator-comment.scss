@@ -1,0 +1,114 @@
+.accelerator-comment-create {
+  max-width: map-get($widths, xl);
+  border: 1px solid map-get($neutrals, 400);
+  padding: $distance-3;
+  border-radius: $border-radius-1;
+  position: relative;
+  margin-bottom: $distance-3;
+  box-shadow: map-get($elevation, 50);
+
+  &.comment-reply-box {
+    padding: $distance-2;
+  }
+
+  .placeholder-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: map-get($neutrals, 700);
+  }
+
+  &:hover {
+    @include animate();
+    box-shadow: 0 0 0 2px map-get($turquoise, 500) !important;
+    border: 1px solid transparent;
+  }
+
+  .text-area-field {
+    margin-bottom: 0;
+
+    .relative .form-control {
+      box-shadow: none !important;
+      border: none !important;
+      padding: 0;
+      margin-top: $distance-2;
+      min-height: $distance-3 !important;
+      caret-color: map-get($turquoise, 300);
+      line-height: $distance-3;
+
+      &::placeholder {
+        color: map-get($neutrals, 700);
+      }
+
+      &:hover {
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: $distance-2;
+    display: flex;
+    gap: $distance-2;
+
+    .esolidar-dropdown {
+      margin-right: auto;
+      .btn-esolidar__icon-left,
+      .btn-esolidar__icon-right {
+        @include svg-change-color(map-get($neutrals, 700));
+      }
+    }
+  }
+
+  &__attachments {
+    display: flex;
+    flex-direction: column;
+    gap: $distance-2;
+
+    &-images {
+      margin-top: $distance-2;
+    }
+
+    .file-card:first-child {
+      margin-top: $distance-3;
+    }
+
+    &-channel {
+      padding-left: $distance-1;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: map-get($neutrals, 700);
+    }
+  }
+
+  &__reply {
+    display: flex;
+    gap: $distance-2;
+    align-items: flex-start;
+
+    .profile-avatar__info {
+      &.margin {
+        margin-left: 0;
+      }
+    }
+
+    &-input {
+      flex: 1;
+      margin-top: 4px;
+
+      .text-area-field {
+        margin-bottom: 0;
+
+        .relative .form-control {
+          margin-top: 0 !important;
+          min-height: $distance-2 !important;
+          height: 24px;
+          overflow-y: hidden !important;
+          border-radius: 0 !important;
+        }
+      }
+    }
+  }
+}

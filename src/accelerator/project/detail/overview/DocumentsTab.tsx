@@ -61,7 +61,7 @@ const DocumentsTab = ({
               size={file.file_size}
               title={file.name}
               subtitle={file.description}
-              dateUploaded={formatDate(file.updated_at, intl.locale, { showHours: true })}
+              dateUploaded={formatDate(file.updated_at, intl.locale)}
               showDownloadButton
               file={file.file}
               showBadgePrivate={!file.public}

@@ -42,6 +42,7 @@ const Overview = ({
   } = company;
 
   const intl = useIntl();
+
   const [key, setKey] = useState<string>('about');
 
   const handleChangeTab = key => {
@@ -180,14 +181,8 @@ const Overview = ({
             organizedBy={{
               thumb: companyImage,
               name: companyName,
-              buttonUrl: `https://${host}${getRoute.public.accelerator.program.DETAIL(
-                locale,
-                program.id
-              )}`,
-              href: `https://${host}${getRoute.public.accelerator.program.DETAIL(
-                locale,
-                program.id
-              )}`,
+              buttonUrl: `${host}${getRoute.public.accelerator.program.DETAIL(locale, program.id)}`,
+              href: `${host}${getRoute.public.accelerator.program.DETAIL(locale, program.id)}`,
             }}
             rating={project.last_review}
             status={project.status}

@@ -66,12 +66,10 @@ const UploadDocumentModal: FC<Props> = ({
           <Button
             extraClass="dark"
             onClick={handleClickClose}
-            size="md"
             text={intl.formatMessage({ id: 'cancel' })}
           />
           <Button
             extraClass="primary-full"
-            size="md"
             text={intl.formatMessage({ id: 'save' })}
             onClick={handleClickSave}
             disabled={!form.file || !form.name}

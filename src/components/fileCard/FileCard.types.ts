@@ -1,7 +1,8 @@
 interface Props {
   showDownloadButton?: boolean;
   title: string;
-  subtitle?: string;
+  url?: string;
+  subtitle?: string | JSX.Element;
   dropdownItems?: any;
   disabled?: boolean;
   className?: string;
@@ -9,7 +10,7 @@ interface Props {
   file?: string;
   showBadgePrivate?: boolean;
   showBadgeFailed?: boolean;
-  size: string | number;
+  size?: string | number;
   dateUploaded?: string;
 }
 

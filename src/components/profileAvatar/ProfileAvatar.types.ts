@@ -7,6 +7,7 @@ interface Props {
   buttonUrl?: string;
   buttonText?: string;
   buttonIconRight?: JSX.Element;
+  className?: string;
 }
 
 export default Props;

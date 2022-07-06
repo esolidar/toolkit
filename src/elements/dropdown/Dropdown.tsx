@@ -15,6 +15,7 @@ const Dropdown: FC<Props> = ({
   toggleIcon = 'MoreVertical',
   id = '0',
   items,
+  disabled = false,
   dropAlign = 'left',
 }: Props): JSX.Element => {
   const handleClick = item => {
@@ -25,7 +26,11 @@ const Dropdown: FC<Props> = ({
 
   return (
     <DropdownBTS className="esolidar-dropdown">
-      <DropdownBTS.Toggle as={CustomToggle} id={`dropdown-custom-components-${id}`}>
+      <DropdownBTS.Toggle
+        as={CustomToggle}
+        disabled={disabled}
+        id={`dropdown-custom-components-${id}`}
+      >
         {customButton || defaultButton(toggleIcon)}
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu" align={dropAlign}>

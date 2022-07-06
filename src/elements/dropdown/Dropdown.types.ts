@@ -17,6 +17,7 @@ interface Props {
   customButton?: JSX.Element;
   toggleIcon?: string;
   id?: string;
+  disabled?: boolean;
   items: Item[];
   dropAlign?: 'left' | 'right';
 }

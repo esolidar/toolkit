@@ -53,6 +53,7 @@ const DropZoneBox = ({
   minHeight,
   fullWidth = false,
   onDropError,
+  isDropZoneOpen,
 }) => {
   const [errorList, setErrorList] = useState([]);
   const [cropperModal, setCropperModal] = useState(cropModalStatus || false);
@@ -286,6 +287,11 @@ const DropZoneBox = ({
     },
   });
 
+  useEffect(() => {
+    // eslint-disable-next-line no-param-reassign
+    if (isDropZoneOpen) isDropZoneOpen.current = open;
+  }, []);
+
   const handleSubmitCroppedImage = blob => {
     onSelect([blob]);
     toggleModalCropper();
@@ -388,31 +394,37 @@ const DropZoneBox = ({
               <Button
                 extraClass="success-full"
                 onClick={() => {
-                  cropper.current.getCroppedCanvas().toBlob(
-                    blob => {
-                      const imageWidth = cropper.current.getCroppedCanvas().width;
-                      const imageHeight = cropper.current.getCroppedCanvas().height;
-                      if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
-                        setDisableCroppedImage(true);
-                        handleSubmitCroppedImage(blob);
-                        setErrorList([]);
-                      } else {
-                        const errors = [];
-                        errors.push({
-                          name: '',
-                          errors: [
-                            `${
-                              errorMessages.find(messageObj => messageObj.id === 'dimensions')
-                                .message
-                            }`,
-                          ],
-                        });
-                        setErrorList(errors);
-                      }
-                    },
-                    'image/jpeg',
-                    0.7
-                  );
+                  cropper.current
+                    .getCroppedCanvas({
+                      width: cropper.current.getCroppedCanvas().width.toFixed(),
+                      height: cropper.current.getCroppedCanvas().height.toFixed(),
+                    })
+                    .toBlob(
+                      blob => {
+                        const imageWidth = cropper.current.getCroppedCanvas().width;
+                        const imageHeight = cropper.current.getCroppedCanvas().height;
+
+                        if (imageWidth >= cropMinWidth && imageHeight >= cropMinHeight) {
+                          setDisableCroppedImage(true);
+                          handleSubmitCroppedImage(blob);
+                          setErrorList([]);
+                        } else {
+                          const errors = [];
+                          errors.push({
+                            name: '',
+                            errors: [
+                              `${
+                                errorMessages.find(messageObj => messageObj.id === 'dimensions')
+                                  .message
+                              }`,
+                            ],
+                          });
+                          setErrorList(errors);
+                        }
+                      },
+                      'image/jpeg',
+                      0.7
+                    );
                 }}
                 text={textSaveCropModal || intl.formatMessage({ id: 'save' })}
                 disabled={disableCroppedImage}
@@ -544,6 +556,7 @@ DropZoneBox.propTypes = {
   minHeight: PropTypes.number,
   handleOrderImages: PropTypes.func,
   onDropError: PropTypes.func,
+  isDropZoneOpen: PropTypes.object,
 };
 
 DropZoneBox.defaultProps = {
