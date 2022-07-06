@@ -83,6 +83,8 @@ Default.args = {
   postDeleteImage: () => {},
   onDropError: () => {},
   galleryType: 'grid',
+  closedCommentRef: { current: null },
+  handleCleanComment: () => {},
 };
 
 Reply.args = {
@@ -95,4 +97,6 @@ Reply.args = {
   postDeleteImage: () => {},
   onDropError: () => {},
   galleryType: 'inline',
+  closedCommentRef: { current: null },
+  handleCleanComment: () => {},
 };
