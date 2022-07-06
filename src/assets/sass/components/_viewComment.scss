@@ -99,6 +99,10 @@
     padding: 0;
     height: auto;
   }
+
+  .read-more--gradient {
+    padding-top: $distance-2;
+  }
 }
 
 body .view-comment:not(:last-child):after {

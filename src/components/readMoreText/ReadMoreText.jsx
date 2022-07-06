@@ -10,6 +10,7 @@ const ReadMoreText = ({
   readMoreTextTranslation,
   readLessTextTranslation,
   showReadMoreLink = true,
+  gradient = false,
 }) => {
   const [showReadMoreButton, setShowReadMoreButton] = useState(true);
   const [showReadLessButton, setShowReadLessButton] = useState(false);
@@ -22,21 +23,23 @@ const ReadMoreText = ({
       {readMore ? (
         <>
           {showReadMoreButton && (
-            <>
+            <div className="read-more">
               {`${result.substr(0, charLimit)}... `}
               {showReadMoreLink && (
-                <Button
-                  extraClass="link"
-                  className="px-0"
-                  onClick={() => {
-                    setShowReadMoreButton(false);
-                    setShowReadLessButton(true);
-                  }}
-                  text={readMoreTextTranslation}
-                  size="sm"
-                />
+                <div className={gradient ? 'read-more--gradient' : ''}>
+                  <Button
+                    extraClass="link"
+                    className="px-0"
+                    onClick={() => {
+                      setShowReadMoreButton(false);
+                      setShowReadLessButton(true);
+                    }}
+                    text={readMoreTextTranslation}
+                    size="sm"
+                  />
+                </div>
               )}
-            </>
+            </div>
           )}
           {showReadLessButton && (
             <>
@@ -67,6 +70,7 @@ ReadMoreText.propTypes = {
   readMoreTextTranslation: PropTypes.string,
   readLessTextTranslation: PropTypes.string,
   showReadMoreLink: PropTypes.bool,
+  gradient: PropTypes.bool,
 };
 
 ReadMoreText.defaultProps = {

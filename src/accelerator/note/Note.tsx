@@ -119,7 +119,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
       </div>
 
       <div className="view-comment__content">
-        <ReadMoreText text={text} charLimit={512} />
+        <ReadMoreText text={text} charLimit={512} gradient={true} />
       </div>
 
       {images && images.length > 0 && (
