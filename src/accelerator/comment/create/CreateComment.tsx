@@ -44,7 +44,7 @@ const CreateComment: FC<Props> = ({
   const intl: IntlShape = useIntl();
   const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
-  const [filesData, setFilesData] = useState<any[]>(files);
+  const [filesData, setFilesData] = useState<any[]>(files || []);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
   const [imageList, setImageList] = useState<any>(images || []);
   const [isOpenModalUploads, setIsOpenModalUploads] = useState<boolean>(false);
