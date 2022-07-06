@@ -13,38 +13,34 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => <Dropdown {...args} />;
-export const Tooltip = Template.bind({});
-export const CustomButton = Template.bind({});
 
 export const Default = Template.bind({});
+export const CustomButton = Template.bind({});
+export const Tooltip = Template.bind({});
+
 Default.args = {
   items: [
     {
-      id: 0,
       text: 'Action',
       leftIcon: 'Edit2',
       rightIcon: 'ExternalLink',
       onClick: () => alert('You clicked first item!'),
     },
     {
-      id: 2,
       divider: true,
     },
     {
-      id: 1,
       text: 'Another action',
       leftIcon: 'Share3',
       href: '#/action-2',
     },
     {
-      id: 3,
       leftIcon: 'Trash',
       text: 'Something else',
       href: '#/action-3',
       disabled: true,
     },
     {
-      id: 4,
       text: 'Hidden',
       rightIcon: 'Lock',
       href: '#/action-3',
@@ -55,51 +51,29 @@ Default.args = {
   toggleIcon: 'MoreVertical',
 };
 
-Tooltip.args = {
-  items: [
-    {
-      id: 0,
-      text: 'Action',
-      leftIcon: 'Edit2',
-      rightIcon: 'ExternalLink',
-      onClick: () => alert('You clicked first item!'),
-      tooltip: {
-        overlay: 'delete',
-        placement: 'top',
-        displayNone: false,
-      },
-    },
-  ],
-};
-
 CustomButton.args = {
   items: [
     {
-      id: 0,
       text: 'Action',
       leftIcon: 'Edit2',
       rightIcon: 'ExternalLink',
       onClick: () => alert('You clicked first item!'),
     },
     {
-      id: 2,
       divider: true,
     },
     {
-      id: 1,
       text: 'Another action',
       leftIcon: 'Share3',
       href: '#/action-2',
     },
     {
-      id: 3,
       leftIcon: 'Trash',
       text: 'Something else',
       href: '#/action-3',
       disabled: true,
     },
     {
-      id: 4,
       text: 'Hidden',
       rightIcon: 'Lock',
       href: '#/action-3',
@@ -114,4 +88,32 @@ CustomButton.args = {
       icon={<Icon name="MoreVertical" size="sm" dataTestId="customButton" />}
     />
   ),
+};
+
+Tooltip.args = {
+  items: [
+    {
+      text: 'Enabled option',
+      leftIcon: 'Edit2',
+      rightIcon: 'Lock',
+      onClick: () => alert('You clicked first item!'),
+      disabled: false,
+      tooltip: {
+        overlay: 'delete',
+        placement: 'top',
+        displayNone: false,
+      },
+    },
+    {
+      text: 'Disabled option',
+      leftIcon: 'Edit2',
+      onClick: () => alert('You clicked first item!'),
+      disabled: true,
+      tooltip: {
+        overlay: 'delete',
+        placement: 'top',
+        displayNone: false,
+      },
+    },
+  ],
 };

@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 export interface Form {
-  name: string;
   description?: string;
   file: string;
-  public?: boolean;
+  fileName?: string;
   file_size?: number;
   file_type?: string;
-  fileName?: string;
+  name: string;
+  public?: boolean;
 }
 
 export interface ModalBodyProps {
@@ -17,10 +17,8 @@ export interface ModalBodyProps {
 
 interface Props {
   openModal?: boolean;
-  form: Form;
-  handlOnCloseModal(): void;
-  handleClickSave(form: Form): void;
-  handleClickCancel(): void;
+  onCloseModal(): void;
+  onClickSave(form: Form): void;
 }
 
 export default Props;

@@ -32,7 +32,7 @@ export const getRoute = {
       },
     },
     auth: {
-      REGISTER: (locale: string, data?: string) =>
+      REGISTER: (locale: string, data: string = '') =>
         locale ? `/${locale}/auth/register${data && data}` : `/auth/register${data && data}`,
     },
     needs: {
@@ -44,7 +44,7 @@ export const getRoute = {
     accelerator: {
       program: {
         LIST: (locale: string) => (locale ? `/${locale}/user/accelerator` : `/user/accelerator`),
-        DETAIL: (locale: string, programId: string | number, filters?: string) =>
+        DETAIL: (locale: string, programId: string | number, filters: string = '') =>
           locale
             ? `/${locale}/user/accelerator/${programId}${filters && filters}`
             : `/user/accelerator/${programId}${filters && filters}`,

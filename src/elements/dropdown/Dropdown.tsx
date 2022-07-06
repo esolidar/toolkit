@@ -29,20 +29,20 @@ const Dropdown: FC<Props> = ({
         {customButton || defaultButton(toggleIcon)}
       </DropdownBTS.Toggle>
       <DropdownBTS.Menu className="esolidar-dropdown__menu" align={dropAlign}>
-        {filteredItems.map(item => {
+        {filteredItems.map((item, index) => {
           if (item.divider)
-            return <DropdownBTS.Divider className="esolidar-dropdown__divider" key={item.id} />;
-          if (item.tooltip && item.show) {
+            return <DropdownBTS.Divider className="esolidar-dropdown__divider" key={index} />;
+          if (item.show && item.tooltip && !item.disabled)
             return (
               <Tooltip
-                key={item.id}
+                key={index}
                 tooltipBodyChild={
                   <DropdownBTS.Item
-                    key={item.id}
+                    key={index}
                     className="esolidar-dropdown__item"
                     href={item.href}
                     onClick={() => handleClick(item)}
-                    disabled={item.disabled}
+                    disabled={false}
                   >
                     {item.leftIcon && <Icon name={item.leftIcon} size="sm" />}
                     <span className="esolidar-dropdown__item--text">{item.text}</span>
@@ -54,11 +54,33 @@ const Dropdown: FC<Props> = ({
                 displayNone={item.tooltip?.displayNone}
               />
             );
-          }
+          if (item.show && item.tooltip && item.disabled)
+            return (
+              <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                <DropdownBTS.Item
+                  className="esolidar-dropdown__item"
+                  href={item.href}
+                  onClick={() => handleClick(item)}
+                  disabled={true}
+                >
+                  {item.leftIcon && <Icon name={item.leftIcon} size="sm" />}
+                  <span className="esolidar-dropdown__item--text">{item.text}</span>
+                </DropdownBTS.Item>
+                <Tooltip
+                  tooltipBodyChild={
+                    <Icon name="InfoBold" size="sm" style={{ marginRight: '16px' }} />
+                  }
+                  overlay={<span>{item.tooltip?.overlay}</span>}
+                  placement={item.tooltip?.placement}
+                  displayNone={item.tooltip?.displayNone}
+                />
+              </div>
+            );
+
           if (item.show)
             return (
               <DropdownBTS.Item
-                key={item.id}
+                key={index}
                 className="esolidar-dropdown__item"
                 href={item.href}
                 onClick={() => handleClick(item)}

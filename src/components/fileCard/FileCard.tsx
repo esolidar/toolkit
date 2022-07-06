@@ -37,11 +37,7 @@ const FileCard = ({
   const helper = [convertFileSize(Number(size))];
 
   if (isDefined(dateUploaded))
-    helper.unshift(
-      `${intl.formatMessage({
-        id: 'toolkit.uploaded-on',
-      })} ${dateUploaded}`
-    );
+    helper.unshift(`${intl.formatMessage({ id: 'toolkit.uploaded-on' })} ${dateUploaded}`);
 
   return (
     <div className={classes}>
