@@ -37,10 +37,13 @@ const CreateComment: FC<Props> = ({
   images,
   galleryType,
   reference,
+  closedCommentRef,
   onDropError,
+  handleCleanComment,
 }: Props) => {
   const intl: IntlShape = useIntl();
-  const [editMode, setEditMode] = useState<boolean>(false);
+  const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const [filesData, setFilesData] = useState<any[]>(files);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
   const [imageList, setImageList] = useState<any>(images || []);
@@ -58,6 +61,11 @@ const CreateComment: FC<Props> = ({
   useEffect(() => {
     setUrlData(scrapper);
   }, [scrapper]);
+
+  useEffect(() => {
+    // eslint-disable-next-line no-param-reassign
+    closedCommentRef.current = handleClickCancel;
+  }, []);
 
   useEffect(() => {
     setImageList(images);
@@ -113,6 +121,8 @@ const CreateComment: FC<Props> = ({
     setUrlData(null);
     setImageList([]);
     setFilesData([]);
+    setIsButtonDisabled(false);
+    handleCleanComment();
   };
 
   const handleDeleteFile = (id: number) => {
@@ -128,7 +138,7 @@ const CreateComment: FC<Props> = ({
   };
 
   useEffect(() => {
-    isDropZoneOpen.current();
+    if (fileType) isDropZoneOpen.current();
   }, [fileType]);
 
   const handleAddImages = () => {
@@ -145,14 +155,14 @@ const CreateComment: FC<Props> = ({
     {
       id: 1,
       leftIcon: 'Image',
-      onClick: handleAddImages,
+      onClick: () => handleAddImages(),
       show: true,
       text: intl.formatMessage({ id: 'toolkit.add.images' }),
     },
     {
       id: 2,
       leftIcon: 'Attachment',
-      onClick: handleAddFiles,
+      onClick: () => handleAddFiles(),
       show: true,
       text: intl.formatMessage({ id: 'toolkit.add.documents' }),
     },
@@ -187,11 +197,8 @@ const CreateComment: FC<Props> = ({
         {type === 'reply' && (
           <Reply
             user={user}
-            comment={comment}
             text={text}
             handleChange={handleChange}
-            videoData={videoData}
-            handlePostComment={handlePostComment}
             placeholderText={placeholderText}
             attachmentOptions={attachmentOptions}
             isDisabledAttachments={isDisabledAttachments}
@@ -270,37 +277,41 @@ const CreateComment: FC<Props> = ({
                 />
               )}
             </div>
-            {type === 'comment' && (
-              <div className="accelerator-comment-create__buttons">
-                <Dropdown
-                  items={attachmentOptions}
-                  disabled={isDisabledAttachments}
-                  customButton={
-                    <Button
-                      extraClass="secondary"
-                      className="attachment-btn"
-                      disabled={isDisabledAttachments}
-                      iconLeft={<Icon name="Plus" size="sm" />}
-                      iconRight={<Icon name="Attachment" size="sm" />}
-                    />
-                  }
-                />
-                <Button
-                  extraClass="secondary"
-                  dataTestId="cancel-btn"
-                  onClick={handleClickCancel}
-                  size="md"
-                  text={intl.formatMessage({ id: 'cancel' })}
-                />
-                <Button
-                  extraClass="primary-full"
-                  onClick={() => handlePostComment({ text, video: videoData })}
-                  size="md"
-                  disabled={text.length === 0}
-                  text={intl.formatMessage({ id: 'feed.create.post' })}
-                />
-              </div>
-            )}
+            {/* {type === 'comment' && ( */}
+            <div className="accelerator-comment-create__buttons">
+              <Dropdown
+                items={attachmentOptions}
+                disabled={isDisabledAttachments}
+                customButton={
+                  <Button
+                    size={type === 'comment' ? 'md' : 'sm'}
+                    extraClass="secondary"
+                    className="attachment-btn"
+                    disabled={isDisabledAttachments}
+                    iconLeft={<Icon name="Plus" size="sm" />}
+                    iconRight={<Icon name="Attachment" size="sm" />}
+                  />
+                }
+              />
+              <Button
+                extraClass="secondary"
+                dataTestId="cancel-btn"
+                onClick={handleClickCancel}
+                size={type === 'comment' ? 'md' : 'sm'}
+                text={intl.formatMessage({ id: 'cancel' })}
+              />
+              <Button
+                extraClass="primary-full"
+                onClick={() => {
+                  setIsButtonDisabled(true);
+                  handlePostComment({ text, video: videoData, comment });
+                }}
+                size={type === 'comment' ? 'md' : 'sm'}
+                disabled={text.length === 0 || isButtonDisabled}
+                text={intl.formatMessage({ id: 'feed.create.post' })}
+              />
+            </div>
+            {/* )} */}
           </>
         )}
       </div>
@@ -410,18 +421,12 @@ const Comment: FC<CommentProps> = ({
 };
 
 const Reply: FC<ReplyProps> = ({
-  comment,
   user,
   handleChange,
   text,
-  attachmentOptions,
-  videoData,
-  handlePostComment,
   placeholderText,
-  isDisabledAttachments,
   reference,
 }: ReplyProps) => {
-  const intl: IntlShape = useIntl();
   return (
     <div className="accelerator-comment-create__reply">
       <ProfileAvatar thumb={user?.thumbs?.thumb} thumbSize="md" />
@@ -438,31 +443,6 @@ const Reply: FC<ReplyProps> = ({
           dataTestId="text"
         />
       </div>
-      <Dropdown
-        items={attachmentOptions}
-        disabled={isDisabledAttachments}
-        customButton={
-          <Button
-            extraClass="primary-full"
-            className="attachment-btn"
-            type="icon"
-            ghost
-            size="sm"
-            theme="light"
-            disabled={isDisabledAttachments}
-            icon={<Icon name="Attachment" size="sm" />}
-          />
-        }
-      />
-      {text.length > 0 && (
-        <Button
-          extraClass="primary-full"
-          onClick={() => handlePostComment({ text, video: videoData, comment })}
-          size="sm"
-          disabled={text.length === 0}
-          text={intl.formatMessage({ id: 'feed.create.post' })}
-        />
-      )}
     </div>
   );
 };

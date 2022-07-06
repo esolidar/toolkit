@@ -6,6 +6,7 @@ interface Props {
   files: any[];
   user: User;
   isAdmin: boolean;
+  closedCommentRef: any;
   handlePostComment(post: any): void;
   postUploadFiles(form: any): void;
   postDeleteFile(id: number): void;
@@ -13,6 +14,7 @@ interface Props {
   postUploadImages(file: any): void;
   postDeleteImage(id: number): void;
   onDropError?(errorList: any): void;
+  handleCleanComment(): void;
   scrapper: any;
   placeholderText?: string;
   images: any[];
@@ -30,14 +32,9 @@ export interface CommentProps {
 }
 export interface ReplyProps {
   user: User;
-  comment?: any;
   handleChange(e: any): void;
-  handlePostComment(data: any): void;
   text: string;
   placeholderText?: string;
-  videoData: any;
-  attachmentOptions: any;
-  isDisabledAttachments: boolean;
   reference?: any;
 }
 
