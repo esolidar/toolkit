@@ -1,9 +1,11 @@
+import CreateComment from '../comment/create/CreateComment.types';
+
 export interface NoteSingleProps {
   thumb: string;
   name: string;
   date: Date;
   text: string;
-  user: any;
+  createCommentArgs: CreateComment;
   images?: any[];
   preview?: any;
   files?: any[];

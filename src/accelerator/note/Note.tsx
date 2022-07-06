@@ -23,7 +23,7 @@ const Note: FC<Props> = ({
     <div className="view-comment">
       <NoteSingle {...noteSingleArgs} />
 
-      {replies && replies.length > 0 && (
+      {replies?.length > 0 && (
         <>
           <div className="view-comment__note__line" />
 
@@ -77,8 +77,8 @@ const NoteSingle: FC<NoteSingleProps> = ({
   images,
   files,
   preview,
-  user,
   reply = false,
+  createCommentArgs,
 }: NoteSingleProps) => {
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
@@ -89,9 +89,10 @@ const NoteSingle: FC<NoteSingleProps> = ({
   };
 
   useEffect(() => {
-    if (isReply) {
-      inputEl.current.focus();
-    }
+    console.log(inputEl);
+    // if (isReply) {
+    //   inputEl.current.focus();
+    // }
   }, [isReply]);
 
   return (
@@ -151,25 +152,14 @@ const NoteSingle: FC<NoteSingleProps> = ({
             onClick={handleReply}
             extraClass="secondary"
             text={intl.formatMessage({ id: 'reply' })}
+            fullWidth={false}
           />
         ) : (
           <CreateComment
+            {...createCommentArgs}
+            handleCleanComment={() => setIsReply(false)}
             reference={inputEl}
-            isAdmin={false}
-            user={user}
-            type="reply"
-            galleryType="inline"
             placeholderText={intl.formatMessage({ id: 'commentHere' })}
-            postDeleteFile={() => {}}
-            postDeleteImage={() => {}}
-            onDropError={() => {}}
-            files={[]}
-            scrapper={null}
-            handlePostComment={() => {}}
-            postUploadFiles={() => {}}
-            getScraper={() => {}}
-            postUploadImages={() => {}}
-            images={[]}
           />
         )}
       </>

@@ -35,6 +35,7 @@ a.btn-esolidar {
   align-items: center;
   white-space: nowrap;
   gap: 12px;
+  width: fit-content;
 
   @include animate();
 

@@ -169,7 +169,7 @@ const CreateComment: FC<Props> = ({
   ];
 
   const isDisabledAttachments =
-    !!videoData || !!urlData || imageList.length > 0 || filesData.length > 0;
+    !!videoData || !!urlData || imageList?.length > 0 || filesData?.length > 0;
 
   return (
     <>
@@ -209,7 +209,7 @@ const CreateComment: FC<Props> = ({
         {editMode && (
           <>
             <div className="accelerator-comment-create__attachments">
-              {imageList.length > 0 && (
+              {imageList?.length > 0 && (
                 <div className="accelerator-comment-create__attachments-images">
                   <ImageGrid
                     editMode={true}
