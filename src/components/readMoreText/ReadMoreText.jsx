@@ -26,7 +26,7 @@ const ReadMoreText = ({
             <div className="read-more">
               {`${result.substr(0, charLimit)}... `}
               {showReadMoreLink && (
-                <div className={gradient ? 'read-more--gradient' : ''}>
+                <div className={`read-more__btn ${gradient ? 'read-more--gradient' : ''}`}>
                   <Button
                     extraClass="link"
                     className="px-0"
@@ -42,19 +42,21 @@ const ReadMoreText = ({
             </div>
           )}
           {showReadLessButton && (
-            <>
+            <div className="read-more">
               <div dangerouslySetInnerHTML={{ __html: text }} />
-              <Button
-                extraClass="link"
-                className="px-0"
-                onClick={() => {
-                  setShowReadMoreButton(true);
-                  setShowReadLessButton(false);
-                }}
-                text={readLessTextTranslation}
-                size="sm"
-              />
-            </>
+              <div className="read-more__btn">
+                <Button
+                  extraClass="link"
+                  className="px-0"
+                  onClick={() => {
+                    setShowReadMoreButton(true);
+                    setShowReadLessButton(false);
+                  }}
+                  text={readLessTextTranslation}
+                  size="sm"
+                />
+              </div>
+            </div>
           )}
         </>
       ) : (
