@@ -1,3 +1,4 @@
+import images from './images';
 import user from './user';
 
 export const noteDefault = {
@@ -24,56 +25,7 @@ export const noteImages = {
   parent_id: null,
   user_id: 3,
   user,
-  images: [
-    {
-      id: 210,
-      user_id: 3,
-      project_note_id: 65,
-      streamImage: 'amazons3',
-      image:
-        'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/images/2-7410b430-d208-4b19-af1e-645402e2aedf.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143429Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=0b14e503b92c24292444b16c8743da5933482b5555352f9193124c912bc792f5',
-      image_type: 'jpg',
-      image_size: '1719',
-      updated_at: '2022-07-06 14:33:03',
-      created_at: '2022-07-06 14:32:52',
-    },
-    {
-      id: 211,
-      user_id: 3,
-      project_note_id: 65,
-      streamImage: 'amazons3',
-      image:
-        'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/images/4-61964277-65ed-4385-a4c9-bf79b2c99532.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143429Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=64aaf751e49e3017ea97bc8c5e04832c3fc019e90d1ac99a733964193a32781b',
-      image_type: 'jpg',
-      image_size: '1946',
-      updated_at: '2022-07-06 14:33:03',
-      created_at: '2022-07-06 14:32:52',
-    },
-    {
-      id: 212,
-      user_id: 3,
-      project_note_id: 65,
-      streamImage: 'amazons3',
-      image:
-        'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/images/1-e95b9ce5-6756-45ce-b4c3-7ebce0b6e29a.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143429Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=d48d2647c822d78dab6addf288a4181ae2e46e76d43c6d6db6b918c488e77db2',
-      image_type: 'jpg',
-      image_size: '704',
-      updated_at: '2022-07-06 14:33:03',
-      created_at: '2022-07-06 14:32:52',
-    },
-    {
-      id: 213,
-      user_id: 3,
-      project_note_id: 65,
-      streamImage: 'amazons3',
-      image:
-        'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/images/3-49afa307-6d03-455c-984e-d0397c5a7372.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143429Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=5d12820c8566eea097e3d43e896921f28a7b2487c16579d432f90a1ffeb2419c',
-      image_type: 'jpg',
-      image_size: '2129',
-      updated_at: '2022-07-06 14:33:03',
-      created_at: '2022-07-06 14:32:52',
-    },
-  ],
+  images,
   files: [],
   replies: [],
   deleted_at: null,
@@ -135,8 +87,22 @@ export const noteVieo = {
   id: 67,
   project_id: 389,
   text: 'veja o vídeo!',
-  scraping_data:
-    '{"title":"Ed Sheeran, Coldplay, Martin Garrix, Dua Lipa, Avicii, The Chainsmokers Style - Feeling Me","author_name":"XDeep Vibes","author_url":"https://www.youtube.com/channel/UCKgGLynM7xJz8Mq999srCsg","type":"video","height":200,"width":267,"version":"1.0","provider_name":"YouTube","provider_url":"https://www.youtube.com/","thumbnail_height":360,"thumbnail_width":480,"thumbnail_url":"https://i.ytimg.com/vi/UT-AANIAg3g/hqdefault.jpg","html":"<iframe width=\\"267\\" height=\\"200\\" src=\\"https://www.youtube.com/embed/UT-AANIAg3g?feature=oembed\\" frameborder=\\"0\\" allow=\\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\\" allowfullscreen title=\\"Ed Sheeran, Coldplay, Martin Garrix, Dua Lipa, Avicii, The Chainsmokers Style - Feeling Me\\"></iframe>"}',
+  scraping_data: JSON.stringify({
+    title: 'Be Svendsen live at Mount Nemrut, in Türkiye for Cercle',
+    author_name: 'Cercle',
+    author_url: 'https://www.youtube.com/c/Cercle',
+    type: 'video',
+    height: 200,
+    width: 356,
+    version: '1.0',
+    provider_name: 'YouTube',
+    provider_url: 'https://www.youtube.com/',
+    thumbnail_height: 360,
+    thumbnail_width: 480,
+    thumbnail_url: 'https://i.ytimg.com/vi/5mpafLYHVd0/hqdefault.jpg',
+    html: '<iframe width="356" height="200" src="https://www.youtube.com/embed/5mpafLYHVd0?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Be Svendsen live at Mount Nemrut, in Türkiye for Cercle"></iframe>',
+    videoUrl: 'https://www.youtube.com/watch?v=5mpafLYHVd0&ab_channel=Cercle',
+  }),
   parent_id: null,
   user_id: 3,
   user,

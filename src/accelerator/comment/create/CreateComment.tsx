@@ -23,7 +23,7 @@ const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
   type = 'comment',
-  comment,
+  parentComment,
   user,
   files,
   handlePostComment,
@@ -41,6 +41,7 @@ const CreateComment: FC<Props> = ({
   onDropError,
   handleCleanComment,
 }: Props) => {
+  const { parentName, parentId } = parentComment || {};
   const intl: IntlShape = useIntl();
   const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
@@ -48,7 +49,7 @@ const CreateComment: FC<Props> = ({
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
   const [imageList, setImageList] = useState<any>(images || []);
   const [isOpenModalUploads, setIsOpenModalUploads] = useState<boolean>(false);
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>(parentName || '');
   const [urlData, setUrlData] = useState<any>(null);
   const [videoData, setVideoData] = useState<any>(null);
   const isDropZoneOpen = useRef<any>(null);
@@ -80,13 +81,13 @@ const CreateComment: FC<Props> = ({
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)
         .then(response => response.json())
         .then(response => {
-          setVideoData(response);
+          setVideoData({ ...response, videoUrl: url });
         });
     } else if (parseVimeo(url)) {
       fetch(`https://vimeo.com/api/oembed.json?url=${url}`)
         .then(response => response.json())
         .then(response => {
-          setVideoData(response);
+          setVideoData({ ...response, videoUrl: url });
         });
     } else {
       getScraper(url);
@@ -187,6 +188,7 @@ const CreateComment: FC<Props> = ({
         {type === 'comment' && (
           <Comment
             user={user}
+            parentId={parentId}
             editMode={editMode}
             text={text}
             handleChange={handleChange}
@@ -200,8 +202,6 @@ const CreateComment: FC<Props> = ({
             text={text}
             handleChange={handleChange}
             placeholderText={placeholderText}
-            attachmentOptions={attachmentOptions}
-            isDisabledAttachments={isDisabledAttachments}
             reference={reference}
           />
         )}
@@ -304,7 +304,7 @@ const CreateComment: FC<Props> = ({
                 extraClass="primary-full"
                 onClick={() => {
                   setIsButtonDisabled(true);
-                  handlePostComment({ text, video: videoData, comment });
+                  handlePostComment({ text, video: videoData, parentId });
                 }}
                 size={type === 'comment' ? 'md' : 'sm'}
                 disabled={text.length === 0 || isButtonDisabled}
@@ -392,6 +392,7 @@ const Comment: FC<CommentProps> = ({
   text,
   placeholderText,
   reference,
+  parentId,
 }: CommentProps) => {
   return (
     <>
@@ -403,16 +404,15 @@ const Comment: FC<CommentProps> = ({
       {editMode && (
         <div className="feed-create-post-body" data-testid="body">
           <TextareaField
-            reference={reference}
             field="text"
-            id="text"
+            id={`text-${parentId}`}
             resize
             cssClass="no-border"
             onChange={handleChange}
             placeholder={placeholderText}
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
             dataTestId="text"
-            autofocus={true}
+            autofocus={reference.current}
           />
         </div>
       )}
@@ -441,6 +441,7 @@ const Reply: FC<ReplyProps> = ({
           placeholder={placeholderText}
           value={text.replace(/<\/?[^>]+(>|$)/g, '')}
           dataTestId="text"
+          autofocus={true}
         />
       </div>
     </div>

@@ -14,8 +14,14 @@ interface Note {
   scraping_data: any;
 }
 
+interface ParentComment {
+  parentId: number;
+  parentName: string;
+}
+
 export interface NoteSingleProps {
   note: Note;
+  parentComment?: ParentComment;
   createCommentArgs: CreateComment;
   reply?: boolean;
 }

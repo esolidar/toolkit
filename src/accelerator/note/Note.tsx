@@ -31,13 +31,27 @@ const Note: FC<Props> = ({
 
           {replies.map((item, key) => (
             <React.Fragment key={key}>
-              <NoteSingle note={item} reply={true} />
+              <NoteSingle
+                note={item}
+                parentComment={{ parentId: item.parent_id, parentName: `@${item.user.name} ` }}
+                createCommentArgs={noteSingleArgs.createCommentArgs}
+                reply={true}
+              />
 
               {item.replies && (
                 <>
                   <div className="view-comment__note__secondLevel">
                     {item.replies.map((secondLevelReply, keySecondLevelReply) => (
-                      <NoteSingle key={keySecondLevelReply} note={secondLevelReply} reply={true} />
+                      <NoteSingle
+                        key={keySecondLevelReply}
+                        parentComment={{
+                          parentId: item.parent_id,
+                          parentName: `@${item.user.name} `,
+                        }}
+                        note={secondLevelReply}
+                        createCommentArgs={noteSingleArgs.createCommentArgs}
+                        reply={true}
+                      />
                     ))}
 
                     {item.replies.length !== item.repliesCount && (
@@ -74,9 +88,9 @@ export default Note;
 const NoteSingle: FC<NoteSingleProps> = ({
   note,
   reply = false,
+  parentComment,
   createCommentArgs,
 }: NoteSingleProps) => {
-  console.log('user', note);
   const {
     user: {
       name,
@@ -86,8 +100,10 @@ const NoteSingle: FC<NoteSingleProps> = ({
     text,
     images,
     files,
-    scraping_data: preview,
+    // eslint-disable-next-line camelcase
+    scraping_data,
   } = note;
+  const preview = JSON.parse(scraping_data);
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
   const [isReply, setIsReply] = useState(false);
@@ -97,10 +113,9 @@ const NoteSingle: FC<NoteSingleProps> = ({
   };
 
   useEffect(() => {
-    console.log(inputEl);
-    // if (isReply) {
-    //   inputEl.current.focus();
-    // }
+    if (isReply) {
+      inputEl.current = true;
+    }
   }, [isReply]);
 
   return (
@@ -141,15 +156,27 @@ const NoteSingle: FC<NoteSingleProps> = ({
         ))}
 
       {preview &&
-        (preview.type === 'image' ? (
-          <FileCard url={preview.url} title={preview.title} />
-        ) : (
+        (preview.type === 'video' ? (
           <Preview
             hover
             type="video"
-            videoDetails={preview.videoDetails}
+            // videoDetails={preview.videoDetails}
+            videoDetails={{
+              providerName: preview.provider_name,
+              title: preview.title,
+              thumbnailUrl: `url('${preview.thumbnail_url}')`,
+              videoUrl: preview.videoUrl,
+            }}
             videoUrl={preview.videoUrl}
             handleClickPreview={() => window.open(preview.videoUrl)}
+          />
+        ) : (
+          <FileCard
+            link={preview.link}
+            url={preview.domain}
+            title={preview.title}
+            image={preview.og_image}
+            subtitle={preview.description}
           />
         ))}
 
@@ -165,6 +192,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
         ) : (
           <CreateComment
             {...createCommentArgs}
+            parentComment={parentComment}
             handleCleanComment={() => setIsReply(false)}
             reference={inputEl}
             placeholderText={intl.formatMessage({ id: 'commentHere' })}

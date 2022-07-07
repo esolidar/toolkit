@@ -9,6 +9,7 @@ import {
   noteImages,
   noteFiles,
   noteVieo,
+  noteUrl,
 } from '../../../__mocks__/note';
 
 export default {
@@ -30,6 +31,7 @@ export const WithReply: Story<Props> = Template.bind({});
 export const WithImages: Story<Props> = Template.bind({});
 export const WithFiles: Story<Props> = Template.bind({});
 export const WithVideo: Story<Props> = Template.bind({});
+export const WithUrl: Story<Props> = Template.bind({});
 
 const createCommentArgs: any = {
   files: [],
@@ -80,6 +82,13 @@ WithFiles.args = {
 WithVideo.args = {
   noteSingleArgs: {
     note: noteVieo,
+    createCommentArgs,
+  },
+};
+
+WithUrl.args = {
+  noteSingleArgs: {
+    note: noteUrl,
     createCommentArgs,
   },
 };

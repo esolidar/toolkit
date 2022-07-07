@@ -20,6 +20,7 @@ interface Props {
   images: any[];
   galleryType: 'grid' | 'inline';
   reference?: any;
+  parentComment?: any;
 }
 
 export interface CommentProps {
@@ -29,6 +30,7 @@ export interface CommentProps {
   text: string;
   placeholderText?: string;
   reference?: any;
+  parentId: number;
 }
 export interface ReplyProps {
   user: User;
