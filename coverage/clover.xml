@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1657205513586" clover="3.2.0">
-  <project timestamp="1657205513586" name="All files">
+<coverage generated="1657207860190" clover="3.2.0">
+  <project timestamp="1657207860190" name="All files">
     <metrics statements="6607" coveredstatements="4747" conditionals="5007" coveredconditionals="3123" methods="2111" coveredmethods="1176" elements="13725" coveredelements="9046" complexity="0" loc="6607" ncloc="6607" packages="247" files="847" classes="847"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/nunolemos/www/toolkit/__customQueries__/queryByClass.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="635" type="stmt"/>
+        <line num="3" count="634" type="stmt"/>
         <line num="5" count="115" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="115" type="stmt"/>
-        <line num="8" count="9" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
         <line num="10" count="115" type="stmt"/>
       </file>
       <file name="queryById.js" path="/Users/nunolemos/www/toolkit/__customQueries__/queryById.js">

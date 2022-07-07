@@ -12,6 +12,7 @@ import ReadMoreText from '../../components/readMoreText';
 import dateDistance from '../../utils/dateDistance';
 import Props, { NoteSingleProps } from './Note.types';
 import userMenu from '../../components/userMenu';
+import Icon from '../../elements/icon';
 
 const Note: FC<Props> = ({
   noteSingleArgs,
@@ -107,6 +108,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
     files,
     // eslint-disable-next-line camelcase
     scraping_data,
+    deleted_at: deleted,
   } = note;
   const preview = JSON.parse(scraping_data);
   const intl: IntlShape = useIntl();
@@ -134,7 +136,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        {userId === user_id && (
+        {userId === user_id && !deleted && (
           <Dropdown
             items={[
               {
@@ -149,66 +151,74 @@ const NoteSingle: FC<NoteSingleProps> = ({
         )}
       </div>
 
-      <div className="view-comment__content">
-        <ReadMoreText text={text} charLimit={512} gradient={true} />
-      </div>
+      {!deleted ? (
+        <>
+          <div className="view-comment__content">
+            <ReadMoreText text={text} charLimit={512} gradient={true} />
+          </div>
 
-      {images && images.length > 0 && (
-        <ImageGrid items={images} type="inline" editMode={false} onDeleteImage={() => {}} />
+          {images && images.length > 0 && (
+            <ImageGrid items={images} type="inline" editMode={false} onDeleteImage={() => {}} />
+          )}
+
+          {files &&
+            files.length > 0 &&
+            files.map(({ title, size }, key) => (
+              <FileCard key={key} size={size} title={title} showDownloadButton />
+            ))}
+
+          {preview &&
+            (preview.type === 'video' ? (
+              <Preview
+                hover
+                type="video"
+                // videoDetails={preview.videoDetails}
+                videoDetails={{
+                  providerName: preview.provider_name,
+                  title: preview.title,
+                  thumbnailUrl: `url('${preview.thumbnail_url}')`,
+                  videoUrl: preview.videoUrl,
+                }}
+                videoUrl={preview.videoUrl}
+                handleClickPreview={() => window.open(preview.videoUrl)}
+              />
+            ) : (
+              <FileCard
+                link={preview.link}
+                url={preview.domain}
+                title={preview.title}
+                image={preview.og_image}
+                subtitle={preview.description}
+              />
+            ))}
+
+          <>
+            {!isReply ? (
+              <Button
+                size={reply ? 'sm' : 'md'}
+                onClick={handleReply}
+                extraClass="secondary"
+                text={intl.formatMessage({ id: 'reply' })}
+                fullWidth={false}
+              />
+            ) : (
+              <CreateComment
+                {...createCommentArgs}
+                parentComment={parentComment}
+                handleCleanComment={() => setIsReply(false)}
+                reference={inputEl}
+                placeholderText={intl.formatMessage({ id: 'commentHere' })}
+              />
+            )}
+          </>
+        </>
+      ) : (
+        <div className="view-comment__deleted">
+          <Icon name="Block" size="sm" /> {intl.formatMessage({ id: 'toolkit.notes.deleted' })}
+        </div>
       )}
 
-      {files &&
-        files.length > 0 &&
-        files.map(({ title, size }, key) => (
-          <FileCard key={key} size={size} title={title} showDownloadButton />
-        ))}
-
-      {preview &&
-        (preview.type === 'video' ? (
-          <Preview
-            hover
-            type="video"
-            // videoDetails={preview.videoDetails}
-            videoDetails={{
-              providerName: preview.provider_name,
-              title: preview.title,
-              thumbnailUrl: `url('${preview.thumbnail_url}')`,
-              videoUrl: preview.videoUrl,
-            }}
-            videoUrl={preview.videoUrl}
-            handleClickPreview={() => window.open(preview.videoUrl)}
-          />
-        ) : (
-          <FileCard
-            link={preview.link}
-            url={preview.domain}
-            title={preview.title}
-            image={preview.og_image}
-            subtitle={preview.description}
-          />
-        ))}
-
-      <>
-        {!isReply ? (
-          <Button
-            size={reply ? 'sm' : 'md'}
-            onClick={handleReply}
-            extraClass="secondary"
-            text={intl.formatMessage({ id: 'reply' })}
-            fullWidth={false}
-          />
-        ) : (
-          <CreateComment
-            {...createCommentArgs}
-            parentComment={parentComment}
-            handleCleanComment={() => setIsReply(false)}
-            reference={inputEl}
-            placeholderText={intl.formatMessage({ id: 'commentHere' })}
-          />
-        )}
-      </>
-
-      {userId === user_id && (
+      {userId === user_id && !deleted && (
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
