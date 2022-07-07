@@ -412,7 +412,7 @@ const Comment: FC<CommentProps> = ({
             placeholder={placeholderText}
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
             dataTestId="text"
-            autofocus={reference.current}
+            autofocus={reference?.current || editMode}
           />
         </div>
       )}

@@ -11,22 +11,22 @@ import ProfileAvatar from '../../components/profileAvatar';
 import ReadMoreText from '../../components/readMoreText';
 import dateDistance from '../../utils/dateDistance';
 import Props, { NoteSingleProps } from './Note.types';
-import userMenu from '../../components/userMenu';
 import Icon from '../../elements/icon';
 
 const Note: FC<Props> = ({
   noteSingleArgs,
   handleViewAllReplies,
   handleViewChildReplies,
+  handleDeleteNote,
 }: Props) => {
   const intl: IntlShape = useIntl();
   const {
-    note: { replies = [], repliesCount = 0 },
+    note: { replies = [], repliesCount = 0, id },
   } = noteSingleArgs;
 
   return (
     <div className="view-comment">
-      <NoteSingle {...noteSingleArgs} />
+      <NoteSingle {...noteSingleArgs} parentComment={{ parentId: id }} />
 
       {replies?.length > 0 && (
         <>
@@ -36,7 +36,8 @@ const Note: FC<Props> = ({
             <React.Fragment key={key}>
               <NoteSingle
                 note={item}
-                parentComment={{ parentId: item.parent_id, parentName: `@${item.user.name} ` }}
+                handleDeleteNote={handleDeleteNote}
+                parentComment={{ parentId: item.id, parentName: `@${item.user.name} ` }}
                 createCommentArgs={noteSingleArgs.createCommentArgs}
                 reply={true}
               />
@@ -46,9 +47,10 @@ const Note: FC<Props> = ({
                   <div className="view-comment__note__secondLevel">
                     {item.replies.map((secondLevelReply, keySecondLevelReply) => (
                       <NoteSingle
+                        handleDeleteNote={handleDeleteNote}
                         key={keySecondLevelReply}
                         parentComment={{
-                          parentId: item.parent_id,
+                          parentId: item.id,
                           parentName: `@${secondLevelReply.user.name} `,
                         }}
                         note={secondLevelReply}
@@ -96,7 +98,8 @@ const NoteSingle: FC<NoteSingleProps> = ({
   handleDeleteNote,
 }: NoteSingleProps) => {
   const {
-    user_id,
+    id,
+    user_id: noteUserId,
     user: {
       id: userId,
       name,
@@ -113,6 +116,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
   const preview = JSON.parse(scraping_data);
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
+  const deleteNoteId = useRef(null);
   const [isReply, setIsReply] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
@@ -136,14 +140,17 @@ const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        {userId === user_id && !deleted && (
+        {userId === noteUserId && !deleted && (
           <Dropdown
             items={[
               {
                 id: 0,
                 leftIcon: 'Trash',
                 text: intl.formatMessage({ id: 'delete' }),
-                onClick: () => setIsOpenDeleteModal(true),
+                onClick: () => {
+                  deleteNoteId.current = id;
+                  setIsOpenDeleteModal(true);
+                },
               },
             ]}
             toggleIcon="MoreVertical"
@@ -218,12 +225,13 @@ const NoteSingle: FC<NoteSingleProps> = ({
         </div>
       )}
 
-      {userId === user_id && !deleted && (
+      {userId === noteUserId && !deleted && (
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
-            handleDeleteNote();
+            handleDeleteNote(deleteNoteId.current);
             setIsOpenDeleteModal(false);
+            deleteNoteId.current = null;
           }}
           onClickCancel={() => {
             setIsOpenDeleteModal(false);

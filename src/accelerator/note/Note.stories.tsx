@@ -36,7 +36,9 @@ export const WithUrl: Story<Props> = Template.bind({});
 const createCommentArgs: any = {
   files: [],
   isAdmin: false,
-  handlePostComment: () => {},
+  handlePostComment: data => {
+    console.log('data', data);
+  },
   postUploadFiles: () => {},
   postDeleteFile: () => {},
   getScraper: () => {},

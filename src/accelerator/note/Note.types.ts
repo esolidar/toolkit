@@ -12,11 +12,14 @@ interface Note {
   repliesCount?: number;
   replies?: any[];
   scraping_data: any;
+  id: number;
+  user_id: number;
+  deleted_at: string;
 }
 
 interface ParentComment {
   parentId: number;
-  parentName: string;
+  parentName?: string;
 }
 
 export interface NoteSingleProps {
@@ -24,13 +27,14 @@ export interface NoteSingleProps {
   parentComment?: ParentComment;
   createCommentArgs: CreateComment;
   reply?: boolean;
-  handleDeleteNote(): void;
+  handleDeleteNote(id: number): void;
 }
 
 interface Props {
   noteSingleArgs: NoteSingleProps;
   handleViewAllReplies(): void;
   handleViewChildReplies(): void;
+  handleDeleteNote(id: number): void;
 }
 
 export default Props;
