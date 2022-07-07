@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
 import Button from '../../elements/button';
 import CreateComment from '../comment/create/CreateComment';
+import DeleteModal from '../../components/modals/deleteModal';
 import Dropdown from '../../elements/dropdown';
 import FileCard from '../../components/fileCard';
 import ImageGrid from '../../components/imageGrid';
@@ -10,6 +11,7 @@ import ProfileAvatar from '../../components/profileAvatar';
 import ReadMoreText from '../../components/readMoreText';
 import dateDistance from '../../utils/dateDistance';
 import Props, { NoteSingleProps } from './Note.types';
+import userMenu from '../../components/userMenu';
 
 const Note: FC<Props> = ({
   noteSingleArgs,
@@ -90,9 +92,12 @@ const NoteSingle: FC<NoteSingleProps> = ({
   reply = false,
   parentComment,
   createCommentArgs,
+  handleDeleteNote,
 }: NoteSingleProps) => {
   const {
+    user_id,
     user: {
+      id: userId,
       name,
       thumbs: { thumb },
     },
@@ -107,6 +112,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
   const [isReply, setIsReply] = useState(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
   const handleReply = () => {
     setIsReply(!isReply);
@@ -128,17 +134,19 @@ const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        <Dropdown
-          items={[
-            {
-              id: 0,
-              leftIcon: 'Trash',
-              text: intl.formatMessage({ id: 'delete' }),
-              onClick: () => {},
-            },
-          ]}
-          toggleIcon="MoreVertical"
-        />
+        {userId === user_id && (
+          <Dropdown
+            items={[
+              {
+                id: 0,
+                leftIcon: 'Trash',
+                text: intl.formatMessage({ id: 'delete' }),
+                onClick: () => setIsOpenDeleteModal(true),
+              },
+            ]}
+            toggleIcon="MoreVertical"
+          />
+        )}
       </div>
 
       <div className="view-comment__content">
@@ -199,6 +207,23 @@ const NoteSingle: FC<NoteSingleProps> = ({
           />
         )}
       </>
+
+      {userId === user_id && (
+        <DeleteModal
+          isOpen={isOpenDeleteModal}
+          onClickDelete={() => {
+            handleDeleteNote();
+            setIsOpenDeleteModal(false);
+          }}
+          onClickCancel={() => {
+            setIsOpenDeleteModal(false);
+          }}
+          title={intl.formatMessage({ id: 'toolkit.notes.delete.title' })}
+          bodyText={intl.formatMessage({
+            id: 'toolkit.notes.delete.description',
+          })}
+        />
+      )}
     </div>
   );
 };

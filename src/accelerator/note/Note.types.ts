@@ -24,6 +24,7 @@ export interface NoteSingleProps {
   parentComment?: ParentComment;
   createCommentArgs: CreateComment;
   reply?: boolean;
+  handleDeleteNote(): void;
 }
 
 interface Props {
