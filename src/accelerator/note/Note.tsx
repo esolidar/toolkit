@@ -46,7 +46,7 @@ const Note: FC<Props> = ({
                         key={keySecondLevelReply}
                         parentComment={{
                           parentId: item.parent_id,
-                          parentName: `@${item.user.name} `,
+                          parentName: `@${secondLevelReply.user.name} `,
                         }}
                         note={secondLevelReply}
                         createCommentArgs={noteSingleArgs.createCommentArgs}
