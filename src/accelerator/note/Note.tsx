@@ -17,7 +17,9 @@ const Note: FC<Props> = ({
   handleViewChildReplies,
 }: Props) => {
   const intl: IntlShape = useIntl();
-  const { replies = [], repliesTotal = 0 } = noteSingleArgs;
+  const {
+    note: { replies = [], repliesCount = 0 },
+  } = noteSingleArgs;
 
   return (
     <div className="view-comment">
@@ -29,22 +31,22 @@ const Note: FC<Props> = ({
 
           {replies.map((item, key) => (
             <React.Fragment key={key}>
-              <NoteSingle {...item} reply={true} />
+              <NoteSingle note={item} reply={true} />
 
               {item.replies && (
                 <>
                   <div className="view-comment__note__secondLevel">
                     {item.replies.map((secondLevelReply, keySecondLevelReply) => (
-                      <NoteSingle key={keySecondLevelReply} {...secondLevelReply} reply={true} />
+                      <NoteSingle key={keySecondLevelReply} note={secondLevelReply} reply={true} />
                     ))}
 
-                    {item.replies.length !== item.repliesTotal && (
+                    {item.replies.length !== item.repliesCount && (
                       <Button
                         extraClass="link"
                         onClick={handleViewChildReplies}
                         text={intl.formatMessage(
                           { id: 'toolkit.comments.number.replies' },
-                          { value: item.repliesTotal - item.replies.length }
+                          { value: item.repliesCount - item.replies.length }
                         )}
                       />
                     )}
@@ -54,7 +56,7 @@ const Note: FC<Props> = ({
             </React.Fragment>
           ))}
 
-          {replies.length !== repliesTotal && (
+          {replies.length !== repliesCount && (
             <Button
               extraClass="link"
               onClick={handleViewAllReplies}
@@ -70,16 +72,22 @@ const Note: FC<Props> = ({
 export default Note;
 
 const NoteSingle: FC<NoteSingleProps> = ({
-  thumb,
-  name,
-  date,
-  text,
-  images,
-  files,
-  preview,
+  note,
   reply = false,
   createCommentArgs,
 }: NoteSingleProps) => {
+  console.log('user', note);
+  const {
+    user: {
+      name,
+      thumbs: { thumb },
+    },
+    created_at: date,
+    text,
+    images,
+    files,
+    scraping_data: preview,
+  } = note;
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
   const [isReply, setIsReply] = useState(false);
@@ -101,7 +109,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
         <ProfileAvatar
           thumb={thumb}
           name={name}
-          date={dateDistance({ date, formatMessage: intl.formatMessage })}
+          date={dateDistance({ date: new Date(date), formatMessage: intl.formatMessage })}
           thumbSize="lg"
         />
 
