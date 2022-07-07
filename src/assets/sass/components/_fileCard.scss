@@ -1,4 +1,5 @@
 .file-card {
+  position: relative;
   display: flex;
   background-color: map-get($background, primary);
   border-radius: $border-radius-1;
@@ -7,6 +8,23 @@
   padding: $distance-2;
   gap: $distance-2;
   @include animate();
+
+  a {
+    color: initial;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
   .esolidar-preview {
     &__image {

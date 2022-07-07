@@ -12,6 +12,7 @@ interface Props {
   showBadgeFailed?: boolean;
   size?: string | number;
   dateUploaded?: string;
+  link?: string;
 }
 
 export default Props;
