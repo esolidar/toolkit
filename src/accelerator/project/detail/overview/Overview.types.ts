@@ -1,3 +1,4 @@
+import { Form } from '../../../../components/uploadDocumentModal/UploadDocumentModal.types';
 import Company from '../../../../interfaces/company.types';
 
 interface Props {
@@ -16,6 +17,8 @@ interface Props {
   handleSaveComment(): void;
   handleAddInitiative(): void;
   files: any;
+  onUploadFile(file: Form): void;
+  onDeleteFile(fileId: number): void;
 }
 
 export default Props;

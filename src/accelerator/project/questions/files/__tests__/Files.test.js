@@ -36,10 +36,10 @@ it('renders File component open delete modal', () => {
 
   act(() => {
     expect(getByText('Delete file?')).toBeInTheDocument();
-    fireEvent.click(getByTestId('delete-file'));
+    fireEvent.click(getByTestId('delete-button'));
   });
 
   act(() => {
-    fireEvent.click(getByTestId('close-delete-file'));
+    fireEvent.click(getByTestId('cancel-button'));
   });
 });

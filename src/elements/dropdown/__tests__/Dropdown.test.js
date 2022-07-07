@@ -53,10 +53,10 @@ it('renders custom button', () => {
 });
 
 it('renders with Tooltip', () => {
-  const { getByTestId, queryByClass } = render(<Tooltip />);
+  const { queryAllByTestId, queryByClass } = render(<Tooltip />);
 
   const toggle = queryByClass('btn-esolidar__icon');
   userEvent.click(toggle);
 
-  expect(getByTestId('tooltipOverlay')).toBeInTheDocument();
+  expect(queryAllByTestId('tooltipOverlay')).toHaveLength(2);
 });

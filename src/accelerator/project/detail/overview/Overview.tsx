@@ -15,6 +15,7 @@ import Updates from './Updates';
 import Comments from './Comments';
 import Props from './Overview.types';
 import getEnvVar from '../../../../utils/getEnvVar';
+import { PROJECT } from '../../../../constants/status';
 
 const Overview = ({
   program,
@@ -32,6 +33,8 @@ const Overview = ({
   handleSaveComment,
   files,
   handleAddInitiative,
+  onUploadFile,
+  onDeleteFile,
 }: Props) => {
   const {
     name: companyName,
@@ -100,6 +103,16 @@ const Overview = ({
     return images;
   };
 
+  const canDeleteFiles =
+    project.status === PROJECT.approved &&
+    (isAdmin || (!isAdmin && !project.as_company && isOwner));
+  const canUploadFiles =
+    project.status === PROJECT.approved &&
+    ((isAdmin && project.as_company) || (!isAdmin && !project.as_company && isOwner));
+  const documentList = files?.data?.filter(file => {
+    if (file.public || isAdmin || (!project.as_company && isOwner)) return file;
+  });
+
   return (
     <Viewport>
       <div className="project-detail-component">
@@ -132,9 +145,19 @@ const Overview = ({
                     title: intl.formatMessage({ id: 'toolkit.about' }),
                   },
                   {
-                    content: <DocumentsTab files={files?.data} isOwner={isOwner} />,
+                    content: (
+                      <DocumentsTab
+                        canDeleteFiles={canDeleteFiles}
+                        canUploadFiles={canUploadFiles}
+                        files={documentList}
+                        isAdmin={isAdmin}
+                        onDeleteFile={onDeleteFile}
+                        onUploadFile={onUploadFile}
+                      />
+                    ),
                     key: 'documents',
                     title: intl.formatMessage({ id: 'toolkit.documents' }),
+                    counter: documentList?.length || '',
                   },
                   {
                     content: <Updates />,
@@ -185,19 +208,20 @@ const Overview = ({
           />
         </div>
 
-        {(project.status === 'APPROVED' || project.status === 'COMPLETED') && key === 'about' && (
-          <div className="project-detail-component__initiatives">
-            <Initiatives
-              auctions={project.auctions}
-              crowdfundings={project.crowdfundings}
-              isOwner={isOwner}
-              programId={program.id}
-              projectId={project.id}
-              locale={locale}
-              handleAddInitiative={handleAddInitiative}
-            />
-          </div>
-        )}
+        {(project.status === PROJECT.approved || project.status === PROJECT.completed) &&
+          key === 'about' && (
+            <div className="project-detail-component__initiatives">
+              <Initiatives
+                auctions={project.auctions}
+                crowdfundings={project.crowdfundings}
+                isOwner={isOwner}
+                programId={program.id}
+                projectId={project.id}
+                locale={locale}
+                handleAddInitiative={handleAddInitiative}
+              />
+            </div>
+          )}
       </div>
     </Viewport>
   );

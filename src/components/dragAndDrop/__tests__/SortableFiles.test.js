@@ -19,5 +19,5 @@ it('renders DragAndDrop files', () => {
   const { getByClass, getAllByClass } = render(<Files />);
 
   expect(getByClass('drag-and-drop-component')).toBeTruthy();
-  expect(getAllByClass('drag-and-drop-files')).toHaveLength(4);
+  expect(getAllByClass('drag-and-drop-files')).toHaveLength(5);
 });
