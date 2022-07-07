@@ -11,27 +11,33 @@ import Toggle from '../../elements/toogle';
 import Props, { Form, ModalBodyProps } from './UploadDocumentModal.types';
 
 const DEFAULT_FORM = {
-  name: '',
   description: '',
   file: null,
-  public: true,
-  file_size: null,
   fileName: null,
+  file_size: null,
+  file_type: null,
+  name: '',
+  public: true,
 };
 
 const UploadDocumentModal: FC<Props> = ({
   openModal = false,
-  handlOnCloseModal,
-  handleClickSave,
-  handleClickCancel,
+  onCloseModal,
+  onClickSave,
 }: Props): JSX.Element => {
+  const intl = useIntl();
+
   const [form, setForm] = useState<Form>(DEFAULT_FORM);
 
-  const intl = useIntl();
+  const handleClickClose = () => {
+    onCloseModal();
+    setForm(DEFAULT_FORM);
+  };
 
   const handleChangeForm = ({ target: { value, name, checked = undefined } }) => {
     let newValue: any = value;
     const newForm: Form = { ...form };
+
     if (checked) newValue = false;
     if (name === 'file') {
       value.forEach(doc => {
@@ -46,33 +52,30 @@ const UploadDocumentModal: FC<Props> = ({
     setForm(newForm);
   };
 
+  const handleClickSave = () => {
+    onClickSave(form);
+    setForm(DEFAULT_FORM);
+  };
+
   return (
     <CustomModal
       show={openModal}
       dialogClassName="uploadDocumentModal"
       actionsChildren={
-        <>
-          <div className="d-flex">
-            <Button
-              extraClass="dark"
-              onClick={() => {
-                setForm(DEFAULT_FORM);
-                handleClickCancel();
-              }}
-              size="md"
-              text={intl.formatMessage({ id: 'cancel' })}
-            />
-            <Button
-              extraClass="primary-full"
-              size="md"
-              text={intl.formatMessage({ id: 'save' })}
-              onClick={() => handleClickSave(form)}
-              disabled={!form.file || !form.name}
-            />
-          </div>
-        </>
+        <div className="d-flex">
+          <Button
+            extraClass="dark"
+            onClick={handleClickClose}
+            text={intl.formatMessage({ id: 'cancel' })}
+          />
+          <Button
+            extraClass="primary-full"
+            text={intl.formatMessage({ id: 'save' })}
+            onClick={handleClickSave}
+            disabled={!form.file || !form.name}
+          />
+        </div>
       }
-      backdrop="static"
       bodyChildren={
         <ModalBody
           form={form}
@@ -80,14 +83,8 @@ const UploadDocumentModal: FC<Props> = ({
           onDropFile={file => handleChangeForm({ target: { value: file, name: 'file' } })}
         />
       }
-      onHide={() => {
-        setForm(DEFAULT_FORM);
-        handlOnCloseModal();
-      }}
-      size="md"
-      title={intl.formatMessage({
-        id: 'toolkit.upload.document.title',
-      })}
+      onHide={handleClickClose}
+      title={intl.formatMessage({ id: 'toolkit.upload.document.title' })}
     />
   );
 };
@@ -134,13 +131,14 @@ const ModalBody: FC<ModalBodyProps> = ({
         <DropZoneBox
           showDropArea={!file}
           multiple={false}
-          accept=".jpeg,.jpg,.png,.doc,.odt,.pdf,.xls,.ods,.ppt,.odp,.csv,.text,.txt,.pptx,.xlsx,.xltx,.docx"
+          accept=".doc, .docx, .pdf, .xls, .xlsx, .ppt, .pptx"
           onSelect={onDropFile}
           icon="icon-ic-file-upload"
+          maxSize={1000000}
         >
           {file && (
             <Button
-              extraClass="primary-full"
+              extraClass="secondary"
               size="sm"
               type="button"
               text={intl.formatMessage({ id: 'toolkit.upload.document.file.replace' })}

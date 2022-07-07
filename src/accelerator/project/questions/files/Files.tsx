@@ -2,11 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Fade } from 'react-awesome-reveal';
 import Viewport from '../../../../components/viewport';
-import Props from './Files.types';
+import DeleteModal from '../../../../components/modals/deleteModal';
 import DropZoneBox from '../../../../elements/dropZoneBox';
 import FileCard from '../../../../components/fileCard';
 import getEnvVar from '../../../../utils/getEnvVar';
-import DeleteFileModal from './DeleteFileModal';
+import Props from './Files.types';
 
 const maxFiles = 5;
 const maxSize = 5;
@@ -157,17 +157,19 @@ const Files = ({
           </div>
         </div>
       </Viewport>
-      <DeleteFileModal
+      <DeleteModal
         isOpen={isOpenDeleteModal}
         onClickDelete={() => {
           handleDeleteFile(fileToDelete.current);
           fileToDelete.current = null;
           setIsOpenDeleteModal(false);
         }}
-        onClose={() => {
+        onClickCancel={() => {
           setIsOpenDeleteModal(false);
           fileToDelete.current = null;
         }}
+        title={intl.formatMessage({ id: 'toolkit.delete.file' })}
+        bodyText={intl.formatMessage({ id: 'toolkit.delete.file.description' })}
       />
     </>
   );

@@ -2,13 +2,15 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import Button from '../../../elements/button';
 import CustomModal from '../../../elements/customModal';
-import Props from './DeleteProjectModal.types';
+import Props from './DeleteModal.types';
 
-const DeleteProjectModal = ({
+const DeleteModal = ({
+  isDeleteDisabled = false,
   isOpen,
-  onClickConfirm,
+  onClickDelete,
   onClickCancel,
-  isConfirmDisabled = false,
+  title,
+  bodyText,
 }: Props): JSX.Element => {
   const intl = useIntl();
 
@@ -20,21 +22,23 @@ const DeleteProjectModal = ({
           <Button
             extraClass="danger-full"
             text={intl.formatMessage({ id: 'delete' })}
-            onClick={onClickConfirm}
-            disabled={isConfirmDisabled}
+            onClick={onClickDelete}
+            dataTestId="delete-button"
+            disabled={isDeleteDisabled}
           />
           <Button
             extraClass="dark"
             text={intl.formatMessage({ id: 'cancel' })}
             onClick={onClickCancel}
+            dataTestId="cancel-button"
           />
         </>
       }
-      bodyChildren={<div>{intl.formatMessage({ id: 'toolkit.delete.project.help' })}</div>}
-      title={intl.formatMessage({ id: 'toolkit.delete.project' })}
+      bodyChildren={bodyText}
+      title={title}
       closeButton={false}
     />
   );
 };
 
-export default DeleteProjectModal;
+export default DeleteModal;

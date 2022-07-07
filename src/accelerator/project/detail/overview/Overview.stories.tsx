@@ -22,6 +22,14 @@ const Template: Story<Props> = (args: Props) => (
   </div>
 );
 
+const handleOnUploadFile = file => {
+  console.log('file:', file);
+};
+
+const handleOnDeleteFile = fileId => {
+  console.log('file:', fileId);
+};
+
 export const Pending: Story<Props> = Template.bind({});
 export const Approved: Story<Props> = Template.bind({});
 export const Admin: Story<Props> = Template.bind({});
@@ -38,6 +46,8 @@ Pending.args = {
   company,
   isAdmin: false,
   files: [],
+  onUploadFile: handleOnUploadFile,
+  onDeleteFile: handleOnDeleteFile,
 };
 
 Approved.args = {
@@ -52,6 +62,8 @@ Approved.args = {
   company,
   isAdmin: false,
   files: projectFiles,
+  onUploadFile: handleOnUploadFile,
+  onDeleteFile: handleOnDeleteFile,
 };
 
 Admin.args = {
@@ -65,5 +77,7 @@ Admin.args = {
   host: 'https://whietelabe.testesolidar.com',
   company,
   isAdmin: true,
-  files: [],
+  files: projectFiles,
+  onUploadFile: handleOnUploadFile,
+  onDeleteFile: handleOnDeleteFile,
 };

@@ -77,7 +77,7 @@
     }
   }
   &__buttons {
-    display: flex;
+    display: none;
     align-items: center;
     gap: $distance-1;
   }
@@ -86,6 +86,10 @@
     &:not(.disabled) {
       box-shadow: 0 0 0 2px map-get($turquoise, 500);
       @include animate(all, 100ms);
+    }
+
+    & .file-card__buttons {
+      display: flex;
     }
   }
 }

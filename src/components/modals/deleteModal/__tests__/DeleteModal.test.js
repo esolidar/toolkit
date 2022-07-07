@@ -2,11 +2,11 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { composeStory } from '@storybook/testing-react';
 import { render, fireEvent } from '../../../../../__customQueries__/test-utils';
-import Meta, { Default as DefaultStory } from '../DeleteProjectModal.stories';
+import Meta, { Default as DefaultStory } from '../DeleteModal.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 
-it('renders DeleteProjectModal Default', done => {
+it('renders DeleteModal Default', done => {
   const handleClick = () => {
     done();
   };

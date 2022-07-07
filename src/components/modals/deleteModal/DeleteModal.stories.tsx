@@ -1,18 +1,18 @@
 import { Story, Meta } from '@storybook/react';
-import DeleteProjectModal from './DeleteProjectModal';
-import Props from './DeleteProjectModal.types';
+import DeleteModal from './DeleteModal';
+import Props from './DeleteModal.types';
 
 export default {
-  title: 'Components/Modals/DeleteProjectModal',
-  component: DeleteProjectModal,
+  title: 'Components/Modals/DeleteModal',
+  component: DeleteModal,
   parameters: {
-    jest: ['DeleteProjectModal.test.tsx'],
+    jest: ['DeleteModal.test.tsx'],
   },
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
   <div className="mt-5">
-    <DeleteProjectModal {...args} />
+    <DeleteModal {...args} />
   </div>
 );
 
@@ -20,7 +20,9 @@ export const Default: Story<Props> = Template.bind({});
 
 Default.args = {
   isOpen: true,
-  onClickConfirm: () => {
+  title: 'Delete Project?',
+  bodyText: 'By deleting, you won’t recover the project’s data and files.',
+  onClickDelete: () => {
     alert('Clicked delete');
   },
   onClickCancel: () => {
