@@ -5,7 +5,7 @@ import CreateComment from '../comment/create/CreateComment.types';
 interface Note {
   user: User;
   created_at: string;
-  text: string;
+  text: any;
   images?: any[];
   preview?: any;
   files?: any[];

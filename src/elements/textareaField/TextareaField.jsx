@@ -34,6 +34,7 @@ const TextareaField = ({
   size,
   editButton = false,
   inputLabelProps = false,
+  reference,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -94,6 +95,7 @@ const TextareaField = ({
           </div>
         )}
         <textarea
+          ref={reference}
           id={id || field}
           disabled={editMode || disabled}
           onChange={onChange}
@@ -154,7 +156,9 @@ TextareaField.propTypes = {
   onBlur: PropTypes.func,
   size: PropTypes.string,
   editButton: PropTypes.bool,
+  fixedValue: PropTypes.bool,
   inputLabelProps: PropTypes.object,
+  reference: PropTypes.object,
 };
 
 TextareaField.defaultProps = {

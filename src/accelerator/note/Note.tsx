@@ -21,12 +21,15 @@ const Note: FC<Props> = ({
 }: Props) => {
   const intl: IntlShape = useIntl();
   const {
-    note: { replies = [], repliesCount = 0, id },
+    note: { replies = [], repliesCount = 0, id, user },
   } = noteSingleArgs;
 
   return (
     <div className="view-comment">
-      <NoteSingle {...noteSingleArgs} parentComment={{ parentId: id }} />
+      <NoteSingle
+        {...noteSingleArgs}
+        parentComment={{ parentId: id, parentName: `@${user.name} ` }}
+      />
 
       {replies?.length > 0 && (
         <>
@@ -117,6 +120,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
   const deleteNoteId = useRef(null);
+  const [cleanTagText, setCleanTagText] = useState();
   const [isReply, setIsReply] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
@@ -129,6 +133,12 @@ const NoteSingle: FC<NoteSingleProps> = ({
       inputEl.current = true;
     }
   }, [isReply]);
+
+  // Transform tag text !@firstname lastname! to @name lastname
+  useEffect(() => {
+    const matches = text.match(/!.+?!/g);
+    setCleanTagText(text.replace(matches, `<b>${parentComment?.parentName}</b>`));
+  }, []);
 
   return (
     <div className="view-comment__note">
@@ -161,7 +171,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
       {!deleted ? (
         <>
           <div className="view-comment__content">
-            <ReadMoreText text={text} charLimit={512} gradient={true} />
+            {cleanTagText && <ReadMoreText text={cleanTagText} charLimit={512} gradient={true} />}
           </div>
 
           {images && images.length > 0 && (

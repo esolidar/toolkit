@@ -304,7 +304,7 @@ const CreateComment: FC<Props> = ({
                 extraClass="primary-full"
                 onClick={() => {
                   setIsButtonDisabled(true);
-                  handlePostComment({ text, video: videoData, parentId });
+                  handlePostComment({ text, video: videoData, parentId, parentName });
                 }}
                 size={type === 'comment' ? 'md' : 'sm'}
                 disabled={text.length === 0 || isButtonDisabled}
@@ -440,6 +440,7 @@ const Reply: FC<ReplyProps> = ({
           onChange={handleChange}
           placeholder={placeholderText}
           value={text.replace(/<\/?[^>]+(>|$)/g, '')}
+          fixedValue={true}
           dataTestId="text"
           autofocus={true}
         />
