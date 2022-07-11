@@ -9,7 +9,7 @@ interface Note {
   images?: any[];
   preview?: any;
   files?: any[];
-  repliesCount?: number;
+  replies_count?: number;
   replies?: any[];
   scraping_data: any;
   id: number;
@@ -33,7 +33,7 @@ export interface NoteSingleProps {
 interface Props {
   noteSingleArgs: NoteSingleProps;
   handleViewAllReplies(): void;
-  handleViewChildReplies(): void;
+  handleViewChildReplies(id: number): void;
   handleDeleteNote(id: number): void;
 }
 

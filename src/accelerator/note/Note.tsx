@@ -21,7 +21,7 @@ const Note: FC<Props> = ({
 }: Props) => {
   const intl: IntlShape = useIntl();
   const {
-    note: { replies = [], repliesCount = 0, id, user },
+    note: { replies = [], replies_count: repliesCount, id, user },
   } = noteSingleArgs;
 
   return (
@@ -62,13 +62,13 @@ const Note: FC<Props> = ({
                       />
                     ))}
 
-                    {item.replies.length !== item.repliesCount && (
+                    {item.replies.length !== item.replies_count && (
                       <Button
                         extraClass="link"
-                        onClick={handleViewChildReplies}
+                        onClick={() => handleViewChildReplies(item.id)}
                         text={intl.formatMessage(
                           { id: 'toolkit.comments.number.replies' },
-                          { value: item.repliesCount - item.replies.length }
+                          { value: item.replies_count - item.replies.length }
                         )}
                       />
                     )}
@@ -136,9 +136,11 @@ const NoteSingle: FC<NoteSingleProps> = ({
 
   // Transform tag text !@firstname lastname! to @name lastname
   useEffect(() => {
-    const matches = text.match(/!.+?!/g);
-    setCleanTagText(text.replace(matches, `<b>${parentComment?.parentName}</b>`));
-  }, []);
+    if (text) {
+      const matches = text.match(/!.+?!/g);
+      setCleanTagText(text.replace(matches, `<b>${parentComment?.parentName}</b>`));
+    }
+  }, [text]);
 
   return (
     <div className="view-comment__note">
