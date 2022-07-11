@@ -60,7 +60,7 @@ const dateDistance = ({ date, formatMessage, defaultFNS = false, locale = 'pt' }
   } else if (days < 1 && hours >= 1) {
     intervalDate = formatMessage({ id: 'toolkit.dateDistance.hours' }, { value: hours });
   } else if (hours < 1 && minutes >= 5) {
-    intervalDate = formatMessage({ id: 'toolkit.dateDistance.minutes' }, { value: minutes });
+    intervalDate = formatMessage({ id: 'toolkit.dateDistance.mins' }, { value: minutes });
   } else if (minutes < 5 && minutes >= 1) {
     intervalDate = formatMessage({ id: 'toolkit.dateDistance.few' });
   } else {
