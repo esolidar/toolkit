@@ -21,7 +21,6 @@ export default {
         'blue',
         'dark-blue',
         'default',
-        'white',
         'primary',
         'secondary',
         'info',

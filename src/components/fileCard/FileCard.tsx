@@ -56,11 +56,7 @@ const FileCard = ({
         <div className="file-card__body-title">
           {title}
           {showBadgePrivate && (
-            <Badge
-              plaintext={intl.formatMessage({ id: 'toolkit.private' })}
-              extraClass="dark-gray"
-              type="text"
-            />
+            <Badge plaintext={intl.formatMessage({ id: 'toolkit.private' })} extraClass="white" />
           )}
           {showBadgeFailed && (
             <Badge
