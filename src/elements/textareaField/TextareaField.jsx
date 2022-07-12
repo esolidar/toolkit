@@ -53,7 +53,7 @@ const TextareaField = ({
 
   useEffect(() => {
     const input = document.getElementById(id);
-    const end = value.length;
+    const end = value?.length;
 
     if (autofocus) input.setSelectionRange(end, end);
   }, []);

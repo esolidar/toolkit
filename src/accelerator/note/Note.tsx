@@ -155,7 +155,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        {userId === noteUserId && !deleted && (
+        {createCommentArgs?.user?.id === noteUserId && !deleted && (
           <Dropdown
             items={[
               {
@@ -185,7 +185,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
 
           {files &&
             files.length > 0 &&
-            files.map(({ name, size, file }, key) => (
+            files.map(({ name, file_size: size, file }, key) => (
               <FileCard key={key} size={size} title={name} file={file} showDownloadButton />
             ))}
 
