@@ -67,7 +67,7 @@ it('Test get url data', () => {
   });
 
   act(() => {
-    fireEvent.change(getById('text'), {
+    fireEvent.change(getById('text-0'), {
       target: { value: '' },
     });
   });

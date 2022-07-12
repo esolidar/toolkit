@@ -424,7 +424,7 @@ const Comment: FC<CommentProps> = ({
         <div className="feed-create-post-body" data-testid="body">
           <TextareaField
             field="text"
-            id={`text-${parentId}`}
+            id={`text-${parentId || 0}`}
             resize
             cssClass="no-border"
             onChange={handleChange}
