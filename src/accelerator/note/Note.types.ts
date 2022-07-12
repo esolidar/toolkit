@@ -14,6 +14,7 @@ interface Note {
   scraping_data: any;
   id: number;
   user_id: number;
+  parent_id: number;
   deleted_at: string;
 }
 
@@ -32,7 +33,7 @@ export interface NoteSingleProps {
 
 interface Props {
   noteSingleArgs: NoteSingleProps;
-  handleViewAllReplies(): void;
+  handleViewAllReplies(id: number): void;
   handleViewChildReplies(id: number): void;
   handleDeleteNote(id: number): void;
 }

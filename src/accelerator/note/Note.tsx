@@ -81,7 +81,7 @@ const Note: FC<Props> = ({
           {replies.length !== repliesCount && (
             <Button
               extraClass="link"
-              onClick={handleViewAllReplies}
+              onClick={() => handleViewAllReplies(id)}
               text={intl.formatMessage({ id: 'toolkit.comments.view.replies' })}
             />
           )}
@@ -137,8 +137,11 @@ const NoteSingle: FC<NoteSingleProps> = ({
   // Transform tag text !@firstname lastname! to @name lastname
   useEffect(() => {
     if (text) {
-      const matches = text.match(/!.+?!/g);
-      setCleanTagText(text.replace(matches, `<b>${parentComment?.parentName}</b>`));
+      const matches = text.match(/!@.+?!/g);
+
+      if (matches)
+        setCleanTagText(text.replace(matches, `<span>${matches[0].slice(1, -1)}</span>`));
+      else setCleanTagText(text);
     }
   }, [text]);
 

@@ -18,8 +18,17 @@
   }
 
   &__content {
-    white-space: "pre-wrap";
+    white-space: pre-wrap;
     color: map-get($base, black);
+
+    span {
+      color: map-get($neutrals, 900);
+      text-decoration: underline;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      padding-right: $distance-2;
+    }
   }
 
   &__social {
@@ -47,7 +56,7 @@
     .text {
       color: map-get($turquoise, 500) !important;
     }
-    
+
     svg path {
       fill: map-get($turquoise, 500) !important;
     }
@@ -61,7 +70,7 @@
     .view-comment__header .dropdown {
       display: none;
     }
-  
+
     &:hover {
       .view-comment__header .dropdown {
         display: block;
@@ -91,7 +100,6 @@
         width: 2px;
         background: map-get($neutrals, 200);
       }
-
     }
   }
 
