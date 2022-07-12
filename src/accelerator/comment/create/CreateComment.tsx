@@ -25,16 +25,10 @@ const CreateComment: FC<Props> = ({
   type = 'comment',
   parentComment,
   user,
-  files,
   handlePostComment,
-  postUploadFiles,
-  postUploadImages,
-  postDeleteFile,
-  postDeleteImage,
   getScraper,
   scrapper,
   placeholderText,
-  images,
   galleryType,
   reference,
   closedCommentRef,
@@ -45,9 +39,9 @@ const CreateComment: FC<Props> = ({
   const intl: IntlShape = useIntl();
   const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
-  const [filesData, setFilesData] = useState<any[]>(files || []);
+  const [filesList, setFilesList] = useState<any[]>([]);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
-  const [imageList, setImageList] = useState<any>(images || []);
+  const [imagesList, setImagesList] = useState<any>([]);
   const [isOpenModalUploads, setIsOpenModalUploads] = useState<boolean>(false);
   const [text, setText] = useState<string>(parentName || '');
   const [urlData, setUrlData] = useState<any>(null);
@@ -55,9 +49,39 @@ const CreateComment: FC<Props> = ({
   const isDropZoneOpen = useRef<any>(null);
   const isUrlCardDisabled = useRef<boolean>(null);
 
+  // Add images to state
+  const addUploadedImages = (images: any[]) => {
+    const newImages = [];
+
+    images.forEach((image, indx) => {
+      newImages.push({ id: indx, image: image.preview, file: image });
+    });
+    setImagesList(newImages);
+  };
+
+  // Add files to state
+  const addUploadedFiles = (files: any[]) => {
+    const newFiles = [];
+
+    files.forEach((file, indx) => {
+      newFiles.push({ id: indx, name: file.name, size: file.size, file });
+    });
+    setFilesList(newFiles);
+  };
+
   const handleEditMode = () => {
     setEditMode(true);
   };
+
+  // Send attach image list
+  // useEffect(() => {
+  //   images(imagesList);
+  // }, [imagesList]);
+
+  // // Send attach file list
+  // useEffect(() => {
+  //   files(filesList);
+  // }, [filesList]);
 
   useEffect(() => {
     setUrlData(scrapper);
@@ -67,14 +91,6 @@ const CreateComment: FC<Props> = ({
     // eslint-disable-next-line no-param-reassign
     closedCommentRef.current = handleClickCancel;
   }, []);
-
-  useEffect(() => {
-    setImageList(images);
-  }, [images]);
-
-  useEffect(() => {
-    setFilesData(files);
-  }, [files]);
 
   const getUrlData = (url: string) => {
     if (parseYouTube(url)) {
@@ -107,8 +123,8 @@ const CreateComment: FC<Props> = ({
       !videoData &&
       !urlData &&
       !isUrlCardDisabled.current &&
-      imageList.length === 0 &&
-      filesData.length === 0
+      imagesList.length === 0 &&
+      filesList.length === 0
     ) {
       isUrlCardDisabled.current = true;
       getUrlData(url[1]);
@@ -120,22 +136,20 @@ const CreateComment: FC<Props> = ({
     setText('');
     setVideoData(null);
     setUrlData(null);
-    setImageList([]);
-    setFilesData([]);
+    setImagesList([]);
+    setFilesList([]);
     setIsButtonDisabled(false);
     handleCleanComment();
   };
 
   const handleDeleteFile = (id: number) => {
-    const filtered = filesData.filter(file => file.id !== id);
-    setFilesData(filtered);
-    postDeleteFile(id);
+    const filtered = filesList.filter(file => file.id !== id);
+    setFilesList(filtered);
   };
 
   const handleDeleteImage = (id: number) => {
-    const filtered = imageList.filter(file => file.id !== id);
-    setImageList(filtered);
-    postDeleteImage(id);
+    const filtered = imagesList.filter(file => file.id !== id);
+    setImagesList(filtered);
   };
 
   useEffect(() => {
@@ -170,7 +184,7 @@ const CreateComment: FC<Props> = ({
   ];
 
   const isDisabledAttachments =
-    !!videoData || !!urlData || imageList?.length > 0 || filesData?.length > 0;
+    !!videoData || !!urlData || imagesList?.length > 0 || filesList?.length > 0;
 
   return (
     <>
@@ -209,17 +223,17 @@ const CreateComment: FC<Props> = ({
         {editMode && (
           <>
             <div className="accelerator-comment-create__attachments">
-              {imageList?.length > 0 && (
+              {imagesList?.length > 0 && (
                 <div className="accelerator-comment-create__attachments-images">
                   <ImageGrid
                     editMode={true}
-                    items={imageList}
+                    items={imagesList}
                     type={galleryType}
                     onDeleteImage={handleDeleteImage}
                   />
                 </div>
               )}
-              {filesData?.map(file => {
+              {filesList?.map(file => {
                 return (
                   <FileCard
                     key={file.id}
@@ -277,7 +291,6 @@ const CreateComment: FC<Props> = ({
                 />
               )}
             </div>
-            {/* {type === 'comment' && ( */}
             <div className="accelerator-comment-create__buttons">
               <Dropdown
                 items={attachmentOptions}
@@ -304,14 +317,20 @@ const CreateComment: FC<Props> = ({
                 extraClass="primary-full"
                 onClick={() => {
                   setIsButtonDisabled(true);
-                  handlePostComment({ text, video: videoData, parentId, parentName });
+                  handlePostComment({
+                    text,
+                    video: videoData,
+                    parentId,
+                    parentName,
+                    images: imagesList,
+                    files: filesList,
+                  });
                 }}
                 size={type === 'comment' ? 'md' : 'sm'}
                 disabled={text.length === 0 || isButtonDisabled}
                 text={intl.formatMessage({ id: 'feed.create.post' })}
               />
             </div>
-            {/* )} */}
           </>
         )}
       </div>
@@ -321,8 +340,8 @@ const CreateComment: FC<Props> = ({
         isDropZoneOpen={isDropZoneOpen}
         accept={fileType === 'image' ? imageTypes : fileTypes}
         onSelect={files => {
-          if (fileType === 'image') postUploadImages(files);
-          else postUploadFiles(files);
+          if (fileType === 'image') addUploadedImages(files);
+          else addUploadedFiles(files);
         }}
         maxFiles={fileType === 'image' ? maxImages : maxFiles}
         maxSize={fileType === 'image' ? imageSize : fileSize}

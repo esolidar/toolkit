@@ -182,8 +182,8 @@ const NoteSingle: FC<NoteSingleProps> = ({
 
           {files &&
             files.length > 0 &&
-            files.map(({ title, size }, key) => (
-              <FileCard key={key} size={size} title={title} showDownloadButton />
+            files.map(({ name, size, file }, key) => (
+              <FileCard key={key} size={size} title={name} file={file} showDownloadButton />
             ))}
 
           {preview &&

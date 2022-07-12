@@ -16,6 +16,7 @@ const ProfileAvatar: FC<Props> = ({
   buttonText,
   buttonIconRight,
   date,
+  className,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const alt: string = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
@@ -43,7 +44,8 @@ const ProfileAvatar: FC<Props> = ({
               'client__primary--color-hover',
               { margin: thumb },
               { bold: isNameBold },
-              { click: href }
+              { click: href },
+              className
             )}
             onClick={onClick}
           >

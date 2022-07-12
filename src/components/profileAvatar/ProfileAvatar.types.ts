@@ -8,6 +8,7 @@ interface Props {
   buttonText?: string;
   buttonIconRight?: JSX.Element;
   date?: string;
+  className?: string;
 }
 
 export default Props;

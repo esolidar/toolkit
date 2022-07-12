@@ -7,7 +7,7 @@ export const noteDefault = {
   text: '!@Nome Apelido! 59 Lorem ipsum dolor sit amet,',
   scraping_data: null,
   parent_id: 69,
-  user_id: 3,
+  user_id: 9,
   user,
   images: [],
   files: [],
