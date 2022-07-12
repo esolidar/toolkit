@@ -61,7 +61,7 @@ it('Test get url data', () => {
   fireEvent.click(getByClass('accelerator-comment-create'));
 
   act(() => {
-    fireEvent.change(getById('text'), {
+    fireEvent.change(getById('text-0'), {
       target: { value: 'https://www.youtube.com/watch?v=f7x5IeWi0v8&t=1s' },
     });
   });
@@ -73,19 +73,19 @@ it('Test get url data', () => {
   });
 
   act(() => {
-    fireEvent.change(getById('text'), {
+    fireEvent.change(getById('text-0'), {
       target: { value: 'https://vimeo.com/164265382' },
     });
   });
 
   act(() => {
-    fireEvent.change(getById('text'), {
+    fireEvent.change(getById('text-0'), {
       target: { value: '' },
     });
   });
 
   act(() => {
-    fireEvent.change(getById('text'), {
+    fireEvent.change(getById('text-0'), {
       target: { value: 'https://www.esolidar.com' },
     });
   });
