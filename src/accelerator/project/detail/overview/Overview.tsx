@@ -104,10 +104,10 @@ const Overview = ({
   };
 
   const canDeleteFiles =
-    project.status === PROJECT.approved &&
+    (project.status === PROJECT.pending || project.status === PROJECT.approved) &&
     (isAdmin || (!isAdmin && !project.as_company && isOwner));
   const canUploadFiles =
-    project.status === PROJECT.approved &&
+    (project.status === PROJECT.pending || project.status === PROJECT.approved) &&
     ((isAdmin && project.as_company) || (!isAdmin && !project.as_company && isOwner));
   const documentList = files?.data?.filter(file => {
     if (file.public || isAdmin || (!project.as_company && isOwner)) return file;

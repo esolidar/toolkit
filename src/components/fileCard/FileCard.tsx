@@ -64,11 +64,7 @@ const FileCard = ({
           )}
 
           {showBadgePrivate && (
-            <Badge
-              plaintext={intl.formatMessage({ id: 'toolkit.private' })}
-              extraClass="dark-gray"
-              type="text"
-            />
+            <Badge plaintext={intl.formatMessage({ id: 'toolkit.private' })} extraClass="white" />
           )}
           {showBadgeFailed && (
             <Badge
