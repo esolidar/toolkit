@@ -134,7 +134,7 @@ const ModalBody: FC<ModalBodyProps> = ({
           accept=".doc, .docx, .pdf, .xls, .xlsx, .ppt, .pptx"
           onSelect={onDropFile}
           icon="icon-ic-file-upload"
-          maxSize={1000000}
+          maxSize={20000000}
         >
           {file && (
             <Button
