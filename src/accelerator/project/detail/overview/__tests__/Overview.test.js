@@ -28,7 +28,10 @@ it('renders Overview pending view', () => {
 });
 
 it('renders Overview Approved view', () => {
-  const { getByClass } = render(<Approved />);
+  const { getByClass, queryByText } = render(<Approved />);
+  act(() => {
+    fireEvent.click(queryByText('About'));
+  });
 
   expect(getByClass('project-detail-component')).toBeTruthy();
   expect(getByClass('project-detail-component__initiatives-list')).toBeTruthy();
