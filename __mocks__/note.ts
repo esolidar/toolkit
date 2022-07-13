@@ -48,6 +48,7 @@ export const noteFiles = {
       user_id: 3,
       project_note_id: 66,
       streamFile: 'amazons3',
+      name: 'File',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/files/Googlepdf-e44a895a-2fea-4e61-9ff2-b7d7a08229ee.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143813Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=e263a2aa50eaf84f264f127713f8a1926b7a7253de930529a055db8e1ce01ddd',
       file_type: 'pdf',
       file_size: '59492',
@@ -59,6 +60,7 @@ export const noteFiles = {
       user_id: 3,
       project_note_id: 66,
       streamFile: 'amazons3',
+      name: 'File',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/files/Webankor%28eSolidar%29-52937d27-0ecc-44c7-a179-eccbb63bf1c7.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143813Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=2a7dcb930351e6c57755304539282703bb7b4aefadc54c036f42c5d992f3d166',
       file_type: 'pdf',
       file_size: '260123',
@@ -70,6 +72,7 @@ export const noteFiles = {
       user_id: 3,
       project_note_id: 66,
       streamFile: 'amazons3',
+      name: 'File',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/389/notes/files/esolidar_Ajudandoaajudar%21-bc49b9ab-eb0e-4600-8d61-848f27ba2423.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA25334ATHGOYXBR5J%2F20220706%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220706T143813Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=fb14a7a9e364219ddbca8eae46585457eb4d1de3fae3f0ece8f1af256d42921f',
       file_type: 'pdf',
       file_size: '635746',
@@ -83,7 +86,7 @@ export const noteFiles = {
   created_at: '2022-07-06T14:37:58.000000Z',
 };
 
-export const noteVieo = {
+export const noteVideo = {
   id: 67,
   project_id: 389,
   text: '67 veja o vídeo!',

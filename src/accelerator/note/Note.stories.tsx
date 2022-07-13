@@ -8,7 +8,7 @@ import {
   noteWithReplies,
   noteImages,
   noteFiles,
-  noteVieo,
+  noteVideo,
   noteUrl,
 } from '../../../__mocks__/note';
 
@@ -20,11 +20,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = (args: Props) => (
-  <div>
-    <Note {...args} />
-  </div>
-);
+const Template: Story<Props> = (args: Props) => <Note {...args} />;
 
 export const Default: Story<Props> = Template.bind({});
 export const WithReply: Story<Props> = Template.bind({});
@@ -36,9 +32,7 @@ export const WithUrl: Story<Props> = Template.bind({});
 const createCommentArgs: any = {
   files: [],
   isAdmin: false,
-  handlePostComment: data => {
-    console.log('data', data);
-  },
+  handlePostComment: () => {},
   postUploadFiles: () => {},
   postDeleteFile: () => {},
   getScraper: () => {},
@@ -57,40 +51,94 @@ Default.args = {
   noteSingleArgs: {
     note: noteDefault,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };
 
 WithReply.args = {
   noteSingleArgs: {
     note: noteWithReplies,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };
 
 WithImages.args = {
   noteSingleArgs: {
     note: noteImages,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };
 
 WithFiles.args = {
   noteSingleArgs: {
     note: noteFiles,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };
 
 WithVideo.args = {
   noteSingleArgs: {
-    note: noteVieo,
+    note: noteVideo,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };
 
 WithUrl.args = {
   noteSingleArgs: {
     note: noteUrl,
     createCommentArgs,
+    parentComment: {
+      parentId: 1,
+      parentName: 'teste',
+    },
+    reply: false,
+    handleDeleteNote: () => {},
   },
+  handleViewAllReplies: () => {},
+  handleViewChildReplies: () => {},
+  handleDeleteNote: () => {},
 };

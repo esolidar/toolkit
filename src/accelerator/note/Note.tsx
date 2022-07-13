@@ -64,6 +64,7 @@ const Note: FC<Props> = ({
 
                     {item.replies.length !== item.replies_count && (
                       <Button
+                        dataTestId={`view-replies${item.id}`}
                         extraClass="link"
                         onClick={() => handleViewChildReplies(item.id)}
                         text={intl.formatMessage(
@@ -80,6 +81,7 @@ const Note: FC<Props> = ({
 
           {replies.length !== repliesCount && (
             <Button
+              dataTestId={`view-allReplies${id}`}
               extraClass="link"
               onClick={() => handleViewAllReplies(id)}
               text={intl.formatMessage({ id: 'toolkit.comments.view.replies' })}
@@ -217,6 +219,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
           <>
             {!isReply ? (
               <Button
+                dataTestId="reply"
                 size={reply ? 'sm' : 'md'}
                 onClick={handleReply}
                 extraClass="secondary"

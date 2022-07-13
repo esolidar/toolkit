@@ -13,13 +13,13 @@ interface Note {
   replies?: any[];
   scraping_data: any;
   id: number;
-  user_id: number;
-  parent_id: number;
-  deleted_at: string;
+  user_id: number | null;
+  parent_id: number | null;
+  deleted_at: string | null;
 }
 
 interface ParentComment {
-  parentId: number;
+  parentId: number | null;
   parentName?: string;
 }
 
