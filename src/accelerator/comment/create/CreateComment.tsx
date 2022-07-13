@@ -213,6 +213,7 @@ const CreateComment: FC<Props> = ({
         {type === 'reply' && (
           <Reply
             user={user}
+            parentId={parentId}
             text={text}
             handleChange={handleChange}
             placeholderText={placeholderText}
@@ -315,6 +316,7 @@ const CreateComment: FC<Props> = ({
               />
               <Button
                 extraClass="primary-full"
+                dataTestId={`create-comment-${parentComment?.id || '0'}`}
                 onClick={() => {
                   setIsButtonDisabled(true);
                   handlePostComment({
@@ -430,7 +432,7 @@ const Comment: FC<CommentProps> = ({
             onChange={handleChange}
             placeholder={placeholderText}
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
-            dataTestId="text"
+            dataTestId={`text-${parentId || 0}`}
             autofocus={reference?.current || editMode}
           />
         </div>
@@ -445,6 +447,7 @@ const Reply: FC<ReplyProps> = ({
   text,
   placeholderText,
   reference,
+  parentId,
 }: ReplyProps) => {
   return (
     <div className="accelerator-comment-create__reply">
@@ -453,14 +456,14 @@ const Reply: FC<ReplyProps> = ({
         <TextareaField
           reference={reference}
           field="text"
-          id="text"
+          id={`text-${parentId || 0}`}
           resize
           cssClass="no-border"
           onChange={handleChange}
           placeholder={placeholderText}
           value={text.replace(/<\/?[^>]+(>|$)/g, '')}
           fixedValue={true}
-          dataTestId="text"
+          dataTestId={`text-${parentId || 0}`}
           autofocus={true}
         />
       </div>
