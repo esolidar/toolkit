@@ -32,6 +32,7 @@ export interface ReplyProps {
   text: string;
   placeholderText?: string;
   reference?: any;
+  parentId?: number;
 }
 
 export default Props;
