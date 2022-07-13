@@ -4,7 +4,6 @@
   padding: $distance-3;
   border-radius: $border-radius-1;
   position: relative;
-  margin-bottom: $distance-3;
   box-shadow: map-get($elevation, 50);
 
   &.comment-reply-box {
@@ -12,7 +11,7 @@
   }
 
   .placeholder-text {
-    font-weight: 400;
+    font-weight: 400 !important;
     font-size: 16px;
     line-height: 24px;
     color: map-get($neutrals, 700);

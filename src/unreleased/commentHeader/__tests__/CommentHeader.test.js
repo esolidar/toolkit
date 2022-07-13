@@ -7,12 +7,12 @@ import Meta, { Default as DefaultStory } from '../CommentHeader.stories';
 const Default = composeStory(DefaultStory, Meta);
 
 it('renders commentHeader component', () => {
-  const { getByClass, getByText, getByAltText } = render(<Default />);
+  const { getAllByClass, getByClass, getByText, getByAltText } = render(<Default />);
 
-  expect(getByClass('profile-avatar')).toBeInTheDocument();
+  expect(getAllByClass(/profile-avatar/)).toBeTruthy();
   expect(getByText('Joel F. Calheiros')).toBeInTheDocument();
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
-  expect(getByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
+  expect(getByClass('profile-avatar__thumb')).toBeInTheDocument();
   expect(getByText('14 days ago')).toBeInTheDocument();
   expect(getByClass('icon-chevron-down')).toBeInTheDocument();
 });

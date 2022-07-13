@@ -10,6 +10,7 @@ const ReadMoreText = ({
   readMoreTextTranslation,
   readLessTextTranslation,
   showReadMoreLink = true,
+  gradient = false,
 }) => {
   const [showReadMoreButton, setShowReadMoreButton] = useState(true);
   const [showReadLessButton, setShowReadLessButton] = useState(false);
@@ -22,36 +23,40 @@ const ReadMoreText = ({
       {readMore ? (
         <>
           {showReadMoreButton && (
-            <>
+            <div className="read-more">
               {`${result.substr(0, charLimit)}... `}
               {showReadMoreLink && (
+                <div className={`read-more__btn ${gradient ? 'read-more--gradient' : ''}`}>
+                  <Button
+                    extraClass="link"
+                    className="px-0"
+                    onClick={() => {
+                      setShowReadMoreButton(false);
+                      setShowReadLessButton(true);
+                    }}
+                    text={readMoreTextTranslation}
+                    size="sm"
+                  />
+                </div>
+              )}
+            </div>
+          )}
+          {showReadLessButton && (
+            <div className="read-more">
+              <div dangerouslySetInnerHTML={{ __html: text }} />
+              <div className="read-more__btn">
                 <Button
                   extraClass="link"
                   className="px-0"
                   onClick={() => {
-                    setShowReadMoreButton(false);
-                    setShowReadLessButton(true);
+                    setShowReadMoreButton(true);
+                    setShowReadLessButton(false);
                   }}
-                  text={readMoreTextTranslation}
+                  text={readLessTextTranslation}
                   size="sm"
                 />
-              )}
-            </>
-          )}
-          {showReadLessButton && (
-            <>
-              <div dangerouslySetInnerHTML={{ __html: text }} />
-              <Button
-                extraClass="link"
-                className="px-0"
-                onClick={() => {
-                  setShowReadMoreButton(true);
-                  setShowReadLessButton(false);
-                }}
-                text={readLessTextTranslation}
-                size="sm"
-              />
-            </>
+              </div>
+            </div>
           )}
         </>
       ) : (
@@ -67,6 +72,7 @@ ReadMoreText.propTypes = {
   readMoreTextTranslation: PropTypes.string,
   readLessTextTranslation: PropTypes.string,
   showReadMoreLink: PropTypes.bool,
+  gradient: PropTypes.bool,
 };
 
 ReadMoreText.defaultProps = {

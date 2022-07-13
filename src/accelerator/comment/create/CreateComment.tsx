@@ -23,61 +23,87 @@ const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
   type = 'comment',
-  comment,
+  parentComment,
   user,
-  files,
   handlePostComment,
-  postUploadFiles,
-  postUploadImages,
-  postDeleteFile,
-  postDeleteImage,
   getScraper,
   scrapper,
   placeholderText,
-  images,
   galleryType,
+  reference,
+  closedCommentRef,
   onDropError,
+  handleCleanComment,
 }: Props) => {
+  const { parentName, parentId } = parentComment || {};
   const intl: IntlShape = useIntl();
-  const [editMode, setEditMode] = useState<boolean>(false);
-  const [filesData, setFilesData] = useState<any[]>(files);
+  const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+  const [filesList, setFilesList] = useState<any[]>([]);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
-  const [imageList, setImageList] = useState<any>(images || []);
+  const [imagesList, setImagesList] = useState<any>([]);
   const [isOpenModalUploads, setIsOpenModalUploads] = useState<boolean>(false);
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>(parentName || '');
   const [urlData, setUrlData] = useState<any>(null);
   const [videoData, setVideoData] = useState<any>(null);
   const isDropZoneOpen = useRef<any>(null);
   const isUrlCardDisabled = useRef<boolean>(null);
 
+  // Add images to state
+  const addUploadedImages = (images: any[]) => {
+    const newImages = [];
+
+    images.forEach((image, indx) => {
+      newImages.push({ id: indx, image: image.preview, file: image });
+    });
+    setImagesList(newImages);
+  };
+
+  // Add files to state
+  const addUploadedFiles = (files: any[]) => {
+    const newFiles = [];
+
+    files.forEach((file, indx) => {
+      newFiles.push({ id: indx, name: file.name, size: file.size, file });
+    });
+    setFilesList(newFiles);
+  };
+
   const handleEditMode = () => {
     setEditMode(true);
   };
+
+  // Send attach image list
+  // useEffect(() => {
+  //   images(imagesList);
+  // }, [imagesList]);
+
+  // // Send attach file list
+  // useEffect(() => {
+  //   files(filesList);
+  // }, [filesList]);
 
   useEffect(() => {
     setUrlData(scrapper);
   }, [scrapper]);
 
   useEffect(() => {
-    setImageList(images);
-  }, [images]);
-
-  useEffect(() => {
-    setFilesData(files);
-  }, [files]);
+    // eslint-disable-next-line no-param-reassign
+    closedCommentRef.current = handleClickCancel;
+  }, []);
 
   const getUrlData = (url: string) => {
     if (parseYouTube(url)) {
       fetch(`https://www.youtube.com/oembed?format=json&url=${url}&maxwidth=420`)
         .then(response => response.json())
         .then(response => {
-          setVideoData(response);
+          setVideoData({ ...response, videoUrl: url });
         });
     } else if (parseVimeo(url)) {
       fetch(`https://vimeo.com/api/oembed.json?url=${url}`)
         .then(response => response.json())
         .then(response => {
-          setVideoData(response);
+          setVideoData({ ...response, videoUrl: url });
         });
     } else {
       getScraper(url);
@@ -97,8 +123,8 @@ const CreateComment: FC<Props> = ({
       !videoData &&
       !urlData &&
       !isUrlCardDisabled.current &&
-      imageList.length === 0 &&
-      filesData.length === 0
+      imagesList.length === 0 &&
+      filesList.length === 0
     ) {
       isUrlCardDisabled.current = true;
       getUrlData(url[1]);
@@ -110,24 +136,24 @@ const CreateComment: FC<Props> = ({
     setText('');
     setVideoData(null);
     setUrlData(null);
-    setImageList([]);
-    setFilesData([]);
+    setImagesList([]);
+    setFilesList([]);
+    setIsButtonDisabled(false);
+    handleCleanComment();
   };
 
   const handleDeleteFile = (id: number) => {
-    const filtered = filesData.filter(file => file.id !== id);
-    setFilesData(filtered);
-    postDeleteFile(id);
+    const filtered = filesList.filter(file => file.id !== id);
+    setFilesList(filtered);
   };
 
   const handleDeleteImage = (id: number) => {
-    const filtered = imageList.filter(file => file.id !== id);
-    setImageList(filtered);
-    postDeleteImage(id);
+    const filtered = imagesList.filter(file => file.id !== id);
+    setImagesList(filtered);
   };
 
   useEffect(() => {
-    isDropZoneOpen.current();
+    if (fileType) isDropZoneOpen.current();
   }, [fileType]);
 
   const handleAddImages = () => {
@@ -144,21 +170,21 @@ const CreateComment: FC<Props> = ({
     {
       id: 1,
       leftIcon: 'Image',
-      onClick: handleAddImages,
+      onClick: () => handleAddImages(),
       show: true,
       text: intl.formatMessage({ id: 'toolkit.add.images' }),
     },
     {
       id: 2,
       leftIcon: 'Attachment',
-      onClick: handleAddFiles,
+      onClick: () => handleAddFiles(),
       show: true,
       text: intl.formatMessage({ id: 'toolkit.add.documents' }),
     },
   ];
 
   const isDisabledAttachments =
-    !!videoData || !!urlData || imageList.length > 0 || filesData.length > 0;
+    !!videoData || !!urlData || imagesList?.length > 0 || filesList?.length > 0;
 
   return (
     <>
@@ -176,40 +202,38 @@ const CreateComment: FC<Props> = ({
         {type === 'comment' && (
           <Comment
             user={user}
+            parentId={parentId}
             editMode={editMode}
             text={text}
             handleChange={handleChange}
             placeholderText={placeholderText}
+            reference={reference}
           />
         )}
         {type === 'reply' && (
           <Reply
             user={user}
-            comment={comment}
             text={text}
             handleChange={handleChange}
-            videoData={videoData}
-            handlePostComment={handlePostComment}
             placeholderText={placeholderText}
-            attachmentOptions={attachmentOptions}
-            isDisabledAttachments={isDisabledAttachments}
+            reference={reference}
           />
         )}
 
         {editMode && (
           <>
             <div className="accelerator-comment-create__attachments">
-              {imageList.length > 0 && (
+              {imagesList?.length > 0 && (
                 <div className="accelerator-comment-create__attachments-images">
                   <ImageGrid
                     editMode={true}
-                    items={imageList}
+                    items={imagesList}
                     type={galleryType}
                     onDeleteImage={handleDeleteImage}
                   />
                 </div>
               )}
-              {filesData?.map(file => {
+              {filesList?.map(file => {
                 return (
                   <FileCard
                     key={file.id}
@@ -267,37 +291,46 @@ const CreateComment: FC<Props> = ({
                 />
               )}
             </div>
-            {type === 'comment' && (
-              <div className="accelerator-comment-create__buttons">
-                <Dropdown
-                  items={attachmentOptions}
-                  disabled={isDisabledAttachments}
-                  customButton={
-                    <Button
-                      extraClass="secondary"
-                      className="attachment-btn"
-                      disabled={isDisabledAttachments}
-                      iconLeft={<Icon name="Plus" size="sm" />}
-                      iconRight={<Icon name="Attachment" size="sm" />}
-                    />
-                  }
-                />
-                <Button
-                  extraClass="secondary"
-                  dataTestId="cancel-btn"
-                  onClick={handleClickCancel}
-                  size="md"
-                  text={intl.formatMessage({ id: 'cancel' })}
-                />
-                <Button
-                  extraClass="primary-full"
-                  onClick={() => handlePostComment({ text, video: videoData })}
-                  size="md"
-                  disabled={text.length === 0}
-                  text={intl.formatMessage({ id: 'feed.create.post' })}
-                />
-              </div>
-            )}
+            <div className="accelerator-comment-create__buttons">
+              <Dropdown
+                items={attachmentOptions}
+                disabled={isDisabledAttachments}
+                customButton={
+                  <Button
+                    size={type === 'comment' ? 'md' : 'sm'}
+                    extraClass="secondary"
+                    className="attachment-btn"
+                    disabled={isDisabledAttachments}
+                    iconLeft={<Icon name="Plus" size="sm" />}
+                    iconRight={<Icon name="Attachment" size="sm" />}
+                  />
+                }
+              />
+              <Button
+                extraClass="secondary"
+                dataTestId="cancel-btn"
+                onClick={handleClickCancel}
+                size={type === 'comment' ? 'md' : 'sm'}
+                text={intl.formatMessage({ id: 'cancel' })}
+              />
+              <Button
+                extraClass="primary-full"
+                onClick={() => {
+                  setIsButtonDisabled(true);
+                  handlePostComment({
+                    text,
+                    video: videoData,
+                    parentId,
+                    parentName,
+                    images: imagesList,
+                    files: filesList,
+                  });
+                }}
+                size={type === 'comment' ? 'md' : 'sm'}
+                disabled={text.length === 0 || isButtonDisabled}
+                text={intl.formatMessage({ id: 'feed.create.post' })}
+              />
+            </div>
           </>
         )}
       </div>
@@ -307,8 +340,8 @@ const CreateComment: FC<Props> = ({
         isDropZoneOpen={isDropZoneOpen}
         accept={fileType === 'image' ? imageTypes : fileTypes}
         onSelect={files => {
-          if (fileType === 'image') postUploadImages(files);
-          else postUploadFiles(files);
+          if (fileType === 'image') addUploadedImages(files);
+          else addUploadedFiles(files);
         }}
         maxFiles={fileType === 'image' ? maxImages : maxFiles}
         maxSize={fileType === 'image' ? imageSize : fileSize}
@@ -377,6 +410,8 @@ const Comment: FC<CommentProps> = ({
   handleChange,
   text,
   placeholderText,
+  reference,
+  parentId,
 }: CommentProps) => {
   return (
     <>
@@ -389,14 +424,14 @@ const Comment: FC<CommentProps> = ({
         <div className="feed-create-post-body" data-testid="body">
           <TextareaField
             field="text"
-            id="text"
+            id={`text-${parentId || 0}`}
             resize
             cssClass="no-border"
             onChange={handleChange}
             placeholder={placeholderText}
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
             dataTestId="text"
-            autofocus={true}
+            autofocus={reference?.current || editMode}
           />
         </div>
       )}
@@ -405,22 +440,18 @@ const Comment: FC<CommentProps> = ({
 };
 
 const Reply: FC<ReplyProps> = ({
-  comment,
   user,
   handleChange,
   text,
-  attachmentOptions,
-  videoData,
-  handlePostComment,
   placeholderText,
-  isDisabledAttachments,
+  reference,
 }: ReplyProps) => {
-  const intl: IntlShape = useIntl();
   return (
     <div className="accelerator-comment-create__reply">
       <ProfileAvatar thumb={user?.thumbs?.thumb} thumbSize="md" />
       <div className="accelerator-comment-create__reply-input">
         <TextareaField
+          reference={reference}
           field="text"
           id="text"
           resize
@@ -428,34 +459,11 @@ const Reply: FC<ReplyProps> = ({
           onChange={handleChange}
           placeholder={placeholderText}
           value={text.replace(/<\/?[^>]+(>|$)/g, '')}
+          fixedValue={true}
           dataTestId="text"
+          autofocus={true}
         />
       </div>
-      <Dropdown
-        items={attachmentOptions}
-        disabled={isDisabledAttachments}
-        customButton={
-          <Button
-            extraClass="primary-full"
-            className="attachment-btn"
-            type="icon"
-            ghost
-            size="sm"
-            theme="light"
-            disabled={isDisabledAttachments}
-            icon={<Icon name="Attachment" size="sm" />}
-          />
-        }
-      />
-      {text.length > 0 && (
-        <Button
-          extraClass="primary-full"
-          onClick={() => handlePostComment({ text, video: videoData, comment })}
-          size="sm"
-          disabled={text.length === 0}
-          text={intl.formatMessage({ id: 'feed.create.post' })}
-        />
-      )}
     </div>
   );
 };

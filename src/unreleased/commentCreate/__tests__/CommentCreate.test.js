@@ -7,10 +7,12 @@ import Meta, { Default as DefaultListTitle } from '../CommentCreate.stories';
 const Default = composeStory(DefaultListTitle, Meta);
 
 it('renders commentCreate component', () => {
-  const { getByClass, getByText, getByPlaceholderText, getByTestId } = render(<Default />);
+  const { getAllByClass, getByClass, getByText, getByPlaceholderText, getByTestId } = render(
+    <Default />
+  );
 
   expect(getByTestId('comment-create')).toBeInTheDocument();
-  expect(getByClass('profile-avatar')).toBeInTheDocument();
+  expect(getAllByClass(/profile-avatar/)).toBeTruthy();
   expect(getByClass(/comment-create__textarea/)).toBeInTheDocument();
   expect(getByTestId('text')).toBeInTheDocument();
   expect(getByPlaceholderText('Leave a comment')).toBeInTheDocument();

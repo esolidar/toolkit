@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import autosize from 'autosize';
@@ -34,6 +34,7 @@ const TextareaField = ({
   size,
   editButton = false,
   inputLabelProps = false,
+  reference,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -49,6 +50,13 @@ const TextareaField = ({
       }, 500);
     }
   }
+
+  useEffect(() => {
+    const input = document.getElementById(id);
+    const end = value?.length;
+
+    if (autofocus) input.setSelectionRange(end, end);
+  }, []);
 
   const [editMode, setEditMode] = useState(editButton);
 
@@ -87,6 +95,7 @@ const TextareaField = ({
           </div>
         )}
         <textarea
+          ref={reference}
           id={id || field}
           disabled={editMode || disabled}
           onChange={onChange}
@@ -147,7 +156,9 @@ TextareaField.propTypes = {
   onBlur: PropTypes.func,
   size: PropTypes.string,
   editButton: PropTypes.bool,
+  fixedValue: PropTypes.bool,
   inputLabelProps: PropTypes.object,
+  reference: PropTypes.object,
 };
 
 TextareaField.defaultProps = {

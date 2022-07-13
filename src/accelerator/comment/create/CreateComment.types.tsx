@@ -3,20 +3,18 @@ import User from '../../../interfaces/user.types';
 interface Props {
   type: 'comment' | 'reply';
   comment?: any;
-  files: any[];
   user: User;
   isAdmin: boolean;
+  closedCommentRef: any;
   handlePostComment(post: any): void;
-  postUploadFiles(form: any): void;
-  postDeleteFile(id: number): void;
   getScraper(url: string): void;
-  postUploadImages(file: any): void;
-  postDeleteImage(id: number): void;
   onDropError?(errorList: any): void;
+  handleCleanComment(): void;
   scrapper: any;
   placeholderText?: string;
-  images: any[];
   galleryType: 'grid' | 'inline';
+  reference?: any;
+  parentComment?: any;
 }
 
 export interface CommentProps {
@@ -25,17 +23,15 @@ export interface CommentProps {
   handleChange(e: any): void;
   text: string;
   placeholderText?: string;
+  reference?: any;
+  parentId: number;
 }
 export interface ReplyProps {
   user: User;
-  comment?: any;
   handleChange(e: any): void;
-  handlePostComment(data: any): void;
   text: string;
   placeholderText?: string;
-  videoData: any;
-  attachmentOptions: any;
-  isDisabledAttachments: boolean;
+  reference?: any;
 }
 
 export default Props;

@@ -8,6 +8,8 @@ import isDefined from '../../../../utils/isDefined';
 import sortBy from '../../../../utils/sortBy';
 import isEmpty from '../../../../utils/isEmpty';
 import getRoute from '../../../../utils/getRoute';
+import getUrlParam from '../../../../utils/getUrlParam';
+import addUrlParam from '../../../../utils/addUrlParam';
 import CustomQuestions from './CustomQuestions';
 import Initiatives from './Initiatives';
 import DocumentsTab from './DocumentsTab';
@@ -43,10 +45,11 @@ const Overview = ({
 
   const intl = useIntl();
 
-  const [key, setKey] = useState<string>('about');
+  const [key, setKey] = useState<string>(getUrlParam('tab') || 'about');
 
   const handleChangeTab = key => {
     setKey(key);
+    addUrlParam('tab', key);
   };
 
   const publicForm = isDefined(project.form) ? [...JSON.parse(project?.form)] : [];
@@ -161,7 +164,7 @@ const Overview = ({
                   },
                   {
                     content: <Updates />,
-                    key: 'updated',
+                    key: 'updates',
                     title: intl.formatMessage({ id: 'toolkit.updates' }),
                   },
                   {

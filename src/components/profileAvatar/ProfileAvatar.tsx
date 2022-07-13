@@ -15,6 +15,7 @@ const ProfileAvatar: FC<Props> = ({
   buttonUrl,
   buttonText,
   buttonIconRight,
+  date,
   className,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
@@ -26,10 +27,10 @@ const ProfileAvatar: FC<Props> = ({
   };
 
   return (
-    <div className="profile-avatar" data-testid="profile-avatar">
+    <div className={`profile-avatar profile-avatar--${thumbSize}`} data-testid="profile-avatar">
       {thumb && (
         <img
-          className={classnames('profile-avatar__thumb', `thumb-${thumbSize}`, { click: href })}
+          className={classnames('profile-avatar__thumb', { click: href })}
           src={thumb}
           alt={alt}
           onClick={onClick}
@@ -62,6 +63,14 @@ const ProfileAvatar: FC<Props> = ({
           />
         )}
       </div>
+      {date && (
+        <div
+          className={classnames('profile-avatar__date', 'margin', { click: href })}
+          onClick={onClick}
+        >
+          {date}
+        </div>
+      )}
     </div>
   );
 };

@@ -24,6 +24,7 @@ const FileCard = ({
   dateUploaded,
   showBadgePrivate = false,
   showBadgeFailed = false,
+  link,
 }: Props) => {
   const intl = useIntl();
   const classes = classnames('file-card', { disabled }, className);
@@ -54,7 +55,14 @@ const FileCard = ({
       <div className="file-card__body">
         {url && <div className="file-card__body-url">{url}</div>}
         <div className="file-card__body-title">
-          {title}
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {title}
+            </a>
+          ) : (
+            <>{title}</>
+          )}
+
           {showBadgePrivate && (
             <Badge plaintext={intl.formatMessage({ id: 'toolkit.private' })} extraClass="white" />
           )}
