@@ -15,10 +15,10 @@ import ImageGrid from '../../../components/imageGrid';
 import Props, { CommentProps, ReplyProps } from './CreateComment.types';
 
 const fileTypes = '.doc,.pdf,.xls,.ppt,.pptx,.xlsx,.docx';
-const fileSize = 20000000; // 20Mb
+const fileSize = 20971520; // 20Mb
 const maxFiles = 3;
 const imageTypes = '.jpg, .jpeg, .png, .gif';
-const imageSize = 5000000; // 5Mb
+const imageSize = 5242880; // 5Mb
 const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
