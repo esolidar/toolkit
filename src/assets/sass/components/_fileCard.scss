@@ -95,9 +95,10 @@
     }
   }
   &__buttons {
-    display: none;
+    display: flex;
     align-items: center;
     gap: $distance-1;
+    opacity: 0;
   }
 
   &:hover {
@@ -107,7 +108,7 @@
     }
 
     & .file-card__buttons {
-      display: flex;
+      opacity: 1;
     }
   }
 }
