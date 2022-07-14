@@ -60,7 +60,6 @@ Default.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
 
 WithReply.args = {
@@ -76,7 +75,6 @@ WithReply.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
 
 WithImages.args = {
@@ -92,7 +90,6 @@ WithImages.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
 
 WithFiles.args = {
@@ -108,7 +105,6 @@ WithFiles.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
 
 WithVideo.args = {
@@ -124,7 +120,6 @@ WithVideo.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
 
 WithUrl.args = {
@@ -140,5 +135,4 @@ WithUrl.args = {
   },
   handleViewAllReplies: () => {},
   handleViewChildReplies: () => {},
-  handleDeleteNote: () => {},
 };
