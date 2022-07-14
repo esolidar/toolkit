@@ -17,7 +17,6 @@ const Note: FC<Props> = ({
   noteSingleArgs,
   handleViewAllReplies,
   handleViewChildReplies,
-  handleDeleteNote,
 }: Props) => {
   const intl: IntlShape = useIntl();
   const {
@@ -39,7 +38,7 @@ const Note: FC<Props> = ({
             <React.Fragment key={key}>
               <NoteSingle
                 note={item}
-                handleDeleteNote={handleDeleteNote}
+                handleDeleteNote={noteSingleArgs.handleDeleteNote}
                 parentComment={{ parentId: item.id, parentName: `@${item.user.name} ` }}
                 createCommentArgs={noteSingleArgs.createCommentArgs}
                 reply={true}
@@ -50,7 +49,7 @@ const Note: FC<Props> = ({
                   <div className="view-comment__note__secondLevel">
                     {item.replies.map((secondLevelReply, keySecondLevelReply) => (
                       <NoteSingle
-                        handleDeleteNote={handleDeleteNote}
+                        handleDeleteNote={noteSingleArgs.handleDeleteNote}
                         key={keySecondLevelReply}
                         parentComment={{
                           parentId: item.id,
