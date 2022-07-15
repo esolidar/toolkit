@@ -152,7 +152,11 @@ const NoteSingle: FC<NoteSingleProps> = ({
         <ProfileAvatar
           thumb={thumb}
           name={name}
-          date={dateDistance({ date: new Date(date), formatMessage: intl.formatMessage })}
+          date={dateDistance({
+            date: new Date(date),
+            formatMessage: intl.formatMessage,
+            i18n: intl.locale,
+          })}
           thumbSize="lg"
         />
 
