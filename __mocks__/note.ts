@@ -13,8 +13,8 @@ export const noteDefault = {
   files: [],
   replies: [],
   deleted_at: null,
-  updated_at: '2022-07-06T13:41:39.000000Z',
-  created_at: '2022-07-06T13:41:39.000000Z',
+  updated_at: '2022-07-10T13:41:39.000000Z',
+  created_at: '2022-07-10T13:41:39.000000Z',
 };
 
 export const noteImages = {
