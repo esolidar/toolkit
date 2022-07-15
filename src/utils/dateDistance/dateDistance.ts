@@ -5,8 +5,8 @@ import formatDistance from './translations';
 /**
  * Return the distance between the given dates in words
  * @param {Date} date date to transform
- * @param {string} locale the locale code
  * @param {any} formatMessage i18n
+ * @param {string} i18n the locale code
  * @param {boolean} defaultFNS use default by date-fns
  */
 
@@ -14,26 +14,30 @@ interface Props {
   date: Date;
   formatMessage: any;
   defaultFNS?: boolean;
-  locale?: string;
+  i18n?: string;
 }
 
-const dateDistance = ({ date, formatMessage, defaultFNS = false, locale = 'pt' }: Props) => {
+const dateDistance = ({ date, formatMessage, i18n, defaultFNS = false }: Props) => {
   const dateNow = Date.now();
   const convertedDate = new Date(date);
 
   let lang;
   let intervalDate;
+  let locale;
+
+  if (i18n === 'pt') {
+    locale = 'pt';
+    lang = pt;
+  } else if (i18n === 'br') {
+    locale = 'ptBR';
+    lang = ptBR;
+  } else {
+    locale = 'enUS';
+    lang = enUS;
+  }
 
   // If use default by date-fns
   if (defaultFNS) {
-    if (locale === 'pt') {
-      lang = pt;
-    } else if (locale === 'ptBR') {
-      lang = ptBR;
-    } else {
-      lang = enUS;
-    }
-
     return formatDistanceToNowStrict(convertedDate, {
       addSuffix: true,
       locale: {
@@ -56,7 +60,7 @@ const dateDistance = ({ date, formatMessage, defaultFNS = false, locale = 'pt' }
     const weeks = differenceInWeeks(dateNow, convertedDate);
     intervalDate = formatMessage({ id: 'toolkit.dateDistance.weeks' }, { value: weeks });
   } else if (days < 7 && days >= 1) {
-    intervalDate = format(date, 'EEEE');
+    intervalDate = format(date, 'EEEE', { locale: lang });
   } else if (days < 1 && hours >= 1) {
     intervalDate = formatMessage({ id: 'toolkit.dateDistance.hours' }, { value: hours });
   } else if (hours < 1 && minutes >= 5) {
