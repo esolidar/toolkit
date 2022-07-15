@@ -73,16 +73,6 @@ const CreateComment: FC<Props> = ({
     setEditMode(true);
   };
 
-  // Send attach image list
-  // useEffect(() => {
-  //   images(imagesList);
-  // }, [imagesList]);
-
-  // // Send attach file list
-  // useEffect(() => {
-  //   files(filesList);
-  // }, [filesList]);
-
   useEffect(() => {
     setUrlData(scrapper);
   }, [scrapper]);
@@ -140,6 +130,7 @@ const CreateComment: FC<Props> = ({
     setFilesList([]);
     setIsButtonDisabled(false);
     handleCleanComment();
+    isUrlCardDisabled.current = false;
   };
 
   const handleDeleteFile = (id: number) => {
