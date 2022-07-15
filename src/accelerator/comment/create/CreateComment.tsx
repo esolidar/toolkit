@@ -349,7 +349,7 @@ const CreateComment: FC<Props> = ({
         maxSize={fileType === 'image' ? imageSize : fileSize}
         onDropError={(errorList: any) => {
           setIsOpenModalUploads(true);
-          onDropError(errorList);
+          if (onDropError) onDropError(errorList);
         }}
       />
       <CustomModal
@@ -425,6 +425,7 @@ const Comment: FC<CommentProps> = ({
       {editMode && (
         <div className="feed-create-post-body" data-testid="body">
           <TextareaField
+            size="xl"
             field="text"
             id={`text-${parentId || 0}`}
             resize
@@ -454,6 +455,7 @@ const Reply: FC<ReplyProps> = ({
       <ProfileAvatar thumb={user?.thumbs?.thumb} thumbSize="md" />
       <div className="accelerator-comment-create__reply-input">
         <TextareaField
+          size="xl"
           reference={reference}
           field="text"
           id={`text-${parentId || 0}`}
