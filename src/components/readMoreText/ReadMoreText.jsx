@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import Button from '../../elements/button';
 
 const regex = /(<([^>]+)>)/gi;
@@ -7,8 +8,8 @@ const regex = /(<([^>]+)>)/gi;
 const ReadMoreText = ({
   text,
   charLimit,
-  readMoreTextTranslation,
-  readLessTextTranslation,
+  readMoreTextTranslation = useIntl().formatMessage({ id: 'readmore' }),
+  readLessTextTranslation = useIntl().formatMessage({ id: 'readLess' }),
   showReadMoreLink = true,
   gradient = false,
 }) => {
@@ -77,8 +78,6 @@ ReadMoreText.propTypes = {
 
 ReadMoreText.defaultProps = {
   charLimit: 250,
-  readMoreTextTranslation: 'Read more',
-  readLessTextTranslation: 'Read less',
 };
 
 export default ReadMoreText;
