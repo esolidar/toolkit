@@ -143,6 +143,15 @@ const CreateComment: FC<Props> = ({
     setImagesList(filtered);
   };
 
+  const handleDisabled = (string: string) => {
+    const emptySpace: string = string.replace(/ /g, '');
+    const emptyLine: string = string.replace(/\n/g, '');
+
+    return (
+      string.length === 0 || isButtonDisabled || emptySpace.length === 0 || emptyLine.length === 0
+    );
+  };
+
   useEffect(() => {
     if (fileType) isDropZoneOpen.current();
   }, [fileType]);
@@ -320,7 +329,7 @@ const CreateComment: FC<Props> = ({
                   });
                 }}
                 size={type === 'comment' ? 'md' : 'sm'}
-                disabled={text.length === 0 || isButtonDisabled}
+                disabled={handleDisabled(text)}
                 text={intl.formatMessage({ id: 'feed.create.post' })}
               />
             </div>
@@ -339,8 +348,11 @@ const CreateComment: FC<Props> = ({
         maxFiles={fileType === 'image' ? maxImages : maxFiles}
         maxSize={fileType === 'image' ? imageSize : fileSize}
         onDropError={(errorList: any) => {
-          setIsOpenModalUploads(true);
-          if (onDropError) onDropError(errorList);
+          errorList.map(item => {
+            if (item.code === 'file-too-large') {
+              setIsOpenModalUploads(true);
+            } else if (onDropError) onDropError(errorList);
+          });
         }}
       />
       <CustomModal

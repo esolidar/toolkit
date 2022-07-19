@@ -139,9 +139,22 @@ const NoteSingle: FC<NoteSingleProps> = ({
   useEffect(() => {
     if (text) {
       const matches = text.match(/!@.+?!/g);
+      const matchesUrl = text.match(/#http.+?#/g);
 
       if (matches)
-        setCleanTagText(text.replace(matches, `<span>${matches[0].slice(1, -1)}</span>`));
+        setCleanTagText(
+          text.replace(
+            matches,
+            `<span class="view-comment__note__tag">${matches[0].slice(1, -1)}</span>`
+          )
+        );
+      else if (matchesUrl)
+        setCleanTagText(
+          text.replace(
+            matchesUrl,
+            `<span class="view-comment__note__url">${matchesUrl[0].slice(1, -1)}</span>`
+          )
+        );
       else setCleanTagText(text);
     }
   }, [text]);

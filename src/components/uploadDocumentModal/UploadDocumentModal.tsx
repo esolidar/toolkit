@@ -35,10 +35,9 @@ const UploadDocumentModal: FC<Props> = ({
   };
 
   const handleChangeForm = ({ target: { value, name, checked = undefined } }) => {
-    let newValue: any = value;
+    const newValue: any = value;
     const newForm: Form = { ...form };
 
-    if (checked) newValue = false;
     if (name === 'file') {
       value.forEach(doc => {
         newForm.fileName = doc.name;
@@ -46,6 +45,8 @@ const UploadDocumentModal: FC<Props> = ({
         newForm.file_type = doc.type;
         newForm.file_size = doc.size;
       });
+    } else if (name === 'public') {
+      newForm.public = !checked;
     } else {
       newForm[name] = newValue;
     }
@@ -98,12 +99,21 @@ const ModalBody: FC<ModalBodyProps> = ({
 }: ModalBodyProps): JSX.Element => {
   const intl = useIntl();
 
-  const { name, description, file, public: isPublic, file_size: fileSize, fileName } = form;
+  const {
+    name,
+    description,
+    file,
+    public: isPublic,
+    file_size: fileSize,
+    fileName,
+    maxFileSize = 20971520,
+  } = form;
 
   return (
     <div className="uploadDocumentModal__Body">
       <div className="uploadDocumentModal__form">
         <TextField
+          maxLength={70}
           field="name"
           label={intl.formatMessage({ id: 'name' })}
           value={name}
@@ -134,7 +144,7 @@ const ModalBody: FC<ModalBodyProps> = ({
           accept=".doc, .docx, .pdf, .xls, .xlsx, .ppt, .pptx"
           onSelect={onDropFile}
           icon="icon-ic-file-upload"
-          maxSize={20000000}
+          maxSize={maxFileSize}
         >
           {file && (
             <Button

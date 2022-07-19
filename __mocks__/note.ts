@@ -89,7 +89,7 @@ export const noteFiles = {
 export const noteVideo = {
   id: 67,
   project_id: 389,
-  text: '67 veja o vídeo!',
+  text: '67 veja o vídeo! #https://www.youtube.com/c/Cercl#',
   scraping_data: JSON.stringify({
     title: 'Be Svendsen live at Mount Nemrut, in Türkiye for Cercle',
     author_name: 'Cercle',
@@ -120,7 +120,7 @@ export const noteVideo = {
 export const noteUrl = {
   id: 68,
   project_id: 389,
-  text: '68 https://www.esolidar.com/',
+  text: '68 #https://www.esolidar.com/#',
   scraping_data:
     '{"domain":"www.esolidar.com","title":"esolidar | Ajudando a ajudar!","description":"Faça a gestão de tudo que você precisa para ESG, RSC e sustentabilidade em um único lugar. Capacite-se para aumentar a conscientização sobre o que é importante e crie uma cultura empresarial orientada para o bem.","og_title":"esolidar | Ajudando a ajudar!","og_description":"Faça a gestão de tudo que você precisa para ESG, RSC e sustentabilidade em um único lugar. Capacite-se para aumentar a conscientização sobre o que é importante e crie uma cultura empresarial orientada para o bem.","og_image":"https://uploads-ssl.webflow.com/60772889b1dfccd8c9417886/60a232f26727e36d393b6a1f_social_share.png","link":"https://www.esolidar.com/"}',
   parent_id: 69,
@@ -137,7 +137,7 @@ export const noteUrl = {
 export const noteWithReplies = {
   id: 69,
   project_id: 389,
-  text: '69 https://www.esolidar.com/',
+  text: '69 #https://www.esolidar.com/#',
   scraping_data: null,
   parent_id: null,
   user_id: 3,
