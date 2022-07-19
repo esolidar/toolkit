@@ -565,7 +565,7 @@ DropZoneBox.defaultProps = {
   className: '',
   disabled: false,
   showDropArea: true,
-  maxSize: 5000000,
+  maxSize: 5242880, // 5Mb,
   minSize: 0,
   maxFiles: 5,
   multiple: true,
