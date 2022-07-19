@@ -7,6 +7,7 @@ export interface Form {
   file_type?: string;
   name: string;
   public?: boolean;
+  maxFileSize?: number;
 }
 
 export interface ModalBodyProps {
