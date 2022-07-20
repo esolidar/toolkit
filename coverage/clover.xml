@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658332963914" clover="3.2.0">
-  <project timestamp="1658332963915" name="All files">
-    <metrics statements="6727" coveredstatements="4883" conditionals="5124" coveredconditionals="3234" methods="2159" coveredmethods="1209" elements="14010" coveredelements="9326" complexity="0" loc="6727" ncloc="6727" packages="250" files="855" classes="855"/>
+<coverage generated="1658333773003" clover="3.2.0">
+  <project timestamp="1658333773004" name="All files">
+    <metrics statements="6727" coveredstatements="4883" conditionals="5127" coveredconditionals="3234" methods="2159" coveredmethods="1209" elements="14013" coveredelements="9326" complexity="0" loc="6727" ncloc="6727" packages="250" files="855" classes="855"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="C:\Projects\toolkit\__customQueries__\queryByClass.js">
@@ -32,7 +32,7 @@
       </file>
     </package>
     <package name="src.accelerator.comment.create">
-      <metrics statements="121" coveredstatements="85" conditionals="93" coveredconditionals="71" methods="52" coveredmethods="19"/>
+      <metrics statements="121" coveredstatements="85" conditionals="96" coveredconditionals="71" methods="52" coveredmethods="19"/>
       <file name="CreateComment.stories.tsx" path="C:\Projects\toolkit\src\accelerator\comment\create\CreateComment.stories.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="3"/>
         <line num="17" count="1" type="stmt"/>
@@ -47,7 +47,7 @@
         <line num="52" count="1" type="stmt"/>
       </file>
       <file name="CreateComment.tsx" path="C:\Projects\toolkit\src\accelerator\comment\create\CreateComment.tsx">
-        <metrics statements="111" coveredstatements="75" conditionals="93" coveredconditionals="71" methods="40" coveredmethods="16"/>
+        <metrics statements="111" coveredstatements="75" conditionals="96" coveredconditionals="71" methods="40" coveredmethods="16"/>
         <line num="17" count="2" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
@@ -148,17 +148,17 @@
         <line num="346" count="0" type="stmt"/>
         <line num="351" count="0" type="stmt"/>
         <line num="352" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="353" count="0" type="stmt"/>
-        <line num="354" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="371" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="372" count="0" type="stmt"/>
-        <line num="374" count="0" type="stmt"/>
-        <line num="380" count="0" type="stmt"/>
-        <line num="388" count="0" type="stmt"/>
-        <line num="412" count="2" type="stmt"/>
-        <line num="421" count="13" type="stmt"/>
-        <line num="448" count="2" type="stmt"/>
-        <line num="456" count="2" type="stmt"/>
+        <line num="356" count="0" type="stmt"/>
+        <line num="359" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="376" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="377" count="0" type="stmt"/>
+        <line num="379" count="0" type="stmt"/>
+        <line num="385" count="0" type="stmt"/>
+        <line num="393" count="0" type="stmt"/>
+        <line num="417" count="2" type="stmt"/>
+        <line num="426" count="13" type="stmt"/>
+        <line num="453" count="2" type="stmt"/>
+        <line num="461" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.accelerator.note">
@@ -2206,7 +2206,7 @@
       <file name="X.js" path="C:\Projects\toolkit\src\assets\icons\sm\X.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="23" type="stmt"/>
-        <line num="4" count="135" type="stmt"/>
+        <line num="4" count="131" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\assets\icons\sm\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -6764,20 +6764,20 @@
       <file name="Button.jsx" path="C:\Projects\toolkit\src\elements\button\Button.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="92" coveredconditionals="72" methods="2" coveredmethods="2"/>
         <line num="7" count="109" type="stmt"/>
-        <line num="39" count="886" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="882" type="cond" truecount="2" falsecount="0"/>
         <line num="40" count="544" type="cond" truecount="2" falsecount="0"/>
         <line num="41" count="95" type="cond" truecount="2" falsecount="0"/>
         <line num="42" count="87" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="886" type="stmt"/>
-        <line num="72" count="886" type="cond" truecount="2" falsecount="0"/>
-        <line num="76" count="886" type="stmt"/>
-        <line num="77" count="886" type="cond" truecount="5" falsecount="0"/>
+        <line num="44" count="882" type="stmt"/>
+        <line num="72" count="882" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="882" type="stmt"/>
+        <line num="77" count="882" type="cond" truecount="5" falsecount="0"/>
         <line num="79" count="449" type="stmt"/>
-        <line num="113" count="342" type="stmt"/>
+        <line num="113" count="338" type="stmt"/>
         <line num="140" count="8" type="stmt"/>
         <line num="172" count="6" type="stmt"/>
         <line num="196" count="81" type="stmt"/>
-        <line num="229" count="886" type="stmt"/>
+        <line num="229" count="882" type="stmt"/>
         <line num="233" count="109" type="stmt"/>
         <line num="261" count="109" type="stmt"/>
       </file>
@@ -6919,35 +6919,35 @@
       <file name="CustomModal.jsx" path="C:\Projects\toolkit\src\elements\customModal\CustomModal.jsx">
         <metrics statements="32" coveredstatements="23" conditionals="42" coveredconditionals="35" methods="8" coveredmethods="6"/>
         <line num="8" count="35" type="stmt"/>
-        <line num="39" count="160" type="stmt"/>
-        <line num="40" count="160" type="stmt"/>
-        <line num="41" count="160" type="stmt"/>
-        <line num="45" count="160" type="stmt"/>
-        <line num="46" count="160" type="stmt"/>
-        <line num="50" count="160" type="stmt"/>
-        <line num="53" count="160" type="stmt"/>
-        <line num="58" count="160" type="stmt"/>
+        <line num="39" count="156" type="stmt"/>
+        <line num="40" count="156" type="stmt"/>
+        <line num="41" count="156" type="stmt"/>
+        <line num="45" count="156" type="stmt"/>
+        <line num="46" count="156" type="stmt"/>
+        <line num="50" count="156" type="stmt"/>
+        <line num="53" count="156" type="stmt"/>
+        <line num="58" count="156" type="stmt"/>
         <line num="59" count="107" type="cond" truecount="4" falsecount="0"/>
         <line num="60" count="35" type="stmt"/>
-        <line num="61" count="6" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
         <line num="64" count="35" type="stmt"/>
         <line num="65" count="35" type="stmt"/>
-        <line num="70" count="160" type="stmt"/>
-        <line num="71" count="105" type="cond" truecount="4" falsecount="0"/>
-        <line num="72" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="70" count="156" type="stmt"/>
+        <line num="71" count="101" type="cond" truecount="4" falsecount="0"/>
+        <line num="72" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="73" count="0" type="stmt"/>
-        <line num="75" count="6" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
         <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="77" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
         <line num="81" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="85" count="0" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
-        <line num="90" count="6" type="stmt"/>
-        <line num="91" count="6" type="stmt"/>
+        <line num="90" count="2" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
         <line num="92" count="0" type="stmt"/>
         <line num="93" count="0" type="stmt"/>
-        <line num="99" count="160" type="stmt"/>
+        <line num="99" count="156" type="stmt"/>
         <line num="161" count="35" type="stmt"/>
         <line num="193" count="35" type="stmt"/>
       </file>
@@ -7621,11 +7621,11 @@
         <line num="7" count="123" type="stmt"/>
         <line num="9" count="123" type="stmt"/>
         <line num="16" count="123" type="stmt"/>
-        <line num="25" count="1273" type="stmt"/>
-        <line num="27" count="1273" type="stmt"/>
-        <line num="28" count="1273" type="stmt"/>
+        <line num="25" count="1269" type="stmt"/>
+        <line num="27" count="1269" type="stmt"/>
+        <line num="28" count="1269" type="stmt"/>
         <line num="30" count="10" type="stmt"/>
-        <line num="33" count="1273" type="stmt"/>
+        <line num="33" count="1269" type="stmt"/>
       </file>
       <file name="index.js" path="C:\Projects\toolkit\src\elements\icon\index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
