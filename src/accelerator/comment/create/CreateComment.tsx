@@ -349,9 +349,14 @@ const CreateComment: FC<Props> = ({
         maxSize={fileType === 'image' ? imageSize : fileSize}
         onDropError={(errorList: any) => {
           errorList.map(item => {
-            if (item.code === 'file-too-large') {
+            if (
+              item.code === 'file-too-large' ||
+              (fileType === 'file' && item.code === 'too-many-files')
+            ) {
               setIsOpenModalUploads(true);
-            } else if (onDropError) onDropError(errorList);
+            }
+
+            if (onDropError) onDropError({ code: item.code, fileType });
           });
         }}
       />
