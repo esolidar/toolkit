@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.143.0](https://github.com/esolidar/toolkit/compare/v4.139.0...v4.143.0) Released: ER2229 / 27th June 2022 -> 22nd July 2022
+
+### New features
+
+- Images attachments [`ENG-1114`](https://github.com/esolidar/toolkit/pulls?q=ENG-1114)
+- Videos attachments External [`ENG-1123`](https://github.com/esolidar/toolkit/pulls?q=ENG-1123)
+- File attachments [`ENG-1124`](https://github.com/esolidar/toolkit/pulls?q=ENG-1124)
+- Create “upload document” feature in the project detail page [`ENG-2055`](https://github.com/esolidar/toolkit/pulls?q=ENG-2055)
+- Create “delete document” feature in the project detail page [`ENG-2056`](https://github.com/esolidar/toolkit/pulls?q=ENG-2056)
+- Create “ImageGrid” component in components [`ENG-2060`](https://github.com/esolidar/toolkit/pulls?q=ENG-2060)
+- Create “CommentCreate” component in Accelerator/Comments [`ENG-2061`](https://github.com/esolidar/toolkit/pulls?q=ENG-2061)
+- Create “Reply” component in Accelerator/Comments [`ENG-2063`](https://github.com/esolidar/toolkit/pulls?q=ENG-2063)
+
+### Enhancements
+
+- Update filecard component [`ENG-2234`](https://github.com/esolidar/toolkit/pulls?q=ENG-2234)
+  <br>
+  <br>
+
 ## [v4.139.0](https://github.com/esolidar/toolkit/compare/v4.126.0...v4.139.0) Released: ER2226 / 01st June 2022 -> 05th July 2022
 
 ### New features
