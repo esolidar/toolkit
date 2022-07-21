@@ -23,6 +23,7 @@ const Overview = ({
   program,
   project,
   isOwner,
+  userId,
   handleFollow,
   handleUnfollow,
   handleCopyToClipboard,
@@ -106,15 +107,21 @@ const Overview = ({
     return images;
   };
 
-  const canDeleteFiles =
-    (project.status === PROJECT.pending || project.status === PROJECT.approved) &&
-    (isAdmin || (!isAdmin && !project.as_company && isOwner));
   const canUploadFiles =
     (project.status === PROJECT.pending || project.status === PROJECT.approved) &&
     (isAdmin || isOwner);
-  const documentList = files?.data?.filter(file => {
-    if (file.public || isAdmin || (!project.as_company && isOwner)) return file;
-  });
+  const documentList = files?.data
+    ?.filter(file => {
+      if (file.public || isAdmin || (!project.as_company && isOwner)) return file;
+    })
+    .map(file => {
+      return {
+        ...file,
+        canBeDeleted:
+          (project.status === PROJECT.pending || project.status === PROJECT.approved) &&
+          (isAdmin || (!isAdmin && !project.as_company && isOwner && file.user_id === userId)),
+      };
+    });
 
   return (
     <Viewport>
@@ -150,7 +157,6 @@ const Overview = ({
                   {
                     content: (
                       <DocumentsTab
-                        canDeleteFiles={canDeleteFiles}
                         canUploadFiles={canUploadFiles}
                         files={documentList}
                         isAdmin={isAdmin}
