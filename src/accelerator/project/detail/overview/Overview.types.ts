@@ -19,6 +19,7 @@ interface Props {
   files: any;
   onUploadFile(file: Form): void;
   onDeleteFile(fileId: number): void;
+  userId: number;
 }
 
 export default Props;

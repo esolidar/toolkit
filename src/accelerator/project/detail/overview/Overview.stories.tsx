@@ -48,6 +48,7 @@ Pending.args = {
   files: [],
   onUploadFile: handleOnUploadFile,
   onDeleteFile: handleOnDeleteFile,
+  userId: 1,
 };
 
 Approved.args = {
@@ -64,6 +65,7 @@ Approved.args = {
   files: projectFiles,
   onUploadFile: handleOnUploadFile,
   onDeleteFile: handleOnDeleteFile,
+  userId: 1,
 };
 
 Admin.args = {
@@ -80,4 +82,5 @@ Admin.args = {
   files: projectFiles,
   onUploadFile: handleOnUploadFile,
   onDeleteFile: handleOnDeleteFile,
+  userId: 1,
 };
