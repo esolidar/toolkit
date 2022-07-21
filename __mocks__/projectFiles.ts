@@ -17,7 +17,7 @@ const projectFiles = {
     },
     {
       project_id: null,
-      user_id: 3,
+      user_id: 1,
       name: 'esolidar - Ajudando a ajudar (1).pdf',
       description: '',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/files/where-to-donate-everything-in-home-2648117_02-f88c1f8b70324c709dfbd8df9db217c0-fdabd5aa-d6da-4c4e-b43d-2b62af8d1d01.jpg',
@@ -31,7 +31,7 @@ const projectFiles = {
     },
     {
       project_id: null,
-      user_id: 3,
+      user_id: 1,
       name: 'where-to-donate-everything.pdf',
       description: '',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/files/where-to-donate-everything-in-home-2648117_02-f88c1f8b70324c709dfbd8df9db217c0-fdabd5aa-d6da-4c4e-b43d-2b62af8d1d01.jpg',
@@ -45,7 +45,7 @@ const projectFiles = {
     },
     {
       project_id: null,
-      user_id: 3,
+      user_id: 1,
       name: 'Documento de teste.pdf',
       description: '',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/files/where-to-donate-everything-in-home-2648117_02-f88c1f8b70324c709dfbd8df9db217c0-fdabd5aa-d6da-4c4e-b43d-2b62af8d1d01.jpg',
@@ -59,7 +59,7 @@ const projectFiles = {
     },
     {
       project_id: null,
-      user_id: 3,
+      user_id: 1,
       name: 'Documento de teste.pdf',
       description: '',
       file: 'https://esolidar-proto-uploads.s3.eu-west-1.amazonaws.com/whitelabel/5/projects/files/where-to-donate-everything-in-home-2648117_02-f88c1f8b70324c709dfbd8df9db217c0-fdabd5aa-d6da-4c4e-b43d-2b62af8d1d01.jpg',
