@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.143.1](https://github.com/esolidar/toolkit/compare/v4.143.0...v4.143.1) Released: 22nd July 2022
+
+### Bug Fixing
+
+- Acceleration program archived when opening a project gives error [`ENG-2289`](https://github.com/esolidar/toolkit/pulls?q=ENG-2289)
+  <br>
+  <br>
+
 ## [v4.143.0](https://github.com/esolidar/toolkit/compare/v4.139.0...v4.143.0) Released: ER2229 / 27th June 2022 -> 22nd July 2022
 
 ### New features
