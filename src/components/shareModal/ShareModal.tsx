@@ -100,7 +100,7 @@ const ModalBody: FC<ModalBodyProps> = ({
                 e.preventDefault();
                 onclickShareToFeed();
               }}
-              title="Feed"
+              title={intl.formatMessage({ id: 'toolkit.share.feed' })}
               data-testid="share-feed"
             >
               <Button
