@@ -10,7 +10,7 @@ const SvgFilter = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       d="M2 7a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm3 6a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Zm4 5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z"
     />
   </svg>

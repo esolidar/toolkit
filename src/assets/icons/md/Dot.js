@@ -9,7 +9,7 @@ const SvgDot = props => (
     viewBox={props.viewBox}
     {...props}
   >
-    <path fill="#6C7679" d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
+    <path fill={props.color} d="M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" />
   </svg>
 );
 

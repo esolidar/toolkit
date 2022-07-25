@@ -10,7 +10,7 @@ const SvgAlignCenter = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M6 15.036a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm-4 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2 9.06a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm4-6.096a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Z"
       clipRule="evenodd"
