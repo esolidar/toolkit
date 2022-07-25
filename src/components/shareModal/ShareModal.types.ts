@@ -14,7 +14,7 @@ export interface ModalBodyProps {
   showCopyToClipboard: boolean;
   windowLocationHref: string;
   onClickCopyToClipboard(showToast: boolean): void;
-  showShareFeed: boolean;
+  showShareToFeed: boolean;
   onclickShareToFeed?(): void;
 }
 

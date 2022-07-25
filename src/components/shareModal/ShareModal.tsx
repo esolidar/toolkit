@@ -18,7 +18,7 @@ const ShareModal: FC<Props> = ({
   openModal,
   onClickCopyToClipboard,
   stickToBottomMobile = true,
-  showShareFeed,
+  showShareToFeed,
   onclickShareToFeed,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
@@ -44,7 +44,7 @@ const ShareModal: FC<Props> = ({
           showCopyToClipboard={showCopyToClipboard}
           windowLocationHref={windowLocationHref}
           onClickCopyToClipboard={onClickCopyToClipboard}
-          showShareFeed={showShareFeed}
+          showShareToFeed={showShareToFeed}
           onclickShareToFeed={onclickShareToFeed}
         />
       }
@@ -64,7 +64,7 @@ const ModalBody: FC<ModalBodyProps> = ({
   showCopyToClipboard = true,
   windowLocationHref,
   onClickCopyToClipboard = () => {},
-  showShareFeed = false,
+  showShareToFeed = false,
   onclickShareToFeed,
 }: ModalBodyProps): JSX.Element => {
   const intl: IntlShape = useIntl();
@@ -92,7 +92,7 @@ const ModalBody: FC<ModalBodyProps> = ({
       )}
 
       <ul>
-        {showShareFeed && (
+        {showShareToFeed && (
           <li className="separator">
             <a
               href="#"
