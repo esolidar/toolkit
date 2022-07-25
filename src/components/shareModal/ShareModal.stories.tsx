@@ -1,3 +1,4 @@
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import ShareModal from './ShareModal';
 import Props from './ShareModal.types';
@@ -19,4 +20,6 @@ Default.args = {
   title: 'Esolidar be the change',
   windowLocationHref:
     'https://www.bethechange.esolidar.com/pt/needs/crowdfunding/detail/174-apoie-as-pessoas-diretamente-afetadas-pela-guerra-na-ucrania',
+  showShareToFeed: true,
+  onClickShareToFeed: () => {},
 };
