@@ -20,6 +20,6 @@ Default.args = {
   title: 'Esolidar be the change',
   windowLocationHref:
     'https://www.bethechange.esolidar.com/pt/needs/crowdfunding/detail/174-apoie-as-pessoas-diretamente-afetadas-pela-guerra-na-ucrania',
-  showShareFeed: true,
-  onclickShareToFeed: () => {},
+  showShareToFeed: true,
+  onClickShareToFeed: () => {},
 };
