@@ -10,7 +10,7 @@ const SvgInfoBold = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12Zm.442-3.058a.625.625 0 0 0 .183-.442v-2a.625.625 0 0 0-1.25 0v2a.625.625 0 0 0 1.067.442Zm-.998-4.11a1 1 0 1 0 1.112-1.664 1 1 0 0 0-1.112 1.663Z"
       clipRule="evenodd"

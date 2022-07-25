@@ -10,7 +10,7 @@ const SvgUnderline = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       d="M7 3a1 1 0 0 0-2 0v8a7 7 0 1 0 14 0V3a1 1 0 1 0-2 0v8a5 5 0 1 1-10 0V3ZM4 20a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"
     />
   </svg>

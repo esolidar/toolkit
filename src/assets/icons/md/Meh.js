@@ -10,11 +10,11 @@ const SvgMeh = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       d="M8 14a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8Zm0-4.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0Zm5.44 1.06a1.5 1.5 0 1 1 2.12-2.12 1.5 1.5 0 0 1-2.12 2.12Z"
     />
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM6.343 6.343a8 8 0 1 1 11.314 11.314A8 8 0 0 1 6.343 6.343Z"
       clipRule="evenodd"
