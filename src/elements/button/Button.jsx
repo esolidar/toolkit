@@ -73,6 +73,11 @@ const Button = React.forwardRef(
       ? (extraClass.includes('-full') || extraClass.includes('negative')) && !ghost
       : false;
 
+    const handleOnClick = e => {
+      e.currentTarget.blur();
+      if (onClick) onClick(e);
+    };
+
     const renderButton = () => {
       switch (getType) {
         case 'button':
@@ -85,7 +90,7 @@ const Button = React.forwardRef(
               className={classes}
               disabled={disabled || isLoading}
               style={style}
-              onClick={onClick}
+              onClick={handleOnClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
@@ -119,7 +124,7 @@ const Button = React.forwardRef(
               className={classes}
               disabled={disabled || isLoading}
               style={style}
-              onClick={onClick}
+              onClick={handleOnClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >

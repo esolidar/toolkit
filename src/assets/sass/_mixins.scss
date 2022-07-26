@@ -273,7 +273,7 @@
 @mixin svg-change-color($color: map-get($neutrals, 700)) {
   .icon-component {
     path {
-      fill: $color;
+      fill: $color !important;
     }
   }
 }
