@@ -1,5 +1,6 @@
 import { Form } from '../../../../components/uploadDocumentModal/UploadDocumentModal.types';
 import Company from '../../../../interfaces/company.types';
+import CreateCommentProps from '../../../comment/create/CreateComment.types';
 
 interface Props {
   program: any;
@@ -20,6 +21,8 @@ interface Props {
   onUploadFile(file: Form): void;
   onDeleteFile(fileId: number): void;
   userId: number;
+  createCommentArgs: CreateCommentProps;
+  comments: any;
 }
 
 export default Props;

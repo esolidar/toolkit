@@ -4,7 +4,7 @@ interface Props {
   type: 'comment' | 'reply';
   comment?: any;
   user: User;
-  isAdmin: boolean;
+  isAdmin?: boolean;
   closedCommentRef: any;
   handlePostComment(post: any): void;
   getScraper(url: string): void;

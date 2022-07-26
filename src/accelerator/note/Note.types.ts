@@ -28,6 +28,8 @@ export interface NoteSingleProps {
   parentComment?: ParentComment;
   createCommentArgs: CreateComment;
   reply?: boolean;
+  isAdmin?: boolean;
+  type?: string;
   handleDeleteNote(id: number): void;
 }
 

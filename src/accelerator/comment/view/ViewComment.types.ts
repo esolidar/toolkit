@@ -2,34 +2,34 @@
 import User from '../../../interfaces/user.types';
 import CreateComment from '../create/CreateComment.types';
 
-interface Reply {
-  user: User;
-  created_at: string;
-  text: any;
-  images?: any[];
-  preview?: any;
-  files?: any[];
-  replies_count?: number;
-  replies?: any[];
-  scraping_data: any;
-  id: number;
-  user_id: number | null;
-  parent_id: number | null;
-  deleted_at: string | null;
-}
+// interface Reply {
+//   user: User;
+//   created_at: string;
+//   text: any;
+//   images?: any[];
+//   preview?: any;
+//   files?: any[];
+//   replies_count?: number;
+//   replies?: any[];
+//   scraping_data: any;
+//   id: number;
+//   user_id: number | null;
+//   parent_id: number | null;
+//   deleted_at: string | null;
+// }
 
-interface ParentComment {
-  parentId: number | null;
-  parentName?: string;
-}
+// interface ParentComment {
+//   parentId: number | null;
+//   parentName?: string;
+// }
 
-export interface CommentSingleProps {
-  comment: Reply;
-  parentComment?: ParentComment;
-  createCommentArgs: CreateComment;
-  reply?: boolean;
-  handleDeleteComment(id: number): void;
-}
+// export interface CommentSingleProps {
+//   comment: Reply;
+//   parentComment?: ParentComment;
+//   createCommentArgs: CreateComment;
+//   reply?: boolean;
+//   handleDeleteComment(id: number): void;
+// }
 
 interface Props {
   user: User;
@@ -52,7 +52,8 @@ interface Props {
   handleViewAllReplies(id: number): void;
   handleDeleteComment(id: number): void;
   createCommentArgs: CreateComment;
-  commentSingleArgs: CommentSingleProps;
+  // commentSingleArgs: CommentSingleProps;
+  isAdmin: boolean;
 }
 
 export default Props;

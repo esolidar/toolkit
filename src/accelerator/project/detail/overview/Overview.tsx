@@ -38,6 +38,8 @@ const Overview = ({
   handleAddInitiative,
   onUploadFile,
   onDeleteFile,
+  createCommentArgs,
+  comments = [],
 }: Props) => {
   const {
     name: companyName,
@@ -174,7 +176,7 @@ const Overview = ({
                     title: intl.formatMessage({ id: 'toolkit.updates' }),
                   },
                   {
-                    content: <Comments />,
+                    content: <Comments createCommentArgs={createCommentArgs} comments={comments} />,
                     key: 'comments',
                     title: intl.formatMessage({ id: 'toolkit.comments' }),
                   },

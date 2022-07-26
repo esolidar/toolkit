@@ -93,6 +93,8 @@ export const Note: FC<Props> = ({
 };
 
 export const NoteSingle: FC<NoteSingleProps> = ({
+  type = 'note',
+  isAdmin = false,
   note,
   reply = false,
   parentComment,
@@ -171,7 +173,7 @@ export const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        {createCommentArgs?.user?.id === noteUserId && !deleted && (
+        {((createCommentArgs?.user?.id === noteUserId && !deleted) || isAdmin) && (
           <Dropdown
             items={[
               {
@@ -257,7 +259,7 @@ export const NoteSingle: FC<NoteSingleProps> = ({
         </div>
       )}
 
-      {userId === noteUserId && !deleted && (
+      {((userId === noteUserId && !deleted) || isAdmin) && (
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
@@ -268,10 +270,26 @@ export const NoteSingle: FC<NoteSingleProps> = ({
           onClickCancel={() => {
             setIsOpenDeleteModal(false);
           }}
-          title={intl.formatMessage({ id: 'toolkit.notes.delete.title' })}
-          bodyText={intl.formatMessage({
-            id: 'toolkit.notes.delete.description',
-          })}
+          title={
+            type === 'comment'
+              ? intl.formatMessage({ id: 'toolkit.comments.delete.title' })
+              : intl.formatMessage({ id: 'toolkit.notes.delete.title' })
+          }
+          bodyText={
+            // eslint-disable-next-line no-nested-ternary
+            type === 'comment'
+              ? userId === noteUserId
+                ? intl.formatMessage({
+                    id: 'toolkit.comments.delete.description',
+                  })
+                : intl.formatMessage(
+                    {
+                      id: 'toolkit.comments.admin.delete.description',
+                    },
+                    { username: name }
+                  )
+              : intl.formatMessage({ id: 'toolkit.notes.delete.description' })
+          }
         />
       )}
     </div>

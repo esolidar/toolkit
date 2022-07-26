@@ -16,6 +16,7 @@ import Icon from '../../../elements/icon';
 import ShareModal from '../../../components/shareModal';
 
 const ViewComment: FC<Props> = ({
+  isAdmin,
   id,
   user_id: commentUserId,
   user: {
@@ -34,7 +35,6 @@ const ViewComment: FC<Props> = ({
   replies_count: repliesCount,
   // eslint-disable-next-line camelcase
   scraping_data,
-  deleted_at: deleted,
   createCommentArgs,
   handleDeleteComment,
   handleViewAllReplies,
@@ -99,7 +99,7 @@ const ViewComment: FC<Props> = ({
             thumbSize="lg"
           />
 
-          {createCommentArgs?.user?.id === commentUserId && !deleted && (
+          {(createCommentArgs?.user?.id === commentUserId || isAdmin) && (
             <Dropdown
               items={[
                 {
@@ -195,6 +195,8 @@ const ViewComment: FC<Props> = ({
             {replies.map((item, key) => (
               <React.Fragment key={key}>
                 <NoteSingle
+                  type="comment"
+                  isAdmin={isAdmin}
                   note={item}
                   handleDeleteNote={handleDeleteComment}
                   parentComment={{ parentId: item.id, parentName: `@${item.user.name} ` }}
@@ -221,7 +223,7 @@ const ViewComment: FC<Props> = ({
           placeholderText={intl.formatMessage({ id: 'commentHere' })}
         />
 
-        {userId === commentUserId && !deleted && (
+        {(userId === commentUserId || isAdmin) && (
           <DeleteModal
             isOpen={isOpenDeleteModal}
             onClickDelete={() => {
@@ -232,10 +234,19 @@ const ViewComment: FC<Props> = ({
             onClickCancel={() => {
               setIsOpenDeleteModal(false);
             }}
-            title={intl.formatMessage({ id: 'toolkit.notes.delete.title' })}
-            bodyText={intl.formatMessage({
-              id: 'toolkit.notes.delete.description',
-            })}
+            title={intl.formatMessage({ id: 'toolkit.comments.delete.title' })}
+            bodyText={
+              userId === commentUserId
+                ? intl.formatMessage({
+                    id: 'toolkit.comments.delete.description',
+                  })
+                : intl.formatMessage(
+                    {
+                      id: 'toolkit.comments.admin.delete.description',
+                    },
+                    { username: name }
+                  )
+            }
           />
         )}
       </div>
