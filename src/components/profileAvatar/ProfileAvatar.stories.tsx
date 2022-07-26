@@ -1,3 +1,4 @@
+import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import ProfileAvatar from './ProfileAvatar';
 import Icon from '../../elements/icon';
@@ -23,6 +24,7 @@ export const WithButton: Story<Props> = Template.bind({});
 Default.args = {
   thumb: 'https://cdn.testesolidar.com/users/9/1624275842-THUMB.jpg',
   name: 'Joel F. Calheiros',
+  companyLogo: 'https://community.testesolidar.com/images/favicon.png',
 };
 
 WithDate.args = {
