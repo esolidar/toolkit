@@ -134,6 +134,7 @@ const CustomModal = ({
             </span>
             {closeButton && (
               <Button
+                dataTestId="share-close"
                 type="icon"
                 extraClass="primary-full"
                 icon={<Icon name="X" size="sm" />}

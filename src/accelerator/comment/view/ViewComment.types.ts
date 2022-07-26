@@ -1,21 +1,58 @@
+/* eslint-disable camelcase */
+import User from '../../../interfaces/user.types';
 import CreateComment from '../create/CreateComment.types';
 
-interface Props {
-  thumb: string;
-  name: string;
-  date: Date;
-  text: string;
-  social: boolean;
-  user: any;
+interface Reply {
+  user: User;
+  created_at: string;
+  text: any;
   images?: any[];
   preview?: any;
   files?: any[];
+  replies_count?: number;
+  replies?: any[];
+  scraping_data: any;
+  id: number;
+  user_id: number | null;
+  parent_id: number | null;
+  deleted_at: string | null;
+}
+
+interface ParentComment {
+  parentId: number | null;
+  parentName?: string;
+}
+
+export interface CommentSingleProps {
+  comment: Reply;
+  parentComment?: ParentComment;
+  createCommentArgs: CreateComment;
+  reply?: boolean;
+  handleDeleteComment(id: number): void;
+}
+
+interface Props {
+  user: User;
+  created_at: string;
+  text: any;
+  images?: any[];
+  preview?: any;
+  files?: any[];
+  replies_count?: number;
+  replies?: any[];
+  scraping_data: any;
+  id: number;
+  user_id: number | null;
+  parent_id: number | null;
+  deleted_at: string | null;
   liked?: boolean;
   share?: any;
   likes?: number;
   comments?: number;
-  replies?: number;
-  createCommentProps: CreateComment;
+  handleViewAllReplies(id: number): void;
+  handleDeleteComment(id: number): void;
+  createCommentArgs: CreateComment;
+  commentSingleArgs: CommentSingleProps;
 }
 
 export default Props;

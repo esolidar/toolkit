@@ -23,6 +23,7 @@ const maxImages = 99;
 
 const CreateComment: FC<Props> = ({
   type = 'comment',
+  isEditMode,
   parentComment,
   user,
   handlePostComment,
@@ -37,7 +38,7 @@ const CreateComment: FC<Props> = ({
 }: Props) => {
   const { parentName, parentId } = parentComment || {};
   const intl: IntlShape = useIntl();
-  const [editMode, setEditMode] = useState<boolean>(type !== 'comment');
+  const [editMode, setEditMode] = useState<boolean>(isEditMode ?? type !== 'comment');
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const [filesList, setFilesList] = useState<any[]>([]);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);

@@ -1,53 +1,88 @@
 import React, { useEffect, useState, useRef, FC } from 'react';
 import { IntlShape, useIntl } from 'react-intl';
-import Props from './ViewComment.types';
+import Button from '../../../elements/button';
+import CreateComment from '../create/CreateComment';
+import DeleteModal from '../../../components/modals/deleteModal';
+import Dropdown from '../../../elements/dropdown';
+import FileCard from '../../../components/fileCard';
+import ImageGrid from '../../../components/imageGrid';
+import Preview from '../../../components/preview';
 import ProfileAvatar from '../../../components/profileAvatar';
 import ReadMoreText from '../../../components/readMoreText';
-import Dropdown from '../../../elements/dropdown';
-import Button from '../../../elements/button';
-import Icon from '../../../elements/icon';
 import dateDistance from '../../../utils/dateDistance';
-import ImageGrid from '../../../components/imageGrid';
-import FileCard from '../../../components/fileCard';
-import Preview from '../../../components/preview';
+import { NoteSingle } from '../../note';
+import Props from './ViewComment.types';
+import Icon from '../../../elements/icon';
 import ShareModal from '../../../components/shareModal';
-// import CreateComment from '../create';
 
 const ViewComment: FC<Props> = ({
-  thumb,
-  name,
-  date,
+  id,
+  user_id: commentUserId,
+  user: {
+    id: userId,
+    name,
+    thumbs: { thumb },
+  },
+  created_at: date,
   text,
   images,
-  preview,
   files,
-  liked = false,
-  share,
+  // liked = false,
   likes = 0,
   comments = 0,
+  replies = [],
+  replies_count: repliesCount,
+  // eslint-disable-next-line camelcase
+  scraping_data,
+  deleted_at: deleted,
+  createCommentArgs,
+  handleDeleteComment,
+  handleViewAllReplies,
 }: Props) => {
+  const preview = JSON.parse(scraping_data);
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
-
-  const [isLiked, setIsLiked] = useState(liked);
-  // const [isReply, setIsReply] = useState(false);
+  const deleteNoteId = useRef(null);
+  const [cleanTagText, setCleanTagText] = useState();
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  // const [isLiked, setIsLiked] = useState(liked);
   const [showShare, setShowShare] = useState(false);
 
-  useEffect(() => {
-    setIsLiked(liked);
-  }, [liked]);
+  // useEffect(() => {
+  //   setIsLiked(liked);
+  // }, [liked]);
 
-  // const handleReply = () => {
-  //   setIsReply(!isReply);
+  // const handleLiked = () => {
+  //   setIsLiked(!isLiked);
   // };
-
-  const handleLiked = () => {
-    setIsLiked(!isLiked);
-  };
 
   const handleFocus = () => {
     inputEl.current.focus();
   };
+
+  // Transform tag text !@firstname lastname! to @name lastname
+  useEffect(() => {
+    if (text) {
+      const matches = text.match(/!@.+?!/g);
+      const matchesUrl = text.match(/#http.+?#/g);
+
+      if (matches)
+        setCleanTagText(
+          text.replace(
+            matches,
+            `<span class="view-comment__note__tag">${matches[0].slice(1, -1)}</span>`
+          )
+        );
+      else if (matchesUrl)
+        setCleanTagText(
+          text.replace(
+            matchesUrl,
+            `<span class="view-comment__note__url">${matchesUrl[0].slice(1, -1)}</span>`
+          )
+        );
+      else setCleanTagText(text);
+    }
+  }, [text]);
 
   return (
     <>
@@ -56,14 +91,34 @@ const ViewComment: FC<Props> = ({
           <ProfileAvatar
             thumb={thumb}
             name={name}
-            date={dateDistance({ date, formatMessage: intl.formatMessage })}
+            date={dateDistance({
+              date: new Date(date),
+              formatMessage: intl.formatMessage,
+              i18n: intl.locale,
+            })}
             thumbSize="lg"
           />
-          <Dropdown items={[]} toggleIcon="MoreVertical" />
+
+          {createCommentArgs?.user?.id === commentUserId && !deleted && (
+            <Dropdown
+              items={[
+                {
+                  id: 0,
+                  leftIcon: 'Trash',
+                  text: intl.formatMessage({ id: 'delete' }),
+                  onClick: () => {
+                    deleteNoteId.current = id;
+                    setIsOpenDeleteModal(true);
+                  },
+                },
+              ]}
+              toggleIcon="MoreVertical"
+            />
+          )}
         </div>
 
         <div className="view-comment__content">
-          <ReadMoreText text={text} charLimit={512} />
+          {cleanTagText && <ReadMoreText text={cleanTagText} charLimit={512} gradient={true} />}
         </div>
 
         {images && images.length > 0 && (
@@ -72,20 +127,32 @@ const ViewComment: FC<Props> = ({
 
         {files &&
           files.length > 0 &&
-          files.map(({ title, size }, key) => (
-            <FileCard key={key} size={size} title={title} showDownloadButton />
+          files.map(({ name, file_size: size, file }, key) => (
+            <FileCard key={key} size={size} title={name} file={file} showDownloadButton />
           ))}
 
         {preview &&
-          (preview.type === 'image' ? (
-            <FileCard url={preview.url} title={preview.title} />
-          ) : (
+          (preview.type === 'video' ? (
             <Preview
               hover
               type="video"
-              videoDetails={preview.videoDetails}
+              // videoDetails={preview.videoDetails}
+              videoDetails={{
+                providerName: preview.provider_name,
+                title: preview.title,
+                thumbnailUrl: `url('${preview.thumbnail_url}')`,
+                videoUrl: preview.videoUrl,
+              }}
               videoUrl={preview.videoUrl}
               handleClickPreview={() => window.open(preview.videoUrl)}
+            />
+          ) : (
+            <FileCard
+              link={preview.link}
+              url={preview.domain}
+              title={preview.title}
+              image={preview.og_image}
+              subtitle={preview.description}
             />
           ))}
 
@@ -95,15 +162,16 @@ const ViewComment: FC<Props> = ({
         </div>
         <div className="view-comment__line" />
         <div className="view-comment--inline">
-          <Button
+          {/* <Button
             onClick={handleLiked}
             extraClass={isLiked ? 'secondary view-comment--liked' : 'secondary'}
             ghost
             theme="dark"
             text={intl.formatMessage({ id: 'like' })}
             iconLeft={<Icon name={isLiked ? 'ThumbsUpBold' : 'ThumbsUp'} />}
-          />
+          /> */}
           <Button
+            dataTestId="comment"
             onClick={handleFocus}
             extraClass="secondary"
             ghost
@@ -112,6 +180,7 @@ const ViewComment: FC<Props> = ({
             iconLeft={<Icon name="Comment" />}
           />
           <Button
+            dataTestId="share"
             onClick={() => setShowShare(true)}
             extraClass="secondary"
             ghost
@@ -121,31 +190,60 @@ const ViewComment: FC<Props> = ({
           />
         </div>
 
-        {/* <CreateComment
-              {...createCommentProps}
-              // reference={inputEl}
-              // isAdmin={false}
-              // user={user}
-              // type="reply"
-              // galleryType="inline"
-              // placeholderText={intl.formatMessage({ id: 'commentHere' })}
-              // postDeleteFile={() => {}}
-              // postDeleteImage={() => {}}
-              // onDropError={() => {}}
-              // files={[]}
-              // scrapper={null}
-              // handlePostComment={() => {}}
-              // postUploadFiles={() => {}}
-              // getScraper={() => {}}
-              // postUploadImages={() => {}}
-              // images={[]}
-            /> */}
+        {replies?.length > 0 && (
+          <>
+            {replies.map((item, key) => (
+              <React.Fragment key={key}>
+                <NoteSingle
+                  note={item}
+                  handleDeleteNote={handleDeleteComment}
+                  parentComment={{ parentId: item.id, parentName: `@${item.user.name} ` }}
+                  createCommentArgs={{ ...createCommentArgs, isEditMode: true }}
+                  reply={true}
+                />
+              </React.Fragment>
+            ))}
+
+            {replies.length !== repliesCount && (
+              <Button
+                dataTestId={`view-allReplies${id}`}
+                extraClass="link"
+                onClick={() => handleViewAllReplies(id)}
+                text={intl.formatMessage({ id: 'toolkit.comments.view.replies' })}
+              />
+            )}
+          </>
+        )}
+
+        <CreateComment
+          {...createCommentArgs}
+          reference={inputEl}
+          placeholderText={intl.formatMessage({ id: 'commentHere' })}
+        />
+
+        {userId === commentUserId && !deleted && (
+          <DeleteModal
+            isOpen={isOpenDeleteModal}
+            onClickDelete={() => {
+              handleDeleteComment(deleteNoteId.current);
+              setIsOpenDeleteModal(false);
+              deleteNoteId.current = null;
+            }}
+            onClickCancel={() => {
+              setIsOpenDeleteModal(false);
+            }}
+            title={intl.formatMessage({ id: 'toolkit.notes.delete.title' })}
+            bodyText={intl.formatMessage({
+              id: 'toolkit.notes.delete.description',
+            })}
+          />
+        )}
       </div>
 
       <ShareModal
         openModal={showShare}
-        title={share?.title}
-        windowLocationHref={share?.url}
+        title="a"
+        windowLocationHref="url"
         showFacebook
         showTwitter
         showLinkedin

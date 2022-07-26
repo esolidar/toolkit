@@ -13,7 +13,7 @@ import dateDistance from '../../utils/dateDistance';
 import Props, { NoteSingleProps } from './Note.types';
 import Icon from '../../elements/icon';
 
-const Note: FC<Props> = ({
+export const Note: FC<Props> = ({
   noteSingleArgs,
   handleViewAllReplies,
   handleViewChildReplies,
@@ -92,9 +92,7 @@ const Note: FC<Props> = ({
   );
 };
 
-export default Note;
-
-const NoteSingle: FC<NoteSingleProps> = ({
+export const NoteSingle: FC<NoteSingleProps> = ({
   note,
   reply = false,
   parentComment,

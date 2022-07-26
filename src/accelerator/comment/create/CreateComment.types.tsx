@@ -15,6 +15,7 @@ interface Props {
   galleryType: 'grid' | 'inline';
   reference?: any;
   parentComment?: any;
+  isEditMode?: boolean;
 }
 
 export interface CommentProps {
