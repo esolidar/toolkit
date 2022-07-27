@@ -64,7 +64,7 @@ it('renders InputGroup Append', () => {
 });
 
 it('renders InputGroup WithLabel', () => {
-  const { getByClass, queryByClass } = render(<WithLabel />);
+  const { getByClass } = render(<WithLabel />);
 
   expect(getByClass('control-label')).toBeInTheDocument();
   expect(getByClass('label-optional')).toBeInTheDocument();
