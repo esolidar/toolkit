@@ -10,6 +10,7 @@ interface Props {
   placeholder?: string;
   disabled?: boolean;
   error?: string;
+  size?: 'sm' | 'md' | 'lg';
   onChange(): void;
   onFocus?(): void;
   onBlur?(): void;

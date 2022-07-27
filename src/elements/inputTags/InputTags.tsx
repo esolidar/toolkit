@@ -18,6 +18,7 @@ const InputTags: FC<Props> = ({
   maxTags = 8,
   minLength = 1,
   maxLength = 30,
+  size = 'lg',
   inputLabelProps,
   onChange,
   onRemoved,
@@ -54,7 +55,7 @@ const InputTags: FC<Props> = ({
   };
 
   return (
-    <div className="form-group">
+    <div className={classnames(`size-${size}`, 'form-group')}>
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className={classnames('inputTags', { disabled })}>
         {tags.map(tag => (

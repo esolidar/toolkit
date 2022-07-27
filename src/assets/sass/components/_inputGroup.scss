@@ -1,128 +1,138 @@
-.inputGroup {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  // -ms-flex-wrap: wrap;
-  // flex-wrap: wrap;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-  width: 100%;
-  background-color: map-get($base, white);
-  box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4);
-  border-radius: $border-radius-1;
-
-  input.form-control {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: map-get($neutrals, 900);
-    padding: 20px $distance-1;
-    border: 1px solid map-get($neutrals, 200);
-    box-shadow: none !important;
-    border-radius: 0px;
-
-    &::placeholder {
-      color: map-get($neutrals, 400);
-    }
-
-    &.borderRadiusLeft {
-      border-top-left-radius: $border-radius-1;
-      border-bottom-left-radius: $border-radius-1;
-    }
-    &.borderRadiusRight {
-      border-top-right-radius: $border-radius-1;
-      border-bottom-right-radius: $border-radius-1;
-    }
+.form-group {
+  &.size-sm {
+    max-width: map-get($widths, sm);
+  }
+  &.size-md {
+    max-width: map-get($widths, md);
+  }
+  &.size-lg {
+    max-width: map-get($widths, lg);
   }
 
-  &__text {
+  .inputGroup {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: $distance-1 $distance-2;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: map-get($neutrals, 700);
-    text-align: center;
-    white-space: nowrap;
-    border: 1px solid map-get($neutrals, 200);
-    border-radius: $border-radius-1;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
     background-color: map-get($base, white);
-  }
+    box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4);
+    border-radius: $border-radius-1;
 
-  &__prepend {
-    margin-right: -1px;
-
-    .inputGroup__text {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  &__append {
-    margin-left: -1px;
-
-    .inputGroup__text {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  &__append,
-  &__prepend {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  &:hover {
-    .inputGroup__text,
     input.form-control {
-      border: 1px solid map-get($turquoise, 500);
-      outline: 1px solid map-get($turquoise, 500);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: map-get($neutrals, 900);
+      padding: 20px $distance-1;
+      border: 1px solid map-get($neutrals, 200);
+      box-shadow: none !important;
+      border-radius: 0px;
+
+      &::placeholder {
+        color: map-get($neutrals, 400);
+      }
+
+      &.borderRadiusLeft {
+        border-top-left-radius: $border-radius-1;
+        border-bottom-left-radius: $border-radius-1;
+      }
+      &.borderRadiusRight {
+        border-top-right-radius: $border-radius-1;
+        border-bottom-right-radius: $border-radius-1;
+      }
     }
-  }
 
-  &:focus-within {
-    box-shadow: 0px 0px 0px 4px get-rgba(map-get($turquoise, 500), 8);
-  }
-
-  &.disabled {
-    background-color: map-get($background, secondary);
-    .inputGroup__text,
-    input.form-control:disabled,
-    input.form-control[readonly] {
-      background-color: map-get($background, secondary);
+    &__text {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: $distance-1 $distance-2;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: map-get($neutrals, 700);
+      text-align: center;
+      white-space: nowrap;
+      border: 1px solid map-get($neutrals, 200);
+      border-radius: $border-radius-1;
+      background-color: map-get($base, white);
     }
-  }
 
-  &.has-error {
-    .inputGroup__text,
-    input.form-control {
-      border: 1px solid map-get($negative, 500);
-      outline: 1px solid map-get($negative, 500);
+    &__prepend {
+      margin-right: -1px;
+
+      .inputGroup__text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &__append {
+      margin-left: -1px;
+
+      .inputGroup__text {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &__append,
+    &__prepend {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    &:hover {
+      .inputGroup__text,
+      input.form-control {
+        border: 1px solid map-get($turquoise, 500);
+        outline: 1px solid map-get($turquoise, 500);
+      }
     }
 
     &:focus-within {
-      box-shadow: 0px 0px 0px 4px get-rgba(map-get($negative, 500), 8);
+      box-shadow: 0px 0px 0px 4px get-rgba(map-get($turquoise, 500), 8);
+    }
+
+    &.disabled {
+      background-color: map-get($background, secondary);
+      .inputGroup__text,
+      input.form-control:disabled,
+      input.form-control[readonly] {
+        background-color: map-get($background, secondary);
+      }
+    }
+
+    &.has-error {
+      .inputGroup__text,
+      input.form-control {
+        border: 1px solid map-get($negative, 500);
+        outline: 1px solid map-get($negative, 500);
+      }
+
+      &:focus-within {
+        box-shadow: 0px 0px 0px 4px get-rgba(map-get($negative, 500), 8);
+      }
     }
   }
-}
-.inputGroup__error {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: map-get($negative, 500);
-  margin-top: $distance-1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  .inputGroup__error {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($negative, 500);
+    margin-top: $distance-1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-  @include svg-change-color(map-get($negative, 500));
+    @include svg-change-color(map-get($negative, 500));
+  }
 }

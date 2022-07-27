@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="mt-5 w-50">
+  <div className="mt-5">
     <InputGroup {...args} />
   </div>
 );

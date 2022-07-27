@@ -16,11 +16,12 @@ const InputGroup: FC<Props> = ({
   placeholder,
   disabled,
   error,
+  size = 'lg',
   onChange,
   onFocus,
   onBlur,
 }: Props): JSX.Element => (
-  <div className="form-group">
+  <div className={classnames(`size-${size}`, 'form-group')}>
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
     <div className={classnames('inputGroup', { disabled, 'has-error': error })}>
       {prepend && (

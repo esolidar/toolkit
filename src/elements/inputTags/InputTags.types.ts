@@ -24,6 +24,7 @@ interface Props {
   maxTags?: number;
   minLength?: number;
   maxLength?: number;
+  size?: 'sm' | 'md' | 'lg';
   inputLabelProps?: Label;
   onChange(tags: Array<string>): void;
   onRemoved?(text: string): void;
