@@ -8,6 +8,9 @@ import Props from './InputTags.types';
 const InputTags: FC<Props> = ({
   tags = [],
   name,
+  id,
+  className,
+  dataTestId,
   placeholder,
   helperText,
   disabled,
@@ -59,7 +62,9 @@ const InputTags: FC<Props> = ({
         ))}
         <input
           ref={ref}
-          className="inputTags__input"
+          id={id}
+          data-testid={dataTestId}
+          className={classnames('inputTags__input', className)}
           type="text"
           name={name}
           placeholder={placeholder}

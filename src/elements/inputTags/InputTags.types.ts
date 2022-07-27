@@ -14,6 +14,9 @@ interface Label {
 interface Props {
   tags: Array<string>;
   name?: string;
+  id?: string;
+  className?: string;
+  dataTestId?: string;
   placeholder?: string;
   helperText?: string;
   disabled?: boolean;
