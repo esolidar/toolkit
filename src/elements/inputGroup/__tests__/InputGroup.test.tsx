@@ -8,6 +8,7 @@ import Meta, {
   Error as ErrorStory,
   Prepend as PrependStory,
   Append as AppendStory,
+  WithLabel as WithLabelStory,
 } from '../InputGroup.stories';
 
 const Default = composeStory(DefaultStory, Meta);
@@ -15,6 +16,7 @@ const Disabled = composeStory(DisabledStory, Meta);
 const Error = composeStory(ErrorStory, Meta);
 const Prepend = composeStory(PrependStory, Meta);
 const Append = composeStory(AppendStory, Meta);
+const WithLabel = composeStory(WithLabelStory, Meta);
 
 it('renders InputGroup Default', () => {
   const { getByClass } = render(<Default />);
@@ -59,4 +61,13 @@ it('renders InputGroup Append', () => {
   expect(queryByClass('inputGroup__prepend')).not.toBeInTheDocument();
   expect(getByClass('form-control borderRadiusLeft')).toBeInTheDocument();
   expect(getByClass('inputGroup__append')).toBeInTheDocument();
+});
+
+it('renders InputGroup WithLabel', () => {
+  const { getByClass, queryByClass } = render(<WithLabel />);
+
+  expect(getByClass('control-label')).toBeInTheDocument();
+  expect(getByClass('label-optional')).toBeInTheDocument();
+  expect(getByClass('help size-lg')).toBeInTheDocument();
+  expect(getByClass('inputGroup')).toBeInTheDocument();
 });

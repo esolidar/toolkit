@@ -1,16 +1,27 @@
 import React, { FC } from 'react';
 import classnames from 'classnames';
-import Props from './InputGroup.types';
+import InputLabel from '../inputLabel';
 import Icon from '../icon';
+import Props from './InputGroup.types';
 
 const InputGroup: FC<Props> = ({
+  value,
+  id,
+  className,
+  inputLabelProps,
+  dataTestId,
+  maxLength,
   prepend,
   append,
-  inputPlaceholder,
+  placeholder,
   disabled,
   error,
+  onChange,
+  onFocus,
+  onBlur,
 }: Props): JSX.Element => (
-  <div>
+  <div className="form-group">
+    {inputLabelProps && <InputLabel {...inputLabelProps} />}
     <div className={classnames('inputGroup', { disabled, 'has-error': error })}>
       {prepend && (
         <div className="inputGroup__prepend">
@@ -19,12 +30,23 @@ const InputGroup: FC<Props> = ({
       )}
       <input
         type="text"
-        className={classnames('form-control', {
-          borderRadiusLeft: !prepend,
-          borderRadiusRight: !append,
-        })}
-        placeholder={inputPlaceholder}
+        value={value}
+        id={id}
+        data-testid={dataTestId}
+        className={classnames(
+          'form-control',
+          {
+            borderRadiusLeft: !prepend,
+            borderRadiusRight: !append,
+          },
+          className
+        )}
+        placeholder={placeholder}
+        maxLength={maxLength}
         disabled={disabled}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       {append && (
         <div className="inputGroup__append">
