@@ -5,6 +5,7 @@ import Icon from '../icon';
 import Props from './InputGroup.types';
 
 const InputGroup: FC<Props> = ({
+  name,
   value,
   id,
   className,
@@ -21,7 +22,7 @@ const InputGroup: FC<Props> = ({
   onFocus,
   onBlur,
 }: Props): JSX.Element => (
-  <div className={classnames(`size-${size}`, 'form-group')}>
+  <div className={classnames(`size-${size}`, 'form-group', className)}>
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
     <div className={classnames('inputGroup', { disabled, 'has-error': error })}>
       {prepend && (
@@ -30,18 +31,15 @@ const InputGroup: FC<Props> = ({
         </div>
       )}
       <input
+        name={name}
         type="text"
         value={value}
         id={id}
         data-testid={dataTestId}
-        className={classnames(
-          'form-control',
-          {
-            borderRadiusLeft: !prepend,
-            borderRadiusRight: !append,
-          },
-          className
-        )}
+        className={classnames('form-control', {
+          borderRadiusLeft: !prepend,
+          borderRadiusRight: !append,
+        })}
         placeholder={placeholder}
         maxLength={maxLength}
         disabled={disabled}

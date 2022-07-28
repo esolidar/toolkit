@@ -1,20 +1,10 @@
-interface Label {
-  label: string;
-  field?: string;
-  showOptionalLabel?: boolean;
-  className?: string;
-  style?: object;
-  help?: string;
-  fontWeight?: number;
-  isPrivate?: boolean;
-  privateText?: string;
-  size?: string;
-}
+import InputLabelProps from '../inputLabel/InputLabel.types';
 
 interface Props {
   tags: Array<string>;
   name?: string;
   id?: string;
+  value?: string;
   className?: string;
   dataTestId?: string;
   placeholder?: string;
@@ -25,11 +15,11 @@ interface Props {
   minLength?: number;
   maxLength?: number;
   size?: 'sm' | 'md' | 'lg';
-  inputLabelProps?: Label;
+  inputLabelProps?: InputLabelProps;
   onChange(tags: Array<string>): void;
   onRemoved?(text: string): void;
   onExisting?(text: string): void;
-  onBlur?(): void;
+  onBlur?(e: any): any;
 }
 
 export default Props;

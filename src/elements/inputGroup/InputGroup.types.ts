@@ -1,8 +1,11 @@
+import InputLabelProps from '../inputLabel/InputLabel.types';
+
 interface Props {
-  value: string;
+  name: string;
+  value?: string;
   id?: string;
   className?: string;
-  inputLabelProps?: any;
+  inputLabelProps?: InputLabelProps;
   dataTestId?: string;
   maxLength?: number;
   prepend?: string | JSX.Element;
@@ -11,9 +14,9 @@ interface Props {
   disabled?: boolean;
   error?: string;
   size?: 'sm' | 'md' | 'lg';
-  onChange(): void;
-  onFocus?(): void;
-  onBlur?(): void;
+  onChange(e: any): any;
+  onFocus?(e: any): any;
+  onBlur?(e: any): any;
 }
 
 export default Props;

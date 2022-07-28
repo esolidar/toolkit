@@ -32,6 +32,18 @@ it('renders inputTags click remove tag', async () => {
   });
 });
 
+it('renders inputTags add new tag', async () => {
+  const { getByClass, getAllByClass } = render(<Default />);
+
+  const input = getByClass('inputTags__input');
+  fireEvent.change(input, { target: { value: 'Good' } });
+  fireEvent.keyDown(input, { key: 'Enter', code: 'Enter', charCode: 13 });
+
+  await waitFor(() => {
+    expect(getAllByClass(/icon-component/)).toHaveLength(3);
+  });
+});
+
 it('renders inputTags Disabled', () => {
   const { getByClass, getAllByClass } = render(<Disabled />);
 

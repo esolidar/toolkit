@@ -9,6 +9,7 @@ const InputTags: FC<Props> = ({
   tags = [],
   name,
   id,
+  value,
   className,
   dataTestId,
   placeholder,
@@ -55,7 +56,7 @@ const InputTags: FC<Props> = ({
   };
 
   return (
-    <div className={classnames(`size-${size}`, 'form-group')}>
+    <div className={classnames(`size-${size}`, 'form-group', className)}>
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
       <div className={classnames('inputTags', { disabled })}>
         {tags.map(tag => (
@@ -65,9 +66,10 @@ const InputTags: FC<Props> = ({
           ref={ref}
           id={id}
           data-testid={dataTestId}
-          className={classnames('inputTags__input', className)}
+          className="inputTags__input"
           type="text"
           name={name}
+          value={value}
           placeholder={placeholder}
           onKeyDown={handleOnKeyUp}
           onBlur={onBlur}
