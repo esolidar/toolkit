@@ -34,7 +34,7 @@ export const Default: Story<Props> = Template.bind({});
 Default.args = {
   name: 'default',
   required: false,
-  inputGroupFormProps: {
+  inputGroupProps: {
     name: 'inputGroup',
     onChange: e => {
       console.log('was changed: ', e.target.value);

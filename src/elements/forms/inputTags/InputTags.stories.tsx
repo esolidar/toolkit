@@ -28,7 +28,7 @@ const Template: Story<Props> = (args: Props) => {
 
   return (
     <StorybookFormProvider>
-      <InputTags {...args} inputTagsFormProps={{ tags, onChange: setTags }} />
+      <InputTags {...args} inputTagsProps={{ tags, onChange: setTags }} />
     </StorybookFormProvider>
   );
 };

@@ -1,10 +1,10 @@
-import inputTagsFormProps from '../../inputTags/InputTags.types';
+import InputTagsProps from '../../inputTags/InputTags.types';
 
 interface Props {
   control: any;
   name: string;
   required?: boolean | string;
-  inputTagsFormProps?: inputTagsFormProps;
+  inputTagsProps?: InputTagsProps;
   onChange?(e: any): any;
   onBlur?(): any;
 }

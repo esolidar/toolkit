@@ -3,14 +3,14 @@ import { useController } from 'react-hook-form';
 import InputTagsComponent from '../../inputTags';
 import Props from './InputTags.types';
 
-const InputTags = ({ control, name, required, inputTagsFormProps, onChange }: Props) => {
+const InputTags = ({ control, name, required, inputTagsProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value },
   } = useController({
     name,
     control,
     rules: { required },
-    defaultValue: inputTagsFormProps?.tags,
+    defaultValue: inputTagsProps?.tags,
     shouldUnregister: true,
   });
 
@@ -22,7 +22,7 @@ const InputTags = ({ control, name, required, inputTagsFormProps, onChange }: Pr
       }}
       tags={value}
       name={fieldName}
-      {...inputTagsFormProps}
+      {...inputTagsProps}
     />
   );
 };

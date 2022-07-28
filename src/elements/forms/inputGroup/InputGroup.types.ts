@@ -1,10 +1,10 @@
-import inputGroupFormProps from '../../inputGroup/InputGroup.types';
+import InputGroupProps from '../../inputGroup/InputGroup.types';
 
 interface Props {
   control: any;
   name: string;
   required?: boolean | string;
-  inputGroupFormProps?: inputGroupFormProps;
+  inputGroupProps?: InputGroupProps;
   onChange?(e: any): any;
   onBlur?(): any;
 }

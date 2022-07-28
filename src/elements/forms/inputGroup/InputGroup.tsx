@@ -3,7 +3,7 @@ import { useController } from 'react-hook-form';
 import InputGroupComponent from '../../inputGroup';
 import Props from './InputGroup.types';
 
-const InputGroup = ({ control, name, required, inputGroupFormProps, onChange }: Props) => {
+const InputGroup = ({ control, name, required, inputGroupProps, onChange }: Props) => {
   const {
     field: { onChange: handleChange, name: fieldName, value },
     fieldState: { error },
@@ -11,7 +11,7 @@ const InputGroup = ({ control, name, required, inputGroupFormProps, onChange }: 
     name,
     control,
     rules: { required },
-    defaultValue: inputGroupFormProps?.value,
+    defaultValue: inputGroupProps?.value,
     shouldUnregister: true,
   });
 
@@ -24,7 +24,7 @@ const InputGroup = ({ control, name, required, inputGroupFormProps, onChange }: 
       value={value}
       name={fieldName}
       error={error ? error.message : undefined}
-      {...inputGroupFormProps}
+      {...inputGroupProps}
     />
   );
 };
