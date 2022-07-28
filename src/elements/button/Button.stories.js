@@ -60,6 +60,63 @@ const Template = args => {
         <Button {...args} text="Size SM" size="sm" />
       </Grid>
 
+      {args.extraClass === 'secondary' && (
+        <>
+          <h5 className="p-1 mt-3">Transparent</h5>
+          <Grid>
+            <Button {...args} extraClass="secondary-transparent" text="Enabled" />
+            <Button {...args} extraClass="secondary-transparent" text="Disabled" disabled />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              text="With loading"
+              withLoading={true}
+              isLoading={isLoading}
+              onClick={() => setIsLoading(true)}
+            />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              text="Left Icon"
+              iconLeft={<Icon name="ArrowLeft" />}
+            />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              text="2 Icons"
+              iconLeft={<Icon name="ArrowLeft" />}
+              iconRight={<Icon name="ChevronDown" />}
+            />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              text="Right Icon"
+              iconRight={<Icon name="ArrowRight" />}
+            />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              type="icon"
+              icon={<Icon name="ArrowLeft" />}
+            />
+            <Button
+              {...args}
+              extraClass="secondary-transparent"
+              text="With Badge"
+              iconLeft={<Icon name="ArrowLeft" />}
+              badge={<Badge text="2" size="xs" extraClass="success" />}
+            />
+          </Grid>
+
+          <Grid>
+            <Button {...args} extraClass="secondary-transparent" text="Size XL" size="xl" />
+            <Button {...args} extraClass="secondary-transparent" text="Size LG" size="lg" />
+            <Button {...args} extraClass="secondary-transparent" text="Size MD" size="md" />
+            <Button {...args} extraClass="secondary-transparent" text="Size SM" size="sm" />
+          </Grid>
+        </>
+      )}
+
       {showGhostLight.includes(args.extraClass) && (
         <>
           <h5 className="p-1 mt-3">Ghost Light</h5>
@@ -195,6 +252,13 @@ Negative.args = {
   onClick: () => {},
 };
 
+export const Overlay = Template.bind({});
+Overlay.args = {
+  extraClass: 'overlay',
+  target: '_blank',
+  href: '#',
+};
+
 export const Link = Template.bind({});
 Link.args = {
   extraClass: 'link',
@@ -202,9 +266,9 @@ Link.args = {
   href: '#',
 };
 
-export const Overlay = Template.bind({});
-Overlay.args = {
-  extraClass: 'overlay',
+export const LinkSecondary = Template.bind({});
+LinkSecondary.args = {
+  extraClass: 'link-secondary',
   target: '_blank',
   href: '#',
 };

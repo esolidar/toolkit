@@ -18,8 +18,7 @@ const WithButton = composeStory(WithButtonStory, Meta);
 it('renders ProfileAvatar default', () => {
   const { getByTestId, getByClass, getByText, getByAltText } = render(<Default />);
   expect(getByTestId('profile-avatar')).toBeInTheDocument();
-
-  // expect(getByClass('profile-avatar__thumb thumb-lg')).toBeInTheDocument();
+  expect(getByClass('profile-avatar__thumb-company')).toBeInTheDocument();
   expect(getByAltText('Joel F. Calheiros')).toBeInTheDocument();
 
   expect(

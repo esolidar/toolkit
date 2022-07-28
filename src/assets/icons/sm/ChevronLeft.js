@@ -10,7 +10,7 @@ const SvgChevronLeft = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M11.543 1.483a.75.75 0 0 1-.026 1.06L5.787 8l5.73 5.457a.75.75 0 0 1-1.034 1.086L4.679 9.015l-.012-.012a1.416 1.416 0 0 1 0-2.006l.012-.012 5.804-5.528a.75.75 0 0 1 1.06.026Z"
       clipRule="evenodd"

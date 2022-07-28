@@ -10,7 +10,7 @@ const SvgPlay = props => (
     {...props}
   >
     <path
-      stroke="#6C7679"
+      stroke={props.color}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.5}

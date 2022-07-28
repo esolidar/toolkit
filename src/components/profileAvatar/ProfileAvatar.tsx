@@ -17,6 +17,7 @@ const ProfileAvatar: FC<Props> = ({
   buttonIconRight,
   date,
   className,
+  companyLogo,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const alt: string = name || intl.formatMessage({ id: 'toolkit.profile.picture' });
@@ -29,12 +30,20 @@ const ProfileAvatar: FC<Props> = ({
   return (
     <div className={`profile-avatar profile-avatar--${thumbSize}`} data-testid="profile-avatar">
       {thumb && (
-        <img
-          className={classnames('profile-avatar__thumb', { click: href })}
-          src={thumb}
-          alt={alt}
-          onClick={onClick}
-        />
+        <>
+          <img
+            className={classnames('profile-avatar__thumb', { click: href })}
+            src={thumb}
+            alt={alt}
+            onClick={onClick}
+          />
+          {companyLogo && thumbSize === 'lg' && (
+            <span
+              className="profile-avatar__thumb-company"
+              style={{ backgroundImage: `url(${companyLogo})` }}
+            />
+          )}
+        </>
       )}
       <div className={classnames('profile-avatar__info', { margin: thumb })}>
         {name && (

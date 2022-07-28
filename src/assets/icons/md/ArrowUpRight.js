@@ -10,7 +10,7 @@ const SvgArrowUpRight = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M10.222 5a1 1 0 0 1 1-1H19a1 1 0 0 1 1 1v7.778a1 1 0 1 1-2 0V7.414L5.707 19.707a1 1 0 0 1-1.414-1.414L16.586 6h-5.364a1 1 0 0 1-1-1Z"
       clipRule="evenodd"

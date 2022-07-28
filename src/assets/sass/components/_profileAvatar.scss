@@ -1,4 +1,5 @@
 .profile-avatar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -39,6 +40,20 @@
   &__thumb {
     border-radius: 50%;
     border: 1px solid get-rgba(map-get($base, black));
+
+    &-company {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: $distance-4;
+      left: $distance-4;
+      border-radius: 50%;
+      border: 2px solid map-get($colors, white);
+      background-color: map-get($colors, white);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
 
     &.click:hover {
       cursor: pointer;

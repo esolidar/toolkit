@@ -156,7 +156,7 @@ a.btn-esolidar {
         &:active {
           background-color: map-get($turquoise, 600) !important;
 
-          & .badge__success {
+          & .type-default__success {
             background-color: map-get($turquoise, 700);
           }
         }
@@ -165,15 +165,15 @@ a.btn-esolidar {
           @include box-shadow(0px 0px 0px 4px get-rgba(map-get($turquoise, 500)));
         }
 
-        & .badge__success {
+        & .type-default__success {
           background-color: map-get($turquoise, 600);
         }
       }
 
       &.btn-ghost-light {
         background-color: transparent !important;
-        color: map-get($neutrals, 700) !important;
-        @include svg-change-color(map-get($neutrals, 700));
+        color: map-get($base, black) !important;
+        @include svg-change-color(map-get($base, black));
         border: none !important;
 
         &:hover:not(.disabled):not(:active) {
@@ -183,9 +183,9 @@ a.btn-esolidar {
         }
 
         &:focus {
-          background-color: map-get($base, white) !important;
-          color: map-get($neutrals, 700) !important;
-          @include svg-change-color(map-get($neutrals, 700));
+          background-color: map-get($background, primary) !important;
+          color: map-get($base, black) !important;
+          @include svg-change-color(map-get($base, black));
           @include box-shadow(0px 0px 0px 4px get-rgba(map-get($turquoise, 500)));
         }
 
@@ -193,41 +193,60 @@ a.btn-esolidar {
           background-color: get-rgba(map-get($turquoise, 500), 24) !important;
           color: map-get($turquoise, 500) !important;
           @include svg-change-color(map-get($turquoise, 500));
-          box-shadow: none !important;
+          @include box-shadow(0px 0px 0px 4px get-rgba(map-get($turquoise, 500)));
+        }
+
+        &.disabled,
+        &:disabled {
+          background-color: map-get($background, secondary) !important;
+          color: map-get($neutrals, 400) !important;
+          @include svg-change-color(map-get($neutrals, 400));
+
+          &:hover {
+            box-shadow: unset !important;
+          }
         }
       }
     }
 
     &-secondary {
       &:not(.btn-ghost) {
+        background-color: map-get($background, primary);
+        border: 1px solid map-get($neutrals, 200);
         color: map-get($base, black);
-        background-color: transparent;
-        border: 1px solid get-rgba(map-get($base, black), 24);
         @include svg-change-color(map-get($base, black));
 
         &:hover:not(.disabled):not(:active) {
-          background-color: map-get($base, white);
-          border-color: map-get($neutrals, 900);
+          border: 1px solid map-get($neutrals, 900);
           box-shadow: 0 0 0 1px map-get($neutrals, 900);
         }
 
         &:active {
-          background-color: map-get($neutrals, 100);
+          background-color: map-get($background, primary);
+          @include svg-change-color(map-get($base, black));
           color: map-get($base, black);
-          border-color: 1px map-get($neutrals, 900);
+          border-color: map-get($neutrals, 900);
           box-shadow: 0 0 0 1px map-get($neutrals, 900),
             0px 0px 0px 4px get-rgba(map-get($neutrals, 700));
         }
 
         &:focus {
-          border-color: get-rgba(map-get($base, black), 24);
-          box-shadow: 0px 0px 0px 4px get-rgba(map-get($neutrals, 700));
+          box-shadow: 0px 0px 0px 4px get-rgba(map-get($neutrals, 200));
         }
 
-        &.disabled {
+        &.disabled,
+        &:disabled {
           color: map-get($neutrals, 400);
           background-color: map-get($background, secondary);
           @include svg-change-color(map-get($neutrals, 400));
+
+          &:hover {
+            box-shadow: unset !important;
+          }
+
+          &:active {
+            border-color: map-get($neutrals, 200);
+          }
         }
       }
 
@@ -238,20 +257,20 @@ a.btn-esolidar {
         border: none !important;
 
         &:hover:not(.disabled):not(:active) {
-          background-color: get-rgba(map-get($base, white)) !important;
+          background-color: get-rgba(map-get($base, white), 16) !important;
           color: map-get($base, white) !important;
           @include svg-change-color(map-get($base, white));
         }
 
         &:focus {
-          background-color: get-rgba(map-get($base, white), 24) !important;
+          background-color: get-rgba(map-get($base, white), 16) !important;
           color: map-get($base, white) !important;
           @include svg-change-color(map-get($base, white));
           @include box-shadow(0px 0px 0px 4px get-rgba(map-get($base, white)));
         }
 
         &:active {
-          background-color: get-rgba(map-get($base, white), 24) !important;
+          background-color: get-rgba(map-get($base, white), 16) !important;
           color: map-get($base, white) !important;
           @include svg-change-color(map-get($base, white));
           box-shadow: none !important;
@@ -271,7 +290,7 @@ a.btn-esolidar {
         }
 
         &:focus {
-          background-color: get-rgba(map-get($base, black), 24) !important;
+          background-color: get-rgba(map-get($base, black)) !important;
           color: map-get($base, black) !important;
           @include svg-change-color(map-get($base, black));
           @include box-shadow(0px 0px 0px 4px get-rgba(map-get($base, black)));
@@ -286,9 +305,50 @@ a.btn-esolidar {
       }
     }
 
+    &-secondary-transparent {
+      background-color: transparent !important;
+      border: 1px solid map-get($neutrals, 200);
+      color: map-get($base, black);
+      @include svg-change-color(map-get($base, black));
+
+      &:hover:not(.disabled):not(:active) {
+        border: 1px solid map-get($neutrals, 900);
+        box-shadow: 0 0 0 1px map-get($neutrals, 900);
+      }
+
+      &:active {
+        background-color: transparent !important;
+        @include svg-change-color(map-get($base, black));
+        color: map-get($base, black);
+        border-color: map-get($neutrals, 900);
+        box-shadow: 0 0 0 1px map-get($neutrals, 900),
+          0px 0px 0px 4px get-rgba(map-get($neutrals, 700));
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px get-rgba(map-get($neutrals, 200));
+      }
+
+      &.disabled,
+      &:disabled {
+        color: map-get($neutrals, 400);
+        background-color: map-get($background, secondary) !important;
+        @include svg-change-color(map-get($neutrals, 400));
+
+        &:hover {
+          box-shadow: unset !important;
+        }
+
+        &:active {
+          border-color: map-get($neutrals, 200);
+        }
+      }
+    }
+
     &-negative {
       &:not(.btn-ghost) {
         color: map-get($base, white);
+        @include svg-change-color(map-get($base, white));
         background-color: map-get($negative, 500);
         border: none !important;
 
@@ -301,10 +361,19 @@ a.btn-esolidar {
         &:active {
           background-color: map-get($negative, 600);
           color: map-get($base, white);
+          @include svg-change-color(map-get($base, white));
+          @include box-shadow(0px 0px 0px 4px get-rgba(map-get($negative, 500)));
         }
 
         &:focus {
-          @include box-shadow(0px 0px 0px 4px get-rgba(map-get($turquoise, 500)));
+          @include box-shadow(0px 0px 0px 4px get-rgba(map-get($negative, 500)));
+        }
+
+        &.disabled,
+        &:disabled {
+          &:hover {
+            box-shadow: unset !important;
+          }
         }
       }
 
@@ -341,19 +410,42 @@ a.btn-esolidar {
       background-color: transparent;
       box-shadow: none;
       border: none !important;
-
       @include svg-change-color(map-get($theme-colors, primary));
 
+      & .text {
+        text-decoration: underline;
+      }
+
       &:hover:not(.disabled) {
-        color: map-get($theme-colors-dark, primary);
-        background-color: transparent;
-        text-decoration: none;
+        color: map-get($turquoise, 300);
+        @include svg-change-color(map-get($turquoise, 300));
+      }
 
-        @include svg-change-color(map-get($theme-colors-dark, primary));
+      &:active {
+        color: map-get($turquoise, 600) !important;
+        @include svg-change-color(map-get($turquoise, 600));
+      }
+    }
 
-        & .text {
-          text-decoration: underline;
-        }
+    &-link-secondary {
+      color: map-get($neutrals, 900);
+      background-color: transparent;
+      box-shadow: none;
+      border: none !important;
+      @include svg-change-color(map-get($neutrals, 900));
+
+      & .text {
+        text-decoration: underline;
+      }
+
+      &:hover:not(.disabled) {
+        color: map-get($neutrals, 700);
+        @include svg-change-color(map-get($neutrals, 700));
+      }
+
+      &:active {
+        color: map-get($base, black) !important;
+        @include svg-change-color(map-get($base, black));
       }
     }
 

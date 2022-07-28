@@ -79,8 +79,10 @@ const CreateComment: FC<Props> = ({
   }, [scrapper]);
 
   useEffect(() => {
-    // eslint-disable-next-line no-param-reassign
-    closedCommentRef.current = handleClickCancel;
+    if (closedCommentRef) {
+      // eslint-disable-next-line no-param-reassign
+      closedCommentRef.current = handleClickCancel;
+    }
   }, []);
 
   const getUrlData = (url: string) => {

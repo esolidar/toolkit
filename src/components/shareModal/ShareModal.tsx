@@ -18,6 +18,8 @@ const ShareModal: FC<Props> = ({
   openModal,
   onClickCopyToClipboard,
   stickToBottomMobile = true,
+  showShareToFeed,
+  onClickShareToFeed,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -42,6 +44,8 @@ const ShareModal: FC<Props> = ({
           showCopyToClipboard={showCopyToClipboard}
           windowLocationHref={windowLocationHref}
           onClickCopyToClipboard={onClickCopyToClipboard}
+          showShareToFeed={showShareToFeed}
+          onClickShareToFeed={onClickShareToFeed}
         />
       }
     />
@@ -60,6 +64,8 @@ const ModalBody: FC<ModalBodyProps> = ({
   showCopyToClipboard = true,
   windowLocationHref,
   onClickCopyToClipboard = () => {},
+  showShareToFeed = false,
+  onClickShareToFeed,
 }: ModalBodyProps): JSX.Element => {
   const intl: IntlShape = useIntl();
 
@@ -86,6 +92,27 @@ const ModalBody: FC<ModalBodyProps> = ({
       )}
 
       <ul>
+        {showShareToFeed && (
+          <li className="separator">
+            <a
+              href="#"
+              onClick={e => {
+                e.preventDefault();
+                onClickShareToFeed();
+              }}
+              title={intl.formatMessage({ id: 'toolkit.share.feed' })}
+              data-testid="share-feed"
+            >
+              <Button
+                className="share-icon share-feed"
+                icon={<Icon name="Feed" />}
+                type="icon"
+                theme="light"
+              />
+              <span>{intl.formatMessage({ id: 'toolkit.share.feed' })}</span>
+            </a>
+          </li>
+        )}
         {showFacebook && (
           <li>
             <a
