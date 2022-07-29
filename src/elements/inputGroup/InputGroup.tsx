@@ -46,6 +46,7 @@ const InputGroup: FC<Props> = ({
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
+        autoComplete="off"
       />
       {append && (
         <div className="inputGroup__append">
