@@ -1,4 +1,4 @@
-// import InputLabelProps from '../inputLabel/InputLabel.types';
+import InputLabelProps from '../inputLabel/InputLabel.types';
 
 interface Image {
   src: string;
@@ -12,7 +12,7 @@ interface Props {
   url?: string;
   title?: string;
   description?: string;
-  inputLabelProps?: any;
+  inputLabelProps?: InputLabelProps;
 }
 
 export default Props;
