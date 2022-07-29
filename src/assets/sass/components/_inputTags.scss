@@ -1,0 +1,97 @@
+.form-group {
+  &.size-sm {
+    max-width: map-get($widths, sm);
+  }
+  &.size-md {
+    max-width: map-get($widths, md);
+  }
+  &.size-lg {
+    max-width: map-get($widths, lg);
+  }
+
+  .inputTags {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: $distance-1 $distance-2;
+    gap: $distance-1;
+    border-radius: $distance-1;
+    border: 1px solid map-get($neutrals, 200);
+    box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4);
+    background-color: map-get($base, white);
+
+    &:hover,
+    &:focus-within {
+      border: 1px solid map-get($turquoise, 500);
+      outline: 1px solid map-get($turquoise, 500);
+    }
+
+    &.disabled {
+      background-color: map-get($background, secondary);
+
+      &:hover,
+      &:focus-within {
+        border: 1px solid map-get($neutrals, 200);
+        outline: none;
+      }
+    }
+
+    input.inputTags__input {
+      border: 0px;
+      display: block;
+      width: 100%;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: map-get($neutrals, 900);
+      background-color: transparent;
+
+      &::placeholder {
+        color: map-get($neutrals, 400);
+      }
+
+      &:focus,
+      &:focus-visible,
+      &:active {
+        border: 0px;
+        outline: none;
+      }
+    }
+
+    .tag-component__item {
+      line-height: initial;
+
+      &.disabled {
+        cursor: auto;
+        color: map-get($neutrals, 400);
+        border: 2px solid map-get($neutrals, 100);
+        background-color: map-get($background, secondary);
+        @include svg-change-color(map-get($neutrals, 400));
+      }
+
+      button {
+        border: 0px;
+        background-color: transparent;
+        padding: 0;
+        margin-left: $distance-1;
+
+        &:focus,
+        &:active {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .inputTags-helper {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: map-get($neutrals, 700);
+    margin-top: $distance-1;
+    display: inline-block;
+  }
+}
