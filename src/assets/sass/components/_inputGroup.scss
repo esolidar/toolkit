@@ -31,6 +31,7 @@
       border: 1px solid map-get($neutrals, 200);
       box-shadow: none !important;
       border-radius: 0px;
+      transition: none !important;
 
       &::placeholder {
         color: map-get($neutrals, 400);
@@ -108,6 +109,18 @@
       input.form-control:disabled,
       input.form-control[readonly] {
         background-color: map-get($background, secondary);
+      }
+
+      &:hover {
+        .inputGroup__text,
+        input.form-control {
+          border: 1px solid map-get($neutrals, 200);
+          outline: none;
+        }
+      }
+
+      &:focus-within {
+        box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4);
       }
     }
 
