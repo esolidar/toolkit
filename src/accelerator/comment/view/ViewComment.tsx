@@ -20,7 +20,6 @@ const ViewComment: FC<Props> = ({
   id,
   user_id: commentUserId,
   user: {
-    id: userId,
     name,
     thumbs: { thumb },
   },
@@ -29,7 +28,7 @@ const ViewComment: FC<Props> = ({
   images,
   files,
   // liked = false,
-  likes = 0,
+  // likes = 0,
   comments = 0,
   replies = [],
   replies_count: repliesCount,
@@ -99,7 +98,7 @@ const ViewComment: FC<Props> = ({
             thumbSize="lg"
           />
 
-          {(createCommentArgs?.user?.id === commentUserId || isAdmin) && (
+          {(createCommentArgs.user.id === commentUserId || isAdmin) && (
             <Dropdown
               items={[
                 {
@@ -157,7 +156,7 @@ const ViewComment: FC<Props> = ({
           ))}
 
         <div className="view-comment__social view-comment--inline">
-          <div>{intl.formatMessage({ id: 'toolkit.comments.like' }, { value: likes })}</div>
+          {/* <div>{intl.formatMessage({ id: 'toolkit.comments.like' }, { value: likes })}</div> */}
           <div>{intl.formatMessage({ id: 'toolkit.comments.comment' }, { value: comments })}</div>
         </div>
         <div className="view-comment__line" />
@@ -199,7 +198,7 @@ const ViewComment: FC<Props> = ({
                   isAdmin={isAdmin}
                   note={item}
                   handleDeleteNote={handleDeleteComment}
-                  parentComment={{ parentId: item.id, parentName: `@${item.user.name} ` }}
+                  parentComment={{ parentId: id, parentName: `@${item.user.name} ` }}
                   createCommentArgs={{ ...createCommentArgs, isEditMode: true }}
                   reply={true}
                 />
@@ -219,11 +218,12 @@ const ViewComment: FC<Props> = ({
 
         <CreateComment
           {...createCommentArgs}
+          parentComment={{ parentId: id }}
           reference={inputEl}
           placeholderText={intl.formatMessage({ id: 'commentHere' })}
         />
 
-        {(userId === commentUserId || isAdmin) && (
+        {(createCommentArgs.user.id === commentUserId || isAdmin) && (
           <DeleteModal
             isOpen={isOpenDeleteModal}
             onClickDelete={() => {
@@ -236,7 +236,7 @@ const ViewComment: FC<Props> = ({
             }}
             title={intl.formatMessage({ id: 'toolkit.comments.delete.title' })}
             bodyText={
-              userId === commentUserId
+              createCommentArgs.user.id === commentUserId
                 ? intl.formatMessage({
                     id: 'toolkit.comments.delete.description',
                   })

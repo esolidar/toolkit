@@ -23,6 +23,9 @@ interface Props {
   userId: number;
   createCommentArgs: CreateCommentProps;
   comments: any;
+  commentsData: any;
+  handleDeleteComment(): void;
+  handleViewAllReplies(): void;
 }
 
 export default Props;

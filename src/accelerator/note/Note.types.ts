@@ -29,7 +29,7 @@ export interface NoteSingleProps {
   createCommentArgs: CreateComment;
   reply?: boolean;
   isAdmin?: boolean;
-  type?: string;
+  type?: 'comment' | 'note';
   handleDeleteNote(id: number): void;
 }
 
