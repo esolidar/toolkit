@@ -28,6 +28,7 @@ interface Props {
   value: string;
   menuWidth?: string;
   fullWidth?: boolean;
+  table?: boolean;
 }
 
 export interface CustomOptionProps {
