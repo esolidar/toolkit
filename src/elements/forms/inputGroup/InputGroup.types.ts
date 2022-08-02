@@ -3,7 +3,7 @@ import InputGroupProps from '../../inputGroup/InputGroup.types';
 interface Props {
   control: any;
   name: string;
-  validate: any;
+  validate?: any;
   required?: boolean | string;
   inputGroupProps?: InputGroupProps;
   onChange?(e: any): any;

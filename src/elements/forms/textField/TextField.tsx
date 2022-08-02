@@ -3,14 +3,22 @@ import { useController } from 'react-hook-form';
 import TextField from '../../textField';
 import Props from './TextField.types';
 
-const TextFieldForm = ({ control, name, required, textFieldProps, onChange, onBlur }: Props) => {
+const TextFieldForm = ({
+  control,
+  name,
+  required,
+  validate,
+  textFieldProps,
+  onChange,
+  onBlur,
+}: Props) => {
   const {
     field: { onChange: handleChange, onBlur: handleBlur, name: fieldName, value, ref },
     fieldState: { error },
   } = useController({
     name,
     control,
-    rules: { required },
+    rules: { required, validate },
     defaultValue: textFieldProps?.defaultValue,
     shouldUnregister: true,
   });
