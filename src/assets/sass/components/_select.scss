@@ -15,6 +15,23 @@
     }
   }
 
+  &.no-border {
+    .esolidar-select__control {
+      border: none !important;
+
+      &--is-focused {
+        box-shadow: none !important;
+      }
+      &--is-disabled {
+        background: transparent !important;
+      }
+    }
+
+    .esolidar-select__value-container {
+      padding-left: 0px;
+    }
+  }
+
   &-error {
     & .esolidar-select__control {
       border: 2px solid map-get($negative, 500) !important;
