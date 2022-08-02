@@ -48,7 +48,6 @@ interface Props {
   liked?: boolean;
   share?: any;
   likes?: number;
-  comments?: number;
   handleViewAllReplies(id: number): void;
   handleDeleteComment(id: number): void;
   createCommentArgs: CreateComment;

@@ -29,9 +29,8 @@ const ViewComment: FC<Props> = ({
   files,
   // liked = false,
   // likes = 0,
-  comments = 0,
   replies = [],
-  replies_count: repliesCount,
+  replies_count: repliesCount = 0,
   // eslint-disable-next-line camelcase
   scraping_data,
   createCommentArgs,
@@ -85,7 +84,7 @@ const ViewComment: FC<Props> = ({
 
   return (
     <>
-      <div className="view-comment view-comment--border">
+      <div className="view-comment view-comment--border view-comment--comment">
         <div className="view-comment__header">
           <ProfileAvatar
             thumb={thumb}
@@ -157,7 +156,9 @@ const ViewComment: FC<Props> = ({
 
         <div className="view-comment__social view-comment--inline">
           {/* <div>{intl.formatMessage({ id: 'toolkit.comments.like' }, { value: likes })}</div> */}
-          <div>{intl.formatMessage({ id: 'toolkit.comments.comment' }, { value: comments })}</div>
+          <div>
+            {intl.formatMessage({ id: 'toolkit.comments.comment' }, { value: repliesCount })}
+          </div>
         </div>
         <div className="view-comment__line" />
         <div className="view-comment--inline">

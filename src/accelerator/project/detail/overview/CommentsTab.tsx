@@ -41,7 +41,7 @@ const CommentsTab = ({
         {...{ ...createCommentArgs, type: 'comment', galleryType: 'grid' }}
       />
 
-      {comments?.pages[0]?.data?.length > 0 ? (
+      {comments?.pages && comments?.pages[0]?.data?.length > 0 ? (
         <>
           {comments.pages.map((page, index) => (
             <Fragment key={index}>

@@ -178,31 +178,6 @@
 
     .content-comments {
       margin-top: $distance-5;
-
-      .view-comment {
-        margin-bottom: $distance-4;
-      }
-      //text-align: center;
-
-      // h3 {
-      //   display: unset;
-      //   font-style: normal;
-      //   font-weight: 700;
-      //   font-size: 18px;
-      //   line-height: 24px;
-      //   text-align: center;
-      //   color: map-get($base, black);
-      // }
-
-      // p {
-      //   font-style: normal;
-      //   font-weight: 400;
-      //   font-size: 16px;
-      //   line-height: 24px;
-      //   text-align: center;
-      //   color: map-get($neutrals, 700);
-      //   padding-top: $distance-1;
-      // }
     }
 
     &-documents {
