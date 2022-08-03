@@ -56,13 +56,13 @@ describe('TextField component', () => {
   it('renders TextField with left and right icons', () => {
     const component = shallow(
       <TextField
-        leftIcon={{ name: 'icon-search', show: true }}
+        leftIcon={{ name: 'Search', show: true }}
         rightIcon={{ name: 'icon-x', show: true }}
       />
     );
 
     expect(component.find('[dataTestId="input-left-icon"]').length).toBe(1);
-    expect(component.find('[name="icon-search"]').length).toBe(1);
+    expect(component.find('[name="Search"]').length).toBe(1);
 
     expect(component.find('[dataTestId="input-right-icon"]').length).toBe(1);
     expect(component.find('[name="icon-x"]').length).toBe(1);
@@ -72,5 +72,19 @@ describe('TextField component', () => {
     const component = shallow(<TextField isLoading />);
 
     expect(component.find('Loading').length).toBe(1);
+  });
+
+  it('renders TextField with leftElement and rightElement', () => {
+    const component = shallow(
+      <TextField
+        leftElement={<div className="leftElement" />}
+        rightElement={<div className="rightElement" />}
+      />
+    );
+
+    expect(component.find('[dataTestId="input-left-icon"]').length).not.toBe(1);
+    expect(component.find('[name="Search"]').length).not.toBe(1);
+    expect(component.find('.leftElement').length).toBe(1);
+    expect(component.find('.rightElement').length).toBe(1);
   });
 });
