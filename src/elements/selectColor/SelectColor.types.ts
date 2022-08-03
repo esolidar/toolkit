@@ -10,9 +10,9 @@ interface Props {
   className?: string;
   colors?: string[];
   trianglePosition?: 'hide' | 'top-left' | 'top-right' | 'top-left';
-  onChange(e: any): any;
+  onChange(color: string): any;
   inputLabelProps?: InputLabelProps;
-  TextFieldProps?: TextFieldProps;
+  textFieldProps?: TextFieldProps;
 }
 
 export default Props;

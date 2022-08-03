@@ -39,6 +39,7 @@ interface Props {
   isLoading?: boolean;
   leftElement?: JSX.Element;
   rightElement?: JSX.Element;
+  readonly?: boolean;
 }
 
 export default Props;

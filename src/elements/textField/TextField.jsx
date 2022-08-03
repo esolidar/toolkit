@@ -40,6 +40,7 @@ const TextField = ({
   isLoading,
   leftElement,
   rightElement,
+  readonly,
 }) => (
   <div
     className={classnames(
@@ -60,7 +61,7 @@ const TextField = ({
     )}
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
     {!children && (
-      <div className={classnames(`size-${size}`, 'input')}>
+      <div className={classnames(`size-${size}`, 'input')} onClick={onClick} role="presentation">
         {(leftIcon?.show || leftElement) && (
           <div className="icon left">
             {leftElement && !leftIcon?.show && leftElement}
@@ -80,7 +81,6 @@ const TextField = ({
           autoComplete="off"
           onChange={onChange}
           onFocus={onFocus}
-          onClick={onClick}
           autoFocus={autofocus}
           onBlur={onBlur}
           value={value}
@@ -93,6 +93,7 @@ const TextField = ({
           disabled={disabled}
           className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
+          readOnly={readonly}
           style={{
             paddingLeft: leftIcon?.show ? '40px' : leftElement ? '48px' : '12px',
             paddingRight: rightIcon?.show ? '40px' : '12px',
@@ -176,6 +177,7 @@ TextField.propTypes = {
   isLoading: PropTypes.bool,
   leftElement: PropTypes.elementType,
   rightElement: PropTypes.elementType,
+  readonly: PropTypes.bool,
 };
 
 TextField.defaultProps = {

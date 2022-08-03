@@ -28,7 +28,7 @@ export const Error: Story<Props> = Template.bind({});
 
 Default.args = {
   name: 'color',
-  TextFieldProps: {
+  textFieldProps: {
     placeholder: '#HEXCOLOR',
     dataTestId: 'input-disabled',
   },
@@ -42,14 +42,14 @@ WithLabel.args = {
     help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
     showOptionalLabel: true,
   },
-  TextFieldProps: {
+  textFieldProps: {
     placeholder: '#HEXCOLOR',
   },
 };
 
 Disabled.args = {
   name: 'color',
-  TextFieldProps: {
+  textFieldProps: {
     disabled: true,
     placeholder: '#HEXCOLOR',
     dataTestId: 'input-disabled',
@@ -58,7 +58,12 @@ Disabled.args = {
 
 Error.args = {
   name: 'color',
-  TextFieldProps: {
+  inputLabelProps: {
+    field: 'tags',
+    label: 'Is required',
+    help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
+  },
+  textFieldProps: {
     error: 'Helper text',
     placeholder: '#HEXCOLOR',
   },

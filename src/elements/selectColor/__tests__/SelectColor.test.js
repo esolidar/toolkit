@@ -20,7 +20,7 @@ it('renders SelectColor Default', () => {
   expect(getByClass('size-lg form-group selectColor')).toBeInTheDocument();
   expect(getByClass('form-group selectColor__input')).toBeInTheDocument();
   expect(getByClass('icon left')).toBeInTheDocument();
-  expect(getByClass('inputColor')).toBeInTheDocument();
+  expect(getByClass('previewColor')).toBeInTheDocument();
   expect(getByTestId('input-right-icon')).toBeInTheDocument();
 });
 
@@ -43,7 +43,7 @@ it('renders SelectColor Disabled', () => {
 it('renders SelectColor Error', () => {
   const { getByClass } = render(<Error />);
 
-  expect(getByClass('size-lg form-group selectColor')).toBeInTheDocument();
+  expect(getByClass('size-lg form-group selectColor error')).toBeInTheDocument();
   expect(getByClass(/ has-error /)).toBeInTheDocument();
   expect(getByClass('help-block')).toBeInTheDocument();
 });

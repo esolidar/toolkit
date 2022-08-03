@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { FC, useRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { TwitterPicker } from 'react-color';
@@ -16,7 +15,7 @@ const SelectColor: FC<Props> = ({
   trianglePosition = 'top-right',
   onChange,
   inputLabelProps,
-  TextFieldProps,
+  textFieldProps,
 }: Props): JSX.Element => {
   const [showTwitterPicker, setShowTwitterPicker] = useState<boolean>(false);
   const ref = useRef(null);
@@ -38,35 +37,34 @@ const SelectColor: FC<Props> = ({
     onChange(color.hex);
   };
 
-  const handleChangeInput = e => {
-    const { value } = e.target;
-    onChange(value);
-  };
-
   return (
     <div
       ref={ref}
       id={id}
       data-testid={dataTestId}
-      className={classnames(`size-${size}`, 'form-group selectColor', className)}
+      className={classnames(`size-${size}`, 'form-group selectColor', className, {
+        error: textFieldProps?.error,
+      })}
     >
       <TextField
         value={value}
         name={name}
         size={size}
-        onClick={() => setShowTwitterPicker(!showTwitterPicker)}
         rightIcon={{
           name: 'ChevronDown',
           show: true,
         }}
         className="selectColor__input"
-        leftElement={<div className="inputColor" style={{ backgroundColor: value }} />}
-        onChange={e => handleChangeInput(e)}
+        leftElement={<div className="previewColor" style={{ backgroundColor: value }} />}
+        readonly={true}
+        onClick={() => setShowTwitterPicker(!showTwitterPicker)}
         {...inputLabelProps}
-        {...TextFieldProps}
+        {...textFieldProps}
       />
+
       {showTwitterPicker && (
         <TwitterPicker
+          color={value}
           colors={colors}
           triangle={trianglePosition}
           onChangeComplete={handleColorChange}
