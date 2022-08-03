@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -18,6 +19,7 @@ const TextField = ({
   maxLength,
   onBlur,
   onFocus,
+  onClick,
   autofocus,
   placeholder,
   message,
@@ -36,6 +38,8 @@ const TextField = ({
   password,
   size,
   isLoading,
+  leftElement,
+  rightElement,
 }) => (
   <div
     className={classnames(
@@ -57,15 +61,18 @@ const TextField = ({
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
     {!children && (
       <div className={classnames(`size-${size}`, 'input')}>
-        {leftIcon?.show && (
+        {(leftIcon?.show || leftElement) && (
           <div className="icon left">
-            <Icon
-              name={leftIcon?.name}
-              size="sm"
-              onClick={leftIcon?.onClick}
-              style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
-              dataTestId="input-left-icon"
-            />
+            {leftElement && !leftIcon?.show && leftElement}
+            {leftIcon?.show && (
+              <Icon
+                name={leftIcon?.name}
+                size="sm"
+                onClick={leftIcon?.onClick}
+                style={{ cursor: leftIcon?.onClick ? 'pointer' : 'default' }}
+                dataTestId="input-left-icon"
+              />
+            )}
           </div>
         )}
         <input
@@ -73,6 +80,7 @@ const TextField = ({
           autoComplete="off"
           onChange={onChange}
           onFocus={onFocus}
+          onClick={onClick}
           autoFocus={autofocus}
           onBlur={onBlur}
           value={value}
@@ -86,20 +94,23 @@ const TextField = ({
           className={error ? 'form-control required-field' : 'form-control'}
           ref={inputRef}
           style={{
-            paddingLeft: leftIcon?.show ? '40px' : '12px',
+            paddingLeft: leftIcon?.show ? '40px' : leftElement ? '48px' : '12px',
             paddingRight: rightIcon?.show ? '40px' : '12px',
           }}
         />
-        {rightIcon?.show && (
+        {(rightIcon?.show || rightElement) && (
           <div className="icon right">
-            <div onClick={rightIcon?.onClick} onKeyDown={rightIcon?.onClick}>
-              <Icon
-                name={rightIcon?.name}
-                size="sm"
-                style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
-                dataTestId="input-right-icon"
-              />
-            </div>
+            {rightElement && !rightIcon?.show && rightElement}
+            {rightIcon?.show && (
+              <div onClick={rightIcon?.onClick} onKeyDown={rightIcon?.onClick}>
+                <Icon
+                  name={rightIcon?.name}
+                  size="sm"
+                  style={{ cursor: rightIcon?.onClick ? 'pointer' : 'default' }}
+                  dataTestId="input-right-icon"
+                />
+              </div>
+            )}
           </div>
         )}
         {isLoading && (
@@ -114,7 +125,12 @@ const TextField = ({
     )}
     {children && children}
     {info && <span className="footer-label-info">{info}</span>}
-    {error && <div className="help-block">{error}</div>}
+    {error && (
+      <div className="help-block">
+        <Icon name="AlertTriangle" size="sm" />
+        {error}
+      </div>
+    )}
     {message && <div className="help-block">{message}</div>}
   </div>
 );
@@ -134,6 +150,7 @@ TextField.propTypes = {
   maxLength: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onClick: PropTypes.func,
   autofocus: PropTypes.bool,
   placeholder: PropTypes.string,
   message: PropTypes.string,
@@ -157,6 +174,8 @@ TextField.propTypes = {
   }),
   size: PropTypes.string,
   isLoading: PropTypes.bool,
+  leftElement: PropTypes.elementType,
+  rightElement: PropTypes.elementType,
 };
 
 TextField.defaultProps = {
