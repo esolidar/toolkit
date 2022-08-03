@@ -6,5 +6,6 @@ interface Props {
   onChange?(e: any): any;
   onBlur?(e: any): any;
   dataTestId?: string;
+  validate?: any;
 }
 export default Props;

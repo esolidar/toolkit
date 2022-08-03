@@ -10,7 +10,7 @@ const SvgMoreVertical = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       d="M10 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm0 8a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm.586 9.414a2 2 0 1 1 2.828-2.828 2 2 0 0 1-2.828 2.828Z"
     />
   </svg>

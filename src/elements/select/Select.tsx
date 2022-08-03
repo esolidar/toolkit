@@ -24,13 +24,15 @@ const Select: FC<Props> = ({
   value,
   menuWidth,
   fullWidth = false,
+  table = false,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const classes: string = classNames(
     'esolidar-select',
     { 'esolidar-select-error': !!error },
     `size-${size}`,
-    { 'full-width': fullWidth }
+    { 'full-width': fullWidth },
+    { 'no-border': table }
   );
 
   const customStyles = {

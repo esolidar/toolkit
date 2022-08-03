@@ -1,3 +1,5 @@
+import InputLabelProps from '../inputLabel/InputLabel.types';
+
 export interface Option {
   description?: string;
   isDisabled?: boolean;
@@ -8,20 +10,10 @@ export interface Option {
   isLabelBold?: boolean;
 }
 
-interface InputLabel {
-  field?: string;
-  label: string;
-  showOptionalLabel?: boolean;
-  className?: string;
-  style?: any;
-  help?: string;
-  fontWeight?: number;
-}
-
 interface Props {
   error?: string | boolean;
   helperText?: string;
-  inputLabelProps?: InputLabel;
+  inputLabelProps?: InputLabelProps;
   isClearable?: boolean;
   isDisabled?: boolean;
   isSearchable?: boolean;
@@ -36,6 +28,7 @@ interface Props {
   value: string;
   menuWidth?: string;
   fullWidth?: boolean;
+  table?: boolean;
 }
 
 export interface CustomOptionProps {

@@ -71,7 +71,7 @@ const CustomQuestions = ({ question, companyName }: Props) => {
       if (typeof reply === 'string')
         return <li>{question.form.options.find(q => q.id === +reply).value}</li>;
 
-      const repliesList = reply.map((r, index) => (
+      const repliesList = (reply || []).map((r, index) => (
         <li key={index}>{question.form.options.find(q => q.id === +r).value}</li>
       ));
       return repliesList;

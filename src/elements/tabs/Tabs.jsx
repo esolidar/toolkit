@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TabsBts from 'react-bootstrap/Tabs';
@@ -9,14 +8,7 @@ import Icon from '../icon';
 import Badge from '../badge';
 
 const Tabs = ({ activeKey, className, defaultActiveKey, id, onChange, tabsList, size = 'md' }) => {
-  const [activeTab, setActiveTab] = useState(null);
-
-  useEffect(() => {
-    setActiveTab(activeKey);
-  }, [activeKey]);
-
   const onSelect = key => {
-    setActiveTab(key);
     if (isDefined(onChange)) onChange(key);
   };
 
@@ -25,7 +17,7 @@ const Tabs = ({ activeKey, className, defaultActiveKey, id, onChange, tabsList, 
   return (
     <div className="esolidar-tabs">
       <TabsBts
-        activeKey={activeTab}
+        activeKey={activeKey}
         defaultActiveKey={defaultActiveKey}
         id={id}
         onSelect={onSelect}

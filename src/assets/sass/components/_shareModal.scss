@@ -12,12 +12,19 @@
   ul {
     padding: 0;
     margin: 0 $distance-1 0 $distance-1;
+
     li {
       list-style: none;
       margin-bottom: $distance-2;
 
       &:last-child {
         margin-bottom: 0;
+      }
+
+      &.separator {
+        padding-bottom: 24.5px;
+        margin-bottom: 24.5px;
+        border-bottom: 1px solid map-get($neutrals, 200);
       }
 
       a {
@@ -72,6 +79,10 @@
             outline: none;
           }
         }
+        .share-feed {
+          background-color: get-rgba(map-get($theme-colors, primary), 8);
+          @include svg-change-color(map-get($theme-colors, primary));
+        }
         .share-facebook {
           background-color: get-rgba(map-get($social, facebook), 8);
           @include svg-change-color(map-get($social, facebook));
@@ -103,7 +114,7 @@
 
 .btn-esolidar.btn-secondary.codebox-button {
   margin-top: $distance-1;
-  margin-bottom: 40px;
+  margin-bottom: $distance-4;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;

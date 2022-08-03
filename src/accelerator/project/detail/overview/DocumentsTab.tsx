@@ -20,10 +20,10 @@ interface File {
   is_form_file: boolean;
   public: boolean;
   description: string;
+  canBeDeleted: boolean;
 }
 
 interface Props {
-  canDeleteFiles: boolean;
   canUploadFiles: boolean;
   files: File[];
   isAdmin: boolean;
@@ -31,14 +31,7 @@ interface Props {
   onUploadFile(file: Form): void;
 }
 
-const DocumentsTab = ({
-  canDeleteFiles,
-  canUploadFiles,
-  files,
-  isAdmin,
-  onDeleteFile,
-  onUploadFile,
-}: Props) => {
+const DocumentsTab = ({ canUploadFiles, files, isAdmin, onDeleteFile, onUploadFile }: Props) => {
   const intl: IntlShape = useIntl();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [isOpenUploadModal, setIsOpenUploadModal] = useState(false);
@@ -74,7 +67,7 @@ const DocumentsTab = ({
                     setIsOpenDeleteModal(true);
                   },
                   disabled: !isAdmin && file.is_form_file,
-                  show: canDeleteFiles,
+                  show: file.canBeDeleted,
                   tooltip: {
                     overlay: intl.formatMessage({
                       id: 'toolkit.uploads.delete.application-documents',

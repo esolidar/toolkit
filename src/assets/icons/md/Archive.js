@@ -10,7 +10,7 @@ const SvgArchive = props => (
     {...props}
   >
     <path
-      fill="#6C7679"
+      fill={props.color}
       fillRule="evenodd"
       d="M2 3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3Zm18 1v4H4V4h16Zm0 6H4v10h16V10Zm-10 3a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z"
       clipRule="evenodd"
