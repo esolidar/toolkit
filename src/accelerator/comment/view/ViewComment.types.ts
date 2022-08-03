@@ -48,8 +48,9 @@ interface Props {
   liked?: boolean;
   share?: any;
   likes?: number;
+  companyName: string;
   handleViewAllReplies(id: number): void;
-  handleDeleteComment(id: number): void;
+  handleDeleteComment({ id, commentByUser, name, isAdmin }): void;
   createCommentArgs: CreateComment;
   // commentSingleArgs: CommentSingleProps;
   isAdmin: boolean;

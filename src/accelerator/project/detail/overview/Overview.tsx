@@ -41,6 +41,8 @@ const Overview = ({
   createCommentArgs,
   comments = [],
   commentsData,
+  isLoggedIn = true,
+  toggleLoginModal,
   handleDeleteComment,
   handleViewAllReplies,
 }: Props) => {
@@ -184,7 +186,10 @@ const Overview = ({
                         createCommentArgs={createCommentArgs}
                         comments={comments}
                         commentsData={commentsData}
+                        companyName={companyName}
                         isAdmin={isAdmin}
+                        isLoggedIn={isLoggedIn}
+                        toggleLoginModal={toggleLoginModal}
                         handleDeleteComment={handleDeleteComment}
                         handleViewAllReplies={handleViewAllReplies}
                       />

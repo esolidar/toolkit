@@ -30,14 +30,13 @@ export interface NoteSingleProps {
   reply?: boolean;
   isAdmin?: boolean;
   type?: 'comment' | 'note';
-  handleDeleteNote(id: number): void;
+  handleDeleteNote({ id: number }): void;
 }
 
 interface Props {
   noteSingleArgs: NoteSingleProps;
   handleViewAllReplies(id: number): void;
   handleViewChildReplies(id: number): void;
-  handleDeleteNote(id: number): void;
 }
 
 export default Props;

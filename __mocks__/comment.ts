@@ -14,6 +14,7 @@ export const commentDefault = {
   replies: [],
   likes: 30,
   comments: 2,
+  companyName: 'Company name',
   deleted_at: null,
   updated_at: '2022-07-10T13:41:39.000000Z',
   created_at: '2022-07-10T13:41:39.000000Z',

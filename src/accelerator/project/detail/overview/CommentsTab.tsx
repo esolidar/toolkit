@@ -6,13 +6,17 @@ import CreateComment from '../../../comment/create';
 import EmptyState from '../../../../components/emptyState';
 import Loading from '../../../../components/loading';
 import ViewComment from '../../../comment/view';
+import LoginToInteract from '../../../../components/loginToInteract';
 import CreateCommentProps from '../../../comment/create/CreateComment.types';
 
 interface Props {
   createCommentArgs: CreateCommentProps;
   comments: any;
   commentsData: any;
+  companyName: string;
   isAdmin: boolean;
+  isLoggedIn?: boolean;
+  toggleLoginModal?(): void;
   handleDeleteComment(): void;
   handleViewAllReplies(): void;
 }
@@ -21,7 +25,10 @@ const CommentsTab = ({
   createCommentArgs,
   comments,
   commentsData,
+  companyName,
   isAdmin,
+  isLoggedIn = true,
+  toggleLoginModal,
   handleDeleteComment,
   handleViewAllReplies,
 }: Props) => {
@@ -36,10 +43,14 @@ const CommentsTab = ({
 
   return (
     <div className="content-comments">
-      <CreateComment
-        placeholderText={intl.formatMessage({ id: 'commentHere' })}
-        {...{ ...createCommentArgs, type: 'comment', galleryType: 'grid' }}
-      />
+      {isLoggedIn ? (
+        <CreateComment
+          placeholderText={intl.formatMessage({ id: 'commentHere' })}
+          {...{ ...createCommentArgs, type: 'comment', galleryType: 'grid' }}
+        />
+      ) : (
+        <LoginToInteract onClick={toggleLoginModal} />
+      )}
 
       {comments?.pages && comments?.pages[0]?.data?.length > 0 ? (
         <>
@@ -49,6 +60,7 @@ const CommentsTab = ({
                 <ViewComment
                   key={comment.id}
                   isAdmin={isAdmin}
+                  companyName={companyName}
                   createCommentArgs={createCommentArgs}
                   handleDeleteComment={handleDeleteComment}
                   handleViewAllReplies={handleViewAllReplies}
@@ -68,8 +80,16 @@ const CommentsTab = ({
       ) : (
         <Container>
           <EmptyState
-            body="Peoples comments will be displayed here to share feedback with you"
-            title="You have no comments... yet!"
+            body={
+              isAdmin
+                ? intl.formatMessage({ id: 'toolkit.comments.empty.owner.body' })
+                : intl.formatMessage({ id: 'toolkit.comments.empty.body' })
+            }
+            title={
+              isAdmin
+                ? intl.formatMessage({ id: 'toolkit.comments.empty.owner.title' })
+                : intl.formatMessage({ id: 'toolkit.comments.empty.title' })
+            }
             image="https://s3.eu-west-1.amazonaws.com/esolidar.com/frontend/assets/illustrations/sm/colored/comments.svg"
           />
         </Container>

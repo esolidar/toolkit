@@ -263,7 +263,7 @@ export const NoteSingle: FC<NoteSingleProps> = ({
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
-            handleDeleteNote(deleteNoteId.current);
+            handleDeleteNote({ id: deleteNoteId.current });
             setIsOpenDeleteModal(false);
             deleteNoteId.current = null;
           }}

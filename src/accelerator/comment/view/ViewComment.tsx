@@ -29,6 +29,7 @@ const ViewComment: FC<Props> = ({
   files,
   // liked = false,
   // likes = 0,
+  companyName,
   replies = [],
   replies_count: repliesCount = 0,
   // eslint-disable-next-line camelcase
@@ -40,7 +41,7 @@ const ViewComment: FC<Props> = ({
   const preview = JSON.parse(scraping_data);
   const intl: IntlShape = useIntl();
   const inputEl = useRef(null);
-  const deleteNoteId = useRef(null);
+  const deleteCommentId = useRef(null);
   const [cleanTagText, setCleanTagText] = useState();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   // const [isLiked, setIsLiked] = useState(liked);
@@ -105,7 +106,7 @@ const ViewComment: FC<Props> = ({
                   leftIcon: 'Trash',
                   text: intl.formatMessage({ id: 'delete' }),
                   onClick: () => {
-                    deleteNoteId.current = id;
+                    deleteCommentId.current = id;
                     setIsOpenDeleteModal(true);
                   },
                 },
@@ -228,9 +229,14 @@ const ViewComment: FC<Props> = ({
           <DeleteModal
             isOpen={isOpenDeleteModal}
             onClickDelete={() => {
-              handleDeleteComment(deleteNoteId.current);
+              handleDeleteComment({
+                id: deleteCommentId.current,
+                commentByUser: createCommentArgs.user.id === commentUserId,
+                name,
+                isAdmin,
+              });
               setIsOpenDeleteModal(false);
-              deleteNoteId.current = null;
+              deleteCommentId.current = null;
             }}
             onClickCancel={() => {
               setIsOpenDeleteModal(false);
@@ -254,8 +260,8 @@ const ViewComment: FC<Props> = ({
 
       <ShareModal
         openModal={showShare}
-        title="a"
-        windowLocationHref="url"
+        title={intl.formatMessage({ id: 'toolkit.comments.share' }, { company: companyName })}
+        windowLocationHref={window.location.href}
         showFacebook
         showTwitter
         showLinkedin
