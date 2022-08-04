@@ -12,6 +12,7 @@ const SelectColor: FC<Props> = ({
   size = 'lg',
   className,
   error,
+  placeholder = '#HEXCOLOR',
   colors,
   trianglePosition = 'top-right',
   onChange,
@@ -57,6 +58,7 @@ const SelectColor: FC<Props> = ({
         }}
         className="selectColor__input"
         error={error}
+        placeholder={placeholder}
         leftElement={<div className="previewColor" style={{ backgroundColor: value }} />}
         readonly={true}
         onClick={() => setShowTwitterPicker(!showTwitterPicker)}

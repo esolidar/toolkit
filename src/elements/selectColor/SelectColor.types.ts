@@ -9,6 +9,7 @@ interface Props {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   error?: string;
+  placeholder?: string;
   colors?: string[];
   trianglePosition?: 'hide' | 'top-left' | 'top-right' | 'top-left';
   onChange(color: string): any;
