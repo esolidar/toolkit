@@ -14,11 +14,7 @@ export default {
 const Template: Story<Props> = (args: Props) => {
   const [color, setColor] = useState('#17C3B2');
 
-  return (
-    <div className="m-5">
-      <SelectColor {...args} value={color} onChange={setColor} />
-    </div>
-  );
+  return <SelectColor {...args} value={color} onChange={setColor} />;
 };
 
 export const Default: Story<Props> = Template.bind({});
