@@ -61,7 +61,11 @@ const TextField = ({
     )}
     {inputLabelProps && <InputLabel {...inputLabelProps} />}
     {!children && (
-      <div className={classnames(`size-${size}`, 'input')} onClick={onClick} role="presentation">
+      <div
+        className={classnames(`size-${size}`, 'input', { disabled })}
+        onClick={onClick}
+        role="presentation"
+      >
         {(leftIcon?.show || leftElement) && (
           <div className="icon left">
             {leftElement && !leftIcon?.show && leftElement}

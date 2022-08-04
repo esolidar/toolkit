@@ -33,12 +33,12 @@
     overflow: hidden;
 
     &__img {
+      position: relative;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: map-get($neutrals, 100);
-      border-bottom: 1px solid get-rgba(map-get($base, black), 8);
       border-top-left-radius: $border-radius-1;
       border-top-right-radius: $border-radius-1;
 
@@ -56,10 +56,21 @@
           height: 24px;
         }
       }
+
+      &-upload {
+        position: absolute;
+        bottom: $distance-2;
+        right: $distance-2;
+
+        .form-group {
+          margin: 0;
+        }
+      }
     }
 
     &__body {
       padding: $distance-2;
+      border-top: 1px solid map-get($neutrals, 200);
 
       &--title {
         font-weight: 600;
