@@ -20,6 +20,7 @@ const Template: Story<Props> = (args: Props) => (
 export const Default: Story<Props> = Template.bind({});
 export const NoImage: Story<Props> = Template.bind({});
 export const WithLabel: Story<Props> = Template.bind({});
+export const Upload: Story<Props> = Template.bind({});
 
 Default.args = {
   img: {
@@ -54,5 +55,33 @@ WithLabel.args = {
     label: 'Lorem Ipsum',
     help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
     showOptionalLabel: true,
+  },
+};
+
+Upload.args = {
+  upload: true,
+  img: {
+    src: 'https://static.testesolidar.com/frontend/assets/esolidar-cover.png',
+    alt: 'Imagem de teste',
+  },
+  inputLabelProps: {
+    field: 'tags',
+    label: 'Lorem Ipsum',
+    help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
+    showOptionalLabel: true,
+  },
+  dropZoneBoxProps: {
+    onSelect: () => {},
+    deleteImageGallery: () => {},
+    onDropError: () => {},
+    accept: '.jpg, .jpeg, .png',
+    showFooterCropper: true,
+    hasCropper: {
+      showCropper: true,
+      aspectRatioW: 16,
+      aspectRatioH: 9,
+      minWidth: 1,
+      minHeight: 1,
+    },
   },
 };

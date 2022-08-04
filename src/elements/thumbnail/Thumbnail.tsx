@@ -1,8 +1,13 @@
+/* eslint-disable react/no-children-prop */
 /* eslint-disable camelcase */
 import React, { FC, SyntheticEvent, useState } from 'react';
 import classnames from 'classnames';
+import { IntlShape, useIntl } from 'react-intl';
 import getEnvVar from '../../utils/getEnvVar';
 import InputLabel from '../inputLabel';
+import Icon from '../icon';
+import Button from '../button';
+import DropZoneBox from '../dropZoneBox';
 import validateImageSrc from '../../utils/validateImageSrc';
 import Props from './Thumbnail.types';
 
@@ -16,7 +21,9 @@ const Thumbnail: FC<Props> = ({
   title,
   description,
   inputLabelProps,
+  dropZoneBoxProps,
 }: Props): JSX.Element => {
+  const intl: IntlShape = useIntl();
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
 
   const handleImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
@@ -42,24 +49,50 @@ const Thumbnail: FC<Props> = ({
           ) : (
             <img className="thumbnail__no-img" src={urlNoImage} alt="Preview without content" />
           )}
+          {dropZoneBoxProps && (
+            <div className="thumbnail__img-upload">
+              <DropZoneBox
+                showDropArea={false}
+                multiple={false}
+                showImagesPreviews={false}
+                env={{
+                  serverlessResizeImage: process.env.PUBLIC_SERVER_LESS_RESIZE_IMAGE,
+                }}
+                children={
+                  <Button
+                    extraClass="overlay"
+                    size="sm"
+                    type="button"
+                    ghost={false}
+                    text={intl.formatMessage({ id: 'toolkit.upload' })}
+                    iconLeft={<Icon name="Upload" size="sm" />}
+                    onClick={() => {}}
+                  />
+                }
+                {...dropZoneBoxProps}
+              />
+            </div>
+          )}
         </div>
-        <div className="thumbnail__body">
-          {title && (
-            <div className="thumbnail__body--title" title={title}>
-              {title}
-            </div>
-          )}
-          {description && (
-            <div className="thumbnail__body--description" title={description}>
-              {description}
-            </div>
-          )}
-          {url && (
-            <div className="thumbnail__body--helper" title={description}>
-              {url}
-            </div>
-          )}
-        </div>
+        {(title || description || url) && (
+          <div className="thumbnail__body">
+            {title && (
+              <div className="thumbnail__body--title" title={title}>
+                {title}
+              </div>
+            )}
+            {description && (
+              <div className="thumbnail__body--description" title={description}>
+                {description}
+              </div>
+            )}
+            {url && (
+              <div className="thumbnail__body--helper" title={description}>
+                {url}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

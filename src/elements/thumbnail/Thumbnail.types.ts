@@ -5,6 +5,23 @@ interface Image {
   alt?: string;
 }
 
+interface HasCropper {
+  showCropper: boolean;
+  aspectRatioW: number;
+  aspectRatioH: number;
+  minWidth: number;
+  minHeight: number;
+}
+
+interface DropZoneBoxProps {
+  onSelect(): void;
+  deleteImageGallery?(): void;
+  onDropError?(): void;
+  accept: string;
+  showFooterCropper: boolean;
+  hasCropper: HasCropper;
+}
+
 interface Props {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
@@ -13,6 +30,9 @@ interface Props {
   title?: string;
   description?: string;
   inputLabelProps?: InputLabelProps;
+  upload?: boolean;
+  dropZoneBoxProps?: DropZoneBoxProps;
+  handleOnSelectImage?(): void;
 }
 
 export default Props;

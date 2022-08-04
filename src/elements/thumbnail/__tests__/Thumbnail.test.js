@@ -6,11 +6,13 @@ import Meta, {
   Default as DefaultStory,
   NoImage as NoImageStory,
   WithLabel as WithLabelStory,
+  Upload as UploadStory,
 } from '../Thumbnail.stories';
 
 const Default = composeStory(DefaultStory, Meta);
 const NoImage = composeStory(NoImageStory, Meta);
 const WithLabel = composeStory(WithLabelStory, Meta);
+const Upload = composeStory(UploadStory, Meta);
 
 it('renders Thumbnail Default', () => {
   const { getByClass } = render(<Default />);
@@ -47,4 +49,11 @@ it('renders Thumbnail WithLabel', () => {
   expect(getByClass('control-label')).toBeInTheDocument();
   expect(getByClass('label-optional')).toBeInTheDocument();
   expect(getByClass('help size-lg')).toBeInTheDocument();
+});
+
+it('renders Thumbnail with upload button', () => {
+  const { getByClass } = render(<Upload />);
+
+  expect(getByClass('thumbnail__img-upload')).toBeInTheDocument();
+  expect(getByClass(/dropzone-box/)).toBeInTheDocument();
 });
