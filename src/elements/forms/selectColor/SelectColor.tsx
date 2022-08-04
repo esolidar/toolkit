@@ -23,7 +23,7 @@ const SelectColor = ({ control, name, required, validate, selectColorProps, onCh
       }}
       value={value}
       name={fieldName}
-      textFieldProps={{ error: error ? error.message : undefined }}
+      error={error ? error.message : undefined}
       {...selectColorProps}
     />
   );

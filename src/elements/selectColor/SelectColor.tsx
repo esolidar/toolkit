@@ -11,6 +11,8 @@ const SelectColor: FC<Props> = ({
   name,
   size = 'lg',
   className,
+  error,
+  placeholder = '#HEXCOLOR',
   colors,
   trianglePosition = 'top-right',
   onChange,
@@ -43,18 +45,20 @@ const SelectColor: FC<Props> = ({
       id={id}
       data-testid={dataTestId}
       className={classnames(`size-${size}`, 'form-group selectColor', className, {
-        error: textFieldProps?.error,
+        error,
       })}
     >
       <TextField
         value={value}
-        name={name}
+        field={name}
         size={size}
         rightIcon={{
           name: 'ChevronDown',
           show: true,
         }}
         className="selectColor__input"
+        error={error}
+        placeholder={placeholder}
         leftElement={<div className="previewColor" style={{ backgroundColor: value }} />}
         readonly={true}
         onClick={() => setShowTwitterPicker(!showTwitterPicker)}
