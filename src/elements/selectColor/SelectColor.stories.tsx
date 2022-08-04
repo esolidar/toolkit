@@ -58,13 +58,13 @@ Disabled.args = {
 
 Error.args = {
   name: 'color',
+  error: 'Helper text',
   inputLabelProps: {
     field: 'tags',
     label: 'Is required',
     help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
   },
   textFieldProps: {
-    error: 'Helper text',
     placeholder: '#HEXCOLOR',
   },
 };
