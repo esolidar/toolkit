@@ -15,7 +15,7 @@ const InputTags: FC<Props> = ({
   placeholder,
   helperText,
   disabled,
-  seprators = ['Enter', 'Comma'],
+  seprators = ['Enter', 'Comma', 'Tab'],
   maxTags = 8,
   minLength = 1,
   maxLength = 30,
@@ -35,6 +35,11 @@ const InputTags: FC<Props> = ({
     textInput.focus();
   };
 
+  const handleBlur = e => {
+    if (onBlur) onBlur(e);
+    handleOnKeyUp(e);
+  };
+
   const handleOnKeyUp = e => {
     e.stopPropagation();
     const text = e.target.value.trim();
@@ -43,10 +48,13 @@ const InputTags: FC<Props> = ({
       text.length >= minLength &&
       text.length <= maxLength &&
       tags.length < maxTags &&
-      (seprators.includes(e.key) || seprators.includes(e.code))
+      ((seprators.includes(e.key) && e.type === 'keydown') ||
+        (seprators.includes(e.code) && e.type === 'keydown') ||
+        e.type === 'blur')
     ) {
       if (tags.includes(text)) {
         onExisting && onExisting(text);
+        if (e.type === 'blur') e.target.value = '';
         return;
       }
       onChange && onChange([...tags, text]);
@@ -72,7 +80,7 @@ const InputTags: FC<Props> = ({
           value={value}
           placeholder={placeholder}
           onKeyDown={handleOnKeyUp}
-          onBlur={onBlur}
+          onBlur={handleBlur}
           disabled={disabled}
           maxLength={maxLength}
         />
