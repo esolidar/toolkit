@@ -16,6 +16,7 @@ interface Props {
   companyName: string;
   isAdmin: boolean;
   isLoggedIn?: boolean;
+  closedCommentRef: any;
   toggleLoginModal?(): void;
   handleDeleteComment(): void;
   handleViewAllReplies(): void;
@@ -28,6 +29,7 @@ const CommentsTab = ({
   companyName,
   isAdmin,
   isLoggedIn = true,
+  closedCommentRef,
   toggleLoginModal,
   handleDeleteComment,
   handleViewAllReplies,
@@ -58,6 +60,7 @@ const CommentsTab = ({
             <Fragment key={index}>
               {page.data.map(comment => (
                 <ViewComment
+                  closedCommentRef={closedCommentRef}
                   key={comment.id}
                   isAdmin={isAdmin}
                   companyName={companyName}

@@ -25,6 +25,7 @@ interface Props {
   comments: any;
   commentsData: any;
   isLoggedIn?: boolean;
+  closedCommentRef: any;
   toggleLoginModal?(): void;
   handleDeleteComment(): void;
   handleViewAllReplies(): void;

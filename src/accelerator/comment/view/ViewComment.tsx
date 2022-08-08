@@ -35,6 +35,7 @@ const ViewComment: FC<Props> = ({
   // eslint-disable-next-line camelcase
   scraping_data,
   createCommentArgs,
+  closedCommentRef,
   handleDeleteComment,
   handleViewAllReplies,
 }: Props) => {
@@ -201,7 +202,7 @@ const ViewComment: FC<Props> = ({
                   note={item}
                   handleDeleteNote={handleDeleteComment}
                   parentComment={{ parentId: id, parentName: `@${item.user.name} ` }}
-                  createCommentArgs={{ ...createCommentArgs, isEditMode: true }}
+                  createCommentArgs={{ ...createCommentArgs, isEditMode: true, type: 'reply' }}
                   reply={true}
                 />
               </React.Fragment>
@@ -219,7 +220,15 @@ const ViewComment: FC<Props> = ({
         )}
 
         <CreateComment
-          {...createCommentArgs}
+          closedCommentRef={closedCommentRef}
+          user={createCommentArgs?.user}
+          scrapper={createCommentArgs?.scrapper?.current}
+          type="reply"
+          getScraper={createCommentArgs?.getScraper}
+          handlePostComment={createCommentArgs?.handlePostComment}
+          handleCleanComment={createCommentArgs?.handleCleanComment}
+          onDropError={createCommentArgs?.onDropError}
+          galleryType="inline"
           parentComment={{ parentId: id }}
           reference={inputEl}
           placeholderText={intl.formatMessage({ id: 'commentHere' })}

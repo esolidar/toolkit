@@ -52,8 +52,8 @@ interface Props {
   handleViewAllReplies(id: number): void;
   handleDeleteComment({ id, commentByUser, name, isAdmin }): void;
   createCommentArgs: CreateComment;
-  // commentSingleArgs: CommentSingleProps;
   isAdmin: boolean;
+  closedCommentRef: any;
 }
 
 export default Props;

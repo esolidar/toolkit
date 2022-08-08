@@ -38,7 +38,7 @@ const CreateComment: FC<Props> = ({
 }: Props) => {
   const { parentName, parentId } = parentComment || {};
   const intl: IntlShape = useIntl();
-  const [editMode, setEditMode] = useState<boolean>(isEditMode ?? type !== 'comment');
+  const [editMode, setEditMode] = useState<boolean>(isEditMode || false);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
   const [filesList, setFilesList] = useState<any[]>([]);
   const [fileType, setFileType] = useState<'file' | 'image'>(null);
@@ -73,17 +73,6 @@ const CreateComment: FC<Props> = ({
   const handleEditMode = () => {
     setEditMode(true);
   };
-
-  useEffect(() => {
-    setUrlData(scrapper);
-  }, [scrapper]);
-
-  useEffect(() => {
-    if (closedCommentRef) {
-      // eslint-disable-next-line no-param-reassign
-      closedCommentRef.current = handleClickCancel;
-    }
-  }, []);
 
   const getUrlData = (url: string) => {
     if (parseYouTube(url)) {
@@ -154,6 +143,21 @@ const CreateComment: FC<Props> = ({
       string.length === 0 || isButtonDisabled || emptySpace.length === 0 || emptyLine.length === 0
     );
   };
+
+  useEffect(() => {
+    setUrlData(scrapper);
+  }, [scrapper]);
+
+  useEffect(() => {
+    setEditMode(isEditMode);
+  }, [isEditMode]);
+
+  useEffect(() => {
+    if (closedCommentRef) {
+      // eslint-disable-next-line no-param-reassign
+      closedCommentRef.current = handleClickCancel;
+    }
+  }, []);
 
   useEffect(() => {
     if (fileType) isDropZoneOpen.current();

@@ -42,6 +42,7 @@ const Overview = ({
   comments = [],
   commentsData,
   isLoggedIn = true,
+  closedCommentRef,
   toggleLoginModal,
   handleDeleteComment,
   handleViewAllReplies,
@@ -183,6 +184,7 @@ const Overview = ({
                   {
                     content: (
                       <CommentsTab
+                        closedCommentRef={closedCommentRef}
                         createCommentArgs={createCommentArgs}
                         comments={comments}
                         commentsData={commentsData}

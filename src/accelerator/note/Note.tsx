@@ -245,6 +245,7 @@ export const NoteSingle: FC<NoteSingleProps> = ({
             ) : (
               <CreateComment
                 {...createCommentArgs}
+                isEditMode={true}
                 parentComment={parentComment}
                 handleCleanComment={() => setIsReply(false)}
                 reference={inputEl}
