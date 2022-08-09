@@ -99,6 +99,7 @@ export const NoteSingle: FC<NoteSingleProps> = ({
   reply = false,
   parentComment,
   createCommentArgs,
+  isLoggedIn = true,
   handleDeleteNote,
 }: NoteSingleProps) => {
   const {
@@ -233,25 +234,26 @@ export const NoteSingle: FC<NoteSingleProps> = ({
             ))}
 
           <>
-            {!isReply ? (
-              <Button
-                dataTestId="reply"
-                size={reply ? 'sm' : 'md'}
-                onClick={handleReply}
-                extraClass="secondary"
-                text={intl.formatMessage({ id: 'reply' })}
-                fullWidth={false}
-              />
-            ) : (
-              <CreateComment
-                {...createCommentArgs}
-                isEditMode={true}
-                parentComment={parentComment}
-                handleCleanComment={() => setIsReply(false)}
-                reference={inputEl}
-                placeholderText={intl.formatMessage({ id: 'commentHere' })}
-              />
-            )}
+            {isLoggedIn &&
+              (!isReply ? (
+                <Button
+                  dataTestId="reply"
+                  size={reply ? 'sm' : 'md'}
+                  onClick={handleReply}
+                  extraClass="secondary"
+                  text={intl.formatMessage({ id: 'reply' })}
+                  fullWidth={false}
+                />
+              ) : (
+                <CreateComment
+                  {...createCommentArgs}
+                  isEditMode={true}
+                  parentComment={parentComment}
+                  handleCleanComment={() => setIsReply(false)}
+                  reference={inputEl}
+                  placeholderText={intl.formatMessage({ id: 'commentHere' })}
+                />
+              ))}
           </>
         </>
       ) : (

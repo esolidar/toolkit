@@ -36,6 +36,8 @@ const ViewComment: FC<Props> = ({
   scraping_data,
   createCommentArgs,
   closedCommentRef,
+  toggleLoginModal,
+  isLoggedIn = true,
   handleDeleteComment,
   handleViewAllReplies,
 }: Props) => {
@@ -174,7 +176,7 @@ const ViewComment: FC<Props> = ({
           /> */}
           <Button
             dataTestId="comment"
-            onClick={handleFocus}
+            onClick={isLoggedIn ? handleFocus : toggleLoginModal}
             extraClass="secondary"
             ghost
             theme="dark"
@@ -204,6 +206,7 @@ const ViewComment: FC<Props> = ({
                   parentComment={{ parentId: id, parentName: `@${item.user.name} ` }}
                   createCommentArgs={{ ...createCommentArgs, isEditMode: true, type: 'reply' }}
                   reply={true}
+                  isLoggedIn={isLoggedIn}
                 />
               </React.Fragment>
             ))}
@@ -219,20 +222,22 @@ const ViewComment: FC<Props> = ({
           </>
         )}
 
-        <CreateComment
-          closedCommentRef={closedCommentRef}
-          user={createCommentArgs?.user}
-          scrapper={createCommentArgs?.scrapper?.current}
-          type="reply"
-          getScraper={createCommentArgs?.getScraper}
-          handlePostComment={createCommentArgs?.handlePostComment}
-          handleCleanComment={createCommentArgs?.handleCleanComment}
-          onDropError={createCommentArgs?.onDropError}
-          galleryType="inline"
-          parentComment={{ parentId: id }}
-          reference={inputEl}
-          placeholderText={intl.formatMessage({ id: 'commentHere' })}
-        />
+        {isLoggedIn && (
+          <CreateComment
+            closedCommentRef={closedCommentRef}
+            user={createCommentArgs?.user}
+            scrapper={createCommentArgs?.scrapper?.current}
+            type="reply"
+            getScraper={createCommentArgs?.getScraper}
+            handlePostComment={createCommentArgs?.handlePostComment}
+            handleCleanComment={createCommentArgs?.handleCleanComment}
+            onDropError={createCommentArgs?.onDropError}
+            galleryType="inline"
+            parentComment={{ parentId: id }}
+            reference={inputEl}
+            placeholderText={intl.formatMessage({ id: 'commentHere' })}
+          />
+        )}
 
         {(createCommentArgs.user.id === commentUserId || isAdmin) && (
           <DeleteModal

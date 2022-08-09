@@ -54,6 +54,8 @@ interface Props {
   createCommentArgs: CreateComment;
   isAdmin: boolean;
   closedCommentRef: any;
+  isLoggedIn?: boolean;
+  toggleLoginModal?(): void;
 }
 
 export default Props;

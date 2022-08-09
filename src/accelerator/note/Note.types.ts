@@ -30,6 +30,7 @@ export interface NoteSingleProps {
   reply?: boolean;
   isAdmin?: boolean;
   type?: 'comment' | 'note';
+  isLoggedIn?: boolean;
   handleDeleteNote({ id: number }): void;
 }
 

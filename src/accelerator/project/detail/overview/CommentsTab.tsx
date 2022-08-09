@@ -67,6 +67,8 @@ const CommentsTab = ({
                   createCommentArgs={createCommentArgs}
                   handleDeleteComment={handleDeleteComment}
                   handleViewAllReplies={handleViewAllReplies}
+                  toggleLoginModal={toggleLoginModal}
+                  isLoggedIn={isLoggedIn}
                   {...comment}
                 />
               ))}
@@ -76,7 +78,7 @@ const CommentsTab = ({
             <Button
               extraClass="link"
               onClick={() => commentsData?.fetchNextPage()}
-              text={intl.formatMessage({ id: 'business.comments.view.notes' })}
+              text={intl.formatMessage({ id: 'toolkit.comments.viewMore.comments' })}
             />
           )}
         </>
