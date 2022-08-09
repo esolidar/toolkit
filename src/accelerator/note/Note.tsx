@@ -13,7 +13,7 @@ import dateDistance from '../../utils/dateDistance';
 import Props, { NoteSingleProps } from './Note.types';
 import Icon from '../../elements/icon';
 
-const Note: FC<Props> = ({
+export const Note: FC<Props> = ({
   noteSingleArgs,
   handleViewAllReplies,
   handleViewChildReplies,
@@ -92,13 +92,14 @@ const Note: FC<Props> = ({
   );
 };
 
-export default Note;
-
-const NoteSingle: FC<NoteSingleProps> = ({
+export const NoteSingle: FC<NoteSingleProps> = ({
+  type = 'note',
+  isAdmin = false,
   note,
   reply = false,
   parentComment,
   createCommentArgs,
+  isLoggedIn = true,
   handleDeleteNote,
 }: NoteSingleProps) => {
   const {
@@ -173,7 +174,7 @@ const NoteSingle: FC<NoteSingleProps> = ({
           thumbSize="lg"
         />
 
-        {createCommentArgs?.user?.id === noteUserId && !deleted && (
+        {((createCommentArgs?.user?.id === noteUserId && !deleted) || isAdmin) && (
           <Dropdown
             items={[
               {
@@ -233,24 +234,26 @@ const NoteSingle: FC<NoteSingleProps> = ({
             ))}
 
           <>
-            {!isReply ? (
-              <Button
-                dataTestId="reply"
-                size={reply ? 'sm' : 'md'}
-                onClick={handleReply}
-                extraClass="secondary"
-                text={intl.formatMessage({ id: 'reply' })}
-                fullWidth={false}
-              />
-            ) : (
-              <CreateComment
-                {...createCommentArgs}
-                parentComment={parentComment}
-                handleCleanComment={() => setIsReply(false)}
-                reference={inputEl}
-                placeholderText={intl.formatMessage({ id: 'commentHere' })}
-              />
-            )}
+            {isLoggedIn &&
+              (!isReply ? (
+                <Button
+                  dataTestId="reply"
+                  size={reply ? 'sm' : 'md'}
+                  onClick={handleReply}
+                  extraClass="secondary"
+                  text={intl.formatMessage({ id: 'reply' })}
+                  fullWidth={false}
+                />
+              ) : (
+                <CreateComment
+                  {...createCommentArgs}
+                  isEditMode={true}
+                  parentComment={parentComment}
+                  handleCleanComment={() => setIsReply(false)}
+                  reference={inputEl}
+                  placeholderText={intl.formatMessage({ id: 'commentHere' })}
+                />
+              ))}
           </>
         </>
       ) : (
@@ -259,21 +262,37 @@ const NoteSingle: FC<NoteSingleProps> = ({
         </div>
       )}
 
-      {userId === noteUserId && !deleted && (
+      {((userId === noteUserId && !deleted) || isAdmin) && (
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
-            handleDeleteNote(deleteNoteId.current);
+            handleDeleteNote({ id: deleteNoteId.current });
             setIsOpenDeleteModal(false);
             deleteNoteId.current = null;
           }}
           onClickCancel={() => {
             setIsOpenDeleteModal(false);
           }}
-          title={intl.formatMessage({ id: 'toolkit.notes.delete.title' })}
-          bodyText={intl.formatMessage({
-            id: 'toolkit.notes.delete.description',
-          })}
+          title={
+            type === 'comment'
+              ? intl.formatMessage({ id: 'toolkit.comments.delete.title' })
+              : intl.formatMessage({ id: 'toolkit.notes.delete.title' })
+          }
+          bodyText={
+            // eslint-disable-next-line no-nested-ternary
+            type === 'comment'
+              ? userId === noteUserId
+                ? intl.formatMessage({
+                    id: 'toolkit.comments.delete.description',
+                  })
+                : intl.formatMessage(
+                    {
+                      id: 'toolkit.comments.admin.delete.description',
+                    },
+                    { username: name }
+                  )
+              : intl.formatMessage({ id: 'toolkit.notes.delete.description' })
+          }
         />
       )}
     </div>

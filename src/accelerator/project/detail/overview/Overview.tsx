@@ -14,7 +14,7 @@ import CustomQuestions from './CustomQuestions';
 import Initiatives from './Initiatives';
 import DocumentsTab from './DocumentsTab';
 import Updates from './Updates';
-import Comments from './Comments';
+import CommentsTab from './CommentsTab';
 import Props from './Overview.types';
 import getEnvVar from '../../../../utils/getEnvVar';
 import { PROJECT } from '../../../../constants/status';
@@ -38,6 +38,14 @@ const Overview = ({
   handleAddInitiative,
   onUploadFile,
   onDeleteFile,
+  createCommentArgs,
+  comments = [],
+  commentsData,
+  isLoggedIn = true,
+  closedCommentRef,
+  toggleLoginModal,
+  handleDeleteComment,
+  handleViewAllReplies,
 }: Props) => {
   const {
     name: companyName,
@@ -174,7 +182,20 @@ const Overview = ({
                     title: intl.formatMessage({ id: 'toolkit.updates' }),
                   },
                   {
-                    content: <Comments />,
+                    content: (
+                      <CommentsTab
+                        closedCommentRef={closedCommentRef}
+                        createCommentArgs={createCommentArgs}
+                        comments={comments}
+                        commentsData={commentsData}
+                        companyName={companyName}
+                        isAdmin={isAdmin}
+                        isLoggedIn={isLoggedIn}
+                        toggleLoginModal={toggleLoginModal}
+                        handleDeleteComment={handleDeleteComment}
+                        handleViewAllReplies={handleViewAllReplies}
+                      />
+                    ),
                     key: 'comments',
                     title: intl.formatMessage({ id: 'toolkit.comments' }),
                   },

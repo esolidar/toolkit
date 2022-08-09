@@ -7,6 +7,10 @@
   flex-direction: column;
   gap: $distance-2;
 
+  &--comment {
+    margin-bottom: 32px;
+  }
+
   &--border {
     border: 1px solid map-get($neutrals, 200);
   }
@@ -130,7 +134,7 @@
   }
 }
 
-body .view-comment:not(:last-child):after {
+body .view-comment:not(:last-child):not(.view-comment--comment):after {
   content: '';
   position: absolute;
   left: 0;

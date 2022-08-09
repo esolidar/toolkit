@@ -38,6 +38,7 @@ export const Reply: Story<Props> = Template.bind({});
 
 Default.args = {
   isAdmin: false,
+  isEditMode: false,
   comment: {},
   user,
   placeholderText: 'Share ideas, suggestions or initiaves for this project...',
@@ -51,6 +52,7 @@ Default.args = {
 
 Reply.args = {
   isAdmin: false,
+  isEditMode: false,
   comment: {},
   user,
   type: 'reply',

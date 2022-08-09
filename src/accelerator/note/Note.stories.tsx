@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 import { Story, Meta } from '@storybook/react';
-import Note from './Note';
+import { Note } from './Note';
 import Props from './Note.types';
 import user from '../../../__mocks__/user';
 import {
