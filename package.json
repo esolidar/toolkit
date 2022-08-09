@@ -169,6 +169,7 @@
     "react-awesome-reveal": "^3.8.1",
     "react-bootstrap": "^1.5.1",
     "react-bootstrap-table": "^4.3.1",
+    "react-color": "^2.19.3",
     "react-cookies": "^0.1.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-cropper": "1.0.1",

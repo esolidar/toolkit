@@ -67,6 +67,7 @@ export const WithError: Story<Props> = Template.bind({});
 export const WithPlaceholderIcon: Story<Props> = Template.bind({});
 export const WithoutOptions: Story<Props> = Template.bind({});
 export const MenuWidth: Story<Props> = Template.bind({});
+export const Table: Story<Props> = Template.bind({});
 
 Default.args = {
   onChange: value => alert(`New value: ${value}`),
@@ -134,4 +135,11 @@ MenuWidth.args = {
   size: 'sm',
   options,
   menuWidth: '500px',
+};
+
+Table.args = {
+  onChange: value => alert(`New value: ${value}`),
+  options,
+  value: '',
+  table: true,
 };

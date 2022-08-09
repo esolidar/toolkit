@@ -57,6 +57,10 @@
     .required-field {
       border-color: map-get($theme-colors, danger) !important;
     }
+
+    &.disabled {
+      pointer-events: none;
+    }
   }
 
   .footer-label-info {

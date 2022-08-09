@@ -12,7 +12,7 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div className="mt-5 w-50">
+  <div className="mt-5">
     <InputGroup {...args} />
   </div>
 );
@@ -22,29 +22,38 @@ export const Disabled: Story<Props> = Template.bind({});
 export const Error: Story<Props> = Template.bind({});
 export const Prepend: Story<Props> = Template.bind({});
 export const Append: Story<Props> = Template.bind({});
+export const WithLabel: Story<Props> = Template.bind({});
 
 Default.args = {
   prepend: 'Label',
   append: 'Label',
-  inputPlaceholder: 'Placeholder',
+  placeholder: 'Placeholder',
 };
 Disabled.args = {
   prepend: 'Label',
   append: 'Label',
   disabled: true,
-  inputPlaceholder: 'Placeholder',
+  placeholder: 'Placeholder',
 };
 Error.args = {
   prepend: 'Label',
   append: 'Label',
   error: 'Helper text',
-  inputPlaceholder: 'Placeholder',
+  placeholder: 'Placeholder',
 };
 Prepend.args = {
   prepend: 'Label',
-  inputPlaceholder: 'Placeholder',
+  placeholder: 'Placeholder',
 };
 Append.args = {
   append: 'Label',
-  inputPlaceholder: 'Placeholder',
+  placeholder: 'Placeholder',
+};
+WithLabel.args = {
+  inputLabelProps: {
+    field: 'tags',
+    label: 'Lorem Ipsum',
+    help: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie justo at risus rutrum luctus.',
+    showOptionalLabel: true,
+  },
 };

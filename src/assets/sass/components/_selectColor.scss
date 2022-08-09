@@ -1,0 +1,66 @@
+.selectColor {
+  position: relative;
+
+  &__input.form-group {
+    input.form-control {
+      color: map-get($neutrals, 900);
+      caret-color: transparent;
+      cursor: pointer;
+      box-shadow: 0px 2px 2px get-rgba(map-get($base, black), 4) !important;
+
+      &::selection {
+        color: map-get($neutrals, 900);
+        background-color: transparent;
+      }
+
+      &:focus {
+        box-shadow: 0px 0px 0px 4px get-rgba(map-get($turquoise, 500), 8);
+      }
+    }
+    .input-label-component,
+    .help-block {
+      pointer-events: none;
+    }
+    .icon-component {
+      cursor: pointer !important;
+    }
+    &.has-error {
+      input.form-control {
+        border-width: 2px;
+        &:hover,
+        &:active {
+          box-shadow: inherit !important;
+        }
+        &:focus {
+          box-shadow: 0px 0px 0px 4px get-rgba(map-get($turquoise, 500), 8) !important;
+        }
+      }
+    }
+  }
+
+  .previewColor {
+    width: 24px;
+    height: 24px;
+    border-radius: $border-radius-1 / 2;
+    border: 1px solid get-rgba(map-get($base, black), 4);
+    background-color: map-get($turquoise, 300);
+    cursor: pointer;
+  }
+  .twitter-picker {
+    position: absolute !important;
+    right: 0;
+    z-index: 1;
+  }
+
+  &.error {
+    .twitter-picker {
+      margin-top: -30px;
+    }
+  }
+
+  &.size-sm {
+    .twitter-picker {
+      width: 230px !important;
+    }
+  }
+}
