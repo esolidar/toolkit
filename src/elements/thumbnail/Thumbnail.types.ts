@@ -33,7 +33,7 @@ interface Props {
   upload?: boolean;
   dropZoneBoxProps?: DropZoneBoxProps;
   handleOnSelectImage?(): void;
-  minHeight?: string;
+  minHeight?: number;
 }
 
 export default Props;

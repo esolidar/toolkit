@@ -22,15 +22,17 @@ const Thumbnail: FC<Props> = ({
   description,
   inputLabelProps,
   dropZoneBoxProps,
-  minHeight = '376px',
+  minHeight = 376,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
   const [showImage, setShowImage] = useState<boolean>(!!img || !!img?.src);
+  const [IsImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const handleImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     const target = event.target as HTMLInputElement;
 
     target.onerror = null;
+    setIsImgLoaded(false);
     setShowImage(false);
   };
 
@@ -46,15 +48,18 @@ const Thumbnail: FC<Props> = ({
         <div
           className="thumbnail__img"
           style={{
-            minHeight: showImage ? 'auto' : minHeight,
+            minHeight: IsImgLoaded ? 'auto' : `${minHeight}px`,
             backgroundImage: `url(${urlNoImage})`,
           }}
         >
-          {showImage && img && (
+          {showImage && img?.src && (
             <img
               className="thumbnail_thumb"
               src={validateImageSrc(img?.src)}
               onError={handleImageError}
+              onLoad={() => {
+                setIsImgLoaded(true);
+              }}
               alt={img?.alt}
             />
           )}
