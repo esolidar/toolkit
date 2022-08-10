@@ -4,13 +4,11 @@ import { composeStory } from '@storybook/testing-react';
 import { render } from '../../../../__customQueries__/test-utils';
 import Meta, {
   Default as DefaultStory,
-  NoImage as NoImageStory,
   WithLabel as WithLabelStory,
   Upload as UploadStory,
 } from '../Thumbnail.stories';
 
 const Default = composeStory(DefaultStory, Meta);
-const NoImage = composeStory(NoImageStory, Meta);
 const WithLabel = composeStory(WithLabelStory, Meta);
 const Upload = composeStory(UploadStory, Meta);
 
@@ -32,14 +30,6 @@ it('renders Thumbnail no texts', () => {
   expect(queryByClass('thumbnail__body--title')).not.toBeInTheDocument();
   expect(queryByClass('thumbnail__body--description')).not.toBeInTheDocument();
   expect(queryByClass('thumbnail__body--helper')).not.toBeInTheDocument();
-});
-
-it('renders Thumbnail NoImage', () => {
-  const { getByClass } = render(<NoImage />);
-
-  expect(getByClass('thumbnail')).toBeInTheDocument();
-  expect(getByClass('thumbnail__img minHeight')).toBeInTheDocument();
-  expect(getByClass('thumbnail__no-img')).toBeInTheDocument();
 });
 
 it('renders Thumbnail WithLabel', () => {
