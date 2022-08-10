@@ -179,8 +179,8 @@ TextField.propTypes = {
   }),
   size: PropTypes.string,
   isLoading: PropTypes.bool,
-  leftElement: PropTypes.elementType,
-  rightElement: PropTypes.elementType,
+  leftElement: PropTypes.oneOfType([PropTypes.object, PropTypes.elementType]),
+  rightElement: PropTypes.oneOfType([PropTypes.object, PropTypes.elementType]),
   readonly: PropTypes.bool,
 };
 
