@@ -10,7 +10,7 @@ import Preview from '../../../components/preview';
 import ProfileAvatar from '../../../components/profileAvatar';
 import ReadMoreText from '../../../components/readMoreText';
 import dateDistance from '../../../utils/dateDistance';
-import { NoteSingle } from '../../note';
+import NoteSingle from '../../note';
 import Props from './ViewComment.types';
 import Icon from '../../../elements/icon';
 import ShareModal from '../../../components/shareModal';
