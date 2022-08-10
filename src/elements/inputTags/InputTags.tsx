@@ -29,8 +29,8 @@ const InputTags: FC<Props> = ({
   const ref = useRef(null);
 
   const handleTagRemove = text => {
-    onChange && onChange(tags.filter(tag => tag !== text));
-    onRemoved && onRemoved(text);
+    if (onChange) onChange(tags.filter(tag => tag !== text));
+    if (onRemoved) onRemoved(text);
     const textInput = ref.current;
     textInput.focus();
   };
@@ -53,11 +53,11 @@ const InputTags: FC<Props> = ({
         e.type === 'blur')
     ) {
       if (tags.includes(text)) {
-        onExisting && onExisting(text);
+        if (onExisting) onExisting(text);
         if (e.type === 'blur') e.target.value = '';
         return;
       }
-      onChange && onChange([...tags, text]);
+      if (onChange) onChange([...tags, text]);
       e.target.value = '';
       e.preventDefault();
     }

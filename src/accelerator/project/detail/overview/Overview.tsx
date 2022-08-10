@@ -183,18 +183,22 @@ const Overview = ({
                   },
                   {
                     content: (
-                      <CommentsTab
-                        closedCommentRef={closedCommentRef}
-                        createCommentArgs={createCommentArgs}
-                        comments={comments}
-                        commentsData={commentsData}
-                        companyName={companyName}
-                        isAdmin={isAdmin}
-                        isLoggedIn={isLoggedIn}
-                        toggleLoginModal={toggleLoginModal}
-                        handleDeleteComment={handleDeleteComment}
-                        handleViewAllReplies={handleViewAllReplies}
-                      />
+                      <>
+                        {typeof window !== 'undefined' && (
+                          <CommentsTab
+                            closedCommentRef={closedCommentRef}
+                            createCommentArgs={createCommentArgs}
+                            comments={comments}
+                            commentsData={commentsData}
+                            companyName={companyName}
+                            isAdmin={isAdmin}
+                            isLoggedIn={isLoggedIn}
+                            toggleLoginModal={toggleLoginModal}
+                            handleDeleteComment={handleDeleteComment}
+                            handleViewAllReplies={handleViewAllReplies}
+                          />
+                        )}
+                      </>
                     ),
                     key: 'comments',
                     title: intl.formatMessage({ id: 'toolkit.comments' }),
