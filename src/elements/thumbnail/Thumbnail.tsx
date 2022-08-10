@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
-/* eslint-disable camelcase */
-import React, { FC, SyntheticEvent, useState } from 'react';
+
+import React, { FC, SyntheticEvent, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import { IntlShape, useIntl } from 'react-intl';
 import getEnvVar from '../../utils/getEnvVar';
@@ -22,32 +22,46 @@ const Thumbnail: FC<Props> = ({
   description,
   inputLabelProps,
   dropZoneBoxProps,
+  minHeight = 376,
 }: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
-  const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!img || !img?.src);
+  const [showImage, setShowImage] = useState<boolean>(!!img || !!img?.src);
+  const [IsImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const handleImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     const target = event.target as HTMLInputElement;
+
     target.onerror = null;
-    target.src = urlNoImage;
-    setShowPlaceholder(true);
+    setIsImgLoaded(false);
+    setShowImage(false);
   };
+
+  useEffect(() => {
+    setShowImage(true);
+  }, [img]);
 
   return (
     <div className={classnames(`size-${size}`, 'form-group', className)}>
       {inputLabelProps && <InputLabel {...inputLabelProps} />}
 
       <div className="thumbnail">
-        <div className={classnames('thumbnail__img', { minHeight: showPlaceholder })}>
-          {!showPlaceholder && img ? (
+        <div
+          className="thumbnail__img"
+          style={{
+            minHeight: IsImgLoaded ? 'auto' : `${minHeight}px`,
+            backgroundImage: `url(${urlNoImage})`,
+          }}
+        >
+          {showImage && img?.src && (
             <img
               className="thumbnail_thumb"
               src={validateImageSrc(img?.src)}
               onError={handleImageError}
+              onLoad={() => {
+                setIsImgLoaded(true);
+              }}
               alt={img?.alt}
             />
-          ) : (
-            <img className="thumbnail__no-img" src={urlNoImage} alt="Preview without content" />
           )}
           {dropZoneBoxProps && (
             <div className="thumbnail__img-upload">
