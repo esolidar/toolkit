@@ -105,10 +105,15 @@
 
     &.disabled {
       background-color: map-get($background, secondary);
+
       .inputGroup__text,
       input.form-control:disabled,
       input.form-control[readonly] {
         background-color: map-get($background, secondary);
+      }
+
+      input.form-control:disabled {
+        color: map-get($neutrals, 400) !important;
       }
 
       &:hover {
