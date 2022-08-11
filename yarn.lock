@@ -1735,10 +1735,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@esolidar/eslint-config-esolidar@^0.0.10":
-  version "0.0.10"
-  resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.10/9f69e9f5364231820d5fae2f391b1404cb0502ec8df20983191a4f820edd7f82#4e510c71b9cabbabc2845aa99a0d07637efc5e29"
-  integrity sha512-5WCIsLNQB+eRpCBD1i6fexvMc3sWjNyxl7uRHuMV+bg5A4DquK67AbllrnjHztwZb73pCgG2xIAZpEyF1TxLnw==
+"@esolidar/eslint-config-esolidar@^0.0.6":
+  version "0.0.6"
+  resolved "https://npm.pkg.github.com/download/@esolidar/eslint-config-esolidar/0.0.6/28e18cd4e1b61a6009562e90fbe6e190d79546dbff570117a2edc6b187b4af3f#25cc1bf5a8b26278e00825dab47e20047bab6e94"
+  integrity sha512-sjtgDME3kKIBBstf9knD3nGjWxaWaCVMHSeDkRtMha+S68C1XmvHe8Q9IuBZWHcrGb9L9ZP9CAiJ4uKip0dafw==
 
 "@esolidar/i18n@^0.385.0":
   version "0.385.0"
