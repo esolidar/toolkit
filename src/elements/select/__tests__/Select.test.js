@@ -30,7 +30,7 @@ it('renders select with default props', () => {
     render(<Default />);
 
   expect(getByText('Select an option')).toBeInTheDocument();
-  expect(getByClass(/esolidar-select__dropdown-indicator/)).toBeInTheDocument();
+  expect(getByClass(/esolidar-select__indicators/)).toBeInTheDocument();
 
   const toggle = queryByClass(/esolidar-select__control/);
   userEvent.click(toggle);

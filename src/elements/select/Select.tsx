@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { useIntl, IntlShape } from 'react-intl';
-import ReactSelect, { components } from 'react-select';
+import ReactSelect from 'react-select';
 import classNames from 'classnames';
 import InputLabel from '../inputLabel';
+import Icon from '../icon';
 import isDefined from '../../utils/isDefined';
 import Props, { CustomOptionProps, Option, FormatOptionLabelProps } from './Select.types';
 
@@ -62,7 +63,7 @@ const Select: FC<Props> = ({
         classNamePrefix="esolidar-select"
         components={{
           IndicatorSeparator: () => null,
-          DropdownIndicator: showDropdownArrow ? components.DropdownIndicator : () => null,
+          DropdownIndicator: showDropdownArrow ? DropdownIndicator : () => null,
           Option: CustomOption,
         }}
         formatOptionLabel={FormatOptionLabel}
@@ -129,6 +130,14 @@ const CustomOption: FC<CustomOptionProps> = ({
       </div>
     </div>
   ) : null;
+};
+
+const DropdownIndicator = () => {
+  return (
+    <div className="dropdown-indicator">
+      <Icon name="ChevronDown" size="sm" />
+    </div>
+  );
 };
 
 export default Select;
