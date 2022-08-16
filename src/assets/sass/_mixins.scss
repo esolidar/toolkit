@@ -225,7 +225,7 @@
 }
 
 @mixin input-disabled() {
-  color: map-get($neutrals, 700) !important;
+  color: map-get($neutrals, 400) !important;
   border-color: transparent;
   background-color: map-get($background, secondary) !important;
   box-shadow: 0 0 0 1px map-get($neutrals, 200) !important;

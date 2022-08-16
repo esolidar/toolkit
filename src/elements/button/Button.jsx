@@ -154,7 +154,7 @@ const Button = React.forwardRef(
             >
               {withLoading && (
                 <Loading
-                  loadingClass={isLoading ? 'small-loading d-block' : 'small-loading'}
+                  loadingClass={classnames('small-loading', { setVisible: isLoading })}
                   size="xs"
                   white={white}
                 />
