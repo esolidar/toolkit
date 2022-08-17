@@ -9,6 +9,7 @@ import Dropdown from '../../elements/dropdown';
 import Badge from '../../elements/badge';
 import convertFileSize from '../../utils/convertFileSize';
 import isDefined from '../../utils/isDefined';
+import getEnvVar from '../../utils/getEnvVar';
 
 const FileCard = ({
   url,
@@ -30,7 +31,8 @@ const FileCard = ({
   const classes = classnames('file-card', { disabled }, className);
 
   const handleDownloadFile = () => {
-    window.open(file, title);
+    const url = file.includes('https://') ? file : `${getEnvVar('CDN_UPLOADS_URL')}/${file}`;
+    window.open(url, title);
   };
 
   const filteredItems = dropdownItems.filter(item => item.show !== false);
