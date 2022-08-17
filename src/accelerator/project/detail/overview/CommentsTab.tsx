@@ -47,7 +47,7 @@ const CommentsTab = ({
     <div className="content-comments">
       {isLoggedIn ? (
         <CreateComment
-          placeholderText={intl.formatMessage({ id: 'commentHere' })}
+          placeholderText={intl.formatMessage({ id: 'toolkit.comment.top' })}
           {...{ ...createCommentArgs, type: 'comment', galleryType: 'grid' }}
         />
       ) : (
