@@ -31,7 +31,7 @@ interface Props {
   isAdmin?: boolean;
   type?: 'comment' | 'note';
   isLoggedIn?: boolean;
-  handleDeleteNote({ id: number }): void;
+  handleDeleteNote({ id, commentByUser, name, isAdmin }): void;
 }
 
 export default Props;
