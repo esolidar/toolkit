@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660656530081" clover="3.2.0">
-  <project timestamp="1660656530081" name="All files">
-    <metrics statements="7162" coveredstatements="5267" conditionals="5313" coveredconditionals="3382" methods="2355" coveredmethods="1356" elements="14830" coveredelements="10005" complexity="0" loc="7162" ncloc="7162" packages="259" files="976" classes="976"/>
+<coverage generated="1660819224110" clover="3.2.0">
+  <project timestamp="1660819224110" name="All files">
+    <metrics statements="7163" coveredstatements="5267" conditionals="5317" coveredconditionals="3384" methods="2355" coveredmethods="1356" elements="14835" coveredelements="10007" complexity="0" loc="7163" ncloc="7163" packages="259" files="976" classes="976"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/nunolemos/www/toolkit/__customQueries__/queryByClass.js">
@@ -160,8 +160,8 @@
         <line num="400" count="0" type="stmt"/>
         <line num="424" count="4" type="stmt"/>
         <line num="433" count="19" type="stmt"/>
-        <line num="460" count="4" type="stmt"/>
-        <line num="468" count="28" type="stmt"/>
+        <line num="462" count="4" type="stmt"/>
+        <line num="470" count="28" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/nunolemos/www/toolkit/src/accelerator/comment/create/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -258,6 +258,7 @@
       <file name="NoteSingle.tsx" path="/Users/nunolemos/www/toolkit/src/accelerator/note/NoteSingle.tsx">
         <metrics statements="33" coveredstatements="33" conditionals="46" coveredconditionals="42" methods="11" coveredmethods="10"/>
         <line num="16" count="3" type="stmt"/>
+        <line num="40" count="48" type="stmt"/>
         <line num="41" count="48" type="stmt"/>
         <line num="42" count="48" type="stmt"/>
         <line num="43" count="48" type="stmt"/>
@@ -265,31 +266,30 @@
         <line num="45" count="48" type="stmt"/>
         <line num="46" count="48" type="stmt"/>
         <line num="47" count="48" type="stmt"/>
-        <line num="48" count="48" type="stmt"/>
-        <line num="50" count="48" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="54" count="48" type="stmt"/>
-        <line num="55" count="24" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="61" count="48" type="stmt"/>
-        <line num="62" count="22" type="cond" truecount="1" falsecount="1"/>
+        <line num="49" count="48" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="53" count="48" type="stmt"/>
+        <line num="54" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="60" count="48" type="stmt"/>
+        <line num="61" count="22" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="22" type="stmt"/>
         <line num="63" count="22" type="stmt"/>
-        <line num="64" count="22" type="stmt"/>
-        <line num="66" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="67" count="5" type="stmt"/>
-        <line num="73" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="11" type="stmt"/>
-        <line num="80" count="6" type="stmt"/>
-        <line num="84" count="48" type="stmt"/>
+        <line num="65" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="5" type="stmt"/>
+        <line num="72" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="11" type="stmt"/>
+        <line num="79" count="6" type="stmt"/>
+        <line num="83" count="48" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
         <line num="106" count="1" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
-        <line num="129" count="6" type="stmt"/>
-        <line num="145" count="1" type="stmt"/>
-        <line num="173" count="1" type="stmt"/>
-        <line num="190" count="1" type="stmt"/>
-        <line num="191" count="1" type="stmt"/>
-        <line num="192" count="1" type="stmt"/>
+        <line num="128" count="6" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="172" count="1" type="stmt"/>
+        <line num="189" count="1" type="stmt"/>
         <line num="195" count="1" type="stmt"/>
+        <line num="196" count="1" type="stmt"/>
+        <line num="199" count="1" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/nunolemos/www/toolkit/src/accelerator/note/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -5057,7 +5057,7 @@
       </file>
     </package>
     <package name="src.components.fileCard">
-      <metrics statements="25" coveredstatements="24" conditionals="33" coveredconditionals="33" methods="6" coveredmethods="3"/>
+      <metrics statements="26" coveredstatements="24" conditionals="35" coveredconditionals="33" methods="6" coveredmethods="3"/>
       <file name="FileCard.stories.tsx" path="/Users/nunolemos/www/toolkit/src/components/fileCard/FileCard.stories.tsx">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="13" count="1" type="stmt"/>
@@ -5076,18 +5076,19 @@
         <line num="56" count="1" type="stmt"/>
       </file>
       <file name="FileCard.tsx" path="/Users/nunolemos/www/toolkit/src/components/fileCard/FileCard.tsx">
-        <metrics statements="11" coveredstatements="10" conditionals="33" coveredconditionals="33" methods="3" coveredmethods="2"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="29" count="74" type="stmt"/>
+        <metrics statements="12" coveredstatements="10" conditionals="35" coveredconditionals="33" methods="3" coveredmethods="2"/>
+        <line num="14" count="12" type="stmt"/>
         <line num="30" count="74" type="stmt"/>
-        <line num="32" count="74" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="74" type="stmt"/>
-        <line num="37" count="74" type="stmt"/>
-        <line num="39" count="74" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="74" type="stmt"/>
+        <line num="33" count="74" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="74" type="stmt"/>
+        <line num="39" count="74" type="stmt"/>
         <line num="41" count="74" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="11" type="stmt"/>
-        <line num="44" count="74" type="stmt"/>
+        <line num="43" count="74" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="11" type="stmt"/>
+        <line num="46" count="74" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/nunolemos/www/toolkit/src/components/fileCard/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -9022,28 +9023,28 @@
       </file>
     </package>
     <package name="src.elements.textareaField">
-      <metrics statements="19" coveredstatements="12" conditionals="35" coveredconditionals="27" methods="4" coveredmethods="2"/>
+      <metrics statements="19" coveredstatements="12" conditionals="37" coveredconditionals="29" methods="4" coveredmethods="2"/>
       <file name="TextareaField.jsx" path="/Users/nunolemos/www/toolkit/src/elements/textareaField/TextareaField.jsx">
-        <metrics statements="19" coveredstatements="12" conditionals="35" coveredconditionals="27" methods="4" coveredmethods="2"/>
+        <metrics statements="19" coveredstatements="12" conditionals="37" coveredconditionals="29" methods="4" coveredmethods="2"/>
         <line num="10" count="30" type="stmt"/>
-        <line num="39" count="103" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="68" type="cond" truecount="1" falsecount="1"/>
-        <line num="41" count="68" type="stmt"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="40" count="103" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="68" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="68" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="54" count="103" type="stmt"/>
-        <line num="55" count="58" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="55" count="103" type="stmt"/>
         <line num="56" count="58" type="stmt"/>
-        <line num="58" count="58" type="cond" truecount="2" falsecount="0"/>
-        <line num="61" count="103" type="stmt"/>
-        <line num="63" count="103" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="133" count="30" type="stmt"/>
-        <line num="164" count="30" type="stmt"/>
+        <line num="57" count="58" type="stmt"/>
+        <line num="59" count="58" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="103" type="stmt"/>
+        <line num="64" count="103" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="134" count="30" type="stmt"/>
+        <line num="166" count="30" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/nunolemos/www/toolkit/src/elements/textareaField/index.js">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
