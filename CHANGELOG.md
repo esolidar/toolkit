@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.153.0](https://github.com/esolidar/toolkit/compare/v4.143.1...v4.153.0) Released: ER2233 / 25th July 2022 -> 19th August 2022
+
+### New features
+
+- Import new icons [`ENG-2254`](https://github.com/esolidar/toolkit/pulls?q=ENG-2254)
+- Import new Ilustrations [`ENG-2255`](https://github.com/esolidar/toolkit/pulls?q=ENG-2255)
+- Add company logo to profile avatar component [`ENG-2276`](https://github.com/esolidar/toolkit/pulls?q=ENG-2276)
+- Create InputGroup component [`ENG-2282`](https://github.com/esolidar/toolkit/pulls?q=ENG-2282)
+- Create SelectColor component [`ENG-2283`](https://github.com/esolidar/toolkit/pulls?q=ENG-2283)
+- Create TagsInput component [`ENG-2284`](https://github.com/esolidar/toolkit/pulls?q=ENG-2284)
+- Create Thumbnail component [`ENG-2285`](https://github.com/esolidar/toolkit/pulls?q=ENG-2285)
+- Create base64 util functions [`ENG-2286`](https://github.com/esolidar/toolkit/pulls?q=ENG-2286)
+- Create “Comments” feature in the project detail page [`ENG-2281`](https://github.com/esolidar/toolkit/pulls?q=ENG-2281)
+
+### Enhancements
+
+- Update button component style [`ENG-2256`](https://github.com/esolidar/toolkit/pulls?q=ENG-2256)
+- Update share (Add share to feed) [`ENG-2268`](https://github.com/esolidar/toolkit/pulls?q=ENG-2268)
+- Improve Tabs component [`ENG-2533`](https://github.com/esolidar/toolkit/pulls?q=ENG-2533)
+  <br>
+  <br>
+
 ## [v4.143.1](https://github.com/esolidar/toolkit/compare/v4.143.0...v4.143.1) Released: 22nd July 2022
 
 ### Bug Fixing
