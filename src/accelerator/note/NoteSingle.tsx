@@ -27,7 +27,6 @@ const NoteSingle: FC<Props> = ({
     id,
     user_id: noteUserId,
     user: {
-      id: userId,
       name,
       thumbs: { thumb },
     },
@@ -183,11 +182,16 @@ const NoteSingle: FC<Props> = ({
         </div>
       )}
 
-      {((userId === noteUserId && !deleted) || isAdmin) && (
+      {((createCommentArgs?.user?.id === noteUserId && !deleted) || isAdmin) && (
         <DeleteModal
           isOpen={isOpenDeleteModal}
           onClickDelete={() => {
-            handleDeleteNote({ id: deleteNoteId.current });
+            handleDeleteNote({
+              id: deleteNoteId.current,
+              commentByUser: createCommentArgs?.user?.id === noteUserId,
+              name,
+              isAdmin,
+            });
             setIsOpenDeleteModal(false);
             deleteNoteId.current = null;
           }}
@@ -202,7 +206,7 @@ const NoteSingle: FC<Props> = ({
           bodyText={
             // eslint-disable-next-line no-nested-ternary
             type === 'comment'
-              ? userId === noteUserId
+              ? createCommentArgs?.user?.id === noteUserId
                 ? intl.formatMessage({
                     id: 'toolkit.comments.delete.description',
                   })

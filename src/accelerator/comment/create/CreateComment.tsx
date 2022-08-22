@@ -450,6 +450,8 @@ const Comment: FC<CommentProps> = ({
             value={text.replace(/<\/?[^>]+(>|$)/g, '')}
             dataTestId={`text-${parentId || 0}`}
             autofocus={reference?.current || editMode}
+            maxLength={64000}
+            isMaxLengthValueVisible={false}
           />
         </div>
       )}

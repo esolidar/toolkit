@@ -19,7 +19,7 @@ const Tag: FC<Props> = ({ text, remove, disabled }: Props): JSX.Element => {
       <span>{text}</span>
       <button
         type="button"
-        onClick={!disabled && handleOnRemove}
+        onClick={!disabled ? handleOnRemove : undefined}
         aria-label={`remove ${text}`}
         disabled={disabled}
       >

@@ -35,6 +35,7 @@ const TextareaField = ({
   editButton = false,
   inputLabelProps = false,
   reference,
+  isMaxLengthValueVisible = true,
 }) => {
   if (resize) {
     if (typeof window !== 'undefined') {
@@ -117,7 +118,7 @@ const TextareaField = ({
           // eslint-disable-next-line jsx-a11y/no-autofocus
           autoFocus={autofocus}
         />
-        {maxLength && !disabled && (
+        {maxLength && !disabled && isMaxLengthValueVisible && (
           <div className="footer-maxlength">
             {value?.length}/{maxLength}
           </div>
@@ -159,6 +160,7 @@ TextareaField.propTypes = {
   fixedValue: PropTypes.bool,
   inputLabelProps: PropTypes.object,
   reference: PropTypes.object,
+  isMaxLengthValueVisible: PropTypes.bool,
 };
 
 TextareaField.defaultProps = {

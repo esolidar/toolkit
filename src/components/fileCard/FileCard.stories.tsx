@@ -71,4 +71,5 @@ WithOptions.args = {
     },
   ],
   showDownloadButton: true,
+  file: 'whitelabel/9/projects/444/public-comment/files/regulamento-leilao-2017-EN-8f714f3f-6ef5-4d86-bc8b-ed0647209644.pdf',
 };

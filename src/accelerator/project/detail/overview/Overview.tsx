@@ -198,6 +198,7 @@ const Overview = ({
                     ),
                     key: 'comments',
                     title: intl.formatMessage({ id: 'toolkit.comments' }),
+                    counter: project?.comments_count !== 0 ? project?.comments_count : '',
                   },
                 ]}
               />

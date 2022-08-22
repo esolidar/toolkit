@@ -107,7 +107,7 @@
 
     &--is-disabled {
       background: map-get($background, secondary) !important;
-      border: 2px solid map-get($neutrals, 100) !important;
+      border: 2px solid map-get($neutrals, 200) !important;
 
       & .esolidar-select__indicator,
       & .esolidar-select__placeholder > i,
@@ -247,5 +247,9 @@
     .esolidar-select__option--is-focused {
       background-color: transparent;
     }
+  }
+
+  .dropdown-indicator {
+    padding-right: $distance-2;
   }
 }
