@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomModal from './CustomModal';
 import Button from '../button';
+import Icon from '../icon';
 
 export default {
   title: 'Elements/CustomModal',
@@ -10,6 +11,7 @@ export default {
 const Template = args => <CustomModal {...args} />;
 
 export const Default = Template.bind({});
+export const CustomHeader = Template.bind({});
 export const WithScroll = Template.bind({});
 
 Default.parameters = {
@@ -34,6 +36,37 @@ Default.args = {
   dialogClassName: 'teste',
   fullscreenMobile: true,
   stickToBottomMobile: false,
+};
+
+CustomHeader.args = {
+  backdrop: true,
+  headerLeftButton: (
+    <Button
+      dataTestId="btn-back"
+      type="icon"
+      extraClass="primary-full"
+      icon={<Icon name="ChevronLeft" size="sm" />}
+      onClick={() => {}}
+      ghost
+    />
+  ),
+  actionsChildren: (
+    <>
+      <Button extraClass="dark" className="mr-2" text="Cancel" />
+      <Button extraClass="primary-full" text="Save" />
+    </>
+  ),
+  bodyChildren: <div>Lorem ipsum . Ut purus metus, mattis ut malesuada ut, consequat a mi.</div>,
+  onHide: () => {},
+  show: true,
+  title: 'General details',
+  size: 'md',
+  scrollable: false,
+  dialogClassName: 'teste',
+  fullscreenMobile: true,
+  stickToBottomMobile: false,
+  headerProgress: true,
+  headerProgressValue: 1 / 2,
 };
 
 WithScroll.args = {
