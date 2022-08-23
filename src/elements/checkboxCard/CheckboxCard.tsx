@@ -21,6 +21,9 @@ const CheckboxCard: FC<Props> = ({
   className,
   style,
   dropdownItems = [],
+  icon,
+  fullWith = false,
+  roundedIcon = false,
 }: Props): JSX.Element => {
   const classes = classnames(
     'checkbox-card',
@@ -28,6 +31,7 @@ const CheckboxCard: FC<Props> = ({
     { active: isChecked },
     { disabled },
     { [size]: size },
+    { 'full-with': fullWith },
     className
   );
 
@@ -41,8 +45,9 @@ const CheckboxCard: FC<Props> = ({
   const image = {
     src: disabled ? disabledImg : imageAA,
     alt: name,
-    width: '56px',
-    height: '56px',
+    width: roundedIcon ? '40px' : '56px',
+    height: roundedIcon ? '40px' : '56px',
+    borderRadius: roundedIcon ? '50%' : '',
   };
 
   return (
@@ -53,12 +58,20 @@ const CheckboxCard: FC<Props> = ({
       id={id}
       style={style}
     >
-      <div className="checkbox-card__image">
-        <Preview img={image} hover={false} />
+      <div
+        className={classnames(
+          { 'checkbox-card__image': image.src },
+          { 'checkbox-card__image-icon': icon }
+        )}
+      >
+        {image.src && !icon && <Preview img={image} hover={false} />}
+        {!image.src && icon && <Icon name={icon} />}
       </div>
       <div className="checkbox-card__info">
         <strong className="checkbox-card__info--title">{title}</strong>
-        {size !== 'sm' && <div className="checkbox-card__info--subtitle">{subtitle}</div>}
+        {size !== 'sm' && subtitle && (
+          <div className="checkbox-card__info--subtitle">{subtitle}</div>
+        )}
       </div>
       {!!dropdownItems.length && (
         <div className="checkbox-card__dropdown">
@@ -66,7 +79,8 @@ const CheckboxCard: FC<Props> = ({
         </div>
       )}
       <div className="checkbox-card__icon">
-        <Icon name="Check" color="#fff" size="sm" />
+        <Icon name="Check" color="#fff" size="sm" className="check" />
+        <Icon name="X" color="#fff" size="sm" className="uncheck" />
       </div>
     </div>
   );

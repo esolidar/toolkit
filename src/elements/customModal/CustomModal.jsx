@@ -35,6 +35,9 @@ const CustomModal = ({
   iconTitle,
   fullscreenMobile,
   stickToBottomMobile,
+  headerLeftButton,
+  headerProgress,
+  headerProgressValue,
 }) => {
   const [modalDividerBottom, setModalDividerBottom] = useState(false);
   const [modalDividerTop, setModalDividerTop] = useState(false);
@@ -114,36 +117,50 @@ const CustomModal = ({
       style={style}
     >
       {showHeader && (
-        <Modal.Header
-          className={headerClassName}
-          closeLabel="Close"
-          style={headerStyle}
-          data-testid="header"
-        >
-          <Modal.Title>
-            <span className={`custom-modal__title${titleClassName}`} data-testid="title">
-              {iconTitle && (
-                <img className="custom-modal__title-icon" src={iconTitle} alt={title} />
+        <>
+          <Modal.Header
+            className={headerClassName}
+            closeLabel="Close"
+            style={headerStyle}
+            data-testid="header"
+          >
+            <Modal.Title>
+              <span className={`custom-modal__title${titleClassName}`} data-testid="title">
+                {headerLeftButton && <>{headerLeftButton}</>}
+                {iconTitle && (
+                  <img className="custom-modal__title-icon" src={iconTitle} alt={title} />
+                )}
+                {title}
+                {subtitle && (
+                  <span
+                    className={`font-weight-normal ${subtitleClassName}`}
+                    data-testid="subtitle"
+                  >
+                    {subtitle}
+                  </span>
+                )}
+              </span>
+              {closeButton && (
+                <Button
+                  dataTestId="share-close"
+                  type="icon"
+                  extraClass="primary-full"
+                  icon={<Icon name="X" size="sm" />}
+                  onClick={onHide}
+                  ghost
+                />
               )}
-              {title}
-              {subtitle && (
-                <span className={`font-weight-normal ${subtitleClassName}`} data-testid="subtitle">
-                  {subtitle}
-                </span>
-              )}
-            </span>
-            {closeButton && (
-              <Button
-                dataTestId="share-close"
-                type="icon"
-                extraClass="primary-full"
-                icon={<Icon name="X" size="sm" />}
-                onClick={onHide}
-                ghost
+            </Modal.Title>
+          </Modal.Header>
+          {headerProgress && (
+            <div className="custom-modal__bar">
+              <div
+                className="custom-modal__bar-progress"
+                style={{ width: `${headerProgressValue * 100}%` }}
               />
-            )}
-          </Modal.Title>
-        </Modal.Header>
+            </div>
+          )}
+        </>
       )}
       {showBody && (
         <Modal.Body className={bodyClassName} style={bodyStyle} data-testid="body">
@@ -189,6 +206,9 @@ CustomModal.propTypes = {
   iconTitle: PropTypes.string,
   fullscreenMobile: PropTypes.bool,
   stickToBottomMobile: PropTypes.bool,
+  headerLeftButton: PropTypes.node,
+  headerProgress: PropTypes.bool,
+  headerProgressValue: PropTypes.number,
 };
 
 CustomModal.defaultProps = {
