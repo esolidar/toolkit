@@ -18,6 +18,7 @@ interface Props {
   dropdownItems?: Item[];
   icon?: string;
   fullWith?: boolean;
+  roundedIcon?: boolean;
 }
 
 export default Props;
