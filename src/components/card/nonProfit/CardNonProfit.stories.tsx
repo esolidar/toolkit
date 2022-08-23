@@ -13,14 +13,20 @@ export default {
 } as Meta;
 
 const Template: Story<Props> = (args: Props) => (
-  <div style={{ maxWidth: '320px' }}>
+  <div style={{ maxWidth: args.inline ? '' : '320px' }}>
     <CardNonProfit {...args} />
   </div>
 );
 
 export const Default: Story<Props> = Template.bind({});
+export const Featured: Story<Props> = Template.bind({});
 
 Default.args = {
   npo: institution,
+  handleClickDonate: () => {},
+};
+
+Featured.args = {
+  npo: { ...institution, featured: true },
   handleClickDonate: () => {},
 };

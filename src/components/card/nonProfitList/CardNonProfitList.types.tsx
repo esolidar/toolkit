@@ -15,16 +15,9 @@ interface Npo {
   featured?: boolean;
 }
 
-export interface CardBodyProps {
-  inline?: boolean;
-  summary: string;
-  location: string;
-  onClickDonate?(): void;
-}
-
 interface Props {
-  npo: Npo;
-  inline?: boolean;
+  items: Array<Npo>;
+  gridType: 'one' | 'two' | 'multi';
   onClickThumb?(): void;
   onClickDonate(): void;
 }

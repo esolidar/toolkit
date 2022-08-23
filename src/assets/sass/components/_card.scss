@@ -198,6 +198,7 @@
       font-weight: bold;
     }
   }
+
   &__logo {
     width: 48px;
     height: 48px;
@@ -208,6 +209,25 @@
     background-size: cover;
     z-index: 9;
     border: 1px solid get-rgba(map-get($base, black), 8);
+  }
+
+  &__featured {
+    background: map-get($base, black);
+    border-radius: $distance-3;
+    color: map-get($colors, white);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px 6px;
+    position: absolute;
+    right: $distance-2;
+    top: $distance-2;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+
+    svg {
+      padding-right: 5px;
+    }
   }
 
   // CardNonProfit
@@ -257,5 +277,64 @@
         @include text-multiline-ellipsis(3);
       }
     }
+  }
+}
+
+.cardNonProfit__inline {
+  display: flex;
+
+  .card-component__image {
+    flex: 272px;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    .bg-image {
+      min-height: 272px;
+      height: 100%;
+      width: 272px;
+    }
+  }
+
+  .card-component__title {
+    margin-bottom: $distance-1;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 21px;
+    font-weight: 700;
+
+    a::after {
+      z-index: 1;
+    }
+  }
+
+  .card-component__body {
+    padding: $distance-3;
+    height: auto !important;
+  }
+
+  .card-component__cardNonProfit-donation-button {
+    margin-top: $distance-3;
+  }
+}
+
+.cardNonProfitList {
+  &--col2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $distance-3;
+
+    .card-component {
+      flex: 0 0 calc(50% - 16px);
+    }
+  }
+
+  &--col3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $distance-3;
+
+      .card-component {
+        flex: 0 0 calc(33.3333333333% - 16px);
+      }
   }
 }

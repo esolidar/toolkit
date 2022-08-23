@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
+import { FormattedMessage } from 'react-intl';
 import classnames from 'classnames';
 import Badge from '../../elements/badge';
 import Dropdown from '../../elements/dropdown';
 import isDefined from '../../utils/isDefined';
 import getEnvVar from '../../utils/getEnvVar';
+import Icon from '../../elements/icon';
 import Props from './Card.types';
 
 const urlNoImage: string = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
@@ -20,6 +22,8 @@ const Card: FC<Props> = ({
   average,
   dropdownItems = [],
   className,
+  featured = false,
+  inline = false,
 }: Props): JSX.Element => {
   const filteredItems = dropdownItems.filter(item => item.show !== false);
   const showDropdownMenu = !!filteredItems.length;
@@ -37,6 +41,12 @@ const Card: FC<Props> = ({
             className="card-component__logo"
             style={{ backgroundImage: `url('${getEnvVar('CDN_UPLOADS_URL')}/${logo}')` }}
           />
+        )}
+        {featured === true && inline === false && (
+          <div className="card-component__featured">
+            <Icon name="StarBold" color="#ffffff" />
+            <FormattedMessage id="toolkit.featured" />
+          </div>
         )}
         <div
           className="bg-image"
@@ -59,6 +69,13 @@ const Card: FC<Props> = ({
         )}
       </div>
       <div className="card-component__body">
+        {featured === true && inline === true && (
+          <div className="card-component__featured">
+            <Icon name="StarBold" color="#ffffff" />
+            <FormattedMessage id="toolkit.featured" />
+          </div>
+        )}
+
         {middleContent && (
           <div className="card-component__body--relative">
             <div className="card-component__countdown">{middleContent}</div>
