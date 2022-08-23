@@ -12,8 +12,8 @@
   @include animate();
 
   &.sm {
-    min-height: 152px;
-    width: 191px;
+    min-height: 160px;
+    width: 160px;
     align-items: center;
     justify-content: start;
     padding-top: 32px;
@@ -52,8 +52,8 @@
   }
 
   &.md {
-    min-height: 232px;
-    max-width: 208px;
+    min-height: 224px;
+    max-width: 200px;
     width: 100%;
     padding: $distance-4;
 
@@ -87,12 +87,12 @@
   }
 
   &.lg {
-    min-height: 90px;
+    min-height: 72px;
     max-width: 480px;
     width: 100%;
     flex-direction: row;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     padding: $distance-2;
 
     & .checkbox-card__img {
@@ -138,7 +138,8 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 1px map-get($neutrals, 100);
+    background-color: get-rgba(map-get($turquoise, 500), 10);
+    box-shadow: 0 0 0 2px map-get($turquoise, 500), 0px 0px 0px 6px rgba(12, 131, 128, 0.08);
   }
 
   &:hover {
@@ -155,6 +156,26 @@
   &.active {
     &:not(.disabled) {
       box-shadow: 0 0 0 2px map-get($turquoise, 500);
+      background-color: get-rgba(map-get($turquoise, 500), 10);
+    }
+    .checkbox-card__image-icon {
+      background-color: get-rgba(map-get($turquoise, 500), 8);
+      padding: $distance-2;
+      border-radius: 50%;
+
+      @include svg-change-color(map-get($turquoise, 500));
+    }
+
+    &:hover {
+      .checkbox-card__icon {
+        background-color: get-rgba(map-get($base, black), 64);
+        .uncheck {
+          display: flex;
+        }
+        .check {
+          display: none;
+        }
+      }
     }
   }
 
@@ -184,6 +205,21 @@
     .checkbox-card__icon {
       background-color: map-get($neutrals, 400);
     }
+
+    .checkbox-card__image-icon {
+      background-color: get-rgba(map-get($background, secondary), 100);
+
+      @include svg-change-color(map-get($neutrals, 400));
+    }
+
+    .checkbox-card__info {
+      &--title {
+        color: map-get($neutrals, 400) !important;
+      }
+      &--subtitle {
+        color: map-get($neutrals, 400) !important;
+      }
+    }
   }
 
   & .checkbox-card__icon {
@@ -199,6 +235,10 @@
     display: flex;
     justify-content: center;
     @include svg-change-color(map-get($base, white));
+
+    .uncheck {
+      display: none;
+    }
   }
 
   & .checkbox-card__delete {
@@ -215,6 +255,19 @@
     justify-content: center;
   }
 
+  &__image {
+    .esolidar-preview__image {
+      img {
+        box-shadow: none;
+      }
+    }
+    &-icon {
+      background-color: get-rgba(map-get($background, secondary), 100);
+      padding: $distance-2;
+      border-radius: 50%;
+    }
+  }
+
   @include animate(all, 100ms);
 
   .esolidar-preview {
@@ -223,5 +276,10 @@
         outline: none;
       }
     }
+  }
+
+  &.full-with {
+    max-width: 100% !important;
+    width: 100% !important;
   }
 }
