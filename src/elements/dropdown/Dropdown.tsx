@@ -17,6 +17,7 @@ const Dropdown: FC<Props> = ({
   items,
   disabled = false,
   dropAlign = 'left',
+  direction = 'down',
 }: Props): JSX.Element => {
   const handleClick = item => {
     item.onClick();
@@ -25,7 +26,7 @@ const Dropdown: FC<Props> = ({
   const filteredItems: Item[] = items.map(item => ({ ...item, show: item.show !== false }));
 
   return (
-    <DropdownBTS className="esolidar-dropdown">
+    <DropdownBTS className="esolidar-dropdown" drop={direction}>
       <DropdownBTS.Toggle
         as={CustomToggle}
         disabled={disabled}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1661272946014" clover="3.2.0">
-  <project timestamp="1661272946014" name="All files">
-    <metrics statements="7184" coveredstatements="5286" conditionals="5362" coveredconditionals="3418" methods="2366" coveredmethods="1360" elements="14912" coveredelements="10064" complexity="0" loc="7184" ncloc="7184" packages="260" files="978" classes="978"/>
+<coverage generated="1661334623847" clover="3.2.0">
+  <project timestamp="1661334623847" name="All files">
+    <metrics statements="7184" coveredstatements="5286" conditionals="5363" coveredconditionals="3419" methods="2366" coveredmethods="1360" elements="14913" coveredelements="10065" complexity="0" loc="7184" ncloc="7184" packages="260" files="978" classes="978"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/nunolemos/www/toolkit/__customQueries__/queryByClass.js">
@@ -7805,7 +7805,7 @@
       </file>
     </package>
     <package name="src.elements.dropdown">
-      <metrics statements="34" coveredstatements="28" conditionals="32" coveredconditionals="31" methods="15" coveredmethods="9"/>
+      <metrics statements="34" coveredstatements="28" conditionals="33" coveredconditionals="32" methods="15" coveredmethods="9"/>
       <file name="CustomToggle.jsx" path="/Users/nunolemos/www/toolkit/src/elements/dropdown/CustomToggle.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="4" count="24" type="stmt"/>
@@ -7829,25 +7829,25 @@
         <line num="110" count="0" type="stmt"/>
       </file>
       <file name="Dropdown.tsx" path="/Users/nunolemos/www/toolkit/src/elements/dropdown/Dropdown.tsx">
-        <metrics statements="18" coveredstatements="16" conditionals="30" coveredconditionals="30" methods="8" coveredmethods="6"/>
+        <metrics statements="18" coveredstatements="16" conditionals="31" coveredconditionals="31" methods="8" coveredmethods="6"/>
         <line num="9" count="24" type="stmt"/>
         <line num="10" count="135" type="stmt"/>
         <line num="13" count="24" type="stmt"/>
-        <line num="21" count="150" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="25" count="171" type="stmt"/>
-        <line num="27" count="150" type="stmt"/>
-        <line num="38" count="171" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="2" type="stmt"/>
-        <line num="40" count="169" type="cond" truecount="5" falsecount="0"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="62" count="166" type="cond" truecount="5" falsecount="0"/>
-        <line num="63" count="9" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="85" count="157" type="cond" truecount="2" falsecount="0"/>
-        <line num="86" count="155" type="stmt"/>
-        <line num="91" count="3" type="stmt"/>
+        <line num="22" count="150" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="171" type="stmt"/>
+        <line num="28" count="150" type="stmt"/>
+        <line num="39" count="171" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="169" type="cond" truecount="5" falsecount="0"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="63" count="166" type="cond" truecount="5" falsecount="0"/>
+        <line num="64" count="9" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="86" count="157" type="cond" truecount="2" falsecount="0"/>
+        <line num="87" count="155" type="stmt"/>
+        <line num="92" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/nunolemos/www/toolkit/src/elements/dropdown/index.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
