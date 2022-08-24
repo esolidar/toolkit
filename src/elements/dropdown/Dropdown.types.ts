@@ -20,6 +20,7 @@ interface Props {
   disabled?: boolean;
   items: Item[];
   dropAlign?: 'left' | 'right';
+  direction?: 'up' | 'down' | 'left' | 'right';
 }
 
 export default Props;
