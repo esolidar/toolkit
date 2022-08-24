@@ -5,41 +5,69 @@ import Card from '../Card';
 import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
 
-const CardNonProfit: FC<Props> = ({ npo, onClickThumb, onClickDonate }: Props): JSX.Element => {
+const CardNonProfit: FC<Props> = ({
+  npo,
+  inline = false,
+  onClickThumb,
+  onClickDonate,
+}: Props): JSX.Element => {
   const intl: IntlShape = useIntl();
 
-  const { s3_cover_key: image, s3_image_key: logo, name, location, short_bio: shortBio } = npo;
+  const {
+    s3_cover_key: image,
+    s3_image_key: logo,
+    name,
+    location,
+    short_bio: shortBio,
+    featured = false,
+  } = npo;
 
   const summaryText = shortBio?.[intl.locale] || '';
 
   return (
     <Card
-      className="cardNonProfit"
+      className={inline ? 'cardNonProfit__inline cardNonProfit' : 'cardNonProfit'}
       logo={logo}
       clickThumb={onClickThumb}
       image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : null}
+      featured={featured}
       title={name}
+      inline={inline}
       middleContent={
-        <Button
-          fullWidth={true}
-          extraClass="primary-full card-component__cardNonProfit-donation-button"
-          onClick={e => {
-            e.stopPropagation();
-            onClickDonate();
-          }}
-          dataTestId="npo-donate"
-          text={intl.formatMessage({
-            id: 'toolkit.donate',
-          })}
+        !inline ? (
+          <Button
+            fullWidth={true}
+            extraClass="primary-full card-component__cardNonProfit-donation-button"
+            onClick={e => {
+              e.stopPropagation();
+              onClickDonate();
+            }}
+            dataTestId="npo-donate"
+            text={intl.formatMessage({
+              id: 'toolkit.donate',
+            })}
+          />
+        ) : null
+      }
+      body={
+        <CardBody
+          inline={inline}
+          onClickDonate={onClickDonate}
+          summary={summaryText}
+          location={location}
         />
       }
-      body={<CardBody summary={summaryText} location={location} />}
     />
   );
 };
 export default CardNonProfit;
 
-const CardBody: FC<CardBodyProps> = ({ summary, location }: CardBodyProps): JSX.Element => {
+const CardBody: FC<CardBodyProps> = ({
+  inline = false,
+  onClickDonate,
+  summary,
+  location,
+}: CardBodyProps): JSX.Element => {
   const intl: IntlShape = useIntl();
 
   return (
@@ -55,6 +83,21 @@ const CardBody: FC<CardBodyProps> = ({ summary, location }: CardBodyProps): JSX.
       </div>
       <div className="card-component__cardNonProfit-body-location">{location}</div>
       <div className="card-component__cardNonProfit-body-summary">{summary}</div>
+
+      {inline && (
+        <Button
+          fullWidth={false}
+          extraClass="primary-full card-component__cardNonProfit-donation-button"
+          onClick={e => {
+            e.stopPropagation();
+            onClickDonate();
+          }}
+          dataTestId="npo-donate"
+          text={intl.formatMessage({
+            id: 'toolkit.donate',
+          })}
+        />
+      )}
     </div>
   );
 };

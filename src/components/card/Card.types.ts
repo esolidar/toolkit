@@ -18,6 +18,8 @@ interface Props {
   average?: number;
   dropdownItems?: any;
   className?: string;
+  featured?: boolean;
+  inline?: boolean;
 }
 
 export default Props;
