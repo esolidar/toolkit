@@ -8,6 +8,11 @@
   @include animate();
   @include box-shadow(map-get($elevation, 50));
 
+  button {
+    position: relative;
+    z-index: 2;
+  }
+
   a {
     text-decoration: none;
     color: initial;
@@ -16,7 +21,7 @@
 
   &__actions {
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
 
   &:hover {
@@ -112,6 +117,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: 1;
     }
   }
 
