@@ -94,6 +94,15 @@
     &-progress {
       height: 4px;
       background: linear-gradient(90deg, #3a99bd 0%, #17c3b2 100%);
+
+      @include animate();
     }
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: map-get($widths, lg);
   }
 }
