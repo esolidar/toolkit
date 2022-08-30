@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1661522553193" clover="3.2.0">
-  <project timestamp="1661522553193" name="All files">
-    <metrics statements="7184" coveredstatements="5286" conditionals="5363" coveredconditionals="3419" methods="2366" coveredmethods="1360" elements="14913" coveredelements="10065" complexity="0" loc="7184" ncloc="7184" packages="260" files="978" classes="978"/>
+<coverage generated="1661851996887" clover="3.2.0">
+  <project timestamp="1661851996887" name="All files">
+    <metrics statements="7190" coveredstatements="5286" conditionals="5363" coveredconditionals="3420" methods="2372" coveredmethods="1360" elements="14925" coveredelements="10066" complexity="0" loc="7190" ncloc="7190" packages="260" files="978" classes="978"/>
     <package name="__customQueries__">
       <metrics statements="17" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="4"/>
       <file name="queryByClass.js" path="/Users/nunolemos/www/toolkit/__customQueries__/queryByClass.js">
@@ -3800,9 +3800,9 @@
       </file>
     </package>
     <package name="src.components.card">
-      <metrics statements="7" coveredstatements="6" conditionals="45" coveredconditionals="18" methods="3" coveredmethods="1"/>
+      <metrics statements="7" coveredstatements="6" conditionals="45" coveredconditionals="19" methods="3" coveredmethods="1"/>
       <file name="Card.tsx" path="/Users/nunolemos/www/toolkit/src/components/card/Card.tsx">
-        <metrics statements="7" coveredstatements="6" conditionals="45" coveredconditionals="18" methods="3" coveredmethods="1"/>
+        <metrics statements="7" coveredstatements="6" conditionals="45" coveredconditionals="19" methods="3" coveredmethods="1"/>
         <line num="11" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="28" count="12" type="stmt"/>
@@ -3840,7 +3840,7 @@
       </file>
     </package>
     <package name="src.components.card.nonProfitList">
-      <metrics statements="11" coveredstatements="11" conditionals="7" coveredconditionals="6" methods="7" coveredmethods="4"/>
+      <metrics statements="17" coveredstatements="11" conditionals="7" coveredconditionals="6" methods="13" coveredmethods="4"/>
       <file name="CardNonProfitList.stories.tsx" path="/Users/nunolemos/www/toolkit/src/components/card/nonProfitList/CardNonProfitList.stories.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="15" count="3" type="stmt"/>
@@ -3852,11 +3852,17 @@
         <line num="38" count="1" type="stmt"/>
       </file>
       <file name="CardNonProfitList.tsx" path="/Users/nunolemos/www/toolkit/src/components/card/nonProfitList/CardNonProfitList.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="7" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="10" coveredstatements="4" conditionals="7" coveredconditionals="6" methods="9" coveredmethods="3"/>
         <line num="5" count="1" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
         <line num="25" count="4" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
         <line num="38" count="6" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cardProjectDetail">
