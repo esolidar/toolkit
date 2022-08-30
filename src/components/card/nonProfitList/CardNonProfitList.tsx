@@ -14,8 +14,8 @@ const CardNonProfitList: FC<Props> = ({
         <CardNonProfit
           npo={items[0]}
           inline={true}
-          onClickThumb={onClickThumb}
-          onClickDonate={onClickDonate}
+          onClickThumb={() => onClickThumb(items[0])}
+          onClickDonate={() => onClickDonate(items[0])}
         />
       )}
 
@@ -25,8 +25,8 @@ const CardNonProfitList: FC<Props> = ({
             <CardNonProfit
               key={key}
               npo={npo}
-              onClickThumb={onClickThumb}
-              onClickDonate={onClickDonate}
+              onClickThumb={() => onClickThumb(npo)}
+              onClickDonate={() => onClickDonate(npo)}
             />
           ))}
         </div>
@@ -38,8 +38,8 @@ const CardNonProfitList: FC<Props> = ({
             <CardNonProfit
               key={key}
               npo={npo}
-              onClickThumb={onClickThumb}
-              onClickDonate={onClickDonate}
+              onClickThumb={() => onClickThumb(npo)}
+              onClickDonate={() => onClickDonate(npo)}
             />
           ))}
         </div>

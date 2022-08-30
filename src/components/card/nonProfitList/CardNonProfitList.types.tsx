@@ -18,8 +18,8 @@ interface Npo {
 interface Props {
   items: Array<Npo>;
   gridType: 'one' | 'two' | 'multi';
-  onClickThumb?(): void;
-  onClickDonate(): void;
+  onClickThumb?(item: any): void;
+  onClickDonate(item: any): void;
 }
 
 export default Props;
