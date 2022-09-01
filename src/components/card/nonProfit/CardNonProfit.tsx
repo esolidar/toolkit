@@ -19,7 +19,7 @@ const CardNonProfit: FC<Props> = ({
     name,
     location,
     short_bio: shortBio,
-    featured = false,
+    featured_institution: featured = false,
   } = npo;
 
   const summaryText = shortBio?.[intl.locale] || '';

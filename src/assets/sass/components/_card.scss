@@ -289,6 +289,10 @@
 .cardNonProfit__inline {
   display: flex;
 
+  &.card-component {
+    margin-bottom: 0;
+  }
+
   .card-component__image {
     flex: 272px;
     flex-grow: 0;
@@ -329,7 +333,12 @@
     flex-wrap: wrap;
     gap: $distance-3;
 
+    &:not(:last-child) {
+      margin-bottom: $distance-3;
+    }
+
     .card-component {
+      margin-bottom: 0;
       flex: 0 0 calc(50% - 16px);
     }
   }
@@ -339,8 +348,13 @@
     flex-wrap: wrap;
     gap: $distance-3;
 
-      .card-component {
-        flex: 0 0 calc(33.3333333333% - 16px);
-      }
+    &:not(:last-child) {
+      margin-bottom: $distance-3;
+    }
+
+    .card-component {
+      margin-bottom: 0;
+      flex: 0 0 calc(33.3333333333% - 16px);
+    }
   }
 }
