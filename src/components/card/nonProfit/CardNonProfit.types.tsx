@@ -12,7 +12,7 @@ interface Npo {
   name: string;
   location: string;
   short_bio: ShortBio | null;
-  featured?: boolean;
+  featured_institution?: boolean;
 }
 
 export interface CardBodyProps {
