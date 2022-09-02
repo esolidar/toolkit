@@ -29,7 +29,11 @@ const CardNonProfit: FC<Props> = ({
       className={inline ? 'cardNonProfit__inline cardNonProfit' : 'cardNonProfit'}
       logo={logo}
       clickThumb={onClickThumb}
-      image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : null}
+      image={
+        image
+          ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}`
+          : `${getEnvVar('ESOLIDAR_URL')}/images/np-cover/${categoryId}.jpg`
+      }
       featured={featured}
       title={name}
       inline={inline}
