@@ -19,6 +19,7 @@ const CardNonProfit: FC<Props> = ({
     name,
     location,
     short_bio: shortBio,
+    category_id: categoryId,
     featured_institution: featured = false,
   } = npo;
 
