@@ -19,7 +19,6 @@ const CardNonProfit: FC<Props> = ({
     name,
     location,
     short_bio: shortBio,
-    category_id: categoryId,
     featured_institution: featured = false,
   } = npo;
 
@@ -30,11 +29,7 @@ const CardNonProfit: FC<Props> = ({
       className={inline ? 'cardNonProfit__inline cardNonProfit' : 'cardNonProfit'}
       logo={logo}
       clickThumb={onClickThumb}
-      image={
-        image
-          ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}`
-          : `${getEnvVar('ESOLIDAR_URL')}/images/np-cover/${categoryId}.jpg`
-      }
+      image={image ? `${getEnvVar('CDN_UPLOADS_URL')}/${image}` : null}
       featured={featured}
       title={name}
       inline={inline}

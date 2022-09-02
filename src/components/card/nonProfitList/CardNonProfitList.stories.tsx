@@ -19,17 +19,17 @@ export const GridTwo: Story<Props> = Template.bind({});
 export const GridMulti: Story<Props> = Template.bind({});
 
 GridOne.args = {
-  items: [{ ...institution, featured: true }],
+  items: [{ ...institution, featured_institution: true }],
   gridType: 'one',
   handleClickDonate: () => {},
 };
 
 GridTwo.args = {
   items: [
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
   ],
   gridType: 'two',
   handleClickDonate: () => {},
@@ -37,12 +37,12 @@ GridTwo.args = {
 
 GridMulti.args = {
   items: [
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
-    { ...institution, featured: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
+    { ...institution, featured_institution: true },
   ],
   gridType: 'multi',
   handleClickDonate: () => {},

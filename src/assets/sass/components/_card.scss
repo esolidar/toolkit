@@ -305,6 +305,8 @@
 
     @media (min-width: map-get($breakpoints, sm)) {
       flex: 272px;
+      flex-grow: 0;
+      flex-shrink: 0;
     }
 
     .bg-image {
