@@ -288,20 +288,35 @@
 
 .cardNonProfit__inline {
   display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: map-get($breakpoints, sm)) {
+    flex-wrap: nowrap;
+  }
 
   &.card-component {
     margin-bottom: 0;
   }
 
   .card-component__image {
-    flex: 272px;
+    flex: 100%;
     flex-grow: 0;
     flex-shrink: 0;
+
+    @media (min-width: map-get($breakpoints, sm)) {
+      flex: 272px;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
 
     .bg-image {
       min-height: 272px;
       height: 100%;
-      width: 272px;
+      width: 100%;
+
+      @media (min-width: map-get($breakpoints, sm)) {
+        width: 272px;
+      }
     }
   }
 
@@ -339,7 +354,10 @@
 
     .card-component {
       margin-bottom: 0;
-      flex: 0 0 calc(50% - 16px);
+
+      @media (min-width: map-get($breakpoints, sm)) {
+        flex: 0 0 calc(50% - 16px);
+      }
     }
   }
 
@@ -355,6 +373,15 @@
     .card-component {
       margin-bottom: 0;
       flex: 0 0 calc(33.3333333333% - 16px);
+
+      @media (max-width: map-get($breakpoints, md)) {
+        flex: 0 0 calc(50% - 16px);
+      }
+
+      @media (max-width: map-get($breakpoints, sm)) {
+        flex: 100%;
+      }
+      
     }
   }
 }
