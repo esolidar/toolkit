@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
-import { FormattedMessage } from 'react-intl';
 import classnames from 'classnames';
 import Badge from '../../elements/badge';
 import Dropdown from '../../elements/dropdown';
 import isDefined from '../../utils/isDefined';
 import getEnvVar from '../../utils/getEnvVar';
-import Icon from '../../elements/icon';
 import Props from './Card.types';
 
 const urlNoImage: string = `${getEnvVar('CDN_STATIC_URL')}/frontend/assets/placeholders/image.svg`;
@@ -44,8 +42,7 @@ const Card: FC<Props> = ({
         )}
         {featured === true && inline === false && (
           <div className="card-component__featured">
-            <Icon name="StarBold" color="#ffffff" />
-            <FormattedMessage id="toolkit.featured" />
+            <Badge icon="StarBold" text="toolkit.featured" extraClass="black" />
           </div>
         )}
         <div
@@ -71,8 +68,7 @@ const Card: FC<Props> = ({
       <div className="card-component__body">
         {featured === true && inline === true && (
           <div className="card-component__featured">
-            <Icon name="StarBold" color="#ffffff" />
-            <FormattedMessage id="toolkit.featured" />
+            <Badge icon="StarBold" text="toolkit.featured" extraClass="black" />
           </div>
         )}
 

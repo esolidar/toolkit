@@ -218,22 +218,10 @@
   }
 
   &__featured {
-    background: map-get($base, black);
-    border-radius: $distance-3;
-    color: map-get($colors, white);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 0px 6px;
     position: absolute;
     right: $distance-2;
     top: $distance-2;
     z-index: 9;
-    display: flex;
-    align-items: center;
-
-    svg {
-      padding-right: 5px;
-    }
   }
 
   // CardNonProfit
