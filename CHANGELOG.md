@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 <br>
 <br>
 
+## [v4.155.0](https://github.com/esolidar/toolkit/compare/v4.153.0...v4.155.0) Released: ER2236 / 22nd August 2022 -> 12th September 2022
+
+### New features
+
+- Create a Row-Item component [`ENG-2579`](https://github.com/esolidar/toolkit/pulls?q=ENG-2579)
+- Create a Nonprofits Card [`ENG-2581`](https://github.com/esolidar/toolkit/pulls?q=ENG-2581)
+
+### Enhancements
+
+- Change CheckboxCard [`ENG-2577`](https://github.com/esolidar/toolkit/pulls?q=ENG-2577)
+- Change modal component [`ENG-2605`](https://github.com/esolidar/toolkit/pulls?q=ENG-2605)
+  <br>
+  <br>
+
 ## [v4.153.0](https://github.com/esolidar/toolkit/compare/v4.143.1...v4.153.0) Released: ER2233 / 25th July 2022 -> 19th August 2022
 
 ### New features
