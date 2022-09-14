@@ -231,7 +231,7 @@
     "ts-loader": "^8.0.16",
     "typescript": "^4.3.5",
     "use-smartcrop": "^1.0.3",
-    "validator": "^13.6.0",
+    "validator": "^13.7.0",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "xlsx": "^0.17.0"
