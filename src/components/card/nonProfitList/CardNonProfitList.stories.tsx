@@ -26,10 +26,10 @@ GridOne.args = {
 
 GridTwo.args = {
   items: [
+    { ...institution, donations: false, featured_institution: true },
     { ...institution, featured_institution: true },
     { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
+    { ...institution, donations: false, featured_institution: true },
   ],
   gridType: 'two',
   handleClickDonate: () => {},
