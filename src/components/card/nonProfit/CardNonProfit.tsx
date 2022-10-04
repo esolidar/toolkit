@@ -20,9 +20,10 @@ const CardNonProfit: FC<Props> = ({
     location,
     short_bio: shortBio,
     featured_institution: featured = false,
-    donations = true,
+    stripe_acount: stripeAcount,
   } = npo;
 
+  const { status } = stripeAcount;
   const summaryText = shortBio?.[intl.locale] || '';
 
   return (
@@ -35,7 +36,7 @@ const CardNonProfit: FC<Props> = ({
       title={name}
       inline={inline}
       middleContent={
-        !inline && donations ? (
+        !inline && status === 'A' ? (
           <Button
             fullWidth={true}
             extraClass="primary-full card-component__cardNonProfit-donation-button"
@@ -53,7 +54,7 @@ const CardNonProfit: FC<Props> = ({
       body={
         <CardBody
           inline={inline}
-          donations={donations}
+          status={status}
           onClickDonate={onClickDonate}
           summary={summaryText}
           location={location}
@@ -65,7 +66,7 @@ const CardNonProfit: FC<Props> = ({
 export default CardNonProfit;
 
 const CardBody: FC<CardBodyProps> = ({
-  donations = true,
+  status,
   inline = false,
   onClickDonate,
   summary,
@@ -87,7 +88,7 @@ const CardBody: FC<CardBodyProps> = ({
       <div className="card-component__cardNonProfit-body-location">{location}</div>
       <div className="card-component__cardNonProfit-body-summary">{summary}</div>
 
-      {inline && donations && (
+      {inline && status === 'A' && (
         <Button
           fullWidth={false}
           extraClass="primary-full card-component__cardNonProfit-donation-button"
