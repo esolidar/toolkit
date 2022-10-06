@@ -18,18 +18,30 @@ export const GridOne: Story<Props> = Template.bind({});
 export const GridTwo: Story<Props> = Template.bind({});
 export const GridMulti: Story<Props> = Template.bind({});
 
+const stripeAcountActive = {
+  id: 2,
+  acct_id: 3,
+  status: 'A',
+};
+
+const stripeAcountPending = {
+  id: 2,
+  acct_id: 3,
+  status: 'P',
+};
+
 GridOne.args = {
-  items: [{ ...institution, featured_institution: true }],
+  items: [{ ...institution, stripe_acount: stripeAcountActive, featured_institution: true }],
   gridType: 'one',
   handleClickDonate: () => {},
 };
 
 GridTwo.args = {
   items: [
-    { ...institution, donations: false, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, donations: false, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountPending, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountPending, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
   ],
   gridType: 'two',
   handleClickDonate: () => {},
@@ -37,12 +49,12 @@ GridTwo.args = {
 
 GridMulti.args = {
   items: [
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
-    { ...institution, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountPending, featured_institution: false },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
+    { ...institution, stripe_acount: stripeAcountActive, featured_institution: true },
   ],
   gridType: 'multi',
   handleClickDonate: () => {},
