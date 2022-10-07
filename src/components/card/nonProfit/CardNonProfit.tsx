@@ -6,6 +6,7 @@ import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
 
 const CardNonProfit: FC<Props> = ({
+  showButton = true,
   npo,
   inline = false,
   onClickThumb,
@@ -20,10 +21,8 @@ const CardNonProfit: FC<Props> = ({
     location,
     short_bio: shortBio,
     featured_institution: featured = false,
-    stripe_acount: stripeAcount,
   } = npo;
 
-  const { status } = stripeAcount;
   const summaryText = shortBio?.[intl.locale] || '';
 
   return (
@@ -36,7 +35,7 @@ const CardNonProfit: FC<Props> = ({
       title={name}
       inline={inline}
       middleContent={
-        !inline && status === 'A' ? (
+        !inline && showButton ? (
           <Button
             fullWidth={true}
             extraClass="primary-full card-component__cardNonProfit-donation-button"
@@ -54,7 +53,7 @@ const CardNonProfit: FC<Props> = ({
       body={
         <CardBody
           inline={inline}
-          status={status}
+          showButton={showButton}
           onClickDonate={onClickDonate}
           summary={summaryText}
           location={location}
@@ -66,7 +65,7 @@ const CardNonProfit: FC<Props> = ({
 export default CardNonProfit;
 
 const CardBody: FC<CardBodyProps> = ({
-  status,
+  showButton = true,
   inline = false,
   onClickDonate,
   summary,
@@ -88,7 +87,7 @@ const CardBody: FC<CardBodyProps> = ({
       <div className="card-component__cardNonProfit-body-location">{location}</div>
       <div className="card-component__cardNonProfit-body-summary">{summary}</div>
 
-      {inline && status === 'A' && (
+      {inline && showButton && (
         <Button
           fullWidth={false}
           extraClass="primary-full card-component__cardNonProfit-donation-button"

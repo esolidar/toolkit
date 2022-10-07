@@ -13,19 +13,19 @@ interface Npo {
   location: string;
   short_bio: ShortBio | null;
   featured_institution?: boolean;
-  stripe_acount?: any;
 }
 
 export interface CardBodyProps {
   inline?: boolean;
   summary: string;
   location: string;
-  status?: any;
+  showButton?: boolean;
   onClickDonate?(): void;
 }
 
 interface Props {
   npo: Npo;
+  showButton?: boolean;
   inline?: boolean;
   onClickThumb?(): void;
   onClickDonate(): void;
