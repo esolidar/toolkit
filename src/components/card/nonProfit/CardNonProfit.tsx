@@ -6,6 +6,7 @@ import getEnvVar from '../../../utils/getEnvVar';
 import Button from '../../../elements/button';
 
 const CardNonProfit: FC<Props> = ({
+  showButton = true,
   npo,
   inline = false,
   onClickThumb,
@@ -34,7 +35,7 @@ const CardNonProfit: FC<Props> = ({
       title={name}
       inline={inline}
       middleContent={
-        !inline ? (
+        !inline && showButton ? (
           <Button
             fullWidth={true}
             extraClass="primary-full card-component__cardNonProfit-donation-button"
@@ -52,6 +53,7 @@ const CardNonProfit: FC<Props> = ({
       body={
         <CardBody
           inline={inline}
+          showButton={showButton}
           onClickDonate={onClickDonate}
           summary={summaryText}
           location={location}
@@ -63,6 +65,7 @@ const CardNonProfit: FC<Props> = ({
 export default CardNonProfit;
 
 const CardBody: FC<CardBodyProps> = ({
+  showButton = true,
   inline = false,
   onClickDonate,
   summary,
@@ -84,7 +87,7 @@ const CardBody: FC<CardBodyProps> = ({
       <div className="card-component__cardNonProfit-body-location">{location}</div>
       <div className="card-component__cardNonProfit-body-summary">{summary}</div>
 
-      {inline && (
+      {inline && showButton && (
         <Button
           fullWidth={false}
           extraClass="primary-full card-component__cardNonProfit-donation-button"

@@ -12,6 +12,7 @@ const CardNonProfitList: FC<Props> = ({
     <>
       {gridType === 'one' && (
         <CardNonProfit
+          showButton={items[0]?.stripe_acount?.status === 'A'}
           npo={items[0]}
           inline={true}
           onClickThumb={() => onClickThumb(items[0])}
@@ -23,6 +24,7 @@ const CardNonProfitList: FC<Props> = ({
         <div className="cardNonProfitList--col2">
           {items.map((npo, key) => (
             <CardNonProfit
+              showButton={npo.stripe_acount?.status === 'A'}
               key={key}
               npo={npo}
               onClickThumb={() => onClickThumb(npo)}
@@ -36,6 +38,7 @@ const CardNonProfitList: FC<Props> = ({
         <div className="cardNonProfitList--col3">
           {items.map((npo, key) => (
             <CardNonProfit
+              showButton={npo.stripe_acount?.status === 'A'}
               key={key}
               npo={npo}
               onClickThumb={() => onClickThumb(npo)}

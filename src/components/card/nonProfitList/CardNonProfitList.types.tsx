@@ -13,6 +13,7 @@ interface Npo {
   location: string;
   short_bio: ShortBio | null;
   featured?: boolean;
+  stripe_acount?: any;
 }
 
 interface Props {

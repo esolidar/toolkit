@@ -19,11 +19,13 @@ export interface CardBodyProps {
   inline?: boolean;
   summary: string;
   location: string;
+  showButton?: boolean;
   onClickDonate?(): void;
 }
 
 interface Props {
   npo: Npo;
+  showButton?: boolean;
   inline?: boolean;
   onClickThumb?(): void;
   onClickDonate(): void;
